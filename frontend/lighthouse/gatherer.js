@@ -7,6 +7,7 @@ class CustomGatherer extends Gatherer {
     const driver = options.driver;
     const target = options.url;
     options.url = EnvironmentJSON.url+target;
+    console.log(options.url);
      return driver.evaluateAsync('window.metric')
       .then(loadMetrics => {
         if (!loadMetrics) {
