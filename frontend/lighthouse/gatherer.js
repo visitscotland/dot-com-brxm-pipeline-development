@@ -5,7 +5,8 @@ const EnvironmentJSON = require('./env_url.json');
 class CustomGatherer extends Gatherer {
   beforePass(options) {
     const driver = options.driver;
-    options.url = EnvironmentJSON.url;
+    const target = options.url;
+    options.url = EnvironmentJSON.url+target;
      return driver.evaluateAsync('window.metric')
       .then(loadMetrics => {
         if (!loadMetrics) {
