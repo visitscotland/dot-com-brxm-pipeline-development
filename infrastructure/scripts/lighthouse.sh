@@ -21,7 +21,10 @@ docker exec -i lhci sh -c 'rm -rf frontend/.lighthouseci/*'
 
 #Run Lighthouse CI against the container named lhci
 docker exec -i lhci sh -c \
-'lhci autorun --config="./lighthouse/lhci.json"' || true
+'lhci autorun --config="./lighthouse/lhci-desktop.json"' || true
+
+docker exec -i lhci sh -c \
+'lhci autorun --config="./lighthouse/lhci-mobile.json"' || true
 
 #teardown
 docker rm -f lhci
