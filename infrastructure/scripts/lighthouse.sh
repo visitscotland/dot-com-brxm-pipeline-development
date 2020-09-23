@@ -1,7 +1,7 @@
 #!/bin/bash
 set -x
-VS_ENV=`cat env_url.txt`
-
+VS_PORT=`cat env_port.txt`
+VS_HOST=`cat env_host.txt`
 #rm -rf $(pwd)/frontend/lighthouse/.lighthouseci
 mkdir frontend/.lighthouseci
 
@@ -11,9 +11,9 @@ docker rm -f lhci
 #create a docker container whose name is LHCI and shared memory size #of 512.
 docker run -v "$(pwd)/frontend":/usr/src -w /usr/src  -d --shm-size=512m -it --name lhci hemanthsridhar-docker-lhci-server-center.bintray.io/lhci:4.0
 
-docker exec -i lhci sh -c 'cat > ./lighthouse/env_url.json << EOF
+docker exec -i lhci sh -c 'cat > ./extra.json << EOF
 {
-  "url": "'$VS_ENV'"
+    "Cookie" : "vs_brxm_host='$VS_HOST'; vs_brxm_port='$VS_PORT'; vs_brxm_http_host=localhost"
 }
 EOF'
 
