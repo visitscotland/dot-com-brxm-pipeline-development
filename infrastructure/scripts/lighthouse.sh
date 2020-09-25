@@ -2,7 +2,7 @@
 set -x
 VS_PORT=`cat env_port.txt`
 VS_HOST=`cat env_host.txt`
-#rm -rf $(pwd)/frontend/lighthouse/.lighthouseci
+rm -rf $(pwd)/frontend/.lighthouseci
 mkdir frontend/.lighthouseci
 
 docker pull hemanthsridhar-docker-lhci-server-center.bintray.io/lhci:4.0
