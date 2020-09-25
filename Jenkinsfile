@@ -248,7 +248,7 @@ pipeline {
       publishHTML (target: [
         allowMissing: false,
         alwaysLinkToLastBuild: false,
-        keepAll: true,
+        keepAll: false,
         reportDir: 'frontend/.lighthouseci',
         reportFiles: 'lhr-**.html',
         reportName: "LH Report"
