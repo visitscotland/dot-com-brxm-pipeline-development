@@ -208,7 +208,7 @@ pipeline {
       steps{
         script{
           sleep time: 120, unit: 'SECONDS'
-          sh 'sh ./infrastructure/scripts/lighthouse.sh'
+          sh 'sh ./testing/lighthouse.sh'
         }
       }
       post {

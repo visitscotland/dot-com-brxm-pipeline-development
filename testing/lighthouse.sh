@@ -26,7 +26,7 @@ docker exec -i lhci sh -c \
 docker exec -i lhci sh -c \
 'lhci autorun --config="./lighthouse/lhci-mobile.json"' || LH_MOBILE_RESULT=false
 
-if [ LH_MOBILE_RESULT -eq false ]|| [LH_MOBILE_RESULT -eq false ]
+if [ $LH_DESKTOP_RESULT = false ] || [$LH_MOBILE_RESULT = false ]
 then
   exit 0
 fi
