@@ -227,27 +227,6 @@ pipeline {
         }
       }
     }
-   // timeout(time: 60, unit: 'SECONDS') {
-        // stage('Check Availability') {
-        //   steps {
-        //     script{
-        //         //sh 'sh ./infrastructure/scripts/availability.sh --debug'
-        //         sleep time: 120, unit: 'SECONDS'
-        //       }
-        //    }
-        //   }
-
-  //  }
-    // stage ('Run a11y tests'){
-    //     // when {
-    //     //     branch 'PR-160'  TODO - change this to dev nightly / dev stable when ready
-    //     // }
-    //     steps{
-    //         script{
-    //             sh 'sh ./infrastructure/scripts/lighthouse.sh'
-    //         }
-    //     }
-    // }
 
 // -- 20200712: entire section commented out as it currently serves no purpose
 //    stage ('Availability notice'){

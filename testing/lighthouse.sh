@@ -28,7 +28,7 @@ docker exec -i lhci sh -c \
 
 if [ $LH_DESKTOP_RESULT = false ] || [$LH_MOBILE_RESULT = false ]
 then
-  exit 0
+  exit 1
 fi
 
 #teardown
