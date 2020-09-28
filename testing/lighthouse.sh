@@ -21,10 +21,10 @@ docker exec -i lhci sh -c 'rm -rf frontend/.lighthouseci/*'
 
 #Run Lighthouse CI against the container named lhci
 docker exec -i lhci sh -c \
-'lhci autorun --config="./lighthouse/lhci-desktop.json"' || LH_DESKTOP_RESULT=false
+'lhci autorun --config="./lighthouse/lhci-desktop.json"' && LH_DESKTOP_RESULT=true || LH_DESKTOP_RESULT=false
 
 docker exec -i lhci sh -c \
-'lhci autorun --config="./lighthouse/lhci-mobile.json"' || LH_MOBILE_RESULT=false
+'lhci autorun --config="./lighthouse/lhci-mobile.json"' && LH_DESKTOP_RESULT=true || LH_MOBILE_RESULT=false
 
 if [ $LH_DESKTOP_RESULT = false ] || [ $LH_MOBILE_RESULT = false ]
 then
