@@ -203,7 +203,30 @@ pipeline {
           sh 'sh ./infrastructure/scripts/infrastructure.sh --debug'
         }
       }
-    } //end
+    } 
+    stage('Lighthouse Testing'){
+      steps{
+        script{
+          sleep time: 120, unit: 'SECONDS'
+          sh 'sh ./infrastructure/scripts/lighthouse.sh'
+        }
+      }
+      post {
+        success {
+          publishHTML (target: [
+            allowMissing: false,
+            alwaysLinkToLastBuild: false,
+            keepAll: false,
+            reportDir: 'frontend/.lighthouseci',
+            reportFiles: 'lhr-**.html',
+            reportName: "LH Report"
+          ])
+        }
+        failure {
+          mail bcc: '', body: "<b>Notification</b><br>Project: ${env.JOB_NAME} <br>Build Number: ${env.BUILD_NUMBER} <br> build URL: ${env.BUILD_URL}", cc: '', charset: 'UTF-8', from: '', mimeType: 'text/html', replyTo: '', subject: "Lighthouse failure: Project name -> ${env.JOB_NAME}", to: "${env.CHANGE_AUTHOR_EMAIL}";
+        }
+      }
+    }
    // timeout(time: 60, unit: 'SECONDS') {
         // stage('Check Availability') {
         //   steps {
@@ -240,21 +263,6 @@ pipeline {
   } //end stages
 
   post{
-    always {
-      script{
-        sleep time: 120, unit: 'SECONDS'
-        sh 'sh ./infrastructure/scripts/lighthouse.sh'
-      }
-      publishHTML (target: [
-        allowMissing: false,
-        alwaysLinkToLastBuild: false,
-        keepAll: false,
-        reportDir: 'frontend/.lighthouseci',
-        reportFiles: 'lhr-**.html',
-        reportName: "LH Report"
-      ])
-    }
-
     aborted{
       script{
         try{
