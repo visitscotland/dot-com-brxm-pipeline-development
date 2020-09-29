@@ -1,6 +1,5 @@
 def DS_BRANCH = "feature/VS-955-ui-itineraries-itinerary-stops-changes-built-products"
-//def MAIL_TO = "jose.calcines@visitscotland.com, juanluis.hurtado@visitscotland.com, webops@visitscotland.net"
-def MAIL_TO = "gavin@visitscotland.net"
+def MAIL_TO = "webops@visitscotland.net"
 
 def thisAgent
 def VS_CONTAINER_BASE_PORT_OVERRIDE
@@ -14,6 +13,9 @@ if (BRANCH_NAME == "develop" && (JOB_NAME == "develop.visitscotland.com/develop"
   cron_string = "@midnight"
 } else if (BRANCH_NAME == "develop" && (JOB_NAME == "develop-stable.visitscotland.com/develop" || JOB_NAME == "develop-stable.visitscotland.com-mb/develop")) {
   thisAgent = "op-dev-xvcdocker-01"
+  env.VS_CONTAINER_BASE_PORT_OVERRIDE = "8100"
+} else if (BRANCH_NAME == "develop" && (JOB_NAME == "feature.visitscotland.com/develop" || JOB_NAME == "feature.visitscotland.com-mb/develop")) {
+  thisAgent = "docker-02"
   env.VS_CONTAINER_BASE_PORT_OVERRIDE = "8097"
 } else if (BRANCH_NAME == "feature/VS-1865-feature-environments-enhancements" && (JOB_NAME == "feature.visitscotland.com-mb/feature%2FVS-1865-feature-environments-enhancements")) {
   thisAgent = "op-dev-xvcdocker-01"
@@ -35,10 +37,11 @@ pipeline {
     // from 20200804 VS_SSR_PROXY_ON will only affect whether the SSR app is packaged and sent to the container, using or bypassing will be set via query string
     VS_SSR_PROXY_ON = 'TRUE'
     // VS_CONTAINER_PRESERVE is set to TRUE in the ingrastructure build script, if this is set to FALSE the container will be rebuilt every time and the repository wiped
-    VS_CONTAINER_PRESERVE= 'TRUE'
+    VS_CONTAINER_PRESERVE = 'TRUE'
     // VS_BRXM_PERSISTENCE_METHOD can be set to either 'h2' or 'mysql' - do not change during the lifetime of a container or it will break the repo
     VS_BRXM_PERSISTENCE_METHOD = 'h2'
     VS_SKIP_BUILD_FOR_BRANCH = 'eg:feature/VS-1865-feature-environments-enhancements'
+    VS_RUN_LIGHTHOUSE_TESTS = 'TRUE'
     VS_RUN_BRC_STAGES = 'FALSE'
     // -- 20200712: TEST and PACKAGE stages might need VS_SKIP set to TRUE as they just run the ~4 minute front-end build every time
     VS_SKIP_BRC_BLD = 'FALSE'
@@ -81,7 +84,7 @@ pipeline {
       when {
         allOf {
           expression {return env.VS_RUN_BRC_STAGES != 'TRUE'}
-	  expression {return env.VS_SKIP_VS_BLD != 'TRUE'}
+	      expression {return env.VS_SKIP_VS_BLD != 'TRUE'}
           expression {return env.BRANCH_NAME != env.VS_SKIP_BUILD_FOR_BRANCH}
         }
       }
@@ -205,6 +208,11 @@ pipeline {
       }
     } 
     stage('Lighthouse Testing'){
+      when {
+        allOf {
+          expression {return env.VS_RUN_LIGHTHOUSE_TESTS == 'TRUE'}
+        }
+      }
       steps{
         script{
           sleep time: 120, unit: 'SECONDS'
