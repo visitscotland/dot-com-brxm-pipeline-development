@@ -7,6 +7,7 @@ cron_string = ""
 if (BRANCH_NAME == "develop" && (JOB_NAME == "develop.visitscotland.com/develop" || JOB_NAME == "develop.visitscotland.com-mb/develop")) {
   thisAgent = "op-dev-xvcdocker-01"
   env.VS_CONTAINER_BASE_PORT_OVERRIDE = "8099"
+  env.VS_RELEASE_SNAPSHOT = "TRUE"
 } else if (BRANCH_NAME == "develop" && (JOB_NAME == "develop-nightly.visitscotland.com/develop" || JOB_NAME == "develop-nightly.visitscotland.com-mb/develop")) {
   thisAgent = "op-dev-xvcdocker-01"
   env.VS_CONTAINER_BASE_PORT_OVERRIDE = "8098"
@@ -23,6 +24,8 @@ if (BRANCH_NAME == "develop" && (JOB_NAME == "develop.visitscotland.com/develop"
   //cron_string = "*/2 * * * *"
 } else {
   //thisAgent = "docker-02"
+  env.VS_CONTAINER_BASE_PORT_OVERRIDE = "FALSE"
+  env.VS_RELEASE_SNAPSHOT = "FALSE"
   thisAgent = "op-dev-xvcdocker-01"
 }
 
@@ -163,9 +166,9 @@ pipeline {
     } //end stage
     stage ('Snapshot to Nexus'){
         when {
-            not {
-                branch 'PR-145'//to do - change this to master and staging when ready
-            }
+          allOf {
+            expression {return env.VS_RELEASE_SNAPSHOT == 'TRUE'}
+          }
         }
         steps{
             script{
