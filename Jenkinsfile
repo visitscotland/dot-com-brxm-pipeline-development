@@ -31,10 +31,11 @@ pipeline {
   agent {label thisAgent}
   triggers { cron( cron_string ) }
   environment {
+    // added by HD - what credentials are these?
     MAVEN_SETTINGS = credentials('maven-settings')
     // from 20200804 VS_SSR_PROXY_ON will only affect whether the SSR app is packaged and sent to the container, using or bypassing will be set via query string
     VS_SSR_PROXY_ON = 'TRUE'
-    // VS_CONTAINER_PRESERVE is set to TRUE in the ingrastructure build script, if this is set to FALSE the container will be rebuilt every time and the repository wiped
+    // VS_CONTAINER_PRESERVE is set to TRUE in the infrastructure build script, if this is set to FALSE the container will be rebuilt every time and the repository wiped
     VS_CONTAINER_PRESERVE= 'TRUE'
     // VS_BRXM_PERSISTENCE_METHOD can be set to either 'h2' or 'mysql' - do not change during the lifetime of a container or it will break the repo
     VS_BRXM_PERSISTENCE_METHOD = 'h2'
@@ -158,44 +159,7 @@ pipeline {
         }
       }
     } //end stage
-    stage ('Snapshot to Nexus'){
-        when {
-            not {
-                branch 'PR-145'//to do - change this to master and staging when ready
-            }
-        }
-        steps{
-            script{
-                sh 'mvn -f pom.xml deploy -Pdist-with-development-data -s $MAVEN_SETTINGS'
-            }
-        }
-    }
-    stage('Release to Nexus') {
-        when {
-            branch 'PR-145' // to do - change this to develop  when ready
-        }
-        steps {
 
-            script {
-              NEW_TAG = "${env.JOB_NAME}-${env.BUILD_NUMBER}"
-            }
-
-            echo "Creating tag $NEW_TAG"
-            sh "git tag -m \"CI tagging\" $NEW_TAG"
-            echo "Uploading tag $NEW_TAG to Bitbucket"
-            withCredentials([usernamePassword(credentialsId: 'jenkins-ssh', usernameVariable: 'USER', passwordVariable: 'PASSWORD')]) {
-              sh """
-              git config --local credential.username ${USER}
-              git config --local credential.helper "!echo password=${PASSWORD}; echo"
-              git push origin $NEW_TAG --repo=${env.GIT_URL}
-              """
-            }
-            echo "Uploading version $NEW_TAG to Nexus"
-            sh "mvn versions:set -DremoveSnapshot"
-            sh "mvn -B clean  deploy -Pdist -Drevision=$NEW_TAG -Dchangelist= -DskipTests -s $MAVEN_SETTINGS"
-        }
-
-    }
     stage ('vs build feature env') {
       steps{
         script{
@@ -203,28 +167,7 @@ pipeline {
           sh 'sh ./infrastructure/scripts/infrastructure.sh --debug'
         }
       }
-    } //end
-   // timeout(time: 60, unit: 'SECONDS') {
-        // stage('Check Availability') {
-        //   steps {
-        //     script{
-        //         //sh 'sh ./infrastructure/scripts/availability.sh --debug'
-        //         sleep time: 120, unit: 'SECONDS'
-        //       }
-        //    }
-        //   }
-
-  //  }
-    // stage ('Run a11y tests'){
-    //     // when {
-    //     //     branch 'PR-160'  TODO - change this to dev nightly / dev stable when ready
-    //     // }
-    //     steps{
-    //         script{
-    //             sh 'sh ./infrastructure/scripts/lighthouse.sh'
-    //         }
-    //     }
-    // }
+    } //end stage
 
 // -- 20200712: entire section commented out as it currently serves no purpose
 //    stage ('Availability notice'){
@@ -237,24 +180,67 @@ pipeline {
 //      }
 //    }
 
+    stage ('brC cxn test') {
+      when {
+        allOf {
+          expression {return env.VS_RUN_BRC_STAGES == 'TRUE'}
+	  expression {return env.VS_SKIP_BRC_CXN != 'TRUE'}
+        }
+      }
+      steps {
+        script {
+          // Login to get the access token
+          echo "Login to brC and obtain token:"
+          withCredentials([usernamePassword(credentialsId: 'brCloud', passwordVariable: 'VS_BRC_PASSWORD', usernameVariable: 'VS_BRC_USERNAME')]) {
+            def json = "{\"username\": \"${VS_BRC_USERNAME}\", \"password\": \"${VS_BRC_PASSWORD}\"}"
+            loginResult = post("${VS_BRC_STACK_URL}/${VS_BRC_STACK_API_VERSION}/authn/access_token", json)
+          }
+          echo "Login result ${loginResult}"
+          String access_token = "Bearer " + parseJson(loginResult).access_token
+
+          // Get the environment ID
+          echo "Get the environments"
+          environments = get("${VS_BRC_STACK_URL}/${VS_BRC_STACK_API_VERSION}/environments/", access_token)
+
+          // We require an existing environment. Alternative is to delete/create one
+          def environmentID = getEnvironmentID(environments, VS_BRC_ENV)
+          echo "Environments result: ${environments}"
+          echo "Environment ID: ${environmentID}"
+        }
+      }
+    } //end stage
+
+    stage ('brC upload') {
+      when {
+        allOf {
+          expression {return env.VS_RUN_BRC_STAGES == 'TRUE'}
+	  expression {return env.VS_SKIP_BRC_UPL != 'TRUE'}
+        }
+      }
+      steps {
+        script {
+          withCredentials([usernamePassword(credentialsId: 'brCloud', passwordVariable: 'VS_BRC_PASSWORD', usernameVariable: 'VS_BRC_USERNAME')]) {
+            loginResponse = login("${VS_BRC_STACK_URL}/${VS_BRC_STACK_API_VERSION}/authn/access_token", VS_BRC_USERNAME, VS_BRC_PASSWORD)
+          }
+
+          access_token = "Bearer " + parseJson(loginResponse).access_token
+          refresh_token = parseJson(loginResponse).refresh_token
+
+          String projectName = readMavenPom(file: "${workspace}/pom.xml").getArtifactId()
+          String projectVersion = readMavenPom(file: "${workspace}/pom.xml").getVersion()
+          String distribution = "target/${projectName}-${projectVersion}-distribution.tar.gz"
+          echo "Upload the distribution ${distribution}"
+          uploadResult = postMultipart("${VS_BRC_STACK_URL}/${VS_BRC_STACK_API_VERSION}/distributions/", "dist_file", "${workspace}/${distribution}", access_token)
+          echo "Upload result: ${uploadResult}"
+          distID = parseJson(uploadResult).id
+          echo "distID: ${distID}"
+        }
+      }
+    } //end stage
+
   } //end stages
 
   post{
-    always {
-      script{
-        sleep time: 120, unit: 'SECONDS'
-        sh 'sh ./infrastructure/scripts/lighthouse.sh'
-      }
-      publishHTML (target: [
-        allowMissing: false,
-        alwaysLinkToLastBuild: false,
-        keepAll: true,
-        reportDir: 'frontend/.lighthouseci',
-        reportFiles: 'lhr-**.html',
-        reportName: "LH Report"
-      ])
-    }
-
     aborted{
       script{
         try{
@@ -266,3 +252,92 @@ pipeline {
     }
   } //end post
 } //end pipeline
+
+private String login(url, VS_BRC_USERNAME, VS_BRC_PASSWORD) {
+   echo "Login and obtain access token:"
+   def json = "{\"username\": \"${VS_BRC_USERNAME}\", \"password\": \"${VS_BRC_PASSWORD}\"}"
+   loginResult = post(url, json)
+   echo "Login result ${loginResult}"
+   return loginResult
+}
+
+private boolean verify_token(url, access_token) {
+    if (access_token) {
+        echo "Verify access token:"
+        verifyResult = get(url, access_token)
+        echo "Verify result ${verifyResult}"
+        if (parseJson(verifyResult).error_code) {
+            echo "Token is invalid"
+            echo "Error code: " + parseJson(verifyResult).error_code
+            echo "Error detail: " + parseJson(verifyResult).error_detail
+            return false;
+        }
+        echo "Access token is valid"
+        return true;
+    } else {
+        echo "Access token is null"
+        return false;
+    }
+}
+
+private String refresh_token(url, refresh_token) {
+    echo "Refresh access token:"
+    def json = "{\"grant_type\": \"refresh_token\", \"refresh_token\": \"${refresh_token}\"}"
+    refreshResult = post(url, json)
+    echo "Refresh result ${refreshResult}"
+    return "Bearer " + parseJson(refreshResult).access_token;
+}
+ 
+
+@NonCPS
+private String get(url, access_token = null) {
+   return curl("GET", url, access_token)
+}
+
+@NonCPS
+private String post(url, json, access_token = null) {
+   return curl("POST", url, access_token, json)
+}
+
+@NonCPS
+private String postMultipart(url, String fileName, file, String access_token = null) {
+   return curl("POST", url, access_token, null, fileName, file, null, "multipart/form-data")
+}
+
+@NonCPS
+private String put(url, json, String access_token = null) {
+   return curl("PUT", url, access_token, json, null, null, "-i --http1.1")
+}
+
+@NonCPS
+private String  delete(url, access_token = null) {
+   return curl("DELETE", url, access_token, null, null, null, "--http1.1")
+}
+
+@NonCPS
+private String curl(method, url, access_token, json = null, fileName = null, file = null, extraParams = null, contentType = "application/json") {
+   return sh(script: "curl ${extraParams?:""} \
+           -X ${method} '${url}' \
+           ${access_token?"-H 'Authorization: ${access_token}'":""} \
+           -H 'Content-Type: ${contentType}' \
+           ${json?"-d '${json}'":""} \
+           ${(fileName && file)?"-F '${fileName}=@${file}'":""}",
+           returnStdout: true)
+}
+
+@NonCPS
+def parseJson(text) {
+   return new JsonSlurper().parseText(text)
+}
+
+
+@NonCPS
+def getEnvironmentID(environments, VS_BRC_ENV) {
+   result = null
+   parseJson(environments).items.each() { env ->
+       if(env.name.toString() == VS_BRC_ENV) {
+           result = env.id
+       }
+   }
+   return result
+}

@@ -4,33 +4,40 @@ def MAIL_TO = "gavin@visitscotland.net"
 
 def thisAgent
 def VS_CONTAINER_BASE_PORT_OVERRIDE
+cron_string = ""
 if (BRANCH_NAME == "develop" && (JOB_NAME == "develop.visitscotland.com/develop" || JOB_NAME == "develop.visitscotland.com-mb/develop")) {
   thisAgent = "op-dev-xvcdocker-01"
   env.VS_CONTAINER_BASE_PORT_OVERRIDE = "8099"
 } else if (BRANCH_NAME == "develop" && (JOB_NAME == "develop-nightly.visitscotland.com/develop" || JOB_NAME == "develop-nightly.visitscotland.com-mb/develop")) {
   thisAgent = "op-dev-xvcdocker-01"
   env.VS_CONTAINER_BASE_PORT_OVERRIDE = "8098"
-  String cron_string = BRANCH_NAME == "develop" ? "@midnight" : ""
+  cron_string = "@midnight"
 } else if (BRANCH_NAME == "develop" && (JOB_NAME == "develop-stable.visitscotland.com/develop" || JOB_NAME == "develop-stable.visitscotland.com-mb/develop")) {
   thisAgent = "op-dev-xvcdocker-01"
   env.VS_CONTAINER_BASE_PORT_OVERRIDE = "8097"
 } else if (BRANCH_NAME == "feature/VS-1865-feature-environments-enhancements" && (JOB_NAME == "feature.visitscotland.com-mb/feature%2FVS-1865-feature-environments-enhancements")) {
   thisAgent = "op-dev-xvcdocker-01"
-  env.VS_CONTAINER_BASE_PORT_OVERRIDE = "8096"
-  String cron_string = BRANCH_NAME == "feature/VS-1865-feature-environments-enhancements" ? "@hourly" : ""
+  //env.VS_CONTAINER_BASE_PORT_OVERRIDE = "8096"
+  //cron_string = "*/2 * * * *"
 } else {
-  thisAgent = "docker-02"
+  //thisAgent = "docker-02"
+  thisAgent = "op-dev-xvcdocker-01"
 }
 
 import groovy.json.JsonSlurper
 
 pipeline {
   options {buildDiscarder(logRotator(numToKeepStr: '5'))}
-
   agent {label thisAgent}
-
+  triggers { cron( cron_string ) }
   environment {
+    // added by HD - what credentials are these?
+    MAVEN_SETTINGS = credentials('maven-settings')
+    // from 20200804 VS_SSR_PROXY_ON will only affect whether the SSR app is packaged and sent to the container, using or bypassing will be set via query string
     VS_SSR_PROXY_ON = 'TRUE'
+    // VS_CONTAINER_PRESERVE is set to TRUE in the infrastructure build script, if this is set to FALSE the container will be rebuilt every time and the repository wiped
+    VS_CONTAINER_PRESERVE= 'TRUE'
+    // VS_BRXM_PERSISTENCE_METHOD can be set to either 'h2' or 'mysql' - do not change during the lifetime of a container or it will break the repo
     VS_BRXM_PERSISTENCE_METHOD = 'h2'
     VS_SKIP_BUILD_FOR_BRANCH = 'eg:feature/VS-1865-feature-environments-enhancements'
     VS_RUN_BRC_STAGES = 'FALSE'
@@ -85,7 +92,7 @@ pipeline {
       }
       post {
         success {
-          sh 'mvn -f pom.xml install -P dist'
+          sh 'mvn -f pom.xml install -Pdist-with-development-data'
           mail bcc: '', body: "<b>Notification</b><br>Project: ${env.JOB_NAME} <br>Build Number: ${env.BUILD_NUMBER} <br> build URL: ${env.BUILD_URL}", cc: '', charset: 'UTF-8', from: '', mimeType: 'text/html', replyTo: '', subject: "SUCCESS CI: Project name -> ${env.JOB_NAME}", to: "${MAIL_TO}";
         }
         failure {
@@ -138,13 +145,13 @@ pipeline {
       }
       steps {
         // -- 20200712: QUESTION FOR SE, "brC does not recognise the package, maybe it needs Enterprise Features?"
-        sh 'mvn verify && mvn -Pdist -P!fed-build -DskipTests'
+        sh 'mvn verify && mvn -Pdist-with-development-data -P!fed-build -DskipTests'
       }
       post {
         success {
           //sh 'mvn -f pom.xml install -P !default'
-	  // -- 20200712: extra install step removed 
-          //sh 'mvn -f pom.xml install -P dist'
+	  // -- 20200712: extra install step removed
+          //sh 'mvn -f pom.xml install -Pdist-with-development-data'
           mail bcc: '', body: "<b>Notification</b><br>Project: ${env.JOB_NAME} <br>Build Number: ${env.BUILD_NUMBER} <br> build URL: ${env.BUILD_URL}", cc: '', charset: 'UTF-8', from: '', mimeType: 'text/html', replyTo: '', subject: "SUCCESS CI: Project name -> ${env.JOB_NAME}", to: "${MAIL_TO}";
         }
         failure {
