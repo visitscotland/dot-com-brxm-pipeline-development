@@ -1,5 +1,11 @@
 <template>
-  <component :is="tag" class="bs-wrapper"><slot /></component>
+    <!-- eslint-disable-next-line vue/component-name-in-template-casing -->
+    <component
+        :is="tag"
+        class="bs-wrapper"
+    >
+        <slot />
+    </component>
 </template>
 
 <script>
@@ -15,16 +21,16 @@
  * of components.
  */
 export default {
-  name: "BsWrapper",
-  props: {
-    /**
-     * Determines the HTML element that will be used for the wrapper
-     */
-    tag: {
-      type: String,
-      default: "div",
+    name: "BsWrapper",
+    props: {
+        /**
+         * Determines the HTML element that will be used for the wrapper
+         */
+        tag: {
+            type: String,
+            default: "div",
+        },
     },
-  },
 }
 </script>
 

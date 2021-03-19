@@ -1,10 +1,10 @@
-import VsItinerary from "./Itinerary"
-import VsItineraryDay from "./components/itinerary-day/ItineraryDay"
-import VsItineraryStop from "./components/itinerary-stop/ItineraryStop"
-import VsItineraryTips from "./components/itinerary-tips/ItineraryTips"
-import VsItineraryMapMobileToggle from "./components/itinerary-map-mobile-toggle/ItineraryMapMobileToggle"
-import VsItineraryBorderOverlapWrapper from "./components/itinerary-border-overlap-wrapper/ItineraryBorderOverlapWrapper"
-import VsItineraryMap from "./components/itinerary-map/ItineraryMap"
+import VsItinerary from './Itinerary';
+import VsItineraryDay from './components/ItineraryDay';
+import VsItineraryStop from './components/ItineraryStop';
+import VsItineraryTips from './components/ItineraryTips';
+import ItineraryMobileMapToggle from './components/ItineraryMobileMapToggle';
+import VsItineraryBorderOverlapWrapper from './components/ItineraryBorderOverlapWrapper';
+import VsItineraryMap from './components/itinerary-map/ItineraryMap';
 
 export {
     VsItinerary,
@@ -12,6 +12,6 @@ export {
     VsItineraryStop,
     VsItineraryBorderOverlapWrapper,
     VsItineraryTips,
-    VsItineraryMapMobileToggle,
+    ItineraryMobileMapToggle,
     VsItineraryMap,
-}
+};

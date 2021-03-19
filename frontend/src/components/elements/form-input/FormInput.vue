@@ -1,62 +1,60 @@
 <template>
-  <b-form-input
-    class="vs-form-input"
-    :size="size"
-    v-bind="$attrs"
-    v-model="inputVal"
-  ></b-form-input>
+    <BFormInput
+        v-model="inputVal"
+        class="vs-form-input"
+        :size="size"
+        v-bind="$attrs"
+    />
 </template>
 
 <script>
-import { BFormInput } from "bootstrap-vue"
+import { BFormInput } from 'bootstrap-vue';
 
 /**
  * https://bootstrap-vue.js.org/docs/components/form-input
  * https://getbootstrap.com/docs/4.3/components/forms/
+ *
+ * @displayName Form Input
  */
 
 export default {
-  name: "VsFormInput",
-  status: "prototype",
-  release: "0.0.1",
-  components: {
-    BFormInput,
-  },
-  props: {
-    /**
-     * Set the form field size.
-     * `sm, md, lg`
-     */
-    size: {
-      default: "md",
-      validator: value => {
-        return value.match(/(sm|md|lg)/)
-      },
+    name: 'VsFormInput',
+    status: 'prototype',
+    release: '0.0.1',
+    components: {
+        BFormInput,
     },
-    value: {
-      type: String,
-      default: "",
+    props: {
+        /**
+         * Set the form field size.
+         * `sm, md, lg`
+         */
+        size: {
+            default: 'md',
+            validator: (value) => value.match(/(sm|md|lg)/),
+        },
+        value: {
+            type: String,
+            default: '',
+        },
     },
-  },
-  data() {
-    return {
-      inputVal: this.value,
-    }
-  },
-  watch: {
-    inputVal(newValue) {
-      this.$emit("input", newValue)
+    data() {
+        return {
+            inputVal: this.value,
+        };
     },
-    value(newValue) {
-      this.inputVal = newValue
+    watch: {
+        inputVal(newValue) {
+            this.$emit('input', newValue);
+        },
+        value(newValue) {
+            this.inputVal = newValue;
+        },
     },
-  },
-}
+};
 </script>
 
-<style lang="scss" scoped>
-@import "~bootstrap/scss/forms";
-
+<style lang="scss">
 .vs-form-input {
   &.form-control {
     border-color: $color-gray-tint-1;
@@ -76,20 +74,20 @@ export default {
 
 <docs>
 ```jsx
-<bs-wrapper>
+<BsWrapper>
   <label for="small">Small</label>
-  <vs-form-input id="small" placeholder="Enter your name" class="mb-5" size="sm" />
+  <VsFormInput id="small" placeholder="Enter your name" class="mb-5" size="sm" />
   <label for="medium">Medium (default)</label>
-  <vs-form-input id="medium" placeholder="Enter your name" class="mb-5" size="md" />
+  <VsFormInput id="medium" placeholder="Enter your name" class="mb-5" size="md" />
   <label for="large">Large</label>
-  <vs-form-input id="large" placeholder="Enter your name" class="mb-5" size="lg" />
+  <VsFormInput id="large" placeholder="Enter your name" class="mb-5" size="lg" />
 
   <label for="input-none">No State</label>
-  <vs-form-input id="input-none" :state="null" placeholder="No validation" class="mb-5"/>
+  <VsFormInput id="input-none" :state="null" placeholder="No validation" class="mb-5"/>
   <label for="input-valid">Valid state</label>
-  <vs-form-input id="input-valid" :state="true" placeholder="Valid" class="mb-5" />
+  <VsFormInput id="input-valid" :state="true" placeholder="Valid" class="mb-5" />
   <label for="input-invalid">Invalid state</label>
-  <vs-form-input id="input-invalid" :state="false" placeholder="Invalid" class="mb-5" />
-</bs-wrapper>
+  <VsFormInput id="input-invalid" :state="false" placeholder="Invalid" class="mb-5" />
+</BsWrapper>
 ```
 </docs>

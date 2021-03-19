@@ -1,22 +1,39 @@
 <template>
-    <b-button
+    <BButton
         :variant="variant"
         :href="href"
         :tabindex="tabindex"
-        class="text-uppercase d-flex align-items-center justify-content-center"
+        class="vs-button"
         :class="{
-            [animateClass]: animateClass,
+            'vs-button--animated': animate,
+            'vs-button--is-animating': isAnimating,
             [backgroundClass]: backgroundClass,
+            [textTransformClass]: textTransformClass,
         }"
-        @click="animateClass ? animateHandler() : null"
         :size="size"
         v-bind="$attrs"
+        @click="animateHandler"
+        @mouseover="hovered = true"
+        @focusin="hovered = true"
+        @mouseleave="hovered = false"
+        @focusout="hovered = false"
     >
+        <VsIcon
+            :class="{ 'mr-2': !iconOnly }"
+            v-if="icon"
+            :name="icon"
+            :size="iconSize"
+            :padding="0"
+            :orientation="iconOrientation"
+            :variant="calcIconVariant"
+        />
+        <!-- @slot The button content goes here -->
         <slot />
-    </b-button>
+    </BButton>
 </template>
 <script>
-import { BButton } from "bootstrap-vue"
+import { BButton } from 'bootstrap-vue';
+import VsIcon from '@components/elements/icon/Icon';
 
 /**
  * TODO: Document usage.
@@ -25,14 +42,17 @@ import { BButton } from "bootstrap-vue"
  * in order to listen for the underlying `button`s native event. e.g.
  *
  * <vs-button @click.native="handler">Click me</vs-button>
+ *
+ * @displayName Button
  */
 
 export default {
-    name: "VsButton",
-    status: "prototype",
-    release: "0.0.1",
+    name: 'VsButton',
+    status: 'prototype',
+    release: '0.0.1',
     components: {
         BButton,
+        VsIcon,
     },
     props: {
         /**
@@ -52,16 +72,14 @@ export default {
         },
         /**
          * Style variation to give additional meaning.
-         * `primary, secondary, success, danger, warning, info, light, dark, transparent`
+         * `primary, secondary`
          */
         variant: {
             type: String,
-            default: "primary",
-            validator: value => {
-                return value.match(
-                    /(primary|secondary|success|danger|warning|info|light|dark|transparent)/
-                )
-            },
+            default: 'primary',
+            validator: (value) => value.match(
+                /(primary|secondary)/,
+            ),
         },
         /**
          * Background property used primarily for overrides.
@@ -73,9 +91,7 @@ export default {
         background: {
             type: String,
             default: null,
-            validator: value => {
-                return value.match(/(white)/)
-            },
+            validator: (value) => value.match(/(white)/),
         },
         /**
          * Style the button size.
@@ -83,42 +99,107 @@ export default {
          */
         size: {
             type: String,
-            default: "md",
-            validator: value => {
-                return value.match(/(sm|md|lg)/)
-            },
+            default: 'md',
+            validator: (value) => value.match(/(sm|md|lg)/),
         },
         /**
-         * By default, buttons have an animation behaviour on click. To disable, add an animate=false property
+         * By default, buttons have an animation behaviour on click.
+         * To disable, add an animate=false property
          */
         animate: {
             type: Boolean,
             default: true,
         },
+        /**
+         * If you need a button with icon
+         * just pass the icon name here.
+         */
+        icon: {
+            type: String,
+            default: '',
+        },
+        /**
+         * By default, button text is uppercase
+         * To disable, add an uppercase=false property
+         */
+        uppercase: {
+            type: Boolean,
+            default: true,
+        },
+        /**
+         * The icon orientation
+         * `up, down, left, right`
+         */
+        iconOrientation: {
+            type: String,
+            default: null,
+            validator: (value) => value.match(/(up|down|left|right)/),
+        },
+        /**
+         * If the button contains an icon and no text
+         */
+        iconOnly: {
+            type: Boolean,
+            default: false,
+        },
+    },
+    data() {
+        return {
+            isAnimating: false,
+            hovered: false,
+        };
     },
     computed: {
-        animateClass() {
-            return this.animate ? "btn-animate" : null
-        },
         backgroundClass() {
-            return this.background ? ["btn-bg-" + this.background] : null
+            return this.background ? [`btn-bg-${this.background}`] : null;
+        },
+        iconSize() {
+            switch (this.size) {
+            case 'sm':
+                return 'xs';
+            case 'md':
+                return 'sm';
+            case 'lg':
+                return 'md';
+            default:
+                return 'md';
+            }
+        },
+        textTransformClass() {
+            return this.uppercase ? 'text-uppercase' : null;
+        },
+        calcIconVariant() {
+            if (this.isOutline) {
+                if (this.hovered) {
+                    return 'light';
+                }
+
+                return this.outlineColour;
+            }
+
+            return 'light';
+        },
+        isOutline() {
+            return this.variant.match(/outline/) !== null;
+        },
+        outlineColour() {
+            return this.variant.replace('outline-', '');
         },
     },
     methods: {
         animateHandler() {
-            this.$el.classList.add("bubble")
+            this.isAnimating = true;
             setTimeout(() => {
-                this.$el.classList.remove("bubble")
-            }, 1000)
+                this.isAnimating = false;
+            }, 1000);
         },
     },
-}
+};
 </script>
 
-<style lang="scss" scoped>
-@import "~bootstrap/scss/buttons";
+<style lang="scss">
 
-.btn {
+.vs-button.btn {
     font-family: $font-family-base;
     font-weight: $font-weight-light;
     transition: $transition-base;
@@ -147,36 +228,40 @@ export default {
             background: rgba(0, 0, 0, 0.2);
         }
     }
-}
 
-.btn-animate {
-    @keyframes bubble {
-        0% {
-            transform: scale(0, 0);
-            opacity: 1;
+    &.vs-button--animated {
+        @keyframes bubble {
+            0% {
+                transform: scale(0, 0);
+                opacity: 1;
+            }
+            100% {
+                opacity: 0;
+                transform: scale(100, 100);
+            }
         }
-        100% {
+
+        &::after {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            bottom: 0;
+            content: "";
+            height: 5px;
             opacity: 0;
-            transform: scale(100, 100);
+            position: absolute;
+            right: 0;
+            transform-origin: 50% 50%;
+            transform: scale(1, 1) translate(-50%);
+            width: 5px;
+        }
+
+        &.vs-button--is-animating::after {
+            animation: bubble 500ms ease-in-out;
         }
     }
 
-    &::after {
-        background: rgba(255, 255, 255, 0.1);
-        border-radius: 50%;
-        bottom: 0;
-        content: "";
-        height: 5px;
-        opacity: 0;
-        position: absolute;
-        right: 0;
-        transform-origin: 50% 50%;
-        transform: scale(1, 1) translate(-50%);
-        width: 5px;
-    }
-
-    &.bubble::after {
-        animation: bubble 500ms ease-in-out;
+    .vs-icon {
+        margin-top: -.05em;
     }
 }
 </style>
@@ -184,57 +269,95 @@ export default {
 <docs>
 ```jsx
     <h4>Types</h4>
-    <bs-wrapper class="d-flex flex-wrap mb-4">
-      <vs-button class="mr-2 mb-2">Button</vs-button>
-      <vs-button :animate=false class="mr-2 mb-2">Button with no animation</vs-button>
-      <vs-button class="mr-2 mb-2" href="https://www.visitscotland.com">Link</vs-button>
-    </bs-wrapper>
+    <BsWrapper class="d-flex flex-wrap mb-4">
+      <VsButton class="mr-2 mb-2">Button</VsButton>
+      <VsButton :animate=false class="mr-2 mb-2">Button with no animation</VsButton>
+      <VsButton class="mr-2 mb-2" href="https://www.visitscotland.com">Link</VsButton>
+    </BsWrapper>
+
+    <h4>With Icons</h4>
+    <BsWrapper class="d-flex flex-wrap mb-4">
+      <VsButton
+        class="mr-2 mb-2"
+        icon="food"
+        size="sm"
+      >
+        Nearby Places to Eat
+      </VsButton>
+    </BsWrapper>
+    <BsWrapper class="d-flex flex-wrap mb-4">
+      <VsButton
+        class="mr-2 mb-2"
+        icon="map"
+        size="md"
+      >
+        Map View
+      </VsButton>
+    </BsWrapper>
+    <BsWrapper class="d-flex flex-wrap mb-4">
+      <VsButton
+        class="mr-2 mb-2"
+        icon="external-link"
+        size="lg"
+      >
+        Open in a new tab
+      </VsButton>
+    </BsWrapper>
+
+    <h4>Icon Only</h4>
+    <BsWrapper class="d-flex flex-wrap mb-4">
+      <VsButton
+        class="mr-2 mb-2"
+        icon="external-link"
+        size="sm"
+        icon-only
+      />
+    </BsWrapper>
+
     <h4>Variants</h4>
-    <bs-wrapper class="d-flex flex-wrap mb-4">
-      <vs-button variant="primary" class="mr-2 mb-2">Primary (default)</vs-button>
-      <vs-button variant="secondary" class="mr-2 mb-2">Secondary</vs-button>
-      <vs-button variant="success" class="mr-2 mb-2">Success</vs-button>
-      <vs-button variant="danger" class="mr-2 mb-2">Danger</vs-button>
-      <vs-button variant="warning" class="mr-2 mb-2">Warning</vs-button>
-      <vs-button variant="info" class="mr-2 mb-2">Info</vs-button>
-      <vs-button variant="light" class="mr-2 mb-2">Light</vs-button>
-      <vs-button variant="dark" class="mr-2 mb-2">Dark</vs-button>
-      <vs-button variant="transparent" class="mr-2 mb-2">Transparent</vs-button>
-    </bs-wrapper>
+    <BsWrapper class="d-flex flex-wrap mb-4">
+      <VsButton variant="primary" class="mr-2 mb-2">Primary (default)</VsButton>
+      <VsButton variant="secondary" class="mr-2 mb-2">Secondary</VsButton>
+    </BsWrapper>
     <h4>Outline Color Variants</h4>
-    <bs-wrapper class="d-flex flex-wrap mb-4">
-      <vs-button variant="outline-primary" class="mr-2 mb-2">Primary</vs-button>
-      <vs-button variant="outline-secondary" class="mr-2 mb-2">Secondary</vs-button>
-      <vs-button variant="outline-success" class="mr-2 mb-2">Success</vs-button>
-      <vs-button variant="outline-danger" class="mr-2 mb-2">Danger</vs-button>
-      <vs-button variant="outline-warning" class="mr-2 mb-2">Warning</vs-button>
-      <vs-button variant="outline-info" class="mr-2 mb-2">Info</vs-button>
-      <vs-button variant="outline-dark" class="mr-2 mb-2">Dark</vs-button>
-    </bs-wrapper>
+    <BsWrapper class="d-flex flex-wrap mb-4">
+      <VsButton variant="outline-primary" class="mr-2 mb-2">Primary</VsButton>
+      <VsButton variant="outline-secondary" class="mr-2 mb-2">Secondary</VsButton>
+    </BsWrapper>
+    <h4>Outline Variants with Icons</h4>
+    <BsWrapper class="d-flex flex-wrap mb-4">
+      <VsButton
+        variant="outline-primary"
+        class="mr-2 mb-2"
+        icon="external-link"
+      >Primary</VsButton>
+      <VsButton
+        variant="outline-secondary"
+        class="mr-2 mb-2"
+        icon="external-link"
+      >Secondary</VsButton>
+    </BsWrapper>
     <h4>Outline Color Variants - override transparent background</h4>
-    <bs-wrapper class="d-flex flex-wrap mb-4 bg-dark p-3">
-      <vs-button background="white" variant="outline-primary" class="mr-2 mb-2">Primary</vs-button>
-    </bs-wrapper>
+    <BsWrapper class="d-flex flex-wrap mb-4 bg-dark p-3">
+      <VsButton background="white" variant="outline-primary" class="mr-2 mb-2">Primary</VsButton>
+    </BsWrapper>
     <h4>Sizes</h4>
-    <bs-wrapper>
-      <vs-button class="mr-2 mb-2" size="sm">Small</vs-button>
-      <vs-button class="mr-2 mb-2" size="md">Medium</vs-button>
-      <vs-button class="mr-2 mb-2" size="lg">Large</vs-button>
-      <vs-button block class="mr-2 mb-2" size="md">Block</vs-button>
-    </bs-wrapper>
+    <BsWrapper>
+      <VsButton class="mr-2 mb-2" size="sm">Small</VsButton>
+      <VsButton class="mr-2 mb-2" size="md">Medium</VsButton>
+      <VsButton class="mr-2 mb-2" size="lg">Large</VsButton>
+      <VsButton block class="mr-2 mb-2" size="md">Block</VsButton>
+    </BsWrapper>
 
     <h4>Disabled States</h4>
-    <bs-wrapper class="d-flex flex-wrap mb-4">
-      <vs-button disabled class="mr-2 mb-2" variant="primary" size="md">Disabled primary</vs-button>
-      <vs-button disabled class="mr-2 mb-2" variant="secondary" size="md">Disabled primary pink</vs-button>
-      <vs-button disabled class="mr-2 mb-2" variant="success" size="md">Disabled success</vs-button>
-      <vs-button disabled class="mr-2 mb-2" variant="danger" size="md">Disabled danger</vs-button>
-      <vs-button disabled class="mr-2 mb-2" variant="warning" size="md">Disabled warning</vs-button>
-      <vs-button disabled class="mr-2 mb-2" variant="info" size="md">Disabled info</vs-button>
-      <vs-button disabled class="mr-2 mb-2" variant="light" size="md">Disabled light</vs-button>
-      <vs-button disabled class="mr-2 mb-2" variant="dark" size="md">Disabled dark</vs-button>
-      <vs-button disabled class="mr-2 mb-2" variant="transparent" size="md">Disabled transparent</vs-button>
-    </bs-wrapper>
+    <BsWrapper class="d-flex flex-wrap mb-4">
+        <VsButton disabled class="mr-2 mb-2" variant="primary" size="md">
+            Disabled primary
+        </VsButton>
+        <VsButton disabled class="mr-2 mb-2" variant="secondary" size="md">
+            Disabled secondary
+        </VsButton>
+    </BsWrapper>
 
 ```
 </docs>

@@ -11,7 +11,7 @@ definitions:
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:uuid: 5e08d834-288f-4d16-b661-76c8fb9aae96
+          jcr:uuid: 23934947-d7d3-4099-af47-d0cdf3c3e5ff
           hipposysedit:node: true
           hipposysedit:supertype: ['visitscotland:Page', 'hippostd:relaxed', 'hippotranslation:translated']
           hipposysedit:uri: http://www.visitscotland.com/visitscotland/nt/1.0
@@ -23,6 +23,15 @@ definitions:
             hipposysedit:path: visitscotland:descOrder
             hipposysedit:primary: false
             hipposysedit:type: Boolean
+          /ListicleClosing:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: visitscotland:ListicleClosing
+            hipposysedit:primary: false
+            hipposysedit:type: visitscotland:ListicleClosing
+            hipposysedit:validators: [optional]
       /hipposysedit:prototypes:
         jcr:primaryType: hipposysedit:prototypeset
         /hipposysedit:prototype:
@@ -40,10 +49,11 @@ definitions:
           visitscotland:title: ''
           visitscotland:seoTitle: ''
           jcr:mixinTypes: ['mix:referenceable']
-          jcr:uuid: 2e202376-1cd0-46c7-93af-493376e06232
+          jcr:uuid: 3e02c7c4-305b-4cf5-b9ec-9f7064d8a4ee
           hippostdpubwf:lastModificationDate: 2020-02-11T09:30:21.383Z
           hippostdpubwf:creationDate: 2020-02-11T09:30:21.383Z
           visitscotland:descOrder: false
+          visitscotland:translation: ''
           /visitscotland:heroImage:
             jcr:primaryType: hippogallerypicker:imagelink
             hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
@@ -78,30 +88,33 @@ definitions:
             wicket.id: ${cluster.id}.right
           /heroImage:
             jcr:primaryType: frontend:plugin
-            caption: Hero Image
+            caption: Main Image
             field: heroImage
             plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
             wicket.id: ${cluster.id}.left.item
+            hint: ''
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
           /seoTitle:
             jcr:primaryType: frontend:plugin
-            caption: Meta Title (SEO)
+            caption: Meta Title
             field: seoTitle
-            hint: Provided by SEO
+            hint: ''
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.left.item
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
+              maxlength: ''
           /seoDescription:
             jcr:primaryType: frontend:plugin
-            caption: Meta Description (SEO)
+            caption: Meta Description
             field: seoDescription
-            hint: Provided by SEO
+            hint: ''
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.left.item
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
+              maxlength: ''
           /title:
             jcr:primaryType: frontend:plugin
             caption: Heading
@@ -111,14 +124,17 @@ definitions:
             wicket.id: ${cluster.id}.left.item
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
+              maxlength: ''
           /teaser:
             jcr:primaryType: frontend:plugin
             caption: Teaser
             field: teaser
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.left.item
+            hint: ''
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
+              maxlength: ''
           /introduction:
             jcr:primaryType: frontend:plugin
             caption: Introduction
@@ -127,31 +143,64 @@ definitions:
             wicket.id: ${cluster.id}.left.item
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
+              ckeditor.config.overlayed.json: '{toolbarGroups: [{ name: ''links''
+                },{name:''insert''},{name:''clipboard''},{name:''tools''},{name:''undo''}]
+                , removeButtons: ''PickImage,Youtube,Table''}'
+              ckeditor.config.appended.json: "{   extraPlugins: 'wordcount',   wordcount:\
+                \ { \tcountSpacesAsChars: true,     showCharCount: true   }  }"
           /descOrder:
             jcr:primaryType: frontend:plugin
-            caption: Descendent Order
+            caption: Order
             field: descOrder
-            hint: For listicle i
+            hint: Tick this to reverse the order to run down eg from 10 to 1.
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.right.item
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
           /breadcrumb:
             jcr:primaryType: frontend:plugin
-            caption: Navigation Text (Breadcrumbs)
+            caption: Override Navigation & Breadcrumb
             field: breadcrumb
-            hint: Override just when the title is too long  for SEO
+            hint: Use if title is too long for navigation or breadcrumb.
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.right.item
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
           /seoNoIndex:
             jcr:primaryType: frontend:plugin
-            caption: Do not index (SEO)
+            caption: No index
             field: seoNoIndex
-            hint: Prevents the page to be indexed by Search Engines. Do not alter
-              unless it is advised by SEO
+            hint: Page will not be indexed by Search Engines. Only tick if SEO have
+              advised.
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.right.item
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
+          /ListicleClosing:
+            jcr:primaryType: frontend:plugin
+            caption: Closing
+            field: ListicleClosing
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
+            wicket.id: ${cluster.id}.left.item
+            hint: ''
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+          /otherThings:
+            jcr:primaryType: frontend:plugin
+            caption: Other things you might like
+            field: otherThings
+            hint: ''
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
+            wicket.id: ${cluster.id}.left.item
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+          /translation:
+            jcr:primaryType: frontend:plugin
+            caption: Translation
+            field: openuistring
+            hint: ''
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.left.item
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+              ui.extension: translationDiff

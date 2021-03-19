@@ -1,0 +1,55 @@
+/content/documents/administration/labels/modules/otyml:
+  .meta:order-before: map
+  jcr:primaryType: hippo:handle
+  jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+  jcr:uuid: 6f489e77-5e97-44bb-9378-673b892bc784
+  hippo:name: OTYML
+  hippo:versionHistory: bbabaa95-5b1f-4feb-abaf-888ca876e140
+  /otyml[1]:
+    jcr:primaryType: resourcebundle:resourcebundle
+    jcr:mixinTypes: ['mix:referenceable']
+    jcr:uuid: 7ed130d4-e850-4f44-9c78-f200f702dba2
+    hippo:availability: []
+    hippostd:state: draft
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2020-12-10T15:57:49.892Z
+    hippostdpubwf:lastModificationDate: 2021-01-22T17:59:39.740Z
+    hippostdpubwf:lastModifiedBy: admin
+    resourcebundle:descriptions: ['']
+    resourcebundle:id: otyml
+    resourcebundle:keys: [otyml.title.default]
+    resourcebundle:messages: [Other things you might like]
+    resourcebundle:messages_de: ['']
+    resourcebundle:messages_es: ['']
+    resourcebundle:messages_fr: ['']
+    resourcebundle:messages_it: ['']
+    resourcebundle:messages_nl: ['']
+  /otyml[2]:
+    jcr:primaryType: resourcebundle:resourcebundle
+    jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+    jcr:uuid: 6ebd3e12-2dfe-4f76-bbaf-e837c32eb1f6
+    hippo:availability: [preview]
+    hippostd:state: unpublished
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2020-12-10T15:57:49.892Z
+    hippostdpubwf:lastModificationDate: 2020-12-10T15:58:20.852Z
+    hippostdpubwf:lastModifiedBy: admin
+    resourcebundle:descriptions: ['']
+    resourcebundle:id: otyml
+    resourcebundle:keys: [otyml.title.default]
+    resourcebundle:messages: [Other things you might like]
+  /otyml[3]:
+    jcr:primaryType: resourcebundle:resourcebundle
+    jcr:mixinTypes: ['mix:referenceable']
+    jcr:uuid: 76ca4ad0-21fc-4693-a1aa-6acc78574ad9
+    hippo:availability: [live]
+    hippostd:state: published
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2020-12-10T15:57:49.892Z
+    hippostdpubwf:lastModificationDate: 2020-12-10T15:58:20.852Z
+    hippostdpubwf:lastModifiedBy: admin
+    hippostdpubwf:publicationDate: 2020-12-10T15:58:23.666Z
+    resourcebundle:descriptions: ['']
+    resourcebundle:id: otyml
+    resourcebundle:keys: [otyml.title.default]
+    resourcebundle:messages: [Other things you might like]

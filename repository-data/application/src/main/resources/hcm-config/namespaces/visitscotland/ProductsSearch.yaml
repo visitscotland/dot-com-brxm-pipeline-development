@@ -11,7 +11,7 @@ definitions:
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:uuid: d8e181ef-60eb-41a3-afe4-c24573a9d038
+          jcr:uuid: 7a1ec04d-4b26-4f92-90f6-f1f6f388cc4e
           hipposysedit:node: true
           hipposysedit:supertype: ['hippo:compound', 'hippostd:relaxed']
           hipposysedit:uri: http://www.visitscotland.com/visitscotland/nt/1.0
@@ -39,6 +39,15 @@ definitions:
             hipposysedit:path: visitscotland:officialrating
             hipposysedit:primary: false
             hipposysedit:type: String
+          /distance:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: visitscotland:distance
+            hipposysedit:primary: false
+            hipposysedit:type: Double
+            hipposysedit:validators: [required]
       /hipposysedit:prototypes:
         jcr:primaryType: hipposysedit:prototypeset
         /hipposysedit:prototype:
@@ -49,6 +58,7 @@ definitions:
           visitscotland:dmsFacilities: []
           visitscotland:officialrating: []
           visitscotland:productType: ''
+          visitscotland:distance: 10.0
       /editor:templates:
         jcr:primaryType: editor:templateset
         /_default_:
@@ -97,9 +107,9 @@ definitions:
             jcr:primaryType: frontend:plugin
             caption: DMS category
             engine: ${engine}
-            dms.productype: visitscotland:producttype
+            dms.productype: visitscotland:productType
             example.external.docs.field.name: visitscotland:dmsCategories
-            external.document.service.facade: com.visitscotland.brmx.components.DMSCategoryPicker
+            external.document.service.facade: com.visitscotland.brxm.components.DMSCategoryPicker
             initial.search.enabled: true
             mode: ${mode}
             plugin.class: org.onehippo.forge.exdocpicker.impl.field.ExternalDocumentFieldSelectorPlugin
@@ -114,9 +124,9 @@ definitions:
             jcr:primaryType: frontend:plugin
             caption: DMS facility
             engine: ${engine}
-            dms.productype: visitscotland:producttype
+            dms.productype: visitscotland:productType
             example.external.docs.field.name: visitscotland:dmsFacilities
-            external.document.service.facade: com.visitscotland.brmx.components.DMSFacilityPicker
+            external.document.service.facade: com.visitscotland.brxm.components.DMSFacilityPicker
             initial.search.enabled: true
             mode: ${mode}
             plugin.class: org.onehippo.forge.exdocpicker.impl.field.ExternalDocumentFieldSelectorPlugin
@@ -131,9 +141,9 @@ definitions:
             jcr:primaryType: frontend:plugin
             caption: DMS awards
             engine: ${engine}
-            dms.productype: visitscotland:producttype
+            dms.productype: visitscotland:productType
             example.external.docs.field.name: visitscotland:dmsAwards
-            external.document.service.facade: com.visitscotland.brmx.components.DMSAwardPicker
+            external.document.service.facade: com.visitscotland.brxm.components.DMSAwardPicker
             initial.search.enabled: true
             mode: ${mode}
             plugin.class: org.onehippo.forge.exdocpicker.impl.field.ExternalDocumentFieldSelectorPlugin
@@ -158,3 +168,12 @@ definitions:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
               source: /content/documents/administration/options/official-rating
+          /distance:
+            jcr:primaryType: frontend:plugin
+            caption: Distance
+            field: distance
+            hint: ''
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.right.item
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig

@@ -1,0 +1,673 @@
+/content/documents/www.visitscotland.com-fr/test:
+  jcr:primaryType: hippostd:folder
+  jcr:mixinTypes: ['hippotranslation:translated', 'mix:versionable']
+  jcr:uuid: 6562421c-1309-41c1-8cb6-9b2263ac6279
+  hippostd:foldertype: [new-translated-folder, new-document]
+  hippotranslation:id: e41853ef-6556-429d-b5dc-fec0d53afcbb
+  hippotranslation:locale: fr
+  /translation:
+    jcr:primaryType: hippostd:folder
+    jcr:mixinTypes: ['hippotranslation:translated', 'mix:versionable']
+    jcr:uuid: 7775ffee-32ae-4580-8f49-60949ad5b7b5
+    hippostd:foldertype: [new-translated-folder, new-document]
+    hippotranslation:id: 7087a278-a83e-45b7-90e9-a918594edc04
+    hippotranslation:locale: fr
+    /clone-stops:
+      jcr:primaryType: hippostd:folder
+      jcr:mixinTypes: ['hippotranslation:translated', 'mix:versionable']
+      jcr:uuid: cfffdc86-fe6d-40a8-b4e2-9a86b1eb50d7
+      hippostd:foldertype: [new-translated-folder, new-document]
+      hippotranslation:id: 612d61f1-1e7e-4d56-9532-bac935927f2c
+      hippotranslation:locale: fr
+      /itinerary-with-fully-translated-stops:
+        jcr:primaryType: hippostd:folder
+        jcr:mixinTypes: ['hippo:named', 'hippotranslation:translated', 'mix:versionable']
+        jcr:uuid: 45996045-cae8-4773-af36-e5256e24ba2a
+        hippo:name: Itinerary with fully translated Stops
+        hippostd:foldertype: [new-translated-folder, new-document]
+        hippotranslation:id: 5f70c84c-1ecc-4850-99b1-26a7ddf36ea6
+        hippotranslation:locale: fr
+        /shared:
+          jcr:primaryType: hippostd:folder
+          jcr:mixinTypes: ['hippotranslation:translated', 'mix:versionable']
+          jcr:uuid: 17ae87e6-2e17-4d1d-b993-8754456b5cee
+          hippostd:foldertype: [new-translated-folder, new-document]
+          hippotranslation:id: 5903983e-ba15-40b8-a075-6b8aa3ff046b
+          hippotranslation:locale: fr
+          /Stop 1a (FR):
+            jcr:primaryType: hippo:handle
+            jcr:mixinTypes: ['mix:referenceable']
+            jcr:uuid: 532d17b0-c156-4af6-8590-29e73f9673ac
+            /Stop 1a (FR):
+              jcr:primaryType: visitscotland:Stop
+              jcr:mixinTypes: ['mix:versionable']
+              jcr:uuid: 9f337af8-0ba9-4d25-984b-0349a9903597
+              hippo:availability: [preview]
+              hippostd:state: unpublished
+              hippostdpubwf:createdBy: admin
+              hippostdpubwf:creationDate: 2020-07-29T21:41:41.307+01:00
+              hippostdpubwf:lastModificationDate: 2020-07-29T21:47:59.037+01:00
+              hippostdpubwf:lastModifiedBy: admin
+              hippotranslation:id: aae4f228-59cf-438f-88f4-cfd5d0d4dd31
+              hippotranslation:locale: fr
+              visitscotland:subtitle: ''
+              visitscotland:tipsTitle: ''
+              visitscotland:title: stop 1a
+              /visitscotland:description:
+                jcr:primaryType: hippostd:html
+                hippostd:content: <p>description</p>
+              /visitscotland:tips:
+                jcr:primaryType: hippostd:html
+                hippostd:content: ''
+              /visitscotland:image:
+                jcr:primaryType: hippogallerypicker:imagelink
+                hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+                hippo:facets: []
+                hippo:modes: []
+                hippo:values: []
+              /visitscotland:product:
+                jcr:primaryType: visitscotland:DMSLink
+                visitscotland:label: ''
+                visitscotland:product: '123456'
+          /Stop 1b (FR):
+            jcr:primaryType: hippo:handle
+            jcr:mixinTypes: ['mix:referenceable']
+            jcr:uuid: 13dcaec5-ed78-407b-a8f5-a0777cbc91ac
+            /Stop 1b (FR):
+              jcr:primaryType: visitscotland:Stop
+              jcr:mixinTypes: ['mix:versionable']
+              jcr:uuid: b0c8c6fd-7586-463c-b40f-63c2407f0b01
+              hippo:availability: [preview]
+              hippostd:state: unpublished
+              hippostdpubwf:createdBy: admin
+              hippostdpubwf:creationDate: 2020-07-29T21:42:05.697+01:00
+              hippostdpubwf:lastModificationDate: 2020-07-29T21:47:59.116+01:00
+              hippostdpubwf:lastModifiedBy: admin
+              hippotranslation:id: 5caf12a4-09a7-4a30-be53-34e5134504fa
+              hippotranslation:locale: fr
+              visitscotland:subtitle: ''
+              visitscotland:tipsTitle: ''
+              visitscotland:title: stop 1b
+              /visitscotland:description:
+                jcr:primaryType: hippostd:html
+                hippostd:content: <p>description</p>
+              /visitscotland:tips:
+                jcr:primaryType: hippostd:html
+                hippostd:content: ''
+              /visitscotland:image:
+                jcr:primaryType: hippogallerypicker:imagelink
+                hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+                hippo:facets: []
+                hippo:modes: []
+                hippo:values: []
+              /visitscotland:product:
+                jcr:primaryType: visitscotland:DMSLink
+                visitscotland:label: ''
+                visitscotland:product: '123456'
+          /Stop 2a (FR):
+            jcr:primaryType: hippo:handle
+            jcr:mixinTypes: ['mix:referenceable']
+            jcr:uuid: eaf2c32f-883e-406b-a566-2fde477e0146
+            /Stop 2a (FR):
+              jcr:primaryType: visitscotland:Stop
+              jcr:mixinTypes: ['mix:versionable']
+              jcr:uuid: 08cf96a8-bc87-4763-a36c-ccc8e68b41f4
+              hippo:availability: [preview]
+              hippostd:state: unpublished
+              hippostdpubwf:createdBy: admin
+              hippostdpubwf:creationDate: 2020-07-29T21:42:22.126+01:00
+              hippostdpubwf:lastModificationDate: 2020-07-29T21:47:59.206+01:00
+              hippostdpubwf:lastModifiedBy: admin
+              hippotranslation:id: 94cb53fa-b122-4a17-985e-b5bb7f6f1c29
+              hippotranslation:locale: fr
+              visitscotland:subtitle: ''
+              visitscotland:tipsTitle: ''
+              visitscotland:title: stop 2a
+              /visitscotland:description:
+                jcr:primaryType: hippostd:html
+                hippostd:content: <p>description</p>
+              /visitscotland:tips:
+                jcr:primaryType: hippostd:html
+                hippostd:content: ''
+              /visitscotland:image:
+                jcr:primaryType: hippogallerypicker:imagelink
+                hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+                hippo:facets: []
+                hippo:modes: []
+                hippo:values: []
+              /visitscotland:product:
+                jcr:primaryType: visitscotland:DMSLink
+                visitscotland:label: ''
+                visitscotland:product: '123456'
+          /Stop 2b (FR):
+            jcr:primaryType: hippo:handle
+            jcr:mixinTypes: ['mix:referenceable']
+            jcr:uuid: 6027270a-8df2-4b51-85ba-0d412e23cced
+            /Stop 2b (FR):
+              jcr:primaryType: visitscotland:Stop
+              jcr:mixinTypes: ['mix:versionable']
+              jcr:uuid: 469fd832-e66f-4259-b04e-2990bb5b8917
+              hippo:availability: [preview]
+              hippostd:state: unpublished
+              hippostdpubwf:createdBy: admin
+              hippostdpubwf:creationDate: 2020-07-29T21:42:36.729+01:00
+              hippostdpubwf:lastModificationDate: 2020-07-29T21:47:59.287+01:00
+              hippostdpubwf:lastModifiedBy: admin
+              hippotranslation:id: 7fca2220-d404-4832-bf32-e85c0ec7530d
+              hippotranslation:locale: fr
+              visitscotland:subtitle: ''
+              visitscotland:tipsTitle: ''
+              visitscotland:title: stop 2b
+              /visitscotland:description:
+                jcr:primaryType: hippostd:html
+                hippostd:content: <p>description</p>
+              /visitscotland:tips:
+                jcr:primaryType: hippostd:html
+                hippostd:content: ''
+              /visitscotland:image:
+                jcr:primaryType: hippogallerypicker:imagelink
+                hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+                hippo:facets: []
+                hippo:modes: []
+                hippo:values: []
+              /visitscotland:product:
+                jcr:primaryType: visitscotland:DMSLink
+                visitscotland:label: ''
+                visitscotland:product: '123456'
+        /Translated Itinerary (FR):
+          jcr:primaryType: hippo:handle
+          jcr:mixinTypes: ['mix:referenceable']
+          jcr:uuid: eaa7afab-0923-489d-942d-5be5a2dae01f
+          /Translated Itinerary (FR):
+            jcr:primaryType: visitscotland:Itinerary
+            jcr:mixinTypes: ['mix:versionable']
+            jcr:uuid: 02a1fc0d-67eb-45fd-9a02-59a2b92b8e48
+            hippo:availability: [preview]
+            hippostd:state: unpublished
+            hippostdpubwf:createdBy: admin
+            hippostdpubwf:creationDate: 2020-07-29T21:37:27.499+01:00
+            hippostdpubwf:lastModificationDate: 2020-07-29T21:47:59.543+01:00
+            hippostdpubwf:lastModifiedBy: admin
+            hippotranslation:id: 86c356e6-e603-44b1-9fc1-5541bce5c32c
+            hippotranslation:locale: fr
+            visitscotland:areas: [all]
+            visitscotland:breadcrumb: ''
+            visitscotland:distance: 0.0
+            visitscotland:finish: ''
+            visitscotland:highlights: highlights
+            visitscotland:popular: false
+            visitscotland:seoDescription: meta description
+            visitscotland:seoNoIndex: false
+            visitscotland:seoTitle: meta title
+            visitscotland:start: ''
+            visitscotland:teaser: teaser
+            visitscotland:theme: acti
+            visitscotland:title: heading
+            visitscotland:transports: [boat]
+            /visitscotland:heroImage:
+              jcr:primaryType: hippogallerypicker:imagelink
+              hippo:docbase: c3eafb5b-6c18-4caa-9c9a-63279b816630
+              hippo:facets: []
+              hippo:modes: []
+              hippo:values: []
+            /visitscotland:introduction:
+              jcr:primaryType: hippostd:html
+              hippostd:content: <p>introduction</p>
+        /Day 1 (FR):
+          jcr:primaryType: hippo:handle
+          jcr:mixinTypes: ['mix:referenceable']
+          jcr:uuid: 0d2ce442-b638-47c8-88a1-9666fc05410b
+          /Day 1 (FR):
+            jcr:primaryType: visitscotland:Day
+            jcr:mixinTypes: ['mix:versionable']
+            jcr:uuid: 633a145b-eb65-4165-975e-079018b7f518
+            hippo:availability: [preview]
+            hippostd:state: unpublished
+            hippostdpubwf:createdBy: admin
+            hippostdpubwf:creationDate: 2020-07-29T21:38:06.759+01:00
+            hippostdpubwf:lastModificationDate: 2020-07-29T21:47:59.613+01:00
+            hippostdpubwf:lastModifiedBy: admin
+            hippotranslation:id: 58fb0e32-3787-49cd-b6c8-5e75cde2d9ee
+            hippotranslation:locale: fr
+            visitscotland:title: day 1
+            visitscotland:transports: []
+            /visitscotland:introduction:
+              jcr:primaryType: hippostd:html
+              hippostd:content: ''
+            /visitscotland:stops[1]:
+              jcr:primaryType: hippo:mirror
+              hippo:docbase: 9f337af8-0ba9-4d25-984b-0349a9903597
+            /visitscotland:stops[2]:
+              jcr:primaryType: hippo:mirror
+              hippo:docbase: b0c8c6fd-7586-463c-b40f-63c2407f0b01
+        /Day 2 (FR):
+          jcr:primaryType: hippo:handle
+          jcr:mixinTypes: ['mix:referenceable']
+          jcr:uuid: f5143603-636e-48a3-ae3b-c1e2974c3354
+          /Day 2 (FR):
+            jcr:primaryType: visitscotland:Day
+            jcr:mixinTypes: ['mix:versionable']
+            jcr:uuid: c3ac3900-516e-477c-9233-c2bff9ae1e5d
+            hippo:availability: [preview]
+            hippostd:state: unpublished
+            hippostdpubwf:createdBy: admin
+            hippostdpubwf:creationDate: 2020-07-29T21:38:22.662+01:00
+            hippostdpubwf:lastModificationDate: 2020-07-29T21:47:59.738+01:00
+            hippostdpubwf:lastModifiedBy: admin
+            hippotranslation:id: 39b91d46-d8d9-444b-b5e9-004f8fd653f9
+            hippotranslation:locale: fr
+            visitscotland:title: day 2
+            visitscotland:transports: []
+            /visitscotland:introduction:
+              jcr:primaryType: hippostd:html
+              hippostd:content: ''
+            /visitscotland:stops[1]:
+              jcr:primaryType: hippo:mirror
+              hippo:docbase: 08cf96a8-bc87-4763-a36c-ccc8e68b41f4
+            /visitscotland:stops[2]:
+              jcr:primaryType: hippo:mirror
+              hippo:docbase: 469fd832-e66f-4259-b04e-2990bb5b8917
+      /itinerary-with-partially-translated-stops:
+        jcr:primaryType: hippostd:folder
+        jcr:mixinTypes: ['hippo:named', 'hippotranslation:translated', 'mix:versionable']
+        jcr:uuid: 8a290d9f-0957-46c7-97eb-76189bd60c13
+        hippo:name: Itinerary with partially translated Stops
+        hippostd:foldertype: [new-translated-folder, new-document]
+        hippotranslation:id: cb0fb769-5ddb-490d-9271-c3d0fc0b51da
+        hippotranslation:locale: fr
+        /shared:
+          jcr:primaryType: hippostd:folder
+          jcr:mixinTypes: ['hippotranslation:translated', 'mix:versionable']
+          jcr:uuid: d830c4ef-a2e7-4336-b494-08e2f55da749
+          hippostd:foldertype: [new-translated-folder, new-document]
+          hippotranslation:id: 4cededfc-ddb1-4377-9217-3232898361d5
+          hippotranslation:locale: fr
+          /Stop 1a (FR):
+            jcr:primaryType: hippo:handle
+            jcr:mixinTypes: ['mix:referenceable']
+            jcr:uuid: 80400e58-c1e1-4fca-b6a2-b64bb808473e
+            /Stop 1a (FR):
+              jcr:primaryType: visitscotland:Stop
+              jcr:mixinTypes: ['mix:versionable']
+              jcr:uuid: e0bc6554-7f78-453d-a108-59bdb760fc3f
+              hippo:availability: [preview]
+              hippostd:state: unpublished
+              hippostdpubwf:createdBy: admin
+              hippostdpubwf:creationDate: 2020-07-29T21:41:41.307+01:00
+              hippostdpubwf:lastModificationDate: 2020-07-29T21:52:47.520+01:00
+              hippostdpubwf:lastModifiedBy: admin
+              hippotranslation:id: b3dbfba0-a428-403e-8220-836b099015a8
+              hippotranslation:locale: fr
+              visitscotland:subtitle: ''
+              visitscotland:tipsTitle: ''
+              visitscotland:title: stop 1a
+              /visitscotland:description:
+                jcr:primaryType: hippostd:html
+                hippostd:content: <p>description</p>
+              /visitscotland:tips:
+                jcr:primaryType: hippostd:html
+                hippostd:content: ''
+              /visitscotland:image:
+                jcr:primaryType: hippogallerypicker:imagelink
+                hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+                hippo:facets: []
+                hippo:modes: []
+                hippo:values: []
+              /visitscotland:product:
+                jcr:primaryType: visitscotland:DMSLink
+                visitscotland:label: ''
+                visitscotland:product: '123456'
+          /Stop 2a (FR):
+            jcr:primaryType: hippo:handle
+            jcr:mixinTypes: ['mix:referenceable']
+            jcr:uuid: 0e915a55-3408-48c3-9429-77016f5804d8
+            /Stop 2a (FR):
+              jcr:primaryType: visitscotland:Stop
+              jcr:mixinTypes: ['mix:versionable']
+              jcr:uuid: 40ff8627-63b2-4c4e-80ea-db3e8542337c
+              hippo:availability: [preview]
+              hippostd:state: unpublished
+              hippostdpubwf:createdBy: admin
+              hippostdpubwf:creationDate: 2020-07-29T21:42:22.126+01:00
+              hippostdpubwf:lastModificationDate: 2020-07-29T21:52:47.839+01:00
+              hippostdpubwf:lastModifiedBy: admin
+              hippotranslation:id: 19541a23-a1cf-416e-9c8a-c0c176af72c7
+              hippotranslation:locale: fr
+              visitscotland:subtitle: ''
+              visitscotland:tipsTitle: ''
+              visitscotland:title: stop 2a
+              /visitscotland:description:
+                jcr:primaryType: hippostd:html
+                hippostd:content: <p>description</p>
+              /visitscotland:tips:
+                jcr:primaryType: hippostd:html
+                hippostd:content: ''
+              /visitscotland:image:
+                jcr:primaryType: hippogallerypicker:imagelink
+                hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+                hippo:facets: []
+                hippo:modes: []
+                hippo:values: []
+              /visitscotland:product:
+                jcr:primaryType: visitscotland:DMSLink
+                visitscotland:label: ''
+                visitscotland:product: '123456'
+        /Translated Itinerary (FR):
+          jcr:primaryType: hippo:handle
+          jcr:mixinTypes: ['mix:referenceable']
+          jcr:uuid: f000a171-be1a-4b22-95e0-f7d39b27b412
+          /Translated Itinerary (FR):
+            jcr:primaryType: visitscotland:Itinerary
+            jcr:mixinTypes: ['mix:versionable']
+            jcr:uuid: 331255ea-b991-4ef8-983c-2c72829194f4
+            hippo:availability: [preview]
+            hippostd:state: unpublished
+            hippostdpubwf:createdBy: admin
+            hippostdpubwf:creationDate: 2020-07-29T21:37:27.499+01:00
+            hippostdpubwf:lastModificationDate: 2020-07-29T21:52:48.057+01:00
+            hippostdpubwf:lastModifiedBy: admin
+            hippotranslation:id: 95afeffd-00d5-4fd4-8fba-63d35154a2a0
+            hippotranslation:locale: fr
+            visitscotland:areas: [all]
+            visitscotland:breadcrumb: ''
+            visitscotland:distance: 0.0
+            visitscotland:finish: ''
+            visitscotland:highlights: highlights
+            visitscotland:popular: false
+            visitscotland:seoDescription: meta description
+            visitscotland:seoNoIndex: false
+            visitscotland:seoTitle: meta title
+            visitscotland:start: ''
+            visitscotland:teaser: teaser
+            visitscotland:theme: acti
+            visitscotland:title: heading
+            visitscotland:transports: [boat]
+            /visitscotland:heroImage:
+              jcr:primaryType: hippogallerypicker:imagelink
+              hippo:docbase: c3eafb5b-6c18-4caa-9c9a-63279b816630
+              hippo:facets: []
+              hippo:modes: []
+              hippo:values: []
+            /visitscotland:introduction:
+              jcr:primaryType: hippostd:html
+              hippostd:content: <p>introduction</p>
+      /itinerary-with-same-name-sibling-stops:
+        jcr:primaryType: hippostd:folder
+        jcr:mixinTypes: ['hippo:named', 'hippotranslation:translated', 'mix:versionable']
+        jcr:uuid: e71fd90c-1037-442b-bfce-d1080dd01f11
+        hippo:name: Itinerary with same name sibling Stops
+        hippostd:foldertype: [new-translated-folder, new-document]
+        hippotranslation:id: 6125122c-c0b1-4455-886f-5bc601c88df9
+        hippotranslation:locale: fr
+        /shared:
+          jcr:primaryType: hippostd:folder
+          jcr:mixinTypes: ['hippotranslation:translated', 'mix:versionable']
+          jcr:uuid: aface37a-e060-4eb8-a866-bb56fec193fd
+          hippostd:foldertype: [new-translated-folder, new-document]
+          hippotranslation:id: 44247db3-77e6-4cea-a7c0-9eb4f8dd21a7
+          hippotranslation:locale: fr
+          /Stop 1a (FR):
+            jcr:primaryType: hippo:handle
+            jcr:mixinTypes: ['mix:referenceable']
+            jcr:uuid: 6634c5bf-207e-456e-ad3e-37a4cdc6d97f
+            /Stop 1a (FR):
+              jcr:primaryType: visitscotland:Stop
+              jcr:mixinTypes: ['mix:versionable']
+              jcr:uuid: 14d1f17f-463f-4757-9a39-d26fa612c8e0
+              hippo:availability: [preview]
+              hippostd:state: unpublished
+              hippostdpubwf:createdBy: admin
+              hippostdpubwf:creationDate: 2020-07-29T21:41:41.307+01:00
+              hippostdpubwf:lastModificationDate: 2020-07-29T22:01:29.327+01:00
+              hippostdpubwf:lastModifiedBy: admin
+              hippotranslation:id: 68acbece-aad9-4790-a825-87b2fab8b27a
+              hippotranslation:locale: fr
+              visitscotland:subtitle: ''
+              visitscotland:tipsTitle: ''
+              visitscotland:title: stop 1a
+              /visitscotland:description:
+                jcr:primaryType: hippostd:html
+                hippostd:content: <p>description</p>
+              /visitscotland:tips:
+                jcr:primaryType: hippostd:html
+                hippostd:content: ''
+              /visitscotland:image:
+                jcr:primaryType: hippogallerypicker:imagelink
+                hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+                hippo:facets: []
+                hippo:modes: []
+                hippo:values: []
+              /visitscotland:product:
+                jcr:primaryType: visitscotland:DMSLink
+                visitscotland:label: ''
+                visitscotland:product: '123456'
+          /Stop 2a (FR):
+            jcr:primaryType: hippo:handle
+            jcr:mixinTypes: ['mix:referenceable']
+            jcr:uuid: 6babf76a-3894-4a40-98d8-03a9c61a3daf
+            /Stop 2a (FR):
+              jcr:primaryType: visitscotland:Stop
+              jcr:mixinTypes: ['mix:versionable']
+              jcr:uuid: d5f1cea2-85cd-4818-b2a6-389d4756d86c
+              hippo:availability: [preview]
+              hippostd:state: unpublished
+              hippostdpubwf:createdBy: admin
+              hippostdpubwf:creationDate: 2020-07-29T21:42:22.126+01:00
+              hippostdpubwf:lastModificationDate: 2020-07-29T22:01:29.493+01:00
+              hippostdpubwf:lastModifiedBy: admin
+              hippotranslation:id: 6b538bb1-cec7-4a7f-957d-ed7acf16d109
+              hippotranslation:locale: fr
+              visitscotland:subtitle: ''
+              visitscotland:tipsTitle: ''
+              visitscotland:title: stop 2a
+              /visitscotland:description:
+                jcr:primaryType: hippostd:html
+                hippostd:content: <p>description</p>
+              /visitscotland:tips:
+                jcr:primaryType: hippostd:html
+                hippostd:content: ''
+              /visitscotland:image:
+                jcr:primaryType: hippogallerypicker:imagelink
+                hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+                hippo:facets: []
+                hippo:modes: []
+                hippo:values: []
+              /visitscotland:product:
+                jcr:primaryType: visitscotland:DMSLink
+                visitscotland:label: ''
+                visitscotland:product: '123456'
+          /Stop 2b (FR):
+            jcr:primaryType: hippo:handle
+            jcr:mixinTypes: ['mix:referenceable']
+            jcr:uuid: 36dcf6c3-3716-4b24-bbb7-a760adfa4e29
+            /Stop 2b (FR):
+              jcr:primaryType: visitscotland:Stop
+              jcr:mixinTypes: ['mix:versionable']
+              jcr:uuid: e6752009-246a-4432-9c25-4e6c115fdaf6
+              hippo:availability: [preview]
+              hippostd:state: unpublished
+              hippostdpubwf:createdBy: admin
+              hippostdpubwf:creationDate: 2020-07-29T21:42:36.729+01:00
+              hippostdpubwf:lastModificationDate: 2020-07-29T22:01:29.642+01:00
+              hippostdpubwf:lastModifiedBy: admin
+              hippotranslation:id: 9e65623a-7669-4fde-9326-b05bdbde1a16
+              hippotranslation:locale: fr
+              visitscotland:subtitle: ''
+              visitscotland:tipsTitle: ''
+              visitscotland:title: stop 2b
+              /visitscotland:description:
+                jcr:primaryType: hippostd:html
+                hippostd:content: <p>description</p>
+              /visitscotland:tips:
+                jcr:primaryType: hippostd:html
+                hippostd:content: ''
+              /visitscotland:image:
+                jcr:primaryType: hippogallerypicker:imagelink
+                hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+                hippo:facets: []
+                hippo:modes: []
+                hippo:values: []
+              /visitscotland:product:
+                jcr:primaryType: visitscotland:DMSLink
+                visitscotland:label: ''
+                visitscotland:product: '123456'
+          /stop-1b:
+            jcr:primaryType: hippo:handle
+            jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+            jcr:uuid: 6ae533ce-1287-495b-b27f-c7a922c8573e
+            hippo:name: Stop 1b
+            /stop-1b[1]:
+              jcr:primaryType: visitscotland:Stop
+              jcr:mixinTypes: ['mix:referenceable']
+              jcr:uuid: cf915ea6-2327-4192-a01f-0a768b66ec52
+              hippo:availability: []
+              hippostd:state: draft
+              hippostdpubwf:createdBy: admin
+              hippostdpubwf:creationDate: 2020-07-29T22:03:25.564+01:00
+              hippostdpubwf:lastModificationDate: 2020-07-29T22:03:25.564+01:00
+              hippostdpubwf:lastModifiedBy: admin
+              hippotranslation:id: 486109b6-fda6-4787-892e-85702f106f90
+              hippotranslation:locale: fr
+              visitscotland:subtitle: ''
+              visitscotland:tipsTitle: ''
+              visitscotland:title: stop 1b sns
+              /visitscotland:description:
+                jcr:primaryType: hippostd:html
+                hippostd:content: <p>description</p>
+              /visitscotland:tips:
+                jcr:primaryType: hippostd:html
+                hippostd:content: ''
+              /visitscotland:image:
+                jcr:primaryType: hippogallerypicker:imagelink
+                hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+                hippo:facets: []
+                hippo:modes: []
+                hippo:values: []
+              /visitscotland:product:
+                jcr:primaryType: visitscotland:DMSLink
+                visitscotland:label: ''
+                visitscotland:product: '123456'
+            /stop-1b[2]:
+              jcr:primaryType: visitscotland:Stop
+              jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+              jcr:uuid: fcaa4b03-53d4-45dd-ba9a-e4433b6c310a
+              hippo:availability: [preview]
+              hippostd:state: unpublished
+              hippostdpubwf:createdBy: admin
+              hippostdpubwf:creationDate: 2020-07-29T22:03:25.564+01:00
+              hippostdpubwf:lastModificationDate: 2020-07-29T22:03:49.483+01:00
+              hippostdpubwf:lastModifiedBy: admin
+              hippotranslation:id: 486109b6-fda6-4787-892e-85702f106f90
+              hippotranslation:locale: fr
+              visitscotland:subtitle: ''
+              visitscotland:tipsTitle: ''
+              visitscotland:title: stop 1b sns
+              /visitscotland:description:
+                jcr:primaryType: hippostd:html
+                hippostd:content: <p>description</p>
+              /visitscotland:tips:
+                jcr:primaryType: hippostd:html
+                hippostd:content: ''
+              /visitscotland:image:
+                jcr:primaryType: hippogallerypicker:imagelink
+                hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+                hippo:facets: []
+                hippo:modes: []
+                hippo:values: []
+              /visitscotland:product:
+                jcr:primaryType: visitscotland:DMSLink
+                visitscotland:label: ''
+                visitscotland:product: '123456'
+        /Translated Itinerary (FR):
+          jcr:primaryType: hippo:handle
+          jcr:mixinTypes: ['mix:referenceable']
+          jcr:uuid: b694985d-ea8e-4f6f-ab14-13e188271703
+          /Translated Itinerary (FR):
+            jcr:primaryType: visitscotland:Itinerary
+            jcr:mixinTypes: ['mix:versionable']
+            jcr:uuid: 6a813636-5f3b-47ee-a38a-85066aa6d6e8
+            hippo:availability: [preview]
+            hippostd:state: unpublished
+            hippostdpubwf:createdBy: admin
+            hippostdpubwf:creationDate: 2020-07-29T21:37:27.499+01:00
+            hippostdpubwf:lastModificationDate: 2020-07-29T22:01:29.750+01:00
+            hippostdpubwf:lastModifiedBy: admin
+            hippotranslation:id: a53f2948-961c-428b-b8c3-856f09735022
+            hippotranslation:locale: fr
+            visitscotland:areas: [all]
+            visitscotland:breadcrumb: ''
+            visitscotland:distance: 0.0
+            visitscotland:finish: ''
+            visitscotland:highlights: highlights
+            visitscotland:popular: false
+            visitscotland:seoDescription: meta description
+            visitscotland:seoNoIndex: false
+            visitscotland:seoTitle: meta title
+            visitscotland:start: ''
+            visitscotland:teaser: teaser
+            visitscotland:theme: acti
+            visitscotland:title: heading
+            visitscotland:transports: [boat]
+            /visitscotland:heroImage:
+              jcr:primaryType: hippogallerypicker:imagelink
+              hippo:docbase: c3eafb5b-6c18-4caa-9c9a-63279b816630
+              hippo:facets: []
+              hippo:modes: []
+              hippo:values: []
+            /visitscotland:introduction:
+              jcr:primaryType: hippostd:html
+              hippostd:content: <p>introduction</p>
+        /Day 1 (FR):
+          jcr:primaryType: hippo:handle
+          jcr:mixinTypes: ['mix:referenceable']
+          jcr:uuid: 5997c461-9561-4b8d-88be-9a9dfd027c23
+          /Day 1 (FR):
+            jcr:primaryType: visitscotland:Day
+            jcr:mixinTypes: ['mix:versionable']
+            jcr:uuid: 4cf4599d-5195-4ff5-9395-deb0f8f0a767
+            hippo:availability: [preview]
+            hippostd:state: unpublished
+            hippostdpubwf:createdBy: admin
+            hippostdpubwf:creationDate: 2020-07-29T21:38:06.759+01:00
+            hippostdpubwf:lastModificationDate: 2020-07-29T22:01:29.849+01:00
+            hippostdpubwf:lastModifiedBy: admin
+            hippotranslation:id: e41d488b-372c-49a6-b5d9-1e8f1cb0ff25
+            hippotranslation:locale: fr
+            visitscotland:title: day 1
+            visitscotland:transports: []
+            /visitscotland:introduction:
+              jcr:primaryType: hippostd:html
+              hippostd:content: ''
+            /visitscotland:stops[1]:
+              jcr:primaryType: hippo:mirror
+              hippo:docbase: 14d1f17f-463f-4757-9a39-d26fa612c8e0
+            /visitscotland:stops[2]:
+              jcr:primaryType: hippo:mirror
+              hippo:docbase: 1c8d13dc-e201-4955-a09f-3d0f1745945b
+        /Day 2 (FR):
+          jcr:primaryType: hippo:handle
+          jcr:mixinTypes: ['mix:referenceable']
+          jcr:uuid: 950efe9d-aaaa-482d-81f3-0bfcb06c5bb9
+          /Day 2 (FR):
+            jcr:primaryType: visitscotland:Day
+            jcr:mixinTypes: ['mix:versionable']
+            jcr:uuid: 2cec1a5d-9d31-437b-8116-23e5253326ea
+            hippo:availability: [preview]
+            hippostd:state: unpublished
+            hippostdpubwf:createdBy: admin
+            hippostdpubwf:creationDate: 2020-07-29T21:38:22.662+01:00
+            hippostdpubwf:lastModificationDate: 2020-07-29T22:01:30.012+01:00
+            hippostdpubwf:lastModifiedBy: admin
+            hippotranslation:id: d966ce4c-0612-4162-9b25-31fa80f5d187
+            hippotranslation:locale: fr
+            visitscotland:title: day 2
+            visitscotland:transports: []
+            /visitscotland:introduction:
+              jcr:primaryType: hippostd:html
+              hippostd:content: ''
+            /visitscotland:stops[1]:
+              jcr:primaryType: hippo:mirror
+              hippo:docbase: d5f1cea2-85cd-4818-b2a6-389d4756d86c
+            /visitscotland:stops[2]:
+              jcr:primaryType: hippo:mirror
+              hippo:docbase: e6752009-246a-4432-9c25-4e6c115fdaf6

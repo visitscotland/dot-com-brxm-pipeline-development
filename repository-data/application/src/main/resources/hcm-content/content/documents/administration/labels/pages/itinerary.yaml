@@ -1,0 +1,323 @@
+/content/documents/administration/labels/pages/itinerary:
+  .meta:order-before: homepage
+  jcr:primaryType: hippostd:folder
+  jcr:mixinTypes: ['hippo:named', 'mix:versionable']
+  jcr:uuid: e77ddf0a-f8a0-497e-8787-472fbe124674
+  hippo:name: Itinerary
+  hippostd:foldertype: [new-untranslated-folder-resource-bundle, new-resource-bundle]
+  /transports:
+    jcr:primaryType: hippo:handle
+    jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+    jcr:uuid: d63cf4a8-7f3c-446f-af1e-61bbb0f25bbb
+    hippo:name: Transports
+    hippo:versionHistory: 34c6b132-6772-4273-9108-c47361f2d361
+    /transports[1]:
+      jcr:primaryType: resourcebundle:resourcebundle
+      jcr:mixinTypes: ['mix:referenceable']
+      jcr:uuid: f1f5c160-67a0-4cb4-9bc1-4b755eacc20d
+      hippo:availability: []
+      hippostd:state: draft
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2020-02-25T16:17:28.422Z
+      hippostdpubwf:lastModificationDate: 2021-01-22T18:03:40.017Z
+      hippostdpubwf:lastModifiedBy: admin
+      resourcebundle:descriptions: ['', '', '', '', '', '', '', '']
+      resourcebundle:id: transports
+      resourcebundle:keys: [car, boat, bus, cycling, ferry, public, train, walking]
+      resourcebundle:messages: [Car, Boat, Bus, Cycling, Ferry, Public transport,
+        Train, Walking]
+      resourcebundle:messages_de: ['', '', '', '', '', '', '', '']
+      resourcebundle:messages_es: ['', '', '', '', '', '', '', '']
+      resourcebundle:messages_fr: ['', '', '', '', '', '', '', '']
+      resourcebundle:messages_it: ['', '', '', '', '', '', '', '']
+      resourcebundle:messages_nl: ['', '', '', '', '', '', '', '']
+    /transports[2]:
+      jcr:primaryType: resourcebundle:resourcebundle
+      jcr:mixinTypes: ['mix:versionable']
+      jcr:uuid: 8ebdf184-6fb1-40c0-9955-afa571aeb3bf
+      hippo:availability: [preview]
+      hippostd:state: unpublished
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2020-02-25T16:17:28.422Z
+      hippostdpubwf:lastModificationDate: 2021-01-22T18:04:00.712Z
+      hippostdpubwf:lastModifiedBy: admin
+      resourcebundle:descriptions: ['', '', '', '', '', '', '', '']
+      resourcebundle:id: transports
+      resourcebundle:keys: [car, boat, bus, cycling, ferry, public, train, walking]
+      resourcebundle:messages: [Car, Boat, Bus, Cycling, Ferry, Public transport,
+        Train, Walking]
+      resourcebundle:messages_de: ['', '', '', '', '', '', '', '']
+      resourcebundle:messages_es: ['', '', '', '', '', '', '', '']
+      resourcebundle:messages_fr: ['', '', '', '', '', '', '', '']
+      resourcebundle:messages_it: ['', '', '', '', '', '', '', '']
+      resourcebundle:messages_nl: ['', '', '', '', '', '', '', '']
+    /transports[3]:
+      jcr:primaryType: resourcebundle:resourcebundle
+      jcr:mixinTypes: ['mix:referenceable']
+      jcr:uuid: a7369477-6dae-4331-ae95-227ab4de125c
+      hippo:availability: [live]
+      hippostd:state: published
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2020-02-25T16:17:28.422Z
+      hippostdpubwf:lastModificationDate: 2021-01-22T18:04:00.712Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippostdpubwf:publicationDate: 2021-01-22T18:04:02.039Z
+      resourcebundle:descriptions: ['', '', '', '', '', '', '', '']
+      resourcebundle:id: transports
+      resourcebundle:keys: [car, boat, bus, cycling, ferry, public, train, walking]
+      resourcebundle:messages: [Car, Boat, Bus, Cycling, Ferry, Public transport,
+        Train, Walking]
+      resourcebundle:messages_de: ['', '', '', '', '', '', '', '']
+      resourcebundle:messages_es: ['', '', '', '', '', '', '', '']
+      resourcebundle:messages_fr: ['', '', '', '', '', '', '', '']
+      resourcebundle:messages_it: ['', '', '', '', '', '', '', '']
+      resourcebundle:messages_nl: ['', '', '', '', '', '', '', '']
+  /areas:
+    jcr:primaryType: hippo:handle
+    jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+    jcr:uuid: 022be4c0-9edf-4cb2-a28b-491040a53f5e
+    hippo:name: Areas
+    hippo:versionHistory: 6b31332d-9351-41cf-acbc-ccdf77304221
+    /areas[1]:
+      jcr:primaryType: resourcebundle:resourcebundle
+      jcr:mixinTypes: ['mix:referenceable']
+      jcr:uuid: 5f1dc658-a3fd-4a26-b3e7-be2e11da5651
+      hippo:availability: []
+      hippostd:state: draft
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2020-02-25T16:21:28.079Z
+      hippostdpubwf:lastModificationDate: 2021-01-22T18:04:03.798Z
+      hippostdpubwf:lastModifiedBy: admin
+      resourcebundle:descriptions: ['', '', '', '', '']
+      resourcebundle:id: areas
+      resourcebundle:keys: [all, west, east, south, north]
+      resourcebundle:messages: [All, West, East, South, North]
+      resourcebundle:messages_de: ['', '', '', '', '']
+      resourcebundle:messages_es: ['', '', '', '', '']
+      resourcebundle:messages_fr: ['', '', '', '', '']
+      resourcebundle:messages_it: ['', '', '', '', '']
+      resourcebundle:messages_nl: ['', '', '', '', '']
+    /areas[2]:
+      jcr:primaryType: resourcebundle:resourcebundle
+      jcr:mixinTypes: ['mix:versionable']
+      jcr:uuid: f6d00141-7adb-426e-8a95-ce361867b5f4
+      hippo:availability: [preview]
+      hippostd:state: unpublished
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2020-02-25T16:21:28.079Z
+      hippostdpubwf:lastModificationDate: 2021-01-22T18:04:34.938Z
+      hippostdpubwf:lastModifiedBy: admin
+      resourcebundle:descriptions: ['', '', '', '', '']
+      resourcebundle:id: areas
+      resourcebundle:keys: [all, west, east, south, north]
+      resourcebundle:messages: [All, West, East, South, North]
+      resourcebundle:messages_de: ['', '', '', '', '']
+      resourcebundle:messages_es: ['', '', '', '', '']
+      resourcebundle:messages_fr: ['', '', '', '', '']
+      resourcebundle:messages_it: ['', '', '', '', '']
+      resourcebundle:messages_nl: ['', '', '', '', '']
+    /areas[3]:
+      jcr:primaryType: resourcebundle:resourcebundle
+      jcr:mixinTypes: ['mix:referenceable']
+      jcr:uuid: 107cb6ed-ec61-438c-a68a-30d540300b83
+      hippo:availability: [live]
+      hippostd:state: published
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2020-02-25T16:21:28.079Z
+      hippostdpubwf:lastModificationDate: 2021-01-22T18:04:34.938Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippostdpubwf:publicationDate: 2021-01-22T18:04:36.656Z
+      resourcebundle:descriptions: ['', '', '', '', '']
+      resourcebundle:id: areas
+      resourcebundle:keys: [all, west, east, south, north]
+      resourcebundle:messages: [All, West, East, South, North]
+      resourcebundle:messages_de: ['', '', '', '', '']
+      resourcebundle:messages_es: ['', '', '', '', '']
+      resourcebundle:messages_fr: ['', '', '', '', '']
+      resourcebundle:messages_it: ['', '', '', '', '']
+      resourcebundle:messages_nl: ['', '', '', '', '']
+  /themes:
+    jcr:primaryType: hippo:handle
+    jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+    jcr:uuid: 4ac99bf5-c44d-46e2-bc17-0b4ae8bcc065
+    hippo:name: Themes
+    hippo:versionHistory: 52822cfb-e9db-4416-8ffc-818549acfc80
+    /themes[1]:
+      jcr:primaryType: resourcebundle:resourcebundle
+      jcr:mixinTypes: ['mix:referenceable']
+      jcr:uuid: ca3011df-b044-4c8d-a651-d4a140b878ad
+      hippo:availability: []
+      hippostd:state: draft
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2020-02-25T16:23:10.355Z
+      hippostdpubwf:lastModificationDate: 2021-01-22T18:04:38.201Z
+      hippostdpubwf:lastModifiedBy: admin
+      resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '', '', '']
+      resourcebundle:id: themes
+      resourcebundle:keys: [acti, castle, city, familyev, history, islands, landscapes,
+        sightseeing, filmev, spahealth, whisky]
+      resourcebundle:messages: [Activities, Castles, Cities, Families, History, Islands,
+        Landscapes, Sightseeing, TV & Film, Wellness, Whisky]
+      resourcebundle:messages_de: ['', '', '', '', '', '', '', '', '', '', '']
+      resourcebundle:messages_es: ['', '', '', '', '', '', '', '', '', '', '']
+      resourcebundle:messages_fr: ['', '', '', '', '', '', '', '', '', '', '']
+      resourcebundle:messages_it: ['', '', '', '', '', '', '', '', '', '', '']
+      resourcebundle:messages_nl: ['', '', '', '', '', '', '', '', '', '', '']
+    /themes[2]:
+      jcr:primaryType: resourcebundle:resourcebundle
+      jcr:mixinTypes: ['mix:versionable']
+      jcr:uuid: 2aae4eab-85cc-411f-bc2f-8480fe7e5a67
+      hippo:availability: [preview]
+      hippostd:state: unpublished
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2020-02-25T16:23:10.355Z
+      hippostdpubwf:lastModificationDate: 2021-01-22T18:05:03.308Z
+      hippostdpubwf:lastModifiedBy: admin
+      resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '', '', '']
+      resourcebundle:id: themes
+      resourcebundle:keys: [acti, castle, city, familyev, history, islands, landscapes,
+        sightseeing, filmev, spahealth, whisky]
+      resourcebundle:messages: [Activities, Castles, Cities, Families, History, Islands,
+        Landscapes, Sightseeing, TV & Film, Wellness, Whisky]
+      resourcebundle:messages_de: ['', '', '', '', '', '', '', '', '', '', '']
+      resourcebundle:messages_es: ['', '', '', '', '', '', '', '', '', '', '']
+      resourcebundle:messages_fr: ['', '', '', '', '', '', '', '', '', '', '']
+      resourcebundle:messages_it: ['', '', '', '', '', '', '', '', '', '', '']
+      resourcebundle:messages_nl: ['', '', '', '', '', '', '', '', '', '', '']
+    /themes[3]:
+      jcr:primaryType: resourcebundle:resourcebundle
+      jcr:mixinTypes: ['mix:referenceable']
+      jcr:uuid: c5eeabf7-efac-4f4f-9576-846682a588dd
+      hippo:availability: [live]
+      hippostd:state: published
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2020-02-25T16:23:10.355Z
+      hippostdpubwf:lastModificationDate: 2021-01-22T18:05:03.308Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippostdpubwf:publicationDate: 2021-01-22T18:05:04.814Z
+      resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '', '', '']
+      resourcebundle:id: themes
+      resourcebundle:keys: [acti, castle, city, familyev, history, islands, landscapes,
+        sightseeing, filmev, spahealth, whisky]
+      resourcebundle:messages: [Activities, Castles, Cities, Families, History, Islands,
+        Landscapes, Sightseeing, TV & Film, Wellness, Whisky]
+      resourcebundle:messages_de: ['', '', '', '', '', '', '', '', '', '', '']
+      resourcebundle:messages_es: ['', '', '', '', '', '', '', '', '', '', '']
+      resourcebundle:messages_fr: ['', '', '', '', '', '', '', '', '', '', '']
+      resourcebundle:messages_it: ['', '', '', '', '', '', '', '', '', '', '']
+      resourcebundle:messages_nl: ['', '', '', '', '', '', '', '', '', '', '']
+  /itineraries:
+    jcr:primaryType: hippo:handle
+    jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+    jcr:uuid: 97e64157-de1c-4f91-93db-5062825421b4
+    hippo:name: Itinerary Page
+    hippo:versionHistory: cd6b80a0-8c74-4cfe-a7fd-78945f5278b6
+    /itineraries[1]:
+      jcr:primaryType: resourcebundle:resourcebundle
+      jcr:mixinTypes: ['mix:referenceable']
+      jcr:uuid: 667af60a-2bda-42de-9370-62d8a1cca651
+      hippo:availability: []
+      hippostd:state: draft
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2019-12-16T14:56:24.091Z
+      hippostdpubwf:lastModificationDate: 2021-01-22T18:05:10.818Z
+      hippostdpubwf:lastModifiedBy: admin
+      resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '', '', '', '',
+        '', '', '', '', '', '', '', '', '', '', '', '', '', 'This field is to define
+          a range of time like: 9:00am to 13:00pm', '', '', '']
+      resourcebundle:id: itinerary
+      resourcebundle:keys: [stop.nearby-stay, stop.nearby-eat, stop.cta, stop.title,
+        start-finish, days, distance, themes, miles-abbreviation, kilometres-abbreviation,
+        transport, day, miles, kilometres, highlights, areas-covered, stop.no-stop,
+        stop.time-to-explore, theme, stop.opening, stop.hour, stop.hours, stop.usually,
+        stop.provisionally, stop.today, stop.to, stop.open, stop.closed, stop.close.soon]
+      resourcebundle:messages: [Nearby places to stay, Nearby places to eat, Find
+          out more, Stop, Start / Finish, Days, Distance, Main Themes, mi, km, Transport,
+        Day, Miles, Kilometres, Highlights, Areas Covered, The stop doesn't have any
+          product linked to the stop, Time to explore, Main Theme, Check opening times,
+        hour, hours, Usually, Provisionally, today, to, Open, Closed, Closing soon]
+      resourcebundle:messages_de: ['', '', '', '', '', '', '', '', '', '', '', '',
+        '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '']
+      resourcebundle:messages_es: ['¿Dónde pasar la noche?', '¿Dónde podría cenar
+          y desayunar?', Averigua más informcación, Parada, Inicio / Fin, días, Distancia,
+        Temática, mi, km, Transporte, Día, Millas, Kilómetros, Destacado, Areas cubiertas,
+        '', Tiempo recomendado, '', '', '', '', '', '', '', '', '', '', '']
+      resourcebundle:messages_fr: ['', '', '', '', '', '', '', '', '', '', '', '',
+        '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '']
+      resourcebundle:messages_it: ['', '', '', '', '', '', '', '', '', '', '', '',
+        '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '']
+      resourcebundle:messages_nl: ['', '', '', '', '', '', '', '', '', '', '', '',
+        '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '']
+    /itineraries[2]:
+      jcr:primaryType: resourcebundle:resourcebundle
+      jcr:mixinTypes: ['mix:versionable']
+      jcr:uuid: 746ac7fb-2150-4d67-ab63-c25795c4b510
+      hippo:availability: [preview]
+      hippostd:state: unpublished
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2019-12-16T14:56:24.091Z
+      hippostdpubwf:lastModificationDate: 2021-01-22T17:37:07.643Z
+      hippostdpubwf:lastModifiedBy: admin
+      resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '', '', '', '',
+        '', '', '', '', '', '', '', '', '', '', '', '', '', 'This field is to define
+          a range of time like: 9:00am to 13:00pm', '', '', '']
+      resourcebundle:id: itinerary
+      resourcebundle:keys: [stop.nearby-stay, stop.nearby-eat, stop.cta, stop.title,
+        start-finish, days, distance, themes, miles-abbreviation, kilometres-abbreviation,
+        transport, day, miles, kilometres, highlights, areas-covered, stop.no-stop,
+        stop.time-to-explore, theme, stop.opening, stop.hour, stop.hours, stop.usually,
+        stop.provisionally, stop.today, stop.to, stop.open, stop.closed, stop.close.soon]
+      resourcebundle:messages: [Nearby places to stay, Nearby places to eat, Find
+          out more, Stop, Start / Finish, Days, Distance, Main Themes, mi, km, Transport,
+        Day, Miles, Kilometres, Highlights, Areas Covered, The stop doesn't have any
+          product linked to the stop, Time to explore, Main Theme, Check opening times,
+        hour, hours, Usually, Provisionally, today, to, Open, Closed, Closing soon]
+      resourcebundle:messages_de: ['', '', '', '', '', '', '', '', '', '', '', '',
+        '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '']
+      resourcebundle:messages_es: ['¿Dónde pasar la noche?', '¿Dónde podría cenar
+          y desayunar?', Averigua más informcación, Parada, Inicio / Fin, días, Distancia,
+        Temática, mi, km, Transporte, Día, Millas, Kilómetros, Destacado, Areas cubiertas,
+        '', Tiempo recomendado, '', '', '', '', '', '', '', '', '', '', '']
+      resourcebundle:messages_fr: ['', '', '', '', '', '', '', '', '', '', '', '',
+        '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '']
+      resourcebundle:messages_it: ['', '', '', '', '', '', '', '', '', '', '', '',
+        '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '']
+      resourcebundle:messages_nl: ['', '', '', '', '', '', '', '', '', '', '', '',
+        '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '']
+    /itineraries[3]:
+      jcr:primaryType: resourcebundle:resourcebundle
+      jcr:mixinTypes: ['mix:referenceable']
+      jcr:uuid: 2b3e7afc-9074-4751-97ca-905180d7f2d0
+      hippo:availability: [live]
+      hippostd:state: published
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2019-12-16T14:56:24.091Z
+      hippostdpubwf:lastModificationDate: 2021-01-22T17:37:07.643Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippostdpubwf:publicationDate: 2021-01-22T17:50:16.401Z
+      resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '', '', '', '',
+        '', '', '', '', '', '', '', '', '', '', '', '', '', 'This field is to define
+          a range of time like: 9:00am to 13:00pm', '', '', '']
+      resourcebundle:id: itinerary
+      resourcebundle:keys: [stop.nearby-stay, stop.nearby-eat, stop.cta, stop.title,
+        start-finish, days, distance, themes, miles-abbreviation, kilometres-abbreviation,
+        transport, day, miles, kilometres, highlights, areas-covered, stop.no-stop,
+        stop.time-to-explore, theme, stop.opening, stop.hour, stop.hours, stop.usually,
+        stop.provisionally, stop.today, stop.to, stop.open, stop.closed, stop.close.soon]
+      resourcebundle:messages: [Nearby places to stay, Nearby places to eat, Find
+          out more, Stop, Start / Finish, Days, Distance, Main Themes, mi, km, Transport,
+        Day, Miles, Kilometres, Highlights, Areas Covered, The stop doesn't have any
+          product linked to the stop, Time to explore, Main Theme, Check opening times,
+        hour, hours, Usually, Provisionally, today, to, Open, Closed, Closing soon]
+      resourcebundle:messages_de: ['', '', '', '', '', '', '', '', '', '', '', '',
+        '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '']
+      resourcebundle:messages_es: ['¿Dónde pasar la noche?', '¿Dónde podría cenar
+          y desayunar?', Averigua más informcación, Parada, Inicio / Fin, días, Distancia,
+        Temática, mi, km, Transporte, Día, Millas, Kilómetros, Destacado, Areas cubiertas,
+        '', Tiempo recomendado, '', '', '', '', '', '', '', '', '', '', '']
+      resourcebundle:messages_fr: ['', '', '', '', '', '', '', '', '', '', '', '',
+        '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '']
+      resourcebundle:messages_it: ['', '', '', '', '', '', '', '', '', '', '', '',
+        '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '']
+      resourcebundle:messages_nl: ['', '', '', '', '', '', '', '', '', '', '', '',
+        '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '']

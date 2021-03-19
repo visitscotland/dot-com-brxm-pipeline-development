@@ -5,6 +5,7 @@
 
 @import "./docs.tokens.scss";
 @import "./docs.mixins.scss";
+@import "./docs.functions.scss";
 @import "./examples.styles.scss";
 
 /* LOCAL DESIGN TOKENS
@@ -16,7 +17,7 @@ $docs-color-blue-dark: shade($docs-color-blue, 30%);
 $docs-color-blue-light: tint($docs-color-blue, 30%);
 $docs-color-purple-dark: shade($docs-color-purple, 30%);
 $docs-color-purple-light: tint($docs-color-purple, 30%);
-$docs-color-purple-lighter: tint($docs-color-purple, 60%);
+$docs-color-purple-lighter: tint($docs-color-purple, 70%);
 
 /* BASE
  --------------------------------------------- */
@@ -703,3 +704,39 @@ ul a[href*="/#/Design Tokens/All"],
 ul a[href*="/#/Private Components"] {
   display: none !important;
 }
+
+
+/* SCREENSHOT MODE
+/* While regression tests are running the screen needs to be set up in such
+/* a way that the full screen component occupies the actual html scroll bar
+ --------------------------------------------- */
+
+ .vds-screenshot-mode {
+   .vds-example-full-screen {
+     position: relative;
+   }
+
+   div[class^="rsg--sidebar"] {
+     display: none;
+   }
+
+   main[class^="rsg--content"] {
+     padding: 0;
+   }
+
+   div[class^="rsg--root"] {
+     padding-left: 0;
+   }
+
+   div[class^="rsg--docs"] {
+     display: none;
+   }
+
+   div[class^="rsg--tabs"] {
+     display: none;
+   }
+
+   div.vds-example-full-screen {
+     overflow: hidden;
+   }
+ }

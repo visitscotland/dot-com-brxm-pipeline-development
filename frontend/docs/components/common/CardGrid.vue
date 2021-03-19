@@ -1,10 +1,12 @@
 <template>
-  <div class="card-grid"><slot /></div>
+    <div class="card-grid">
+        <slot />
+    </div>
 </template>
 
 <script>
 export default {
-  name: "CardGrid",
+    name: "CardGrid",
 }
 </script>
 

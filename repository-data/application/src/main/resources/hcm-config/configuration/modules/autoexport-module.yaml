@@ -2,5 +2,25 @@ definitions:
   config:
     /hippo:configuration/hippo:modules/autoexport:
       /hippo:moduleconfig:
-        autoexport:modules: ['repository-data/application:/',
-                             'repository-data/site:visitscotland:/hst:visitscotland']
+        autoexport:modules:
+          type: string
+          value: ['repository-data/development:/content/documents/visitscotland',
+                  'repository-data/development:/content/documents/www.visitscotland.com-de',
+                  'repository-data/development:/content/documents/www.visitscotland.com-es',
+                  'repository-data/development:/content/documents/www.visitscotland.com-fr',
+                  'repository-data/development:/content/documents/www.visitscotland.com-it',
+                  'repository-data/development:/content/documents/www.visitscotland.com-nl',
+                  'repository-data/development:/content/gallery',
+                  'repository-data/development:/content/assets',
+                  'repository-data/development:/content/attic',
+                  'repository-data/application:/',
+                  'repository-data/site:visitscotland:/hst:visitscotland',
+                  'repository-data/site-development:visitscotland']
+        autoexport:injectresidualchildnodecategory: ['/hst:platform/**: config', '/hst:*/**/hst:workspace/**[hst:containercomponent]:
+                content', '/hst:*/**/hst:workspace/**[hst:sitemenu]: content', '/hst:*/**/hst:workspace/hst:abstractpages:
+                content', '/hst:*/**/hst:workspace/hst:channel: content', '/hst:*/**/hst:workspace/hst:components:
+                content', '/hst:*/**/hst:workspace/hst:pages: content', '/hst:*/**/hst:workspace/hst:sitemap:
+                content', '/hst:*/**/hst:workspace/hst:templates: content', '/hst:*/hst:hosts/**[hst:virtualhostgroup]:
+                content', '/hst:*/hst:hosts/**[hst:virtualhost]: content', '/hst:*/hst:hosts/**[hst:mount]:
+                content', '/content/documents/administration: config', '/content/documents/common:
+                config']

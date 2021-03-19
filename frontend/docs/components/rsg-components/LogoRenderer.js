@@ -26,6 +26,7 @@ export function LogoRenderer({ classes, children }) {
     src: LOGO_URL,
     className: classes.svgWrapper,
     key: "thistle-ds-logo-img",
+    alt: "Scotland / Alba Logo",
   })
 
   const h1 = React.createElement(

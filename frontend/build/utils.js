@@ -1,127 +1,145 @@
-"use strict"
-const path = require("path")
-const config = require("../config")
-const MiniCssExtractPlugin = require("mini-css-extract-plugin")
-const packageConfig = require("../package.json")
+/* eslint-disable func-names */
+/* eslint-disable no-param-reassign */
+/* eslint-disable global-require */
+/* eslint-disable no-shadow */
+/* eslint-disable func-names */
+/* eslint-disable no-restricted-syntax */
+/* eslint-disable guard-for-in */
 
-exports.assetsPath = function(_path) {
-  const assetsSubDirectory =
-    process.env.NODE_ENV === "production"
-      ? config.build.assetsSubDirectory
-      : config.dev.assetsSubDirectory
-  return path.posix.join(assetsSubDirectory, _path)
-}
+const path = require('path');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const { cloneDeep, find } = require('lodash');
 
-exports.assetsSystemPath = function(_path) {
-  return path.posix.join(config.system.assetsSubDirectory, _path)
-}
+const packageConfig = require('../package.json');
+const buildMode = require('./base.build-mode');
 
 exports.cssLoaders = function(options) {
-  options = options || {}
+    options = options || {
+    };
 
-  const cssLoader = {
-    loader: "css-loader",
-    options: {
-      sourceMap: options.sourceMap,
-    },
-  }
+    const cssLoader = {
+        loader: 'css-loader',
+        options: {
+            sourceMap: options.sourceMap,
+        },
+    };
 
-  const postcssLoader = {
-    loader: "postcss-loader",
-    options: {
-      sourceMap: options.sourceMap,
-    },
-  }
+    const cssLoaderForModulesOptions = {
+        modules: true,
+        localIdentName: buildMode === 'development'
+            ? '[path][name]__[local]' : '[hash:base64]',
+    };
 
-  // generate loader string to be used with extract text plugin
-  function generateLoaders(loader, loaderOptions) {
-    const loaders = []
+    const postcssLoader = {
+        loader: 'postcss-loader',
+        options: {
+            sourceMap: options.sourceMap,
+        },
+    };
 
-    // Extract CSS when that option is specified
-    // (which is the case during production build)
-    if (options.extract) {
-      loaders.push(MiniCssExtractPlugin.loader)
-    } else {
-      loaders.push("vue-style-loader")
+    const baseSassLoaderOptions = {
+        style: 'compressed',
+        implementation: require('sass'),
+        sourceMap: options.sourceMap,
+    };
+
+    const sassResourcesLoader = {
+        loader: 'sass-resources-loader',
+        options: {
+            resources: [
+                path.resolve(__dirname, '../src/assets/tokens/tokens.scss'),
+                path.resolve(__dirname, '../src/assets/tokens/tokens.map.scss'),
+                path.resolve(__dirname, '../src/styles/resources.scss'),
+            ],
+        },
+    };
+
+    function generateLoadersForCssModules(loaders) {
+        const cssModulesLoaders = cloneDeep(loaders);
+
+        const cssLoader = find(cssModulesLoaders, {
+            loader: 'css-loader',
+        });
+
+        cssLoader.options = {
+            ...cssLoader.options,
+            ...cssLoaderForModulesOptions,
+        };
+
+        return cssModulesLoaders;
     }
 
-    loaders.push(cssLoader)
+    // generate loader string to be used with extract text plugin
+    function generateLoaders(sassLoader, extraSassLoaderOptions) {
+        const loaders = [];
 
-    if (options.usePostCSS) {
-      loaders.push(postcssLoader)
+        // Extract CSS when that option is specified
+        // (which is the case during production build)
+        if (options.extract) {
+            loaders.push(MiniCssExtractPlugin.loader);
+        } else {
+            loaders.push('vue-style-loader');
+        }
+
+        loaders.push(cssLoader);
+
+        if (options.usePostCSS) {
+            loaders.push(postcssLoader);
+        }
+
+        if (sassLoader) {
+            loaders.push({
+                loader: 'sass-loader',
+                options: {
+                    ...baseSassLoaderOptions,
+                    ...extraSassLoaderOptions || {
+                    },
+                },
+            });
+
+            loaders.push(sassResourcesLoader);
+        }
+
+        // For CSS Modules we need to return an array with 2 options -
+        // one for CSS modules style blocks and the other for all
+        // other style blocks
+        return [
+            {
+                resourceQuery: /module/,
+                use: generateLoadersForCssModules(loaders),
+            },
+            {
+                use: loaders,
+            },
+        ];
     }
 
-    if (loader) {
-      loaders.push({
-        loader: loader + "-loader",
-        options: Object.assign({}, loaderOptions, {
-          sourceMap: options.sourceMap,
+    // https://vue-loader.vuejs.org/guide/extract-css.html
+    return {
+        css: generateLoaders(),
+        postcss: generateLoaders(),
+        sass: generateLoaders(true, {
+            indentedSyntax: true,
         }),
-      })
+        scss: generateLoaders('sass'),
+    };
+};
+
+// Generate loaders for standalone style files
+exports.styleLoaders = function(options) {
+    const output = [];
+    const loaders = exports.cssLoaders(options);
+
+    for (const extension in loaders) {
+        const loader = loaders[extension];
+        output.push({
+            test: new RegExp(`\\.${ extension }$`),
+            // use: loader,
+            oneOf: loader,
+        });
     }
 
-    return loaders
-  }
+    return output;
+};
 
-  const sassResourcesConfig = {
-    loader: "sass-resources-loader",
-    options: {
-      resources: [
-        path.resolve(__dirname, "../src/assets/tokens/tokens.scss"),
-        path.resolve(__dirname, "../src/assets/tokens/tokens.map.scss"),
-        path.resolve(__dirname, "../src/styles/styles.scss"),
-      ],
-    },
-  }
-
-  const sassOptions = {
-    style: "compressed",
-    implementation: require("sass"),
-  }
-
-  // https://vue-loader.vuejs.org/guide/extract-css.html
-  return {
-    css: generateLoaders(),
-    postcss: generateLoaders(),
-    sass: generateLoaders("sass", Object.assign({ indentedSyntax: true }, sassOptions)).concat(
-      sassResourcesConfig
-    ),
-    scss: generateLoaders("sass", sassOptions).concat(sassResourcesConfig),
-  }
-}
-
-// Generate loaders for standalone style files (outside of .vue)
-exports.styleLoaders = function(options) {
-  const output = []
-  const loaders = exports.cssLoaders(options)
-
-  for (const extension in loaders) {
-    const loader = loaders[extension]
-    output.push({
-      test: new RegExp("\\." + extension + "$"),
-      use: loader,
-    })
-  }
-
-  return output
-}
-
-exports.createNotifierCallback = () => {
-  const notifier = require("node-notifier")
-
-  return (severity, errors) => {
-    if (severity !== "error") return
-
-    const error = errors[0]
-    const filename = error.file && error.file.split("!").pop()
-
-    notifier.notify({
-      title: packageConfig.name,
-      message: severity + ": " + error.name,
-      subtitle: filename || "",
-      icon: path.join(__dirname, "logo.png"),
-    })
-  }
-}
-
-exports.packageName = packageConfig.name
+exports.packageName = packageConfig.name;

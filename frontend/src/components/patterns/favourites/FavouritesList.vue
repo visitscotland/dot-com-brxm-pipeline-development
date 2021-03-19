@@ -7,61 +7,71 @@
                 class="d-flex align-items-center w-100"
                 :key="index"
             >
-                <a :href="item.href" class="vs-favourites-list__link">{{ item.title }}</a>
-                <vs-button
+                <a
+                    :href="item.href"
+                    class="vs-favourites-list__link"
+                >{{ item.title }}</a>
+                <VsButton
                     class="p-2"
                     :animate="false"
                     variant="transparent"
                     @click.native.prevent="deleteFavourite(item.href)"
                 >
                     <span class="sr-only">Remove from favourites</span>
-                    <vs-icon name="close" size="xs" />
-                </vs-button>
+                    <VsIcon
+                        name="close"
+                        size="xs"
+                    />
+                </VsButton>
             </li>
         </ul>
     </div>
 </template>
 
 <script>
-import VsIcon from "@components/elements/icon/Icon"
-import favouritesStore from "./favourites.store"
+import VsIcon from '@components/elements/icon/Icon';
+import favouritesStore from './favourites.store';
 
+/**
+ * TODO: Document usage
+ *
+ * @displayName Favourites List
+ */
 export default {
-    name: "VsFavouritesList",
-    status: "prototype",
-    release: "0.0.1",
+    name: 'VsFavouritesList',
+    status: 'prototype',
+    release: '0.0.1',
     components: {
         VsIcon,
-    },
-    data() {
-        return {}
-    },
-    computed: {
-        favourites() {
-            return favouritesStore.getters["favourites/getFavourites"]
-        },
-        last() {
-            return this.favourites.length - 1
-        },
     },
     props: {
         listHeader: {
             type: String,
-            default: "Favourites list",
+            default: 'Favourites list',
+        },
+    },
+    data() {
+        return {
+        };
+    },
+    computed: {
+        favourites() {
+            return favouritesStore.getters['favourites/getFavourites'];
+        },
+        last() {
+            return this.favourites.length - 1;
         },
     },
     methods: {
         deleteFavourite(href) {
-            favouritesStore.dispatch("favourites/deleteFavourite", href)
-            this.$emit("favourite-deleted")
+            favouritesStore.dispatch('favourites/deleteFavourite', href);
+            this.$emit('favourite-deleted');
         },
     },
-}
+};
 </script>
 
-<style lang="scss" scoped>
-@import "~bootstrap/scss/type";
-
+<style lang="scss">
 .vs-favourites-list__link {
     font-size: 1.5rem;
 }
@@ -79,27 +89,27 @@ export default {
 
   <div style="position: relative; height: 600px;">
     Test Add Favourite Item 1
-    <vs-favourites-toggle-button 
+    <VsFavouritesToggleButton
       :href="favourite.href"
       :title="favourite.title"
     >
-    </vs-favourites-toggle-button>
+    </VsFavouritesToggleButton>
     Test Add Favourite Item 2
-     <vs-favourites-toggle-button 
+     <VsFavouritesToggleButton
       href="http:www.visitscotland.org"
       title="VisitScotland Corporate Website"
     >
-    </vs-favourites-toggle-button>
+    </VsFavouritesToggleButton>
     Test Add Favourite Item 3
-     <vs-favourites-toggle-button 
+     <VsFavouritesToggleButton
       href="https://www.visitscotland.com/destinations-maps/st-andrews/"
       title="St Andrews"
     >
-    </vs-favourites-toggle-button>
+    </VsFavouritesToggleButton>
     Favourites Count
-    <vs-favourites-view-button>
-    </vs-favourites-view-button>
-    <vs-favourites-list/>
+    <VsFavouritesViewButton>
+    </VsFavouritesViewButton>
+    <VsFavouritesList/>
   </div>
   ```
 </docs>

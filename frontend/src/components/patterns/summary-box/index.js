@@ -1,10 +1,10 @@
-import VsSummaryBoxDistanceDisplay from "./components/summary-box-distance-display/SummaryBoxDistanceDisplay"
-import VsSummaryBoxDistanceLabel from "./components/summary-box-distance-label/SummaryBoxDistanceLabel"
-import VsSummaryBoxIconWithLabel from "./components/summary-box-icon-with-label/SummaryBoxIconWithLabel"
-import VsSummaryBoxLabel from "./components/summary-box-label/SummaryBoxLabel"
-import VsSummaryBoxList from ".SummaryBoxList"
-import VsSummaryBoxListItem from "./components/summary-box-list-item/SummaryBoxListItem"
-import VsSummaryBoxTextOnly from "./components/summary-box-text-only/SummaryBoxTextOnly"
+import VsSummaryBoxDistanceDisplay from './components/SummaryBoxDistanceDisplay';
+import VsSummaryBoxDistanceLabel from './components/SummaryBoxDistanceLabel';
+import VsSummaryBoxIconWithLabel from './components/SummaryBoxIconWithLabel';
+import VsSummaryBoxLabel from './components/SummaryBoxLabel';
+import VsSummaryBoxList from './SummaryBoxList';
+import VsSummaryBoxListItem from './components/SummaryBoxListItem';
+import VsSummaryBoxDisplay from './components/SummaryBoxDisplay';
 
 export {
     VsSummaryBoxDistanceDisplay,
@@ -13,5 +13,5 @@ export {
     VsSummaryBoxLabel,
     VsSummaryBoxList,
     VsSummaryBoxListItem,
-    VsSummaryBoxTextOnly,
-}
+    VsSummaryBoxDisplay,
+};

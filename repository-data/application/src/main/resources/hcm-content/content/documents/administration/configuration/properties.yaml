@@ -1,0 +1,94 @@
+/content/documents/administration/configuration/properties:
+  jcr:primaryType: hippo:handle
+  jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+  jcr:uuid: 74e4ec75-efef-486e-b56d-59292452d399
+  hippo:name: Properties
+  hippo:versionHistory: d1b21793-0b1d-4dcf-9cfd-76a18711073f
+  /properties[1]:
+    jcr:primaryType: resourcebundle:resourcebundle
+    jcr:mixinTypes: ['mix:referenceable']
+    jcr:uuid: 6cacd2ed-5bd2-443a-8807-5b7696aa099c
+    hippo:availability: []
+    hippostd:state: draft
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2021-02-05T15:37:26.056Z
+    hippostdpubwf:lastModificationDate: 2021-02-17T17:08:12.030Z
+    hippostdpubwf:lastModifiedBy: admin
+    resourcebundle:descriptions: [URL prefix for Instagram endpoints, '', Encoding
+        for requests made to vs-dms-products, "Token that identifies calls made to\
+        \ vs-dms-products as internal calls giving access to wider data\r\n\r\nThis\
+        \ token is configured by the environment variable DMS_TOKEN, but it can be\
+        \ overriden here if needed.\r\n\r\nDo not commit a value for this variable\
+        \ to the repository!!", Timeout for requests to the DMS service (in milliseconds),
+      Number of tries to get data from vs-dms-products before any other request is
+        put into sleep., Time to hold any request to the DMS after a failure. in milliseconds,
+      '', Protocol and host for vs-dms-product., "Authentication key for Instagram\
+        \ request\r\n\r\nThis token is configured by the environment variable INSTAGRAM_KEY,\
+        \ but it can be overridden here if needed.\r\n\r\nDo not commit a value for\
+        \ this variable to the repository!!", '']
+    resourcebundle:id: config.cms
+    resourcebundle:keys: [instagram.api, localhost, dms.encoding, dms.token, dms.timeout,
+      dms.tries, dms.sleep-time, helpdesk-email, dms.host, instagram.accesstoken,
+      instagram.post-url]
+    resourcebundle:messages: ['https://graph.facebook.com/v9.0/instagram_oembed?url=http://instagr.am/p/',
+      'http://localhost:8080/site', UTF-8, $DMS_TOKEN, '2000', '3', '60000', helpdesk@visitscotland.com,
+      'http://172.28.81.65:8089', $INSTAGRAM_KEY, 'https://www.instagram.com/p/']
+  /properties[2]:
+    jcr:primaryType: resourcebundle:resourcebundle
+    jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+    jcr:uuid: fbbbf7bc-c535-40c3-9d81-2e5e8e063571
+    hippo:availability: [preview]
+    hippostd:state: unpublished
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2021-02-05T15:37:26.056Z
+    hippostdpubwf:lastModificationDate: 2021-02-17T17:08:11.394Z
+    hippostdpubwf:lastModifiedBy: admin
+    resourcebundle:descriptions: [URL prefix for Instagram endpoints, '', Encoding
+        for requests made to vs-dms-products, "Token that identifies calls made to\
+        \ vs-dms-products as internal calls giving access to wider data\r\n\r\nThis\
+        \ token is configured by the environment variable DMS_TOKEN, but it can be\
+        \ overriden here if needed.\r\n\r\nDo not commit a value for this variable\
+        \ to the repository!!", Timeout for requests to the DMS service (in milliseconds),
+      Number of tries to get data from vs-dms-products before any other request is
+        put into sleep., Time to hold any request to the DMS after a failure. in milliseconds,
+      '', Protocol and host for vs-dms-product., "Authentication key for Instagram\
+        \ request\r\n\r\nThis token is configured by the environment variable INSTAGRAM_KEY,\
+        \ but it can be overridden here if needed.\r\n\r\nDo not commit a value for\
+        \ this variable to the repository!!", '']
+    resourcebundle:id: config.cms
+    resourcebundle:keys: [instagram.api, localhost, dms.encoding, dms.token, dms.timeout,
+      dms.tries, dms.sleep-time, helpdesk-email, dms.host, instagram.accesstoken,
+      instagram.post-url]
+    resourcebundle:messages: ['https://graph.facebook.com/v9.0/instagram_oembed?url=http://instagr.am/p/',
+      'http://localhost:8080/site', UTF-8, $DMS_TOKEN, '2000', '3', '60000', helpdesk@visitscotland.com,
+      'http://172.28.81.65:8089', $INSTAGRAM_KEY, 'https://www.instagram.com/p/']
+  /properties[3]:
+    jcr:primaryType: resourcebundle:resourcebundle
+    jcr:mixinTypes: ['mix:referenceable']
+    jcr:uuid: 80905bbe-1e92-413e-93a9-bfc476a73954
+    hippo:availability: [live]
+    hippostd:state: published
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2021-02-05T15:37:26.056Z
+    hippostdpubwf:lastModificationDate: 2021-02-17T17:08:11.394Z
+    hippostdpubwf:lastModifiedBy: admin
+    hippostdpubwf:publicationDate: 2021-02-17T17:08:20.677Z
+    resourcebundle:descriptions: [URL prefix for Instagram endpoints, '', Encoding
+        for requests made to vs-dms-products, "Token that identifies calls made to\
+        \ vs-dms-products as internal calls giving access to wider data\r\n\r\nThis\
+        \ token is configured by the environment variable DMS_TOKEN, but it can be\
+        \ overriden here if needed.\r\n\r\nDo not commit a value for this variable\
+        \ to the repository!!", Timeout for requests to the DMS service (in milliseconds),
+      Number of tries to get data from vs-dms-products before any other request is
+        put into sleep., Time to hold any request to the DMS after a failure. in milliseconds,
+      '', Protocol and host for vs-dms-product., "Authentication key for Instagram\
+        \ request\r\n\r\nThis token is configured by the environment variable INSTAGRAM_KEY,\
+        \ but it can be overridden here if needed.\r\n\r\nDo not commit a value for\
+        \ this variable to the repository!!", '']
+    resourcebundle:id: config.cms
+    resourcebundle:keys: [instagram.api, localhost, dms.encoding, dms.token, dms.timeout,
+      dms.tries, dms.sleep-time, helpdesk-email, dms.host, instagram.accesstoken,
+      instagram.post-url]
+    resourcebundle:messages: ['https://graph.facebook.com/v9.0/instagram_oembed?url=http://instagr.am/p/',
+      'http://localhost:8080/site', UTF-8, $DMS_TOKEN, '2000', '3', '60000', helpdesk@visitscotland.com,
+      'http://172.28.81.65:8089', $INSTAGRAM_KEY, 'https://www.instagram.com/p/']

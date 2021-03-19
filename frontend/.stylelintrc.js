@@ -10,6 +10,6 @@ module.exports = {
                 ignorePseudoElements: ["v-deep"]
             }
         ],
-        "indentation": "4"
+        "indentation": "tab"
     }
 }

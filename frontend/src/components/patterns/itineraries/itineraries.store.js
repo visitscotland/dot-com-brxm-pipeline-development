@@ -1,7 +1,7 @@
-import Vuex from "vuex"
-import Vue from "vue"
+import Vuex from 'vuex';
+import Vue from 'vue';
 
-Vue.use(Vuex)
+Vue.use(Vuex);
 
 export default new Vuex.Store({
     modules: {
@@ -12,25 +12,25 @@ export default new Vuex.Store({
             },
             mutations: {
                 SET_STOP_HIGHLIGHTED: (state, payload) => {
-                    state.highlightedStop = payload
+                    /* eslint-disable no-param-reassign */
+                    state.highlightedStop = payload;
                 },
             },
             actions: {
                 setStopHighlighted: ({ commit, getters }, payload) => {
                     if (getters.getHighlightedStop === payload) {
-                        return false
+                        return false;
                     }
-                    commit("SET_STOP_HIGHLIGHTED", payload)
-                    return true
+                    commit('SET_STOP_HIGHLIGHTED', payload);
+                    return true;
                 },
             },
             getters: {
-                getHighlightedStop: state => state.highlightedStop,
-                getHighlightedStopCoordinates: state =>
-                    state.highlightedStop === null
-                        ? [-4.07083, 56.18882]
-                        : state.highlightedStop.geometry.coordinates,
+                getHighlightedStop: (state) => state.highlightedStop,
+                getHighlightedStopCoordinates: (state) => (state.highlightedStop === null
+                    ? [-4.07083, 56.18882]
+                    : state.highlightedStop.geometry.coordinates),
             },
         },
     },
-})
+});

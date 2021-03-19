@@ -1,0 +1,61 @@
+/content/gallery/visitscotland/static:
+  jcr:primaryType: hippogallery:stdImageGallery
+  hippostd:foldertype: [new-visitscotland-Image-folder]
+  hippostd:gallerytype: ['visitscotland:Image']
+  /modules:
+    jcr:primaryType: hippogallery:stdImageGallery
+    jcr:mixinTypes: ['mix:versionable']
+    jcr:uuid: b6eaaed7-a717-49fe-aaba-a529c5bcdcdb
+    hippostd:foldertype: [new-visitscotland-Image-folder]
+    hippostd:gallerytype: ['visitscotland:Image']
+    /visitscotland-visitor-information-centre.jpg:
+      jcr:primaryType: hippo:handle
+      jcr:mixinTypes: ['mix:referenceable']
+      jcr:uuid: 6fe01b32-04e9-4d0f-86c9-b6b8bd246a67
+      /visitscotland-visitor-information-centre.jpg:
+        jcr:primaryType: visitscotland:Image
+        hippo:availability: [live, preview]
+        hippogallery:description: VisitScotland Information Centre
+        hippogallery:filename: visitscotland-visitor-information-centre.jpg
+        visitscotland:altText: VisitScotland iCentre
+        visitscotland:credit: ''
+        visitscotland:location: Edinburgh
+        /hippogallery:thumbnail:
+          jcr:primaryType: hippogallery:image
+          hippo:filename: visitscotland-visitor-information-centre.jpg
+          hippogallery:height: 39
+          hippogallery:width: 60
+          jcr:data:
+            type: binary
+            resource: /content/gallery/visitscotland/static/modules/visitscotland-visitor-information-centre.jpg/visitscotland-visitor-information-centre.jpg/thumbnail/thumbnail.jpg
+          jcr:lastModified: 2020-11-05T09:28:30.148Z
+          jcr:mimeType: image/jpeg
+        /hippogallery:original:
+          jcr:primaryType: hippogallery:image
+          hippogallery:height: 1365
+          hippogallery:width: 2048
+          jcr:data:
+            type: binary
+            resource: /content/gallery/visitscotland/static/modules/visitscotland-visitor-information-centre.jpg/visitscotland-visitor-information-centre.jpg/original/original.jpg
+          jcr:lastModified: 2020-11-05T09:28:30.148Z
+          jcr:mimeType: image/jpeg
+        /visitscotland:nl:
+          jcr:primaryType: visitscotland:ImageData
+          visitscotland:altText: ''
+          visitscotland:caption: ''
+        /visitscotland:fr:
+          jcr:primaryType: visitscotland:ImageData
+          visitscotland:altText: ''
+          visitscotland:caption: ''
+        /visitscotland:de:
+          jcr:primaryType: visitscotland:ImageData
+          visitscotland:altText: ''
+          visitscotland:caption: ''
+        /visitscotland:es:
+          jcr:primaryType: visitscotland:ImageData
+          visitscotland:altText: ''
+          visitscotland:caption: ''
+        /visitscotland:it:
+          jcr:primaryType: visitscotland:ImageData
+          visitscotland:altText: ''
+          visitscotland:caption: ''

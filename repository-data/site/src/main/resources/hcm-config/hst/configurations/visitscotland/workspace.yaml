@@ -4,7 +4,15 @@ definitions:
       jcr:primaryType: hst:workspace
       /hst:sitemenus:
         jcr:primaryType: hst:sitemenus
+        /footer:
+          .meta:residual-child-node-category: content
+          jcr:primaryType: hst:sitemenu
+          hst:lastmodified: 2020-06-18T17:03:15.805+01:00
+        /utility:
+          .meta:residual-child-node-category: content
+          jcr:primaryType: hst:sitemenu
+          hst:lastmodified: 2020-06-10T14:04:14.171+01:00
         /main:
           .meta:residual-child-node-category: content
           jcr:primaryType: hst:sitemenu
-          hst:lastmodified: 2020-02-06T17:46:48.548Z
+          hst:lastmodified: 2021-02-08T17:49:37.077Z

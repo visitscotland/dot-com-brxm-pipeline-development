@@ -1,0 +1,11 @@
+definitions:
+  config:
+    /hippo:configuration/hippo:groups/developers:
+      jcr:primaryType: hipposys:group
+      hipposys:description: Hippo Developers! Happy developers!
+      hipposys:securityprovider: internal
+      hipposys:userroles:
+        .meta:category: system
+        .meta:add-new-system-values: true
+        type: string
+        value: [xm.default-user.cms-admin, xm.system.admin]

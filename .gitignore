@@ -10,23 +10,23 @@ repository-data/webfiles/coverage/
 *.bundle.map
 *.css.map
 
-#Generated sources by the frontend build
+# Frontend webfiles artefacts
+repository-data/webfiles/src/main/resources/site/frontend/
+repository-data/webfiles/src/main/resources/site/freemarker/frontend/
+
+# Legacy Frontend generated sources.
 repository-data/webfiles/src/main/resources/site/design-system/
 repository-data/webfiles/src/main/resources/site/freemarker/vs-dotcom-ds/
-
-#Design System (Hacky integration)
-design-system/
 
 ### IDE CONFIGURATION Files
 # Eclipse based IDEs
 .classpath
 .project
 .settings/
+.metadata/
 
 # IntelliJ IDEA
 .idea/
 
 #VSCODE
 .vscode/
-
-

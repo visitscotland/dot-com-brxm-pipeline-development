@@ -1,0 +1,70 @@
+/content/documents/administration/labels/modules/map:
+  jcr:primaryType: hippo:handle
+  jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+  jcr:uuid: 71df6e9b-23c6-447c-85c9-28e719ee59a2
+  hippo:name: Map
+  hippo:versionHistory: aa966eb5-b501-4620-bd7e-c5f8d8ae47f3
+  /map[1]:
+    jcr:primaryType: resourcebundle:resourcebundle
+    jcr:mixinTypes: ['mix:referenceable']
+    jcr:uuid: b5487bda-8e8d-46ab-94eb-ac0fa8077bf1
+    hippo:availability: []
+    hippostd:state: draft
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2020-03-02T10:09:34.350Z
+    hippostdpubwf:lastModificationDate: 2021-01-22T18:00:08.060Z
+    hippostdpubwf:lastModifiedBy: admin
+    resourcebundle:descriptions: ['', '', '', '', '']
+    resourcebundle:id: map
+    resourcebundle:keys: [map.fullscreen, map.exitfullscreen, map.reset, map.zoomin,
+      map.zoomout]
+    resourcebundle:messages: [Show fullscreen, Exit fullscreen, Reset angle, Zoom
+        in, Zoom out]
+    resourcebundle:messages_de: ['', '', '', '', '']
+    resourcebundle:messages_es: ['', '', '', '', '']
+    resourcebundle:messages_fr: ['', '', '', '', '']
+    resourcebundle:messages_it: ['', '', '', '', '']
+    resourcebundle:messages_nl: ['', '', '', '', '']
+  /map[2]:
+    jcr:primaryType: resourcebundle:resourcebundle
+    jcr:mixinTypes: ['mix:versionable']
+    jcr:uuid: cefe9dbb-9a42-49b4-92c1-f5f6d7a1fe37
+    hippo:availability: [preview]
+    hippostd:state: unpublished
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2020-03-02T10:09:34.350Z
+    hippostdpubwf:lastModificationDate: 2021-01-22T18:00:29.305Z
+    hippostdpubwf:lastModifiedBy: admin
+    resourcebundle:descriptions: ['', '', '', '', '']
+    resourcebundle:id: map
+    resourcebundle:keys: [map.fullscreen, map.exitfullscreen, map.reset, map.zoomin,
+      map.zoomout]
+    resourcebundle:messages: [Show fullscreen, Exit fullscreen, Reset angle, Zoom
+        in, Zoom out]
+    resourcebundle:messages_de: ['', '', '', '', '']
+    resourcebundle:messages_es: ['', '', '', '', '']
+    resourcebundle:messages_fr: ['', '', '', '', '']
+    resourcebundle:messages_it: ['', '', '', '', '']
+    resourcebundle:messages_nl: ['', '', '', '', '']
+  /map[3]:
+    jcr:primaryType: resourcebundle:resourcebundle
+    jcr:mixinTypes: ['mix:referenceable']
+    jcr:uuid: 9c0d09cc-c833-443a-a4b2-437b2e18ab6e
+    hippo:availability: [live]
+    hippostd:state: published
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2020-03-02T10:09:34.350Z
+    hippostdpubwf:lastModificationDate: 2021-01-22T18:00:29.305Z
+    hippostdpubwf:lastModifiedBy: admin
+    hippostdpubwf:publicationDate: 2021-01-22T18:00:30.612Z
+    resourcebundle:descriptions: ['', '', '', '', '']
+    resourcebundle:id: map
+    resourcebundle:keys: [map.fullscreen, map.exitfullscreen, map.reset, map.zoomin,
+      map.zoomout]
+    resourcebundle:messages: [Show fullscreen, Exit fullscreen, Reset angle, Zoom
+        in, Zoom out]
+    resourcebundle:messages_de: ['', '', '', '', '']
+    resourcebundle:messages_es: ['', '', '', '', '']
+    resourcebundle:messages_fr: ['', '', '', '', '']
+    resourcebundle:messages_it: ['', '', '', '', '']
+    resourcebundle:messages_nl: ['', '', '', '', '']

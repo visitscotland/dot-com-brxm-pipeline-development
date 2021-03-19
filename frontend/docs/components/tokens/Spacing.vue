@@ -1,20 +1,22 @@
 <template>
-  <div class="spacing">
-    <div
-      v-for="(prop, index) in tokens"
-      :key="index"
-      class="space"
-      v-if="prop.category === 'space'"
-      :style="{ lineHeight: prop.value, height: prop.value }"
-    >
-      ${{ prop.name.replace(/_/g, "-") }} <span>({{ prop.value }})</span>
+    <div class="spacing">
+        <div
+            v-for="(prop, index) in spacingTokens"
+            :key="index"
+        >
+            <div class="spacing-label">${{ prop.name.replace(/_/g, "-") }} <span>({{ prop.value }}) ({{ prop.pixelHeight }}px*)</span></div>
+            <div
+                class="space"
+                :style="{height: prop.calcHeight }">
+            </div>
+        </div>
+        <p>*Pixel values calculated at 1rem = 16px</p>
     </div>
-  </div>
 </template>
 
 <script>
+import { orderBy, filter } from "lodash"
 import designTokens from "@/assets/tokens/tokens.raw.json"
-import orderBy from "lodash/orderBy"
 
 /**
  * A framework for creating a predictable and harmonious spacing system. These
@@ -24,18 +26,42 @@ import orderBy from "lodash/orderBy"
  * [/src/tokens/spacing.yml](https://github.com/viljamis/vue-design-system/blob/master/src/tokens/spacing.yml).
  */
 export default {
-  name: "Spacing",
-  methods: {
-    orderData: function(data) {
-      let order = orderBy(data, "category", "asc")
-      return order
+    name: "Spacing",
+    data() {
+        return {
+            tokens: designTokens.props,
+        }
     },
-  },
-  data() {
-    return {
-      tokens: this.orderData(designTokens.props),
-    }
-  },
+    computed: {
+        spacingTokens() {
+            let filteredTokens = filter(this.tokens, ["category", "space"])
+
+            filteredTokens.forEach(element => {
+                try {
+                    element.arrayIndex = parseInt(element.name.split("_")[1])
+                    element.calcHeight = "calc(" + element.value + ")"
+                    element.pixelHeight = this.calculatePixelHeight(element.value)
+                } catch (error) {
+                    // Spacer element named incorrectly
+                    element.calcHeight = "-"
+                    element.pixelHeight = "-"
+
+                }
+            })
+
+            return this.orderData(filteredTokens)
+        },
+    },
+    methods: {
+        orderData(data) {
+            const order = orderBy(data, "arrayIndex", "asc")
+            return order
+        },
+        calculatePixelHeight(remInput) {
+            let input = remInput.replace(/rem/g, " * 16")
+            return eval(input)
+        }
+    },
 }
 </script>
 
@@ -47,31 +73,31 @@ export default {
 --------------------------------------------- */
 
 .spacing {
-  margin-top: $space-l;
-  overflow: hidden;
-  max-width: 1176px;
-  width: 100%;
+    margin-top: $space-l;
+    overflow: hidden;
+    max-width: 1176px;
+    width: 100%;
+}
+.spacing-label {
+    span {
+        margin-left: .5rem;
+        font-size: .8rem;
+    }
 }
 .space {
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  border-radius: $radius-default;
-  box-shadow: $shadow-s-inset;
-  margin-bottom: $space-xs;
-  font-size: $size-s;
-  font-family: $font-text;
-  color: $docs-color-rich-black;
-  background: tint(#c4cdd5, 85%);
-  text-align: center;
-  position: relative;
-  float: left;
-  width: 100%;
-  span {
-    margin-left: 5px;
-    color: $docs-color-silver;
-    user-select: none;
-    font-style: normal;
-  }
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    border-radius: $radius-default;
+    box-shadow: $shadow-s-inset;
+    margin-bottom: $space-xs;
+    font-size: $size-s;
+    font-family: $font-text;
+    color: $docs-color-rich-black;
+    background: tint(#c4cdd5, 85%);
+    text-align: center;
+    position: relative;
+    float: left;
+    width: 100%;
 }
 </style>
 

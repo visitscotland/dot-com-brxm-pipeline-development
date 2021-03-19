@@ -1,0 +1,76 @@
+/content/documents/administration/labels/global:
+  jcr:primaryType: hippostd:folder
+  jcr:mixinTypes: ['hippo:named', 'mix:versionable']
+  jcr:uuid: 7cc99553-f947-4db7-8146-0c2c7c138f95
+  hippo:name: Global
+  hippostd:foldertype: [new-untranslated-folder-resource-bundle, new-resource-bundle]
+  /global:
+    jcr:primaryType: hippo:handle
+    jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+    jcr:uuid: 766a22ea-0b28-44cf-9937-953443a6fb02
+    hippo:name: Global
+    hippo:versionHistory: 557b4c96-9605-4efc-83d2-9390258c3721
+    /global[1]:
+      jcr:primaryType: resourcebundle:resourcebundle
+      jcr:mixinTypes: ['mix:referenceable']
+      jcr:uuid: a8cf5ddd-a19d-4641-91c4-6ec509c3a7a5
+      hippo:availability: [live]
+      hippostd:state: published
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2014-08-21T22:10:13.443+02:00
+      hippostdpubwf:lastModificationDate: 2021-01-22T17:58:03.661Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippostdpubwf:publicationDate: 2021-01-22T17:58:05.054Z
+      resourcebundle:descriptions: ['', '', '', '', '']
+      resourcebundle:id: essentials.global
+      resourcebundle:keys: [button.find-out-more, default.alt-text, label.download,
+        keyfacilities.title, home]
+      resourcebundle:messages: [Find out more, No image title, Download, Key Facilities,
+        Home]
+      resourcebundle:messages_de: ['', '', '', '', '']
+      resourcebundle:messages_es: ['', '', '', '', '']
+      resourcebundle:messages_fr: ['', '', '', '', '']
+      resourcebundle:messages_it: ['', '', '', '', '']
+      resourcebundle:messages_nl: ['', '', '', '', '']
+    /global[2]:
+      jcr:primaryType: resourcebundle:resourcebundle
+      jcr:mixinTypes: ['mix:versionable']
+      jcr:uuid: 7664e8f1-7d3c-48e5-b9b9-d86b38be4c07
+      hippo:availability: [preview]
+      hippostd:state: unpublished
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2014-08-21T22:10:13.443+02:00
+      hippostdpubwf:lastModificationDate: 2021-01-22T17:58:03.661Z
+      hippostdpubwf:lastModifiedBy: admin
+      resourcebundle:descriptions: ['', '', '', '', '']
+      resourcebundle:id: essentials.global
+      resourcebundle:keys: [button.find-out-more, default.alt-text, label.download,
+        keyfacilities.title, home]
+      resourcebundle:messages: [Find out more, No image title, Download, Key Facilities,
+        Home]
+      resourcebundle:messages_de: ['', '', '', '', '']
+      resourcebundle:messages_es: ['', '', '', '', '']
+      resourcebundle:messages_fr: ['', '', '', '', '']
+      resourcebundle:messages_it: ['', '', '', '', '']
+      resourcebundle:messages_nl: ['', '', '', '', '']
+    /global[3]:
+      jcr:primaryType: resourcebundle:resourcebundle
+      jcr:mixinTypes: ['mix:referenceable']
+      jcr:uuid: 98d561a7-16ef-410d-b382-f1b76e196920
+      hippo:availability: []
+      hippostd:state: draft
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2014-08-21T22:10:13.443+02:00
+      hippostdpubwf:lastModificationDate: 2021-01-22T17:56:59.132Z
+      hippostdpubwf:lastModifiedBy: admin
+      resourcebundle:descriptions: ['', '', '', '', '']
+      resourcebundle:id: essentials.global
+      resourcebundle:keys: [button.find-out-more, default.alt-text, label.download,
+        keyfacilities.title, home]
+      resourcebundle:messages: [Find out more, No image title, Download, Key Facilities,
+        Home]
+      resourcebundle:messages_de: ['', '', '', '', '']
+      resourcebundle:messages_es: ['', '', '', '', '']
+      resourcebundle:messages_fr: ['', '', '', '', '']
+      resourcebundle:messages_it: ['', '', '', '', '']
+      resourcebundle:messages_nl: ['', '', '', '', '']

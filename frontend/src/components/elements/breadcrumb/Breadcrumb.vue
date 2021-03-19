@@ -1,48 +1,48 @@
 <template>
-    <nav aria-label="breadcrumbs" class="py-4">
-        <b-breadcrumb class="flex-nowrap p-0" v-bind="$attrs">
+    <nav
+        aria-label="breadcrumbs"
+        class="vs-breadcrumb py-4"
+    >
+        <BBreadcrumb
+            class="flex-nowrap p-0"
+            v-bind="$attrs"
+        >
+            <!-- @slot The breadcrumb content goes here -->
             <slot />
-        </b-breadcrumb>
+        </BBreadcrumb>
     </nav>
 </template>
 
 <script>
-import { BBreadcrumb } from "bootstrap-vue"
+import { BBreadcrumb } from 'bootstrap-vue';
 
 /**
  * Breadcrumbs are used to indicate the current page position within the navigational hierarchy.
+ *
+ * @displayName Breadcumb
  */
 
 export default {
-    name: "VsBreadcrumb",
-    status: "prototype",
-    release: "0.0.1",
+    name: 'VsBreadcrumb',
+    status: 'prototype',
+    release: '0.0.1',
     components: {
         BBreadcrumb,
     },
-    props: {
-        items: {
-            type: Array,
-        },
-    },
-}
+};
 </script>
-
-<style lang="scss" scoped>
-@import "~bootstrap/scss/breadcrumb";
-</style>
 
 <docs>
   ```jsx
-  <vs-breadcrumb>
-    <vs-breadcrumb-item 
+  <VsBreadcrumb>
+    <VsBreadcrumbItem
       v-for="(item, index) in breadcrumb.breadcrumb"
       :key="index"
       :href="item.href"
       :active="item.active"
       :text="item.name"
       >
-    </vs-breadcrumb-item>
-  </vs-breadcrumb>
+    </VsBreadcrumbItem>
+  </VsBreadcrumb>
   ```
 </docs>

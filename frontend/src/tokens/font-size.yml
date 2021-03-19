@@ -12,17 +12,21 @@ props:
     - name: font-size-sm
       value: "{!font_size_base} * .75"
     - name: h1-font-size
-      value: "{!font_size_base} * 1.75"
+      value: "{!font_size_base} * 1.875"
     - name: h2-font-size
-      value: "{!font_size_base} * 1.625"
+      value: "{!font_size_base} * 1.5"
     - name: h3-font-size
-      value: "{!font_size_base} * 1.375"
+      value: "{!font_size_base} * 1.25"
     - name: h4-font-size
-      value: "{!font_size_base} * 1.125"
+      value: "{!font_size_base} * 1"
     - name: h5-font-size
       value: "{!font_size_base}"
     - name: h6-font-size
       value: "{!font_size_base} * 0.875"
+    - name: h3-sub-font-size
+      value: "{!font_size_base} * 1"
+    - name: h2-sub-font-size
+      value: "{!font_size_base} * 1.5"
     - name: display1-size
       value: "{!font_size_base} * 1.875"
     - name: display2-size
@@ -37,6 +41,8 @@ props:
       value: "{!font_size_base} * .875"
     - name: nav-lvl1-desktop-font-size
       value: "{!font_size_base} * 1.125"
+    - name: xs-font-size
+      value: "{!font_size_base} * .625"
 global:
     type: number
     category: font-size

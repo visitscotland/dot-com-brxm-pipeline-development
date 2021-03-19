@@ -1,0 +1,45 @@
+/content/documents/administration/options/transports:
+  .meta:order-before: themes
+  jcr:primaryType: hippo:handle
+  jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+  jcr:uuid: 10c26039-e2af-4c4a-8317-1e742bfffba0
+  hippo:name: Itineraries - Transports
+  /transports:
+    jcr:primaryType: selection:valuelist
+    jcr:mixinTypes: ['hippotranslation:translated', 'mix:referenceable']
+    jcr:uuid: a02821da-9708-4f45-9b90-b1b5f17bffd1
+    hippo:availability: [live, preview]
+    hippotranslation:id: e8238073-1d6f-4c88-a906-9c483753fb0c
+    hippotranslation:locale: inherited - from query
+    /selection:listitem[1]:
+      jcr:primaryType: selection:listitem
+      selection:key: boat
+      selection:label: Boat
+    /selection:listitem[2]:
+      jcr:primaryType: selection:listitem
+      selection:key: bus
+      selection:label: Bus
+    /selection:listitem[3]:
+      jcr:primaryType: selection:listitem
+      selection:key: car
+      selection:label: Car
+    /selection:listitem[4]:
+      jcr:primaryType: selection:listitem
+      selection:key: cycling
+      selection:label: Cycling
+    /selection:listitem[5]:
+      jcr:primaryType: selection:listitem
+      selection:key: ferry
+      selection:label: Ferry
+    /selection:listitem[6]:
+      jcr:primaryType: selection:listitem
+      selection:key: public
+      selection:label: Public Transport
+    /selection:listitem[7]:
+      jcr:primaryType: selection:listitem
+      selection:key: train
+      selection:label: Train
+    /selection:listitem[8]:
+      jcr:primaryType: selection:listitem
+      selection:key: walking
+      selection:label: Walking

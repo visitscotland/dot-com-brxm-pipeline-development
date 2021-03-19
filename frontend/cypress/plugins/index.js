@@ -1,3 +1,5 @@
+/* eslint-disable import/no-extraneous-dependencies */
+
 // ***********************************************************
 // This example plugins/index.js can be used to load plugins
 //
@@ -8,17 +10,19 @@
 // https://on.cypress.io/plugins-guide
 // ***********************************************************
 
-const preprocessor = require("@cypress/webpack-preprocessor")
+const preprocessor = require('@cypress/webpack-preprocessor');
 
-const webpackOptions = require("../../build/webpack.test.conf")
+const webpackOptions = require('../../build/test.webpack.conf');
 
 // This function is called when a project is opened or re-opened (e.g. due to
 // the project's config changing)
 
 module.exports = (on, config) => {
-  // `on` is used to hook into various events Cypress emits
-  // `config` is the resolved Cypress config
-  on("file:preprocessor", preprocessor({ webpackOptions }))
+    // `on` is used to hook into various events Cypress emits
+    // `config` is the resolved Cypress config
+    on('file:preprocessor', preprocessor({
+        webpackOptions,
+    }));
 
-  return config
-}
+    return config;
+};

@@ -1,0 +1,50 @@
+/content/documents/administration/configuration/keys:
+  jcr:primaryType: hippo:handle
+  jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+  jcr:uuid: 66d7dad9-555b-4284-a7ab-38398edf1713
+  hippo:name: Keys
+  hippo:versionHistory: cc797c05-959d-487e-9c78-0944f9fbd805
+  /keys[1]:
+    jcr:primaryType: resourcebundle:resourcebundle
+    jcr:mixinTypes: ['mix:referenceable']
+    jcr:uuid: 41e8730b-1d40-47e6-89b3-80cac8cec1f0
+    hippo:availability: []
+    hippostd:holder: admin
+    hippostd:state: draft
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2019-12-20T14:35:30.322Z
+    hippostdpubwf:lastModificationDate: 2021-02-17T09:14:31.983Z
+    hippostdpubwf:lastModifiedBy: admin
+    resourcebundle:descriptions: ['']
+    resourcebundle:id: keys
+    resourcebundle:keys: [maptiler.devkey]
+    resourcebundle:messages: [SZGAUFW8iNcUjjJgrkgf]
+  /keys[2]:
+    jcr:primaryType: resourcebundle:resourcebundle
+    jcr:mixinTypes: ['mix:versionable']
+    jcr:uuid: c1bf45ee-29fd-442f-bdd4-8eb6e682a4bd
+    hippo:availability: [preview]
+    hippostd:state: unpublished
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2019-12-20T14:35:30.322Z
+    hippostdpubwf:lastModificationDate: 2020-12-04T14:22:05.336Z
+    hippostdpubwf:lastModifiedBy: admin
+    resourcebundle:descriptions: ['', '']
+    resourcebundle:id: keys
+    resourcebundle:keys: [maptiler.devkey, instagram.accesstoken]
+    resourcebundle:messages: [SZGAUFW8iNcUjjJgrkgf, '']
+  /keys[3]:
+    jcr:primaryType: resourcebundle:resourcebundle
+    jcr:mixinTypes: ['mix:referenceable']
+    jcr:uuid: 14a67019-41c3-4f71-8608-1d1f46f02a88
+    hippo:availability: [live]
+    hippostd:state: published
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2019-12-20T14:35:30.322Z
+    hippostdpubwf:lastModificationDate: 2020-12-04T14:22:05.336Z
+    hippostdpubwf:lastModifiedBy: admin
+    hippostdpubwf:publicationDate: 2020-12-04T14:22:10.949Z
+    resourcebundle:descriptions: ['', '']
+    resourcebundle:id: keys
+    resourcebundle:keys: [maptiler.devkey, instagram.accesstoken]
+    resourcebundle:messages: [SZGAUFW8iNcUjjJgrkgf, '']

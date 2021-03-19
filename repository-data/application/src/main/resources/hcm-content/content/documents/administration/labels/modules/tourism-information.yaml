@@ -1,0 +1,101 @@
+/content/documents/administration/labels/modules/tourism-information:
+  .meta:order-before: otyml
+  jcr:primaryType: hippo:handle
+  jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+  jcr:uuid: 522ca9d4-e11c-4aa6-8716-42f3aa699636
+  hippo:name: Tourism Information (iCentre/iKnow)
+  hippo:versionHistory: 954be1cb-6821-4fc6-a37c-d959349fde9b
+  /tourism-information[1]:
+    jcr:primaryType: resourcebundle:resourcebundle
+    jcr:mixinTypes: ['mix:referenceable']
+    jcr:uuid: e99eaf51-8ace-461a-9463-29774b5171db
+    hippo:availability: []
+    hippostd:state: draft
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2020-11-04T15:30:47.380Z
+    hippostdpubwf:lastModificationDate: 2021-01-22T17:59:16.023Z
+    hippostdpubwf:lastModifiedBy: admin
+    resourcebundle:descriptions: ['', '', '', '', '', "IDEAL = content/gallery/visitscotland/static/modules/visitscotland-visitor-information-centre.jpg\r\
+        \n\r\nRELATIVE = /site/binaries/content/gallery/visitscotland/static/modules/visitscotland-visitor-information-centre.jpg\r\
+        \n\r\nLIVE = https://cimg.visitscotland.com/cms-images/about/458950/fort-william-visitscotland-icentre-sign",
+      '', '', '']
+    resourcebundle:id: tourism.information
+    resourcebundle:keys: [icentre.title.default, icentre.description.singleVic, icentre.description.multipleVic,
+      icentre.description.link, icentre.description.link.text, icentre.image.default,
+      iknow.title.default, iknow.link.label, iknow.description.default]
+    resourcebundle:messages: [A tip from your local expert, 'For more friendly advice,
+        visit the', 'For more friendly advice, visit one of our tourist information
+        iCentres in the area:', 'https://www.visitscotland.com/about/practical-information/vic/',
+      VisitScotland iCentres page, /content/gallery/visitscotland/static/modules/visitscotland-visitor-information-centre.jpg,
+      Help and Advice, Find our iKnow Partners in this area, 'You can also get advice
+        from our accredited iKnow partners, with excellent local expertise, travel
+        advice and insider tips about must-see attractions and great accommodation
+        in the local area']
+    resourcebundle:messages_de: ['', '', '', '', '', '', '', '', '']
+    resourcebundle:messages_es: ['', '', '', '', '', '', '', '', '']
+    resourcebundle:messages_fr: ['', '', '', '', '', '', '', '', '']
+    resourcebundle:messages_it: ['', '', '', '', '', '', '', '', '']
+    resourcebundle:messages_nl: ['', '', '', '', '', '', '', '', '']
+  /tourism-information[2]:
+    jcr:primaryType: resourcebundle:resourcebundle
+    jcr:mixinTypes: ['mix:versionable']
+    jcr:uuid: e95e7fd7-b3eb-46cb-90f5-d2196ea3a24b
+    hippo:availability: [preview]
+    hippostd:state: unpublished
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2020-11-04T15:30:47.380Z
+    hippostdpubwf:lastModificationDate: 2021-01-22T17:59:36.858Z
+    hippostdpubwf:lastModifiedBy: admin
+    resourcebundle:descriptions: ['', '', '', '', '', "IDEAL = content/gallery/visitscotland/static/modules/visitscotland-visitor-information-centre.jpg\r\
+        \n\r\nRELATIVE = /site/binaries/content/gallery/visitscotland/static/modules/visitscotland-visitor-information-centre.jpg\r\
+        \n\r\nLIVE = https://cimg.visitscotland.com/cms-images/about/458950/fort-william-visitscotland-icentre-sign",
+      '', '', '']
+    resourcebundle:id: tourism.information
+    resourcebundle:keys: [icentre.title.default, icentre.description.singleVic, icentre.description.multipleVic,
+      icentre.description.link, icentre.description.link.text, icentre.image.default,
+      iknow.title.default, iknow.link.label, iknow.description.default]
+    resourcebundle:messages: [A tip from your local expert, 'For more friendly advice,
+        visit the', 'For more friendly advice, visit one of our tourist information
+        iCentres in the area:', 'https://www.visitscotland.com/about/practical-information/vic/',
+      VisitScotland iCentres page, /content/gallery/visitscotland/static/modules/visitscotland-visitor-information-centre.jpg,
+      Help and Advice, Find our iKnow Partners in this area, 'You can also get advice
+        from our accredited iKnow partners, with excellent local expertise, travel
+        advice and insider tips about must-see attractions and great accommodation
+        in the local area']
+    resourcebundle:messages_de: ['', '', '', '', '', '', '', '', '']
+    resourcebundle:messages_es: ['', '', '', '', '', '', '', '', '']
+    resourcebundle:messages_fr: ['', '', '', '', '', '', '', '', '']
+    resourcebundle:messages_it: ['', '', '', '', '', '', '', '', '']
+    resourcebundle:messages_nl: ['', '', '', '', '', '', '', '', '']
+  /tourism-information[3]:
+    jcr:primaryType: resourcebundle:resourcebundle
+    jcr:mixinTypes: ['mix:referenceable']
+    jcr:uuid: 6eef08b8-8863-4a43-ae07-b31111345901
+    hippo:availability: [live]
+    hippostd:state: published
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2020-11-04T15:30:47.380Z
+    hippostdpubwf:lastModificationDate: 2021-01-22T17:59:36.858Z
+    hippostdpubwf:lastModifiedBy: admin
+    hippostdpubwf:publicationDate: 2021-01-25T15:48:39.762Z
+    resourcebundle:descriptions: ['', '', '', '', '', "IDEAL = content/gallery/visitscotland/static/modules/visitscotland-visitor-information-centre.jpg\r\
+        \n\r\nRELATIVE = /site/binaries/content/gallery/visitscotland/static/modules/visitscotland-visitor-information-centre.jpg\r\
+        \n\r\nLIVE = https://cimg.visitscotland.com/cms-images/about/458950/fort-william-visitscotland-icentre-sign",
+      '', '', '']
+    resourcebundle:id: tourism.information
+    resourcebundle:keys: [icentre.title.default, icentre.description.singleVic, icentre.description.multipleVic,
+      icentre.description.link, icentre.description.link.text, icentre.image.default,
+      iknow.title.default, iknow.link.label, iknow.description.default]
+    resourcebundle:messages: [A tip from your local expert, 'For more friendly advice,
+        visit the', 'For more friendly advice, visit one of our tourist information
+        iCentres in the area:', 'https://www.visitscotland.com/about/practical-information/vic/',
+      VisitScotland iCentres page, /content/gallery/visitscotland/static/modules/visitscotland-visitor-information-centre.jpg,
+      Help and Advice, Find our iKnow Partners in this area, 'You can also get advice
+        from our accredited iKnow partners, with excellent local expertise, travel
+        advice and insider tips about must-see attractions and great accommodation
+        in the local area']
+    resourcebundle:messages_de: ['', '', '', '', '', '', '', '', '']
+    resourcebundle:messages_es: ['', '', '', '', '', '', '', '', '']
+    resourcebundle:messages_fr: ['', '', '', '', '', '', '', '', '']
+    resourcebundle:messages_it: ['', '', '', '', '', '', '', '', '']
+    resourcebundle:messages_nl: ['', '', '', '', '', '', '', '', '']

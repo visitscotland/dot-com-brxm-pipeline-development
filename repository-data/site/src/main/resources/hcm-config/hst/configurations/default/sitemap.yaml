@@ -13,3 +13,5 @@ definitions:
         jcr:primaryType: hst:sitemapitem
         hst:componentconfigurationid: hst:pages/contentlist
         hst:relativecontentpath: ${parent}/${1}
+    /hst:hst/hst:configurations/hst:default/hst:sitemap/webfiles:
+      hst:responseheaders: ['Access-Control-Allow-Origin: http://localhost:8082']

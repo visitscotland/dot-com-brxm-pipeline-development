@@ -1,6 +1,6 @@
 <#include "../../include/imports.ftl">
 
-<#-- @ftlvariable name="document" type="com.visitscotland.brmx.beans.ContentDocument" -->
+<#-- @ftlvariable name="document" type="com.visitscotland.brxm.hippobeans.ContentDocument" -->
 <#if document??>
 <article class="has-edit-button">
   <@hst.manageContent hippobean=document/>

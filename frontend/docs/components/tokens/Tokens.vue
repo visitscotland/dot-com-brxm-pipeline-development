@@ -1,64 +1,93 @@
 <template>
-  <div>
-    <div v-for="(thisType, index1) in sortedTypes" :key="index1" class="token-type">
-      <table>
-        <thead>
-          <tr>
-            <th colspan="3">
-              <component v-if="sortedTypes.length > 1" :is="typeHeadingElement">
-                {{ thisType === "..." ? "No type" : thisType }}
-              </component>
-            </th>
-          </tr>
-          <tr>
-            <th>Token Name</th>
-            <th>Value</th>
-            <th>Category</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr
-            v-once
-            v-for="(token, index2) in filterBy('type', thisType)"
-            :key="index2"
-            class="token"
-          >
-            <td v-if="token.name">
-              <code class="name">${{ token.name.replace(/_/g, "-") }}</code>
-            </td>
-            <td v-else>N/A</td>
-            <td v-if="token.value">
-              <div
-                v-if="token.type === 'color'"
-                class="example color"
-                :style="{ backgroundColor: token.value }"
-              />
-              <div
-                v-if="token.category === 'border-radius'"
-                class="example border-radius"
-                :style="{ borderRadius: token.value }"
-              />
-              <div
-                v-if="token.category === 'box-shadow'"
-                class="example box-shadow"
-                :style="{ boxShadow: token.value }"
-              />
-              <code v-if="token.type === 'color'" class="type">{{ token.originalValue }}</code>
-              <code v-else class="type">{{ token.value }}</code>
-            </td>
-            <td v-else>N/A</td>
-            <td v-if="token.category">{{ token.category }}</td>
-            <td v-else>N/A</td>
-          </tr>
-        </tbody>
-      </table>
+    <div>
+        <div
+            v-for="(thisType, index1) in sortedTypes"
+            :key="index1"
+            class="token-type"
+        >
+            <table>
+                <thead>
+                    <tr>
+                        <th colspan="3">
+                            <!-- eslint-disable vue/component-name-in-template-casing -->
+                            <component
+                                v-if="sortedTypes.length > 1"
+                                :is="typeHeadingElement"
+                            >
+                                {{ thisType === "..." ? "No type" : thisType }}
+                            </component>
+                            <!-- eslint-enable vue/component-name-in-template-casing -->
+                        </th>
+                    </tr>
+                    <tr>
+                        <th>Token Name</th>
+                        <th>Value</th>
+                        <th>Category</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr
+                        v-once
+                        v-for="(token, index2) in filterBy('type', thisType)"
+                        :key="index2"
+                        class="token"
+                    >
+                        <td v-if="token.name">
+                            <code class="name">${{ token.name.replace(/_/g, "-") }}</code>
+                        </td>
+                        <td v-else>
+                            N/A
+                        </td>
+                        <td v-if="token.value">
+                            <div
+                                v-if="token.type === 'color'"
+                                class="example color"
+                                :style="{ backgroundColor: token.value }"
+                            />
+                            <div
+                                v-if="token.category === 'border-radius'"
+                                class="example border-radius"
+                                :style="{ borderRadius: token.value }"
+                            />
+                            <div
+                                v-if="token.category === 'box-shadow'"
+                                class="example box-shadow"
+                                :style="{ boxShadow: token.value }"
+                            />
+                            <code
+                                v-if="token.type === 'color'"
+                                class="type"
+                            >{{ token.originalValue }}</code>
+                            <code
+                                v-else
+                                class="type"
+                            >{{ token.value }}</code>
+                        </td>
+                        <td v-else>
+                            N/A
+                        </td>
+                        <td v-if="token.category">
+                            {{ token.category }}
+                        </td>
+                        <td v-else>
+                            N/A
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
     </div>
-  </div>
 </template>
 
 <script>
+import {
+    orderBy,
+    filter,
+    map,
+    uniq,
+    castArray,
+} from "lodash"
 import designTokens from "@/assets/tokens/tokens.raw.json"
-import { orderBy, filter, map, uniq, castArray } from "lodash"
 
 /**
  * A list of available tokens in Vue Design System. Use these tokens in place
@@ -67,43 +96,42 @@ import { orderBy, filter, map, uniq, castArray } from "lodash"
  * [/src/tokens/](https://github.com/viljamis/vue-design-system/blob/master/src/tokens).
  */
 export default {
-  name: "Tokens",
-  props: {
-    types: {
-      type: [String, Array],
+    name: "Tokens",
+    props: {
+        types: {
+            type: [String, Array],
+            default: null,
+        },
+        typeHeadingElement: {
+            type: String,
+            default: "h2",
+            validator: (value) => value.match(/(h1|h2|h3|h4|h5|h6)/),
+        },
     },
-    typeHeadingElement: {
-      type: String,
-      default: "h2",
-      validator: value => {
-        return value.match(/(h1|h2|h3|h4|h5|h6)/)
-      },
+    data() {
+        return {
+            tokens: this.orderData(designTokens.props),
+        }
     },
-  },
-  methods: {
-    orderData: function(data) {
-      let byName = orderBy(data, "name", "asc")
-      let byCategoryAndName = orderBy(byName, "category")
-      return byCategoryAndName
-    },
-    filterBy(filterOn, term) {
-      return filter(this.tokens, [filterOn, term])
-    },
-  },
-  data() {
-    return {
-      tokens: this.orderData(designTokens.props),
-    }
-  },
-  computed: {
-    sortedTypes() {
-      if (this.types) {
-        return castArray(this.types)
-      }
+    computed: {
+        sortedTypes() {
+            if (this.types) {
+                return castArray(this.types)
+            }
 
-      return orderBy(uniq(map(this.tokens, "type")))
+            return orderBy(uniq(map(this.tokens, "type")))
+        },
     },
-  },
+    methods: {
+        orderData(data) {
+            const byName = orderBy(data, "name", "asc")
+            const byCategoryAndName = orderBy(byName, "category")
+            return byCategoryAndName
+        },
+        filterBy(filterOn, term) {
+            return filter(this.tokens, [filterOn, term])
+        },
+    },
 }
 </script>
 

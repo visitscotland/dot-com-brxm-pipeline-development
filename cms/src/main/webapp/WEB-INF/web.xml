@@ -31,6 +31,15 @@
     <param-name>repository-config</param-name>
     <param-value>repository.xml</param-value>
   </context-param>
+  <context-param>
+    <param-name>hst-beans-annotated-classes</param-name>
+    <param-value>classpath*:com/visitscotland/brxm/**/*.class
+      ,classpath*:org/onehippo/**/*.class
+      ,classpath*:com/onehippo/**/*.class
+      ,classpath*:org/onehippo/forge/**/*.class
+    </param-value>
+  </context-param>
+
 
   <filter>
     <filter-name>HstFilter</filter-name>

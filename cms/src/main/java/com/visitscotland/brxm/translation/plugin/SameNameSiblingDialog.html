@@ -1,0 +1,33 @@
+<html xmlns:wicket="http://wicket.apache.org/">
+<wicket:head>
+    <style>
+        .same-name-sibling-table td,
+        .same-name-sibling-table th {
+            padding-left: 5px;
+            padding-right: 5px;
+            text-align: center;
+        }
+
+        .same-name-sibling {
+            background-color: lightsalmon;
+        }
+    </style>
+</wicket:head>
+<wicket:extend>
+    <label for="sns-list" style="padding-left: 10px; padding-top: 10px;">There are same name name siblings preventing
+        the translation clone:</label>
+    <table id="sns-list" class="same-name-sibling-table"
+           style="padding-top:20px; padding-left: 100px; padding-bottom:20px;">
+        <tr>
+            <th>Language</th>
+            <th>Name</th>
+            <th>Url</th>
+        </tr>
+        <tr wicket:id="sibling">
+            <td><img wicket:id="img"></td>
+            <td wicket:id="display-name"></td>
+            <td wicket:id="url"></td>
+        </tr>
+    </table>
+</wicket:extend>
+</html>

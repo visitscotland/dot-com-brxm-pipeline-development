@@ -1,0 +1,969 @@
+/content/documents/visitscotland/shared/itinerary-stops:
+  jcr:primaryType: hippostd:folder
+  jcr:mixinTypes: ['frontend:orderChildFolders', 'hippo:named', 'hippotranslation:translated',
+    'mix:versionable']
+  jcr:uuid: e028b867-eed7-4193-a333-1af2cd9c8f7c
+  hippo:name: Itinerary Stops
+  hippostd:foldertype: [new-translated-folder-stops]
+  hippotranslation:id: f2a062c1-35c1-4eb5-be2a-d0d2abad988f
+  hippotranslation:locale: en
+  /a:
+    jcr:primaryType: hippostd:folder
+    jcr:mixinTypes: ['hippo:named', 'hippotranslation:translated', 'mix:versionable']
+    jcr:uuid: 011ab1e9-4c7b-4a5d-bbdb-ec29b2ecc18e
+    hippo:name: A
+    hippostd:foldertype: [new-translated-folder-stops, new-stop]
+    hippotranslation:id: d76a9b63-e399-446d-a32c-17442d8bfc76
+    hippotranslation:locale: en
+  /b:
+    jcr:primaryType: hippostd:folder
+    jcr:mixinTypes: ['hippo:named', 'hippotranslation:translated', 'mix:versionable']
+    jcr:uuid: 6938ba54-1ff9-41cb-bbf1-33778ddf244d
+    hippo:name: B
+    hippostd:foldertype: [new-translated-folder-stops, new-stop]
+    hippotranslation:id: 7189ed5b-0c87-4801-a182-9f61dab88ebd
+    hippotranslation:locale: en
+  /c:
+    jcr:primaryType: hippostd:folder
+    jcr:mixinTypes: ['hippo:named', 'hippotranslation:translated', 'mix:versionable']
+    jcr:uuid: bbb32e36-3efa-43e1-840a-d0bc400beecf
+    hippo:name: C
+    hippostd:foldertype: [new-translated-folder-stops, new-stop]
+    hippotranslation:id: 4894bd64-d044-479f-a602-35c844fa6ccf
+    hippotranslation:locale: en
+    /culloden-battlefield:
+      jcr:primaryType: hippo:handle
+      jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+      jcr:uuid: 8ef343ea-4650-4fb7-98d1-b34822be9817
+      hippo:name: Culloden Battlefield
+      hippo:versionHistory: a110d28b-fffa-4835-8c2c-a7b87bb33b8d
+      /culloden-battlefield[1]:
+        jcr:primaryType: visitscotland:Stop
+        jcr:mixinTypes: ['mix:referenceable']
+        jcr:uuid: 2d5c59d9-f017-4081-a436-57cb87c75fe9
+        hippo:availability: []
+        hippostd:state: draft
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2020-10-20T13:38:28.294Z
+        hippostdpubwf:lastModificationDate: 2020-10-21T12:08:42.938Z
+        hippostdpubwf:lastModifiedBy: admin
+        hippotranslation:id: 466c9a3c-0498-4d13-9b4c-d2593d675fcb
+        hippotranslation:locale: en
+        visitscotland:subtitle: ''
+        visitscotland:tipsTitle: ''
+        visitscotland:title: Culloden Battlefield
+        /visitscotland:description:
+          jcr:primaryType: hippostd:html
+          hippostd:content: |-
+            <p>A prominent location during the Jacobite Rising in 1745. Head to the&nbsp;<a href="https://www.nts.org.uk/visit/places/culloden" title="" target="_blank">Battle of Culloden Visitor Centre</a>&nbsp;and feel like you are right at the very heart of the action as you immerse yourself in the 360-degree immersion theatre experience. Discover the unfolding story of the Jacobite Rising as you learn more about the Jacobite and Government perspectives with unique artefacts on display around the museum on the series of events that occurred. Make sure to pop into the gift shop and take a small piece of history home with you ranging from the flowers of the Battlefield to Culloden whisky.</p>
+
+            <p>Duration of stay: 3 Hours</p>
+        /visitscotland:tips:
+          jcr:primaryType: hippostd:html
+          hippostd:content: ''
+        /visitscotland:image:
+          jcr:primaryType: hippogallerypicker:imagelink
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+        /visitscotland:product:
+          jcr:primaryType: visitscotland:DMSLink
+          visitscotland:label: ''
+          visitscotland:product: '247471'
+      /culloden-battlefield[2]:
+        jcr:primaryType: visitscotland:Stop
+        jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+        jcr:uuid: feda86a3-7723-4e84-b600-a06d2d69f2b2
+        hippo:availability: [preview]
+        hippostd:state: unpublished
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2020-10-20T13:38:28.294Z
+        hippostdpubwf:lastModificationDate: 2020-10-20T16:36:57.082Z
+        hippostdpubwf:lastModifiedBy: admin
+        hippotranslation:id: 466c9a3c-0498-4d13-9b4c-d2593d675fcb
+        hippotranslation:locale: en
+        visitscotland:subtitle: ''
+        visitscotland:tipsTitle: ''
+        visitscotland:title: Culloden Battlefield
+        /visitscotland:description:
+          jcr:primaryType: hippostd:html
+          hippostd:content: |-
+            <p>A prominent location during the Jacobite Rising in 1745. Head to the&nbsp;<a href="https://www.nts.org.uk/visit/places/culloden" title="" target="_blank">Battle of Culloden Visitor Centre</a>&nbsp;and feel like you are right at the very heart of the action as you immerse yourself in the 360-degree immersion theatre experience. Discover the unfolding story of the Jacobite Rising as you learn more about the Jacobite and Government perspectives with unique artefacts on display around the museum on the series of events that occurred. Make sure to pop into the gift shop and take a small piece of history home with you ranging from the flowers of the Battlefield to Culloden whisky.</p>
+
+            <p>Duration of stay: 3 Hours</p>
+        /visitscotland:tips:
+          jcr:primaryType: hippostd:html
+          hippostd:content: ''
+        /visitscotland:image:
+          jcr:primaryType: hippogallerypicker:imagelink
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+        /visitscotland:product:
+          jcr:primaryType: visitscotland:DMSLink
+          visitscotland:label: ''
+          visitscotland:product: '247471'
+      /culloden-battlefield[3]:
+        jcr:primaryType: visitscotland:Stop
+        jcr:mixinTypes: ['mix:referenceable']
+        jcr:uuid: 7bea6324-7765-4307-80c6-956bde7ac4b1
+        hippo:availability: [live]
+        hippostd:state: published
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2020-10-20T13:38:28.294Z
+        hippostdpubwf:lastModificationDate: 2020-10-20T16:36:57.082Z
+        hippostdpubwf:lastModifiedBy: admin
+        hippostdpubwf:publicationDate: 2020-11-24T13:35:18.602Z
+        hippotranslation:id: 466c9a3c-0498-4d13-9b4c-d2593d675fcb
+        hippotranslation:locale: en
+        visitscotland:subtitle: ''
+        visitscotland:tipsTitle: ''
+        visitscotland:title: Culloden Battlefield
+        /visitscotland:description:
+          jcr:primaryType: hippostd:html
+          hippostd:content: |-
+            <p>A prominent location during the Jacobite Rising in 1745. Head to the&nbsp;<a href="https://www.nts.org.uk/visit/places/culloden" title="" target="_blank">Battle of Culloden Visitor Centre</a>&nbsp;and feel like you are right at the very heart of the action as you immerse yourself in the 360-degree immersion theatre experience. Discover the unfolding story of the Jacobite Rising as you learn more about the Jacobite and Government perspectives with unique artefacts on display around the museum on the series of events that occurred. Make sure to pop into the gift shop and take a small piece of history home with you ranging from the flowers of the Battlefield to Culloden whisky.</p>
+
+            <p>Duration of stay: 3 Hours</p>
+        /visitscotland:tips:
+          jcr:primaryType: hippostd:html
+          hippostd:content: ''
+        /visitscotland:image:
+          jcr:primaryType: hippogallerypicker:imagelink
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+        /visitscotland:product:
+          jcr:primaryType: visitscotland:DMSLink
+          visitscotland:label: ''
+          visitscotland:product: '247471'
+    /clava-cairns:
+      jcr:primaryType: hippo:handle
+      jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+      jcr:uuid: d93a1829-d987-4138-9b7d-d4302ce127c8
+      hippo:name: Clava Cairns
+      hippo:versionHistory: b1fdfe50-2ad3-466b-acd4-68e7b16215ce
+      /clava-cairns[1]:
+        jcr:primaryType: visitscotland:Stop
+        jcr:mixinTypes: ['mix:referenceable']
+        jcr:uuid: 5aaaf3d8-31e2-4f93-a1ad-630e35a18d61
+        hippo:availability: []
+        hippostd:state: draft
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2020-10-20T13:41:15.482Z
+        hippostdpubwf:lastModificationDate: 2020-12-11T15:19:37.711Z
+        hippostdpubwf:lastModifiedBy: admin
+        hippotranslation:id: 2a5c27e0-f848-4535-ac62-4344ca736630
+        hippotranslation:locale: en
+        visitscotland:subtitle: ''
+        visitscotland:tipsTitle: ''
+        visitscotland:title: Clava Cairns
+        visitscotland:translation: ''
+        /visitscotland:description:
+          jcr:primaryType: hippostd:html
+          hippostd:content: |-
+            <p>Stop en-route to&nbsp;<a href="https://www.visitscotland.com/info/see-do/clava-cairns-p245611" title="Clava Cairns">Clava Cairns</a>. Take a wander around this Bronze Age cemetery where you will come across graves dating back as far as 2000 BC where you will have a fantastic insight to the Highlands remarkable history.</p>
+
+            <p>Duration of stay: 25 Minutes</p>
+        /visitscotland:tips:
+          jcr:primaryType: hippostd:html
+          hippostd:content: ''
+        /visitscotland:image:
+          jcr:primaryType: hippogallerypicker:imagelink
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+        /visitscotland:product:
+          jcr:primaryType: visitscotland:DMSLink
+          visitscotland:label: ''
+          visitscotland:product: '245611'
+        /visitscotland:StopTip:
+          jcr:primaryType: visitscotland:StopTip
+          visitscotland:title: prueba
+          /visitscotland:copy:
+            jcr:primaryType: hippostd:html
+            hippostd:content: <p>prueba</p>
+      /clava-cairns[2]:
+        jcr:primaryType: visitscotland:Stop
+        jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+        jcr:uuid: 1c209b09-673d-41c2-8076-f3861681b325
+        hippo:availability: [preview]
+        hippostd:state: unpublished
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2020-10-20T13:41:15.482Z
+        hippostdpubwf:lastModificationDate: 2020-12-11T15:19:37.363Z
+        hippostdpubwf:lastModifiedBy: admin
+        hippotranslation:id: 2a5c27e0-f848-4535-ac62-4344ca736630
+        hippotranslation:locale: en
+        visitscotland:subtitle: ''
+        visitscotland:tipsTitle: ''
+        visitscotland:title: Clava Cairns
+        visitscotland:translation: ''
+        /visitscotland:description:
+          jcr:primaryType: hippostd:html
+          hippostd:content: |-
+            <p>Stop en-route to&nbsp;<a href="https://www.visitscotland.com/info/see-do/clava-cairns-p245611" title="Clava Cairns">Clava Cairns</a>. Take a wander around this Bronze Age cemetery where you will come across graves dating back as far as 2000 BC where you will have a fantastic insight to the Highlands remarkable history.</p>
+
+            <p>Duration of stay: 25 Minutes</p>
+        /visitscotland:tips:
+          jcr:primaryType: hippostd:html
+          hippostd:content: ''
+        /visitscotland:image:
+          jcr:primaryType: hippogallerypicker:imagelink
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+        /visitscotland:product:
+          jcr:primaryType: visitscotland:DMSLink
+          visitscotland:label: ''
+          visitscotland:product: '245611'
+        /visitscotland:StopTip:
+          jcr:primaryType: visitscotland:StopTip
+          visitscotland:title: prueba
+          /visitscotland:copy:
+            jcr:primaryType: hippostd:html
+            hippostd:content: <p>prueba</p>
+      /clava-cairns[3]:
+        jcr:primaryType: visitscotland:Stop
+        jcr:mixinTypes: ['mix:referenceable']
+        jcr:uuid: b6d558ee-4846-4de5-8178-425b3194d216
+        hippo:availability: [live]
+        hippostd:state: published
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2020-10-20T13:41:15.482Z
+        hippostdpubwf:lastModificationDate: 2020-10-20T13:41:34.738Z
+        hippostdpubwf:lastModifiedBy: admin
+        hippostdpubwf:publicationDate: 2020-11-24T13:35:20.256Z
+        hippotranslation:id: 2a5c27e0-f848-4535-ac62-4344ca736630
+        hippotranslation:locale: en
+        visitscotland:subtitle: ''
+        visitscotland:tipsTitle: ''
+        visitscotland:title: Clava Cairns
+        /visitscotland:description:
+          jcr:primaryType: hippostd:html
+          hippostd:content: |-
+            <p>Stop en-route to&nbsp;<a href="https://www.visitscotland.com/info/see-do/clava-cairns-p245611" title="Clava Cairns">Clava Cairns</a>. Take a wander around this Bronze Age cemetery where you will come across graves dating back as far as 2000 BC where you will have a fantastic insight to the Highlands remarkable history.</p>
+
+            <p>Duration of stay: 25 Minutes</p>
+        /visitscotland:tips:
+          jcr:primaryType: hippostd:html
+          hippostd:content: ''
+        /visitscotland:image:
+          jcr:primaryType: hippogallerypicker:imagelink
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+        /visitscotland:product:
+          jcr:primaryType: visitscotland:DMSLink
+          visitscotland:label: ''
+          visitscotland:product: '245611'
+  /d:
+    jcr:primaryType: hippostd:folder
+    jcr:mixinTypes: ['hippo:named', 'hippotranslation:translated', 'mix:versionable']
+    jcr:uuid: 35f98c04-a061-45c6-937e-fbdea8a96bc2
+    hippo:name: D
+    hippostd:foldertype: [new-translated-folder-stops, new-stop]
+    hippotranslation:id: 16860f81-1a95-45fc-bc4e-a67b5bae1523
+    hippotranslation:locale: en
+    /dining-out:
+      jcr:primaryType: hippo:handle
+      jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+      jcr:uuid: 0aba5bc3-cfab-48cf-807f-f24dd702ab2b
+      hippo:name: Dining Out Inverness
+      hippo:versionHistory: c6ffca8c-0527-4cdf-9774-d2fc81149fa5
+      /dining-out[1]:
+        jcr:primaryType: visitscotland:Stop
+        jcr:mixinTypes: ['mix:referenceable']
+        jcr:uuid: d56c0fc1-8761-4845-b2f4-591f7aaecdc0
+        hippo:availability: []
+        hippostd:state: draft
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2020-10-20T13:44:40.192Z
+        hippostdpubwf:lastModificationDate: 2020-11-24T13:35:12.933Z
+        hippostdpubwf:lastModifiedBy: admin
+        hippotranslation:id: 2d7d4c8e-7326-4fcc-99aa-1d6c62ad3bd5
+        hippotranslation:locale: en
+        visitscotland:subtitle: ''
+        visitscotland:tipsTitle: ''
+        visitscotland:title: Dining Out & Nightlife
+        visitscotland:translation: ''
+        /visitscotland:description:
+          jcr:primaryType: hippostd:html
+          hippostd:content: <p>After a long day of exploring the city, there is nothing
+            better than sitting down while tucking into a delicious meal. Just 10
+            miles outside of Inverness is&nbsp;<a href="http://www.thedoresinn.co.uk/"
+            title="" target="_blank">Dores Inn</a>, situated along the banks of Loch
+            Ness. Choose from a wide range of mouth-watering dishes and, with its
+            traditional furnishings and wood-burning stove, it is sure to set the
+            right ambience for the evening. Another scenic location that might take
+            your fancy is the&nbsp;<a href="http://riverhouseinverness.co.uk/" title=""
+            target="_blank">River House Restaurant</a>. You certainly won’t go hungry
+            here with the restaurant’s extensive food &amp; drink menu. Working with
+            local suppliers, you can always expect high quality dishes that will certainly
+            go down a treat. For starters, why not opt for the pan-seared Isle of
+            Harris scallops or Orkney crab on toast and for mains, sink your teeth
+            into a tasty 28-day matured Scottish ribeye – simply delicious! Enjoy
+            a night on the town! Inverness is certainly the place to be to let your
+            hair down!&nbsp;<a href="https://baroneinverness.com/" title="" target="_blank">Bar
+            One</a>&nbsp;is a great find if you are looking to try a delicious cocktail
+            or two while you lap up its lively atmosphere. Watch the world go by at
+            the&nbsp;<a href="https://www.castletavern.pub/" title="" target="_blank">Castle
+            Tavern</a>. Sample some of the best ales and meals on offer and when the
+            weather is nice, make sure to soak up those rays in the beer garden. If
+            you’re partial to sipping away on a craft beer, then look no further than
+            the&nbsp;<a href="https://www.blackislebrewery.com/black-isle-bar/" title=""
+            target="_blank">Black Isle Brewery Bar</a>. Why not sink your teeth into
+            one of their delicious wood-fired pizzas to go along with your meal?</p>
+        /visitscotland:tips:
+          jcr:primaryType: hippostd:html
+          hippostd:content: ''
+        /visitscotland:image:
+          jcr:primaryType: hippogallerypicker:imagelink
+          hippo:docbase: 9fb38865-ca10-4ef4-bcab-a1097cc44487
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+        /visitscotland:product:
+          jcr:primaryType: visitscotland:ItineraryExternalLink
+          /visitscotland:Coordinates:
+            jcr:primaryType: visitscotland:Coordinates
+            visitscotland:latitude: 57.478772
+            visitscotland:longitude: -4.2329976
+          /visitscotland:ExternalLink:
+            jcr:primaryType: visitscotland:ExternalLink
+            visitscotland:label: ''
+            visitscotland:link: http://riverhouseinverness.co.uk/
+      /dining-out[2]:
+        jcr:primaryType: visitscotland:Stop
+        jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+        jcr:uuid: 553a38b2-52c3-4218-8dfc-cc712553e9a0
+        hippo:availability: [preview]
+        hippostd:state: unpublished
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2020-10-20T13:44:40.192Z
+        hippostdpubwf:lastModificationDate: 2020-11-24T13:35:12.898Z
+        hippostdpubwf:lastModifiedBy: admin
+        hippotranslation:id: 2d7d4c8e-7326-4fcc-99aa-1d6c62ad3bd5
+        hippotranslation:locale: en
+        visitscotland:subtitle: ''
+        visitscotland:tipsTitle: ''
+        visitscotland:title: Dining Out & Nightlife
+        visitscotland:translation: ''
+        /visitscotland:description:
+          jcr:primaryType: hippostd:html
+          hippostd:content: <p>After a long day of exploring the city, there is nothing
+            better than sitting down while tucking into a delicious meal. Just 10
+            miles outside of Inverness is&nbsp;<a href="http://www.thedoresinn.co.uk/"
+            title="" target="_blank">Dores Inn</a>, situated along the banks of Loch
+            Ness. Choose from a wide range of mouth-watering dishes and, with its
+            traditional furnishings and wood-burning stove, it is sure to set the
+            right ambience for the evening. Another scenic location that might take
+            your fancy is the&nbsp;<a href="http://riverhouseinverness.co.uk/" title=""
+            target="_blank">River House Restaurant</a>. You certainly won’t go hungry
+            here with the restaurant’s extensive food &amp; drink menu. Working with
+            local suppliers, you can always expect high quality dishes that will certainly
+            go down a treat. For starters, why not opt for the pan-seared Isle of
+            Harris scallops or Orkney crab on toast and for mains, sink your teeth
+            into a tasty 28-day matured Scottish ribeye – simply delicious! Enjoy
+            a night on the town! Inverness is certainly the place to be to let your
+            hair down!&nbsp;<a href="https://baroneinverness.com/" title="" target="_blank">Bar
+            One</a>&nbsp;is a great find if you are looking to try a delicious cocktail
+            or two while you lap up its lively atmosphere. Watch the world go by at
+            the&nbsp;<a href="https://www.castletavern.pub/" title="" target="_blank">Castle
+            Tavern</a>. Sample some of the best ales and meals on offer and when the
+            weather is nice, make sure to soak up those rays in the beer garden. If
+            you’re partial to sipping away on a craft beer, then look no further than
+            the&nbsp;<a href="https://www.blackislebrewery.com/black-isle-bar/" title=""
+            target="_blank">Black Isle Brewery Bar</a>. Why not sink your teeth into
+            one of their delicious wood-fired pizzas to go along with your meal?</p>
+        /visitscotland:tips:
+          jcr:primaryType: hippostd:html
+          hippostd:content: ''
+        /visitscotland:image:
+          jcr:primaryType: hippogallerypicker:imagelink
+          hippo:docbase: 9fb38865-ca10-4ef4-bcab-a1097cc44487
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+        /visitscotland:product:
+          jcr:primaryType: visitscotland:ItineraryExternalLink
+          /visitscotland:Coordinates:
+            jcr:primaryType: visitscotland:Coordinates
+            visitscotland:latitude: 57.478772
+            visitscotland:longitude: -4.2329976
+          /visitscotland:ExternalLink:
+            jcr:primaryType: visitscotland:ExternalLink
+            visitscotland:label: ''
+            visitscotland:link: http://riverhouseinverness.co.uk/
+      /dining-out[3]:
+        jcr:primaryType: visitscotland:Stop
+        jcr:mixinTypes: ['mix:referenceable']
+        jcr:uuid: 2ea04e51-6eb1-43a1-9955-b1baeaf275a5
+        hippo:availability: [live]
+        hippostd:state: published
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2020-10-20T13:44:40.192Z
+        hippostdpubwf:lastModificationDate: 2020-11-24T13:35:12.898Z
+        hippostdpubwf:lastModifiedBy: admin
+        hippostdpubwf:publicationDate: 2020-11-24T13:35:15.502Z
+        hippotranslation:id: 2d7d4c8e-7326-4fcc-99aa-1d6c62ad3bd5
+        hippotranslation:locale: en
+        visitscotland:subtitle: ''
+        visitscotland:tipsTitle: ''
+        visitscotland:title: Dining Out & Nightlife
+        visitscotland:translation: ''
+        /visitscotland:description:
+          jcr:primaryType: hippostd:html
+          hippostd:content: <p>After a long day of exploring the city, there is nothing
+            better than sitting down while tucking into a delicious meal. Just 10
+            miles outside of Inverness is&nbsp;<a href="http://www.thedoresinn.co.uk/"
+            title="" target="_blank">Dores Inn</a>, situated along the banks of Loch
+            Ness. Choose from a wide range of mouth-watering dishes and, with its
+            traditional furnishings and wood-burning stove, it is sure to set the
+            right ambience for the evening. Another scenic location that might take
+            your fancy is the&nbsp;<a href="http://riverhouseinverness.co.uk/" title=""
+            target="_blank">River House Restaurant</a>. You certainly won’t go hungry
+            here with the restaurant’s extensive food &amp; drink menu. Working with
+            local suppliers, you can always expect high quality dishes that will certainly
+            go down a treat. For starters, why not opt for the pan-seared Isle of
+            Harris scallops or Orkney crab on toast and for mains, sink your teeth
+            into a tasty 28-day matured Scottish ribeye – simply delicious! Enjoy
+            a night on the town! Inverness is certainly the place to be to let your
+            hair down!&nbsp;<a href="https://baroneinverness.com/" title="" target="_blank">Bar
+            One</a>&nbsp;is a great find if you are looking to try a delicious cocktail
+            or two while you lap up its lively atmosphere. Watch the world go by at
+            the&nbsp;<a href="https://www.castletavern.pub/" title="" target="_blank">Castle
+            Tavern</a>. Sample some of the best ales and meals on offer and when the
+            weather is nice, make sure to soak up those rays in the beer garden. If
+            you’re partial to sipping away on a craft beer, then look no further than
+            the&nbsp;<a href="https://www.blackislebrewery.com/black-isle-bar/" title=""
+            target="_blank">Black Isle Brewery Bar</a>. Why not sink your teeth into
+            one of their delicious wood-fired pizzas to go along with your meal?</p>
+        /visitscotland:tips:
+          jcr:primaryType: hippostd:html
+          hippostd:content: ''
+        /visitscotland:image:
+          jcr:primaryType: hippogallerypicker:imagelink
+          hippo:docbase: 9fb38865-ca10-4ef4-bcab-a1097cc44487
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+        /visitscotland:product:
+          jcr:primaryType: visitscotland:ItineraryExternalLink
+          /visitscotland:Coordinates:
+            jcr:primaryType: visitscotland:Coordinates
+            visitscotland:latitude: 57.478772
+            visitscotland:longitude: -4.2329976
+          /visitscotland:ExternalLink:
+            jcr:primaryType: visitscotland:ExternalLink
+            visitscotland:label: ''
+            visitscotland:link: http://riverhouseinverness.co.uk/
+  /e:
+    jcr:primaryType: hippostd:folder
+    jcr:mixinTypes: ['hippo:named', 'hippotranslation:translated', 'mix:versionable']
+    jcr:uuid: 2749bb3b-2711-4620-9a71-bfc7aa4fd9ae
+    hippo:name: E
+    hippostd:foldertype: [new-translated-folder-stops, new-stop]
+    hippotranslation:id: 001850a5-8b01-4c2a-8f69-1703d5caa20b
+    hippotranslation:locale: en
+  /f:
+    jcr:primaryType: hippostd:folder
+    jcr:mixinTypes: ['hippo:named', 'hippotranslation:translated', 'mix:versionable']
+    jcr:uuid: e8da8cbe-6418-49b1-a345-80564ecd0ce3
+    hippo:name: F
+    hippostd:foldertype: [new-translated-folder-stops, new-stop]
+    hippotranslation:id: d3968085-4024-4220-b4cb-b9c9177078f1
+    hippotranslation:locale: en
+  /g:
+    jcr:primaryType: hippostd:folder
+    jcr:mixinTypes: ['hippo:named', 'hippotranslation:translated', 'mix:versionable']
+    jcr:uuid: bd68def8-7843-41cf-9178-3550be304b8e
+    hippo:name: G
+    hippostd:foldertype: [new-translated-folder-stops, new-stop]
+    hippotranslation:id: 96001dbc-e372-4f8e-bbd7-2580ac981278
+    hippotranslation:locale: en
+  /h:
+    jcr:primaryType: hippostd:folder
+    jcr:mixinTypes: ['hippo:named', 'hippotranslation:translated', 'mix:versionable']
+    jcr:uuid: 9521d8d3-2a88-4096-aa03-7cac11ccad1d
+    hippo:name: H
+    hippostd:foldertype: [new-translated-folder-stops, new-stop]
+    hippotranslation:id: a9162b8d-d9b4-499f-a43f-7ee6a863bbf9
+    hippotranslation:locale: en
+  /i:
+    jcr:primaryType: hippostd:folder
+    jcr:mixinTypes: ['hippo:named', 'hippotranslation:translated', 'mix:versionable']
+    jcr:uuid: e0035b8b-9e8b-4344-a5ee-c004e1a3dd2d
+    hippo:name: I
+    hippostd:foldertype: [new-translated-folder-stops, new-stop]
+    hippotranslation:id: 60ec8099-e48b-4fec-b29e-9eba5ce957eb
+    hippotranslation:locale: en
+    /inverness-museum-art-gallery:
+      jcr:primaryType: hippo:handle
+      jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+      jcr:uuid: 961348bd-660b-423f-bca8-e694f5e892ce
+      hippo:name: Inverness Museum & Art Gallery
+      hippo:versionHistory: 090ee6f8-6b64-4da4-8116-9669fca16f01
+      /inverness-museum-art-gallery[1]:
+        jcr:primaryType: visitscotland:Stop
+        jcr:mixinTypes: ['mix:referenceable']
+        jcr:uuid: 37c0defb-df1c-4d3b-87a1-77309796ee3e
+        hippo:availability: []
+        hippostd:state: draft
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2020-10-20T13:40:06.315Z
+        hippostdpubwf:lastModificationDate: 2020-10-20T13:40:35.883Z
+        hippostdpubwf:lastModifiedBy: admin
+        hippotranslation:id: a09928c1-1fd8-4caa-a167-ece260f0529e
+        hippotranslation:locale: en
+        visitscotland:subtitle: ''
+        visitscotland:tipsTitle: ''
+        visitscotland:title: Inverness Museum & Art Gallery
+        /visitscotland:description:
+          jcr:primaryType: hippostd:html
+          hippostd:content: |-
+            <p>History buffs are in for a treat when they step inside the&nbsp;<a href="https://www.highlifehighland.com/inverness-museum-and-art-gallery/" title="" target="_blank">Inverness Museum &amp; Art Gallery</a>. Spend a few hours taking a look round its fascinating range of artefacts and collections that celebrate the very best of Highland life and its heritage.</p>
+
+            <p>Duration of stay: 2 Hours</p>
+        /visitscotland:tips:
+          jcr:primaryType: hippostd:html
+          hippostd:content: ''
+        /visitscotland:image:
+          jcr:primaryType: hippogallerypicker:imagelink
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+        /visitscotland:product:
+          jcr:primaryType: visitscotland:DMSLink
+          visitscotland:label: ''
+          visitscotland:product: '255521'
+      /inverness-museum-art-gallery[2]:
+        jcr:primaryType: visitscotland:Stop
+        jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+        jcr:uuid: e881380c-767e-4f12-a68f-9c2d4df41144
+        hippo:availability: [preview]
+        hippostd:state: unpublished
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2020-10-20T13:40:06.315Z
+        hippostdpubwf:lastModificationDate: 2020-10-20T13:40:35.725Z
+        hippostdpubwf:lastModifiedBy: admin
+        hippotranslation:id: a09928c1-1fd8-4caa-a167-ece260f0529e
+        hippotranslation:locale: en
+        visitscotland:subtitle: ''
+        visitscotland:tipsTitle: ''
+        visitscotland:title: Inverness Museum & Art Gallery
+        /visitscotland:description:
+          jcr:primaryType: hippostd:html
+          hippostd:content: |-
+            <p>History buffs are in for a treat when they step inside the&nbsp;<a href="https://www.highlifehighland.com/inverness-museum-and-art-gallery/" title="" target="_blank">Inverness Museum &amp; Art Gallery</a>. Spend a few hours taking a look round its fascinating range of artefacts and collections that celebrate the very best of Highland life and its heritage.</p>
+
+            <p>Duration of stay: 2 Hours</p>
+        /visitscotland:tips:
+          jcr:primaryType: hippostd:html
+          hippostd:content: ''
+        /visitscotland:image:
+          jcr:primaryType: hippogallerypicker:imagelink
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+        /visitscotland:product:
+          jcr:primaryType: visitscotland:DMSLink
+          visitscotland:label: ''
+          visitscotland:product: '255521'
+      /inverness-museum-art-gallery[3]:
+        jcr:primaryType: visitscotland:Stop
+        jcr:mixinTypes: ['mix:referenceable']
+        jcr:uuid: 71064ada-7daa-4c16-9ab6-84cf2b294590
+        hippo:availability: [live]
+        hippostd:state: published
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2020-10-20T13:40:06.315Z
+        hippostdpubwf:lastModificationDate: 2020-10-20T13:40:35.725Z
+        hippostdpubwf:lastModifiedBy: admin
+        hippostdpubwf:publicationDate: 2020-11-24T13:35:24.127Z
+        hippotranslation:id: a09928c1-1fd8-4caa-a167-ece260f0529e
+        hippotranslation:locale: en
+        visitscotland:subtitle: ''
+        visitscotland:tipsTitle: ''
+        visitscotland:title: Inverness Museum & Art Gallery
+        /visitscotland:description:
+          jcr:primaryType: hippostd:html
+          hippostd:content: |-
+            <p>History buffs are in for a treat when they step inside the&nbsp;<a href="https://www.highlifehighland.com/inverness-museum-and-art-gallery/" title="" target="_blank">Inverness Museum &amp; Art Gallery</a>. Spend a few hours taking a look round its fascinating range of artefacts and collections that celebrate the very best of Highland life and its heritage.</p>
+
+            <p>Duration of stay: 2 Hours</p>
+        /visitscotland:tips:
+          jcr:primaryType: hippostd:html
+          hippostd:content: ''
+        /visitscotland:image:
+          jcr:primaryType: hippogallerypicker:imagelink
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+        /visitscotland:product:
+          jcr:primaryType: visitscotland:DMSLink
+          visitscotland:label: ''
+          visitscotland:product: '255521'
+    /inverness-botanic-gardens:
+      jcr:primaryType: hippo:handle
+      jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+      jcr:uuid: 56d04a55-ae5b-4357-a8fd-b20bebbe91c5
+      hippo:name: Inverness Botanic Gardens
+      hippo:versionHistory: b573b073-465b-4e7e-a763-9438f0f7bfa3
+      /inverness-botanic-gardens[1]:
+        jcr:primaryType: visitscotland:Stop
+        jcr:mixinTypes: ['mix:referenceable']
+        jcr:uuid: d03bac81-1005-4d1e-b52b-fe45ff6580c6
+        hippo:availability: []
+        hippostd:state: draft
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2020-10-20T13:43:16.322Z
+        hippostdpubwf:lastModificationDate: 2020-10-22T15:27:03.592Z
+        hippostdpubwf:lastModifiedBy: admin
+        hippotranslation:id: ff9e6db9-2526-4683-8006-d7df8d831d94
+        hippotranslation:locale: en
+        visitscotland:subtitle: ''
+        visitscotland:tipsTitle: ''
+        visitscotland:title: Inverness Botanic Gardens
+        /visitscotland:description:
+          jcr:primaryType: hippostd:html
+          hippostd:content: |-
+            <p>You might want to escape the busy bustle of the city centre but peace and tranquillity can never be found too far away at the&nbsp;<a href="https://www.visitscotland.com/info/see-do/inverness-botanic-gardens-p255531" title="">Inverness Botanic Gardens</a>. From exotic plants and trees to cactus houses, the gardens create the perfect little oasis for you to chill out!</p>
+
+            <p>Duration of stay: 1.5 Hours</p>
+        /visitscotland:tips:
+          jcr:primaryType: hippostd:html
+          hippostd:content: ''
+        /visitscotland:image:
+          jcr:primaryType: hippogallerypicker:imagelink
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+        /visitscotland:product:
+          jcr:primaryType: visitscotland:DMSLink
+          visitscotland:label: ''
+          visitscotland:product: '255531'
+      /inverness-botanic-gardens[2]:
+        jcr:primaryType: visitscotland:Stop
+        jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+        jcr:uuid: 36eff3e3-93aa-43f9-9c07-64f7847c464c
+        hippo:availability: [preview]
+        hippostd:state: unpublished
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2020-10-20T13:43:16.322Z
+        hippostdpubwf:lastModificationDate: 2020-10-20T13:43:42.222Z
+        hippostdpubwf:lastModifiedBy: admin
+        hippotranslation:id: ff9e6db9-2526-4683-8006-d7df8d831d94
+        hippotranslation:locale: en
+        visitscotland:subtitle: ''
+        visitscotland:tipsTitle: ''
+        visitscotland:title: Inverness Botanic Gardens
+        /visitscotland:description:
+          jcr:primaryType: hippostd:html
+          hippostd:content: |-
+            <p>You might want to escape the busy bustle of the city centre but peace and tranquillity can never be found too far away at the&nbsp;<a href="https://www.visitscotland.com/info/see-do/inverness-botanic-gardens-p255531" title="">Inverness Botanic Gardens</a>. From exotic plants and trees to cactus houses, the gardens create the perfect little oasis for you to chill out!</p>
+
+            <p>Duration of stay: 1.5 Hours</p>
+        /visitscotland:tips:
+          jcr:primaryType: hippostd:html
+          hippostd:content: ''
+        /visitscotland:image:
+          jcr:primaryType: hippogallerypicker:imagelink
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+        /visitscotland:product:
+          jcr:primaryType: visitscotland:DMSLink
+          visitscotland:label: ''
+          visitscotland:product: '255531'
+      /inverness-botanic-gardens[3]:
+        jcr:primaryType: visitscotland:Stop
+        jcr:mixinTypes: ['mix:referenceable']
+        jcr:uuid: 5196aa52-e7ac-4b86-8b14-0f6ebb427f36
+        hippo:availability: [live]
+        hippostd:state: published
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2020-10-20T13:43:16.322Z
+        hippostdpubwf:lastModificationDate: 2020-10-20T13:43:42.222Z
+        hippostdpubwf:lastModifiedBy: admin
+        hippostdpubwf:publicationDate: 2020-11-24T13:35:26.336Z
+        hippotranslation:id: ff9e6db9-2526-4683-8006-d7df8d831d94
+        hippotranslation:locale: en
+        visitscotland:subtitle: ''
+        visitscotland:tipsTitle: ''
+        visitscotland:title: Inverness Botanic Gardens
+        /visitscotland:description:
+          jcr:primaryType: hippostd:html
+          hippostd:content: |-
+            <p>You might want to escape the busy bustle of the city centre but peace and tranquillity can never be found too far away at the&nbsp;<a href="https://www.visitscotland.com/info/see-do/inverness-botanic-gardens-p255531" title="">Inverness Botanic Gardens</a>. From exotic plants and trees to cactus houses, the gardens create the perfect little oasis for you to chill out!</p>
+
+            <p>Duration of stay: 1.5 Hours</p>
+        /visitscotland:tips:
+          jcr:primaryType: hippostd:html
+          hippostd:content: ''
+        /visitscotland:image:
+          jcr:primaryType: hippogallerypicker:imagelink
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+        /visitscotland:product:
+          jcr:primaryType: visitscotland:DMSLink
+          visitscotland:label: ''
+          visitscotland:product: '255531'
+  /j:
+    jcr:primaryType: hippostd:folder
+    jcr:mixinTypes: ['hippo:named', 'hippotranslation:translated', 'mix:versionable']
+    jcr:uuid: d3ae45cb-0aa5-4864-b3e0-b7632daefb18
+    hippo:name: J
+    hippostd:foldertype: [new-translated-folder-stops, new-stop]
+    hippotranslation:id: 0c52d0cf-bd4a-440a-a16d-3a7cff0454af
+    hippotranslation:locale: en
+  /k:
+    jcr:primaryType: hippostd:folder
+    jcr:mixinTypes: ['hippo:named', 'hippotranslation:translated', 'mix:versionable']
+    jcr:uuid: c3106508-278d-4f69-b558-857377e94c25
+    hippo:name: K
+    hippostd:foldertype: [new-translated-folder-stops, new-stop]
+    hippotranslation:id: e1c01f7e-3db8-46b4-a2bd-18308f4dd995
+    hippotranslation:locale: en
+  /l:
+    jcr:primaryType: hippostd:folder
+    jcr:mixinTypes: ['hippo:named', 'hippotranslation:translated', 'mix:versionable']
+    jcr:uuid: aeaec07d-4433-4c53-847f-d11679df17d2
+    hippo:name: L
+    hippostd:foldertype: [new-translated-folder-stops, new-stop]
+    hippotranslation:id: 094fc622-f864-4b9e-aa46-cfe87cea5cec
+    hippotranslation:locale: en
+  /m:
+    jcr:primaryType: hippostd:folder
+    jcr:mixinTypes: ['hippo:named', 'hippotranslation:translated', 'mix:versionable']
+    jcr:uuid: fe04d21c-d4d5-4ee3-85ab-8705abebe25d
+    hippo:name: M
+    hippostd:foldertype: [new-translated-folder-stops, new-stop]
+    hippotranslation:id: f5be28f4-d3fc-42ed-9b48-f0f2fa3c041c
+    hippotranslation:locale: en
+  /n:
+    jcr:primaryType: hippostd:folder
+    jcr:mixinTypes: ['hippo:named', 'hippotranslation:translated', 'mix:versionable']
+    jcr:uuid: 4a0800fd-2044-496c-a52e-33e3976932c1
+    hippo:name: N
+    hippostd:foldertype: [new-translated-folder-stops, new-stop]
+    hippotranslation:id: 79d4af88-2a12-4943-a08c-2be8b960cbfb
+    hippotranslation:locale: en
+  /o:
+    jcr:primaryType: hippostd:folder
+    jcr:mixinTypes: ['hippo:named', 'hippotranslation:translated', 'mix:versionable']
+    jcr:uuid: a68d7ad5-8b31-4fc0-9803-9e27e608bf14
+    hippo:name: O
+    hippostd:foldertype: [new-translated-folder-stops, new-stop]
+    hippotranslation:id: c8947d37-8b66-4391-b31b-b1c10e3fdc8e
+    hippotranslation:locale: en
+  /p:
+    jcr:primaryType: hippostd:folder
+    jcr:mixinTypes: ['hippo:named', 'hippotranslation:translated', 'mix:versionable']
+    jcr:uuid: 7dfd923e-a3ee-4643-b788-89e4bb51a02f
+    hippo:name: P
+    hippostd:foldertype: [new-translated-folder-stops, new-stop]
+    hippotranslation:id: f8dc7537-2c3f-4c9a-9c2c-05b7756e46e8
+    hippotranslation:locale: en
+  /q:
+    jcr:primaryType: hippostd:folder
+    jcr:mixinTypes: ['hippo:named', 'hippotranslation:translated', 'mix:versionable']
+    jcr:uuid: 9347d0d7-05d4-4da1-853b-36a67d7d6a64
+    hippo:name: Q
+    hippostd:foldertype: [new-translated-folder-stops, new-stop]
+    hippotranslation:id: cb1a4358-f0d4-4673-8d6c-a00e39d9f861
+    hippotranslation:locale: en
+  /r:
+    jcr:primaryType: hippostd:folder
+    jcr:mixinTypes: ['hippo:named', 'hippotranslation:translated', 'mix:versionable']
+    jcr:uuid: e4fa6008-dcce-406a-a6a3-af2086f600e5
+    hippo:name: R
+    hippostd:foldertype: [new-translated-folder-stops, new-stop]
+    hippotranslation:id: e1cb59e4-9d9c-4921-b30b-e5583c6ab88b
+    hippotranslation:locale: en
+    /river-ness-ness-islands:
+      jcr:primaryType: hippo:handle
+      jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+      jcr:uuid: 9d93f20d-6c33-4b6d-9c3b-b7e8cd7f8669
+      hippo:name: River Ness & Ness Islands
+      hippo:versionHistory: d16da5d1-0629-4c63-8b23-7efc6e7cfa29
+      /river-ness-ness-islands[1]:
+        jcr:primaryType: visitscotland:Stop
+        jcr:mixinTypes: ['mix:referenceable']
+        jcr:uuid: e74768d9-66bf-4cbd-8801-0b97a096ba4f
+        hippo:availability: []
+        hippostd:state: draft
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2020-10-20T13:42:19.001Z
+        hippostdpubwf:lastModificationDate: 2020-10-20T13:42:42.659Z
+        hippostdpubwf:lastModifiedBy: admin
+        hippotranslation:id: 371bfaa7-73a8-49d5-ad8b-1b31c4811695
+        hippotranslation:locale: en
+        visitscotland:subtitle: ''
+        visitscotland:tipsTitle: ''
+        visitscotland:title: River Ness & Ness Islands
+        /visitscotland:description:
+          jcr:primaryType: hippostd:html
+          hippostd:content: |-
+            <p>Make the most of your&nbsp;one day&nbsp;in Inverness by heading to the&nbsp;<a href="https://www.visitinvernesslochness.com/property/ness-islands/" title="" target="_blank">River Ness and Islands</a>. Make sure to pack your hiking boots as the area offers a range of challenging walking routes, perfect for the keen adventurer! If you don’t want to walk for miles and want to take things at an easier pace, there are many short walks to be enjoyed including the Inverness City Centre to the Ness Islands, a group of islands located in the middle of the River Ness each connected with suspension bridges to get from A to B. Fancy making the most out of your time here? The Ness Islands is a key spot for runners with its endless pathways and natural surroundings.</p>
+
+            <p>Duration of stay: 30 Minutes</p>
+        /visitscotland:tips:
+          jcr:primaryType: hippostd:html
+          hippostd:content: ''
+        /visitscotland:image:
+          jcr:primaryType: hippogallerypicker:imagelink
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+        /visitscotland:product:
+          jcr:primaryType: visitscotland:DMSLink
+          visitscotland:label: ''
+          visitscotland:product: '1420681'
+      /river-ness-ness-islands[2]:
+        jcr:primaryType: visitscotland:Stop
+        jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+        jcr:uuid: 4a342ee8-7493-4e7e-a889-4bd1dd655167
+        hippo:availability: [preview]
+        hippostd:state: unpublished
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2020-10-20T13:42:19.001Z
+        hippostdpubwf:lastModificationDate: 2020-10-20T13:42:42.513Z
+        hippostdpubwf:lastModifiedBy: admin
+        hippotranslation:id: 371bfaa7-73a8-49d5-ad8b-1b31c4811695
+        hippotranslation:locale: en
+        visitscotland:subtitle: ''
+        visitscotland:tipsTitle: ''
+        visitscotland:title: River Ness & Ness Islands
+        /visitscotland:description:
+          jcr:primaryType: hippostd:html
+          hippostd:content: |-
+            <p>Make the most of your&nbsp;one day&nbsp;in Inverness by heading to the&nbsp;<a href="https://www.visitinvernesslochness.com/property/ness-islands/" title="" target="_blank">River Ness and Islands</a>. Make sure to pack your hiking boots as the area offers a range of challenging walking routes, perfect for the keen adventurer! If you don’t want to walk for miles and want to take things at an easier pace, there are many short walks to be enjoyed including the Inverness City Centre to the Ness Islands, a group of islands located in the middle of the River Ness each connected with suspension bridges to get from A to B. Fancy making the most out of your time here? The Ness Islands is a key spot for runners with its endless pathways and natural surroundings.</p>
+
+            <p>Duration of stay: 30 Minutes</p>
+        /visitscotland:tips:
+          jcr:primaryType: hippostd:html
+          hippostd:content: ''
+        /visitscotland:image:
+          jcr:primaryType: hippogallerypicker:imagelink
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+        /visitscotland:product:
+          jcr:primaryType: visitscotland:DMSLink
+          visitscotland:label: ''
+          visitscotland:product: '1420681'
+      /river-ness-ness-islands[3]:
+        jcr:primaryType: visitscotland:Stop
+        jcr:mixinTypes: ['mix:referenceable']
+        jcr:uuid: 4c020c06-7221-45ee-b4d3-d4d04b82e247
+        hippo:availability: [live]
+        hippostd:state: published
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2020-10-20T13:42:19.001Z
+        hippostdpubwf:lastModificationDate: 2020-10-20T13:42:42.513Z
+        hippostdpubwf:lastModifiedBy: admin
+        hippostdpubwf:publicationDate: 2020-11-24T13:35:29.900Z
+        hippotranslation:id: 371bfaa7-73a8-49d5-ad8b-1b31c4811695
+        hippotranslation:locale: en
+        visitscotland:subtitle: ''
+        visitscotland:tipsTitle: ''
+        visitscotland:title: River Ness & Ness Islands
+        /visitscotland:description:
+          jcr:primaryType: hippostd:html
+          hippostd:content: |-
+            <p>Make the most of your&nbsp;one day&nbsp;in Inverness by heading to the&nbsp;<a href="https://www.visitinvernesslochness.com/property/ness-islands/" title="" target="_blank">River Ness and Islands</a>. Make sure to pack your hiking boots as the area offers a range of challenging walking routes, perfect for the keen adventurer! If you don’t want to walk for miles and want to take things at an easier pace, there are many short walks to be enjoyed including the Inverness City Centre to the Ness Islands, a group of islands located in the middle of the River Ness each connected with suspension bridges to get from A to B. Fancy making the most out of your time here? The Ness Islands is a key spot for runners with its endless pathways and natural surroundings.</p>
+
+            <p>Duration of stay: 30 Minutes</p>
+        /visitscotland:tips:
+          jcr:primaryType: hippostd:html
+          hippostd:content: ''
+        /visitscotland:image:
+          jcr:primaryType: hippogallerypicker:imagelink
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+        /visitscotland:product:
+          jcr:primaryType: visitscotland:DMSLink
+          visitscotland:label: ''
+          visitscotland:product: '1420681'
+  /s:
+    jcr:primaryType: hippostd:folder
+    jcr:mixinTypes: ['hippo:named', 'hippotranslation:translated', 'mix:versionable']
+    jcr:uuid: 8150765f-520b-4c9f-8625-7d3703f38786
+    hippo:name: S
+    hippostd:foldertype: [new-translated-folder-stops, new-stop]
+    hippotranslation:id: c608e579-4d5f-49d1-a977-19b69857bb32
+    hippotranslation:locale: en
+  /t:
+    jcr:primaryType: hippostd:folder
+    jcr:mixinTypes: ['hippo:named', 'hippotranslation:translated', 'mix:versionable']
+    jcr:uuid: 15f0109c-ce1e-447a-8d2c-82671033e2d9
+    hippo:name: T
+    hippostd:foldertype: [new-translated-folder-stops, new-stop]
+    hippotranslation:id: 5e9cb889-462b-48d8-a790-ffb866d10bef
+    hippotranslation:locale: en
+  /u:
+    jcr:primaryType: hippostd:folder
+    jcr:mixinTypes: ['hippo:named', 'hippotranslation:translated', 'mix:versionable']
+    jcr:uuid: 334c9dd5-9cab-48fd-a671-a5157fffcb81
+    hippo:name: U
+    hippostd:foldertype: [new-translated-folder-stops, new-stop]
+    hippotranslation:id: 4cd954df-768a-4084-8a18-babd188fa6dc
+    hippotranslation:locale: en
+  /v:
+    jcr:primaryType: hippostd:folder
+    jcr:mixinTypes: ['hippo:named', 'hippotranslation:translated', 'mix:versionable']
+    jcr:uuid: ed81d4a0-6c41-4310-a38a-4451cb8f1de6
+    hippo:name: V
+    hippostd:foldertype: [new-translated-folder-stops, new-stop]
+    hippotranslation:id: 23243d2a-f273-4543-8ff2-8d2ee381f9a3
+    hippotranslation:locale: en
+  /w:
+    jcr:primaryType: hippostd:folder
+    jcr:mixinTypes: ['hippo:named', 'hippotranslation:translated', 'mix:versionable']
+    jcr:uuid: aeef38ec-7dc7-49f8-bb29-806a163043b4
+    hippo:name: W
+    hippostd:foldertype: [new-translated-folder-stops, new-stop]
+    hippotranslation:id: f3819ee0-b6db-4c6b-b27f-4b83a0529689
+    hippotranslation:locale: en
+  /x:
+    jcr:primaryType: hippostd:folder
+    jcr:mixinTypes: ['hippo:named', 'hippotranslation:translated', 'mix:versionable']
+    jcr:uuid: c9aeb82e-33f2-4966-a64b-f82f7c1a9385
+    hippo:name: X
+    hippostd:foldertype: [new-translated-folder-stops, new-stop]
+    hippotranslation:id: 448ef482-2942-476f-be88-3fb8a82dcf4c
+    hippotranslation:locale: en
+  /y:
+    jcr:primaryType: hippostd:folder
+    jcr:mixinTypes: ['hippo:named', 'hippotranslation:translated', 'mix:versionable']
+    jcr:uuid: 8d221aaf-fd53-4c49-94b8-a252d63d9a66
+    hippo:name: Y
+    hippostd:foldertype: [new-translated-folder-stops, new-stop]
+    hippotranslation:id: 2f22d3b5-c6be-4bb8-b36a-baa149d3c453
+    hippotranslation:locale: en
+  /z:
+    jcr:primaryType: hippostd:folder
+    jcr:mixinTypes: ['hippo:named', 'hippotranslation:translated', 'mix:versionable']
+    jcr:uuid: 05cf506d-9a21-433c-98d7-854433052e1e
+    hippo:name: Z
+    hippostd:foldertype: [new-translated-folder-stops, new-stop]
+    hippotranslation:id: b3fce987-f307-48ae-b274-3098568a7e89
+    hippotranslation:locale: en

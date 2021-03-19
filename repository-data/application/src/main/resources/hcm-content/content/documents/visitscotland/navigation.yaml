@@ -2,52 +2,6 @@
   jcr:primaryType: hippostd:folder
   jcr:mixinTypes: ['hippotranslation:translated', 'mix:versionable']
   jcr:uuid: b4c8daf1-c094-4bca-9107-313ded4f6604
-  hippostd:foldertype: [new-translated-folder, new-document]
+  hippostd:foldertype: [new-untranslated-folder-navigation, new-widget]
   hippotranslation:id: 63c04b3c-8daa-4f3c-9dd0-337a2c5205bb
   hippotranslation:locale: en
-  /test---widget:
-    jcr:primaryType: hippo:handle
-    jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
-    jcr:uuid: 7f15c1f5-cb34-44aa-959e-e203299f455b
-    hippo:name: Test - Widget
-    hippo:versionHistory: 05909d7a-24b0-4f60-870d-b4d23e77c1ac
-    /test---widget[1]:
-      jcr:primaryType: visitscotland:Widget
-      jcr:mixinTypes: ['mix:referenceable']
-      jcr:uuid: 5160cb4e-150a-487e-a7c8-0dc79b5cd691
-      hippo:availability: []
-      hippostd:state: draft
-      hippostdpubwf:createdBy: admin
-      hippostdpubwf:creationDate: 2019-11-12T09:16:44.751Z
-      hippostdpubwf:lastModificationDate: 2019-11-12T09:16:44.751Z
-      hippostdpubwf:lastModifiedBy: admin
-      hippotranslation:id: bb520c78-8fff-4be9-98e3-bb5191dc1b72
-      hippotranslation:locale: en
-      visitscotland:component: vs.navigation.featured
-    /test---widget[2]:
-      jcr:primaryType: visitscotland:Widget
-      jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
-      jcr:uuid: d4478571-7ce3-4ff3-9ec0-870ac07682c6
-      hippo:availability: [preview]
-      hippostd:state: unpublished
-      hippostdpubwf:createdBy: admin
-      hippostdpubwf:creationDate: 2019-11-12T09:16:44.751Z
-      hippostdpubwf:lastModificationDate: 2019-11-12T09:17:20.150Z
-      hippostdpubwf:lastModifiedBy: admin
-      hippotranslation:id: bb520c78-8fff-4be9-98e3-bb5191dc1b72
-      hippotranslation:locale: en
-      visitscotland:component: vs.navigation.featured
-    /test---widget[3]:
-      jcr:primaryType: visitscotland:Widget
-      jcr:mixinTypes: ['mix:referenceable']
-      jcr:uuid: 37e60890-24b6-4c55-9994-adc6132f8f0a
-      hippo:availability: [live]
-      hippostd:state: published
-      hippostdpubwf:createdBy: admin
-      hippostdpubwf:creationDate: 2019-11-12T09:16:44.751Z
-      hippostdpubwf:lastModificationDate: 2019-11-12T09:17:20.150Z
-      hippostdpubwf:lastModifiedBy: admin
-      hippostdpubwf:publicationDate: 2019-11-12T09:17:29.998Z
-      hippotranslation:id: bb520c78-8fff-4be9-98e3-bb5191dc1b72
-      hippotranslation:locale: en
-      visitscotland:component: vs.navigation.featured

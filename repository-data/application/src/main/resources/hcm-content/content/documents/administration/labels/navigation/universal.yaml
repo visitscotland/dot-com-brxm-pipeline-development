@@ -1,0 +1,50 @@
+/content/documents/administration/labels/navigation/universal:
+  .meta:order-before: meganav
+  jcr:primaryType: hippo:handle
+  jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+  jcr:uuid: 181a31e2-43f8-4c94-bda8-177479aac47d
+  hippo:name: Language List  (Don't translate)
+  hippo:versionHistory: 2c80fab1-31ea-42ac-b187-7d9f46f8fb41
+  /universal[1]:
+    jcr:primaryType: resourcebundle:resourcebundle
+    jcr:mixinTypes: ['mix:referenceable']
+    jcr:uuid: b588147f-fe38-4051-89a9-f3fafc11a818
+    hippo:availability: []
+    hippostd:state: draft
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2019-11-21T09:28:34.143Z
+    hippostdpubwf:lastModificationDate: 2020-09-17T09:24:23.307+01:00
+    hippostdpubwf:lastModifiedBy: admin
+    resourcebundle:descriptions: ['', '', '', '', '', '']
+    resourcebundle:id: universal
+    resourcebundle:keys: [es, de, en, nl, it, fr]
+    resourcebundle:messages: [Español, Deutsch, English, Nederlands, Italiano, Français]
+  /universal[2]:
+    jcr:primaryType: resourcebundle:resourcebundle
+    jcr:mixinTypes: ['mix:versionable']
+    jcr:uuid: dd762450-1d38-4b66-829f-5486e125f4d5
+    hippo:availability: [preview]
+    hippostd:state: unpublished
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2019-11-21T09:28:34.143Z
+    hippostdpubwf:lastModificationDate: 2020-09-17T09:24:23.091+01:00
+    hippostdpubwf:lastModifiedBy: admin
+    resourcebundle:descriptions: ['', '', '', '', '', '']
+    resourcebundle:id: universal
+    resourcebundle:keys: [es, de, en, nl, it, fr]
+    resourcebundle:messages: [Español, Deutsch, English, Nederlands, Italiano, Français]
+  /universal[3]:
+    jcr:primaryType: resourcebundle:resourcebundle
+    jcr:mixinTypes: ['mix:referenceable']
+    jcr:uuid: 0bfce1d8-6c67-48a3-be71-6453c94bfffe
+    hippo:availability: [live]
+    hippostd:state: published
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2019-11-21T09:28:34.143Z
+    hippostdpubwf:lastModificationDate: 2020-09-17T09:24:23.091+01:00
+    hippostdpubwf:lastModifiedBy: admin
+    hippostdpubwf:publicationDate: 2020-09-17T09:25:22.214+01:00
+    resourcebundle:descriptions: ['', '', '', '', '', '']
+    resourcebundle:id: universal
+    resourcebundle:keys: [es, de, en, nl, it, fr]
+    resourcebundle:messages: [Español, Deutsch, English, Nederlands, Italiano, Français]

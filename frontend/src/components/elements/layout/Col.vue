@@ -1,9 +1,11 @@
 <template>
-    <b-col v-bind="$attrs"> <slot /> </b-col>
+    <BCol v-bind="$attrs">
+        <slot />
+    </BCol>
 </template>
 
 <script>
-import { BCol } from "bootstrap-vue"
+import { BCol } from 'bootstrap-vue';
 
 /**
  * Column components are used to organise, align and space sibling blocks of content within row
@@ -11,41 +13,39 @@ import { BCol } from "bootstrap-vue"
  * utilises <a href="https://bootstrap-vue.js.org/docs/components/layout">the Bootstrap Vue BCol component</a>.
  *
  * NOTE: this component is a wrapper for the BCol component so any BCol prop can be applied to it.
+ *
+ * @displayName Col
  */
 
 export default {
-    name: "VsCol",
-    status: "prototype",
-    release: "0.1.0",
+    name: 'VsCol',
+    status: 'prototype',
+    release: '0.1.0',
     components: {
         BCol,
     },
-}
+};
 </script>
-
-<style lang="scss" scoped>
-@import "~bootstrap/scss/grid";
-</style>
 
 <docs>
   ```jsx
 
   <div class="style-cols">
-    <vs-container>
-      <vs-row>
-        <vs-col cols="6" sm="12">
+    <VsContainer>
+      <VsRow>
+        <VsCol cols="6" sm="12">
           <pre>cols="6" sm="12"</pre>
-        </vs-col>
-      </vs-row>
-      <vs-row>
-        <vs-col cols="8" lg="3">
+        </VsCol>
+      </VsRow>
+      <VsRow>
+        <VsCol cols="8" lg="3">
           <pre>cols="8" lg="3"</pre>
-        </vs-col>
-        <vs-col>
+        </VsCol>
+        <VsCol>
           <pre>no cols props</pre>
-        </vs-col>
-      </vs-row>
-    </vs-container>
+        </VsCol>
+      </VsRow>
+    </VsContainer>
   </div>
 
   ```

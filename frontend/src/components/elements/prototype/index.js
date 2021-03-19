@@ -1,5 +1,5 @@
-import VsPrototype from "./Prototype.vue"
+import VsPrototype from './Prototype';
 
-export {
+export default {
     VsPrototype,
-}
+};

@@ -1,1 +1,1 @@
-export { default } from "./Svg"
+export { default } from './Svg';

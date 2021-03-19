@@ -1,0 +1,29 @@
+/content/documents/administration/options/product-search:
+  .meta:order-before: official-rating
+  jcr:primaryType: hippo:handle
+  jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+  jcr:uuid: 315c51e6-f04a-4a8f-852d-2a2bb12575c1
+  hippo:name: Product Search - Product type
+  /product-search:
+    jcr:primaryType: selection:valuelist
+    jcr:mixinTypes: ['hippotranslation:translated', 'mix:referenceable']
+    jcr:uuid: 74791faa-eab1-490d-9ba3-3c831f1c8714
+    hippo:availability: [live, preview]
+    hippotranslation:id: 30da6cb4-6f41-41b3-a594-1c0418d66cb4
+    hippotranslation:locale: inherited - from query
+    /selection:listitem[1]:
+      jcr:primaryType: selection:listitem
+      selection:key: acco
+      selection:label: Accommodation
+    /selection:listitem[2]:
+      jcr:primaryType: selection:listitem
+      selection:key: acti,attr,reta
+      selection:label: See and do
+    /selection:listitem[3]:
+      jcr:primaryType: selection:listitem
+      selection:key: even
+      selection:label: Events
+    /selection:listitem[4]:
+      jcr:primaryType: selection:listitem
+      selection:key: cate
+      selection:label: Restaurant

@@ -1,0 +1,22 @@
+<html xmlns:wicket="http://wicket.apache.org/">
+<wicket:extend>
+    <link rel="stylesheet" href="css/translation-dialog.css" type="text/css" />
+    <label for="change-list" style="padding-left: 10px; padding-top: 10px;">You are about to create translation clones for the following page/modules:</label>
+    <table id="change-list" style="padding-top:20px; padding-left: 100px; padding-bottom:20px;">
+        <tr wicket:id="change">
+            <td wicket:id="name" style="padding-right: 10px;"></td>
+            <td wicket:id="docType" style="padding-right: 10px;"></td>
+            <td wicket:id="languages"><img wicket:id="img"></td>
+        </tr>
+    </table>
+
+    <label for="links-change-list" style="padding-left: 10px; padding-top: 10px;">This will also create translation clones for the following linked documents:</label>
+    <table id="links-change-list" style="padding-top:20px; padding-left: 100px; padding-bottom:20px;">
+        <tr wicket:id="links-change">
+            <td wicket:id="name" style="padding-right: 10px;"></td>
+            <td wicket:id="docType" style="padding-right: 10px;"></td>
+            <td wicket:id="languages"><img wicket:id="img"></td>
+        </tr>
+    </table>
+</wicket:extend>
+</html>

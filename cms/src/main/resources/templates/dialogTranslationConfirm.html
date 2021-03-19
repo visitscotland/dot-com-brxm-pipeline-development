@@ -1,0 +1,44 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <script th:replace="headerFragment.html :: openui"></script>
+    <style th:replace="headerFragment.html :: dialogStyle"></style>
+    <link rel="stylesheet" type="text/css" th:href="@{/skin/hippo-cms/css/hippo-cms-theme.min.css}">
+</head>
+<body>
+    <div class="dialog-body">
+        <label for="change-list" style="padding-left: 10px; padding-top: 10px;">You are about to flag the following documents for translation:</label>
+        <table id="change-list" style="padding-top:20px; padding-left: 100px; padding-bottom:20px;">
+            <tr th:each="document : ${translations}">
+                <td style="padding-right: 10px;" th:text="${document.name}"></td>
+                <td th:text="${document.image}"></td>
+            </tr>
+        </table>
+    </div>
+    <div class="dialog-bottom">
+        <button id="okButton" class="btn btn-br-primary">OK</button>
+        <button id="cancelButton" class="btn btn-br-secondary">Cancel</button>
+    </div>
+</body>
+<script>
+    let ui;
+    (async () => {
+        try {
+            ui = await UiExtension.register();
+            const options = await ui.dialog.options();
+        } catch(error) {
+            console.error('Failed to register extension:', error.message);
+            console.error('- error code:', error.code);
+        }
+    })();
+
+    const okButton = document.querySelector('#okButton');
+    okButton.addEventListener('click', async () => {
+        ui.dialog.close(true);
+    });
+
+    const cancelButton = document.querySelector('#cancelButton');
+    cancelButton.addEventListener('click', async () => {
+       ui.dialog.cancel();
+    });
+</script>

@@ -1,6 +1,6 @@
 <template>
     <div>
-        <vs-hero
+        <VsHero
             image-src="https://cimg.visitscotland.com/cms-images/holidays/new/camping-beach-dunes-dog?size=md"
             image-align-v="40%"
             type="section"
@@ -9,17 +9,28 @@
             display-align-v="top"
         />
 
-        <vs-container>
-            <vs-row>
-                <vs-col lg="8" xl="9">
-                    <vs-heading display="4" level="1" sub="Holidays">
+        <VsContainer>
+            <VsRow>
+                <VsCol
+                    lg="8"
+                    xl="9"
+                >
+                    <VsHeading
+                        display="4"
+                        level="1"
+                        sub="Holidays"
+                    >
                         Pet friendly holidays in Scotland
-                    </vs-heading>
-                </vs-col>
-            </vs-row>
-            <vs-row>
-                <vs-article md="7" lg="8" xl="9">
-                    <vs-content-section lead>
+                    </VsHeading>
+                </VsCol>
+            </VsRow>
+            <VsRow>
+                <VsArticle
+                    md="7"
+                    lg="8"
+                    xl="9"
+                >
+                    <VsContentSection lead>
                         <p>
                             Have you ever been on holiday and not enjoyed it because your furry -
                             and, let's face it, quite possibly favourite (!) - family member was
@@ -27,14 +38,14 @@
                         </p>
                         <p>
                             Here is a
-                            <a href="https://www.visitscotland.com/holidays-breaks/pet-friendly/"
-                                >test link</a
-                            >
+                            <a
+                                href="https://www.visitscotland.com/holidays-breaks/pet-friendly/"
+                            >test link</a>
                             in the lead section.
                         </p>
-                    </vs-content-section>
+                    </VsContentSection>
 
-                    <vs-content-section>
+                    <VsContentSection>
                         <p>
                             Scotland's got everything you'll need for a relaxing pet friendly
                             holiday, with dog friendly attractions and scenic walking routes, as
@@ -49,16 +60,20 @@
                         <p>
                             Check out our
                             <a
-                                title="10 dog-friendly accommodations that will get your tail wagging"
+                                title="10 dog-friendly accommodations that will get your tail
+                                 wagging"
                                 href="http://ebooks.visitscotland.com/accommodation-guide/12/"
-                                >10 dog friendly accommodations that will get your tail wagging!</a
-                            >
+                            >10 dog friendly accommodations that will get your tail wagging!</a>
                         </p>
-                    </vs-content-section>
-                </vs-article>
+                    </VsContentSection>
+                </VsArticle>
 
-                <vs-sidebar md="5" lg="4" xl="3">
-                    <vs-content-section
+                <VsSidebar
+                    md="5"
+                    lg="4"
+                    xl="3"
+                >
+                    <VsContentSection
                         tag="aside"
                         heading="11 pawesome ideas for dog friendly days out"
                     >
@@ -67,7 +82,7 @@
                 title="Dog friendly days out"
                 href="/blog/activities/dog-friendly-days-out-in-scotland/"
               > -->
-                            <vs-img
+                            <VsImg
                                 src="https://cimg.visitscotland.com/cms-images/holidays/casper-dunskey?size=sm"
                                 alt="Casper dog at Dunskey Castle.jpg"
                                 fluid
@@ -79,39 +94,41 @@
                             <a
                                 title="Dog friendly days out"
                                 href="/blog/activities/dog-friendly-days-out-in-scotland/"
-                                >activities for you and your pooch</a
-                            >&nbsp;- they've been tried and tested by our four-legged friends over
-                            on Instagram!
+                            >
+                                activities for you and your pooch</a>&nbsp;- they've been
+                            tried and tested by our four-legged friends over on Instagram!
                         </p>
-                    </vs-content-section>
-                </vs-sidebar>
-            </vs-row>
-        </vs-container>
+                    </VsContentSection>
+                </VsSidebar>
+            </VsRow>
+        </VsContainer>
     </div>
 </template>
 
 <script>
-import { VsContainer, VsRow, VsCol } from "../elements/layout/"
-import VsHeading from "../elements/heading/Heading"
-import VsImg from "../elements/img/Img"
-import VsHero from "../patterns/hero/Hero"
-import VsArticle from "../patterns/Article"
-import VsSidebar from "../patterns/Sidebar"
-import VsContentSection from "../patterns/ContentSection"
-
-import { BLink } from "bootstrap-vue"
+import {
+    VsContainer, VsRow, VsCol,
+} from '../elements/layout';
+import VsHeading from '../elements/heading/Heading';
+import VsImg from '../elements/img/Img';
+import VsHero from '../patterns/hero/Hero';
+import VsArticle from '../patterns/article/Article';
+import VsSidebar from '../patterns/sidebar/Sidebar';
+import VsContentSection from '../patterns/content-section/ContentSection';
 
 /**
- *An example page template.
+ * An example page template.
+ *
+ * @displayName Example
  */
 export default {
-    name: "VsExampleTemplate",
-    status: "prototype",
-    release: "0.0.1",
+    name: 'VsExampleTemplate',
+    status: 'prototype',
+    release: '0.0.1',
     metaInfo: {
-        title: "Template example",
+        title: 'Template example',
         htmlAttrs: {
-            lang: "en",
+            lang: 'en',
         },
     },
     components: {
@@ -122,10 +139,10 @@ export default {
         VsHero,
         VsHeading,
         VsArticle,
+        VsSidebar,
         VsContentSection,
-        BLink,
     },
-}
+};
 </script>
 
 <docs>

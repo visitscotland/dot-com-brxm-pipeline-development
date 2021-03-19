@@ -1,37 +1,20 @@
-import VsDesktopNav from "./components/DesktopNav/DesktopNav"
-import VsDesktopNavChart from "./components/Chart/DesktopNavChart"
-import VsDesktopNavListItem from "./components/DesktopNav/DesktopNavListItem"
-import VsDesktopNavPromoItem from "./components/DesktopNav/DesktopNavPromoItem"
-import VsDesktopNavSubmenu from "./components/DesktopNav/DesktopNavSubmenu"
-import VsDesktopNavToggles from "./components/DesktopNav/DesktopNavToggles"
-import VsHeader from "./Header"
-import VsHeaderLoginButton from "./components/login-button/HeaderLoginButton"
-import VsLogo from "./components/logo/Logo"
-import VsMobileNav from "./components/MobileNav/MobileNav"
-import VsMobileNavListItem from "./components/MobileNav/MobileNavListItem"
-import VsMobileNavPromoItem from "./components/MobileNav/MobileNavPromoItem"
-import VsMobileNavPromoList from "./components/MobileNav/MobileNavPromoList"
-import VsHeaderDrawerToggle from "./components/drawer-toggle/HeaderDrawerToggle"
-import VsHeaderDropdown from "./components/drawer-toggle/HeaderDropdown"
-import VsHeaderListGroup from "./components/list-group/VsHeaderListGroup"
-import VsHeaderListGroupItem from "./components/list-group/VsHeaderListGroupItem"
+import VsHeader from './Header';
+import VsMegaNav from './components/mega-nav/MegaNav';
 
-export {
-  VsDesktopNav,
-  VsDesktopNavChart,
-  VsDesktopNavListItem,
-  VsDesktopNavPromoItem,
-  VsDesktopNavSubmenu,
-  VsDesktopNavToggles,
-  VsHeader,
-  VsHeaderLoginButton,
-  VsLogo,
-  VsMobileNav,
-  VsMobileNavListItem,
-  VsMobileNavPromoItem,
-  VsMobileNavPromoList,
-  VsHeaderDrawerToggle,
-  VsHeaderDropdown,
-  VsHeaderListGroup,
-  VsHeaderListGroupItem,
-}
+import VsMegaNavDropdown from './components/mega-nav/components/MegaNavDropdown';
+import VsMegaNavList from './components/mega-nav/components/MegaNavList';
+import VsMegaNavListItem from './components/mega-nav/components/MegaNavListItem';
+import VsMegaNavTopMenu from './components/mega-nav/components/MegaNavTopMenu';
+import VsMegaNavTopMenuItem from './components/mega-nav/components/MegaNavTopMenuItem';
+import VsMegaNavAccordionItem from './components/mega-nav/components/MegaNavAccordionItem';
+
+export default {
+    VsHeader,
+    VsMegaNav,
+    VsMegaNavDropdown,
+    VsMegaNavList,
+    VsMegaNavListItem,
+    VsMegaNavTopMenu,
+    VsMegaNavTopMenuItem,
+    VsMegaNavAccordionItem,
+};

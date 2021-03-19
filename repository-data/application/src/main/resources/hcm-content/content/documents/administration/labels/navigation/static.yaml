@@ -1,0 +1,71 @@
+/content/documents/administration/labels/navigation/static:
+  .meta:order-before: meganav
+  jcr:primaryType: hippo:handle
+  jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+  jcr:uuid: ecfe0a42-72cd-456a-89c9-dda1983e4a46
+  hippo:name: Static Texts
+  hippo:versionHistory: 85047185-88ee-4151-9e1a-4a2b07090fac
+  /static[1]:
+    jcr:primaryType: resourcebundle:resourcebundle
+    jcr:mixinTypes: ['mix:referenceable']
+    jcr:uuid: b185af5a-69b4-4f36-ab3e-a46e5b4e0a94
+    hippo:availability: []
+    hippostd:state: draft
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2020-07-22T16:18:57.603+01:00
+    hippostdpubwf:lastModificationDate: 2021-02-10T17:19:27.882Z
+    hippostdpubwf:lastModifiedBy: admin
+    resourcebundle:descriptions: ['', '', '', '', '', '', '']
+    resourcebundle:id: navigation.static
+    resourcebundle:keys: [see-all-cta, footer.find-us-on, uninav.our-sites, footer.logo-alt-text,
+      footer.text, universal.language, meganav-toggle-btn-alt-text]
+    resourcebundle:messages: [All %s, Find us on, Our websites, VisitScotland
+        Home, VisitScotland. All rights reserved., Language, Toggle menu]
+    resourcebundle:messages_de: ['', '', Webseiten, '', '', '', '']
+    resourcebundle:messages_es: ['', '', Nuestras páginas web, '', '', '', '']
+    resourcebundle:messages_fr: ['', '', Nos sites web, '', '', '', '']
+    resourcebundle:messages_it: ['', '', i nostri siti web, '', '', '', '']
+    resourcebundle:messages_nl: ['', '', Onze websites, '', '', '', '']
+  /static[2]:
+    jcr:primaryType: resourcebundle:resourcebundle
+    jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+    jcr:uuid: c8998aaf-91e3-4cca-8ab2-e3691f259530
+    hippo:availability: [preview]
+    hippostd:state: unpublished
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2020-07-22T16:18:57.603+01:00
+    hippostdpubwf:lastModificationDate: 2021-02-10T17:20:37.464Z
+    hippostdpubwf:lastModifiedBy: admin
+    resourcebundle:descriptions: ['', '', '', '', '', '', '']
+    resourcebundle:id: navigation.static
+    resourcebundle:keys: [see-all-cta, footer.find-us-on, uninav.our-sites, footer.logo-alt-text,
+      footer.text, universal.language, meganav-toggle-btn-alt-text]
+    resourcebundle:messages: [All %s, Find us on, Our websites, VisitScotland
+        Home, VisitScotland. All rights reserved., Language, Toggle menu]
+    resourcebundle:messages_de: ['', '', Webseiten, '', '', '', '']
+    resourcebundle:messages_es: ['', '', Nuestras páginas web, '', '', '', '']
+    resourcebundle:messages_fr: ['', '', Nos sites web, '', '', '', '']
+    resourcebundle:messages_it: ['', '', i nostri siti web, '', '', '', '']
+    resourcebundle:messages_nl: ['', '', Onze websites, '', '', '', '']
+  /static[3]:
+    jcr:primaryType: resourcebundle:resourcebundle
+    jcr:mixinTypes: ['mix:referenceable']
+    jcr:uuid: bfeb0679-6b1a-4f2d-9d58-93b31cb9e5c4
+    hippo:availability: [live]
+    hippostd:state: published
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2020-07-22T16:18:57.603+01:00
+    hippostdpubwf:lastModificationDate: 2021-02-10T17:20:37.464Z
+    hippostdpubwf:lastModifiedBy: admin
+    hippostdpubwf:publicationDate: 2021-02-10T17:20:40.070Z
+    resourcebundle:descriptions: ['', '', '', '', '', '', '']
+    resourcebundle:id: navigation.static
+    resourcebundle:keys: [see-all-cta, footer.find-us-on, uninav.our-sites, footer.logo-alt-text,
+      footer.text, universal.language, meganav-toggle-btn-alt-text]
+    resourcebundle:messages: [All %s, Find us on, Our websites, VisitScotland
+        Home, VisitScotland. All rights reserved., Language, Toggle menu]
+    resourcebundle:messages_de: ['', '', Webseiten, '', '', '', '']
+    resourcebundle:messages_es: ['', '', Nuestras páginas web, '', '', '', '']
+    resourcebundle:messages_fr: ['', '', Nos sites web, '', '', '', '']
+    resourcebundle:messages_it: ['', '', i nostri siti web, '', '', '', '']
+    resourcebundle:messages_nl: ['', '', Onze websites, '', '', '', '']

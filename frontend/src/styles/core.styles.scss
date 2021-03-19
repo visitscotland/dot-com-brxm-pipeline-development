@@ -1,10 +1,27 @@
 /* GLOBAL: STYLES 
  *
  * Styles added here do not belong to any individual component
- * and are intended to be applied to the entire site
+ * and are intended to be applied to all components
  */
 
-@import "./styles.scss";
+@import "./resources.scss";
 @import "~bootstrap/scss/reboot";
 @import "~bootstrap/scss/utilities";
+@import "./sr-only-resets";
+
+// TODO: remove and replace with local imports - needed in itineraries?
 @import "~bootstrap/scss/tooltip";
+
+/* Bootstrap components */
+@import "~bootstrap/scss/breadcrumb";
+@import "~bootstrap/scss/buttons";
+@import "~bootstrap/scss/card";
+@import "~bootstrap/scss/dropdown";
+@import "~bootstrap/scss/forms";
+@import "~bootstrap/scss/grid";
+@import "~bootstrap/scss/images";
+@import "~bootstrap/scss/input-group";
+@import "~bootstrap/scss/list-group";
+@import "~bootstrap/scss/type";
+
+@import "~bootstrap-vue/src/components/dropdown/dropdown";

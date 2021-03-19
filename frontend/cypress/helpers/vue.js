@@ -1,13 +1,16 @@
-const mountVue = require("cypress-vue-unit-test")
+/* eslint-disable no-use-before-define */
+/* eslint-disable import/no-extraneous-dependencies */
 
-const { partial, each, clone, pickBy, has, get, defaults } = require("lodash")
+const mountVue = require('cypress-vue-unit-test');
 
-const PROPS_DATA_KEY_NAME = "componentProps"
+const { partial, each, clone, pickBy, has, get, defaults } = require('lodash');
+
+const PROPS_DATA_KEY_NAME = 'componentProps';
 
 export default {
-  init,
-  setProp,
-}
+    init,
+    setProp,
+};
 
 /**
  *
@@ -47,64 +50,69 @@ export default {
  *   components: { VsMainNavPromoItem },
  * }
  *
- * // 1st arg here defines the component's tag name (i.e. <vs-main-nav-list-item></vs-main-nav-list-item> )
+ * // 1st arg here defines the component's tag name
+ * // (i.e. <vs-main-nav-list-item></vs-main-nav-list-item> )
  * // 2nd arg here is the component object definition itself
  * vueHelper.init("vs-main-nav-list-item", VsMainNavListItem, props, content, extensions)
  *
  */
 function init(componentName, definition, options) {
-  const template =
-    `
+    const template = `
         <div id="app">
-            <component is="` +
-    componentName +
-    `" v-bind="computedProps">` +
-    get(options, "childContent") +
-    `</component>
+            <component is="${
+     componentName
+     }" v-bind="computedProps">${
+     get(options, 'childContent')
+     }</component>
         </div>
-    `
+    `;
 
-  let props = get(options, "props")
-  let extensions = get(options, "extensions", {})
+    const props = get(options, 'props');
+    const extensions = get(options, 'extensions', {
+    });
 
-  const initialProps = clone(props)
+    const initialProps = clone(props);
 
-  const app = defaults(get(options, "mergeVue", {}), {
-    template,
-    data: {
-      [PROPS_DATA_KEY_NAME]: props,
-    },
-    computed: {
-      computedProps() {
-        return pickBy(this[PROPS_DATA_KEY_NAME])
-      },
-    },
-  })
+    const app = defaults(get(options, 'mergeVue', {
+    }), {
+        template,
+        data: {
+            [PROPS_DATA_KEY_NAME]: props,
+        },
+        computed: {
+            computedProps() {
+                return pickBy(this[PROPS_DATA_KEY_NAME]);
+            },
+        },
+    });
 
-  if (!has(extensions, "components")) {
-    extensions.components = {}
-  }
+    if (!has(extensions, 'components')) {
+        extensions.components = {
+        };
+    }
 
-  if (definition) {
-    extensions.components[componentName] = definition
-  }
+    if (definition) {
+        extensions.components[componentName] = definition;
+    }
 
-  const mount = mountVue(app, { extensions })
+    const mount = mountVue(app, {
+        extensions,
+    });
 
-  beforeEach(partial(resetProps, initialProps))
+    beforeEach(partial(resetProps, initialProps));
 
-  beforeEach(mount)
+    beforeEach(mount);
 }
 
 function resetProps(props) {
-  if (!Cypress.vue) {
-    return
-  }
-  each(props, (value, propName) => {
-    setProp(propName, value)
-  })
+    if (!Cypress.vue) {
+        return;
+    }
+    each(props, (value, propName) => {
+        setProp(propName, value);
+    });
 }
 
 function setProp(propName, value) {
-  Cypress.vue.$set(Cypress.vue[PROPS_DATA_KEY_NAME], propName, value)
+    Cypress.vue.$set(Cypress.vue[PROPS_DATA_KEY_NAME], propName, value);
 }

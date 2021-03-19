@@ -1,0 +1,191 @@
+<template>
+    <VsAccordionItem
+        :open-by-default="show"
+        :control-id="'itinerary-day-' + dayNumber"
+        variant="transparent"
+        item-break-point="lg"
+        class="vs-itinerary-day__list-item"
+    >
+        <template #title>
+            <!-- @slot Put the title here  -->
+            <VsHeading
+                level="2"
+                class="vs-itinerary-day__header text-center mt-9 position-relative"
+            >
+                <span class="vs-itinerary-day__title d-inline-block">
+                    {{ dayLabel }} {{ dayNumber }}
+                </span>
+                <span slot="sub-heading">{{ dayTitle }}</span>
+            </VsHeading>
+        </template>
+
+        <template #icon-open>
+            <!-- @slot Slot for the icon to show when accordion item is open  -->
+            <VsIcon
+                name="chevron"
+                orientation="down"
+                variant="dark"
+                size="xs"
+                :padding="3"
+                class="vs-itinerary-day__toggle-button"
+            />
+        </template>
+        <template #icon-closed>
+            <!-- @slot Slot for the icon to show when accordion item is closed  -->
+            <VsIcon
+                name="chevron"
+                variant="dark"
+                size="xs"
+                :padding="3"
+                class="vs-itinerary-day__toggle-button"
+            />
+        </template>
+        <div :id="'dayPanel_' + dayNumber">
+            <slot name="day-transport" />
+            <slot name="day-introduction" />
+            <ul class="list-unstyled">
+                <slot name="stops" />
+            </ul>
+        </div>
+    </VsAccordionItem>
+</template>
+
+<script>
+import VsIcon from '@components/elements/icon/Icon';
+import VsHeading from '@components/elements/heading/Heading';
+import VsAccordionItem from '@components/patterns/accordion/components/AccordionItem';
+
+/**
+ * Itinerary Day list items.
+ *
+ * @displayName Itinerary Day
+ */
+
+export default {
+    name: 'VsItineraryDay',
+    status: 'prototype',
+    release: '0.0.1',
+    components: {
+        VsHeading,
+        VsIcon,
+        VsAccordionItem,
+    },
+    props: {
+        /**
+         * Logic to collapse certain Day list items on mobile by default
+         * (e.g. after Day 1 and 2, collapse the days on mobile)
+         */
+        defaultShow: {
+            type: Boolean,
+            default: true,
+        },
+        /**
+         * Label used for the word 'Day'
+         */
+        dayLabel: {
+            type: String,
+            required: true,
+        },
+        /**
+         * Number of the day in the component
+         */
+        dayNumber: {
+            type: String,
+            required: true,
+        },
+        /**
+         * Title of the day in the component
+         */
+        dayTitle: {
+            type: String,
+            required: true,
+        },
+    },
+    data() {
+        return {
+            show: this.defaultShow,
+        };
+    },
+};
+</script>
+
+<style lang="scss">
+.vs-itinerary-day__list-item.card {
+    border-top: 5px solid $color-base-text;
+    padding: $spacer-4 $spacer-4 0;
+
+    @include media-breakpoint-up(lg) {
+        &:first-of-type {
+            border-top: none;
+        }
+    }
+}
+
+.vs-itinerary-day__title  {
+    border-bottom: 1px solid $color-base-text;
+    color: $color-theme-secondary-teal;
+    padding: 0 $spacer-6 $spacer-3;
+}
+
+.vs-itinerary-day__toggle-button {
+    border: 1px solid $color-base-text;
+    border-radius: 50%;
+    height: 24px;
+    width: 24px;
+
+    .vs-icon {
+        height: 100%;
+        margin: 0 auto;
+        display: block;
+    }
+
+    &.vs-icon.vs-icon--size-xs {
+        height: 32px;
+        width: 32px;
+        padding: 8px;
+    }
+}
+
+@include no-js {
+    @include media-breakpoint-down(lg) {
+        .vs-itinerary-day__list-item {
+            .vs-itinerary-day__header:first-child {
+                display: none !important;
+            }
+        }
+    }
+}
+</style>
+
+<docs>
+```jsx
+        <VsItineraryDay
+            v-for="(day, index) in itineraries.sampleItinerary.days"
+            :defaultShow="(day.dayCount < 3) ? true : false"
+            :key="index"
+            :dayNumber="day.dayCount"
+            dayLabel="Day"
+            slot="list"
+            :dayTitle="day.title"
+        >
+            <VsDescriptionList
+                v-if="day.transport.length"
+                class="text-center justify-content-center align-items-center"
+                slot="day-transport"
+            >
+                <dt class="list-inline-item">Transport:</dt>
+                <dd
+                    class="list-inline-item"
+                    v-for="(transportType, transportTypeIndex) in day.transport"
+                >
+                    <VsTooltip :title="transportType.value">
+                        <vs-icon :name="transportType.key" variant="dark" size="md" />
+                    </VsTooltip>
+                    <span class="sr-only">{{transportType.value}}</span>
+                </dd>
+            </VsDescriptionList>
+
+            <div slot="day-introduction" v-html="day.introduction"></div>
+        </VsItineraryDay>
+```
+</docs>

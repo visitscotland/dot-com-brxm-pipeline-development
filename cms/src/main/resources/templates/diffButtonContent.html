@@ -1,0 +1,78 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <script th:replace="headerFragment.html :: openui"></script>
+    <link rel="stylesheet" type="text/css" th:href="@{/skin/hippo-cms/css/hippo-cms-theme.min.css}">
+</head>
+<style>
+    a {
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+</style>
+<body>
+    <div th:switch="${translationFlag}">
+        <div th:case="true">
+            <p>Translations pending.</p>
+            <a class="btn btn-br-secondary"
+               th:href="@{/vs-openui/diff/{nodeId}/view(nodeId=${nodeId})}"
+               target="_blank">Open English difference</a>
+            <a class="btn btn-br-secondary"
+               href="#"
+               th:data-nodeId="${nodeId}"
+               onclick="clearTranslationFlag(this.getAttribute('data-nodeId'))">Translation Complete</a>
+        </div>
+
+        <p th:case="false">No translations pending.</p>
+    </div>
+</body>
+<script>
+    var uiExtension;
+
+    async function setUiExtension(ui) {
+        uiExtension = ui;
+        const brDocument = await ui.document.get();
+        if (brDocument.mode === 'edit') {
+            const anchors = document.querySelectorAll('a');
+            anchors.forEach(anchor => {
+                anchor.style.display = 'none';
+            })
+        }
+    }
+
+    document.addEventListener('DOMContentLoaded', async () => {
+        window.parent.setupIFrame();
+    });
+
+    async function clearTranslationFlag(nodeId) {
+        const dialogOptions = {
+            title: 'TranslationComplete',
+            url: `/cms/vs-openui/${nodeId}/dialog/translation/complete`,
+            size: 'small'
+        };
+        const response = await uiExtension.dialog.open(dialogOptions);
+        if (response == true) {
+            var request = new XMLHttpRequest();
+            request.open("DELETE", `/cms/vs-service/node/${nodeId}/translation/flag`);
+            request.send();
+            request.onload = () => {
+                if (request.status === 409) {
+                    uiExtension.dialog.open({
+                        title: 'Translation Blocked',
+                        url: `/cms/vs-openui/${nodeId}/dialog/current/blocked`,
+                        size: 'small'
+                    });
+                } else if (request.status === 200) {
+                    parent.parent.location.reload();
+                } else {
+                    uiExtension.dialog.open({
+                        title: 'Error',
+                        url: `/cms/vs-openui/${nodeId}/dialog/error`,
+                        size: 'small'
+                    });
+                }
+            }
+        }
+    }
+</script>
+</html>

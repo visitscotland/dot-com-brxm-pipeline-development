@@ -1,0 +1,245 @@
+#!/bin/bash
+clear
+echo ""
+echo ""
+echo ======================================================
+echo ==== RUNNING SHELL COMMANDS on $HOSTNAME
+echo ====   NOTE: Most of the commands below could be added to a script in SCM
+echo ====         only the directories and port numbers need to be set in the job definition
+echo ""
+#echo ==== selected Jenkins environment variables ====
+#set | egrep "BRANCH|BUILD|JENKINS|JOB|WORKSPACE"
+#echo ====/selected Jenkins environment variables ====
+
+# ==== ADJUSTABLE VARIABLES ====
+# we need to update these to set only if they're not set already, that way the Dev can override in the job template
+#  == Tomcat Variables ==
+TOMCAT_OS_USER=hippo
+TOMCAT_MAJOR_VERSION=9
+TOMCAT_MINOR_VERSION=0
+TOMCAT_PATCH_VERSION=21
+TOMCAT_PORT_NUMBER=8080
+TOMCAT_DIR_PREFIX=tomcat_
+#  == Java Variables ==
+JAVA_MAJOR_VERSION=8
+#  == VS Variables ==
+if [ -z $VS_HIPPO_REPOSITORY_CLEAN ]; then VS_HIPPO_REPOSITORY_CLEAN=FALSE; fi
+if [ -z $VS_HIPPO_REPOSITORY_PERSIST ]; then VS_HIPPO_REPOSITORY_PERSIST=FALSE; fi
+# - use with caution as this can add ~20 minutes to environment-ready time while Lucene rebuilds its index
+VS_HIPPO_REPOSITORY_PREFIX=repository_
+VS_REQUIRED_TOMCAT_FILES_DIR=tomcat_VS
+VS_OPTIONAL_SOFTWARE_DIR=/opt
+VS_PROJECT_BASE_DIR=/home/$TOMCAT_OS_USER
+VS_HIPPO_CMS_PATH=cms
+VS_HIPPO_SITE_PATH=site
+if [ -z "$VS_SSR_PACKAGE_DIR" ]; then VS_SSR_PACKAGE_DIR=frontend; fi
+if [ -z "$VS_SSR_PACKAGE_NAME" ]; then VS_SSR_PACKAGE_NAME=vs-ssr-package.tar.gz; fi
+if [ -z "$VS_SSR_PACKAGE_PATH" ]; then VS_SSR_PACKAGE_PATH=ssr/server; fi
+if [ -z "$VS_SSR_PROXY_ON" ]; then VS_SSR_PROXY_ON=FALSE; fi
+if [ -z "$VS_SSR_PROXY_TARGET_HOST" ]; then VS_SSR_PROXY_TARGET_HOST="http://localhost:8080"; fi
+# ====/ADJUSTABLE VARIABLES ====
+
+VS_DATESTAMP=`date +%Y%m%d`
+VS_HOST_IP_ADDRESS=`/usr/sbin/ip ad sh  | egrep "global" | awk '{print $2}' | sed -e "s/\/.*$//"`
+
+TOMCAT_FULL_VERSION=$TOMCAT_MAJOR_VERSION.$TOMCAT_MINOR_VERSION.$TOMCAT_PATCH_VERSION
+TOMCAT_MM_VERSION=$TOMCAT_MAJOR_VERSION.$TOMCAT_MINOR_VERSION
+
+CATALINA_HOME=$VS_OPTIONAL_SOFTWARE_DIR/tomcat$TOMCAT_MM_VERSION
+CATALINA_BASE=$VS_PROJECT_BASE_DIR/$TOMCAT_DIR_PREFIX$TOMCAT_PORT_NUMBER
+CATALINA_REF=$VS_PROJECT_BASE_DIR/apache-tomcat-$TOMCAT_FULL_VERSION
+CATALINA_VS=$VS_PROJECT_BASE_DIR/$VS_REQUIRED_TOMCAT_FILES_DIR
+JAVA_HOME=$VS_OPTIONAL_SOFTWARE_DIR/jdk$JAVA_MAJOR_VERSION
+# build Hippo repository dir name from Tomcat port number ID + VS_DATESTAMP
+VS_HIPPO_REPOSITORY_SUFFIX="$TOMCAT_PORT_NUMBER"_"$VS_DATESTAMP"
+# set VS_HIPPO_REPOSITORY_DIR to the computed value unless it is already set
+if [ -z "$VS_HIPPO_REPOSITORY_DIR" ]; then VS_HIPPO_REPOSITORY_DIR=$CATALINA_BASE/../$VS_HIPPO_REPOSITORY_PREFIX$VS_HIPPO_REPOSITORY_SUFFIX; else VS_HIPPO_REPOSITORY_OVERRIDE_DIR=TRUE; fi
+
+echo ""
+echo ==== VARIABLES ====
+set | egrep "CATALINA|VS_(DATE|HIPPO|HOST|OPTIONAL|PROJECT)|JAVA|TOMCAT"
+echo ====/VARIABLES ====
+#clear
+
+echo ""
+echo == stopping Tomcat
+export JAVA_HOME=$JAVA_HOME
+export CATALINA_HOME=$CATALINA_HOME
+export CATALINA_BASE=$CATALINA_BASE
+$CATALINA_HOME/bin/catalina.sh stop -force
+echo == terminating processes
+for PID in `ps -ef | grep "java" | grep "$VS_BRXM_TOMCAT_PORT" | awk '{print $2}'`; do echo "terminating $PID"; kill -9 $PID; done
+
+echo remove existing CATALINA_BASE
+echo ""
+echo removing existing $CATALINA_BASE
+cd $VS_PROJECT_BASE_DIR
+rm -r $CATALINA_BASE/
+if [ ! -d $CATALINA_BASE ]; then echo " - success"; fi
+
+# create the CATALINA_BASE directory at CATALINA_BASE
+echo ""
+echo creating the CATALINA_BASE directory at $CATALINA_BASE
+mkdir $CATALINA_BASE
+if [ -d $CATALINA_BASE ]; then echo " - success"; fi
+#echo ""
+#echo listing contents of `pwd`
+#ls -alh
+#echo ""
+echo listing running Tomcat processes
+ps -ef | egrep "cat_$TOMCAT_PORT_NUMBER" | egrep -v "grep"
+
+# check for an appropriate $VS_HIPPO_REPOSITORY_DIR directory - create it if it doesn't exist, wipe it if requested
+#  it conatins the Lucene index so don't create it afresh every time, once a day should be OK
+echo ""
+echo checking for existing $VS_HIPPO_REPOSITORY_DIR
+echo " - if a directory appended with today's date stamp exsits it will be used to avoid recreating the Lucene index every time"
+if [ -d $VS_HIPPO_REPOSITORY_DIR ] && [ ! "$VS_HIPPO_REPOSITORY_CLEAN" = "TRUE" ]; then
+  echo $VS_HIPPO_REPOSITORY_DIR exists
+elif [ -d $VS_HIPPO_REPOSITORY_DIR ] && [ "$VS_HIPPO_REPOSITORY_CLEAN" = "TRUE" ]; then
+  echo "$VS_HIPPO_REPOSITORY_DIR exists but VS_HIPPO_REPOSITORY_CLEAN is set to $VS_HIPPO_REPOSITORY_CLEAN"
+  echo " - clearing $VS_HIPPO_REPOSITORY_DIR"
+  if [ ! -z $VS_HIPPO_REPOSITORY_DIR ]; then
+    rm -r $VS_HIPPO_REPOSITORY_DIR/*
+  fi
+else
+  echo $VS_HIPPO_REPOSITORY_DIR does not exist, creating
+  mkdir $VS_HIPPO_REPOSITORY_DIR
+  if [ -d $VS_HIPPO_REPOSITORY_DIR ]; then echo " -success"; fi
+fi
+
+# extract latest Hippo distribution files to CATALINA_BASE
+echo ""
+echo extracting latest Hippo distribution files to $CATALINA_BASE
+HIPPO_LATEST=`ls -alht $VS_PROJECT_BASE_DIR/*.tar.gz | egrep -v "ssr" | head -1 | awk '{print $9}'`
+cd $CATALINA_BASE
+if [ ! -z $HIPPO_LATEST ]; then
+  echo archive found at $HIPPO_LATEST
+  echo extracting $HIPPO_LATEST to `pwd`
+  tar -zxvf $HIPPO_LATEST
+else
+  echo no archive found in $VS_PROJECT_BASE_DIR/, creating CATALINA_BASE/conf to allow Tomcat to start
+  mkdir $CATALINA_BASE/conf
+  if [ -d $CATALINA_BASE/conf ]; then echo " - success $CATALINA_BASE/conf"; fi
+fi
+
+# optionally move site.war to ROOT.war to serve the site from / - must have a matching hostname - invoke the API?
+#mv $CATALINA_BASE/webapps/site.war $CATALINA_BASE/webapps/ROOT.war
+
+# create additional files and folder to keep Tomcat happy
+echo ""
+echo creating additional files and folder to keep Tomcat happy
+mkdir $CATALINA_BASE/temp
+if [ -d $CATALINA_BASE/temp ]; then echo " - success $CATALINA_BASE/temp"; fi
+mkdir $CATALINA_BASE/bin
+if [ -d $CATALINA_BASE/bin ]; then echo " - success $CATALINA_BASE/bin"; fi
+mkdir $CATALINA_BASE/logs
+if [ -d $CATALINA_BASE/logs ]; then echo " - success $CATALINA_BASE/logs"; fi
+
+# copy necessary files from CATALINA_HOME to CATALINA_BASE
+#  if these are not readable - because Tomcat was installed by root - we may need to use CATALINA_REF
+echo ""
+echo coping necessary files from $CATALINA_HOME to $CATALINA_BASE
+cp $CATALINA_HOME/conf/server.xml $CATALINA_BASE/conf/
+cp $CATALINA_HOME/conf/web.xml $CATALINA_BASE/conf/
+cp $CATALINA_HOME/bin/tomcat-juli.jar $CATALINA_BASE/bin/
+
+# copy ALL files from CATALINA_VS to CATALINA_BASE
+echo ""
+echo copying ALL files from $CATALINA_VS to $CATALINA_BASE
+# ideally these should be in SCM, otherwise we have to make them available somewhere
+#   we're also going to have to figure out how to amend some of these on-the-fly, such as what database server to point to
+#   alternatively we could just have the DB on the same server so it's always on localhost
+#   perhaps the DB server - with last night's dump inside - could be the base docker image that we start each feature server from?
+
+cp -R $CATALINA_VS/* $CATALINA_BASE/
+
+if [ "$1" == "no-db" ]||[ "$1" == "nodb" ]; then
+  echo " - $1 stated, applying basic context.xml"
+  cp -f $CATALINA_BASE/conf/context.xml.nodb $CATALINA_BASE/conf/context.xml
+  echo " - $1 stated, applying basic setenv.sh"
+  cp -f $CATALINA_BASE/bin/setenv.sh.nodb $CATALINA_BASE/bin/setenv.sh
+fi
+
+# use sed to modify the copied catalina.properties - store this in SCM too?
+echo ""
+echo using sed to modify the basic catalina.properties
+echo " - before: " `cat $CATALINA_BASE/conf/catalina.properties | egrep "(common|shared)\.loader"`
+sed -i 's/^\(common.loader=\).*/\1\"\$\{catalina\.base\}\/lib\",\"\$\{catalina\.base\}\/lib\/\*\.jar\",\"\$\{catalina\.base\}\/common\/lib\",\"\$\{catalina\.base\}\/common\/lib\/\*\.jar\",\"\$\{catalina.home\}\/lib\",\"\$\{catalina\.home\}\/lib\/\*\.jar\"/' $CATALINA_BASE/conf/catalina.properties
+sed -i 's/^\(shared.loader=\).*/\1\"$\{catalina\.base\}\/shared\/lib\",\"\$\{catalina\.base\}\/shared\/lib\/\*\.jar\"/' $CATALINA_BASE/conf/catalina.properties
+echo " - after:  " `cat $CATALINA_BASE/conf/catalina.properties | egrep "(common|shared)\.loader"`
+
+# use sed to modify the copied context.xml - change the repository directory daily
+if [ "$VS_HIPPO_REPOSITORY_PERSIST" = "FALSE" ]&&[ "$VS_HIPPO_REPOSITORY_OVERRIDE_DIR" = "FALSE" ]; then
+  echo ""
+  echo "using sed to modify context.xml - VS_HIPPO_REPOSITORY_PERSIST=$VS_HIPPO_REPOSITORY_PERSIST/VS_HIPPO_REPOSITORY_OVERRIDE_DIR=$VS_HIPPO_REPOSITORY_OVERRIDE_DIR"
+  echo " - setting respository directory to a today instance otherwise the content will be out of date when we refresh the DB"
+  echo " - if we delete the repository on every build Hippo takes a long time to start"
+  echo " - before: " `cat $CATALINA_BASE/conf/context.xml | egrep "repository-directory"`
+  sed -i 's/\(repository-directory\" value=\"[^"]*\)\"\ /\1_'"$VS_HIPPO_REPOSITORY_SUFFIX"'\" /' $CATALINA_BASE/conf/context.xml
+elif [ "$VS_HIPPO_REPOSITORY_PERSIST" = "FALSE" ]&&[ ! "$VS_HIPPO_REPOSITORY_OVERRIDE_DIR" = "FALSE" ]; then
+  echo ""
+  echo "using sed to modify context.xml - VS_HIPPO_REPOSITORY_PERSIST=$VS_HIPPO_REPOSITORY_PERSIST/VS_HIPPO_REPOSITORY_OVERRIDE_DIR=$VS_HIPPO_REPOSITORY_OVERRIDE_DIR"
+  echo " - setting the respository directory to $VS_HIPPO_REPOSITORY_DIR because VS_HIPPO_REPOSITORY_OVERRIDE_DIR=$VS_HIPPO_REPOSITORY_OVERRIDE_DIR"
+  echo " - this will persist for the lifeitime of this instance"
+  echo " - before: " `cat $CATALINA_BASE/conf/context.xml | egrep "repository-directory"`
+  sed -i 's/\(repository-directory\" value=\"\)[^"]*\"\ /\1'"$VS_HIPPO_REPOSITORY_DIR"'\" /' $CATALINA_BASE/conf/context.xml
+else
+  echo ""
+  echo "not modifying context.xml because VS_HIPPO_REPOSITORY_PERSIST=$VS_HIPPO_REPOSITORY_PERSIST"
+  echo " - the default repository will be used for the lifetime of this instance"
+fi
+echo " - reads:  " `cat $CATALINA_BASE/conf/context.xml | egrep "repository-directory"`
+
+# set permissions on CATALINA_BASE so we can see/edit the files remotely as another user in the :hippo group - only for testing
+echo ""
+echo setting permissions on $CATALINA_BASE so we can see/edit the files remotely as another user in the :hippo group - only for testing
+chmod -R g+r ./*
+
+# start Tomcat
+echo ""
+echo starting Tomcat
+cd $VS_PROJECT_BASE_DIR/
+# set fake BUILD_ID to allow the process to run after the Jenkins job is complete
+echo " - setting fake BUILD_ID to allow the process to run after the Jenkins job is complete"
+BUILD_ID=let_me_run
+$CATALINA_HOME/bin/catalina.sh start
+if [ ! -z "$CATALINA_BASE/temp/catalina.pid" ]; then
+  TOMCAT_PID=`cat $CATALINA_BASE/temp/catalina.pid`
+  echo ""
+  echo Tomcat running as $TOMCAT_PID
+  ps -fp $TOMCAT_PID
+  echo ""
+  echo Hippo instance for branch $GIT_BRANCH should now be available on $NODE_NAME $VS_HOST_IP_ADDRESS at:
+  echo http://$VS_HOST_IP_ADDRESS:$TOMCAT_PORT_NUMBER/$VS_HIPPO_CMS_PATH/
+  echo http://$VS_HOST_IP_ADDRESS:$TOMCAT_PORT_NUMBER/$VS_HIPPO_SITE_PATH/
+else
+  echo ""
+  echo Tomcat may not have started correctly
+fi
+
+# unpack and start the SSR Proxy app if required
+if [ "$VS_SSR_PROXY_ON" = "TRUE" ] && [ -a $VS_PROJECT_BASE_DIR/$VS_SSR_PACKAGE_NAME ]; then
+  echo "running SSR app from $VS_PROJECT_BASE_DIR/$VS_SSR_PACKAGE_NAME"
+  cd $VS_PROJECT_BASE_DIR
+  tar -zxf $VS_PROJECT_BASE_DIR/$VS_SSR_PACKAGE_NAME
+  if [ -a $VS_PROJECT_BASE_DIR/$VS_SSR_PACKAGE_DIR/$VS_SSR_PACKAGE_PATH ]; then
+    echo "running SSR app from $VS_PROJECT_BASE_DIR/VS_SSR_PACKAGE_NAME"
+    export VS_SSR_PROXY_TARGET_HOST
+    nohup node $VS_PROJECT_BASE_DIR/$VS_SSR_PACKAGE_DIR/$VS_SSR_PACKAGE_PATH > $CATALINA_BASE/logs/ssr.log 2>&1 &
+  else
+    echo "not running SSR proxy app - $VS_PROJECT_BASE_DIR/$VS_SSR_PACKAGE_DIR/$VS_SSR_PACKAGE_PATH not found"
+  fi
+else
+  echo "not running SSR proxy app"
+  echo " - VS_SSR_PROXY_ON is set to $VS_SSR_PROXY_ON"
+  echo " - VS_PROJECT_BASE_DIR/VS_SSR_PACKAGE_NAME is set to $VS_PROJECT_BASE_DIR/$VS_SSR_PACKAGE_NAME"
+fi
+
+
+# tail log
+#tail -f -n 1000 $CATALINA_BASE/logs/catalina.out
+
+# stop Tomcat
+#$CATALINA_HOME/bin/catalina.sh stop
+echo ==== DONE ====

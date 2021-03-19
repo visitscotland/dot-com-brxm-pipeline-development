@@ -1,14 +1,34 @@
 <template>
-  <vs-button class="px-3" variant="transparent" :animate="false">
-    <span class="sr-only"><slot /></span>
-    <vs-icon name="close" size="xs" variant="secondary" />
-  </vs-button>
+    <VsButton
+        class="px-3"
+        variant="transparent"
+        :animate="false"
+    >
+        <span class="sr-only"><slot /></span>
+        <VsIcon
+            name="close"
+            size="xs"
+            variant="secondary"
+        />
+    </VsButton>
 </template>
 
 <script>
+import VsButton from '@components/elements/button/Button';
+import VsIcon from '@components/elements/icon/Icon';
+
+/**
+ * TODO: Document usage
+ *
+ * @displayName Close Button
+ */
 export default {
-  name: "VsCloseButton",
-}
+    name: 'VsCloseButton',
+    components: {
+        VsButton,
+        VsIcon,
+    },
+};
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss"></style>

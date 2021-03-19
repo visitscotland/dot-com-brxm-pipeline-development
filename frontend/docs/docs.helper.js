@@ -19,15 +19,15 @@ Vue.mixin(statusLabels)
  * these handlers have updated their targets.
  */
 document.addEventListener("DOMContentLoaded", () => {
-  setTimeout(function() {
-    filterSearch.methods.init()
-    activeNav.methods.init()
-  })
+    setTimeout(() => {
+        filterSearch.methods.init()
+        activeNav.methods.init()
+    })
 })
 
 window.addEventListener("hashchange", () => {
-  setTimeout(function() {
-    filterSearch.methods.init()
-    activeNav.methods.init()
-  })
+    setTimeout(() => {
+        filterSearch.methods.init()
+        activeNav.methods.init()
+    })
 })

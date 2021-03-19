@@ -1,7 +1,7 @@
 <template>
-    <b-form
+    <BForm
         role="search"
-        class="d-flex align-items-start py-2 py-md-4"
+        class="d-flex align-items-start py-2 py-md-4 vs-site-search"
         action
         method="get"
         :novalidate="true"
@@ -11,12 +11,19 @@
         tabindex="-1"
     >
         <div class="d-flex flex-column flex-grow-1 position-relative">
-            <label for="search-input" class="position-absolute vs-site-search__label m-0">
+            <label
+                for="search-input"
+                class="position-absolute vs-site-search__label m-0"
+            >
                 <span class="sr-only">{{ labelText }}</span>
-                <vs-icon name="search" size="sm" variant="secondary" />
+                <VsIcon
+                    name="search"
+                    size="md"
+                    variant="secondary"
+                />
             </label>
 
-            <vs-form-input
+            <VsFormInput
                 type="search"
                 class="px-9 vs-site-search__input"
                 :placeholder="labelText"
@@ -28,41 +35,59 @@
                 @input.native="onInput"
             />
 
-            <b-form-invalid-feedback v-if="validated === false" :state="validated">{{
-                validationText
-            }}</b-form-invalid-feedback>
-            <div v-if="searchTerm.length" class="position-absolute vs-site-search__clear-container">
-                <vs-button
+            <BFormInvalidFeedback
+                v-if="validated === false"
+                :state="validated"
+            >
+                {{ validationText }}
+            </BFormInvalidFeedback>
+            <div
+                v-if="searchTerm.length"
+                class="position-absolute vs-site-search__clear-container"
+            >
+                <VsButton
                     variant="transparent"
                     type="button"
                     class="px-1"
-                    size="sm"
+                    size="md"
                     :animate="false"
                     @click.native.prevent="clearSearchFieldAndFocus()"
                 >
                     <span class="sr-only-sm-down d-sm-block">{{ clearButtonText }}</span>
-                    <vs-icon class="d-sm-none" name="close" size="xs" variant="dark" />
-                </vs-button>
+                    <VsIcon
+                        class="d-sm-none"
+                        name="close"
+                        size="xs"
+                        variant="dark"
+                    />
+                </VsButton>
             </div>
         </div>
-        <vs-button type="submit" class="px-md-5" variant="primary">{{
-            submitButtonText
-        }}</vs-button>
-    </b-form>
+        <VsButton
+            type="submit"
+            class="px-md-5"
+            variant="primary"
+        >
+            {{ submitButtonText }}
+        </VsButton>
+    </BForm>
 </template>
 
 <script>
-import VsIcon from "@components/elements/icon/Icon"
-import VsFormInput from "@components/elements/form-input/FormInput"
+import VsIcon from '@components/elements/icon/Icon';
+import VsFormInput from '@components/elements/form-input/FormInput';
 
-import drawerStore from "../drawer/drawer.store"
+import { BForm, BFormInvalidFeedback } from 'bootstrap-vue';
 
-import { BForm, BFormInvalidFeedback } from "bootstrap-vue"
-
+/**
+ * TODO: Document Usage
+ *
+ * @displayName Site Search
+ */
 export default {
-    name: "VsSiteSearch",
-    status: "prototype",
-    release: "0.0.1",
+    name: 'VsSiteSearch',
+    status: 'prototype',
+    release: '0.0.1',
     components: {
         VsIcon,
         BForm,
@@ -75,84 +100,73 @@ export default {
          */
         labelText: {
             type: String,
-            default: "Enter a search term",
+            default: 'Enter a search term',
         },
         /**
          * Text that renders inside the clear button once users start typing
          */
         clearButtonText: {
             type: String,
-            default: "Clear",
+            default: 'Clear',
         },
         /**
          * Text that renders inside the submit button
          */
         submitButtonText: {
             type: String,
-            default: "Go",
+            default: 'Go',
         },
         /**
          * Validation text that renders when an empty form is submitted
          */
         validationText: {
             type: String,
-            default: "Please enter a search term.",
+            default: 'Please enter a search term.',
         },
     },
     data() {
         return {
-            searchTerm: "",
+            searchTerm: '',
             validated: null,
-        }
+        };
     },
     computed: {
-        drawerModule() {
-            return drawerStore.getters["drawer/module"]
-        },
         isValid() {
-            return this.searchTerm.length > 0
-        },
-    },
-    watch: {
-        drawerModule(newValue) {
-            if (newValue !== "site-search") {
-                this.clearSearchField()
-                this.resetValidation()
-            }
+            return this.searchTerm.length > 0;
         },
     },
     methods: {
         clearSearchField() {
-            this.searchTerm = ""
+            this.searchTerm = '';
         },
         focusOnInput() {
-            this.$refs.searchInput.$el.focus()
+            this.$refs.searchInput.$el.focus();
         },
         clearSearchFieldAndFocus() {
-            this.clearSearchField()
-            this.focusOnInput()
+            this.clearSearchField();
+            this.focusOnInput();
         },
         onSubmit($event) {
             if (!this.isValid) {
-                $event.preventDefault()
-                this.validated = false
+                $event.preventDefault();
+                this.validated = false;
             } else {
-                return true
+                return true;
             }
+
+            return false;
         },
         onInput() {
-            this.validated = this.isValid ? null : false
+            this.validated = this.isValid ? null : false;
         },
         resetValidation() {
-            this.validated = null
+            this.validated = null;
         },
     },
-}
+};
 </script>
 
-<style lang="scss" scoped>
-@import "~bootstrap/scss/forms";
-@import "~bootstrap/scss/input-group";
+<style lang="scss">
 
 .vs-site-search__input {
     &::placeholder {
@@ -183,7 +197,7 @@ export default {
 <docs>
   ```jsx
   <div>
-    <vs-site-search />
+    <VsSiteSearch />
   </div>
   ```
 </docs>

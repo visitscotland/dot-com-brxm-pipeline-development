@@ -1,64 +1,66 @@
 <template>
-	<div class="vs-prototype p-0 m-0">
-		<slot />
-	</div>
+    <div class="vs-prototype p-0 m-0">
+        <slot />
+    </div>
 </template>
 
 <script>
-	/**
-	 * Prototypes are wrappers used to visually communicate parts
-	 * of the product or actions that are still unavailable.
-	 * 
-	 * This is a development only tool to help visualise
-	 * components/functionalities to be finished.
-	 */
+/**
+ * Prototypes are wrappers used to visually communicate parts
+ * of the product or actions that are still unavailable.
+ *
+ * This is a development only tool to help visualise
+ * components/functionalities to be finished.
+ *
+ * @displayName Prototype
+ */
 
-	export default { 
-		name: "VsPrototype",
-		status: "prototype",
-		release: "0.0.1",
-	}
+export default {
+    name: 'VsPrototype',
+    status: 'prototype',
+    release: '0.0.1',
+};
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .vs-prototype {
-	opacity: 30%;
+    opacity: 30%;
 
-	& > * {
-		color: darken(grey, 70%);
-		border-color: darken(grey, 70%);
-		background: lighten(grey, 30%);
-	}
+    & > * {
+        color: darken(grey, 70%);
+        border-color: darken(grey, 70%);
+        background: lighten(grey, 30%);
+    }
 
-	:hover,
-	&:hover {
-		cursor: not-allowed;
-	}
+    :hover,
+    &:hover {
+        cursor: not-allowed;
+    }
 }
 </style>
 
 <docs>
 ```jsx
     <h4>Originals</h4>
-	<bs-wrapper class="d-flex mb-4">
-		<vs-button class="mr-2 mb-2">Button</vs-button>		
-    </bs-wrapper>
+    <BsWrapper class="d-flex mb-4">
+        <VsButton class="mr-2 mb-2">Button</VsButton>
+    </BsWrapper>
 
-	<bs-wrapper class="d-flex mb-4">
-		<vs-icon name="search" />
-    </bs-wrapper>
+    <BsWrapper class="d-flex mb-4">
+        <VsIcon name="search" />
+    </BsWrapper>
 
-    <h4>Prototypes</h4>
-	<bs-wrapper class="d-flex mb-4">
-		<vs-prototype>
-      		<vs-button class="mr-2 mb-2">Button</vs-button>		
-		</vs-prototype>
-    </bs-wrapper>
+    <h4 class="mt-8">Prototypes</h4>
+    <BsWrapper class="d-flex mb-4">
+        <VsPrototype>
+            <VsButton class="mr-2 mb-2">Button</VsButton>
+        </VsPrototype>
+    </BsWrapper>
 
-	<bs-wrapper class="d-flex mb-4">
-		<vs-prototype>
-			<vs-icon name="search" />
-		</vs-prototype>
-    </bs-wrapper>
+    <BsWrapper class="d-flex mb-4">
+        <VsPrototype>
+            <VsIcon name="search" />
+        </VsPrototype>
+    </BsWrapper>
 ```
 </docs>

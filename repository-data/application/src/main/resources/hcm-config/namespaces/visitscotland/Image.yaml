@@ -22,6 +22,7 @@ definitions:
             jcr:primaryType: hipposysedit:field
             hipposysedit:path: hippogallery:description
             hipposysedit:type: String
+            hipposysedit:validators: [required]
           /thumbnail:
             jcr:primaryType: hipposysedit:field
             hipposysedit:autocreated: true
@@ -41,6 +42,7 @@ definitions:
             hipposysedit:path: visitscotland:altText
             hipposysedit:primary: false
             hipposysedit:type: String
+            hipposysedit:validators: [required]
           /credit:
             jcr:primaryType: hipposysedit:field
             hipposysedit:mandatory: false
@@ -57,12 +59,52 @@ definitions:
             hipposysedit:path: visitscotland:location
             hipposysedit:primary: false
             hipposysedit:type: DynamicDropdown
+          /de:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: visitscotland:de
+            hipposysedit:primary: false
+            hipposysedit:type: visitscotland:ImageData
+          /es:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: visitscotland:es
+            hipposysedit:primary: false
+            hipposysedit:type: visitscotland:ImageData
+          /fr:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: visitscotland:fr
+            hipposysedit:primary: false
+            hipposysedit:type: visitscotland:ImageData
+          /it:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: visitscotland:it
+            hipposysedit:primary: false
+            hipposysedit:type: visitscotland:ImageData
+          /nl:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: visitscotland:nl
+            hipposysedit:primary: false
+            hipposysedit:type: visitscotland:ImageData
       /hipposysedit:prototypes:
         jcr:primaryType: hipposysedit:prototypeset
         /hipposysedit:prototype:
           jcr:primaryType: visitscotland:Image
           jcr:mixinTypes: ['mix:referenceable']
-          jcr:uuid: b20bc000-77d1-4410-9597-008bb0c23166
+          jcr:uuid: 73f02a72-2e88-4656-a46f-a84a513a58a7
           hippogallery:description: ''
           visitscotland:altText: ''
           visitscotland:credit: ''
@@ -86,6 +128,26 @@ definitions:
               resource: /namespaces/visitscotland/Image/prototypes/prototype/original/original.gif
             jcr:lastModified: 1970-01-01T00:00:00Z
             jcr:mimeType: image/gif
+          /visitscotland:de:
+            jcr:primaryType: visitscotland:ImageData
+            visitscotland:altText: ''
+            visitscotland:caption: ''
+          /visitscotland:es:
+            jcr:primaryType: visitscotland:ImageData
+            visitscotland:altText: ''
+            visitscotland:caption: ''
+          /visitscotland:fr:
+            jcr:primaryType: visitscotland:ImageData
+            visitscotland:altText: ''
+            visitscotland:caption: ''
+          /visitscotland:it:
+            jcr:primaryType: visitscotland:ImageData
+            visitscotland:altText: ''
+            visitscotland:caption: ''
+          /visitscotland:nl:
+            jcr:primaryType: visitscotland:ImageData
+            visitscotland:altText: ''
+            visitscotland:caption: ''
       /editor:templates:
         jcr:primaryType: editor:templateset
         /_default_:
@@ -106,29 +168,22 @@ definitions:
             wicket.id: ${cluster.id}.field
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-          /credit:
-            jcr:primaryType: frontend:plugin
-            caption: Credits / Attributions
-            field: credit
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
-            wicket.id: ${cluster.id}.field
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
           /description:
             jcr:primaryType: frontend:plugin
             caption: Caption
             field: description
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
+            hint: This appears on screen.
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
           /altText:
             jcr:primaryType: frontend:plugin
-            caption: Image Alt Text
+            caption: Alt Text
             field: altText
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
-            hint: ''
+            hint: This is for accessibility.
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
           /location:
@@ -140,12 +195,65 @@ definitions:
             wicket.id: ${cluster.id}.field
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-              valuelistProvider: service.locationlist.image
+              valuelistProvider: service.locationlist.psr
               source: ''
+          /credit:
+            jcr:primaryType: frontend:plugin
+            caption: Credits
+            field: credit
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
+            hint: ''
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
           /thumbnail:
             jcr:primaryType: frontend:plugin
             caption: thumbnail
             field: thumbnail
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
+            wicket.id: ${cluster.id}.field
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+          /nl:
+            jcr:primaryType: frontend:plugin
+            caption: Dutch
+            field: nl
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
+            wicket.id: ${cluster.id}.field
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+          /fr:
+            jcr:primaryType: frontend:plugin
+            caption: French
+            field: fr
+            hint: ''
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
+            wicket.id: ${cluster.id}.field
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+          /de:
+            jcr:primaryType: frontend:plugin
+            caption: German
+            field: de
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
+            wicket.id: ${cluster.id}.field
+            hint: ''
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+          /es:
+            jcr:primaryType: frontend:plugin
+            caption: Spanish
+            field: es
+            hint: ''
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
+            wicket.id: ${cluster.id}.field
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+          /it:
+            jcr:primaryType: frontend:plugin
+            caption: Italian
+            field: it
+            hint: ''
             plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
             wicket.id: ${cluster.id}.field
             /cluster.options:

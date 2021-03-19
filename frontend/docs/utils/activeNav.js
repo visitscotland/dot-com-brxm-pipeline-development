@@ -17,91 +17,93 @@
  */
 
 export default {
-  methods: {
-    clearActiveItems() {
-      const activeItems = document.querySelectorAll(".vueds-active")
-      if (activeItems) {
-        ;[].forEach.call(activeItems, function(element) {
-          element.classList.remove("vueds-active")
-        })
-      }
+    methods: {
+        clearActiveItems() {
+            const activeItems = document.querySelectorAll(".vueds-active")
+            if (activeItems) {
+                ;[].forEach.call(activeItems, (element) => {
+                    element.classList.remove("vueds-active")
+                })
+            }
+        },
+        activateItem(linkItem) {
+            linkItem.classList.add("vueds-active")
+
+            // Check for a grandparent nav link item
+            const parent = linkItem.parentNode.parentNode
+
+            if (parent && parent.className.match(/(rsg--item)/)) {
+                this.activateItem(parent)
+            }
+        },
+        refreshClickHandlers(element, index, navType) {
+            if (this.navClickHandlers[navType][index]) {
+                element.removeEventListener("click", this.navClickHandlers[navType][index], false)
+            }
+
+            this.navClickHandlers[navType][index] = this.click.bind(this)
+            element.addEventListener("click", this.navClickHandlers[navType][index], false)
+        },
+        click(event) {
+            if (this.clearActiveItems) {
+                this.clearActiveItems()
+            } else {
+                this.methods.clearActiveItems()
+            }
+
+            this.activateItem(event.target.parentNode)
+        },
+        init() {
+            const sidebar = document.querySelector("div[class^='rsg--sidebar']")
+
+            if (sidebar) {
+                if (this.clearActiveItems) {
+                    this.clearActiveItems()
+                } else {
+                    this.methods.clearActiveItems()
+                }
+
+                const navLinks = sidebar.querySelectorAll("nav > ul > li > a")
+                const subNavLinks = sidebar.querySelectorAll("nav > ul > li ul a")
+                const search = sidebar.querySelector("div[class^='rsg--search'] input")
+                const self = this
+                const activeItem = sidebar.querySelector("li[class*=\"rsg--isSelected\"]")
+
+                // init handler object
+                if (!self.navClickHandlers) {
+                    self.navClickHandlers = {
+                        navLinks: {
+                        },
+                        subNavLinks: {
+                        },
+                    }
+                }
+
+                if (activeItem) {
+                    this.activateItem(activeItem)
+                }
+
+                if (search && !search.classList.contains("set")) {
+                    search.setAttribute("placeholder", "Type to filter")
+                }
+
+                // Cleanup
+
+                if (navLinks) {
+                    ;[].forEach.call(navLinks, (element, i) => {
+                        self.refreshClickHandlers(element, i, "navLinks")
+                    })
+                }
+
+                if (subNavLinks) {
+                    ;[].forEach.call(subNavLinks, (element, i) => {
+                        self.refreshClickHandlers(element, i, "subNavLinks")
+                    })
+                }
+            }
+        },
     },
-    activateItem(linkItem) {
-      linkItem.classList.add("vueds-active")
-
-      // Check for a grandparent nav link item
-      const parent = linkItem.parentNode.parentNode
-
-      if (parent && parent.className.match(/(rsg--item)/)) {
-        this.activateItem(parent)
-      }
+    mounted() {
+        this.init()
     },
-    refreshClickHandlers(element, index, navType) {
-      if (this.navClickHandlers[navType][index]) {
-        element.removeEventListener("click", this.navClickHandlers[navType][index], false)
-      }
-
-      this.navClickHandlers[navType][index] = this.click.bind(this)
-      element.addEventListener("click", this.navClickHandlers[navType][index], false)
-    },
-    click(event) {
-      if (this.clearActiveItems) {
-        this.clearActiveItems()
-      } else {
-        this.methods.clearActiveItems()
-      }
-
-      this.activateItem(event.target.parentNode)
-    },
-    init() {
-      const sidebar = document.querySelector("div[class^='rsg--sidebar']")
-
-      if (sidebar) {
-        if (this.clearActiveItems) {
-          this.clearActiveItems()
-        } else {
-          this.methods.clearActiveItems()
-        }
-
-        const navLinks = sidebar.querySelectorAll("nav > ul > li > a")
-        const subNavLinks = sidebar.querySelectorAll("nav > ul > li ul a")
-        const search = sidebar.querySelector("div[class^='rsg--search'] input")
-        const self = this
-        const activeItem = sidebar.querySelector('li[class*="rsg--isSelected"]')
-
-        // init handler object
-        if (!self.navClickHandlers) {
-          self.navClickHandlers = {
-            navLinks: {},
-            subNavLinks: {},
-          }
-        }
-
-        if (activeItem) {
-          this.activateItem(activeItem)
-        }
-
-        if (search && !search.classList.contains("set")) {
-          search.setAttribute("placeholder", "Type to filter")
-        }
-
-        // Cleanup
-
-        if (navLinks) {
-          ;[].forEach.call(navLinks, function(element, i) {
-            self.refreshClickHandlers(element, i, "navLinks")
-          })
-        }
-
-        if (subNavLinks) {
-          ;[].forEach.call(subNavLinks, function(element, i) {
-            self.refreshClickHandlers(element, i, "subNavLinks")
-          })
-        }
-      }
-    },
-  },
-  mounted() {
-    this.init()
-  },
 }

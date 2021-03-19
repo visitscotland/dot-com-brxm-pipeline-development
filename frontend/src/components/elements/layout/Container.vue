@@ -1,45 +1,50 @@
 <template>
-    <b-container tag="div" v-bind="$attrs"><slot /></b-container>
+    <BContainer
+        tag="div"
+        v-bind="$attrs"
+    >
+        <slot />
+    </BContainer>
 </template>
 
 <script>
-import { BContainer } from "bootstrap-vue"
+import { BContainer } from 'bootstrap-vue';
 /**
- * Containers are the primary structural element used to organise page content. Our containers utilise
+ * Containers are the primary structural element used to
+ * organise page content. Our containers utilise
  * <a href="https://bootstrap-vue.js.org/docs/components/layout">Bootstrap Vue's b-container component</a>,
  * and can be fixed (default) or fluid.
+ *
+ * @displayName Container
  */
 
 export default {
-    name: "VsContainer",
-    status: "prototype",
-    release: "0.1.0",
+    name: 'VsContainer',
+    status: 'prototype',
+    release: '0.1.0',
     components: {
         BContainer,
     },
-}
+};
 </script>
-
-<style lang="scss" scoped>
-@import "~bootstrap/scss/grid";
-</style>
 
 <docs>
   ```jsx
     <div>
-      <vs-container style="background:#ccc">
-        <vs-row>
-          <vs-col>This is a fixed-width container</vs-col>
-        </vs-row>
-      </vs-container>
+      <VsContainer style="background:#ccc">
+        <VsRow>
+          <VsCol>This is a fixed-width container</VsCol>
+        </VsRow>
+      </VsContainer>
       <br />
-      <vs-container fluid style="background:#ccc">
-        <vs-row>
-          <vs-col>This is a fluid container</vs-col>
-        </vs-row>
-      </vs-container>
+      <VsContainer fluid style="background:#ccc">
+        <VsRow>
+          <VsCol>This is a fluid container</VsCol>
+        </VsRow>
+      </VsContainer>
       <br />
-      *Note: the fixed width container appears fluid here because it is inside a parent element that is not full-page width.
+      *Note: the fixed width container appears fluid here because
+       it is inside a parent element that is not full-page width.
     </div>
 
   ```
