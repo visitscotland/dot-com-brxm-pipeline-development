@@ -123,11 +123,6 @@
     <filter-name>Console</filter-name>
     <url-pattern>/console/*</url-pattern>
   </filter-mapping>
-  
-  <filter-mapping>
-    <filter-name>Console</filter-name>
-    <url-pattern>/console/*</url-pattern>
-  </filter-mapping>
 
   <listener>
     <listener-class>org.hippoecm.frontend.plugins.login.ConcurrentLoginListener</listener-class>
@@ -212,6 +207,11 @@
     <servlet-class>com.visitscotland.utils.info.VSI</servlet-class>
     <load-on-startup>7</load-on-startup>
   </servlet>
+
+  <servlet-mapping>
+    <servlet-name>VSIServlet</servlet-name>
+    <url-pattern>/vs-tools/vsi</url-pattern>
+  </servlet-mapping>
 
   <servlet-mapping>
     <servlet-name>LoggingServlet</servlet-name>
