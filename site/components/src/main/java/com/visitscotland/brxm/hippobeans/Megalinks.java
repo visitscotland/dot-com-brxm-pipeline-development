@@ -69,4 +69,9 @@ public class Megalinks extends BaseDocument {
     public String getTranslation() {
         return getSingleProperty("visitscotland:translation");
     }
+
+    @HippoEssentialsGenerated(internalName = "visitscotland:translationPriority")
+    public String getTranslationPriority() {
+        return getSingleProperty("visitscotland:translationPriority");
+    }
 }

@@ -41,6 +41,8 @@ public class JcrDocument {
     // Do not access directly, will be lazy loaded, use getter
     protected HippoBean hippoBean;
 
+    protected Set<String> translationLocales;
+
     /**
      * Will create an instance from the hippostd:handle instance or one of the document variants.
      *
@@ -183,6 +185,13 @@ public class JcrDocument {
             }
         }
         return translationDocuments;
+    }
+
+    public Set<String> getTranslationLocaleNames() throws RepositoryException {
+        // Cache translation locales as HippoTranslatedNode#getTranslations requires the JCR to be queried
+        if (translationLocales != null) return translationLocales;
+        translationLocales =  new HippoTranslatedNode(getVariantNode(VARIANT_UNPUBLISHED)).getTranslations();
+        return translationLocales;
     }
 
     public boolean isDraftBeingEdited() throws RepositoryException {

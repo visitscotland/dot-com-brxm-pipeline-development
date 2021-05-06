@@ -13,7 +13,10 @@
         </template>
 
         <!-- No JS Version -->
-        <span class="vs-global-menu__languages__label">
+        <span
+            class="vs-global-menu__languages__label"
+            role="menuitem"
+        >
             <VsIcon
                 name="globe"
                 variant="light"

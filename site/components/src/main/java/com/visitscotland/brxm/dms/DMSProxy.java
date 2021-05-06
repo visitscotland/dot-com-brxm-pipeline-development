@@ -21,7 +21,7 @@ public class DMSProxy {
 
     private static final Logger logger = LoggerFactory.getLogger(DMSProxy.class);
 
-    static final String HEADER_TOKEN = "token";
+    static final String HEADER = "VS-API-Key";
 
     /**
      * Registers the time of the last failure and blocks subsequent requests
@@ -90,7 +90,7 @@ public class DMSProxy {
         try {
             HttpURLConnection dmsConnection = openConnection(properties.getDmsHost() + path);
             dmsConnection.setConnectTimeout(properties.getDmsTimeout());
-            dmsConnection.setRequestProperty(HEADER_TOKEN, properties.getDmsToken());
+            dmsConnection.setRequestProperty(HEADER, properties.getDmsToken());
             dmsConnection.setRequestMethod("GET");
 
             int code = dmsConnection.getResponseCode();

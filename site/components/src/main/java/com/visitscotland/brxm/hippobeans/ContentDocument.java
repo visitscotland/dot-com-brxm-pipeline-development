@@ -37,4 +37,9 @@ public class ContentDocument extends BaseDocument {
     public Boolean getTranslationFlag() {
         return getSingleProperty("visitscotland:translationFlag");
     }
+
+    @HippoEssentialsGenerated(internalName = "visitscotland:translationPriority")
+    public String getTranslationPriority() {
+        return getSingleProperty("visitscotland:translationPriority");
+    }
 }

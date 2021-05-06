@@ -1,5 +1,6 @@
 package com.visitscotland.brxm.translation;
 
+import org.hippoecm.repository.api.HippoNode;
 import org.mockito.invocation.InvocationOnMock;
 import org.mockito.stubbing.Answer;
 
@@ -41,6 +42,26 @@ public final class MockNodeBuilder {
         return this;
     }
 
+    public MockNodeBuilder translatable(String primaryNodeType) throws Exception {
+        return withNodeType("hippostd:publishable").withNodeType("hippotranslation:translated")
+                .withProperty("jcr:primaryType", primaryNodeType);
+    }
+
+    public MockNodeBuilder modified(String modifiedBy, Calendar modifiedAt) throws Exception {
+        return withProperty("hippostdpubwf:lastModifiedBy", modifiedBy)
+            .withProperty("hippostdpubwf:lastModificationDate", modifiedAt);
+    }
+
+    public MockNodeBuilder modified(String modifiedBy) throws Exception {
+        return withProperty("hippostdpubwf:lastModifiedBy", modifiedBy)
+                .withProperty("hippostdpubwf:lastModificationDate", Calendar.getInstance());
+    }
+
+    public MockNodeBuilder withState(String publishState, String stateSummary) throws Exception{
+        return withProperty("hippostd:state", publishState)
+                .withProperty("hippostd:stateSummary", stateSummary);
+    }
+
     public MockNodeBuilder withProperty(String propertyPath, Value[] valueArray) throws Exception {
         Property mockProperty = mock(Property.class);
         lenient().when(mockProperty.getValues()).thenReturn(valueArray);
@@ -60,6 +81,33 @@ public final class MockNodeBuilder {
         lenient().when(mockProperty.getBoolean()).thenReturn(propertyValue);
         properties.put(propertyPath, mockProperty);
         return this;
+    }
+
+    public MockNodeBuilder withProperty(String propertyPath, Long propertyValue) throws RepositoryException {
+        Property mockProperty = mock(Property.class);
+        when(mockProperty.getLong()).thenReturn(propertyValue);
+        properties.put(propertyPath, mockProperty);
+        return this;
+    }
+
+    public MockNodeBuilder withProperty(String propertyPath, Calendar propertyValue) throws Exception {
+        Property mockProperty = mock(Property.class);
+        lenient().when(mockProperty.getDate()).thenReturn(propertyValue);
+        properties.put(propertyPath, mockProperty);
+        return this;
+    }
+
+
+    public MockNodeBuilder withTranslationFlag(Boolean flag) throws Exception {
+        if (flag == null){
+            return withProperty("visitscotland:translationFlag", "");
+        } else {
+            Property mockProperty = mock(Property.class);
+            lenient().when(mockProperty.getBoolean()).thenReturn(flag);
+            lenient().when(mockProperty.getString()).thenReturn(flag.toString());
+            properties.put("visitscotland:translationFlag", mockProperty);
+            return this;
+        }
     }
 
     public MockNodeBuilder withProperty(String propertyPath, Property property) throws Exception {
@@ -95,7 +143,7 @@ public final class MockNodeBuilder {
     }
 
     public Node build() throws Exception {
-        Node mockNode = mock(Node.class);
+        Node mockNode = mock(HippoNode.class);
         lenient().when(mockNode.hasProperty(any())).thenReturn(false);
         lenient().when(mockNode.isNodeType(any())).thenReturn(false);
 
@@ -111,12 +159,12 @@ public final class MockNodeBuilder {
         }
 
         for (String type : nodeTypes) {
-            when(mockNode.isNodeType(type)).thenReturn(true);
+            lenient().when(mockNode.isNodeType(type)).thenReturn(true);
         }
 
         for (Map.Entry<String, Property> propertyEntry : properties.entrySet()) {
             lenient().when(mockNode.hasProperty(eq(propertyEntry.getKey()))).thenReturn(true);
-            when(mockNode.getProperty(eq(propertyEntry.getKey()))).thenReturn(propertyEntry.getValue());
+            lenient().when(mockNode.getProperty(eq(propertyEntry.getKey()))).thenReturn(propertyEntry.getValue());
         }
 
         for (Map.Entry<String, List<Node>> childNodeEntry : childNodes.entrySet()) {

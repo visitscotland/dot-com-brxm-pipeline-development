@@ -1,7 +1,17 @@
 package com.visitscotland.brxm.model;
 
 public enum LinkType {
-    INTERNAL, EXTERNAL, DOWNLOAD;
+    INTERNAL("default"), EXTERNAL("external"), DOWNLOAD("download");
+
+    private final String richTextType;
+
+    LinkType(String richTextType){
+        this.richTextType = richTextType;
+    }
+
+    public String getRichTextType() {
+        return richTextType;
+    }
 
     @Override
     public String toString() {

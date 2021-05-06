@@ -9,10 +9,13 @@ import org.hippoecm.hst.core.component.HstRequest;
 import org.hippoecm.hst.core.linking.HstLink;
 import org.hippoecm.hst.core.request.HstRequestContext;
 import org.hippoecm.hst.core.request.ResolvedSiteMapItem;
+import org.onehippo.forge.selection.hst.contentbean.ValueList;
+import org.onehippo.forge.selection.hst.util.SelectionUtil;
 import org.springframework.stereotype.Component;
 
 import javax.jcr.Node;
 import javax.jcr.RepositoryException;
+import java.util.Map;
 
 /**
  * Set of utilities related with Hippo that from the whole environment to be running in order to work
@@ -84,5 +87,18 @@ public class HippoUtilsService {
     @NonTestable(NonTestable.Cause.BRIDGE)
     public String getParameterFromUrl(HstRequest request, String parameter){
         return request.getRequestContext().getServletRequest().getParameter(parameter);
+    }
+
+    /**
+     * Retrieves a ValueList as a Map
+     *
+     * New value lists can be configured in essentials and must be added to META-INF/valueList.xml
+     * @param valueListIdentifier The identifier as specified in the value list YAML
+     * @return A mapping from the value list key to the value list value
+     */
+    @NonTestable(NonTestable.Cause.BRIDGE)
+    public Map<String, String> getValueMap(String valueListIdentifier) {
+        ValueList valueList = SelectionUtil.getValueListByIdentifier(valueListIdentifier, RequestContextProvider.get());
+        return SelectionUtil.valueListAsMap(valueList);
     }
 }

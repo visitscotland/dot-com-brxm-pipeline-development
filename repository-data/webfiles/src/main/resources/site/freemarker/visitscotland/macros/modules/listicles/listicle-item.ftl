@@ -21,7 +21,7 @@
 
     <vs-listicle-item
             index="${item.index}"
-            title="${item.title}"
+            title="${item.title?html}"
             sub-title="${item.subtitle!''}"
     >
         <div slot="hippo-details" class="has-edit-button">

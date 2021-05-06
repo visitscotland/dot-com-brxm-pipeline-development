@@ -27,6 +27,7 @@
   mixin
   - visitscotland:translationFlag (boolean)
   - visitscotland:diff (string)
+  - visitscotland:translationPriority (string)
 
 [visitscotland:Day] > hippostd:relaxed, hippotranslation:translated, visitscotland:basedocument, visitscotland:translatable
   orderable
@@ -50,6 +51,9 @@
   orderable
 
 [visitscotland:IKnow] > hippo:compound, hippostd:relaxed
+  orderable
+
+[visitscotland:IknowCommunity] > hippostd:relaxed, hippotranslation:translated, visitscotland:basedocument, visitscotland:translatable
   orderable
 
 [visitscotland:Image] > hippogallery:imageset, hippogallery:relaxed

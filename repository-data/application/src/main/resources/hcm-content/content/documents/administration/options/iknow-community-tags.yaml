@@ -1,0 +1,92 @@
+/content/documents/administration/options/iknow-community-tags:
+  jcr:primaryType: hippo:handle
+  jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+  jcr:uuid: 79c657f8-b947-480d-a8ff-8ad623c97854
+  hippo:name: iKnow Community tags
+  /iknow-community-tags:
+    jcr:primaryType: selection:valuelist
+    jcr:mixinTypes: ['hippotranslation:translated', 'mix:referenceable']
+    jcr:uuid: b3a2e01e-b7fa-43b3-9373-175b0a85bd90
+    hippo:availability: [live, preview]
+    hippotranslation:id: a10ed680-2d67-4e45-9335-eabffb9216bd
+    hippotranslation:locale: inherited - from query
+    /selection:listitem[1]:
+      jcr:primaryType: selection:listitem
+      selection:key: edinburgh
+      selection:label: Edinburgh
+    /selection:listitem[2]:
+      jcr:primaryType: selection:listitem
+      selection:key: scotland
+      selection:label: Scotland
+    /selection:listitem[3]:
+      jcr:primaryType: selection:listitem
+      selection:key: castles
+      selection:label: Castles
+    /selection:listitem[4]:
+      jcr:primaryType: selection:listitem
+      selection:key: highlands
+      selection:label: Highlands
+    /selection:listitem[5]:
+      jcr:primaryType: selection:listitem
+      selection:key: activities
+      selection:label: Activities
+    /selection:listitem[6]:
+      jcr:primaryType: selection:listitem
+      selection:key: recommendations
+      selection:label: Recommendations
+    /selection:listitem[7]:
+      jcr:primaryType: selection:listitem
+      selection:key: accommodation
+      selection:label: Accommodation
+    /selection:listitem[8]:
+      jcr:primaryType: selection:listitem
+      selection:key: visitscotland
+      selection:label: VisitScotland
+    /selection:listitem[9]:
+      jcr:primaryType: selection:listitem
+      selection:key: scenery
+      selection:label: Scenery
+    /selection:listitem[10]:
+      jcr:primaryType: selection:listitem
+      selection:key: things-to-do
+      selection:label: Things to do
+    /selection:listitem[11]:
+      jcr:primaryType: selection:listitem
+      selection:key: photography
+      selection:label: Photography
+    /selection:listitem[12]:
+      jcr:primaryType: selection:listitem
+      selection:key: days-out
+      selection:label: Days out
+    /selection:listitem[13]:
+      jcr:primaryType: selection:listitem
+      selection:key: travel
+      selection:label: Travel
+    /selection:listitem[14]:
+      jcr:primaryType: selection:listitem
+      selection:key: history
+      selection:label: History
+    /selection:listitem[15]:
+      jcr:primaryType: selection:listitem
+      selection:key: countryside
+      selection:label: Countryside
+    /selection:listitem[16]:
+      jcr:primaryType: selection:listitem
+      selection:key: public-transport
+      selection:label: Public Transport
+    /selection:listitem[17]:
+      jcr:primaryType: selection:listitem
+      selection:key: glasgow
+      selection:label: Glasgow
+    /selection:listitem[18]:
+      jcr:primaryType: selection:listitem
+      selection:key: walking
+      selection:label: Walking
+    /selection:listitem[19]:
+      jcr:primaryType: selection:listitem
+      selection:key: inverness
+      selection:label: Inverness
+    /selection:listitem[20]:
+      jcr:primaryType: selection:listitem
+      selection:key: outdoors
+      selection:label: Outdoors

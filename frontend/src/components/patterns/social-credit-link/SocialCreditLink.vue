@@ -85,7 +85,7 @@ export default {
         }
 
         &:focus {
-            font-weight: $semibold-font-weight !important;
+            font-weight: $font-weight-semi-bold !important;
             outline: 0 !important;
         }
 

@@ -55,11 +55,6 @@ public class DMSConstants {
         public static final String AVAILABILITY = "avail";
     }
 
-    /**
-     * Note: This interface is marked by SonarQube as a Critical issue, however since those constant are translated
-     * into parameters later on, AND they really belong to the dms project, this is a perfectly reasonable use for a
-     * constants interface.
-     */
     public final class DMSProduct {
 
         private DMSProduct (){
@@ -77,13 +72,25 @@ public class DMSConstants {
         public static final String ADDRESS = "address";
         public static final String LOCATION = "city";
         public static final String FACILITIES = "keyFacilities";
+
+        public static final String OPENING = "todayOpeningTime";
+        public static final String START_TIME = "startTime";
+        public static final String END_TIME = "endTime";
+        public static final String OPENING_DAY = "day";
+        public static final String OPENING_STATE = "state";
+        //TODO Fix property as part of VS-1487
+        public static final String OPENING_PROVISIONAL = "provivisional";
+        public static final String URL = "url";
+        public static final String TIME_TO_EXPLORE = "timeToExplore";
+        public static final String PRICE = "price";
+        public static final String DISPLAY_PRICE = "displayPrice";
+
     }
 
     //Endpoints
-    //TODO Remove %s at the beginning of the constants
     public static final String PRODUCT_SEARCH = "/info/%s/search-results?";
     public static final String PRODUCT_SEARCH_DATA_MAP = "/data/product-search/map?";
-    public static final String VS_DMS_PRODUCT_CARD = "%s/data/products/card?";
+    public static final String VS_DMS_PRODUCT_CARD = "/data/products/card?";
     public static final String META_PRODUCT_LIST = "/data/meta/%s/list?%s";
     public static final String META_LOCATIONS = "/data/meta/location/list?full";
 

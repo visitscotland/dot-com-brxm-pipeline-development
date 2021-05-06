@@ -4,6 +4,9 @@ import com.visitscotland.brxm.model.LinkType;
 import com.visitscotland.brxm.services.LinkService;
 import org.springframework.stereotype.Component;
 
+import java.util.Collections;
+import java.util.Map;
+import java.util.TreeMap;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -36,8 +39,8 @@ public class HTMLtoVueTransformer {
          * 2. Attributes for the heading tag
          * 3. Content of the tag
          */
-        Pattern h2Tag = Pattern.compile("<h(\\d)(.*?)>(.*?)</h2>");
-        Matcher matcher = h2Tag.matcher(html);
+        Pattern headingTag = Pattern.compile("<h(\\d)(.*?)>(.*?)</h\\1>");
+        Matcher matcher = headingTag.matcher(html);
         String output = html;
 
         while (matcher.find()) {
@@ -74,7 +77,7 @@ public class HTMLtoVueTransformer {
         while (matcher.find()) {
             String a = matcher.group();
             LinkType type = linkService.getType(matcher.group(2));
-            String vsLink = a.replace(matcher.group(1), "<vs-link type=\""+type+"\" ")
+            String vsLink = a.replace(matcher.group(1), "<vs-link type=\""+type.getRichTextType()+"\" ")
                     .replace(matcher.group(3),"</vs-link>");
             output = output.replace(a, vsLink);
         }
@@ -83,21 +86,68 @@ public class HTMLtoVueTransformer {
     }
 
     /**
-     * Process the anchor tags and transform them into Vue tags. It also adds the attribute type depending on the type
-     * of the link ({@code LinkType})
+     * Process ul and ol lists.
      *
-     * @param html
-     * @return
+     * Due to a bug in Vue, nested ul and ol tags are not correctly processed. In order to overcome that issue, only the most
+     * external tags will be converted to a Vue component
+     *
+     * This text will come from a CKEditor so it is assumed that the HTML is well constructed.
      */
     public String processLists(final String html){
-        return html.replace("<ul>", "<vs-list>")
-                .replace("</ul>", "</vs-list>")
-                .replace("<ol>", "<vs-list ordered>")
-                .replace("</ol>", "</vs-list>");
+        final String UL = "<ul>";
+        final String UL_END = "</ul>";
+        final String OL = "<ol>";
+        final String OL_END = "</ol>";
+
+        String output = html;
+
+        Map<Integer, String> tags = new TreeMap<>(Collections.reverseOrder());
+
+        //Calculate all the position for the list tags
+        for (String tag : new String[]{UL, UL_END, OL,OL_END}){
+            int index = html.indexOf(tag);
+            while (index != -1){
+                tags.put(index, tag);
+                index = html.indexOf(tag, index + 1);
+            }
+        }
+
+        //Transform only most external list tags into Vue component. Internal list will remain as ul or ol
+        String closeTag = null;
+        Integer closeTagIndex = null;
+        int depth = 1;
+        for (Map.Entry<Integer, String> entry : tags.entrySet()){
+            if (closeTag == null){
+                closeTagIndex = entry.getKey();
+                closeTag = entry.getValue();
+            } else if (closeTag.equals(entry.getValue())){
+                depth++;
+            } else if (UL.equals(entry.getValue()) && UL_END.equals(closeTag)
+                || OL.equals(entry.getValue()) && OL_END.equals(closeTag)){
+                if (depth > 1){
+                    depth--;
+                } else {
+                    closeTag = null;
+                    output = convertToVsList(output, entry.getKey(), closeTagIndex, UL.equals(entry.getValue()));
+                }
+            }
+        }
+
+        return output;
     }
 
     /**
-     * Turns a text into kebab case by doing the followingIt does the folloing replacements:
+     * Convert the ol or ul tag into a the vs-list Vue component.
+     */
+    private String convertToVsList(String html, int openTagIndex, int closeTagIndex, boolean ul){
+        String vsList = ul?"<vs-list>":"<vs-list ordered>";
+        return html.substring(0,openTagIndex) + vsList
+                + html.substring(openTagIndex+4, closeTagIndex) + "</vs-list>"
+                + html.substring(closeTagIndex + 5);
+    }
+
+    /**
+     * Turns a text into kebab case by doing the followingIt does the following replacements:
      *
      * <li>Transform the text to lower case</li>
      * <li>Replace all non-alphanumeric characters with dash(-) </li>

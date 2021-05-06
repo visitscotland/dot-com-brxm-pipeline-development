@@ -4,7 +4,6 @@
             :href="href"
             :type="type"
             :variant="variant"
-            :icon-size="iconSize"
         >
             <!-- @slot Slot for link list item text -->
             <slot />
@@ -18,7 +17,7 @@ import VsLink from '@components/elements/link/Link';
 /**
  * This component is an item appearing in a list of links.
  *
- * @displayName LinkListItem
+ * @displayName Link List Item
  */
 
 export default {
@@ -42,8 +41,8 @@ export default {
          */
         type: {
             type: String,
-            default: null,
-            validator: (value) => value.match(/(external|internal|download)/),
+            default: 'default',
+            validator: (value) => value.match(/(default|external|internal|download)/),
         },
         /**
          * Option to choose a pre-defined style variant
@@ -53,15 +52,6 @@ export default {
             type: String,
             default: 'primary',
             validator: (value) => value.match(/(primary|dark)/),
-        },
-        /**
-        * Size of icon - defaults to 'xs'
-        * `xxs, xs, sm, md, lg, xl`)
-        */
-        iconSize: {
-            type: String,
-            default: 'xs',
-            validator: (value) => value.match(/(xxs|xs|sm|md|lg|xl)/),
         },
     },
 };
@@ -98,6 +88,6 @@ export default {
             >
                 This is a third link
             </VsLinkListItem>
-        <VsLinkList>
+        </VsLinkList>
     ```
 </docs>

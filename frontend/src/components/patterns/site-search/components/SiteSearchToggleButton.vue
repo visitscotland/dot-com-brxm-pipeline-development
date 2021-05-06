@@ -3,12 +3,10 @@
         class="vs-site-search-toggle-button p-0 p-sm-1 pr-xl-3"
         :variant="isOn ? 'light' : 'primary'"
         :animate="false"
+        size="lg"
+        icon="search"
+        :icon-variant-override="isOn ? 'secondary' : 'reverse-white'"
     >
-        <VsIcon
-            name="search"
-            size="md"
-            :variant="isOn ? 'secondary' : 'reverse-white'"
-        />
         <span class="sr-only-xl-down d-xl-flex"><slot /></span>
     </VsButton>
 </template>

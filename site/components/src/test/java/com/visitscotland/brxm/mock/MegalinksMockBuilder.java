@@ -41,11 +41,10 @@ public class MegalinksMockBuilder {
         return this;
     }
 
-    public Linkable getItinerary(String mainTransport, int days){
+    public Itinerary getItinerary(String mainTransport){
         Itinerary itinerary = mock(Itinerary.class, RETURNS_DEEP_STUBS);
 
         when (itinerary.getTransports()).thenReturn(new String[]{mainTransport});
-        when (itinerary.getDays().size()).thenReturn(days);
 
         return itinerary;
     }
@@ -53,15 +52,13 @@ public class MegalinksMockBuilder {
        return mock(Page.class);
     }
 
-    public Linkable getExternalDocument(String title, String url, String magnitude, Double size, String category){
+    public Linkable getExternalDocument(String title, String url, String category){
         SharedLink sharedLink = mock(SharedLink.class, RETURNS_DEEP_STUBS);
         ExternalDocument externalDocument = mock(ExternalDocument.class, RETURNS_DEEP_STUBS);
 
         when (sharedLink.getLinkType()).thenReturn(externalDocument);
         when (sharedLink.getTitle()).thenReturn(title);
         when (externalDocument.getLink()).thenReturn(url);
-        when (externalDocument.getSize()).thenReturn(size);
-        when (externalDocument.getBytes()).thenReturn(magnitude);
         if (category!=null) {
             when(externalDocument.getCategory()).thenReturn(category);
         }

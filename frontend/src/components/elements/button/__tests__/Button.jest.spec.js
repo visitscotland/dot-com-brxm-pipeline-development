@@ -49,7 +49,7 @@ describe('VsButton', () => {
         });
 
         it(':variant - should accept and render variants as props', () => {
-            const testVariant = 'success';
+            const testVariant = 'secondary';
             const wrapper = factoryMount({
                 variant: testVariant,
             });

@@ -24,13 +24,9 @@ public class GeneralContentComponent extends PageContentComponent<Destination> {
 
     @Override
     public void doBeforeRender(HstRequest request, HstResponse response) {
-
         super.doBeforeRender(request, response);
 
-        addHeroCoordinates(request);
-
         builder.addModules(request);
-
     }
 
 }

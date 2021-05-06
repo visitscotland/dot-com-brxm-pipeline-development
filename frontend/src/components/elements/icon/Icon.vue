@@ -4,6 +4,7 @@
         :class="{
             'vs-icon': true,
             [`vs-icon--size-${size}`]: true,
+            [`vs-icon--sm-size-${smallSize}`]: smallSize,
             [`vs-icon--${formattedName}`]: true,
             [`vs-icon--variant-${variant}`]: variant,
             ['icon--' + orientation]: orientation,
@@ -86,6 +87,16 @@ export default {
         size: {
             type: String,
             default: 'md',
+            validator: (value) => value.match(/(xxs|xs|sm|md|lg|xl)/),
+        },
+        /**
+        * Size of icon at small and extra small viewport, defaults to null,
+        * the size falls back to the regular size if not set
+        * `xxs, xs, sm, md, lg, xl`)
+        */
+        smallSize: {
+            type: String,
+            default: null,
             validator: (value) => value.match(/(xxs|xs|sm|md|lg|xl)/),
         },
     },
@@ -232,6 +243,23 @@ $variants: (
             width: $this-size;
             font-size: $this-size;
             padding: 0;
+        }
+    }
+
+    // This is awkward but these have to be two separate loops through
+    // the sizes. If you have one loop generating both sets you run into
+    // specificity issues as the classes go sm-xs xs sm-sm sm etc etc,
+    // and the later non-sm classes override the earlier sm ones
+    @each $size in map-keys($sizes) {
+        $this-size: map-get($sizes, $size);
+
+        @include media-breakpoint-down(sm) {
+            &.vs-icon--sm-size-#{$size} {
+                height: $this-size;
+                width: $this-size;
+                font-size: $this-size;
+                padding: 0;
+            }
         }
     }
 

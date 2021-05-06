@@ -29,7 +29,6 @@ public class DestinationContentComponent extends PageContentComponent<Destinatio
     void addAttributesToRequest(HstRequest request) {
         Destination document = (Destination) request.getAttribute("document");
 
-        addHeroCoordinates(request);
         builder.addModules(request, document.getLocation());
     }
 

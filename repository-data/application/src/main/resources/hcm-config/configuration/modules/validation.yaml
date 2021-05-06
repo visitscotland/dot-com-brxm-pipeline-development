@@ -43,6 +43,10 @@ definitions:
       jcr:primaryType: hipposys:moduleconfig
       hipposys:className: com.visitscotland.brxm.validator.StringLengthValidator
       maxLength: '250'
+    /hippo:configuration/hippo:modules/validation/hippo:moduleconfig/visitscotland:extraextralong-string-validator:
+      jcr:primaryType: hipposys:moduleconfig
+      hipposys:className: com.visitscotland.brxm.validator.StringLengthValidator
+      maxLength: '375'
     /hippo:configuration/hippo:modules/validation/hippo:moduleconfig/visitscotland:seotitle-string-validator:
       jcr:primaryType: hipposys:moduleconfig
       hipposys:className: com.visitscotland.brxm.validator.StringLengthValidator
@@ -51,3 +55,12 @@ definitions:
       jcr:primaryType: hipposys:moduleconfig
       hipposys:className: com.visitscotland.brxm.validator.StringLengthValidator
       maxLength: '160'
+    /hippo:configuration/hippo:modules/validation/hippo:moduleconfig/visitscotland:external-document-validator:
+      jcr:primaryType: hipposys:moduleconfig
+      hipposys:className: com.visitscotland.brxm.validator.ExternalDocumentValidator
+    /hippo:configuration/hippo:modules/validation/hippo:moduleconfig/visitscotland:iknow-community-tag-validator:
+      jcr:primaryType: hipposys:moduleconfig
+      hipposys:className: com.visitscotland.brxm.validator.MultiValueNumberSelectedValidator
+      minLength: 2
+      maxLength: 10
+      targetField: visitscotland:tags

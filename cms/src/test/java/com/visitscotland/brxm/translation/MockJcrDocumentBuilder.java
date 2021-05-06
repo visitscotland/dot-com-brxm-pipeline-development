@@ -75,11 +75,25 @@ public final class MockJcrDocumentBuilder {
         }
 
         for (Map.Entry<String, Node> variantEntry : documentVariants.entrySet()) {
-            when(mockJcrDocument.getVariantNode(eq(variantEntry.getKey()))).thenReturn(variantEntry.getValue());
+            lenient().when(mockJcrDocument.getVariantNode(eq(variantEntry.getKey()))).thenReturn(variantEntry.getValue());
         }
 
         if (null != translationSet) {
-            when(mockJcrDocument.getTranslations()).thenReturn(translationSet);
+            lenient().when(mockJcrDocument.getTranslations()).thenReturn(translationSet);
+
+            // Add mocks for getTranslation(lcoale) - returns hippo:handle given a locale
+            // Also mocks out getTranslationLocaleNames() that returns all available locale names
+            Set<String> possibleLocaleNames = new HashSet<>();
+            if (this.localeName != null) {
+                possibleLocaleNames.add(this.localeName);
+            }
+            for (JcrDocument jcrDocument : translationSet) {
+                // Need this intermediate variable to work around Mockito restriction
+                Node handle = jcrDocument.getHandle();
+                lenient().when(mockJcrDocument.getTranslation(eq(jcrDocument.getLocaleName()))).thenReturn(handle);
+                possibleLocaleNames.add(jcrDocument.getLocaleName());
+            }
+            lenient().when(mockJcrDocument.getTranslationLocaleNames()).thenReturn(possibleLocaleNames);
         }
 
         if (null != isDraftBeingEdited) {
@@ -87,7 +101,7 @@ public final class MockJcrDocumentBuilder {
         }
 
         if (null != handle) {
-            when(mockJcrDocument.getHandle()).thenReturn(handle);
+            lenient().when(mockJcrDocument.getHandle()).thenReturn(handle);
         }
 
         for(String type : typeList) {

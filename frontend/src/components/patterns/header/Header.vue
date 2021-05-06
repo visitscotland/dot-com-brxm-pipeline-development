@@ -38,7 +38,7 @@ export default {
     .header__top-main {
         height: 28px;
             font-size: $font-size-base;
-            font-weight: 400;
+            font-weight: $font-weight-normal;
 
         @include media-breakpoint-up(md) {
             height: 35px;

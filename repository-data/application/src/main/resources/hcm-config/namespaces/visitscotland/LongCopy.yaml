@@ -11,7 +11,7 @@ definitions:
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:uuid: deeb0509-8e7f-45b2-9cbe-6323aefbde14
+          jcr:uuid: 72d84192-f2e7-4968-9673-30751660c7b7
           hipposysedit:node: true
           hipposysedit:supertype: ['visitscotland:basedocument', 'hippostd:relaxed',
             'hippotranslation:translated']
@@ -35,7 +35,7 @@ definitions:
           hippotranslation:id: document-type-locale-id
           hippotranslation:locale: document-type-locale
           jcr:mixinTypes: ['mix:referenceable']
-          jcr:uuid: bb46b110-18ef-4767-b7c0-b18090c9a413
+          jcr:uuid: 28233217-8146-444f-85f7-cfd19776869c
           hippostdpubwf:lastModificationDate: 2021-02-03T15:18:17.811Z
           hippostdpubwf:creationDate: 2021-02-03T15:18:17.812Z
           /visitscotland:copy:
@@ -63,6 +63,7 @@ definitions:
               jcr:primaryType: frontend:pluginconfig
               ckeditor.config.appended.json: '{extraPlugins: ''wordcount'',   wordcount:
                 {countSpacesAsChars: true, showCharCount: true}}'
-              ckeditor.config.overlayed.json: '{toolbarGroups: [ {name: ''styles''},{name:''listindentalign'',groups:[''list'']},
+              ckeditor.config.overlayed.json: '{stylesSet: ''long_copy:./vs_styles.js'',toolbarGroups:
+                [ {name: ''styles''},{name:''listindentalign'',groups:[''list'']},
                 {name:''links''},{name:''insert''},{name:''clipboard''},{name:''tools''},{name:''undo''}
                 ] , removeButtons: ''PickImage,Youtube,Table''}'

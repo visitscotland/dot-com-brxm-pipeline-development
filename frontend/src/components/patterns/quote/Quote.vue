@@ -66,12 +66,12 @@ export default {
 .vs-quote {
     &__content {
         font-size: $font-size-lg;
-        font-weight: 300;
+        font-weight: $font-weight-light;
         line-height: 1.4;
     }
 
     &__author-name {
-        font-weight: bold;
+        font-weight: $font-weight-bold;
         margin-bottom: $spacer-0;
 
         @include media-breakpoint-up(lg) {
@@ -90,7 +90,7 @@ export default {
     }
 
     &__speech-mark {
-        font-weight: bold;
+        font-weight: $font-weight-bold;
         color: $color-gray;
         font-size: 7rem;
         height: 5rem;

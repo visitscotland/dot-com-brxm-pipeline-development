@@ -12,16 +12,6 @@ public class ExternalDocument extends HippoCompound {
         return getSingleProperty("visitscotland:category");
     }
 
-    @HippoEssentialsGenerated(internalName = "visitscotland:size")
-    public Double getSize() {
-        return getSingleProperty("visitscotland:size");
-    }
-
-    @HippoEssentialsGenerated(internalName = "visitscotland:bytes")
-    public String getBytes() {
-        return getSingleProperty("visitscotland:bytes");
-    }
-
     @HippoEssentialsGenerated(internalName = "visitscotland:link")
     public String getLink() {
         return getSingleProperty("visitscotland:link");

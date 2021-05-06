@@ -6,7 +6,7 @@
             'vs-heading--thin': thin,
         }"
     >
-        <!-- @slot The main header content goes here -->
+        <!-- @slot The main heading content goes here -->
         <slot />
 
         <span class="vs-heading__sub-heading">
@@ -102,6 +102,13 @@ $sub-font-sizes: (
         }
     }
 }
+
+h6.vs-heading, h5.vs-heading{
+    font-family: $font-family-sans-serif;
+    letter-spacing: normal;
+    font-weight: $font-weight-bold;
+}
+
 </style>
 
 <docs>
@@ -109,23 +116,33 @@ $sub-font-sizes: (
   <div>
     <VsHeading>H1 Heading</VsHeading>
     <VsHeading thin>H1 Heading Thin</VsHeading>
-    <br />
+
+    <hr/>
+
     <VsHeading level="2">H2 Heading</VsHeading>
     <VsHeading thin level="2">H2 Heading  Thin</VsHeading>
-    <br />
+
+    <hr/>
+
     <VsHeading level="3">H3 Heading</VsHeading>
     <VsHeading thin level="3">H3 Heading Thin</VsHeading>
-    <br />
+
+    <hr/>
+
     <VsHeading level="4">H4 Heading</VsHeading>
     <VsHeading thin level="4">H4 Heading Thin</VsHeading>
-    <br />
-    <VsHeading level="5">H5 Heading</VsHeading>
-    <VsHeading thin level="5">H5 Heading Thin</VsHeading>
-    <br />
-    <VsHeading level="6">H6 Heading</VsHeading>
-    <VsHeading thin level="6">H6 Heading Thin</VsHeading>
 
-    <VsHeading level="3" class="mt-9">
+    <hr/>
+
+    <VsHeading level="5">H5 Heading</VsHeading>
+
+    <hr/>
+
+    <VsHeading level="6">H6 Heading</VsHeading>
+
+    <hr/>
+
+    <VsHeading level="3">
         H3 Heading With Subtitle
         <span slot="sub-heading">This Is a Subtitle</span>
     </VsHeading>

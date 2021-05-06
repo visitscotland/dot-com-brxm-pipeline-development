@@ -9,7 +9,7 @@
 /**
  * This component is a list of links.
  *
- * @displayName LinkList
+ * @displayName Link List
  */
 
 export default {
@@ -47,6 +47,6 @@ export default {
             >
                 This is a third link
             </VsLinkListItem>
-        <VsLinkList>
+        </VsLinkList>
     ```
 </docs>

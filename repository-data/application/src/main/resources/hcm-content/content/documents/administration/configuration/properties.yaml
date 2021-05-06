@@ -3,16 +3,17 @@
   jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
   jcr:uuid: 74e4ec75-efef-486e-b56d-59292452d399
   hippo:name: Properties
-  hippo:versionHistory: d1b21793-0b1d-4dcf-9cfd-76a18711073f
+  hippo:versionHistory: b5d6f1fb-794d-4710-9c78-e8083c545825
   /properties[1]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:referenceable']
     jcr:uuid: 6cacd2ed-5bd2-443a-8807-5b7696aa099c
     hippo:availability: []
+    hippostd:retainable: false
     hippostd:state: draft
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2021-02-05T15:37:26.056Z
-    hippostdpubwf:lastModificationDate: 2021-02-17T17:08:12.030Z
+    hippostdpubwf:lastModificationDate: 2021-04-28T14:17:17.476+01:00
     hippostdpubwf:lastModifiedBy: admin
     resourcebundle:descriptions: [URL prefix for Instagram endpoints, '', Encoding
         for requests made to vs-dms-products, "Token that identifies calls made to\
@@ -25,23 +26,25 @@
       '', Protocol and host for vs-dms-product., "Authentication key for Instagram\
         \ request\r\n\r\nThis token is configured by the environment variable INSTAGRAM_KEY,\
         \ but it can be overridden here if needed.\r\n\r\nDo not commit a value for\
-        \ this variable to the repository!!", '']
+        \ this variable to the repository!!", '', '', '', '']
     resourcebundle:id: config.cms
     resourcebundle:keys: [instagram.api, localhost, dms.encoding, dms.token, dms.timeout,
       dms.tries, dms.sleep-time, helpdesk-email, dms.host, instagram.accesstoken,
-      instagram.post-url]
+      instagram.post-url, iknow-community.url, iknow-community.tagged-discussion, maptiler.key]
     resourcebundle:messages: ['https://graph.facebook.com/v9.0/instagram_oembed?url=http://instagr.am/p/',
       'http://localhost:8080/site', UTF-8, $DMS_TOKEN, '2000', '3', '60000', helpdesk@visitscotland.com,
-      'http://172.28.81.65:8089', $INSTAGRAM_KEY, 'https://www.instagram.com/p/']
+      'http://172.28.81.65:8089', $INSTAGRAM_KEY, 'https://www.instagram.com/p/',
+      'https://community.visitscotland.com/', discussions/tagged/, SZGAUFW8iNcUjjJgrkgf]
   /properties[2]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
     jcr:uuid: fbbbf7bc-c535-40c3-9d81-2e5e8e063571
     hippo:availability: [preview]
+    hippostd:retainable: false
     hippostd:state: unpublished
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2021-02-05T15:37:26.056Z
-    hippostdpubwf:lastModificationDate: 2021-02-17T17:08:11.394Z
+    hippostdpubwf:lastModificationDate: 2021-04-28T14:19:29.627+01:00
     hippostdpubwf:lastModifiedBy: admin
     resourcebundle:descriptions: [URL prefix for Instagram endpoints, '', Encoding
         for requests made to vs-dms-products, "Token that identifies calls made to\
@@ -54,25 +57,27 @@
       '', Protocol and host for vs-dms-product., "Authentication key for Instagram\
         \ request\r\n\r\nThis token is configured by the environment variable INSTAGRAM_KEY,\
         \ but it can be overridden here if needed.\r\n\r\nDo not commit a value for\
-        \ this variable to the repository!!", '']
+        \ this variable to the repository!!", '', '', '', '']
     resourcebundle:id: config.cms
     resourcebundle:keys: [instagram.api, localhost, dms.encoding, dms.token, dms.timeout,
       dms.tries, dms.sleep-time, helpdesk-email, dms.host, instagram.accesstoken,
-      instagram.post-url]
+      instagram.post-url, iknow-community.url, iknow-community.tagged-discussion, maptiler.key]
     resourcebundle:messages: ['https://graph.facebook.com/v9.0/instagram_oembed?url=http://instagr.am/p/',
       'http://localhost:8080/site', UTF-8, $DMS_TOKEN, '2000', '3', '60000', helpdesk@visitscotland.com,
-      'http://172.28.81.65:8089', $INSTAGRAM_KEY, 'https://www.instagram.com/p/']
+      'http://172.28.81.65:8089', $INSTAGRAM_KEY, 'https://www.instagram.com/p/',
+      'https://community.visitscotland.com/', discussions/tagged/, SZGAUFW8iNcUjjJgrkgf]
   /properties[3]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:referenceable']
     jcr:uuid: 80905bbe-1e92-413e-93a9-bfc476a73954
     hippo:availability: [live]
+    hippostd:retainable: false
     hippostd:state: published
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2021-02-05T15:37:26.056Z
-    hippostdpubwf:lastModificationDate: 2021-02-17T17:08:11.394Z
+    hippostdpubwf:lastModificationDate: 2021-04-28T14:19:29.627+01:00
     hippostdpubwf:lastModifiedBy: admin
-    hippostdpubwf:publicationDate: 2021-02-17T17:08:20.677Z
+    hippostdpubwf:publicationDate: 2021-04-28T14:19:31.814+01:00
     resourcebundle:descriptions: [URL prefix for Instagram endpoints, '', Encoding
         for requests made to vs-dms-products, "Token that identifies calls made to\
         \ vs-dms-products as internal calls giving access to wider data\r\n\r\nThis\
@@ -84,11 +89,12 @@
       '', Protocol and host for vs-dms-product., "Authentication key for Instagram\
         \ request\r\n\r\nThis token is configured by the environment variable INSTAGRAM_KEY,\
         \ but it can be overridden here if needed.\r\n\r\nDo not commit a value for\
-        \ this variable to the repository!!", '']
+        \ this variable to the repository!!", '', '', '', '']
     resourcebundle:id: config.cms
     resourcebundle:keys: [instagram.api, localhost, dms.encoding, dms.token, dms.timeout,
       dms.tries, dms.sleep-time, helpdesk-email, dms.host, instagram.accesstoken,
-      instagram.post-url]
+      instagram.post-url, iknow-community.url, iknow-community.tagged-discussion, maptiler.key]
     resourcebundle:messages: ['https://graph.facebook.com/v9.0/instagram_oembed?url=http://instagr.am/p/',
       'http://localhost:8080/site', UTF-8, $DMS_TOKEN, '2000', '3', '60000', helpdesk@visitscotland.com,
-      'http://172.28.81.65:8089', $INSTAGRAM_KEY, 'https://www.instagram.com/p/']
+      'http://172.28.81.65:8089', $INSTAGRAM_KEY, 'https://www.instagram.com/p/',
+      'https://community.visitscotland.com/', discussions/tagged/, SZGAUFW8iNcUjjJgrkgf]

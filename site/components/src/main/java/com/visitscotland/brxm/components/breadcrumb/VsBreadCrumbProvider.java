@@ -109,7 +109,6 @@ public class VsBreadCrumbProvider extends BreadcrumbProvider {
      * @param bean
      * @return HippoBean index document (content) or the folder if the index does not exist
      */
-
     private HippoBean getValidHippoBean (HippoBean bean){
         HippoBean content =  bean.getParentBean().getBean("content");
         if (content == null){

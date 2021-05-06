@@ -11,7 +11,7 @@ definitions:
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:uuid: d5cc85db-c1b8-4bd5-a68f-e0cb6514c23c
+          jcr:uuid: 0c683447-41c9-4648-bed6-9e309e4e01ad
           hipposysedit:node: true
           hipposysedit:supertype: ['visitscotland:Page', 'hippostd:relaxed', 'hippotranslation:translated']
           hipposysedit:uri: http://www.visitscotland.com/visitscotland/nt/1.0
@@ -48,15 +48,6 @@ definitions:
             hipposysedit:primary: false
             hipposysedit:type: DynamicDropdown
             hipposysedit:validators: [required]
-          /text:
-            jcr:primaryType: hipposysedit:field
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: false
-            hipposysedit:ordered: false
-            hipposysedit:path: visitscotland:highlights
-            hipposysedit:primary: false
-            hipposysedit:type: Text
-            hipposysedit:validators: [required, non-empty]
           /transports:
             jcr:primaryType: hipposysedit:field
             hipposysedit:mandatory: false
@@ -83,6 +74,14 @@ definitions:
             hipposysedit:path: visitscotland:popular
             hipposysedit:primary: false
             hipposysedit:type: Boolean
+          /highlights:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: true
+            hipposysedit:ordered: true
+            hipposysedit:path: visitscotland:highlights
+            hipposysedit:primary: false
+            hipposysedit:type: String
       /hipposysedit:prototypes:
         jcr:primaryType: hipposysedit:prototypeset
         /hipposysedit:prototype:
@@ -102,16 +101,16 @@ definitions:
           visitscotland:start: ''
           visitscotland:distance: 0.0
           visitscotland:theme: ''
-          jcr:uuid: ddca1230-4771-428c-bbb6-4dfb02113810
+          jcr:uuid: bb8148d3-768e-495e-99f4-5f0701ec5f5d
           hippostdpubwf:creationDate: 2019-12-06T11:10:08.311Z
           hippostdpubwf:lastModificationDate: 2019-12-06T11:10:08.310Z
-          visitscotland:highlights: ''
           visitscotland:areas: []
           visitscotland:transports: []
           visitscotland:popular: false
           visitscotland:title: ''
           visitscotland:teaser: ''
           visitscotland:translation: ''
+          visitscotland:highlights: ['']
           /visitscotland:heroImage:
             jcr:primaryType: hippogallerypicker:imagelink
             hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
@@ -222,16 +221,7 @@ definitions:
           /highlights:
             jcr:primaryType: frontend:plugin
             caption: Highlights
-            field: text
-            hint: Put each highlight on a new line.
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
-            wicket.id: ${cluster.id}.left.item
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
-          /start:
-            jcr:primaryType: frontend:plugin
-            caption: Override Start Point
-            field: start
+            field: highlights
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.left.item
             /cluster.options:
@@ -264,19 +254,18 @@ definitions:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
               source: /content/documents/administration/options/areas
-          /finish:
+          /start:
             jcr:primaryType: frontend:plugin
-            caption: Override Finish Point
-            field: finish
+            caption: Override Start Point
+            field: start
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.left.item
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-          /distance:
+          /finish:
             jcr:primaryType: frontend:plugin
-            caption: Override Miles
-            field: distance
-            hint: ''
+            caption: Override Finish Point
+            field: finish
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.left.item
             /cluster.options:
@@ -307,6 +296,15 @@ definitions:
               advised.
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.right.item
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+          /distance:
+            jcr:primaryType: frontend:plugin
+            caption: Override Miles
+            field: distance
+            hint: ''
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.left.item
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
           /otherThings:

@@ -28,6 +28,8 @@ public class Properties {
     public static final String DMS_SLEEP_TIME = "dms.sleep-time";
     public static final String DMS_MAP_DEFAULT_DISTANCE = "dms.default-distance";
     private static final String CONFIGURATION = "config.cms";
+    private static final String IKNOW_COMMUNITY_URL = "iknow-community.url";
+    private static final String IKNOW_COMMUNITY_TAGGED_DISCUSSION= "iknow-community.tagged-discussion";
 
     private final ResourceBundleService bundle;
 
@@ -80,6 +82,15 @@ public class Properties {
     public Integer getDmsWaitTime() {
         return readInteger(DMS_SLEEP_TIME);
     }
+
+    public String getIknowCommunityUrl() {
+        return readString(IKNOW_COMMUNITY_URL);
+    }
+
+    public String getIknowCommunityTaggedDiscussion() {
+        return readString(IKNOW_COMMUNITY_TAGGED_DISCUSSION);
+    }
+
 
     //TODO Test
     public Charset getDmsEncoding() {

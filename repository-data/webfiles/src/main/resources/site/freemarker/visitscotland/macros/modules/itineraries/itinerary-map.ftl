@@ -3,40 +3,41 @@
 <#include "../../../../frontend/components/vs-itinerary-map.ftl">
 <#include "../../../../frontend/components/vs-itinerary-map-marker.ftl">
 
-<#-- @ftlvariable name="stop" type="com.visitscotland.brxm.hippobeans.Stop" -->
-<#-- @ftlvariable name="prod" type="com.visitscotland.brxm.model.FlatStop" -->
+<#-- @ftlvariable name="stopDocument" type="com.visitscotland.brxm.hippobeans.Stop" -->
+<#-- @ftlvariable name="stop" type="com.visitscotland.brxm.model.ItineraryStopModule" -->
 
-<#macro itineraryMap days>
+<#macro itineraryMap itinerary>
     <vs-itinerary-map
         slot="map"
-        access-token= ${label("keys", "maptiler.devkey")}
+        access-token= ${label("config.cms", "maptiler.key")}
         overview-map-longitude="57.81"
         overview-map-latitude="-4.13"
         overview-map-zoom="5"
         :stops="[
-            <#list days as day>
-            <#list day.stops as stop>
-                <#assign prod = stops[stop.identifier]>
-                <#assign image = "" />
-                <#if prod.image??>
-                    <#if prod.image.cmsImage??>
-                        <#assign image>
-                            <@hst.link hippobean=prod.image.cmsImage.original/>
-                        </#assign>
-                    <#elseif prod.image.externalImage??>
-                        <#assign image = prod.image.externalImage />
+            <#list itinerary.days as day>
+                <#list day.stops as stopDocument>
+                    <#assign stop = itinerary.stops[stopDocument.identifier]>
+                    <#assign image = "" />
+                    <#if stop.image??>
+                        <#if stop.image.cmsImage??>
+
+                            <#assign image>
+                                <@hst.link hippobean=stop.image.cmsImage.original/>
+                            </#assign>
+                        <#elseif stop.image.externalImage??>
+                            <#assign image = stop.image.externalImage />
+                        </#if>
+                        <#if stop.coordinates?? && stop.coordinates.latitude?? && stop.coordinates.latitude?has_content && stop.coordinates.longitude?? && stop.coordinates.longitude?has_content>
+                        {
+                            title: '${stop.title}',
+                            latitude: '${stop.coordinates.latitude}',
+                            longitude: '${stop.coordinates.longitude}',
+                            stopCount: '${stop.index}',
+                            imageSrc: '${image}',
+                            altText: '${stop.title}'
+                        },
+                        </#if>
                     </#if>
-                    <#if prod.coordinates?? && prod.coordinates.latitude?? && prod.coordinates.latitude?has_content && prod.coordinates.longitude?? && prod.coordinates.longitude?has_content>
-                    {
-                        title: '${prod.title}',
-                        latitude: '${prod.coordinates.latitude}',
-                        longitude: '${prod.coordinates.longitude}',
-                        stopCount: '${prod.index}',
-                        imageSrc: '${image}',
-                        altText: '${prod.title}'
-                    },
-                    </#if>
-                </#if>
                 </#list>
             </#list>
         ]"

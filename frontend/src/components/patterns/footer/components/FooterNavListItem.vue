@@ -6,7 +6,7 @@
     >
         <VsLink
             :href="href"
-            :type="type != 'none' ? type : null"
+            :type="type"
             variant="dark"
             data-test="vs-footer-nav-list-item__link"
         >
@@ -44,8 +44,8 @@ export default {
         */
         type: {
             type: String,
-            default: 'none',
-            validator: (value) => value.match(/(external|internal|download|none)/),
+            default: 'default',
+            validator: (value) => value.match(/(default|external|internal|download)/),
         },
         /**
          * Text to show for the link
@@ -76,7 +76,6 @@ export default {
         }
 
         .vs-icon {
-            vertical-align: sub;
             fill: $color-white;
         }
     }

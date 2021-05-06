@@ -23,7 +23,7 @@ beforeEach(() => {
 describe('VsMegalinkLinkList', () => {
     describe(':props', () => {
         it('renders the correct theme class', () => {
-            expect(wrapper.find('.megalink-link-list--dark').exists()).toBe(true);
+            expect(wrapper.find('.vs-megalink-link-list--dark').exists()).toBe(true);
         });
     });
     describe(':slots', () => {

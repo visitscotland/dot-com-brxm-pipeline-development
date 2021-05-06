@@ -64,6 +64,8 @@ export default {
     color: $color-base-text;
     font-size: $font-size-base;
     font-weight: $font-weight-normal;
+    white-space: nowrap;
+    overflow: hidden;
 
     &:last-child {
         color: $color-base-text;
@@ -98,6 +100,11 @@ export default {
 
     a {
         color: $color-base-text;
+    }
+
+    a, span {
+        text-overflow: ellipsis;
+        overflow: hidden;
     }
 }
 

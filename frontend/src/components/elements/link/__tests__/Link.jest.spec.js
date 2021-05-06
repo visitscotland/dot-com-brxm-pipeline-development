@@ -66,7 +66,7 @@ describe('VsLink', () => {
                 type: 'external',
             });
 
-            expect(wrapper.attributes('target')).toBe('_blank');
+            expect(wrapper.attributes('target')).toBe('_self');
             expect(wrapper.findComponent(VsIcon).exists()).toBe(true);
         });
 

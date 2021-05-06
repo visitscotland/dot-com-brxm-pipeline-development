@@ -62,7 +62,7 @@ class DMSProxyTest {
 
         Assertions.assertEquals(CONTENT, proxy.request("/happy-path"));
 
-        verify(huc).setRequestProperty(eq(DMSProxy.HEADER_TOKEN), any());
+        verify(huc).setRequestProperty(eq(DMSProxy.HEADER), any());
     }
 
     @Test
@@ -78,7 +78,7 @@ class DMSProxyTest {
         Assertions.assertEquals(CONTENT, proxy.request("/300-the-film"));
         Assertions.assertEquals(true, HttpURLConnection.getFollowRedirects());
 
-        verify(huc).setRequestProperty(eq(DMSProxy.HEADER_TOKEN), any());
+        verify(huc).setRequestProperty(eq(DMSProxy.HEADER), any());
     }
 
     @Test

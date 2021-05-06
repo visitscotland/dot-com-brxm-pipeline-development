@@ -21,6 +21,7 @@ import static org.mockito.Mockito.when;
 public class LanguageModelTest {
     private static final String TEST_PROPERTY = "test value";
     private LanguageModel model;
+
     @Mock
     private TranslationWorkflowPlugin mockWorkflow;
     @Mock

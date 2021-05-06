@@ -1,8 +1,8 @@
 package com.visitscotland.brxm.components.content;
 
-import com.visitscotland.brxm.hippobeans.Listicle;
 import com.visitscotland.brxm.config.VsComponentManager;
 import com.visitscotland.brxm.factory.ListicleFactory;
+import com.visitscotland.brxm.hippobeans.Listicle;
 import org.hippoecm.hst.core.component.HstRequest;
 import org.hippoecm.hst.core.component.HstResponse;
 import org.slf4j.Logger;
@@ -14,7 +14,6 @@ public class ListicleContentComponent extends PageContentComponent<Listicle> {
 
     private static final Logger logger = LoggerFactory.getLogger(ListicleContentComponent.class);
 
-    public static final String OTYML = "otyml";
     public static final String LISTICLE_ITEMS = "items";
 
     private ListicleFactory factory;
@@ -32,7 +31,6 @@ public class ListicleContentComponent extends PageContentComponent<Listicle> {
         super.doBeforeRender(request, response);
 
         request.setAttribute(LISTICLE_ITEMS, factory.generateItems(Locale.UK, getDocument(request)));
-        request.setAttribute(OTYML, addOTYML(getDocument(request), request.getLocale()));
     }
 
 }

@@ -5,12 +5,13 @@
             `vs-link--variant-${variant}`,
         ]"
         :href="href"
-        :target="type === 'external' ? '_blank' : '_self'"
+        target="_self"
         :download="type === 'download'"
+        :disabled="disabled"
     >
         <slot />
         <VsIcon
-            v-if="type !== null"
+            v-if="type !== 'default'"
             :name="`${type}-link`"
             variant="primary"
             :size="iconSize"
@@ -54,8 +55,8 @@ export default {
          */
         type: {
             type: String,
-            default: null,
-            validator: (value) => value.match(/(external|internal|download)/),
+            default: 'default',
+            validator: (value) => value.match(/(default|external|internal|download)/),
         },
         /**
          * Option to choose a pre-defined style variant
@@ -72,8 +73,15 @@ export default {
         */
         iconSize: {
             type: String,
-            default: 'xs',
+            default: 'xxs',
             validator: (value) => value.match(/(xxs|xs|sm|md|lg|xl)/),
+        },
+        /**
+        * Option to disable the link
+        */
+        disabled: {
+            type: Boolean,
+            default: false,
         },
     },
     computed: {
@@ -194,12 +202,12 @@ export default {
             style="background-color: #191919; color: white"
         >
             <h3>Lead Paragraph (18px)</h3>
-            <VsLeadParagraph>
+            <VsRichTextWrapper variant="lead">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                 Vivamus efficitur pretium ultricies. Phasellus placerat tellus
-                 gravida, laoreet velit vitae, interdum ante. Praesent quis urna finibus,
-                 efficitur arcu vel, fermentum dui. Praesent laoreet leo non
-                 felis porttitor, eu tempor tellus lobortis. Nunc consectetur ornare laoreet.
+                Vivamus efficitur pretium ultricies. Phasellus placerat tellus
+                gravida, laoreet velit vitae, interdum ante. Praesent quis urna finibus,
+                efficitur arcu vel, fermentum dui. Praesent laoreet leo non
+                felis porttitor, eu tempor tellus lobortis. Nunc consectetur ornare laoreet.
                 Praesent in quam ornare, ultricies odio vitae, <VsLink variant="dark" href="#foo">
                 Dark Link</VsLink> aliquam nisl. Curabitur et elit facilisis,
                 egestas felis sed, dignissim eros. Curabitur aliquam et lorem et
@@ -207,7 +215,7 @@ export default {
                 Dark Link</VsLink> Fusce rutrum vel ex in posuere. Ut luctus odio eu leo
                 rutrum vestibulum.
                 Nulla tortor ligula, consequat ac feugiat et, porta id eros.
-            </VsLeadParagraph>
+            </VsRichTextWrapper>
         </BsWrapper>
     ```
 </docs>

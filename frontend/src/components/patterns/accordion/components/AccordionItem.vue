@@ -157,7 +157,7 @@ export default {
         background-color: transparent;
     }
 
-    .btn.vs-accordion-item__toggle-btn {
+    .btn.vs-accordion-toggle {
         text-align: left;
 
     }
@@ -165,7 +165,7 @@ export default {
     .vs-accordion-item__title {
         margin: $spacer-3;
         line-height: 1;
-        font-weight: 500;
+        font-weight: $font-weight-semi-bold;
     }
 
     .vs-accordion-item__panel.card-body {

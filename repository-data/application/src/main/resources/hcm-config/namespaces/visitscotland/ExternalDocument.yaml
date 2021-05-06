@@ -11,7 +11,7 @@ definitions:
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:uuid: f21f7697-2ece-42f5-8bca-e3950dd94d47
+          jcr:uuid: 5d03aca0-0f3a-4515-bf2e-31e54985d40b
           hipposysedit:node: true
           hipposysedit:supertype: ['hippo:compound', 'hippostd:relaxed']
           hipposysedit:uri: http://www.visitscotland.com/visitscotland/nt/1.0
@@ -24,24 +24,6 @@ definitions:
             hipposysedit:primary: false
             hipposysedit:type: StaticDropdown
             hipposysedit:validators: [required]
-          /size:
-            jcr:primaryType: hipposysedit:field
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: false
-            hipposysedit:ordered: false
-            hipposysedit:path: visitscotland:size
-            hipposysedit:primary: false
-            hipposysedit:type: Double
-            hipposysedit:validators: [required]
-          /bytes:
-            jcr:primaryType: hipposysedit:field
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: false
-            hipposysedit:ordered: false
-            hipposysedit:path: visitscotland:bytes
-            hipposysedit:primary: false
-            hipposysedit:type: StaticDropdown
-            hipposysedit:validators: [required]
           /link:
             jcr:primaryType: hipposysedit:field
             hipposysedit:mandatory: false
@@ -50,12 +32,11 @@ definitions:
             hipposysedit:path: visitscotland:link
             hipposysedit:primary: false
             hipposysedit:type: String
-            hipposysedit:validators: [required]
+            hipposysedit:validators: [required, 'visitscotland:external-document-validator']
       /hipposysedit:prototypes:
         jcr:primaryType: hipposysedit:prototypeset
         /hipposysedit:prototype:
           jcr:primaryType: visitscotland:ExternalDocument
-          visitscotland:size: 0.0
           visitscotland:link: ''
       /editor:templates:
         jcr:primaryType: editor:templateset
@@ -89,14 +70,6 @@ definitions:
             wicket.id: ${cluster.id}.left.item
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-          /size:
-            jcr:primaryType: frontend:plugin
-            caption: Size
-            field: size
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
-            wicket.id: ${cluster.id}.left.item
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
           /category:
             jcr:primaryType: frontend:plugin
             caption: Category
@@ -108,13 +81,3 @@ definitions:
               jcr:primaryType: frontend:pluginconfig
               selectable.options: Accommodation,eBook,Inspiration,Places to go,Things
                 to do,Travel Blog,Travel & Planning,Visitor Information
-          /bytes:
-            jcr:primaryType: frontend:plugin
-            caption: Bytes
-            field: bytes
-            hint: ''
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
-            wicket.id: ${cluster.id}.right.item
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
-              selectable.options: KB,MB,GB

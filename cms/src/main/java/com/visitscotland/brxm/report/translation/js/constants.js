@@ -1,0 +1,11 @@
+const GRID_ID = "myGrid";
+const PANEL_ID = "translationPanel"
+const MODULE_FILTER_ID = "moduleFilter"
+const MODULE_LABEL_ID = "moduleFilterLabel"
+const PAGE_FILTER_ID = "pageFilter"
+const PAGE_LABEL_FILTER_ID = "pageFilterLabel"
+const FILTER_SIDEBAR_ID = "filterSidebar"
+const PAGE_SIZE = 13
+const SIDEBAR_LABEL_STYLE = "display: block; margin-top: 20px";
+const GET_UNTRANSLATED_FILES_ENDPOINT = "/cms/translation/untranslated"
+const INITIAL_LOCALE = "fr";

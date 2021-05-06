@@ -5,7 +5,15 @@
             v-show="!isDesktop && withinItineraryMain"
         >
             <div class="d-flex justify-content-center pb-2">
-                <VsItineraryMobileMapToggle @click.native="toggleShowMap()" />
+                <VsButton
+                    class="vs-itinerary__map-toggle-button"
+                    @click.native="toggleShowMap()"
+                    :icon="showMap ? 'list' : 'map'"
+                    icon-variant-override="reverse-white"
+                    icon-size-override="md"
+                >
+                    {{ showMap ? 'List View' : 'Map View' }}
+                </VsButton>
             </div>
         </div>
         <div
@@ -14,7 +22,9 @@
         >
             <slot name="map" />
         </div>
-        <VsContainer>
+        <VsContainer
+            class="vs-itinerary__outer-container"
+        >
             <VsRow>
                 <VsCol
                     cols="12"
@@ -37,7 +47,7 @@ import {
     VsRow,
     VsCol,
 } from '@components/elements/layout';
-import VsItineraryMobileMapToggle from '@components/patterns/itineraries/components/ItineraryMobileMapToggle';
+import VsButton from '@components/elements/button/Button';
 import VsAccordion from '@components/patterns/accordion/Accordion';
 
 /**
@@ -55,8 +65,8 @@ export default {
         VsContainer,
         VsRow,
         VsCol,
-        VsItineraryMobileMapToggle,
         VsAccordion,
+        VsButton,
     },
     data() {
         return {
@@ -110,6 +120,20 @@ export default {
 
 <style lang="scss">
 .vs-itinerary {
+    background-color: $color-white;
+
+    .vs-itinerary__outer-container {
+        @include media-breakpoint-down(sm) {
+            max-width: 100%;
+        }
+
+        @include media-breakpoint-down(xs) {
+            max-width: initial;
+            width: calc(100% + #{$spacer-6});
+            margin-left: -#{$spacer-3};
+        }
+    }
+
     .vs-itinerary__map-container {
         height: 100vh;
         position: fixed;
@@ -132,6 +156,15 @@ export default {
 
          @media screen and (-ms-high-contrast: active), screen and (-ms-high-contrast: none) {
             position: relative;
+        }
+    }
+
+    .vs-itinerary__map-toggle-button {
+        padding-left: $spacer-4;
+        padding-right: $spacer-4;
+
+        svg {
+            margin-right: $spacer-3;
         }
     }
 
@@ -233,40 +266,31 @@ export default {
           </VsCol>
           <VsCol cols="12" md="6" lg="5" xl="4">
             <VsSummaryBoxList>
-                <VsSummaryBoxListItem>
-                    <VsSummaryBoxDisplay :text=itineraries.sampleItinerary.totalDays />
-                    <VsSummaryBoxLabel label="Days" />
-                    </VsSummaryBoxListItem>
-                    <VsSummaryBoxListItem>
-                        <VsSummaryBoxDistanceDisplay
-                            :miles=itineraries.sampleItinerary.totalMiles
-                            :kilometres=itineraries.sampleItinerary.totalKM
-                            miles-label="miles"
-                            kilometres-label="kilometres"
-                        />
-                        <VsSummaryBoxDistanceLabel
-                            distance-label="Distance"
-                            kilometres-abbr="km"
-                            kilometres-label="kilometres"
-                            miles-abbr="mi"
-                            miles-label="miles"
-                        />
-                    </VsSummaryBoxListItem>
-                    <VsSummaryBoxListItem>
-                        <VsSummaryBoxIconWithLabel
-                            :icon=itineraries.sampleItinerary.transport.key
-                            :label=itineraries.sampleItinerary.transport.value
-                        />
-                        <VsSummaryBoxLabel label="Transport" />
-                    </VsSummaryBoxListItem>
-                    <VsSummaryBoxListItem>
-                        <VsSummaryBoxIconWithLabel
-                            :icon=itineraries.sampleItinerary.theme.key
-                            :label=itineraries.sampleItinerary.theme.value
-                        />
-                        <VsSummaryBoxLabel label="Main theme" />
-                    </VsSummaryBoxListItem>
-                </VsSummaryBoxList>
+                <VsSummaryBoxListItem
+                    :text=itineraries.sampleItinerary.totalDays
+                    label="Days"
+                />
+                <VsSummaryBoxDistanceListItem
+                    :miles=itineraries.sampleItinerary.totalMiles
+                    :kilometres=itineraries.sampleItinerary.totalKM
+                    distance-label="Distance"
+                    miles-label="miles"
+                    miles-abbr="mi"
+                    kilometres-label="kilometres"
+                    kilometres-abbr="km"
+                >
+                </VsSummaryBoxDistanceListItem>
+                <VsSummaryBoxListItem
+                    :icon=itineraries.sampleItinerary.transport.key
+                    :iconLabel=itineraries.sampleItinerary.transport.value
+                    label="Transport"
+                />
+                <VsSummaryBoxListItem
+                    :icon=itineraries.sampleItinerary.theme.key
+                    :iconLabel=itineraries.sampleItinerary.theme.value
+                    label="Main theme"
+                />
+            </VsSummaryBoxList>
           </VsCol>
         </VsRow>
       </VsContainer>
@@ -348,7 +372,7 @@ export default {
                 Transport
             </VsDescriptionListItem>
             <VsDescriptionListItem
-                class="col-auto m-0 px-0"
+                class="col-auto px-0"
                 v-for="(transportType, transportTypeIndex) in day.transport"
                 :key="transportTypeIndex"
             >
@@ -419,6 +443,13 @@ export default {
                     </div>
                     <VsSvg slot="svg" path="highland-cow" />
                 </VsItineraryTips>
+                <VsAddress v-if="stop.address && stop.address.line1">
+                    <span v-if="stop.address.line1">{{ stop.address.line1 }},</span>
+                    <span v-if="stop.address.line2">{{ stop.address.line2 }},</span>
+                    <span v-if="stop.address.line3">{{ stop.address.line3 }},</span>
+                    <span v-if="stop.address.city">{{ stop.address.city }},</span>
+                    <span v-if="stop.address.postcode">{{ stop.address.postcode }}</span>
+                </VsAddress>
                 <VsIconList v-if="stop.facilities.length" title="Key facilities">
                     <VsIconListItem
                         v-for="(facility, facilitiesIndex) in stop.facilities"

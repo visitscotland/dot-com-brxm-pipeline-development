@@ -34,7 +34,7 @@
                             <vs-footer-nav-list-item
                                 href="${getUrl(childItem)}"
                                 link-text="${childItem.title}"
-                                type="<#if childItem.externalLink??>external<#else>none</#if>"
+                                type="<#if childItem.externalLink??>external<#else>default</#if>"
                             ></vs-footer-nav-list-item>
                         </#if>
                     </#list>

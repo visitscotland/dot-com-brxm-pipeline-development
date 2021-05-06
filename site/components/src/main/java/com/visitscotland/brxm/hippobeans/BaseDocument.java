@@ -24,17 +24,6 @@ public class BaseDocument extends HippoDocument {
         }
     }
 
-
-    /**
-     * TODO: Remove this method after the refactoring of itineraries
-     *
-     * @deprecated Instead of this, you should invoke {@code new DocumentUtils().getSiblingDocuments()}     *
-     */
-    @Deprecated
-    public <T extends HippoBean> List<T> getPageChildrenByType(Class<T> type) {
-        return DocumentUtilsService.getInstance().getSiblingDocuments(this, type, type.getAnnotation(Node.class).jcrType());
-    }
-
     protected <T> T getOnlyChild(List<T> children) {
         if (children.size() == 0) {
             return null;

@@ -303,7 +303,7 @@ export default {
         }
 
         .vs-image-with-caption__image-caption {
-            font-weight: $semibold-font-weight;
+            font-weight: $font-weight-semi-bold;
         }
 
         .vs-image-with-caption__image-credit {

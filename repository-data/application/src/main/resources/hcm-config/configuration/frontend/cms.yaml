@@ -47,3 +47,27 @@ definitions:
       frontend:displayName: Translation Difference
       frontend:extensionPoint: document.field
       frontend:url: /cms/vs-openui/diff
+    /hippo:configuration/hippo:frontend/cms/cms-static/reportsPerspective:
+      hipposys:userrole: xm.cms.user
+    /hippo:configuration/hippo:frontend/cms/hippo-reports/sample-report-plugin:
+      .meta:order-before: sample-report-panel-plugin
+      jcr:primaryType: frontend:plugin
+      plugin.class: com.visitscotland.brxm.report.sample.HtmlRenderPlugin
+      wicket.id: service.reports.sample-report
+      height: '600'
+      background: 'true'
+    /hippo:configuration/hippo:frontend/cms/hippo-reports/sample-report-panel-plugin:
+      jcr:primaryType: frontend:plugin
+      plugin.class: com.visitscotland.brxm.report.sample.SampleReportPluginPanel
+    /hippo:configuration/hippo:frontend/cms/hippo-reports/translation-report-portal-panel:
+      .meta:order-before: translation-report-plugin
+      jcr:primaryType: frontend:plugin
+      plugin.class: com.visitscotland.brxm.report.translation.TranslationReportPortalPanel
+    /hippo:configuration/hippo:frontend/cms/hippo-reports/translation-report-plugin:
+      .meta:order-before: sample-report-plugin
+      jcr:primaryType: frontend:plugin
+      background: 'true'
+      height: '600'
+      plugin.class: com.visitscotland.brxm.report.translation.TranslationReportPlugin
+      wicket.id: service.reports.translationreport
+      width: '1'

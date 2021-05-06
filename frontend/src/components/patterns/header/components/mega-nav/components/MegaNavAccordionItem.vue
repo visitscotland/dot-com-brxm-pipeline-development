@@ -4,7 +4,7 @@
         data-test="vs-mega-nav-accordion-item"
         :class="accordionItemClasses"
         :data-unique-id="getUniqueId"
-        :control-id="`vs-mega-nav-accordion-item-${controlId}`"
+        :control-id="`vs-mega-nav-accordion-item-${getUniqueId}-${controlId}`"
         :open-by-default="false"
     >
         <template #title>

@@ -24,13 +24,13 @@ beforeEach(() => {
 describe('VsMegalinkMultiImage', () => {
     describe(':props', () => {
         it('if the featured prop is true, it should render an element with class "megalink-multi-image--featured"', () => {
-            expect(wrapper.find('[data-test="megalink-multi-image"]').classes()).toContain('megalink-multi-image--featured');
+            expect(wrapper.find('[data-test="megalink-multi-image-featured"]').classes()).toContain('vs-megalink-multi-image--featured');
         });
         it('renders with a `megalink-multi-image--featured-last` class if the lastFeatured prop is true', () => {
-            expect(wrapper.find('[data-test="megalink-multi-image"]').classes()).toContain('megalink-multi-image--featured-last');
+            expect(wrapper.find('[data-test="megalink-multi-image-featured"]').classes()).toContain('vs-megalink-multi-image--featured-last');
         });
         it('renders the correct theme class', () => {
-            expect(wrapper.find('[data-test="megalink-multi-image"]').classes()).toContain('megalink-multi-image--dark');
+            expect(wrapper.find('[data-test="megalink-multi-image-featured"]').classes()).toContain('vs-megalink-multi-image--dark');
         });
     });
 

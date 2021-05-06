@@ -22,7 +22,7 @@ describe('VsIcon', () => {
         });
 
         it(':variant - should accept and render variants as props', () => {
-            const testVariant = 'success';
+            const testVariant = 'light';
             const wrapper = factoryShallowMount({
                 variant: testVariant,
             });
@@ -46,6 +46,15 @@ describe('VsIcon', () => {
             });
 
             expect(wrapper.classes(`vs-icon--size-${testSize}`)).toBe(true);
+        });
+
+        it(':smallSize - should accept and render smallSizes as props', () => {
+            const testSize = 'xs';
+            const wrapper = factoryShallowMount({
+                smallSize: testSize,
+            });
+
+            expect(wrapper.classes(`vs-icon--sm-size-${testSize}`)).toBe(true);
         });
     });
 });

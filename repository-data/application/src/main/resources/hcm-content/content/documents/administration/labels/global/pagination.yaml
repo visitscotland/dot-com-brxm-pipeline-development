@@ -4,68 +4,59 @@
   jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
   jcr:uuid: e1aa6f52-3b01-441c-8e13-64e522cb21af
   hippo:name: Pagination
-  hippo:versionHistory: 4afa7ff9-8cd8-4898-af43-bfbc0f089e02
+  hippo:versionHistory: a0d4a8dc-2542-471c-8939-8133f0598c6b
   /pagination[1]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:referenceable']
     jcr:uuid: 992f97cd-fc76-4951-9672-5b1c3009f02c
     hippo:availability: [live]
+    hippostd:retainable: false
     hippostd:state: published
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2014-08-21T14:30:14.382+02:00
-    hippostdpubwf:lastModificationDate: 2021-01-22T17:58:32.156Z
+    hippostdpubwf:lastModificationDate: 2021-03-19T10:55:05.418Z
     hippostdpubwf:lastModifiedBy: admin
-    hippostdpubwf:publicationDate: 2021-01-22T17:58:34.135Z
+    hippostdpubwf:publicationDate: 2021-03-19T10:55:56.349Z
     resourcebundle:descriptions: ['Used in the indication, how many results were found.
         The label is appended to the number of results.', Label used for the link
-        to the previous page., Label used for the link to the next page.]
+        to the previous page., Label used for the link to the next page., To be used
+        for mobile pagination (eg. 3 of 5), '']
     resourcebundle:id: essentials.pagination
-    resourcebundle:keys: [results.indication, page.previous, page.next]
-    resourcebundle:messages: [document(s), previous, next]
-    resourcebundle:messages_de: ['', '', '']
-    resourcebundle:messages_es: ['', '', '']
-    resourcebundle:messages_fr: ['', '', '']
-    resourcebundle:messages_it: ['', '', '']
-    resourcebundle:messages_nl: ['', '', '']
+    resourcebundle:keys: [results.indication, page.previous, page.next, page.of, page.navigate-to-page]
+    resourcebundle:messages: [document(s), previous, next, of, Navigate to page]
   /pagination[2]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
-    jcr:uuid: 307bc2ea-db98-4395-a507-aa17b27c5257
+    jcr:uuid: a57967d9-4322-4d29-b605-f068aa4d80e9
     hippo:availability: [preview]
+    hippostd:retainable: false
     hippostd:state: unpublished
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2014-08-21T14:30:14.382+02:00
-    hippostdpubwf:lastModificationDate: 2021-01-22T17:58:32.156Z
+    hippostdpubwf:lastModificationDate: 2021-03-19T10:55:05.418Z
     hippostdpubwf:lastModifiedBy: admin
     resourcebundle:descriptions: ['Used in the indication, how many results were found.
         The label is appended to the number of results.', Label used for the link
-        to the previous page., Label used for the link to the next page.]
+        to the previous page., Label used for the link to the next page., To be used
+        for mobile pagination (eg. 3 of 5), '']
     resourcebundle:id: essentials.pagination
-    resourcebundle:keys: [results.indication, page.previous, page.next]
-    resourcebundle:messages: [document(s), previous, next]
-    resourcebundle:messages_de: ['', '', '']
-    resourcebundle:messages_es: ['', '', '']
-    resourcebundle:messages_fr: ['', '', '']
-    resourcebundle:messages_it: ['', '', '']
-    resourcebundle:messages_nl: ['', '', '']
+    resourcebundle:keys: [results.indication, page.previous, page.next, page.of, page.navigate-to-page]
+    resourcebundle:messages: [document(s), previous, next, of, Navigate to page]
   /pagination[3]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:referenceable']
-    jcr:uuid: c404af65-0cde-4989-913e-8c781a9259fe
+    jcr:uuid: 18e82f13-5daa-4941-8f4c-01cf760b9338
     hippo:availability: []
+    hippostd:retainable: false
     hippostd:state: draft
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2014-08-21T14:30:14.382+02:00
-    hippostdpubwf:lastModificationDate: 2021-01-22T17:58:06.774Z
+    hippostdpubwf:lastModificationDate: 2021-03-19T10:55:49.625Z
     hippostdpubwf:lastModifiedBy: admin
     resourcebundle:descriptions: ['Used in the indication, how many results were found.
         The label is appended to the number of results.', Label used for the link
-        to the previous page., Label used for the link to the next page.]
+        to the previous page., Label used for the link to the next page., To be used
+        for mobile pagination (eg. 3 of 5), '']
     resourcebundle:id: essentials.pagination
-    resourcebundle:keys: [results.indication, page.previous, page.next]
-    resourcebundle:messages: [document(s), previous, next]
-    resourcebundle:messages_de: ['', '', '']
-    resourcebundle:messages_es: ['', '', '']
-    resourcebundle:messages_fr: ['', '', '']
-    resourcebundle:messages_it: ['', '', '']
-    resourcebundle:messages_nl: ['', '', '']
+    resourcebundle:keys: [results.indication, page.previous, page.next, page.of, page.navigate-to-page]
+    resourcebundle:messages: [document(s), previous, next, of, Navigate to page]

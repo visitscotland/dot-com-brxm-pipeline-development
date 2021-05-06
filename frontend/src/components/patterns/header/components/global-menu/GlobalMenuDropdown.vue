@@ -17,6 +17,7 @@
                     ? '_self'
                     : '_blank'
             "
+            role="menuitem"
         >
             {{ site.siteName }}
         </VsDropdownItem>

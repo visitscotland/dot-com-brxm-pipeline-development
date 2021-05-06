@@ -267,7 +267,7 @@ export default {
 
     .vs-hero__image-caption {
         font-size: 0.875rem;
-        font-weight: 500;
+        font-weight: $font-weight-semi-bold;
         line-height: 1rem;
     }
 

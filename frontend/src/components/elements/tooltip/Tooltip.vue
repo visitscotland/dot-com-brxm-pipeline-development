@@ -37,8 +37,8 @@ export default {
 <docs>
   ```jsx
 
-    <VsTooltip title="This is a search icon">
-      <VsIcon :name="bus" :variant="primary" :size="lg" />
+    <VsTooltip title="This is a bus icon">
+      <VsIcon name="bus" variant="primary" size="lg" />
     </VsTooltip>
   ```
 </docs>

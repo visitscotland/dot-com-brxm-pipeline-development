@@ -20,9 +20,9 @@ props:
     - name: h4-font-size
       value: "{!font_size_base} * 1"
     - name: h5-font-size
-      value: "{!font_size_base}"
+      value: "{!font_size_base} * 1.25"
     - name: h6-font-size
-      value: "{!font_size_base} * 0.875"
+      value: "{!font_size_base} * 1.125"
     - name: h3-sub-font-size
       value: "{!font_size_base} * 1"
     - name: h2-sub-font-size
@@ -42,7 +42,7 @@ props:
     - name: nav-lvl1-desktop-font-size
       value: "{!font_size_base} * 1.125"
     - name: xs-font-size
-      value: "{!font_size_base} * .625"
+      value: "{!font_size_base} * 0.625"
 global:
     type: number
     category: font-size

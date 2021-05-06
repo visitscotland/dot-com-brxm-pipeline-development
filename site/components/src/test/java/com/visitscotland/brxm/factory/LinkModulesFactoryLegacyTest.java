@@ -11,6 +11,8 @@ import com.visitscotland.brxm.model.megalinks.SingleImageLinksModule;
 import com.visitscotland.brxm.dms.DMSDataService;
 import com.visitscotland.brxm.dms.DMSProxy;
 import com.visitscotland.brxm.dms.LocationLoader;
+import com.visitscotland.brxm.services.CommonUtilsService;
+import com.visitscotland.brxm.services.DocumentUtilsService;
 import com.visitscotland.brxm.services.LinkService;
 import com.visitscotland.brxm.services.ResourceBundleService;
 import com.visitscotland.brxm.utils.HippoUtilsService;
@@ -28,7 +30,7 @@ import java.util.Locale;
 import static org.easymock.EasyMock.*;
 
 
-class LinkModulesFactoryTest extends EasyMockSupport {
+class LinkModulesFactoryLegacyTest extends EasyMockSupport {
 
     private final String TITLE = "Megalink title";
     
@@ -47,6 +49,8 @@ class LinkModulesFactoryTest extends EasyMockSupport {
     private Properties properties;
     private LocationLoader locationloader;
     private ImageFactory imageFactory;
+    private CommonUtilsService commonUtils;
+    private CommonUtilsService documUtilsServiceUtils;
 
 
     /**
@@ -69,12 +73,13 @@ class LinkModulesFactoryTest extends EasyMockSupport {
         ResourceBundleService rs = createNiceMock(ResourceBundleService.class);
         utils = createNiceMock(HippoUtilsService.class);
         linkService = new LinkService(dms, rs,utils, properties);
+        commonUtils = new CommonUtilsService();
 
         expect(utils.createUrl(anyObject(HippoBean.class))).andStubReturn("/fake-url/mock");
 
         factory = partialMockBuilder(LinkModulesFactory.class)
-                .withConstructor(HippoUtilsService.class,DMSDataService.class, LinkService.class, ResourceBundleService.class, LocationLoader.class, ImageFactory.class)
-                .withArgs(utils, dms, linkService, rs, locationloader, imageFactory)
+                .withConstructor(HippoUtilsService.class,DMSDataService.class, LinkService.class, ResourceBundleService.class, LocationLoader.class, ImageFactory.class, CommonUtilsService.class, DocumentUtilsService.class)
+                .withArgs(utils, dms, linkService, rs, locationloader, imageFactory, commonUtils, documUtilsServiceUtils)
                 .addMockedMethod("getLocation", String.class, Locale.class)
                 .createMock();
 

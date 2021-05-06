@@ -10,13 +10,15 @@ import javax.jcr.RepositoryException;
 import java.util.Optional;
 
 /**
+ *
  * jcr:Name = visitscotland:short-string-validator
  * jcr:Name = visitscotland:medium-string-validator
  * jcr:Name = visitscotland:long-string-validator
  * jcr:Name = visitscotland:extralong-string-validator
  * jcr:Name = visitscotland:seotitle-string-validator
  * jcr:Name = visitscotland:seodescription-string-validator
-
+ *
+ * These nodes can be found under /hippo:configuration/hippo:modules/validation/hippo:moduleconfig/
  */
 public class StringLengthValidator implements Validator<String>  {
 

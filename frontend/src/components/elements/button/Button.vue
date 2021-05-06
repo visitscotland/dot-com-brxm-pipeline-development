@@ -22,10 +22,10 @@
             :class="{ 'mr-2': !iconOnly }"
             v-if="icon"
             :name="icon"
-            :size="iconSize"
+            :size="iconSizeOverride || calcIconSize"
             :padding="0"
             :orientation="iconOrientation"
-            :variant="calcIconVariant"
+            :variant="iconVariantOverride || calcIconVariant"
         />
         <!-- @slot The button content goes here -->
         <slot />
@@ -78,7 +78,7 @@ export default {
             type: String,
             default: 'primary',
             validator: (value) => value.match(
-                /(primary|secondary)/,
+                /(primary|secondary|transparent|dark|light)/,
             ),
         },
         /**
@@ -142,6 +142,28 @@ export default {
             type: Boolean,
             default: false,
         },
+        /**
+         * The variant to be used for a contained icon, generally this is
+         * automatically calculated based on the button variant but in a few
+         * unusual cases it is desirable to manually set it
+         */
+        iconVariantOverride: {
+            type: String,
+            default: null,
+            validator: (value) => value.match(
+                /(primary|secondary|light|dark|reverse-white|secondary-teal)/,
+            ),
+        },
+        /**
+         * The size to be used for a contained icon, generally this is
+         * automatically calculated based on the button size but in a few
+         * unusual cases it is desirable to manually set it
+         */
+        iconSizeOverride: {
+            type: String,
+            default: null,
+            validator: (value) => value.match(/(xxs|xs|sm|md|lg|xl)/),
+        },
     },
     data() {
         return {
@@ -153,7 +175,7 @@ export default {
         backgroundClass() {
             return this.background ? [`btn-bg-${this.background}`] : null;
         },
-        iconSize() {
+        calcIconSize() {
             switch (this.size) {
             case 'sm':
                 return 'xs';
@@ -175,6 +197,10 @@ export default {
                 }
 
                 return this.outlineColour;
+            }
+
+            if (this.variant === 'transparent') {
+                return 'primary';
             }
 
             return 'light';
@@ -318,11 +344,17 @@ export default {
     <BsWrapper class="d-flex flex-wrap mb-4">
       <VsButton variant="primary" class="mr-2 mb-2">Primary (default)</VsButton>
       <VsButton variant="secondary" class="mr-2 mb-2">Secondary</VsButton>
+      <VsButton variant="transparent" class="mr-2 mb-2">Transparent</VsButton>
+      <VsButton variant="dark" class="mr-2 mb-2">Dark</VsButton>
+      <VsButton variant="light" class="mr-2 mb-2">Light</VsButton>
     </BsWrapper>
     <h4>Outline Color Variants</h4>
     <BsWrapper class="d-flex flex-wrap mb-4">
       <VsButton variant="outline-primary" class="mr-2 mb-2">Primary</VsButton>
       <VsButton variant="outline-secondary" class="mr-2 mb-2">Secondary</VsButton>
+      <VsButton variant="outline-transparent" class="mr-2 mb-2">Transparent</VsButton>
+      <VsButton variant="outline-dark" class="mr-2 mb-2">Dark</VsButton>
+      <VsButton variant="outline-light" class="mr-2 mb-2">Light</VsButton>
     </BsWrapper>
     <h4>Outline Variants with Icons</h4>
     <BsWrapper class="d-flex flex-wrap mb-4">

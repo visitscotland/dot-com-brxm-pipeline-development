@@ -32,25 +32,9 @@ public class Itinerary extends Page {
         return getMultipleProperty("visitscotland:areas");
     }
 
-
-    /**
-     * TODO: Remove this method after the refactoring of itineraries
-     *
-     * @deprecated Instead of this, you should invoke {@code new DocumentUtils().getSiblingDocuments()}
-     */
-    @Deprecated
-    public List<com.visitscotland.brxm.hippobeans.Day> getDays() {
-        return getPageChildrenByType(com.visitscotland.brxm.hippobeans.Day.class);
-    }
-
     @HippoEssentialsGenerated(internalName = "visitscotland:transports")
     public String[] getTransports() {
         return getMultipleProperty("visitscotland:transports");
-    }
-
-    @HippoEssentialsGenerated(internalName = "visitscotland:highlights")
-    public String getHighlights() {
-        return getSingleProperty("visitscotland:highlights");
     }
 
     @HippoEssentialsGenerated(internalName = "visitscotland:popular")
@@ -65,6 +49,17 @@ public class Itinerary extends Page {
 
     @HippoEssentialsGenerated(internalName = "visitscotland:otherThings")
     public com.visitscotland.brxm.hippobeans.OTYML getOtherThings() {
-        return getBean("visitscotland:otherThings", com.visitscotland.brxm.hippobeans.OTYML.class);
+        return getBean("visitscotland:otherThings",
+                com.visitscotland.brxm.hippobeans.OTYML.class);
+    }
+
+    @HippoEssentialsGenerated(internalName = "visitscotland:highlights")
+    public String[] getHighlights() {
+        return getMultipleProperty("visitscotland:highlights");
+    }
+
+    @HippoEssentialsGenerated(internalName = "visitscotland:translationPriority")
+    public String getTranslationPriority() {
+        return getSingleProperty("visitscotland:translationPriority");
     }
 }

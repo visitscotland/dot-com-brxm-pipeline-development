@@ -27,7 +27,7 @@
 </template>
 
 <script>
-import VsStretchedLinkCard from '@components/elements/stretched-link-card/StretchedLinkCard';
+import VsStretchedLinkCard from '@components/patterns/stretched-link-card/StretchedLinkCard';
 import VsRichTextWrapper from '@components/elements/rich-text-wrapper/RichTextWrapper';
 
 /**
@@ -84,7 +84,7 @@ export default {
         linkType: {
             type: String,
             required: true,
-            validator: (value) => value.match(/(external|internal|download)/),
+            validator: (value) => value.match(/(default|external|internal|download)/),
         },
         /**
         * The link destination
@@ -124,7 +124,7 @@ export default {
         margin-bottom: $spacer-8;
         transition: box-shadow 800ms;
 
-        .stretched-link {
+        .vs-stretched-link {
             color: $color-base-text;
             text-decoration: none;
             letter-spacing: 0;
@@ -153,7 +153,7 @@ export default {
             box-shadow: 10px 10px 20px $color-gray-tint-4;
         }
 
-        .megalink-multi-image__title {
+        .vs-megalink-multi-image__title {
             font-size: $font-size-sm;
             line-height: $line-height-s;
             letter-spacing: 0.0875rem;
@@ -179,7 +179,7 @@ export default {
     };
 
     .vs-megalink-multi-image--dark.card {
-        .stretched-link {
+        .vs-stretched-link {
             color: $color-white;
         }
 
@@ -193,7 +193,7 @@ export default {
             margin-bottom: $spacer-11;
 
             .vs-megalink-multi-image__title {
-                font-size: $h6-font-size;
+                font-size: $small-font-size;
                 line-height: $line-height-s;
             }
 
@@ -217,7 +217,7 @@ export default {
                 width: 16px;
             }
 
-            .stretched-link-card__img {
+            .vs-stretched-link-card__img {
                 width: calc(50% - 20px);
             }
 

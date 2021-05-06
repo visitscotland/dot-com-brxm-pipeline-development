@@ -51,13 +51,12 @@ export default {
 </script>
 
 <style lang="scss">
-.vs-footer-social-item {
-    list-style: none;
-    display: inline-block;
-    text-decoration: none;
-    padding: 0;
-    margin-right: $spacer-3;
-    margin-bottom: $spacer-3;
+.vs-list.vs-list--unstyled  {
+    .vs-footer-social-item{
+        display: inline-block;
+        margin-right: $spacer-3;
+        margin-bottom: $spacer-3;
+    }
 }
 </style>
 
