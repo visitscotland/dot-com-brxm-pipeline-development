@@ -85,6 +85,29 @@
     <filter-class>org.hippoecm.hst.container.HstFilter</filter-class>
   </filter>
 
+  <filter>
+    <filter-name>VsToolsFilter</filter-name>
+    <filter-class>com.visitscotland.brxm.config.VsToolsFilter</filter-class>
+  </filter>
+
+  <filter-mapping>
+    <filter-name>VsToolsFilter</filter-name>
+    <url-pattern>/vs-tools/vsi</url-pattern>
+    <dispatcher>REQUEST</dispatcher>
+  </filter-mapping>
+
+  <filter-mapping>
+    <filter-name>VsToolsFilter</filter-name>
+    <url-pattern>/vs-tools/vsi.css</url-pattern>
+    <dispatcher>REQUEST</dispatcher>
+  </filter-mapping>
+
+  <filter-mapping>
+    <filter-name>VsToolsFilter</filter-name>
+    <url-pattern>/vs-tools/vsi.xsl</url-pattern>
+    <dispatcher>REQUEST</dispatcher>
+  </filter-mapping>
+
   <filter-mapping>
     <filter-name>CharacterEncodingFilter</filter-name>
     <url-pattern>/*</url-pattern>
@@ -119,6 +142,12 @@
   <servlet>
     <servlet-name>BinariesServlet</servlet-name>
     <servlet-class>org.hippoecm.hst.servlet.BinariesServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>VSIServlet</servlet-name>
+    <servlet-class>com.visitscotland.utils.info.VSI</servlet-class>
+    <load-on-startup>7</load-on-startup>
   </servlet>
 
   <servlet>
@@ -180,6 +209,11 @@
       <param-value>/META-INF/web-resources</param-value>
     </init-param>
   </servlet>
+
+<!--  <servlet-mapping>-->
+<!--    <servlet-name>VSIServlet</servlet-name>-->
+<!--    <url-pattern>/vs-tools/vsi</url-pattern>-->
+<!--  </servlet-mapping>-->
 
   <servlet-mapping>
     <servlet-name>BinariesServlet</servlet-name>
