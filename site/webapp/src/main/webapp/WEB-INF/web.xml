@@ -120,7 +120,7 @@
 
   <filter-mapping>
     <filter-name>PingFilter</filter-name>
-    <url-pattern>/ping/*</url-pattern>
+    <url-pattern>/vs-tools/ping/*</url-pattern>
     <dispatcher>REQUEST</dispatcher>
   </filter-mapping>
 
@@ -209,11 +209,6 @@
       <param-value>/META-INF/web-resources</param-value>
     </init-param>
   </servlet>
-
-<!--  <servlet-mapping>-->
-<!--    <servlet-name>VSIServlet</servlet-name>-->
-<!--    <url-pattern>/vs-tools/vsi</url-pattern>-->
-<!--  </servlet-mapping>-->
 
   <servlet-mapping>
     <servlet-name>BinariesServlet</servlet-name>
