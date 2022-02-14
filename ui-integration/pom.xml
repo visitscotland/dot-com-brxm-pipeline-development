@@ -78,7 +78,7 @@
                   <goal>yarn</goal>
                 </goals>
                 <configuration>
-                  <arguments>pack --filename ${outputDirectory}/%s-%v.tgz</arguments>
+                  <arguments>pack</arguments>
                 </configuration>
               </execution>
             </executions>
