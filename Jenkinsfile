@@ -120,6 +120,8 @@ pipeline {
       post {
         success {
           sh 'mvn -f pom.xml install -Pdist-with-development-data'
+          // Save frontend NPM package for use in later deploy steps
+          archiveArtifacts artifacts: 'ui-integration/target/vs-frontend-integration*.tgz', fingerprint: true
           mail bcc: '', body: "<b>Notification</b><br>Project: ${env.JOB_NAME} <br>Build Number: ${env.BUILD_NUMBER} <br> build URL: ${env.BUILD_URL}", cc: '', charset: 'UTF-8', from: '', mimeType: 'text/html', replyTo: '', subject: "Maven build succeeded at ${env.STAGE_NAME} for ${env.JOB_NAME}", to: "${MAIL_TO}";
         }
         failure {
@@ -345,6 +347,12 @@ pipeline {
               echo "Uploading version $NEW_TAG to Nexus"
               sh "mvn versions:set -DremoveSnapshot"
               sh "mvn -B clean  deploy -Pdist -Drevision=$NEW_TAG -Dchangelist= -DskipTests -s $MAVEN_SETTINGS"
+              // Publish frontend package to private Nexus NPM repository
+              // NOTE: 'yarn publish' is the syntax for Yarn v1.x. Yarn v2.x has breaking
+              //        changes to the publish CLI interface, so upgrade with care.
+              //withCredentials([secretText(credentialsId: 'npm-registry', variable: 'NPM_TOKEN')]) {
+              //  sh "yarn publish --cwd ./ui-integration --registry https://npm.visitscotland.com/:_authToken=${NPM_TOKEN} --non-interactive --new-version 1.2.3 --access public --tag ${NEW_TAG}"
+              //}
           }
         }
       }

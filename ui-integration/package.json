@@ -2,6 +2,9 @@
   "name": "vs-frontend-integration",
   "version": "0.1.0",
   "main": "index.js",
+  "files": [
+    "dist"
+  ],
   "license": "MIT",
   "devDependencies": {
     "clean-webpack-plugin": "^3.0.0",
@@ -25,6 +28,7 @@
     "build:frontend:ssr": "yarn --cwd ../frontend/ ssr:build",
     "build:frontend:ssr:dev": "yarn --cwd ../frontend/ ssr:build:dev",
     "install:frontend": "yarn --cwd ../frontend/",
-    "preinstall": "yarn install:frontend"
+    "preinstall": "yarn install:frontend",
+    "prepack": "node build/copyToDist.js"
   }
 }

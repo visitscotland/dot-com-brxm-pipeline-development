@@ -33,6 +33,7 @@
             <configuration>
               <installDirectory>target</installDirectory>
               <workingDirectory>target</workingDirectory>
+              <outputDirectory>target</outputDirectory>
               <nodeVersion>v12.18.4</nodeVersion>
               <yarnVersion>v1.22.4</yarnVersion>
               <!--<npmVersion>v6.9.0</npmVersion>-->
@@ -68,6 +69,16 @@
                 </goals>
                 <configuration>
                   <arguments>build:ssr</arguments>
+                </configuration>
+              </execution>
+
+              <execution>
+                <id>Run yarn pack (build release artefact)</id>
+                <goals>
+                  <goal>yarn</goal>
+                </goals>
+                <configuration>
+                  <arguments>pack --filename ${outputDirectory}/%s-%v.tgz</arguments>
                 </configuration>
               </execution>
             </executions>
