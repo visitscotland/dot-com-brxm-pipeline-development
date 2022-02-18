@@ -8,9 +8,13 @@
 <#include "../../../../frontend/components/vs-list.ftl">
 <#include "../../../../frontend/components/vs-module-wrapper.ftl">
 
+<#include "../../global/cms-errors.ftl">
+
 <#-- @ftlvariable name="module" type="com.visitscotland.brxm.model.IKnowCommunityModule" -->
 
 <#macro iknowCommunity module>
+    <@cmsErrors errors=module.errorMessages!"" editMode=editMode />
+
     <vs-module-wrapper theme="<#if themeName?has_content>${themeName}<#else>light</#if>">
         <template slot="vsModuleWrapperHeading">
             ${module.title}

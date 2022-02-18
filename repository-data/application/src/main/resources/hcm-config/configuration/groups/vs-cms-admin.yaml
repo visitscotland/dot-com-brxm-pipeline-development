@@ -1,0 +1,17 @@
+definitions:
+  config:
+    /hippo:configuration/hippo:groups/vs-cms-admin:
+      jcr:primaryType: hipposys:group
+      hipposys:description: Full access to Secrets, CMS, Repository, JCR Console,
+        etc.
+      hipposys:securityprovider: internal
+      hipposys:members:
+        .meta:category: system
+        .meta:add-new-system-values: true
+        type: string
+        value: [cmsadmin]
+      hipposys:userroles:
+        .meta:category: system
+        .meta:add-new-system-values: true
+        type: string
+        value: [xm.default-user.system-admin, xm.repository-browser.user, xm.console.user]

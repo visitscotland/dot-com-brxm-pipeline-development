@@ -1,0 +1,15 @@
+definitions:
+  config:
+    /hippo:configuration/hippo:users/cmsadmin:
+      jcr:primaryType: hipposys:user
+      hipposys:active: true
+      hipposys:firstname: Admin
+      hipposys:lastname: VisitScotland
+      hipposys:password:
+        .meta:category: system
+        value: cmsadmin
+      hipposys:passwordlastmodified:
+        .meta:category: system
+      hipposys:previouspasswords:
+        .meta:category: system
+      hipposys:securityprovider: internal

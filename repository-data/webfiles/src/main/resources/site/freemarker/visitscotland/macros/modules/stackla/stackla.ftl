@@ -2,11 +2,12 @@
 <#include "../../../../frontend/components/vs-module-wrapper.ftl">
 <#include "../../../../frontend/components/vs-embed-wrapper.ftl">
 
+<#include "../../global/cms-errors.ftl">
+
 <#-- @ftlvariable name="module" type="com.visitscotland.brxm.model.StacklaModule" -->
 
 <#macro stackla module>
     <@hst.headContribution category="htmlBodyEnd">
-
         <script type="text/javascript">
             (function (d, id) {
                 var t, el = d.scripts[d.scripts.length - 1].previousElementSibling;
@@ -18,8 +19,9 @@
                 (d.getElementsByTagName('head')[0] || d.getElementsByTagName('body')[0]).appendChild(t);
             }(document, 'stackla-widget-js'));
         </script>
-
     </@hst.headContribution>
+
+    <@cmsErrors errors=module.errorMessages!"" editMode=editMode />
 
     <vs-module-wrapper theme="<#if themeName?has_content>${themeName}<#else>light</#if>">
         <template slot="vsModuleWrapperHeading">

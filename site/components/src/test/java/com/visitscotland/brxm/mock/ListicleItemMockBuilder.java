@@ -55,6 +55,15 @@ public class ListicleItemMockBuilder {
 
         return this;
     }
+    public ListicleItemMockBuilder cmsLinkOverrideLabel(){
+        CMSLink cmsLink = mock(CMSLink.class);
+        Page page = mock(Page.class);
+        when(cmsLink.getLink()).thenReturn(page);
+        when( cmsLink.getLabel()).thenReturn("override label");
+        when(listicle.getListicleItem()).thenReturn(cmsLink);
+
+        return this;
+    }
 
     public ListicleItemMockBuilder dmsLink(String id){
         DMSLink dmsLink = mock(DMSLink.class);

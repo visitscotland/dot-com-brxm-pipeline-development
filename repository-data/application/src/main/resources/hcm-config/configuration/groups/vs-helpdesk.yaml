@@ -1,0 +1,18 @@
+definitions:
+  config:
+    /hippo:configuration/hippo:groups/vs-helpdesk:
+      jcr:primaryType: hipposys:group
+      hipposys:description: Helpdesk will be able to release document locks and admin
+        users
+      hipposys:securityprovider: internal
+      hipposys:members:
+        .meta:category: system
+        .meta:add-new-system-values: true
+        type: string
+        value: [helpdesk]
+      hipposys:userroles:
+        .meta:category: system
+        .meta:add-new-system-values: true
+        type: string
+        value: [xm.dashboard.user, xm.cms.user, xm.repository.reader, xm.content.admin,
+          xm.security.user-admin, xm.channel.viewer]

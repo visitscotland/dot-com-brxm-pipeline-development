@@ -24,6 +24,10 @@ public interface TranslationWorkflow extends Workflow {
 
     void setTranslationDeadline(Calendar deadline) throws RepositoryException, RemoteException;
 
+    void setTranslationFlag(boolean flag) throws RepositoryException, RemoteException;
+
+    void setTranslationDiff(String diff) throws RepositoryException, RemoteException;
+
     void saveSession() throws RepositoryException;
 
 }

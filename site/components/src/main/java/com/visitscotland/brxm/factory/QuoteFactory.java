@@ -1,9 +1,7 @@
 package com.visitscotland.brxm.factory;
 
 import com.visitscotland.brxm.hippobeans.Quote;
-import com.visitscotland.brxm.hippobeans.SharedLink;
 import com.visitscotland.brxm.hippobeans.capabilities.Linkable;
-import com.visitscotland.brxm.model.FlatLink;
 import com.visitscotland.brxm.model.FlatQuote;
 import com.visitscotland.brxm.model.Module;
 import com.visitscotland.brxm.model.megalinks.EnhancedLink;
@@ -38,16 +36,22 @@ public class QuoteFactory {
             quote.setImage(imageFactory.createImage(doc.getImage(), module, locale));
         }
 
-        if (doc.getProduct() instanceof Linkable) {
-            EnhancedLink link = linkService.createEnhancedLink((Linkable) doc.getProduct(), module, locale, false);
-            if (doc.getProduct() instanceof SharedLink){
-                FlatLink flatLink = linkService.createFindOutMoreLink(module, locale, ((SharedLink) doc.getProduct()).getLinkType());
-                link.setLabel(flatLink.getLabel());
+
+        if (doc.getProduct() != null) {
+            if (doc.getProduct().getLink() instanceof Linkable) {
+                EnhancedLink link = linkService.createEnhancedLink((Linkable) doc.getProduct().getLink(), module, locale, false);
+                if (link != null) {
+                    link.setLabel(linkService.createFindOutMoreLink(module, locale, doc.getProduct()).getLabel());
+                    quote.setLink(link);
+                }
             }
-            quote.setLink(link);
-        } else if (doc.getProduct() != null){
-            contentLogger.warn("The Product for this iCentre ({})is not a valid link.", doc.getPath());
+
+            if (quote.getLink() == null) {
+                module.addErrorMessage("The product provided for the quote is not valid, please review the document at: " + doc.getPath());
+                contentLogger.warn("The Product for this iCentre ({})is not a valid link.", doc.getPath());
+            }
         }
+
         return quote;
     }
 

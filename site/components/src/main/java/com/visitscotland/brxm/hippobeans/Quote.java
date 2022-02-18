@@ -1,10 +1,9 @@
 package com.visitscotland.brxm.hippobeans;
 
-import org.onehippo.cms7.essentials.dashboard.annotations.HippoEssentialsGenerated;
 import org.hippoecm.hst.content.beans.Node;
 import org.hippoecm.hst.content.beans.standard.HippoCompound;
 import org.hippoecm.hst.content.beans.standard.HippoHtml;
-import org.hippoecm.hst.content.beans.standard.HippoBean;
+import org.onehippo.cms7.essentials.dashboard.annotations.HippoEssentialsGenerated;
 
 @HippoEssentialsGenerated(internalName = "visitscotland:Quote")
 @Node(jcrType = "visitscotland:Quote")
@@ -30,7 +29,7 @@ public class Quote extends HippoCompound {
     }
 
     @HippoEssentialsGenerated(internalName = "visitscotland:product")
-    public HippoBean getProduct() {
-        return getLinkedBean("visitscotland:product", HippoBean.class);
+    public CMSLink getProduct() {
+        return getBean("visitscotland:product", CMSLink.class);
     }
 }

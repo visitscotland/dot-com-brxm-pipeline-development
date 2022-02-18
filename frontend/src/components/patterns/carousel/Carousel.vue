@@ -409,10 +409,18 @@ export default {
 
             &--next {
                 right: 0;
+
+                &:focus {
+                    right: .3125rem;
+                }
             }
 
             &--prev {
                 left: 0;
+
+                &:focus {
+                    left: .3125rem;
+                }
             }
 
             &-label {
@@ -437,8 +445,22 @@ export default {
             }
 
             &:focus {
-                border: 2px solid $color-secondary-teal-tint-3;
+                box-shadow: $shadow-button-focus;
                 outline: none;
+                background-color: $color-white;
+                border: 1px solid $color-theme-primary;
+
+                .vs-carousel__control-label-container {
+                    max-width: 15.5rem;
+                }
+
+                .vs-carousel__control-label {
+                    color: $color-theme-primary;
+                }
+
+                .vs-icon {
+                    fill: $color-theme-primary;
+                }
             }
 
             &:hover {

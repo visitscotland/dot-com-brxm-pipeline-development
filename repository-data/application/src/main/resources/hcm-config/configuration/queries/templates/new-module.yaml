@@ -5,7 +5,7 @@ definitions:
       hippostd:excludePrimaryTypes: ['visitscotland:Page', 'visitscotland:Widget',
         'visitscotland:SharedLink', 'visitscotland:Listicle', 'visitscotland:Itinerary',
         'visitscotland:Destination', 'visitscotland:Stop', 'visitscotland:contentdocument',
-        'visitscotland:General']
+        'visitscotland:General', 'visitscotland:IknowCommunity', 'visitscotland:MarketoForm']
       hippostd:icon: adddocument_ico
       hippostd:modify: [./_name, $name, './hippotranslation:locale', $inherited, './hippotranslation:id',
         $uuid, './hippostdpubwf:createdBy', $holder, './hippostdpubwf:creationDate',

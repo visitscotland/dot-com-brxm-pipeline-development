@@ -1,6 +1,9 @@
 <#include "../../../../include/imports.ftl">
 <#include "../../../../frontend/components/vs-article.ftl">
+
 <#include "../../global/image-with-caption.ftl">
+<#include "../../global/cms-errors.ftl">
+
 <#include "article-section.ftl">
 
 <#-- @ftlvariable name="module" type="com.visitscotland.brxm.model.ArticleModule" -->
@@ -8,6 +11,8 @@
 
 <#macro article module>
     <@hst.manageContent hippobean=module.hippoBean />
+    <@cmsErrors errors=module.errorMessages!"" editMode=editMode />
+
     <#if module.image??>
         <#if module.image.cmsImage??>
             <#assign image>

@@ -1,6 +1,7 @@
 package com.visitscotland.brxm.mock;
 
 import com.fasterxml.jackson.databind.JsonNode;
+import com.visitscotland.brxm.dms.DMSConstants;
 import com.visitscotland.brxm.dms.DMSDataService;
 import com.visitscotland.brxm.hippobeans.*;
 import org.mockito.Mockito;
@@ -25,6 +26,7 @@ public class SharedLinkMockBuilder {
         when(link.getProduct()).thenReturn("id");
         when(sharedLink.getLinkType()).thenReturn(link);
         when(dmsData.productCard("id", Locale.UK)).thenReturn(node);
+
 
         return this;
     }

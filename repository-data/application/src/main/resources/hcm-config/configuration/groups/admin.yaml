@@ -1,0 +1,10 @@
+definitions:
+  config:
+    /hippo:configuration/hippo:groups/admin:
+      hipposys:description: Administrative Group for EMERGENCIES. No one is supposed
+        to have permanent access to it
+      hipposys:members:
+        .meta:category: system
+        .meta:add-new-system-values: true
+        type: string
+        value: [admin]

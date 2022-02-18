@@ -1,0 +1,15 @@
+definitions:
+  config:
+    /hippo:configuration/hippo:users/viewer:
+      jcr:primaryType: hipposys:user
+      hipposys:active: true
+      hipposys:firstname: Viewer
+      hipposys:lastname: VisitScotland
+      hipposys:password:
+        .meta:category: system
+        value: viewer
+      hipposys:passwordlastmodified:
+        .meta:category: system
+      hipposys:previouspasswords:
+        .meta:category: system
+      hipposys:securityprovider: internal

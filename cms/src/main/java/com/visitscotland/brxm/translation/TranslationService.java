@@ -174,8 +174,14 @@ public class TranslationService {
                     for (HashMap.Entry<Node, Node> editableNodeEntry : editableNodes.entrySet()) {
                         try {
                             Node editableUnpublishedVariant = editableNodeEntry.getValue();
-                            editableUnpublishedVariant.setProperty("visitscotland:translationFlag", true);
-                            editableUnpublishedVariant.setProperty("visitscotland:diff", objectMapper.writeValueAsString(translationContent));
+                            Workflow workflow = sessionFactory.getUserSession().getWorkflowManager().getWorkflow("translation", editableUnpublishedVariant);
+                            if (workflow instanceof TranslationWorkflow) {
+                                TranslationWorkflow translationWorkflow = (TranslationWorkflow) workflow;
+                                translationWorkflow.setTranslationFlag(true);
+                                translationWorkflow.setTranslationDiff(objectMapper.writeValueAsString(translationContent));
+                            } else {
+                                throw new IllegalStateException("Unable to get TranslationWorkflow");
+                            }
                         } catch(JsonProcessingException ex) {
                             // just log the error, should never happen.
                             log.error("Unable to serailise the translation.", ex);

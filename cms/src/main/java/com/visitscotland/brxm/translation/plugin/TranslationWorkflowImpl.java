@@ -315,6 +315,18 @@ public class TranslationWorkflowImpl implements TranslationWorkflow, InternalWor
         saveSession();
     }
 
+    @Override
+    public void setTranslationFlag(boolean flag) throws RepositoryException, RemoteException {
+        rootSubject.setProperty(JcrDocument.VS_TRANSLATION_FLAG, flag);
+        saveSession();
+    }
+
+    @Override
+    public void setTranslationDiff(String diff) throws RepositoryException, RemoteException{
+        rootSubject.setProperty(JcrDocument.VS_TRANSLATION_DIFF, diff);
+        saveSession();
+    }
+
     public Map<String, Serializable> hints() throws WorkflowException, RepositoryException {
         Map<String, Serializable> hints = new TreeMap<>();
 

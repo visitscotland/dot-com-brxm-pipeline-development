@@ -3,6 +3,7 @@
 -->
 
 <#-- @ftlvariable name="ResourceBundle" type="com.visitscotland.brxm.services.ResourceBundleService" -->
+<#-- @ftlvariable name="Properties" type="com.visitscotland.brxm.utils.Properties" -->
 
 <#--  More reliable method for including labels from resource bundles  -->
 <#--  Usage: ${label("essentials.global", "footer.signup")} -->
@@ -22,6 +23,16 @@
     <#else>
         <#return labelFallback(bundle, key)>
     </#if >
+</#function>
+
+<#--  More reliable method for including labels from resource bundles  -->
+<#--  Usage: ${property("helpdesk")} -->
+<#function property key>
+    <#if Properties??>
+        <#return Properties.getProperty(key)>
+    <#else>
+        <#return labelFallback("default.config", key)>
+    </#if>
 </#function>
 
 <#-- Fallback mechanism for requesting a label. It should not be used outside of this File -->

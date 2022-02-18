@@ -110,8 +110,8 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
 
     protected void setErrorMessages(HstRequest request, Collection<String> errorMessages) {
         if (request.getAttribute(PREVIEW_ALERTS) != null){
-            Collection<String> requestMesages = (Collection<String>) request.getAttribute(PREVIEW_ALERTS);
-            requestMesages.addAll(errorMessages);
+            Collection<String> requestMessages = (Collection<String>) request.getAttribute(PREVIEW_ALERTS);
+            requestMessages.addAll(errorMessages);
         } else {
             request.setAttribute(PREVIEW_ALERTS, errorMessages);
         }

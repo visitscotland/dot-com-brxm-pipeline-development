@@ -21,7 +21,7 @@ public class Properties {
 
     private static final Logger logger = LoggerFactory.getLogger(Properties.class.getName());
 
-    static final String DEFAULT_ID = "config.cms";
+    static final String DEFAULT_CONFIG = "default.config";
 
     static final String INSTAGRAM_API = "instagram.api";
     static final String INSTAGRAM_ACCESS_TOKEN ="instagram.accesstoken";
@@ -31,7 +31,7 @@ public class Properties {
     static final String IKNOW_COMMUNITY_URL = "iknow-community.url";
     static final String IKNOW_COMMUNITY_TAGGED_DISCUSSION = "iknow-community.tagged-discussion";
     static final String YOUTUBE_API_KEY = "youtube.api-key";
-    static final String BANNER_CONTENT_PATH = "banner.path";
+    static final String CHANNEL_ORDER = "seo.alternate-link-locale-order";
 
     //Environment
     static final String USE_RELATIVE_URLS = "links.use-relative-urls";
@@ -74,6 +74,10 @@ public class Properties {
         } else {
             return readString(INSTAGRAM_APP_ID) +"|"+accessCode;
         }
+    }
+
+    public String getChannelOrder(){
+        return readString(CHANNEL_ORDER);
     }
 
     public String getHelpdeskEmail() {
@@ -142,10 +146,6 @@ public class Properties {
 
     public String getIknowCommunityTaggedDiscussion() {
         return readString(IKNOW_COMMUNITY_TAGGED_DISCUSSION);
-    }
-
-    public String getBannerContentPath()  {
-        return readString(BANNER_CONTENT_PATH);
     }
 
     public String getYoutubeApiKey() {
@@ -236,14 +236,18 @@ public class Properties {
             }
         }
 
-        return DEFAULT_ID;
+        return DEFAULT_CONFIG;
     }
 
-    private String getProperty(String key){
+    public String getProperty(String key){
         String bundleId = getEnvironmentProperties();
         String value = bundle.getResourceBundle(bundleId, key, Locale.UK);
 
-        if (Contract.isEmpty(value)){
+        if (Contract.isEmpty(value)) {
+            value = bundle.getResourceBundle(DEFAULT_CONFIG, key, Locale.UK);
+        }
+
+        if (Contract.isEmpty(value)) {
             logger.info("The property {} hasn't been set in the resourceBundle {}", key, bundleId);
         } else if (value.startsWith("$")){
             return getEnvironmentVariable(value.substring(1));

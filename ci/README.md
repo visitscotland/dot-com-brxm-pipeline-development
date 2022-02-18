@@ -30,6 +30,12 @@ return [
 // Description: If true then Jenkins will create a feature environment for testing this branch prior to moving to a pull request
 VS_BUILD_FEATURE_ENVIRONMENT : false,
 
+// Build Property: VS_SKIP_LIGHTHOUSE_TESTS 
+// Type: Boolean
+// Supported Values: true, false
+// Description: If true then Jenkins will skip running Lighthouse tests even if a feature environment was built
+VS_SKIP_LIGHTHOUSE_TESTS : false,
+
 // Build Property: VS_BUILD_DESCRIPTION 
 // Type: String
 // Valid Values: any non-empty string (in quotes)

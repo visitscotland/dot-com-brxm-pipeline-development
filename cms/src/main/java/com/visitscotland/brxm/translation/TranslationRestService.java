@@ -90,7 +90,8 @@ public class TranslationRestService {
             if (ex.getCause() instanceof IllegalArgumentException) {
                 throw new ResponseStatusException(HttpStatus.BAD_REQUEST, ex.getMessage());
             } else {
-                throw new ResponseStatusException((HttpStatus.INTERNAL_SERVER_ERROR));
+                log.error("Failed to send document for translation", ex);
+                throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, ex.getMessage(), ex);
             }
         }
     }

@@ -382,49 +382,52 @@ class ProductSearchBuilderTest {
     @Test
     @DisplayName("Rating - A single parameters is included")
     void proximity() {
-        mockLocationLoader("Edinburgh");
+        mockLocationDistrictLoader("Leith");
         String url = createBuilder().productTypes(DEFAULT_TYPE)
-                .location("Edinburgh")
+                .location("Leith")
                 .proximity(6.5)
                 .build();
 
         validateUrl(url);
-        assertTrue(url.contains("locprox=6.5"),
+        assertTrue(url.contains("areaproxdist=6.5"),
                 String.format("The Generated URL is expected to have no order (%s) ", url)
                 );
+        assertTrue(url.contains("locprox=1"));
     }
 
     @Test
     @DisplayName("Proximity - Empty value is replaced with default value")
     void proximity_empty() {
         when(properties.getDmsMapDefaultDistance()).thenReturn(10.1);
-        mockLocationLoader("Edinburgh");
+        mockLocationDistrictLoader("Leith");
         String url = createBuilder().productTypes(DEFAULT_TYPE)
-                .location("Edinburgh")
+                .location("Leith")
                 .proximity(null)
                 .build();
 
         validateUrl(url);
-        assertTrue(url.contains("locprox=10.1"),
+        assertTrue(url.contains("areaproxdist=10.1"),
                 String.format("The Generated URL is expected to have no order (%s) ", url)
                 );
+        assertTrue(url.contains("locprox=1"));
     }
 
     @Test
     @DisplayName("Proximity - Zero value is treated as empty value (CMS Limitation overcome)")
     void proximity_zero() {
         when(properties.getDmsMapDefaultDistance()).thenReturn(10.1);
-        mockLocationLoader("Edinburgh");
+        mockLocationDistrictLoader("Leith");
         String url = createBuilder().productTypes(DEFAULT_TYPE)
-                .location("Edinburgh")
+                .location("Leith")
                 .proximity(0.0)
                 .build();
 
         validateUrl(url);
         assertTrue(
-                url.contains("locprox=10.1"),
+                url.contains("areaproxdist=10.1"),
                 String.format("The Generated URL is expected to have no order (%s) ", url)
                 );
+        assertTrue(url.contains("locprox=1"));
     }
 
     @Test
@@ -510,13 +513,14 @@ class ProductSearchBuilderTest {
         when(ps.getDistance()).thenReturn(4.);
         when(ps.getDmsCategories()).thenReturn(new String[0]);
         when(ps.getDmsFacilities()).thenReturn(null);
-        mockLocationLoader("Skye");
+        mockLocationDistrictLoader("Skye");
 
         String url = createBuilder().fromHippoBean(ps).build();
 
         assertTrue(url.contains("prodtypes=even"), "The parameter hasn't been populated");
         assertTrue(url.contains("loc=Skye") && url.contains("locplace=555"), "The parameters for location haven't been populated");
-        assertTrue(url.contains("locprox=4"), "The parameter proximity hasn't been populated");
+        assertTrue(url.contains("areaproxdist=4"), "The parameter proximity hasn't been populated");
+        assertTrue(url.contains("locprox=1"), "The parameter proximity hasn't been populated");
         assertFalse(url.contains("cat="), "The parameter for category should not contain any value");
         assertFalse(url.contains("fac_id="), "The parameter for facilities should not contain any value");
     }
@@ -555,6 +559,18 @@ class ProductSearchBuilderTest {
         LocationObject loc = new LocationObject();
         loc.setName(output);
         loc.setKey("555");
+        when(locationLoader.getLocation(location, locale)).thenReturn(loc);
+    }
+
+    private void mockLocationDistrictLoader(String location) {
+        mockLocationDistrictLoader(location, null, location);
+    }
+
+    private void mockLocationDistrictLoader(String location, Locale locale, String output) {
+        LocationObject loc = new LocationObject();
+        loc.setName(output);
+        loc.setKey("555");
+        loc.setType("DISTRICT");
         when(locationLoader.getLocation(location, locale)).thenReturn(loc);
     }
 

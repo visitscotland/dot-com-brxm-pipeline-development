@@ -5,9 +5,13 @@
 <#include "../../../../frontend/components/vs-canned-search.ftl">
 <#include "../../../../frontend/components/vs-button.ftl">
 
+<#include "../../global/cms-errors.ftl">
+
 <#-- @ftlvariable name="module" type="com.visitscotland.brxm.model.CannedSearchModule" -->
 
 <#macro cannedSearch module themeName="">
+    <@cmsErrors errors=module.errorMessages!"" editMode=editMode />
+
     <vs-canned-search
         api-url="${module.cannedSearchEndpoint}"
         search-type="${module.productType}"

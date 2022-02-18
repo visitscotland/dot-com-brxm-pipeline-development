@@ -62,8 +62,11 @@ public class TouristInformationMockBuilder {
             addQuote();
         }
 
+        CMSLink cmsLink = mock(CMSLink.class);
         HippoBean sharedLink = mock(HippoBean.class, withSettings().extraInterfaces(Linkable.class));
-        when(quote.getProduct()).thenReturn(sharedLink);
+
+        when(quote.getProduct()).thenReturn(cmsLink);
+        when(cmsLink.getLink()).thenReturn(sharedLink);
 
         return this;
     }

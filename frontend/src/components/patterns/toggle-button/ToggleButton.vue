@@ -41,8 +41,14 @@
         z-index: 3;
         display: block;
 
-        .vs-icon{
+        .vs-icon, svg {
             margin-top: 0;
+        }
+
+        &:hover {
+            .vs-icon, svg {
+                fill: $color-theme-primary;
+            }
         }
     }
 </style>

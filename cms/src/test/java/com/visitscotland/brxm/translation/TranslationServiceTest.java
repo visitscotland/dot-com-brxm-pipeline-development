@@ -396,8 +396,13 @@ public class TranslationServiceTest {
                 .withVariantNode(JcrDocument.VARIANT_UNPUBLISHED, translation1Unpublished).build();
         Node translation2Handle = new MockNodeBuilder().build();
         Node translation2Unpublished = new MockNodeBuilder().build();
-        EditableWorkflow translation2Workflow = mock(EditableWorkflow.class);
-        addToMockWorkflowManager("editing", translation2Handle, translation2Workflow);
+
+        EditableWorkflow editingWorkflow = mock(EditableWorkflow.class);
+        addToMockWorkflowManager("editing", translation2Handle, editingWorkflow);
+        TranslationWorkflow translationWorkflow = mock(TranslationWorkflow.class);
+        addToMockWorkflowManager("translation", translation2Unpublished, translationWorkflow);
+        addToMockWorkflowManager("translation", translation1Unpublished, translationWorkflow);
+
         JcrDocument translation2 = new MockJcrDocumentBuilder()
                 .withHandle(translation2Handle)
                 .withVariantNode(JcrDocument.VARIANT_UNPUBLISHED, translation2Unpublished).build();
@@ -412,14 +417,12 @@ public class TranslationServiceTest {
         List<JcrDocument> documentsBeingEditedList = service.setTranslationContent(mockJcrDocument, content);
         assertThat(documentsBeingEditedList).isNotNull().isEmpty();
         verify(translation1Workflow).obtainEditableInstance();
-        verify(translation1Unpublished).setProperty(eq(JcrDocument.VS_TRANSLATION_FLAG), eq(true));
-        verify(translation1Unpublished).setProperty(eq(JcrDocument.VS_TRANSLATION_DIFF), eq("serializedContent"));
         verify(translation1Workflow).disposeEditableInstance();
 
-        verify(translation2Workflow).obtainEditableInstance();
-        verify(translation2Unpublished).setProperty(eq(JcrDocument.VS_TRANSLATION_FLAG), eq(true));
-        verify(translation2Unpublished).setProperty(eq(JcrDocument.VS_TRANSLATION_DIFF), eq("serializedContent"));
-        verify(translation2Workflow).disposeEditableInstance();
+        verify(editingWorkflow).obtainEditableInstance();
+        verify(editingWorkflow).disposeEditableInstance();
+        verify(translationWorkflow, times(2)).setTranslationFlag(true);
+        verify(translationWorkflow, times(2)).setTranslationDiff("serializedContent");
 
         verify(mockJcrSession).save();
     }

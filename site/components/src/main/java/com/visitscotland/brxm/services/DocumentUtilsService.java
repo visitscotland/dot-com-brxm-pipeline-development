@@ -159,7 +159,7 @@ public class DocumentUtilsService {
         List<B> sortedTranslations = new ArrayList<>();
         // The ordering of translations for SEO purposes is defined in VS-1416 (see issue comments)
         // This is stored as a comma separated list in the channel properties file
-        String seoSortOrderProperty = Contract.defaultIfNull(bundle.getResourceBundle("channel", "seo.alternate-link-locale-order", Locale.UK), "");
+        String seoSortOrderProperty = Contract.defaultIfNull(properties.getChannelOrder(), "");
         for (String locale: seoSortOrderProperty.split(",")) {
             for (BaseDocument bean : availableTranslations){
                 if (locale != null && bean.getLocale().getLanguage().equals(locale)){

@@ -29,7 +29,7 @@ public class ProductSearchBuilder {
     private static final Logger logger = LoggerFactory.getLogger(ProductSearchBuilder.class.getName());
 
     enum Order {
-        DISTANCE("proximityAsc"), NONE(null);
+        DISTANCE("proximityAsc"), ALPHA("alpha"),  NONE(null);
 
         final String value;
 
@@ -312,16 +312,17 @@ public class ProductSearchBuilder {
             compose = addParams(compose, AVAILABILITY, "off");
         }
 
-        if (proximity == null){
-            proximity = properties.getDmsMapDefaultDistance();
-        }
+        //Variable set to 1 only for District or Coordinates, other types can't search by distance therefore this value should remain 0
+        String locProx = "0";
 
         //The list of parameters is different if a location is provided from latitude and longitude
         if (location != null) {
             LocationObject loc = locationLoader.getLocation(location, locale);
 
             compose = addParams(compose, "POLYGON".equals(loc.getType()) ? LOCATION_POLYGON_PARAM : LOCATION_PLACE_PARAM, loc.getKey());
-            compose = addParams(compose, PROXIMITY_LOCATION_PARAM, proximity.toString());
+            if ("DISTRICT".equals(loc.getType())){
+                locProx = "1";
+            }
             
             try {
                 compose = addParams(compose, LOCATION_NAME_PARAM, URLEncoder.encode(loc.getName(), "UTF-8"));
@@ -331,8 +332,19 @@ public class ProductSearchBuilder {
         } else if (latitude != null && longitude != null) {
             compose = addParams(compose, LATITUDE_PARAM, latitude.toString());
             compose = addParams(compose, LONGITUDE_PARAM, longitude.toString());
+            locProx = "1";
+        }
+
+        compose = addParams(compose, PROXIMITY_LOCATION_PARAM, locProx);
+
+        //add parameter distance only for location types that allows search by distance
+        if ("1".equals(locProx)){
+            if (proximity == null){
+                proximity = properties.getDmsMapDefaultDistance();
+            }
             compose = addParams(compose, PROXIMITY_PIN_PARAM, proximity.toString());
         }
+
         if (Boolean.TRUE.equals(free)){
             compose = addParams(compose, FREE, "0");
         }

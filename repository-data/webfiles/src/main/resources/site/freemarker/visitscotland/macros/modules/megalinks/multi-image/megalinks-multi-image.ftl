@@ -3,7 +3,6 @@
 <#include "./multi-image-featured.ftl">
 <#include "./multi-image-two-items.ftl">
 <#include "./multi-image-three-items.ftl">
-<#include "../../../global/cms-errors.ftl">
 
 <#macro multiImage item showTeaser theme>
     <vs-col
@@ -11,7 +10,6 @@
         class="offset-1"
     >
         <vs-row>
-            <@cmsErrors errors=item.errorMessages!"" editMode=editMode />
             <#-- if there's at least one featured link -->
             <#if item.featuredLinks?size gt 0>
                 <@multiImageFeatured lastFeatured='false' feature=item.featuredLinks[0] theme=theme />

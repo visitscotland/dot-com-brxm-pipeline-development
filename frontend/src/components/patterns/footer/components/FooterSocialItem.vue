@@ -111,10 +111,15 @@ export default {
             }
 
             &:focus {
+                box-shadow: $shadow-button-focus;
+                background-color: $color-white;
+                color: $color-gray-shade-1;
                 outline: none;
-                border: 1px solid $color-pink;
-                box-shadow: 0 0 0 2px $color-pink-tint-5;
-            }
+
+                .vs-icon {
+                    fill: $color-gray-shade-1 !important;
+                }
+        }
 
             .vs-icon {
                 &.vs-icon--size-md {

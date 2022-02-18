@@ -1,0 +1,17 @@
+definitions:
+  config:
+    /hippo:configuration/hippo:groups/vs-developer:
+      jcr:primaryType: hipposys:group
+      hipposys:description: It allows a certain degree of control to investigate issues,
+        creation of labels and edit content
+      hipposys:securityprovider: internal
+      hipposys:userroles:
+        .meta:category: system
+        .meta:add-new-system-values: true
+        type: string
+        value: [xm.default-user.author]
+      hipposys:members:
+        .meta:category: system
+        .meta:add-new-system-values: true
+        type: string
+        value: [developer]

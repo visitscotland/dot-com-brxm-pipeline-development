@@ -1,0 +1,17 @@
+definitions:
+  config:
+    /hippo:configuration/hippo:groups/vs-editor:
+      jcr:primaryType: hipposys:group
+      hipposys:description: Content Editor General role. It has access to documents
+        and labels
+      hipposys:securityprovider: internal
+      hipposys:userroles:
+        .meta:category: system
+        .meta:add-new-system-values: true
+        type: string
+        value: [xm.default-user.editor, xm.channel.webmaster]
+      hipposys:members:
+        .meta:category: system
+        .meta:add-new-system-values: true
+        type: string
+        value: [editor]

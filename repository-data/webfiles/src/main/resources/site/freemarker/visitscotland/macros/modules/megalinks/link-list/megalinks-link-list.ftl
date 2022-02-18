@@ -1,6 +1,5 @@
 <#include "../../../../../include/imports.ftl">
 <#include "../../../../../frontend/components/vs-megalink-link-list.ftl">
-<#include "../../../global/cms-errors.ftl">
 
 <#macro linkList item showTeaser theme>
     <vs-row>
@@ -10,7 +9,6 @@
             class="offset-lg-1"
         >
             <vs-row>
-                <@cmsErrors errors=item.errorMessages!"" editMode=editMode />
                 <#list item.links as listItem>
                     <#if listItem.image.cmsImage??>
                         <#assign image>

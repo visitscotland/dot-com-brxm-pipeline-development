@@ -114,8 +114,13 @@ public class ListicleFactory {
         } else if (link instanceof DMSLink) {
             DMSLink dmsLink = (DMSLink) link;
             JsonNode product = dmsData.productCard(dmsLink.getProduct(), locale);
-            processDMSMainProduct(module, dmsLink, product);
-            return linksService.createDmsLink(locale, dmsLink, product);
+            if (product == null) {
+                contentLogger.warn("There is no product with the id '{}', ({}) ", dmsLink.getProduct(), link.getPath());
+                module.addErrorMessage("Main Link: There is no a product with the id " + dmsLink.getProduct());
+            }else {
+                processDMSMainProduct(module, dmsLink, product);
+                return linksService.createDmsLink(locale, dmsLink, product);
+            }
         } else if (link instanceof CMSLink) {
             CMSLink cmsLink = (CMSLink) link;
             EnhancedLink eLink = linksService.createEnhancedLink((Linkable) cmsLink.getLink(), module, locale,false);
@@ -128,7 +133,11 @@ public class ListicleFactory {
             if (module.getImage() == null) {
                 module.setImage(eLink.getImage());
             }
-
+            if (eLink.getLink() == null){
+                contentLogger.warn("There is no product with the id '{}', ({}) ", cmsLink.getLink(), cmsLink.getLink().getPath());
+                module.addErrorMessage("Main Link: The DMS id is not valid, please review the document at: " + cmsLink.getLink().getPath());
+                return null;
+            }
             return  eLink;
         }  else if (link instanceof ExternalLink || link instanceof ProductSearchLink ) {
                 return linksService.createFindOutMoreLink(module, locale,link);

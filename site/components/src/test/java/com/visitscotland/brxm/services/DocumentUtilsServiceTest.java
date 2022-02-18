@@ -214,7 +214,7 @@ class DocumentUtilsServiceTest {
     @Test
     @DisplayName("Translations sorted by SEO order")
     void sortTranslationsBySeoOrdering() {
-        when(bundle.getResourceBundle("channel", "seo.alternate-link-locale-order", Locale.UK)).thenReturn("en,fr,es");
+        when(properties.getChannelOrder()).thenReturn("en,fr,es");
         General englishDoc = mock(General.class);
         when(englishDoc.getLocale()).thenReturn(Locale.UK);
         General frenchDoc = mock(General.class);
@@ -234,7 +234,7 @@ class DocumentUtilsServiceTest {
     @NullSource
     @ValueSource(strings = {"", "en,fr", "notalocale"})
     void sortTranslations_invalidSeoProperty(String seoProperty) {
-        when(bundle.getResourceBundle("channel", "seo.alternate-link-locale-order", Locale.UK)).thenReturn(seoProperty);
+        when(properties.getChannelOrder()).thenReturn(seoProperty);
         General englishDoc = mock(General.class);
         when(englishDoc.getLocale()).thenReturn(Locale.UK);
         General frenchDoc = mock(General.class);

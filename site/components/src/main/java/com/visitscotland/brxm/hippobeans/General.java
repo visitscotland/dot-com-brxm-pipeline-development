@@ -17,9 +17,7 @@ public class General extends Page {
                 "visitscotland:TourismInformation",
                 "visitscotland:LongCopy",
                 "visitscotland:Article",
-                "visitscotland:IknowCommunity",
                 "visitscotland:Stackla",
-                "visitscotland:MarketoForm",
                 "visitscotland:CannedSearchTours",
                 "visitscotland:CannedSearch" };
     }

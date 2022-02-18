@@ -34,4 +34,12 @@
             name: 'H6'
         }
     ]);
+
+    CKEDITOR.stylesSet.add('general_intro', [
+        {
+           element: 'span',
+           name: 'Info Text',
+           attributes: { 'class': 'info-text' }
+        },
+    ]);
 }());

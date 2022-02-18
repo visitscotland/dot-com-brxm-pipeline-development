@@ -91,6 +91,25 @@ Map getPropParsers () {
       }
     ],
 
+    VS_SKIP_LIGHTHOUSE_TESTS : [ 
+      default: "false", 
+      parser : { rawValue ->
+        // NOTE: We have to convert toString() first to parse the raw value for a couple
+        //       of reasons. First, the rawValue may be an instance of a class which does
+        //       not have a toBoolean() method defined, such as Integer. Second, even if 
+        //       rawValue's class does have a toBoolean() method, the Jenkins server may
+        //       not have permission in the Groovy Sandbox to call toBoolean() on that 
+        //       class. We do know that we can call Object.toString(), String.toBoolean(),
+        //       and Boolean.toString(), so we can safely chain those calls to coerce the
+        //       the environment variable to either 'true' or 'false' like we need.
+        String parsedValue = rawValue?.toString()?.toBoolean()?.toString()
+        if ( parsedValue == null ) {
+          error("Could not parse build property VS_BUILD_FEATURE_ENVIRONMENT (value: ${rawValue}) to boolean!")
+        }
+        return parsedValue
+      }
+    ],
+
     VS_BUILD_DESCRIPTION : [
       default: "VS.COM Jenkins Build",
       parser: { rawValue ->
