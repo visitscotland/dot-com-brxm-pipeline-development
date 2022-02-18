@@ -319,9 +319,9 @@ pipeline {
               changeRequest()
             }
           }
-          unstash 'uiLockFile'
-          unstash 'frontEndLockFile'
           steps {
+            unstash 'uiLockFile'
+            unstash 'frontEndLockFile'
             script{
               try {
                 def policyEvaluation = nexusPolicyEvaluation failBuildOnNetworkError: true, iqApplication: selectedApplication('visitscotland-ssr'), iqScanPatterns: [[scanPattern:  '**/yarn.lock' ]], iqStage:  'build', jobCredentialsId: 'nexusiq'
