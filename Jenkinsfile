@@ -120,7 +120,9 @@ pipeline {
         success {
           sh 'mvn -f pom.xml install -Pdist-with-development-data'
           // Save frontend NPM package for use in later deploy steps
-          archiveArtifacts artifacts: 'ui-integration/vs-frontend-integration*.tgz', fingerprint: true
+          archiveArtifacts artifacts: 'ui-integration/yarn.lock, frontend/yarn.lock, ui-integration/vs-frontend-integration*.tgz', fingerprint: true
+          stash includes: 'ui-integration/yarn.lock', name: 'uiLockFile'
+          stash includes: 'frontend/yarn.lock', name: 'frontendLockFile'
           mail bcc: '', body: "<b>Notification</b><br>Project: ${env.JOB_NAME} <br>Build Number: ${env.BUILD_NUMBER} <br> build URL: ${env.BUILD_URL}", cc: '', charset: 'UTF-8', from: '', mimeType: 'text/html', replyTo: '', subject: "Maven build succeeded at ${env.STAGE_NAME} for ${env.JOB_NAME}", to: "${MAIL_TO}";
         }
         failure {
@@ -317,6 +319,8 @@ pipeline {
               changeRequest()
             }
           }
+          unstash 'uiLockFile'
+          unstash 'frontEndLockFile'
           steps {
             script{
               try {
