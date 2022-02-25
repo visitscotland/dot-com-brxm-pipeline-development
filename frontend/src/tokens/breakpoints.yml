@@ -1,0 +1,31 @@
+#
+# BREAKPOINT TOKENS
+# Use these tokens to set breakpoint widths.
+#
+
+props:
+  breakpoint_xs:
+    value: "0"
+  breakpoint_sm:
+    value: "576px"
+  breakpoint_md:
+    value: "768px"
+  breakpoint_lg:
+    value: "992px"
+  breakpoint_xl:
+    value: "1200px"
+  breakpoint_xxl:
+    value: "1400px"
+  max_container_width_sm:
+    value: "540px"
+  max_container_width_md:
+    value: "720px"
+  max_container_width_lg:
+    value: "960px"
+  max_container_width_xl:
+    value: "1140px"
+  max_container_width_xxl:
+    value: "1340px"
+global:
+  type: number
+  category: breakpoints

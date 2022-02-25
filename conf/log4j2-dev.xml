@@ -23,6 +23,15 @@
       </Policies>
     </RollingFile>
 
+    <!-- content appender for site module -->
+    <RollingFile name="content" fileName="${sys:catalina.base}/logs/content.log"
+                 filePattern="${sys:catalina.base}/logs/content.log.%d{yyyy-MM-dd}">
+      <PatternLayout pattern="%d{dd.MM.yyyy HH:mm:ss} %-5p %t [%C{1}.%M:%L] %m%n"/>
+      <Policies>
+        <TimeBasedTriggeringPolicy/>
+      </Policies>
+    </RollingFile>
+
     <!-- audit.log -->
     <RollingFile name="audit" fileName="${sys:catalina.base}/logs/audit.log"
                  filePattern="${sys:catalina.base}/logs/audit.log.%d{yyyy-MM-dd}">
@@ -72,6 +81,11 @@
 
     <!-- Site logging -->
     <Logger name="org.hippoecm.hst" level="warn"/>
+
+    <!-- Content logger. No need for console appender as Root logger also captures logs from the content logger -->
+    <Logger name="content" level="info">
+      <AppenderRef ref="content" />
+    </Logger>
 
     <!-- DiagnosticReportingValve only logs when diagnostics enabled in hst:hosts config in repo hence
          can be here on level 'info' -->
@@ -123,7 +137,7 @@
     </Logger>
 
     <!-- project logging -->
-    <Logger name="com.visitscotland.www" level="debug"/>
+    <Logger name="com.visitscotland.brxm" level="debug"/>
 
     <Root level="warn">
       <AppenderRef ref="site"/>

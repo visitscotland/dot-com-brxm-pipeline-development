@@ -1,0 +1,13 @@
+definitions:
+  config:
+    /hst:platform/hst:hosts/cms-develop-nightly-brc/com:
+      jcr:primaryType: hst:virtualhost
+      hst:schemeagnostic: true
+      /visitscotland:
+        jcr:primaryType: hst:virtualhost
+        /cms-develop-nightly-brc:
+          jcr:primaryType: hst:virtualhost
+          /hst:root:
+            jcr:primaryType: hst:mount
+            hst:ismapped: false
+            hst:namedpipeline: WebApplicationInvokingPipeline

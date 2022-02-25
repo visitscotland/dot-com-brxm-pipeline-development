@@ -1,0 +1,91 @@
+definitions:
+  config:
+    /hippo:configuration/hippo:modules/validation/hippo:moduleconfig/visitscotland:scotland-coordinates-validator:
+      jcr:primaryType: hipposys:moduleconfig
+      extreme.east: '-0.7'
+      extreme.north: '60.9'
+      extreme.south: '54.6'
+      extreme.west: '-13.7'
+      hipposys:className: com.visitscotland.brxm.validator.CoordinatesValidator
+    /hippo:configuration/hippo:modules/validation/hippo:moduleconfig/visitscotland:link-image-validator:
+      jcr:primaryType: hipposys:moduleconfig
+      hipposys:className: com.visitscotland.brxm.validator.LinkImageValidator
+    /hippo:configuration/hippo:modules/validation/hippo:moduleconfig/visitscotland:image-validator:
+      jcr:primaryType: hipposys:moduleconfig
+      hipposys:className: com.visitscotland.brxm.validator.ImageValidator
+    /hippo:configuration/hippo:modules/validation/hippo:moduleconfig/visitscotland:link-validator:
+      jcr:primaryType: hipposys:moduleconfig
+      hipposys:className: com.visitscotland.brxm.validator.LinkValidator
+    /hippo:configuration/hippo:modules/validation/hippo:moduleconfig/visitscotland:url-validator:
+      jcr:primaryType: hipposys:moduleconfig
+      hipposys:className: org.onehippo.cms.services.validation.validator.RegExpValidator
+      regexp.pattern: \b(https?|/):/(/[-a-zA-Z0-9:.]*)*([\?]([-a-zA-Z0-9+@#/%=~_|])*)?
+    /hippo:configuration/hippo:modules/validation/hippo:moduleconfig/visitscotland:location-validator:
+      jcr:primaryType: hipposys:moduleconfig
+      hipposys:className: com.visitscotland.brxm.validator.LocationValidator
+    /hippo:configuration/hippo:modules/validation/hippo:moduleconfig/visitscotland:extrashort-string-validator:
+      jcr:primaryType: hipposys:moduleconfig
+      hipposys:className: com.visitscotland.brxm.validator.StringLengthValidator
+      maxLength: '30'
+    /hippo:configuration/hippo:modules/validation/hippo:moduleconfig/visitscotland:short-string-validator:
+      jcr:primaryType: hipposys:moduleconfig
+      hipposys:className: com.visitscotland.brxm.validator.StringLengthValidator
+      maxLength: '60'
+    /hippo:configuration/hippo:modules/validation/hippo:moduleconfig/visitscotland:medium-string-validator:
+      jcr:primaryType: hipposys:moduleconfig
+      hipposys:className: com.visitscotland.brxm.validator.StringLengthValidator
+      maxLength: '80'
+    /hippo:configuration/hippo:modules/validation/hippo:moduleconfig/visitscotland:long-string-validator:
+      jcr:primaryType: hipposys:moduleconfig
+      hipposys:className: com.visitscotland.brxm.validator.StringLengthValidator
+      maxLength: '150'
+    /hippo:configuration/hippo:modules/validation/hippo:moduleconfig/visitscotland:extralong-string-validator:
+      jcr:primaryType: hipposys:moduleconfig
+      hipposys:className: com.visitscotland.brxm.validator.StringLengthValidator
+      maxLength: '250'
+    /hippo:configuration/hippo:modules/validation/hippo:moduleconfig/visitscotland:seotitle-string-validator:
+      jcr:primaryType: hipposys:moduleconfig
+      hipposys:className: com.visitscotland.brxm.validator.StringLengthValidator
+      maxLength: '60'
+    /hippo:configuration/hippo:modules/validation/hippo:moduleconfig/visitscotland:seodescription-string-validator:
+      jcr:primaryType: hipposys:moduleconfig
+      hipposys:className: com.visitscotland.brxm.validator.StringLengthValidator
+      maxLength: '160'
+    /hippo:configuration/hippo:modules/validation/hippo:moduleconfig/visitscotland:external-document-validator:
+      jcr:primaryType: hipposys:moduleconfig
+      hipposys:className: com.visitscotland.brxm.validator.ExternalDocumentValidator
+    /hippo:configuration/hippo:modules/validation/hippo:moduleconfig/visitscotland:iknow-community-tag-validator:
+      jcr:primaryType: hipposys:moduleconfig
+      hipposys:className: com.visitscotland.brxm.validator.MultiValueNumberSelectedValidator
+      minLength: 2
+      maxLength: 6
+      targetField: visitscotland:tags
+    /hippo:configuration/hippo:modules/validation/hippo:moduleconfig/visitscotland:otyml-link-validator:
+      jcr:primaryType: hipposys:moduleconfig
+      hipposys:className: com.visitscotland.brxm.validator.MultiValueNumberSelectedValidator
+      minLength: 5
+      targetField: visitscotland:links
+    /hippo:configuration/hippo:modules/validation/hippo:moduleconfig/visitscotland:itinerary-stop-validator:
+      jcr:primaryType: hipposys:moduleconfig
+      hipposys:className: com.visitscotland.brxm.validator.UniqueLinksValidator
+      targetField: visitscotland:stops
+      linkIdField: hippo:docbase
+    /hippo:configuration/hippo:modules/validation/hippo:moduleconfig/visitscotland:otyml-unique-link-validator:
+      jcr:primaryType: hipposys:moduleconfig
+      hipposys:className: com.visitscotland.brxm.validator.UniqueLinksValidator
+      linkIdField: hippo:docbase
+      targetField: visitscotland:links
+    /hippo:configuration/hippo:modules/validation/hippo:moduleconfig/visitscotland:megalinks-unique-link-validator:
+      jcr:primaryType: hipposys:moduleconfig
+      hipposys:className: com.visitscotland.brxm.validator.UniqueLinksValidator
+      linkIdField: visitscotland:links
+      targetField: visitscotland:megalinkItems
+    /hippo:configuration/hippo:modules/validation/hippo:moduleconfig/visitscotland:travel-tab-transport-validator:
+      jcr:primaryType: hipposys:moduleconfig
+      hipposys:className: com.visitscotland.brxm.validator.UniqueLinksValidator
+      linkIdField: visitscotland:transport
+      targetField: visitscotland:accordion
+    /hippo:configuration/hippo:modules/validation/hippo:moduleconfig/visitscotland:youtube-url-validator:
+      jcr:primaryType: hipposys:moduleconfig
+      hipposys:className: org.onehippo.cms.services.validation.validator.RegExpValidator
+      regexp.pattern: \b(https|/):/(/[-a-zA-Z0-9:.]*)*\?(([-a-zA-Z0-9+@#/%=~_|])*&)*v=([-a-zA-Z0-9+@#/%=~_|])*

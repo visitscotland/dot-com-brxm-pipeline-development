@@ -1,0 +1,19 @@
+/* GLOBAL: Styles
+ *
+ * Should only contain a small number of styles
+ * that should apply on every page, but which 
+ * aren't better served by a library or 
+ * overrides of bootstrap styles
+ */
+
+body {
+    font-size: $body-font-size;
+
+    @include media-breakpoint-up(md) {
+        font-size: $body-font-size-md;
+    }
+}
+
+.zindex-fixed {
+    z-index: $zindex-fixed;
+}

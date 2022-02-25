@@ -1,0 +1,27 @@
+definitions:
+  config:
+    /hst:hst/hst:configurations/common/hst:abstractpages/base:
+      jcr:primaryType: hst:component
+      hst:template: base-layout
+      hst:referencecomponent: hst:components/breadcrumb
+      /menu:
+        jcr:primaryType: hst:component
+        hst:componentclassname: com.visitscotland.brxm.components.navigation.MenuComponent
+        hst:parameternames: [selectedMenu, level, menu]
+        hst:parametervalues: ['on', '1', main]
+        hst:template: base-top-menu
+      /top:
+        jcr:primaryType: hst:containercomponentreference
+        hst:referencecomponent: base/top
+      /footer:
+        jcr:primaryType: hst:component
+        hst:template: base-footer
+        hst:componentclassname: com.visitscotland.brxm.components.navigation.MenuComponent
+        hst:parameternames: [selectedMenu, level, menu]
+        hst:parametervalues: ['on', '1', footer]
+        /utility:
+          jcr:primaryType: hst:component
+          hst:componentclassname: com.visitscotland.brxm.components.navigation.MenuComponent
+          hst:parameternames: [selectedMenu, level, menu]
+          hst:parametervalues: ['on', '1', utility]
+          hst:template: utility-footer

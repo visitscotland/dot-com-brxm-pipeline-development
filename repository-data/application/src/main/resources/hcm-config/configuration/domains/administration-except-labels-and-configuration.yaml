@@ -1,0 +1,45 @@
+definitions:
+  config:
+    /hippo:configuration/hippo:domains/administration-except-labels-and-configuration:
+      jcr:primaryType: hipposys:domain
+      /administration-domain:
+        jcr:primaryType: hipposys:domainrule
+        /administration:
+          jcr:primaryType: hipposys:facetrule
+          hipposys:equals: true
+          hipposys:facet: jcr:path
+          hipposys:type: Reference
+          hipposys:value: /content/documents/administration
+        /exclude-labels:
+          jcr:primaryType: hipposys:facetrule
+          hipposys:equals: false
+          hipposys:facet: jcr:path
+          hipposys:type: Reference
+          hipposys:value: /content/documents/administration/labels
+        /exclude-configuration:
+          jcr:primaryType: hipposys:facetrule
+          hipposys:equals: false
+          hipposys:facet: jcr:path
+          hipposys:type: Reference
+          hipposys:value: /content/documents/administration/configuration
+      /admin:
+        jcr:primaryType: hipposys:authrole
+        hipposys:role: admin
+        hipposys:userrole:
+          .meta:category: system
+          type: string
+          value: xm.content.admin
+      /editor:
+        jcr:primaryType: hipposys:authrole
+        hipposys:role: readonly
+        hipposys:userrole:
+          .meta:category: system
+          type: string
+          value: xm.content.editor
+      /author:
+        jcr:primaryType: hipposys:authrole
+        hipposys:role: readonly
+        hipposys:userrole:
+          .meta:category: system
+          type: string
+          value: xm.content.author

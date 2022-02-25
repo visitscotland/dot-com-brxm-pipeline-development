@@ -1,0 +1,41 @@
+/* GLOBAL: STYLES 
+ *
+ * Library css should be loaded here globally rather than loaded
+ * within each vue component. This improves our caching strategy
+ * and cuts down on code duplication, but may change in the
+ * future if the build pipeline changes.
+ *
+ * See pull request #314 for more details and evidence
+ */
+
+@import "./resources.scss";
+@import "~bootstrap/scss/reboot";
+@import "~bootstrap/scss/utilities";
+@import "./sr-only-resets";
+
+/* Bootstrap components */
+@import "~bootstrap/scss/breadcrumb";
+@import "~bootstrap/scss/buttons";
+@import "~bootstrap/scss/card";
+@import "~bootstrap/scss/dropdown";
+@import "~bootstrap/scss/forms";
+@import "~bootstrap/scss/grid";
+@import "~bootstrap/scss/images";
+@import "~bootstrap/scss/input-group";
+@import "~bootstrap/scss/list-group";
+@import "~bootstrap/scss/navbar";
+@import "~bootstrap/scss/nav";
+@import "~bootstrap/scss/type";
+@import "~bootstrap/scss/tooltip";
+@import "~bootstrap/scss/modal";
+@import "~bootstrap/scss/popover";
+
+@import "~bootstrap-vue/src/variables";
+
+/* Bootstrap vue components */
+@import "~bootstrap-vue/src/components/dropdown/dropdown";
+@import "~bootstrap-vue/src/components/popover/popover";
+@import "~bootstrap-vue/src/components/tooltip/tooltip";
+@import "~bootstrap-vue/src/components/modal/modal";
+
+@import "./global-styles.scss";

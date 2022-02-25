@@ -1,0 +1,8 @@
+definitions:
+  config:
+    /hippo:configuration/hippo:domains/content/content-domain/exclude-administration:
+      jcr:primaryType: hipposys:facetrule
+      hipposys:equals: false
+      hipposys:facet: jcr:path
+      hipposys:type: Reference
+      hipposys:value: /content/documents/administration

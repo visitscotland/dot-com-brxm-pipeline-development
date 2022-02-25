@@ -1,0 +1,440 @@
+/content/documents/administration/labels/pages/itinerary:
+  .meta:order-before: homepage
+  jcr:primaryType: hippostd:folder
+  jcr:mixinTypes: ['hippo:named', 'mix:versionable']
+  jcr:uuid: e77ddf0a-f8a0-497e-8787-472fbe124674
+  hippo:name: Itinerary
+  hippostd:foldertype: [new-untranslated-folder-resource-bundle, new-resource-bundle]
+  /transports:
+    jcr:primaryType: hippo:handle
+    jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+    jcr:uuid: d63cf4a8-7f3c-446f-af1e-61bbb0f25bbb
+    hippo:name: Transports
+    hippo:versionHistory: 70966808-72c2-4d64-ba08-8fff41ee1014
+    /transports[1]:
+      jcr:primaryType: resourcebundle:resourcebundle
+      jcr:mixinTypes: ['mix:referenceable']
+      jcr:uuid: f1f5c160-67a0-4cb4-9bc1-4b755eacc20d
+      hippo:availability: []
+      hippostd:retainable: false
+      hippostd:state: draft
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2020-02-25T16:17:28.422Z
+      hippostdpubwf:lastModificationDate: 2021-10-14T11:07:22.645Z
+      hippostdpubwf:lastModifiedBy: admin
+      resourcebundle:descriptions: ['', '', '', '', '', '', '', '']
+      resourcebundle:id: transports
+      resourcebundle:keys: [car, boat, bus, cycling, ferry, public, train, walking]
+      resourcebundle:messages: [Car, Boat, Bus, Cycling, Ferry, Public transport,
+        Train, Walking]
+      resourcebundle:messages_de: [Auto, Schiff, Bus, Fahrrad, Fähre, ÖPNV, Zug, Zu
+          Fuß]
+      resourcebundle:messages_es: [Coche, Barco, Autobús, Bicicleta, Ferry, Transporte
+          público, Tren, A pie]
+      resourcebundle:messages_fr: [Voiture, Bateau, Bus, Vélo, Ferry, Transports en
+          commun, Train, À pied]
+      resourcebundle:messages_it: [Auto, Barca, Autobus, In Bici, Traghetto, Trasporto
+          publico, Treno, Camminare]
+      resourcebundle:messages_nl: [Auto, Boot, Bus, Fiets, Veerboot, Openbaar vervoer,
+        Trein, Te voet]
+    /transports[2]:
+      jcr:primaryType: resourcebundle:resourcebundle
+      jcr:mixinTypes: ['mix:versionable']
+      jcr:uuid: 8ebdf184-6fb1-40c0-9955-afa571aeb3bf
+      hippo:availability: [preview]
+      hippostd:retainable: false
+      hippostd:state: unpublished
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2020-02-25T16:17:28.422Z
+      hippostdpubwf:lastModificationDate: 2021-10-14T11:07:22.537Z
+      hippostdpubwf:lastModifiedBy: admin
+      resourcebundle:descriptions: ['', '', '', '', '', '', '', '']
+      resourcebundle:id: transports
+      resourcebundle:keys: [car, boat, bus, cycling, ferry, public, train, walking]
+      resourcebundle:messages: [Car, Boat, Bus, Cycling, Ferry, Public transport,
+        Train, Walking]
+      resourcebundle:messages_de: [Auto, Schiff, Bus, Fahrrad, Fähre, ÖPNV, Zug, Zu
+          Fuß]
+      resourcebundle:messages_es: [Coche, Barco, Autobús, Bicicleta, Ferry, Transporte
+          público, Tren, A pie]
+      resourcebundle:messages_fr: [Voiture, Bateau, Bus, Vélo, Ferry, Transports en
+          commun, Train, À pied]
+      resourcebundle:messages_it: [Auto, Barca, Autobus, In Bici, Traghetto, Trasporto
+          publico, Treno, Camminare]
+      resourcebundle:messages_nl: [Auto, Boot, Bus, Fiets, Veerboot, Openbaar vervoer,
+        Trein, Te voet]
+    /transports[3]:
+      jcr:primaryType: resourcebundle:resourcebundle
+      jcr:mixinTypes: ['mix:referenceable']
+      jcr:uuid: a7369477-6dae-4331-ae95-227ab4de125c
+      hippo:availability: [live]
+      hippostd:retainable: false
+      hippostd:state: published
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2020-02-25T16:17:28.422Z
+      hippostdpubwf:lastModificationDate: 2021-10-14T11:07:22.537Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippostdpubwf:publicationDate: 2021-10-14T11:07:25.675Z
+      resourcebundle:descriptions: ['', '', '', '', '', '', '', '']
+      resourcebundle:id: transports
+      resourcebundle:keys: [car, boat, bus, cycling, ferry, public, train, walking]
+      resourcebundle:messages: [Car, Boat, Bus, Cycling, Ferry, Public transport,
+        Train, Walking]
+      resourcebundle:messages_de: [Auto, Schiff, Bus, Fahrrad, Fähre, ÖPNV, Zug, Zu
+          Fuß]
+      resourcebundle:messages_es: [Coche, Barco, Autobús, Bicicleta, Ferry, Transporte
+          público, Tren, A pie]
+      resourcebundle:messages_fr: [Voiture, Bateau, Bus, Vélo, Ferry, Transports en
+          commun, Train, À pied]
+      resourcebundle:messages_it: [Auto, Barca, Autobus, In Bici, Traghetto, Trasporto
+          publico, Treno, Camminare]
+      resourcebundle:messages_nl: [Auto, Boot, Bus, Fiets, Veerboot, Openbaar vervoer,
+        Trein, Te voet]
+  /areas:
+    jcr:primaryType: hippo:handle
+    jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+    jcr:uuid: 022be4c0-9edf-4cb2-a28b-491040a53f5e
+    hippo:name: Areas
+    hippo:versionHistory: c9e7c66c-dc34-4944-bf21-2472db0c2ec9
+    /areas[1]:
+      jcr:primaryType: resourcebundle:resourcebundle
+      jcr:mixinTypes: ['mix:referenceable']
+      jcr:uuid: 5f1dc658-a3fd-4a26-b3e7-be2e11da5651
+      hippo:availability: []
+      hippostd:retainable: false
+      hippostd:state: draft
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2020-02-25T16:21:28.079Z
+      hippostdpubwf:lastModificationDate: 2021-10-14T11:29:00.535Z
+      hippostdpubwf:lastModifiedBy: admin
+      resourcebundle:descriptions: ['', '', '', '', '']
+      resourcebundle:id: areas
+      resourcebundle:keys: [all, west, east, south, north]
+      resourcebundle:messages: [All, West, East, South, North]
+      resourcebundle:messages_de: [Alle, Westen, Osten, Süden, Norden]
+      resourcebundle:messages_es: [Todas, Oeste, Este, Sur, Norte]
+      resourcebundle:messages_fr: [Toutes, Ouest, Est, Sud, Nord]
+      resourcebundle:messages_it: [Tutte, Ovest, Est, Sud, Nord]
+      resourcebundle:messages_nl: [Allemaal, Westen, Oosten, Zuiden, Noorden]
+    /areas[2]:
+      jcr:primaryType: resourcebundle:resourcebundle
+      jcr:mixinTypes: ['mix:versionable']
+      jcr:uuid: f6d00141-7adb-426e-8a95-ce361867b5f4
+      hippo:availability: [preview]
+      hippostd:retainable: false
+      hippostd:state: unpublished
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2020-02-25T16:21:28.079Z
+      hippostdpubwf:lastModificationDate: 2021-10-14T11:29:10.894Z
+      hippostdpubwf:lastModifiedBy: admin
+      resourcebundle:descriptions: ['', '', '', '', '']
+      resourcebundle:id: areas
+      resourcebundle:keys: [all, west, east, south, north]
+      resourcebundle:messages: [All, West, East, South, North]
+      resourcebundle:messages_de: [Alle, Westen, Osten, Süden, Norden]
+      resourcebundle:messages_es: [Todas, Oeste, Este, Sur, Norte]
+      resourcebundle:messages_fr: [Toutes, Ouest, Est, Sud, Nord]
+      resourcebundle:messages_it: [Tutte, Ovest, Est, Sud, Nord]
+      resourcebundle:messages_nl: [Allemaal, Westen, Oosten, Zuiden, Noorden]
+    /areas[3]:
+      jcr:primaryType: resourcebundle:resourcebundle
+      jcr:mixinTypes: ['mix:referenceable']
+      jcr:uuid: 107cb6ed-ec61-438c-a68a-30d540300b83
+      hippo:availability: [live]
+      hippostd:retainable: false
+      hippostd:state: published
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2020-02-25T16:21:28.079Z
+      hippostdpubwf:lastModificationDate: 2021-10-14T11:29:10.894Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippostdpubwf:publicationDate: 2021-10-14T11:35:23.142Z
+      resourcebundle:descriptions: ['', '', '', '', '']
+      resourcebundle:id: areas
+      resourcebundle:keys: [all, west, east, south, north]
+      resourcebundle:messages: [All, West, East, South, North]
+      resourcebundle:messages_de: [Alle, Westen, Osten, Süden, Norden]
+      resourcebundle:messages_es: [Todas, Oeste, Este, Sur, Norte]
+      resourcebundle:messages_fr: [Toutes, Ouest, Est, Sud, Nord]
+      resourcebundle:messages_it: [Tutte, Ovest, Est, Sud, Nord]
+      resourcebundle:messages_nl: [Allemaal, Westen, Oosten, Zuiden, Noorden]
+  /themes:
+    jcr:primaryType: hippo:handle
+    jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+    jcr:uuid: 4ac99bf5-c44d-46e2-bc17-0b4ae8bcc065
+    hippo:name: Themes
+    hippo:versionHistory: 86b5bb79-0ae5-47ed-9a58-6f089802e282
+    /themes[1]:
+      jcr:primaryType: resourcebundle:resourcebundle
+      jcr:mixinTypes: ['mix:referenceable']
+      jcr:uuid: ca3011df-b044-4c8d-a651-d4a140b878ad
+      hippo:availability: []
+      hippostd:retainable: false
+      hippostd:state: draft
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2020-02-25T16:23:10.355Z
+      hippostdpubwf:lastModificationDate: 2021-10-14T11:37:19.314Z
+      hippostdpubwf:lastModifiedBy: admin
+      resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '', '', '']
+      resourcebundle:id: themes
+      resourcebundle:keys: [acti, castle, city, familyev, history, islands, landscapes,
+        sightseeing, filmev, spahealth, whisky]
+      resourcebundle:messages: [Activities, Castles, Cities, Families, History, Islands,
+        Landscapes, Sightseeing, TV & film, Wellness, Whisky]
+      resourcebundle:messages_de: [Aktivitäten, Burgen & Schlösser, Städte, Familie,
+        Geschichte, Inseln, Landschaft, Sehenswürdigkeiten, Film & TV, Wellness, Whisky]
+      resourcebundle:messages_es: [Actividades, Castillos, Ciudades, Familias, Historia,
+        Islas, Paisajes, Turismo, Cine y televisión, Bienestar, Whisky]
+      resourcebundle:messages_fr: [Activités, Châteaux, Villes, En Famille, Histoire,
+        Îles, Paysages, Attractions, Cinéma et télévision, Bien-être, Whisky]
+      resourcebundle:messages_it: [Attività, Castelli, Città, Famiglie, Storia, Isole,
+        Paesaggi, Visita turistica, Tv & film, Benessere, Whisky]
+      resourcebundle:messages_nl: [Activiteiten, Kastelen, Steden, Gezinnen, Geschiedenis,
+        Eilanden, Natuur, Bezienswaardigheden, TV & film, Welzijn, Whisky]
+    /themes[2]:
+      jcr:primaryType: resourcebundle:resourcebundle
+      jcr:mixinTypes: ['mix:versionable']
+      jcr:uuid: 2aae4eab-85cc-411f-bc2f-8480fe7e5a67
+      hippo:availability: [preview]
+      hippostd:retainable: false
+      hippostd:state: unpublished
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2020-02-25T16:23:10.355Z
+      hippostdpubwf:lastModificationDate: 2021-10-14T12:31:51.642Z
+      hippostdpubwf:lastModifiedBy: admin
+      resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '', '', '']
+      resourcebundle:id: themes
+      resourcebundle:keys: [acti, castle, city, familyev, history, islands, landscapes,
+        sightseeing, filmev, spahealth, whisky]
+      resourcebundle:messages: [Activities, Castles, Cities, Families, History, Islands,
+        Landscapes, Sightseeing, TV & film, Wellness, Whisky]
+      resourcebundle:messages_de: [Aktivitäten, Burgen & Schlösser, Städte, Familie,
+        Geschichte, Inseln, Landschaft, Sehenswürdigkeiten, Film & TV, Wellness, Whisky]
+      resourcebundle:messages_es: [Actividades, Castillos, Ciudades, Familias, Historia,
+        Islas, Paisajes, Turismo, Cine y televisión, Bienestar, Whisky]
+      resourcebundle:messages_fr: [Activités, Châteaux, Villes, En Famille, Histoire,
+        Îles, Paysages, Attractions, Cinéma et télévision, Bien-être, Whisky]
+      resourcebundle:messages_it: [Attività, Castelli, Città, Famiglie, Storia, Isole,
+        Paesaggi, Visita turistica, Tv & film, Benessere, Whisky]
+      resourcebundle:messages_nl: [Activiteiten, Kastelen, Steden, Gezinnen, Geschiedenis,
+        Eilanden, Natuur, Bezienswaardigheden, TV & film, Welzijn, Whisky]
+    /themes[3]:
+      jcr:primaryType: resourcebundle:resourcebundle
+      jcr:mixinTypes: ['mix:referenceable']
+      jcr:uuid: c5eeabf7-efac-4f4f-9576-846682a588dd
+      hippo:availability: [live]
+      hippostd:retainable: false
+      hippostd:state: published
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2020-02-25T16:23:10.355Z
+      hippostdpubwf:lastModificationDate: 2021-10-14T12:31:51.642Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippostdpubwf:publicationDate: 2021-10-14T12:31:57.690Z
+      resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '', '', '']
+      resourcebundle:id: themes
+      resourcebundle:keys: [acti, castle, city, familyev, history, islands, landscapes,
+        sightseeing, filmev, spahealth, whisky]
+      resourcebundle:messages: [Activities, Castles, Cities, Families, History, Islands,
+        Landscapes, Sightseeing, TV & film, Wellness, Whisky]
+      resourcebundle:messages_de: [Aktivitäten, Burgen & Schlösser, Städte, Familie,
+        Geschichte, Inseln, Landschaft, Sehenswürdigkeiten, Film & TV, Wellness, Whisky]
+      resourcebundle:messages_es: [Actividades, Castillos, Ciudades, Familias, Historia,
+        Islas, Paisajes, Turismo, Cine y televisión, Bienestar, Whisky]
+      resourcebundle:messages_fr: [Activités, Châteaux, Villes, En Famille, Histoire,
+        Îles, Paysages, Attractions, Cinéma et télévision, Bien-être, Whisky]
+      resourcebundle:messages_it: [Attività, Castelli, Città, Famiglie, Storia, Isole,
+        Paesaggi, Visita turistica, Tv & film, Benessere, Whisky]
+      resourcebundle:messages_nl: [Activiteiten, Kastelen, Steden, Gezinnen, Geschiedenis,
+        Eilanden, Natuur, Bezienswaardigheden, TV & film, Welzijn, Whisky]
+  /itineraries:
+    jcr:primaryType: hippo:handle
+    jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+    jcr:uuid: 97e64157-de1c-4f91-93db-5062825421b4
+    hippo:name: Itinerary Page
+    hippo:versionHistory: f89faf0e-db7b-442a-8a41-f79d079b5c77
+    /itineraries[1]:
+      jcr:primaryType: resourcebundle:resourcebundle
+      jcr:mixinTypes: ['mix:referenceable']
+      jcr:uuid: 667af60a-2bda-42de-9370-62d8a1cca651
+      hippo:availability: []
+      hippostd:retainable: false
+      hippostd:state: draft
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2019-12-16T14:56:24.091Z
+      hippostdpubwf:lastModificationDate: 2021-10-14T12:29:06.472Z
+      hippostdpubwf:lastModifiedBy: admin
+      resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '', '', '', '',
+        '', '', '', '', '', '', '', '', '', '', '', '', '', 'This field is to define
+          a range of time like: 9:00am to 13:00pm', '', '', '', '', '', '']
+      resourcebundle:id: itinerary
+      resourcebundle:keys: [stop.nearby-stay, stop.nearby-eat, stop.cta, stop.title,
+        start-finish, days, distance, themes, miles-abbreviation, kilometres-abbreviation,
+        transport, day, miles, kilometres, highlights, areas-covered, stop.no-stop,
+        stop.time-to-explore, theme, stop.opening, stop.hour, stop.hours, stop.usually,
+        stop.provisionally, stop.today, stop.to, stop.open, stop.closed, stop.close.soon,
+        stop.temporarily-closed, stop.and, end-itinerary]
+      resourcebundle:messages: [Nearby places to stay, Nearby places to eat, Find
+          out more, Stop, Start / Finish, Days, Distance, Main themes, mi, km, Transport,
+        Day, Miles, Kilometres, Highlights, Areas covered, The stop doesn't have any
+          product linked to the stop, Time to explore, Main theme, Check opening times,
+        hour, hours, Usually, Provisionally, today, to, Open, Closed, Closing soon,
+        Temporarily closed, and, End of itinerary]
+      resourcebundle:messages_de: [Unterkünfte in der Nähe, Restaurants in der Nähe,
+        Mehr erfahren, Haltepunkt, Start / Ziel, Tage, Entfernung, Hauptthemen, mi,
+        km, Verkehrsmittel, Tag, Meilen, Kilometer, Highlights, Abgedeckte Regionen,
+        Es ist kein Produkt mit diesem Haltepunkt verknüpft, Zeit zum Erkunden, Hauptthema,
+        Öffnungszeiten überprüfen, Stunde, Stunden, Üblicherweise, Vorläufig, heute,
+        bis, Geöffnet, Geschlossen, Schließt bald, Vorübergehend geschlossen, und,
+        Ende des Reisevorschlags]
+      resourcebundle:messages_es: [Alojamiento en los alrededores, Restaurantes en
+          los alrededores, Más información, Parada, Inicio / Fin, Días, Distancia,
+        Temas principales, mi, km, Transporte, Día, Millas, Kilómetros, Destacado,
+        Áreas recorridas, Esta parada no tiene ningún producto asociado, Tiempo para
+          explorar, Tema principal, Consulta los horarios de apertura, hora, horas,
+        Normalmente, Temporalmente, hoy, a, Abierto, Cerrado, Cierra pronto, Cerrado
+          temporalmente, y, Fin del itinerario]
+      resourcebundle:messages_fr: [Hébergements à proximité, Établissements de restauration
+          à proximité, En savoir plus, Arrêt, Départ / Arrivée, Jours, Distance, Thèmes
+          principaux, mi, km, Moyen de transport, Jour, Miles, Kilomètres, Lieux d’intérêt,
+        Région(s) couvertes(s), Aucun produit n’est associé à cet arrêt, '', Thème
+          principal, Vérifier les horaires d’ouverture, heure, heures, Habituellement,
+        Provisoirement, aujourd’hui, à, Ouvert, Fermé, Ferme bientôt, Temporairement
+          fermé, et, Fin de l’itinéraire]
+      resourcebundle:messages_it: [Posti vicini dove alloggiare, Posti vicini dove
+          mangiare, Per saperne di più, Fermata, Inizio / Fine, Giorni, Distanza,
+        Temi principali, mi, km, Transporto, Giorno, Miglia, Chilometri, Attrazioni,
+        Aree coperte, L'arresto non ha alcun prodotto collegato all'arresto, '', Tema
+          principale, Controlla gli orari di apertura, ora, ore, Solitamente, Provvisoriamente,
+        oggi, a, Aperto, Chiuso, Chiusura a breve, Temporaneamente chiuso, e, Fine
+          dell’itinerario]
+      resourcebundle:messages_nl: [Overnachtingen in de buurt, Eetgelegenheden in
+          de buurt, Meer info, Stop, Begin / Eind, Dagen, Afstand, Hoofdthema's, mijl,
+        km, Reismiddel, Dag, Mijlen, Kilometers, Hoogtepunten, Bestreken gebieden,
+        Deze stop heeft geen specifieke bezienswaardigheid, Vrije tijd, Hoofdthema,
+        Bekijk de openingstijden, uur, uur, Gewoonlijk, Onder voorbehoud, vandaag,
+        naar, Geopend, Gesloten, Binnenkort gesloten, Tijdelijk gesloten, en, Einde
+          van de route]
+    /itineraries[2]:
+      jcr:primaryType: resourcebundle:resourcebundle
+      jcr:mixinTypes: ['mix:versionable']
+      jcr:uuid: 746ac7fb-2150-4d67-ab63-c25795c4b510
+      hippo:availability: [preview]
+      hippostd:retainable: false
+      hippostd:state: unpublished
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2019-12-16T14:56:24.091Z
+      hippostdpubwf:lastModificationDate: 2021-10-14T12:29:06.058Z
+      hippostdpubwf:lastModifiedBy: admin
+      resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '', '', '', '',
+        '', '', '', '', '', '', '', '', '', '', '', '', '', 'This field is to define
+          a range of time like: 9:00am to 13:00pm', '', '', '', '', '', '']
+      resourcebundle:id: itinerary
+      resourcebundle:keys: [stop.nearby-stay, stop.nearby-eat, stop.cta, stop.title,
+        start-finish, days, distance, themes, miles-abbreviation, kilometres-abbreviation,
+        transport, day, miles, kilometres, highlights, areas-covered, stop.no-stop,
+        stop.time-to-explore, theme, stop.opening, stop.hour, stop.hours, stop.usually,
+        stop.provisionally, stop.today, stop.to, stop.open, stop.closed, stop.close.soon,
+        stop.temporarily-closed, stop.and, end-itinerary]
+      resourcebundle:messages: [Nearby places to stay, Nearby places to eat, Find
+          out more, Stop, Start / Finish, Days, Distance, Main themes, mi, km, Transport,
+        Day, Miles, Kilometres, Highlights, Areas covered, The stop doesn't have any
+          product linked to the stop, Time to explore, Main theme, Check opening times,
+        hour, hours, Usually, Provisionally, today, to, Open, Closed, Closing soon,
+        Temporarily closed, and, End of itinerary]
+      resourcebundle:messages_de: [Unterkünfte in der Nähe, Restaurants in der Nähe,
+        Mehr erfahren, Haltepunkt, Start / Ziel, Tage, Entfernung, Hauptthemen, mi,
+        km, Verkehrsmittel, Tag, Meilen, Kilometer, Highlights, Abgedeckte Regionen,
+        Es ist kein Produkt mit diesem Haltepunkt verknüpft, Zeit zum Erkunden, Hauptthema,
+        Öffnungszeiten überprüfen, Stunde, Stunden, Üblicherweise, Vorläufig, heute,
+        bis, Geöffnet, Geschlossen, Schließt bald, Vorübergehend geschlossen, und,
+        Ende des Reisevorschlags]
+      resourcebundle:messages_es: [Alojamiento en los alrededores, Restaurantes en
+          los alrededores, Más información, Parada, Inicio / Fin, Días, Distancia,
+        Temas principales, mi, km, Transporte, Día, Millas, Kilómetros, Destacado,
+        Áreas recorridas, Esta parada no tiene ningún producto asociado, Tiempo para
+          explorar, Tema principal, Consulta los horarios de apertura, hora, horas,
+        Normalmente, Temporalmente, hoy, a, Abierto, Cerrado, Cierra pronto, Cerrado
+          temporalmente, y, Fin del itinerario]
+      resourcebundle:messages_fr: [Hébergements à proximité, Établissements de restauration
+          à proximité, En savoir plus, Arrêt, Départ / Arrivée, Jours, Distance, Thèmes
+          principaux, mi, km, Moyen de transport, Jour, Miles, Kilomètres, Lieux d’intérêt,
+        Région(s) couvertes(s), Aucun produit n’est associé à cet arrêt, '', Thème
+          principal, Vérifier les horaires d’ouverture, heure, heures, Habituellement,
+        Provisoirement, aujourd’hui, à, Ouvert, Fermé, Ferme bientôt, Temporairement
+          fermé, et, Fin de l’itinéraire]
+      resourcebundle:messages_it: [Posti vicini dove alloggiare, Posti vicini dove
+          mangiare, Per saperne di più, Fermata, Inizio / Fine, Giorni, Distanza,
+        Temi principali, mi, km, Transporto, Giorno, Miglia, Chilometri, Attrazioni,
+        Aree coperte, L'arresto non ha alcun prodotto collegato all'arresto, '', Tema
+          principale, Controlla gli orari di apertura, ora, ore, Solitamente, Provvisoriamente,
+        oggi, a, Aperto, Chiuso, Chiusura a breve, Temporaneamente chiuso, e, Fine
+          dell’itinerario]
+      resourcebundle:messages_nl: [Overnachtingen in de buurt, Eetgelegenheden in
+          de buurt, Meer info, Stop, Begin / Eind, Dagen, Afstand, Hoofdthema's, mijl,
+        km, Reismiddel, Dag, Mijlen, Kilometers, Hoogtepunten, Bestreken gebieden,
+        Deze stop heeft geen specifieke bezienswaardigheid, Vrije tijd, Hoofdthema,
+        Bekijk de openingstijden, uur, uur, Gewoonlijk, Onder voorbehoud, vandaag,
+        naar, Geopend, Gesloten, Binnenkort gesloten, Tijdelijk gesloten, en, Einde
+          van de route]
+    /itineraries[3]:
+      jcr:primaryType: resourcebundle:resourcebundle
+      jcr:mixinTypes: ['mix:referenceable']
+      jcr:uuid: 2b3e7afc-9074-4751-97ca-905180d7f2d0
+      hippo:availability: [live]
+      hippostd:retainable: false
+      hippostd:state: published
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2019-12-16T14:56:24.091Z
+      hippostdpubwf:lastModificationDate: 2021-10-14T12:29:06.058Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippostdpubwf:publicationDate: 2021-10-14T12:29:14.944Z
+      resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '', '', '', '',
+        '', '', '', '', '', '', '', '', '', '', '', '', '', 'This field is to define
+          a range of time like: 9:00am to 13:00pm', '', '', '', '', '', '']
+      resourcebundle:id: itinerary
+      resourcebundle:keys: [stop.nearby-stay, stop.nearby-eat, stop.cta, stop.title,
+        start-finish, days, distance, themes, miles-abbreviation, kilometres-abbreviation,
+        transport, day, miles, kilometres, highlights, areas-covered, stop.no-stop,
+        stop.time-to-explore, theme, stop.opening, stop.hour, stop.hours, stop.usually,
+        stop.provisionally, stop.today, stop.to, stop.open, stop.closed, stop.close.soon,
+        stop.temporarily-closed, stop.and, end-itinerary]
+      resourcebundle:messages: [Nearby places to stay, Nearby places to eat, Find
+          out more, Stop, Start / Finish, Days, Distance, Main themes, mi, km, Transport,
+        Day, Miles, Kilometres, Highlights, Areas covered, The stop doesn't have any
+          product linked to the stop, Time to explore, Main theme, Check opening times,
+        hour, hours, Usually, Provisionally, today, to, Open, Closed, Closing soon,
+        Temporarily closed, and, End of itinerary]
+      resourcebundle:messages_de: [Unterkünfte in der Nähe, Restaurants in der Nähe,
+        Mehr erfahren, Haltepunkt, Start / Ziel, Tage, Entfernung, Hauptthemen, mi,
+        km, Verkehrsmittel, Tag, Meilen, Kilometer, Highlights, Abgedeckte Regionen,
+        Es ist kein Produkt mit diesem Haltepunkt verknüpft, Zeit zum Erkunden, Hauptthema,
+        Öffnungszeiten überprüfen, Stunde, Stunden, Üblicherweise, Vorläufig, heute,
+        bis, Geöffnet, Geschlossen, Schließt bald, Vorübergehend geschlossen, und,
+        Ende des Reisevorschlags]
+      resourcebundle:messages_es: [Alojamiento en los alrededores, Restaurantes en
+          los alrededores, Más información, Parada, Inicio / Fin, Días, Distancia,
+        Temas principales, mi, km, Transporte, Día, Millas, Kilómetros, Destacado,
+        Áreas recorridas, Esta parada no tiene ningún producto asociado, Tiempo para
+          explorar, Tema principal, Consulta los horarios de apertura, hora, horas,
+        Normalmente, Temporalmente, hoy, a, Abierto, Cerrado, Cierra pronto, Cerrado
+          temporalmente, y, Fin del itinerario]
+      resourcebundle:messages_fr: [Hébergements à proximité, Établissements de restauration
+          à proximité, En savoir plus, Arrêt, Départ / Arrivée, Jours, Distance, Thèmes
+          principaux, mi, km, Moyen de transport, Jour, Miles, Kilomètres, Lieux d’intérêt,
+        Région(s) couvertes(s), Aucun produit n’est associé à cet arrêt, '', Thème
+          principal, Vérifier les horaires d’ouverture, heure, heures, Habituellement,
+        Provisoirement, aujourd’hui, à, Ouvert, Fermé, Ferme bientôt, Temporairement
+          fermé, et, Fin de l’itinéraire]
+      resourcebundle:messages_it: [Posti vicini dove alloggiare, Posti vicini dove
+          mangiare, Per saperne di più, Fermata, Inizio / Fine, Giorni, Distanza,
+        Temi principali, mi, km, Transporto, Giorno, Miglia, Chilometri, Attrazioni,
+        Aree coperte, L'arresto non ha alcun prodotto collegato all'arresto, '', Tema
+          principale, Controlla gli orari di apertura, ora, ore, Solitamente, Provvisoriamente,
+        oggi, a, Aperto, Chiuso, Chiusura a breve, Temporaneamente chiuso, e, Fine
+          dell’itinerario]
+      resourcebundle:messages_nl: [Overnachtingen in de buurt, Eetgelegenheden in
+          de buurt, Meer info, Stop, Begin / Eind, Dagen, Afstand, Hoofdthema's, mijl,
+        km, Reismiddel, Dag, Mijlen, Kilometers, Hoogtepunten, Bestreken gebieden,
+        Deze stop heeft geen specifieke bezienswaardigheid, Vrije tijd, Hoofdthema,
+        Bekijk de openingstijden, uur, uur, Gewoonlijk, Onder voorbehoud, vandaag,
+        naar, Geopend, Gesloten, Binnenkort gesloten, Tijdelijk gesloten, en, Einde
+          van de route]

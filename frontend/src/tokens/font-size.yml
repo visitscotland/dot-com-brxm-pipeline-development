@@ -1,0 +1,70 @@
+#
+# FONT-SIZE TOKENS
+# Use these tokens to set a font-size.
+#
+aliases:
+    font_size_base: 1rem
+props:
+    - name: font-size-base
+      value: "{!font_size_base}"
+    - name: font-size-xl
+      value: "{!font_size_base} * 2"
+    - name: font-size-lg
+      value: "{!font_size_base} * 1.25"
+    - name: font-size-md
+      value: "{!font_size_base} * 1.125"
+    - name: font-size-sm
+      value: "{!font_size_base} * .75"
+    - name: h1-font-size
+      value: "{!font_size_base} * 1.5"
+    - name: h1-font-size-md
+      value: "{!font_size_base} * 1.875"
+    - name: h2-font-size
+      value: "{!font_size_base} * 1.25"
+    - name: h2-font-size-md
+      value: "{!font_size_base} * 1.5"
+    - name: h3-font-size
+      value: "{!font_size_base} * 1.125"
+    - name: h3-font-size-md
+      value: "{!font_size_base} * 1.25"
+    - name: h4-font-size
+      value: "{!font_size_base} * 1"
+    - name: h4-font-size-md
+      value: "{!font_size_base} * 0.875"
+    - name: h5-font-size
+      value: "{!font_size_base} * 1.25"
+    - name: h5-font-size-md
+      value: "{!font_size_base} * 1.375"
+    - name: h6-font-size
+      value: "{!font_size_base} * 1.125"
+    - name: h6-font-size-md
+      value: "{!font_size_base} * 1.25"
+    - name: h3-sub-font-size
+      value: "{!font_size_base} * 1"
+    - name: h2-sub-font-size
+      value: "{!font_size_base} * 1.5"
+    - name: body-font-size
+      value: "{!font_size_base} * 1"
+    - name: body-font-size-md
+      value: "{!font_size_base} * 1.125"
+    - name: display1-size
+      value: "{!font_size_base} * 1.875"
+    - name: display2-size
+      value: "{!font_size_base} * 1.5"
+    - name: display3-size
+      value: "{!font_size_base} * 1.375"
+    - name: display4-size
+      value: "{!font_size_base} * 1.125"
+    - name: lead-font-size
+      value: "{!font_size_base} * 1.125"
+    - name: lead-font-size-md
+      value: "{!font_size_base} * 1.25"
+    - name: teaser-font-size
+      value: "{!font_size_base} * 1"
+    - name: small-font-size
+      value: "{!font_size_base} * .875"
+    - name: xs-font-size
+      value: "{!font_size_base} * 0.625"
+global:
+    type: number
+    category: font-size

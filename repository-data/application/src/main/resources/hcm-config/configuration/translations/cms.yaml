@@ -1,0 +1,47 @@
+definitions:
+  config:
+    /hippo:configuration/hippo:translations/hippo:cms/advanced-search-filters:
+      jcr:primaryType: hipposys:resourcebundles
+      /en:
+        jcr:primaryType: hipposys:resourcebundle
+        titlePropertyFilter.propertyName: Title
+        titlePropertyFilter.title: Document title
+    /hippo:configuration/hippo:translations/hippo:cms/validators/es:
+      visitscotland:scotland-coordinates-validator: Las coordenadas deben estar dentro
+        de Escocia
+      visitscotland:url-validator: Introduzca una URL válida
+    /hippo:configuration/hippo:translations/hippo:cms/validators/en:
+      visitscotland:scotland-coordinates-validator: 'Coordinates should be between:
+        Latitude from 54.6 to 60.9 and Longitude from -13.7 to -0.7.'
+      visitscotland:link-image-validator: An image is required for external products.
+      visitscotland:location-validator: Location should be provided for everything but DMS.
+      visitscotland:image-validator: The image doesn’t have all of the required fields.
+        Fill in the missing fields or select another image.
+      visitscotland:link-validator: You can’t link to that type of document. Choose
+        a Page document or a Shared Link instead.
+      visitscotland:link-validator#stop: You can’t link to that type of document.
+        Choose a Stop document.
+      visitscotland:link-validator#channel: You can’t link to a document from a different language.
+      visitscotland:link-validator#emptyLink: Please select a link.
+      visitscotland:link-validator#linkToSelf: The document contains a link to itself.
+      visitscotland:link-validator#translation: The current document has not been
+        linked as expected, please link it again.
+      visitscotland:extrashort-string-validator: Max length is 30.
+      visitscotland:short-string-validator: Max length is 60.
+      visitscotland:medium-string-validator: Max length is 80.
+      visitscotland:long-string-validator: Max length is 150.
+      visitscotland:extralong-string-validator: Max length is 250.
+      visitscotland:seotitle-string-validator: Max length is 60.
+      visitscotland:seodescription-string-validator: Max length is 160.
+      visitscotland:external-document-validator: The document is not valid or the
+        link might be broken
+      visitscotland:url-validator: Enter a valid website URL
+      visitscotland:iknow-community-tag-validator: Between 2 and 6 tags must be provided.
+      visitscotland:otyml-link-validator: Minimum number of links is 5.
+      visitscotland:itinerary-stop-validator: Stops must be unique.
+      visitscotland:otyml-unique-link-validator: OTYML links must be unique.
+      visitscotland:megalinks-unique-link-validator: Megalinks links must be unique.
+      visitscotland:travel-tab-transport-validator: Travel type must be unique.
+      visitscotland:link-validator#video: You can’t link to that type of document.
+        Choose a Video document.
+      visitscotland:youtube-url-validator: Enter a valid Youtube link URL

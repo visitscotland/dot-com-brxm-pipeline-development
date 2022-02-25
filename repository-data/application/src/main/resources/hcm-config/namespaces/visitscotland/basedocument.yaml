@@ -3,9 +3,11 @@ definitions:
     /hippo:namespaces/visitscotland/basedocument:
       jcr:primaryType: hipposysedit:templatetype
       jcr:mixinTypes: ['mix:referenceable']
+      jcr:uuid: e10e1373-df12-467a-a41d-1dc76063f4e3
       /hipposysedit:nodetype:
         jcr:primaryType: hippo:handle
         jcr:mixinTypes: ['mix:referenceable']
+        jcr:uuid: 7bcfe4f3-8e62-48fb-8b46-d4c84481063c
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['hipposysedit:remodel']

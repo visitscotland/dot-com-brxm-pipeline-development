@@ -1,0 +1,32 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <script th:replace="headerFragment.html :: openui"></script>
+    <style th:replace="headerFragment.html :: dialogStyle"></style>
+    <link rel="stylesheet" type="text/css" th:href="@{/skin/hippo-cms/css/hippo-cms-theme.min.css}">
+</head>
+<body>
+    <div class="dialog-body">
+        <label style="padding-left: 10px; padding-top: 10px;">Unexpected error, unable to complete operation.</label>
+    </div>
+    <div class="dialog-bottom">
+        <button id="okButton" class="btn btn-br-primary">OK</button>
+    </div>
+</body>
+<script>
+    let ui;
+    (async () => {
+        try {
+            ui = await UiExtension.register();
+            const options = await ui.dialog.options();
+        } catch(error) {
+            console.error('Failed to register extension:', error.message);
+            console.error('- error code:', error.code);
+        }
+    })();
+
+    const okButton = document.querySelector('#okButton');
+    okButton.addEventListener('click', async () => {
+        ui.dialog.close();
+    });
+</script>

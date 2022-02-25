@@ -1,0 +1,30 @@
+#!/bin/bash
+
+# get current branch
+branchName=`git rev-parse --abbrev-ref HEAD`
+
+# search jira issue id in a pattern such as "feature/ABC-123-description"
+jiraId=$(echo $branchName | sed -nr 's,[a-z]+/([A-Z]+-[0-9]+)-.+,\1,p')
+
+COMMIT_SOURCE=$2
+
+# do not append the branch id to the front if it's an auto-generated merge commit
+if [ "${COMMIT_SOURCE}" = merge ];then
+    exit 0
+fi
+
+# if branch name does not contain "feature/" then search jira issue id in a pattern such as "ABC-123-description"
+if [[ -z $jiraId ]]; then
+    jiraId=$(echo $branchName | sed -nr 's,([A-Z]+-[0-9]+)-.+,\1,p')
+fi
+
+# if branch name does not contain a jira issue id then prepend "NON-JIRA" to commit message
+if [[ -z $jiraId ]]; then
+    jiraId='NON-JIRA'
+fi
+
+# only prepare commit message if pattern matched and jiraId was found
+if [[ ! -z $jiraId ]]; then
+ # $1 is the name of the file containing the commit message
+ sed -i.bak -e "1s/^/\n\n$jiraId /" $1
+fi

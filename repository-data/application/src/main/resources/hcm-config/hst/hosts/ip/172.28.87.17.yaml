@@ -1,0 +1,8 @@
+definitions:
+  config:
+    /hst:platform/hst:hosts/ip/172.28.87.17:
+      jcr:primaryType: hst:virtualhost
+      /hst:root:
+        jcr:primaryType: hst:mount
+        hst:ismapped: false
+        hst:namedpipeline: WebApplicationInvokingPipeline

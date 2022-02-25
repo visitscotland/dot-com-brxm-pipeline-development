@@ -1,0 +1,129 @@
+/content/documents/www.visitscotland.com-fr/site:
+  .meta:order-before: shared
+  jcr:primaryType: hippostd:folder
+  jcr:mixinTypes: ['hippotranslation:translated', 'mix:versionable']
+  jcr:uuid: fc50ad8c-e2cb-4a8a-98c0-cd660d1f7f55
+  hippostd:foldertype: [new-translated-folder, new-page, new-module]
+  hippotranslation:id: a65bff6c-4edf-4d28-b036-84bdee4b4bcd
+  hippotranslation:locale: fr
+  /content:
+    jcr:primaryType: hippo:handle
+    jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+    jcr:uuid: 25d1486f-1201-4eef-bffd-5a63ba5047ac
+    hippo:name: Home Page (FR)
+    hippo:versionHistory: da196384-4158-414c-87f4-93f87ab88268
+    /content[1]:
+      jcr:primaryType: visitscotland:General
+      jcr:mixinTypes: ['mix:versionable']
+      jcr:uuid: d468d307-1faa-482d-aa38-06a3d1ad7130
+      hippo:availability: [preview]
+      hippostd:retainable: false
+      hippostd:state: unpublished
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2021-06-29T15:19:57.775+01:00
+      hippostdpubwf:lastModificationDate: 2021-06-29T17:31:05.692+01:00
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: aa69f65e-dcae-46ea-b584-32fc6418ff21
+      hippotranslation:locale: fr
+      visitscotland:breadcrumb: ''
+      visitscotland:newsletter: true
+      visitscotland:seoDescription: Get all the information you need for your trip
+        to Scotland! Book accommodation, discover new places to visit, find amazing
+        things to do and more!
+      visitscotland:seoNoIndex: false
+      visitscotland:seoTitle: VisitScotland - Scotland's National Tourist Organisation
+      visitscotland:teaser: Bienvenue en Écosse
+      visitscotland:theme: Standard
+      visitscotland:title: Préparez-vous à l’Écosse
+      visitscotland:translation: ''
+      /visitscotland:heroImage:
+        jcr:primaryType: hippogallerypicker:imagelink
+        hippo:docbase: 4cdd0883-80e6-4f4f-9fa1-4feec593a22e
+        hippo:facets: []
+        hippo:modes: []
+        hippo:values: []
+      /visitscotland:introduction:
+        jcr:primaryType: hippostd:html
+        hippostd:content: |-
+          <p>Nous sommes un pays innovant et moderne : si vous n’êtes pas en mesure de vous y rendre en personne, jetez un œil à notre site Web et à nos réseaux sociaux, où vous trouverez des tas d’idées d’inspiration qui vous aideront à organiser et rêver votre prochain voyage en Écosse. C’est notre manière de vous redonner le sourire en cette période pour le moins difficile.</p>
+
+          <p>Notre pays, ses entreprises, ses régions, ses villes, ses villages sont uniques, et nous joindrons nos efforts afin de garantir que votre prochain voyage vous laisse des souvenirs inoubliables, quand voyager ne présentera plus aucun problème.</p>
+
+          <p>Nous avons hâte de vous accueillir très prochainement en Écosse.</p>
+    /content[2]:
+      jcr:primaryType: visitscotland:General
+      jcr:mixinTypes: ['mix:referenceable']
+      jcr:uuid: ceace83f-1b08-4f4e-8084-45c36b8a11ce
+      hippo:availability: []
+      hippostd:retainable: false
+      hippostd:state: draft
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2021-06-29T15:19:57.775+01:00
+      hippostdpubwf:lastModificationDate: 2021-06-29T17:31:05.774+01:00
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: aa69f65e-dcae-46ea-b584-32fc6418ff21
+      hippotranslation:locale: fr
+      visitscotland:breadcrumb: ''
+      visitscotland:newsletter: true
+      visitscotland:seoDescription: Get all the information you need for your trip
+        to Scotland! Book accommodation, discover new places to visit, find amazing
+        things to do and more!
+      visitscotland:seoNoIndex: false
+      visitscotland:seoTitle: VisitScotland - Scotland's National Tourist Organisation
+      visitscotland:teaser: Bienvenue en Écosse
+      visitscotland:theme: Standard
+      visitscotland:title: Préparez-vous à l’Écosse
+      visitscotland:translation: ''
+      /visitscotland:heroImage:
+        jcr:primaryType: hippogallerypicker:imagelink
+        hippo:docbase: 4cdd0883-80e6-4f4f-9fa1-4feec593a22e
+        hippo:facets: []
+        hippo:modes: []
+        hippo:values: []
+      /visitscotland:introduction:
+        jcr:primaryType: hippostd:html
+        hippostd:content: |-
+          <p>Nous sommes un pays innovant et moderne : si vous n’êtes pas en mesure de vous y rendre en personne, jetez un œil à notre site Web et à nos réseaux sociaux, où vous trouverez des tas d’idées d’inspiration qui vous aideront à organiser et rêver votre prochain voyage en Écosse. C’est notre manière de vous redonner le sourire en cette période pour le moins difficile.</p>
+
+          <p>Notre pays, ses entreprises, ses régions, ses villes, ses villages sont uniques, et nous joindrons nos efforts afin de garantir que votre prochain voyage vous laisse des souvenirs inoubliables, quand voyager ne présentera plus aucun problème.</p>
+
+          <p>Nous avons hâte de vous accueillir très prochainement en Écosse.</p>
+    /content[3]:
+      jcr:primaryType: visitscotland:General
+      jcr:mixinTypes: ['mix:referenceable']
+      jcr:uuid: 799df2a3-7789-4b1a-a675-00066b83a6f9
+      hippo:availability: [live]
+      hippostd:retainable: false
+      hippostd:state: published
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2021-06-29T15:19:57.775+01:00
+      hippostdpubwf:lastModificationDate: 2021-06-29T17:31:05.692+01:00
+      hippostdpubwf:lastModifiedBy: admin
+      hippostdpubwf:publicationDate: 2021-06-29T17:31:12.248+01:00
+      hippotranslation:id: aa69f65e-dcae-46ea-b584-32fc6418ff21
+      hippotranslation:locale: fr
+      visitscotland:breadcrumb: ''
+      visitscotland:newsletter: true
+      visitscotland:seoDescription: Get all the information you need for your trip
+        to Scotland! Book accommodation, discover new places to visit, find amazing
+        things to do and more!
+      visitscotland:seoNoIndex: false
+      visitscotland:seoTitle: VisitScotland - Scotland's National Tourist Organisation
+      visitscotland:teaser: Bienvenue en Écosse
+      visitscotland:theme: Standard
+      visitscotland:title: Préparez-vous à l’Écosse
+      visitscotland:translation: ''
+      /visitscotland:heroImage:
+        jcr:primaryType: hippogallerypicker:imagelink
+        hippo:docbase: 4cdd0883-80e6-4f4f-9fa1-4feec593a22e
+        hippo:facets: []
+        hippo:modes: []
+        hippo:values: []
+      /visitscotland:introduction:
+        jcr:primaryType: hippostd:html
+        hippostd:content: |-
+          <p>Nous sommes un pays innovant et moderne : si vous n’êtes pas en mesure de vous y rendre en personne, jetez un œil à notre site Web et à nos réseaux sociaux, où vous trouverez des tas d’idées d’inspiration qui vous aideront à organiser et rêver votre prochain voyage en Écosse. C’est notre manière de vous redonner le sourire en cette période pour le moins difficile.</p>
+
+          <p>Notre pays, ses entreprises, ses régions, ses villes, ses villages sont uniques, et nous joindrons nos efforts afin de garantir que votre prochain voyage vous laisse des souvenirs inoubliables, quand voyager ne présentera plus aucun problème.</p>
+
+          <p>Nous avons hâte de vous accueillir très prochainement en Écosse.</p>

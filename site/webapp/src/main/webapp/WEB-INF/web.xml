@@ -51,7 +51,7 @@
   -->
   <context-param>
     <param-name>hst-beans-annotated-classes</param-name>
-    <param-value>classpath*:com/visitscotland/www/**/*.class
+    <param-value>classpath*:com/visitscotland/brxm/**/*.class
       ,classpath*:org/onehippo/**/*.class
       ,classpath*:com/onehippo/**/*.class
       ,classpath*:org/onehippo/forge/**/*.class
@@ -69,6 +69,17 @@
       <param-value>true</param-value>
     </init-param>
   </filter>
+
+  <filter>
+    <filter-name>HippoIpFilter</filter-name>
+    <filter-class>org.onehippo.forge.ipfilter.hst.IpFilter</filter-class>
+  </filter>
+
+  <!-- second mapping! -->
+  <filter-mapping>
+    <filter-name>HippoIpFilter</filter-name>
+    <url-pattern>/*</url-pattern>
+  </filter-mapping>
 
   <filter>
     <filter-name>XSSUrlFilter</filter-name>
@@ -123,7 +134,7 @@
 
   <servlet>
     <servlet-name>freemarker</servlet-name>
-    <servlet-class>org.hippoecm.hst.servlet.HstFreemarkerServlet</servlet-class>
+    <servlet-class>com.visitscotland.brxm.config.VsHstFreemarkerServlet</servlet-class>
     <!-- FreemarkerServlet settings: -->
     <init-param>
       <param-name>TemplatePath</param-name>

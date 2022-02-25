@@ -1,0 +1,97 @@
+/* LOCAL DEFAULTS FOR GLOBAL DESIGN TOKENS
+
+  Here to avoid docs breaking early when renaming global tokens.
+  Remove this file if you want docs to use your renamed global tokens.
+--------------------------------------------- */
+$docs-color-white: #fff;
+$docs-color-very-light-grey: #f5f6fa;
+$docs-color-light-grey:#f2f2f2;
+$docs-color-grey: #e5e5e5;
+$docs-color-grey-med: #6a6366;
+$docs-color-grey-dark: #191919;
+
+$docs-color-purple: #700E57;
+$docs-color-pink: #af006e;
+$docs-color-blue: #005eb8;
+$docs-color-light-blue: #E7F5F6;
+$docs-color-very-light-blue: #fafdfd;
+$docs-status-ready: #7cb518;
+
+$docs-breakpoint-xxxl: 1600px;
+$docs-breakpoint-xxl: 1400px;
+$docs-breakpoint-xl: 1200px;
+$docs-breakpoint-lg: 992px;
+$docs-breakpoint: 768px;
+$docs-breakpoint-sm: 576px;
+$docs-breakpoint-xs: 0;
+
+$docs-color-heading: rgb(30, 30, 30);
+
+$docs-color-gold: rgb(255, 186, 10) !default;
+$docs-color-gold-light: rgb(255, 204, 77) !default;
+$docs-color-gold-lighter: rgb(255, 219, 128) !default;
+$docs-color-gold-darker: rgb(179, 128, 0) !default;
+$docs-color-gold-dark: rgb(230, 164, 0) !default;
+$docs-color-vermilion-lighter: rgb(244, 151, 138) !default;
+$docs-color-vermilion-darker: rgb(154, 31, 14) !default;
+$docs-color-bleu-de-france-dark: rgb(16, 112, 209) !default;
+$docs-color-bleu-de-france-light: rgb(84, 163, 242) !default;
+$docs-color-silver: rgb(127, 136, 145) !default;
+$docs-color-white: rgb(255, 255, 255) !default;
+$docs-color-bleu-de-france: rgb(37, 138, 239) !default;
+$docs-color-bleu-de-france-darker: rgb(12, 87, 161) !default;
+$docs-color-bleu-de-france-lighter: rgb(132, 189, 246) !default;
+$docs-color-vermilion-light: rgb(239, 101, 82) !default;
+$docs-color-vermilion-dark: rgb(201, 40, 19) !default;
+$docs-color-rich-black: rgb(0, 17, 35) !default;
+$docs-color-cloud: rgb(233, 243, 253) !default;
+$docs-color-oxford-blue: rgb(0, 38, 77) !default;
+$docs-color-vermilion: rgb(235, 59, 36) !default;
+
+$docs-code-red: #cc2b22;
+$docs-code-blue: #005eaf;
+$docs-code-pink: #a647a4;
+
+$size-xxxl: 60px !default;
+$size-xxl: 48px !default;
+$size-xl: 36px !default;
+$size-l: 24px !default;
+$size-base: 20px !default;
+$size-m: 16px !default;
+$size-s: 14px !default;
+$size-xs: 11px !default;
+
+$font-heading: 'evelethclean-regular', Helvetica, Arial, sans-serif !default;
+$font-text: 'Source Sans Pro', Helvetica, Arial, sans-serif !default;
+
+$weight-bold: 700 !default;
+$weight-semi-bold: 600 !default;
+$weight-normal: 400 !default;
+$weight-light: 300 !default;
+
+$shadow-s: 0 0 0 1px rgba(92, 106, 196, 0.1) !default;
+$shadow-s-inset: inset 0 0 0 1px rgba(0, 0, 0, 0.05) !default;
+
+$spacing-xl: 2px !default;
+$spacing-l: 1px !default;
+$spacing-m: 0 !default;
+$spacing-s: -0.5px !default;
+$spacing-xs: -1px !default;
+
+$radius-default: 3px !default;
+$radius-m: 8px !default;
+$radius-l: 32px !default;
+$radius-circle: 50% !default;
+
+$space-xxl: 128px !default;
+$space-xl: 64px !default;
+$space-l: 48px !default;
+$space-m: 24px !default;
+$space-base: 20px !default;
+$space-s: 16px !default;
+$space-xs: 8px !default;
+$space-xx-small: 4px !default;
+
+$line-height-m: 1.6 !default;
+$line-height-s: 1.3 !default;
+$line-height-xs: 1 !default;

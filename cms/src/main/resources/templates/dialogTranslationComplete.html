@@ -1,0 +1,50 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <script th:replace="headerFragment.html :: openui"></script>
+    <style th:replace="headerFragment.html :: dialogStyle"></style>
+    <link rel="stylesheet" type="text/css" th:href="@{/skin/hippo-cms/css/hippo-cms-theme.min.css}">
+</head>
+<body>
+    <div class="dialog-body">
+        <label style="padding-left: 10px; padding-top: 10px;">Have you applied all changes from the English document?</label>
+    </div>
+    <div class="dialog-bottom">
+        <button id="okButton" class="btn btn-br-primary">OK</button>
+        <button id="cancelButton" class="btn btn-br-secondary">Cancel</button>
+    </div>
+</body>
+<script>
+    let ui;
+    (async () => {
+        try {
+            ui = await UiExtension.register();
+        } catch(error) {
+            console.error('Failed to register extension:', error.message);
+            console.error('- error code:', error.code);
+        }
+    })();
+
+    const okButton = document.querySelector('#okButton');
+    const cancelButton = document.querySelector('#cancelButton');
+
+    okButton.addEventListener('click', async () => {
+        // Make the request to clear the flag here before closing dialog. This prevents the user from interacting
+        // with the CMS until it is complete
+        const options = await ui.dialog.options()
+        const nodeId = options.value;
+        if (!nodeId) {
+            console.error("No node id passed into dialogTranslationComplete, options=", options)
+            return ui.dialog.cancel(500);
+        }
+        // Disable buttons whilst request is in progress
+        okButton.className = "btn disabled-clickable"
+        cancelButton.className = "btn disabled-clickable"
+        const response = await fetch(`/cms/vs-service/node/${nodeId}/translation/flag`, {method: 'DELETE'})
+        return ui.dialog.close(response.status);
+    });
+
+    cancelButton.addEventListener('click', async () => {
+        ui.dialog.cancel();
+    });
+</script>

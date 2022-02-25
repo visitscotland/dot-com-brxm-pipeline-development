@@ -1,0 +1,52 @@
+definitions:
+  config:
+    /hst:hst/hst:configurations/visitscotland-de/hst:workspace:
+      jcr:primaryType: hst:workspace
+      /hst:containers:
+        jcr:primaryType: hst:containercomponentfolder
+        /base:
+          jcr:primaryType: hst:containercomponentfolder
+          /top:
+            .meta:residual-child-node-category: content
+            jcr:primaryType: hst:containercomponent
+            hst:label: Top
+            hst:xtype: hst.vbox
+            hippo:identifier: 32b670db-184d-402a-bc92-95b49b7c6d92
+          /footer:
+            .meta:residual-child-node-category: content
+            jcr:primaryType: hst:containercomponent
+            hst:label: Footer
+            hst:xtype: hst.vbox
+            hippo:identifier: a5edec7d-1da2-4540-a1f2-706addfe337c
+        /homepage:
+          jcr:primaryType: hst:containercomponentfolder
+          /main:
+            .meta:residual-child-node-category: content
+            jcr:primaryType: hst:containercomponent
+            hst:label: Home Page Main
+            hst:xtype: hst.vbox
+            hippo:identifier: 0a942ead-0156-450a-a627-0ff261ae33be
+        /pagenotfound:
+          jcr:primaryType: hst:containercomponentfolder
+          /main:
+            .meta:residual-child-node-category: content
+            jcr:primaryType: hst:containercomponent
+            hst:label: Page-Not-Found Main
+            hst:xtype: hst.vbox
+            hippo:identifier: 0016c4d2-c75b-4d5d-b01a-fbd232d854d7
+        /contentlist:
+          jcr:primaryType: hst:containercomponentfolder
+          /main:
+            .meta:residual-child-node-category: content
+            jcr:primaryType: hst:containercomponent
+            hst:label: Content List Main
+            hst:xtype: hst.vbox
+            hippo:identifier: dc479799-8398-4a29-903b-f7b9332e4abf
+        /contentpage:
+          jcr:primaryType: hst:containercomponentfolder
+          /main:
+            .meta:residual-child-node-category: content
+            jcr:primaryType: hst:containercomponent
+            hst:label: Content Page Main
+            hst:xtype: hst.vbox
+            hippo:identifier: d6d5a21a-7f60-493d-ab47-d8d4ef7b30db

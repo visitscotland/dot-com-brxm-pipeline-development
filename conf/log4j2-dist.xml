@@ -25,6 +25,17 @@
       <DefaultRolloverStrategy max="4" fileIndex="min"/>
     </RollingFile>
 
+    <!-- content appender for site module -->
+    <RollingFile name="content" fileName="${sys:catalina.base}/logs/content.log"
+                 filePattern="${sys:catalina.base}/logs/content.log.%d{yyyy-MM-dd}">
+      <PatternLayout pattern="%d{dd.MM.yyyy HH:mm:ss} %-5p %t [%C{1}.%M:%L] %m%n"/>
+      <Policies>
+        <SizeBasedTriggeringPolicy size="10MB"/>
+      </Policies>
+      <DefaultRolloverStrategy max="4" fileIndex="min"/>
+    </RollingFile>
+
+
     <!-- audit.log -->
     <RollingFile name="audit" fileName="${sys:catalina.base}/logs/audit.log"
                  filePattern="${sys:catalina.base}/logs/audit.log.%d{yyyy-MM-dd}">
@@ -55,6 +66,11 @@
     <!-- Site logging -->
     <Logger name="org.hippoecm.hst" level="warn"/>
 
+    <!-- Content logger. No need for console appender as Root logger also captures logs from the content logger -->
+    <Logger name="content" level="info">
+      <AppenderRef ref="content" />
+    </Logger>
+
     <!-- DiagnosticReportingValve only logs when diagnostics enabled in hst:hosts config in repo hence
          can be here on level 'info' -->
     <Logger name="org.hippoecm.hst.core.container.DiagnosticReportingValve" level="info"/>
@@ -81,7 +97,7 @@
     <Logger name="org.apache.jackrabbit.core.query.lucene.ConsistencyCheck" level="info"/>
 
     <!-- project logging -->
-    <Logger name="com.visitscotland.www" level="info"/>
+    <Logger name="com.visitscotland.brxm" level="info"/>
 
     <Root level="warn">
       <AppenderRef ref="site"/>

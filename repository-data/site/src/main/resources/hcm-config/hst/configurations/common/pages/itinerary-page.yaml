@@ -1,0 +1,12 @@
+definitions:
+  config:
+    /hst:hst/hst:configurations/common/hst:pages/itinerary-page:
+      jcr:primaryType: hst:component
+      hst:referencecomponent: hst:abstractpages/base
+      /main:
+        jcr:primaryType: hst:component
+        hst:componentclassname: com.visitscotland.brxm.components.content.ItineraryContentComponent
+        hst:template: itinerary
+        /breadcrumb:
+          jcr:primaryType: hst:component
+          hst:referencecomponent: hst:components/breadcrumb

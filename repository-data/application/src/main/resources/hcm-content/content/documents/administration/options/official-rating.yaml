@@ -1,0 +1,32 @@
+/content/documents/administration/options/official-rating:
+  jcr:primaryType: hippo:handle
+  jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+  jcr:uuid: d7623d3f-d547-4f3b-8503-02904dd48996
+  hippo:name: Product Search - Official Rating
+  /official-rating:
+    jcr:primaryType: selection:valuelist
+    jcr:mixinTypes: ['hippotranslation:translated', 'mix:referenceable']
+    jcr:uuid: 5ada2e38-5d10-45fa-a3f0-5cd966f13f8a
+    hippo:availability: [live, preview]
+    hippotranslation:id: 575415cd-da1a-4f14-9d50-1d140593bfbf
+    hippotranslation:locale: inherited - from query
+    /selection:listitem[1]:
+      jcr:primaryType: selection:listitem
+      selection:key: '5'
+      selection:label: 5 Stars
+    /selection:listitem[2]:
+      jcr:primaryType: selection:listitem
+      selection:key: '4'
+      selection:label: 4 Stars
+    /selection:listitem[3]:
+      jcr:primaryType: selection:listitem
+      selection:key: '3'
+      selection:label: 3 Stars
+    /selection:listitem[4]:
+      jcr:primaryType: selection:listitem
+      selection:key: '2'
+      selection:label: 2 Stars
+    /selection:listitem[5]:
+      jcr:primaryType: selection:listitem
+      selection:key: '1'
+      selection:label: 1 Star

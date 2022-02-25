@@ -1,0 +1,12 @@
+definitions:
+  config:
+    /hst:hst/hst:configurations/common/hst:pages/destination-page:
+      jcr:primaryType: hst:component
+      hst:referencecomponent: hst:abstractpages/base
+      /main:
+        jcr:primaryType: hst:component
+        hst:componentclassname: com.visitscotland.brxm.components.content.DestinationContentComponent
+        hst:template: destination
+        /breadcrumb:
+          jcr:primaryType: hst:component
+          hst:referencecomponent: hst:components/breadcrumb

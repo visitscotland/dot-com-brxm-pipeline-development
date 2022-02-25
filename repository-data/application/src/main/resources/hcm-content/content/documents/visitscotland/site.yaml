@@ -1,0 +1,226 @@
+/content/documents/visitscotland/site:
+  .meta:order-before: shared
+  jcr:primaryType: hippostd:folder
+  jcr:mixinTypes: ['hippotranslation:translated', 'mix:versionable']
+  jcr:uuid: e8d415ec-a08a-478c-bb98-2605a2854e47
+  hippostd:foldertype: [new-translated-folder, new-page, new-module]
+  hippotranslation:id: a65bff6c-4edf-4d28-b036-84bdee4b4bcd
+  hippotranslation:locale: en
+  /content:
+    jcr:primaryType: hippo:handle
+    jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+    jcr:uuid: c0e6cfc5-53fa-4a5f-89dd-9b23624d08a4
+    hippo:name: Home Page
+    hippo:versionHistory: b78bf06e-4cdc-4e8d-b2f6-4b66846bcff2
+    /content[1]:
+      jcr:primaryType: visitscotland:General
+      jcr:mixinTypes: ['mix:referenceable']
+      jcr:uuid: 0c486965-1409-46d2-a8e5-119bfc2eab62
+      hippo:availability: []
+      hippostd:retainable: false
+      hippostd:state: draft
+      hippostd:transferable: false
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2021-06-29T15:19:57.775+01:00
+      hippostdpubwf:lastModificationDate: 2021-06-29T17:27:16.925+01:00
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: aa69f65e-dcae-46ea-b584-32fc6418ff21
+      hippotranslation:locale: en
+      visitscotland:breadcrumb: ''
+      visitscotland:newsletter: true
+      visitscotland:seoDescription: Get all the information you need for your trip
+        to Scotland! Book accommodation, discover new places to visit, find amazing
+        things to do and more!
+      visitscotland:seoNoIndex: false
+      visitscotland:seoTitle: VisitScotland - Scotland's National Tourist Organisation
+      visitscotland:teaser: Scotland. The country you love needs you. Travelling a
+        little, can still make a big difference.
+      visitscotland:theme: Standard
+      visitscotland:title: Scotland, yours to enjoy. Responsibly.
+      visitscotland:translation: ''
+      /visitscotland:heroImage:
+        jcr:primaryType: hippogallerypicker:imagelink
+        hippo:docbase: 4cdd0883-80e6-4f4f-9fa1-4feec593a22e
+        hippo:facets: []
+        hippo:modes: []
+        hippo:values: []
+      /visitscotland:introduction:
+        jcr:primaryType: hippostd:html
+        hippostd:content: |-
+          <p>Let’s head back out and explore a little further with awe-inspiring landmarks and coastal seascapes for the perfect break.</p>
+
+          <p>We’ll be exploring responsibly. Getting off the beaten track and away from busy spots, parking properly, closing gates and tidying up after ourselves.</p>
+
+          <p>Once we’ve had our countryside fill, it’s time to enjoy one of our seven cultural cities, with their iconic attractions, relaxing accommodation choices, and innovative bars and restaurants.</p>
+
+          <p>Then maybe a coastal seaside retreat with miles of sandy beaches during our extended <a href="https://www.visitscotland.com/about/themed-years/coasts-waters/" title="YOCW 2020">Scotland's Year of Coasts &amp; Waters</a>?</p>
+
+          <p>After all, we deserve some quality time to ourselves, and with our friends and family.</p>
+      /visitscotland:otherThings:
+        jcr:primaryType: visitscotland:OTYML
+        visitscotland:title: ''
+        /visitscotland:introduction:
+          jcr:primaryType: hippostd:html
+          hippostd:content: ''
+        /visitscotland:links[1]:
+          jcr:primaryType: hippo:mirror
+          hippo:docbase: 5e0d09e3-fdf2-479e-880d-8052730ec4e5
+        /visitscotland:links[2]:
+          jcr:primaryType: hippo:mirror
+          hippo:docbase: 2cd6819b-dc3e-4884-9942-f3b64c744de1
+        /visitscotland:links[3]:
+          jcr:primaryType: hippo:mirror
+          hippo:docbase: 23d70711-bab2-4981-a696-c24599ad3f29
+        /visitscotland:links[4]:
+          jcr:primaryType: hippo:mirror
+          hippo:docbase: d0ff207b-ec03-4e27-a4d8-adeafb6e416f
+        /visitscotland:links[5]:
+          jcr:primaryType: hippo:mirror
+          hippo:docbase: 7746679b-6821-4a09-9173-664653dad7dd
+        /visitscotland:links[6]:
+          jcr:primaryType: hippo:mirror
+          hippo:docbase: 379b86e5-872c-441c-bd30-aaf3f49054d6
+        /visitscotland:links[7]:
+          jcr:primaryType: hippo:mirror
+          hippo:docbase: 3234b5f3-9a6f-46b0-8feb-7f408c2cbdda
+    /content[2]:
+      jcr:primaryType: visitscotland:General
+      jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+      jcr:uuid: e51def55-8ed3-4eae-80df-1066a1eaff92
+      hippo:availability: [preview]
+      hippostd:retainable: false
+      hippostd:state: unpublished
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2021-06-29T15:19:57.775+01:00
+      hippostdpubwf:lastModificationDate: 2021-06-29T15:46:18.777+01:00
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: aa69f65e-dcae-46ea-b584-32fc6418ff21
+      hippotranslation:locale: en
+      visitscotland:breadcrumb: ''
+      visitscotland:newsletter: true
+      visitscotland:seoDescription: Get all the information you need for your trip
+        to Scotland! Book accommodation, discover new places to visit, find amazing
+        things to do and more!
+      visitscotland:seoNoIndex: false
+      visitscotland:seoTitle: VisitScotland - Scotland's National Tourist Organisation
+      visitscotland:teaser: Scotland. The country you love needs you. Travelling a
+        little, can still make a big difference.
+      visitscotland:theme: Standard
+      visitscotland:title: Scotland, yours to enjoy. Responsibly.
+      visitscotland:translation: ''
+      /visitscotland:heroImage:
+        jcr:primaryType: hippogallerypicker:imagelink
+        hippo:docbase: 4cdd0883-80e6-4f4f-9fa1-4feec593a22e
+        hippo:facets: []
+        hippo:modes: []
+        hippo:values: []
+      /visitscotland:introduction:
+        jcr:primaryType: hippostd:html
+        hippostd:content: |-
+          <p>Let’s head back out and explore a little further with awe-inspiring landmarks and coastal seascapes for the perfect break.</p>
+
+          <p>We’ll be exploring responsibly. Getting off the beaten track and away from busy spots, parking properly, closing gates and tidying up after ourselves.</p>
+
+          <p>Once we’ve had our countryside fill, it’s time to enjoy one of our seven cultural cities, with their iconic attractions, relaxing accommodation choices, and innovative bars and restaurants.</p>
+
+          <p>Then maybe a coastal seaside retreat with miles of sandy beaches during our extended <a href="https://www.visitscotland.com/about/themed-years/coasts-waters/" title="YOCW 2020">Scotland's Year of Coasts &amp; Waters</a>?</p>
+
+          <p>After all, we deserve some quality time to ourselves, and with our friends and family.</p>
+      /visitscotland:otherThings:
+        jcr:primaryType: visitscotland:OTYML
+        visitscotland:title: ''
+        /visitscotland:introduction:
+          jcr:primaryType: hippostd:html
+          hippostd:content: ''
+        /visitscotland:links[1]:
+          jcr:primaryType: hippo:mirror
+          hippo:docbase: 5e0d09e3-fdf2-479e-880d-8052730ec4e5
+        /visitscotland:links[2]:
+          jcr:primaryType: hippo:mirror
+          hippo:docbase: 2cd6819b-dc3e-4884-9942-f3b64c744de1
+        /visitscotland:links[3]:
+          jcr:primaryType: hippo:mirror
+          hippo:docbase: 23d70711-bab2-4981-a696-c24599ad3f29
+        /visitscotland:links[4]:
+          jcr:primaryType: hippo:mirror
+          hippo:docbase: d0ff207b-ec03-4e27-a4d8-adeafb6e416f
+        /visitscotland:links[5]:
+          jcr:primaryType: hippo:mirror
+          hippo:docbase: 7746679b-6821-4a09-9173-664653dad7dd
+        /visitscotland:links[6]:
+          jcr:primaryType: hippo:mirror
+          hippo:docbase: 379b86e5-872c-441c-bd30-aaf3f49054d6
+        /visitscotland:links[7]:
+          jcr:primaryType: hippo:mirror
+          hippo:docbase: 3234b5f3-9a6f-46b0-8feb-7f408c2cbdda
+    /content[3]:
+      jcr:primaryType: visitscotland:General
+      jcr:mixinTypes: ['mix:referenceable']
+      jcr:uuid: 3cc9b54e-5dc1-46bc-a1b0-f1c13bc14432
+      hippo:availability: [live]
+      hippostd:retainable: false
+      hippostd:state: published
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2021-06-29T15:19:57.775+01:00
+      hippostdpubwf:lastModificationDate: 2021-06-29T15:46:18.777+01:00
+      hippostdpubwf:lastModifiedBy: admin
+      hippostdpubwf:publicationDate: 2021-06-29T15:46:45.427+01:00
+      hippotranslation:id: aa69f65e-dcae-46ea-b584-32fc6418ff21
+      hippotranslation:locale: en
+      visitscotland:breadcrumb: ''
+      visitscotland:newsletter: true
+      visitscotland:seoDescription: Get all the information you need for your trip
+        to Scotland! Book accommodation, discover new places to visit, find amazing
+        things to do and more!
+      visitscotland:seoNoIndex: false
+      visitscotland:seoTitle: VisitScotland - Scotland's National Tourist Organisation
+      visitscotland:teaser: Scotland. The country you love needs you. Travelling a
+        little, can still make a big difference.
+      visitscotland:theme: Standard
+      visitscotland:title: Scotland, yours to enjoy. Responsibly.
+      visitscotland:translation: ''
+      /visitscotland:heroImage:
+        jcr:primaryType: hippogallerypicker:imagelink
+        hippo:docbase: 4cdd0883-80e6-4f4f-9fa1-4feec593a22e
+        hippo:facets: []
+        hippo:modes: []
+        hippo:values: []
+      /visitscotland:introduction:
+        jcr:primaryType: hippostd:html
+        hippostd:content: |-
+          <p>Let’s head back out and explore a little further with awe-inspiring landmarks and coastal seascapes for the perfect break.</p>
+
+          <p>We’ll be exploring responsibly. Getting off the beaten track and away from busy spots, parking properly, closing gates and tidying up after ourselves.</p>
+
+          <p>Once we’ve had our countryside fill, it’s time to enjoy one of our seven cultural cities, with their iconic attractions, relaxing accommodation choices, and innovative bars and restaurants.</p>
+
+          <p>Then maybe a coastal seaside retreat with miles of sandy beaches during our extended <a href="https://www.visitscotland.com/about/themed-years/coasts-waters/" title="YOCW 2020">Scotland's Year of Coasts &amp; Waters</a>?</p>
+
+          <p>After all, we deserve some quality time to ourselves, and with our friends and family.</p>
+      /visitscotland:otherThings:
+        jcr:primaryType: visitscotland:OTYML
+        visitscotland:title: ''
+        /visitscotland:introduction:
+          jcr:primaryType: hippostd:html
+          hippostd:content: ''
+        /visitscotland:links[1]:
+          jcr:primaryType: hippo:mirror
+          hippo:docbase: 5e0d09e3-fdf2-479e-880d-8052730ec4e5
+        /visitscotland:links[2]:
+          jcr:primaryType: hippo:mirror
+          hippo:docbase: 2cd6819b-dc3e-4884-9942-f3b64c744de1
+        /visitscotland:links[3]:
+          jcr:primaryType: hippo:mirror
+          hippo:docbase: 23d70711-bab2-4981-a696-c24599ad3f29
+        /visitscotland:links[4]:
+          jcr:primaryType: hippo:mirror
+          hippo:docbase: d0ff207b-ec03-4e27-a4d8-adeafb6e416f
+        /visitscotland:links[5]:
+          jcr:primaryType: hippo:mirror
+          hippo:docbase: 7746679b-6821-4a09-9173-664653dad7dd
+        /visitscotland:links[6]:
+          jcr:primaryType: hippo:mirror
+          hippo:docbase: 379b86e5-872c-441c-bd30-aaf3f49054d6
+        /visitscotland:links[7]:
+          jcr:primaryType: hippo:mirror
+          hippo:docbase: 3234b5f3-9a6f-46b0-8feb-7f408c2cbdda

@@ -1,0 +1,93 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <script th:replace="headerFragment.html :: openui"></script>
+    <link rel="stylesheet" type="text/css" th:href="@{/skin/hippo-cms/css/hippo-cms-theme.min.css}">
+</head>
+<body>
+    <div th:switch="${hasTranslationPending}">
+        <p th:case="true">Foreign language translations pending.</p>
+        <div th:case="false">
+            <p>No translations pending.</p>
+        </div>
+        <a class="btn btn-br-secondary"
+           href="#"
+           th:if="${hasDocumentChanged}"
+           th:data-nodeId="${nodeId}"
+           onclick="getCompare(this.getAttribute('data-nodeId'))">Send for translation</a>
+
+    </div>
+</body>
+<script>
+    var uiExtension;
+
+    async function setUiExtension(ui) {
+        uiExtension = ui;
+        const brDocument = await ui.document.get();
+        if (brDocument.mode === 'edit') {
+            const anchors = document.querySelectorAll('a');
+            anchors.forEach(anchor => {
+                anchor.style.display = 'none';
+            })
+        }
+    }
+
+    document.addEventListener('DOMContentLoaded', async () => {
+        window.parent.setupIFrame();
+    });
+
+    async function getCompare(nodeId) {
+        const dialogOptions = {
+            title: 'Send for Translation',
+            size: 'small',
+            url: `/cms/vs-openui/${nodeId}/dialog/translation/confirm`
+        };
+        const response = await uiExtension.dialog.open(dialogOptions);
+        if (response == true) {
+            // We want to extract the visible difference from the current screen. This should be the English differences.
+            var pluginContent = window.parent.parent.document.querySelectorAll('.hippo-compare-plugin');
+            // There could be multiple compare plugins, for minimised pages, we want the visible one
+            // Minimised documents at the bottom actually have a full compare plugin that is display:none
+            var visibleContent = Array.from(pluginContent).find(elem => {
+                return isVisible(elem);
+            });
+
+            if (visibleContent === undefined) {
+                console.log('Unable to find the .hippo-compare-plugin, something is wrong.')
+            } else {
+                var request = new XMLHttpRequest();
+                request.open("POST", `/cms/vs-service/node/${nodeId}/translation/flag`);
+                request.send(encodeURIComponent(visibleContent.innerHTML));
+                request.onload = () => {
+                    if (request.status === 409) {
+                        uiExtension.dialog.open({
+                            title: 'Translation Blocked',
+                            url: `/cms/vs-openui/${nodeId}/dialog/translation/blocked`,
+                            size: 'small'
+                        });
+                    } else if (request.status === 200) {
+                        parent.parent.location.reload();
+                    } else if (request.status === 204) {
+                        uiExtension.dialog.open({
+                            title: 'Error',
+                            url: `/cms/vs-openui/${nodeId}/dialog/translation/none`,
+                            size: 'small'
+                        });
+                    } else {
+                        uiExtension.dialog.open({
+                            title: 'Error',
+                            url: `/cms/vs-openui/${nodeId}/dialog/error`,
+                            size: 'small'
+                        });
+                    }
+                };
+            }
+        }
+    }
+
+    // After some Googling this was the best way to determine visibility, it is the way jQuery does it
+    function isVisible(elem) {
+        return !!( elem.offsetWidth || elem.offsetHeight || elem.getClientRects().length );
+    }
+</script>
+</html>

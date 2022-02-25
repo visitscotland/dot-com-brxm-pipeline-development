@@ -1,0 +1,78 @@
+definitions:
+  config:
+    /hippo:namespaces/visitscotland/FeaturedWidget:
+      jcr:primaryType: hipposysedit:templatetype
+      jcr:mixinTypes: ['editor:editable', 'mix:referenceable']
+      jcr:uuid: 10414696-9876-4dc0-ad3d-417931ff1fd2
+      /hipposysedit:nodetype:
+        jcr:primaryType: hippo:handle
+        jcr:mixinTypes: ['mix:referenceable']
+        jcr:uuid: ed1c32ed-0ed9-4dc0-9fe7-34f9a7b1de29
+        /hipposysedit:nodetype:
+          jcr:primaryType: hipposysedit:nodetype
+          jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
+          jcr:uuid: 5792b171-334e-4168-8963-6d662a3f0796
+          hipposysedit:node: true
+          hipposysedit:supertype: ['visitscotland:Widget', 'hippostd:relaxed', 'hippotranslation:translated']
+          hipposysedit:uri: http://www.visitscotland.com/visitscotland/nt/1.0
+          /items:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:multiple: true
+            hipposysedit:ordered: true
+            hipposysedit:path: visitscotland:items
+            hipposysedit:type: hippo:compound
+            hipposysedit:validators: [contentblocks-validator]
+      /hipposysedit:prototypes:
+        jcr:primaryType: hipposysedit:prototypeset
+        /hipposysedit:prototype:
+          jcr:primaryType: visitscotland:FeaturedWidget
+          hippostd:holder: holder
+          hippostd:state: draft
+          hippostdpubwf:createdBy: ''
+          hippostdpubwf:lastModifiedBy: ''
+          hippotranslation:id: document-type-locale-id
+          hippotranslation:locale: document-type-locale
+          visitscotland:translation: ''
+          jcr:mixinTypes: ['mix:referenceable']
+          jcr:uuid: 01c6c04b-d821-4b3b-99e9-fbd28e84037f
+          hippostdpubwf:lastModificationDate: 2021-05-12T09:57:59.465+01:00
+          hippostdpubwf:creationDate: 2021-05-12T09:57:59.466+01:00
+          /visitscotland:items:
+            jcr:primaryType: visitscotland:CMSLink
+            visitscotland:label: ''
+            /visitscotland:link:
+              jcr:primaryType: hippo:mirror
+              hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+      /editor:templates:
+        jcr:primaryType: editor:templateset
+        /_default_:
+          jcr:primaryType: frontend:plugincluster
+          frontend:properties: [mode]
+          frontend:references: [wicket.model, model.compareTo, engine, validator.id]
+          frontend:services: [wicket.id, validator.id]
+          /root:
+            jcr:primaryType: frontend:plugin
+            item: ${cluster.id}.field
+            plugin.class: org.hippoecm.frontend.service.render.ListViewPlugin
+          /items:
+            jcr:primaryType: frontend:plugin
+            caption: Items
+            compoundList: visitscotland:CMSLink
+            contentPickerType: links
+            field: items
+            plugin.class: org.onehippo.forge.contentblocks.ContentBlocksFieldPlugin
+            wicket.id: ${cluster.id}.field
+            hint: ''
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+              maxitems: 2
+          /translation:
+            jcr:primaryType: frontend:plugin
+            caption: Translation
+            field: translation
+            hint: ''
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+              ui.extension: translationDiff

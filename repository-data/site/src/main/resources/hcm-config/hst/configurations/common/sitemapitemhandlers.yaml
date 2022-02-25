@@ -1,0 +1,7 @@
+definitions:
+  config:
+    /hst:hst/hst:configurations/common/hst:sitemapitemhandlers:
+      jcr:primaryType: hst:sitemapitemhandlers
+      /translation-fallback:
+        jcr:primaryType: hst:sitemapitemhandler
+        hst:sitemapitemhandlerclassname: com.visitscotland.brxm.config.TranslationHstSiteMapItemHandler

@@ -1,0 +1,13 @@
+definitions:
+  config:
+    /hst:platform/hst:hosts/develop/com:
+      jcr:primaryType: hst:virtualhost
+      hst:schemeagnostic: true
+      /visitscotland:
+        jcr:primaryType: hst:virtualhost
+        /develop:
+          jcr:primaryType: hst:virtualhost
+          /hst:root:
+            jcr:primaryType: hst:mount
+            hst:ismapped: false
+            hst:namedpipeline: WebApplicationInvokingPipeline

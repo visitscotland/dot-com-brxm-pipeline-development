@@ -1,0 +1,89 @@
+/content/gallery/visitscotland/static:
+  jcr:primaryType: hippogallery:stdImageGallery
+  hippostd:foldertype: [new-visitscotland-Image-folder]
+  hippostd:gallerytype: ['visitscotland:Image']
+  /modules:
+    jcr:primaryType: hippogallery:stdImageGallery
+    jcr:mixinTypes: ['mix:versionable']
+    jcr:uuid: b6eaaed7-a717-49fe-aaba-a529c5bcdcdb
+    hippostd:foldertype: [new-visitscotland-Image-folder]
+    hippostd:gallerytype: ['visitscotland:Image']
+    /visitscotland-visitor-information-centre.jpg:
+      jcr:primaryType: hippo:handle
+      jcr:mixinTypes: ['mix:referenceable']
+      jcr:uuid: 6fe01b32-04e9-4d0f-86c9-b6b8bd246a67
+      /visitscotland-visitor-information-centre.jpg:
+        jcr:primaryType: visitscotland:Image
+        hippo:availability: [live, preview]
+        hippogallery:description: VisitScotland Information Centre
+        hippogallery:filename: visitscotland-visitor-information-centre.jpg
+        visitscotland:altText: VisitScotland iCentre
+        visitscotland:credit: VisitScotland / Kenny Lam
+        visitscotland:location: Edinburgh
+        /hippogallery:thumbnail:
+          jcr:primaryType: hippogallery:image
+          hippo:filename: visitscotland-visitor-information-centre.jpg
+          hippogallery:height: 39
+          hippogallery:width: 60
+          jcr:data:
+            type: binary
+            resource: /content/gallery/visitscotland/static/modules/visitscotland-visitor-information-centre.jpg/visitscotland-visitor-information-centre.jpg/thumbnail/thumbnail.jpg
+          jcr:lastModified: 2020-11-05T09:28:30.148Z
+          jcr:mimeType: image/jpeg
+        /hippogallery:original:
+          jcr:primaryType: hippogallery:image
+          hippogallery:height: 1365
+          hippogallery:width: 2048
+          jcr:data:
+            type: binary
+            resource: /content/gallery/visitscotland/static/modules/visitscotland-visitor-information-centre.jpg/visitscotland-visitor-information-centre.jpg/original/original.jpg
+          jcr:lastModified: 2020-11-05T09:28:30.148Z
+          jcr:mimeType: image/jpeg
+        /visitscotland:nl:
+          jcr:primaryType: visitscotland:ImageData
+          visitscotland:altText: VisitScotland iCentre
+          visitscotland:caption: VisitScotland Information Centre
+        /visitscotland:fr:
+          jcr:primaryType: visitscotland:ImageData
+          visitscotland:altText: iCentre de Visitscotland
+          visitscotland:caption: Centre d’information de VisitScotland
+        /visitscotland:de:
+          jcr:primaryType: visitscotland:ImageData
+          visitscotland:altText: Ein iCentre von VisitScotland
+          visitscotland:caption: Touristinformation von VisitScotland
+        /visitscotland:es:
+          jcr:primaryType: visitscotland:ImageData
+          visitscotland:altText: iCentre de VisitScotland
+          visitscotland:caption: Centro de información de VisitScotland
+        /visitscotland:it:
+          jcr:primaryType: visitscotland:ImageData
+          visitscotland:altText: iCentre di VisitScotland
+          visitscotland:caption: Centro informazione di VisitScotland
+    /marketocode.jpg:
+      jcr:primaryType: hippo:handle
+      jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+      jcr:uuid: 87ed3d38-9b88-4b83-9da2-e3800afb6a87
+      hippo:name: marketoCode.jpg
+      /marketocode.jpg:
+        jcr:primaryType: visitscotland:Image
+        hippo:availability: [live, preview]
+        hippogallery:filename: marketoCode.jpg
+        /hippogallery:thumbnail:
+          jcr:primaryType: hippogallery:image
+          hippo:filename: marketoCode.jpg
+          hippogallery:height: 20
+          hippogallery:width: 60
+          jcr:data:
+            type: binary
+            resource: /content/gallery/visitscotland/static/modules/marketocode.jpg/marketocode.jpg/thumbnail/thumbnail.jpg
+          jcr:lastModified: 2021-05-21T16:42:21.008+01:00
+          jcr:mimeType: image/jpeg
+        /hippogallery:original:
+          jcr:primaryType: hippogallery:image
+          hippogallery:height: 186
+          hippogallery:width: 553
+          jcr:data:
+            type: binary
+            resource: /content/gallery/visitscotland/static/modules/marketocode.jpg/marketocode.jpg/original/original.jpg
+          jcr:lastModified: 2021-05-21T16:42:21.008+01:00
+          jcr:mimeType: image/jpeg

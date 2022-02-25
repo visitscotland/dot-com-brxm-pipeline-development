@@ -1,0 +1,19 @@
+definitions:
+  config:
+    /hippo:configuration/hippo:domains/administration-configuration:
+      jcr:primaryType: hipposys:domain
+      /administration-labels-domain:
+        jcr:primaryType: hipposys:domainrule
+        /labels:
+          jcr:primaryType: hipposys:facetrule
+          hipposys:equals: true
+          hipposys:facet: jcr:path
+          hipposys:type: Reference
+          hipposys:value: /content/documents/administration/labels
+      /admin:
+        jcr:primaryType: hipposys:authrole
+        hipposys:role: admin
+        hipposys:userrole:
+          .meta:category: system
+          type: string
+          value: xm.content.admin

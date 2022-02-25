@@ -1,0 +1,25 @@
+Configuration:
+  status: warn
+  name: CMSTestLogging
+  appenders:
+    Console:
+      name: STDOUT
+      target: SYSTEM_OUT
+      PatternLayout:
+        Pattern: "%m%n"
+      Filters:
+        ThresholdFilter:
+          level: fatal
+
+  Loggers:
+    logger:
+    - name: com.visitscotland.brxm
+      level: debug
+
+    - name: org.hippoecm
+      level: error
+
+    Root:
+      level: fatal
+      AppenderRef:
+        ref: STDOUT

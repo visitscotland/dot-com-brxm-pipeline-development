@@ -5,22 +5,168 @@
   <parent>
     <groupId>com.visitscotland</groupId>
     <artifactId>visitscotland</artifactId>
-    <version>0.1.0-SNAPSHOT</version>
+    <version>1.0.0</version>
   </parent>
   <artifactId>visitscotland-cms</artifactId>
   <packaging>war</packaging>
   <name>www.visitscotland.com CMS Pages CMS</name>
+
   <description>www.visitscotland.com CMS Pages CMS</description>
+
+  <dependencyManagement>
+    <dependencies>
+      <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-dependencies</artifactId>
+        <version>${spring-boot.version}</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
+
   <dependencies>
+    <dependency>
+      <artifactId>hippo-addon-reporting-dashboard-frontend</artifactId>
+      <groupId>com.onehippo.cms7</groupId>
+    </dependency>
+    <dependency>
+      <artifactId>hippo-addon-reporting-dashboard-repository</artifactId>
+      <groupId>com.onehippo.cms7</groupId>
+    </dependency>
     <dependency>
       <groupId>${project.groupId}</groupId>
       <artifactId>visitscotland-cms-dependencies</artifactId>
       <version>${project.version}</version>
       <type>pom</type>
     </dependency>
+    
+    <!-- TODO review this dependency cms-site -->
+    <dependency>
+      <groupId>${project.groupId}</groupId>
+      <artifactId>visitscotland-components</artifactId>
+      <version>${project.version}</version>
+      <scope>compile</scope>
+    </dependency>
+  
+    <!-- This dependecy overrides the ones defined by data-service-api and swagger -->
+    <dependency>
+      <groupId>org.apache.commons</groupId>
+      <artifactId>commons-lang3</artifactId>
+      <version>${commons-lan3.version}</version>
+    </dependency>
+  
+    <dependency>
+      <groupId>com.visitscotland</groupId>
+      <artifactId>data-service-api</artifactId>
+    </dependency>
+
+    <dependency>
+      <groupId>org.junit.jupiter</groupId>
+      <artifactId>junit-jupiter</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.junit.vintage</groupId>
+      <artifactId>junit-vintage-engine</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.mockito</groupId>
+      <artifactId>mockito-inline</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.mockito</groupId>
+      <artifactId>mockito-junit-jupiter</artifactId>
+    </dependency>
+
+    <dependency>
+      <groupId>org.assertj</groupId>
+      <artifactId>assertj-core</artifactId>
+      <version>3.17.2</version>
+      <scope>test</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-web</artifactId>
+      <version>${spring-boot.version}</version>
+      <exclusions>
+        <exclusion>
+          <groupId>org.springframework.boot</groupId>
+          <artifactId>spring-boot-starter-tomcat</artifactId>
+        </exclusion>
+        <!-- exclude to stop StackOverflowException -->
+        <exclusion>
+          <groupId>org.apache.logging.log4j</groupId>
+          <artifactId>log4j-to-slf4j</artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>org.springframework.boot</groupId>
+          <artifactId>spring-boot-starter-logging</artifactId>
+        </exclusion>
+      </exclusions>
+    </dependency>
+
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-log4j2</artifactId>
+      <version>${spring-boot.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-thymeleaf</artifactId>
+      <version>${spring-boot.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-tomcat</artifactId>
+      <version>${spring-boot.version}</version>
+      <scope>provided</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>org.bitbucket.cowwoc</groupId>
+      <artifactId>diff-match-patch</artifactId>
+      <version>1.2</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.bloomreach.forge.ipfilter</groupId>
+      <artifactId>bloomreach-ipfilter-cms</artifactId>
+    </dependency>
+
   </dependencies>
   <build>
     <finalName>cms</finalName>
+    <resources>
+      <resource>
+        <directory>src/main/java</directory>
+        <filtering>false</filtering>
+        <includes>
+          <include>**/*.properties</include>
+          <include>**/*.html</include>
+          <include>**/*.css</include>
+          <include>**/*.png</include>
+          <include>**/*.js</include>
+        </includes>
+      </resource>
+      <resource>
+        <directory>src/main/resources</directory>
+        <filtering>false</filtering>
+        <includes>
+          <include>**/*</include>
+        </includes>
+        <excludes><exclude>**/*.properties</exclude></excludes>
+      </resource>
+      <resource>
+        <directory>src/main/resources</directory>
+        <filtering>true</filtering>
+        <includes>
+          <include>**/*.properties</include>
+        </includes>
+      </resource>
+    </resources>
     <plugins>
       <plugin>
         <artifactId>maven-war-plugin</artifactId>
@@ -50,6 +196,32 @@
         <groupId>org.onehippo.cms.l10n</groupId>
         <artifactId>hippo-cms-l10n-maven-plugin</artifactId>
       </plugin>
+      <plugin>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-maven-plugin</artifactId>
+        <version>${spring-boot.version}</version>
+      </plugin>
+      <plugin>
+      <groupId>org.apache.maven.plugins</groupId>
+      <artifactId>maven-resources-plugin</artifactId>
+      <executions>
+        <execution>
+          <id>create-optimized-ckeditor-resources</id>
+          <phase>generate-resources</phase>
+          <goals>
+            <goal>copy-resources</goal>
+          </goals>
+          <configuration>
+            <outputDirectory>${project.build.directory}/classes/ckeditor/optimized</outputDirectory>
+            <resources>
+              <resource>
+                <directory>${basedir}/src/main/resources/ckeditor</directory>
+              </resource>
+            </resources>
+          </configuration>
+        </execution>
+      </executions>
+    </plugin>
     </plugins>
   </build>
 </project>

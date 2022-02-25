@@ -1,0 +1,28 @@
+definitions:
+  config:
+    /hst:hst/hst:configurations/visitscotland-nl/hst:workspace:
+      jcr:primaryType: hst:workspace
+      /hst:containers:
+        jcr:primaryType: hst:containercomponentfolder
+        /base:
+          jcr:primaryType: hst:containercomponentfolder
+          /top:
+            .meta:residual-child-node-category: content
+            jcr:primaryType: hst:containercomponent
+            hst:label: Top
+            hst:xtype: hst.vbox
+            hippo:identifier: 2afcc788-919c-434e-91e8-a5f4f7d06717
+          /footer:
+            .meta:residual-child-node-category: content
+            jcr:primaryType: hst:containercomponent
+            hst:label: Footer
+            hst:xtype: hst.vbox
+            hippo:identifier: 3cef9fd7-57b7-4122-8174-9d1855309b25
+        /pagenotfound:
+          jcr:primaryType: hst:containercomponentfolder
+          /main:
+            .meta:residual-child-node-category: content
+            jcr:primaryType: hst:containercomponent
+            hst:label: Page-Not-Found Main
+            hst:xtype: hst.vbox
+            hippo:identifier: 7daaaed6-ecc0-4430-b9e0-d8a833241722

@@ -1,85 +1,46 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
-
+  
   <parent>
-    <groupId>org.onehippo.cms7</groupId>
-    <artifactId>hippo-cms7-release</artifactId>
-    <version>13.3.0</version>
+    <groupId>com.visitscotland</groupId>
+    <artifactId>hippo-defaults</artifactId>
+    <version>4.0.0</version>
   </parent>
-
+  
   <name>www.visitscotland.com CMS Pages</name>
   <description>www.visitscotland.com CMS Pages</description>
   <groupId>com.visitscotland</groupId>
-  <artifactId>visitscotland</artifactId>
-  <version>0.1.0-SNAPSHOT</version>
+  <artifactId>dot-com-brxm</artifactId>
+  <version>1.0.0</version>
   <packaging>pom</packaging>
+  
+  <properties>
+    
+    <!--***START temporary override of versions*** -->
+    <!-- ***END temporary override of versions*** -->
+    <!--TODO define this in parent pom -->
+   
+    <data-service-api.version>1.2.1</data-service-api.version>
+    <commons-lan3.version>3.8.1</commons-lan3.version>
+    
+    <junit.jupiter.version>5.7.1</junit.jupiter.version>
+    <easymock.version>4.2</easymock.version>
+    <mockito.version>3.3.3</mockito.version>
+    
+    <forge.exdocpickerbase.version>6.0.0</forge.exdocpickerbase.version>
+    <forge.breadcrumb.version>3.0.0</forge.breadcrumb.version>
 
-  <!-- 
-    The below project elements are emptied/overridden as otherwise their metadata would be
-    inherited or merged from the parent hippo-cms7-release pom (or its hippo-cms7-project pom).
+    <bloomreach.forge.ipfilter.version>3.1.0</bloomreach.forge.ipfilter.version>
 
-    DO NOT remove these tags but instead fill them in appropriately as needed, 
-    UNLESS the inherited values are valid for your project.
-  -->
-  <url/>
-  <inceptionYear/>
-  <organization/>
-  <licenses>
-    <license/>
-  </licenses>
-  <mailingLists>
-    <mailingList/>
-  </mailingLists>
+    <cliOptions></cliOptions>
+  </properties>
+  
+  <inceptionYear>2019</inceptionYear>
+  
   <developers>
     <developer/>
   </developers>
-  <contributors>
-    <contributor/>
-  </contributors>
-  <issueManagement/>
-  <!--
-  <scm>
-    <connection/>
-    <developerConnection/>
-    <url/>
-  </scm>
-  -->
-  <ciManagement/>
-  <distributionManagement>
-    <repository>
-      <id>-</id>
-      <url>-</url>
-    </repository>
-    <snapshotRepository>
-      <id>-</id>
-      <url>-</url>
-    </snapshotRepository>
-  </distributionManagement>
-  <!-- End of emptied/overridden metadata from parent hippo-cms7-release pom. -->
-
-  <properties>
-
-    <!--***START temporary override of versions*** -->
-    <!-- ***END temporary override of versions*** -->
-
-    <essentials.version>13.3.0</essentials.version>
-    <jsp-api.version>2.2</jsp-api.version>
-    <taglibs.version>1.2.5</taglibs.version>
-
-    <development-module-deploy-dir>shared/lib</development-module-deploy-dir>
-
-    <hippo.cms.locales>nl,de,fr,es,zh</hippo.cms.locales>
-    <buildNumber>${maven.build.timestamp}</buildNumber>
-  </properties>
-
-  <repositories>
-    <repository>
-      <id>hippo</id>
-      <name>Hippo maven 2 repository.</name>
-      <url>https://maven.onehippo.com/maven2/</url>
-    </repository>
-  </repositories>
 
   <dependencyManagement>
     <dependencies>
@@ -90,6 +51,11 @@
         <scope>provided</scope>
       </dependency>
 
+      <dependency>
+        <groupId>org.onehippo.forge.exdocpickerbase</groupId>
+        <artifactId>exdocpickerbase-field</artifactId>
+        <version>${forge.exdocpickerbase.version}</version>
+      </dependency>
       <!-- other predefined runtime scope versioned dependencies -->
       <dependency>
         <groupId>org.apache.taglibs</groupId>
@@ -112,11 +78,76 @@
         <version>${freemarker.version}</version>
       </dependency>
 
+      <dependency>
+        <groupId>org.bloomreach.forge.ipfilter</groupId>
+        <artifactId>bloomreach-ipfilter-hst</artifactId>
+        <version>${bloomreach.forge.ipfilter.version}</version>
+      </dependency>
+
+      <dependency>
+        <groupId>org.bloomreach.forge.ipfilter</groupId>
+        <artifactId>bloomreach-ipfilter-cms</artifactId>
+        <version>${bloomreach.forge.ipfilter.version}</version>
+      </dependency>
+
+      <!-- VisitScotland Dependencies -->
+
+      <dependency>
+        <groupId>com.visitscotland</groupId>
+        <artifactId>data-service-api</artifactId>
+        <version>${data-service-api.version}</version>
+        <exclusions>
+          <exclusion>
+            <groupId>org.jboss.resteasy</groupId>
+            <artifactId>resteasy-jaxrs</artifactId>
+          </exclusion>
+          <exclusion>
+            <groupId>javax.ws.rs</groupId>
+            <artifactId>javax.ws.rs-api</artifactId>
+          </exclusion>
+          <exclusion>
+            <groupId>jakarta.ws.rs</groupId>
+            <artifactId>jakarta.ws.rs-api</artifactId>
+          </exclusion>
+          <exclusion>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-log4j12</artifactId>
+          </exclusion>
+        </exclusions>
+      </dependency>
+
+      <!-- Test Dependencies -->
+
+      <dependency>
+        <groupId>org.junit.jupiter</groupId>
+        <artifactId>junit-jupiter</artifactId>
+        <version>${junit.jupiter.version}</version>
+        <scope>test</scope>
+      </dependency>
+      <dependency>
+        <groupId>org.junit.vintage</groupId>
+        <artifactId>junit-vintage-engine</artifactId>
+        <version>${junit.jupiter.version}</version>
+        <scope>test</scope>
+      </dependency>
+      <dependency>
+        <groupId>org.mockito</groupId>
+        <artifactId>mockito-inline</artifactId>
+        <version>${mockito.version}</version>
+        <scope>test</scope>
+      </dependency>
+      <dependency>
+        <groupId>org.mockito</groupId>
+        <artifactId>mockito-junit-jupiter</artifactId>
+        <version>${mockito.version}</version>
+        <scope>test</scope>
+      </dependency>
     </dependencies>
   </dependencyManagement>
 
   <build>
     <defaultGoal>package</defaultGoal>
+    
     <pluginManagement>
       <plugins>
         <!--
@@ -148,6 +179,7 @@
         </plugin>
       </plugins>
     </pluginManagement>
+    
     <plugins>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
@@ -167,7 +199,6 @@
   </build>
 
   <profiles>
-
     <profile>
       <id>default</id>
       <activation>
@@ -176,7 +207,11 @@
           <name>jrebel</name>
         </property>
       </activation>
+      <properties>
+        <spring.profiles.active>${cliOptions}</spring.profiles.active>
+      </properties>
       <modules>
+        <module>ui-integration</module>
         <module>cms-dependencies</module>
         <module>repository-data</module>
         <module>cms</module>
@@ -240,6 +275,7 @@
         <docker.db.bind.1>${project.basedir}/target/mysql-data:/var/lib/mysql</docker.db.bind.1>
         <docker.db.bind.2>${project.basedir}/db-bootstrap:/docker-entrypoint-initdb.d</docker.db.bind.2>
 
+        <!--suppress UnresolvedMavenProperty -->
         <docker.brxm.envRun.MYSQL_DB_HOST>${docker.container.db.net.visitscotland-network.ip}</docker.brxm.envRun.MYSQL_DB_HOST>
       </properties>
     </profile>
@@ -254,6 +290,7 @@
         <docker.db.bind.1>${project.basedir}/target/postgres-data:/var/lib/postgresql/data</docker.db.bind.1>
         <docker.db.bind.2>${project.basedir}/db-bootstrap:/docker-entrypoint-initdb.d</docker.db.bind.2>
 
+        <!--suppress UnresolvedMavenProperty -->
         <docker.brxm.envRun.POSTGRES_DB_HOST>${docker.container.db.net.visitscotland-network.ip}</docker.brxm.envRun.POSTGRES_DB_HOST>
       </properties>
     </profile>
@@ -319,7 +356,7 @@
               </deployables>
               <container>
                 <systemProperties>
-                  <log4j.configurationFile>file://${project.basedir}/conf/log4j2-dev.xml</log4j.configurationFile>
+                  <log4j.configurationFile>${project.basedir}/conf/log4j2-dev.xml</log4j.configurationFile>
                   <!-- enables auto export and web files watch: -->
                   <project.basedir>${project.basedir}</project.basedir>
                   <send.usage.statistics.to.hippo>true</send.usage.statistics.to.hippo>
@@ -440,5 +477,10 @@
     </profile>
 
   </profiles>
-
+  
+  <scm>
+    <connection>scm:git:https://bitbucket.visitscotland.com/scm/com/visitscotland-2019.git</connection>
+    <developerConnection/>
+    <url/>
+  </scm>
 </project>

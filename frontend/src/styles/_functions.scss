@@ -1,0 +1,29 @@
+/* GLOBAL FUNCTIONS
+--------------------------------------------- */
+
+/**
+* From CSS-tricks 
+* https://css-tricks.com/snippets/sass/power-function/
+*/
+@function pow($number, $exponent) {
+    $value: 1;
+
+    @if $exponent > 0 {
+        @for $i from 1 through $exponent {
+            $value: $value * $number;
+        }
+    }
+
+    @return $value;
+}
+
+/**
+ * From CSS-tricks
+ * https://css-tricks.com/snippets/sass/deep-getset-maps/
+ */
+@function map-deep-get($map, $keys...) {
+    @each $key in $keys {
+        $map: map-get($map, $key);
+    }
+    @return $map;
+}

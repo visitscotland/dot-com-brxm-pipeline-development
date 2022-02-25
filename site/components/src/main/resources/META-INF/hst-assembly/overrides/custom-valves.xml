@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="customLocalizationValve" class="com.visitscotland.brxm.config.MountLocalizationValve">
+        <property name="valveName" value="customLocalizationValve"/>
+        <property name="afterValves" value="localizationValve"/>
+        <property name="beforeValves" value="actionValve"/>
+    </bean>
+
+    <bean class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
+        <property name="targetObject">
+            <bean class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
+                <property name="targetObject" ref="org.hippoecm.hst.core.container.Pipelines"/>
+                <property name="targetMethod" value="getPipeline"/>
+                <property name="arguments">
+                    <value>DefaultSitePipeline</value>
+                </property>
+            </bean>
+        </property>
+        <property name="targetMethod" value="addProcessingValve" />
+        <property name="arguments">
+            <ref bean="customLocalizationValve" />
+        </property>
+    </bean>
+
+    <bean id="environmentContextValve" class="com.visitscotland.brxm.config.VSEnvironmentContextValve">
+        <property name="valveName" value="environmentContextValve"/>
+        <property name="afterValves" value="securityValve" />
+        <property name="beforeValves" value="pageCachingValve" />
+    </bean>
+
+    <bean class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
+        <property name="targetObject">
+            <bean class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
+                <property name="targetObject" ref="org.hippoecm.hst.core.container.Pipelines"/>
+                <property name="targetMethod" value="getPipeline"/>
+                <property name="arguments">
+                    <value>DefaultSitePipeline</value>
+                </property>
+            </bean>
+        </property>
+        <property name="targetMethod" value="addProcessingValve" />
+        <property name="arguments">
+            <ref bean="environmentContextValve" />
+        </property>
+    </bean>
+
+</beans>

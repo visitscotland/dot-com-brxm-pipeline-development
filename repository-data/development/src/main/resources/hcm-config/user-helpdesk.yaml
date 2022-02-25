@@ -1,0 +1,15 @@
+definitions:
+  config:
+    /hippo:configuration/hippo:users/helpdesk:
+      jcr:primaryType: hipposys:user
+      hipposys:active: true
+      hipposys:firstname: Helpdesk
+      hipposys:lastname: VisitScotland
+      hipposys:password:
+        .meta:category: system
+        value: helpdesk
+      hipposys:passwordlastmodified:
+        .meta:category: system
+      hipposys:previouspasswords:
+        .meta:category: system
+      hipposys:securityprovider: internal

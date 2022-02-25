@@ -1,0 +1,549 @@
+/content/documents/www.visitscotland.com-es/sandbox:
+  jcr:primaryType: hippostd:folder
+  jcr:mixinTypes: ['hippotranslation:translated', 'mix:versionable']
+  jcr:uuid: a6332acd-4ef1-4def-88ba-761fd835d530
+  hippostd:foldertype: [new-translated-folder, new-document]
+  hippotranslation:id: 0ff458fa-cab8-47ba-9862-d8a0b7a1bacf
+  hippotranslation:locale: es
+  /localized-urls:
+    jcr:primaryType: hippostd:folder
+    jcr:mixinTypes: ['hippotranslation:translated', 'mix:versionable']
+    jcr:uuid: cb2a9e31-203b-4f03-8c47-f032f1452f43
+    hippostd:foldertype: [new-translated-folder, new-page, new-module]
+    hippotranslation:id: 51e95349-2bb5-4822-a387-b47b4eb61136
+    hippotranslation:locale: es
+    /content:
+      jcr:primaryType: hippo:handle
+      jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+      jcr:uuid: 5e78d35a-8fcd-4b10-b4b9-958ca6943e79
+      hippo:name: Localized URLs Demo
+      hippo:versionHistory: 98e86fb8-4ecf-430d-ad2a-b4d65349663e
+      /content[1]:
+        jcr:primaryType: visitscotland:General
+        jcr:mixinTypes: ['mix:referenceable']
+        jcr:uuid: c6a03c84-ddd8-45d7-936c-f9378a4323a2
+        hippo:availability: []
+        hippostd:retainable: false
+        hippostd:state: draft
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2021-08-25T15:57:37.526+01:00
+        hippostdpubwf:lastModificationDate: 2021-08-25T16:16:44.105+01:00
+        hippostdpubwf:lastModifiedBy: admin
+        hippotranslation:id: 69288741-1c97-47a7-bf0b-f30e8b3858ee
+        hippotranslation:locale: es
+        visitscotland:breadcrumb: ''
+        visitscotland:hideNewsletter: false
+        visitscotland:seoDescription: Hi! Welcome to the VisitScotland website, how
+          can we help you?
+        visitscotland:seoNoIndex: false
+        visitscotland:seoTitle: Localized URL
+        visitscotland:teaser: This is an example of a Spanish page with the URLs localized
+        visitscotland:theme: Simple
+        visitscotland:title: Family holidays in Scotland
+        visitscotland:translation: ''
+        /visitscotland:heroImage:
+          jcr:primaryType: hippogallerypicker:imagelink
+          hippo:docbase: dbcdddc3-5586-4188-85a7-fcd5e7e3c29a
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+        /visitscotland:introduction:
+          jcr:primaryType: hippostd:html
+          hippostd:content: <p>Your family holiday in Scotland will be one to remember
+            - after all, it's a country that packs oodles of adventure, history, wildlife
+            and scenery into every square mile! When it comes to planning a family
+            break, we know there are lots of important decisions to be made, but you'll
+            find that Scotland ticks all the boxes - there's plenty of quality accommodation
+            to suit all budgets, exciting destinations to explore, and, of course,
+            countless attractions and thrilling activities for all ages.</p>
+      /content[2]:
+        jcr:primaryType: visitscotland:General
+        jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+        jcr:uuid: d69df894-17d0-48e7-a917-789a3003c65b
+        hippo:availability: [preview]
+        hippostd:retainable: false
+        hippostd:state: unpublished
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2021-08-25T15:57:37.526+01:00
+        hippostdpubwf:lastModificationDate: 2021-08-25T16:16:44.026+01:00
+        hippostdpubwf:lastModifiedBy: admin
+        hippotranslation:id: 69288741-1c97-47a7-bf0b-f30e8b3858ee
+        hippotranslation:locale: es
+        visitscotland:breadcrumb: ''
+        visitscotland:hideNewsletter: false
+        visitscotland:seoDescription: Hi! Welcome to the VisitScotland website, how
+          can we help you?
+        visitscotland:seoNoIndex: false
+        visitscotland:seoTitle: Localized URL
+        visitscotland:teaser: This is an example of a Spanish page with the URLs localized
+        visitscotland:theme: Simple
+        visitscotland:title: Family holidays in Scotland
+        visitscotland:translation: ''
+        /visitscotland:heroImage:
+          jcr:primaryType: hippogallerypicker:imagelink
+          hippo:docbase: dbcdddc3-5586-4188-85a7-fcd5e7e3c29a
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+        /visitscotland:introduction:
+          jcr:primaryType: hippostd:html
+          hippostd:content: <p>Your family holiday in Scotland will be one to remember
+            - after all, it's a country that packs oodles of adventure, history, wildlife
+            and scenery into every square mile! When it comes to planning a family
+            break, we know there are lots of important decisions to be made, but you'll
+            find that Scotland ticks all the boxes - there's plenty of quality accommodation
+            to suit all budgets, exciting destinations to explore, and, of course,
+            countless attractions and thrilling activities for all ages.</p>
+      /content[3]:
+        jcr:primaryType: visitscotland:General
+        jcr:mixinTypes: ['mix:referenceable']
+        jcr:uuid: 8906d98b-9a18-4d9c-803b-e469184d9fc0
+        hippo:availability: [live]
+        hippostd:retainable: false
+        hippostd:state: published
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2021-08-25T15:57:37.526+01:00
+        hippostdpubwf:lastModificationDate: 2021-08-25T16:16:44.026+01:00
+        hippostdpubwf:lastModifiedBy: admin
+        hippostdpubwf:publicationDate: 2021-08-25T16:16:48.535+01:00
+        hippotranslation:id: 69288741-1c97-47a7-bf0b-f30e8b3858ee
+        hippotranslation:locale: es
+        visitscotland:breadcrumb: ''
+        visitscotland:hideNewsletter: false
+        visitscotland:seoDescription: Hi! Welcome to the VisitScotland website, how
+          can we help you?
+        visitscotland:seoNoIndex: false
+        visitscotland:seoTitle: Localized URL
+        visitscotland:teaser: This is an example of a Spanish page with the URLs localized
+        visitscotland:theme: Simple
+        visitscotland:title: Family holidays in Scotland
+        visitscotland:translation: ''
+        /visitscotland:heroImage:
+          jcr:primaryType: hippogallerypicker:imagelink
+          hippo:docbase: dbcdddc3-5586-4188-85a7-fcd5e7e3c29a
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+        /visitscotland:introduction:
+          jcr:primaryType: hippostd:html
+          hippostd:content: <p>Your family holiday in Scotland will be one to remember
+            - after all, it's a country that packs oodles of adventure, history, wildlife
+            and scenery into every square mile! When it comes to planning a family
+            break, we know there are lots of important decisions to be made, but you'll
+            find that Scotland ticks all the boxes - there's plenty of quality accommodation
+            to suit all budgets, exciting destinations to explore, and, of course,
+            countless attractions and thrilling activities for all ages.</p>
+    /article-module:
+      jcr:primaryType: hippo:handle
+      jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+      jcr:uuid: 49e7803f-0f69-4b0c-8f31-76d562f93b31
+      hippo:name: Article Module
+      hippo:versionHistory: 0c25aee0-d41d-44f0-ae02-639592cad262
+      /article-module[1]:
+        jcr:primaryType: visitscotland:Article
+        jcr:mixinTypes: ['mix:referenceable']
+        jcr:uuid: 4ace6a8d-a7ae-42b3-a7fa-89f5fab33596
+        hippo:availability: []
+        hippostd:retainable: false
+        hippostd:state: draft
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2021-08-25T16:00:30.203+01:00
+        hippostdpubwf:lastModificationDate: 2021-08-25T16:00:30.203+01:00
+        hippostdpubwf:lastModifiedBy: admin
+        hippotranslation:id: 45899a9d-7412-4e1b-a0bc-e35c49eca292
+        hippotranslation:locale: es
+        visitscotland:anchor: ''
+        visitscotland:title: Family holidays in Scotland
+        visitscotland:translation: ''
+        /visitscotland:copy:
+          jcr:primaryType: hippostd:html
+          hippostd:content: <p>Your family holiday in Scotland will be one to remember
+            - after all, it's a country that packs oodles of adventure, history, wildlife
+            and scenery into every square mile! When it comes to planning a family
+            break, we know there are lots of important decisions to be made, but you'll
+            find that Scotland ticks all the boxes</p>
+        /visitscotland:paragraph[1]:
+          jcr:primaryType: visitscotland:ArticleSection
+          /visitscotland:copy:
+            jcr:primaryType: hippostd:html
+            hippostd:content: |-
+              <h3>Family Breaks in Scotland</h3>
+
+              <p>Browse our top picks for family breaks in Scotland and entertain the kids with beaches, castles, places to visit and more!</p>
+
+              <p>From sunny days out at the beach, and back to nature camping experiences, to cosy cottages in the woods, and sparkling city breaks full of culture, there are so many choices for a family break in Scotland.</p>
+        /visitscotland:paragraph[2]:
+          jcr:primaryType: visitscotland:ArticleSection
+          /visitscotland:copy:
+            jcr:primaryType: hippostd:html
+            hippostd:content: |-
+              <h3>Weekend Away with Kids in Scotland</h3>
+
+              <p>You don't need to <a href="https://www.visitscotland.com/holidays-breaks/" title="Holidays &amp; Breaks">holiday</a> for a whole week or more in Scotland, a <a href="https://www.visitscotland.com/holidays-breaks/weekend-short/" title="Short &amp; weekend">weekend break</a> away is plenty of time to explore some amazing sights and attractions. Enjoy a long weekend uncovering the dramatic mountain landscapes that you can find across the country, or treat the family to spot of <a href="https://www.visitscotland.com/accommodation/caravan-camping/glamping/" title="Glamping">glamping</a> in an <a href="https://www.visitscotland.com/accommodation/caravan-camping/glamping/pods/" title="Eco &amp; camping pods">eco pod</a> where you can immerse yourself in nature but with a few home comforts too. Why not plan a weekend away at the seaside filled with exhilarating <a href="https://www.visitscotland.com/see-do/active/watersports/" title="Watersports">watersports</a> that will keep the kids entertained? There's lots to do on a weekend break in Scotland.</p>
+        /visitscotland:media:
+          jcr:primaryType: hippogallerypicker:imagelink
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+      /article-module[2]:
+        jcr:primaryType: visitscotland:Article
+        jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+        jcr:uuid: a3006a5a-0256-45ca-8edb-2f82e412cda4
+        hippo:availability: [preview]
+        hippostd:retainable: false
+        hippostd:state: unpublished
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2021-08-25T16:00:30.203+01:00
+        hippostdpubwf:lastModificationDate: 2021-08-25T16:04:10.392+01:00
+        hippostdpubwf:lastModifiedBy: admin
+        hippotranslation:id: 45899a9d-7412-4e1b-a0bc-e35c49eca292
+        hippotranslation:locale: es
+        visitscotland:anchor: ''
+        visitscotland:title: Family holidays in Scotland
+        visitscotland:translation: ''
+        /visitscotland:copy:
+          jcr:primaryType: hippostd:html
+          hippostd:content: <p>Your family holiday in Scotland will be one to remember
+            - after all, it's a country that packs oodles of adventure, history, wildlife
+            and scenery into every square mile! When it comes to planning a family
+            break, we know there are lots of important decisions to be made, but you'll
+            find that Scotland ticks all the boxes</p>
+        /visitscotland:paragraph[1]:
+          jcr:primaryType: visitscotland:ArticleSection
+          /visitscotland:copy:
+            jcr:primaryType: hippostd:html
+            hippostd:content: |-
+              <h3>Family Breaks in Scotland</h3>
+
+              <p>Browse our top picks for family breaks in Scotland and entertain the kids with beaches, castles, places to visit and more!</p>
+
+              <p>From sunny days out at the beach, and back to nature camping experiences, to cosy cottages in the woods, and sparkling city breaks full of culture, there are so many choices for a family break in Scotland.</p>
+        /visitscotland:paragraph[2]:
+          jcr:primaryType: visitscotland:ArticleSection
+          /visitscotland:copy:
+            jcr:primaryType: hippostd:html
+            hippostd:content: |-
+              <h3>Weekend Away with Kids in Scotland</h3>
+
+              <p>You don't need to <a href="https://www.visitscotland.com/holidays-breaks/" title="Holidays &amp; Breaks">holiday</a> for a whole week or more in Scotland, a <a href="https://www.visitscotland.com/holidays-breaks/weekend-short/" title="Short &amp; weekend">weekend break</a> away is plenty of time to explore some amazing sights and attractions. Enjoy a long weekend uncovering the dramatic mountain landscapes that you can find across the country, or treat the family to spot of <a href="https://www.visitscotland.com/accommodation/caravan-camping/glamping/" title="Glamping">glamping</a> in an <a href="https://www.visitscotland.com/accommodation/caravan-camping/glamping/pods/" title="Eco &amp; camping pods">eco pod</a> where you can immerse yourself in nature but with a few home comforts too. Why not plan a weekend away at the seaside filled with exhilarating <a href="https://www.visitscotland.com/see-do/active/watersports/" title="Watersports">watersports</a> that will keep the kids entertained? There's lots to do on a weekend break in Scotland.</p>
+        /visitscotland:media:
+          jcr:primaryType: hippogallerypicker:imagelink
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+      /article-module[3]:
+        jcr:primaryType: visitscotland:Article
+        jcr:mixinTypes: ['mix:referenceable']
+        jcr:uuid: 2411bcd7-fc89-40d5-ab33-8dcf4ada34c7
+        hippo:availability: [live]
+        hippostd:retainable: false
+        hippostd:state: published
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2021-08-25T16:00:30.203+01:00
+        hippostdpubwf:lastModificationDate: 2021-08-25T16:04:10.392+01:00
+        hippostdpubwf:lastModifiedBy: admin
+        hippostdpubwf:publicationDate: 2021-08-25T16:16:57.306+01:00
+        hippotranslation:id: 45899a9d-7412-4e1b-a0bc-e35c49eca292
+        hippotranslation:locale: es
+        visitscotland:anchor: ''
+        visitscotland:title: Family holidays in Scotland
+        visitscotland:translation: ''
+        /visitscotland:copy:
+          jcr:primaryType: hippostd:html
+          hippostd:content: <p>Your family holiday in Scotland will be one to remember
+            - after all, it's a country that packs oodles of adventure, history, wildlife
+            and scenery into every square mile! When it comes to planning a family
+            break, we know there are lots of important decisions to be made, but you'll
+            find that Scotland ticks all the boxes</p>
+        /visitscotland:paragraph[1]:
+          jcr:primaryType: visitscotland:ArticleSection
+          /visitscotland:copy:
+            jcr:primaryType: hippostd:html
+            hippostd:content: |-
+              <h3>Family Breaks in Scotland</h3>
+
+              <p>Browse our top picks for family breaks in Scotland and entertain the kids with beaches, castles, places to visit and more!</p>
+
+              <p>From sunny days out at the beach, and back to nature camping experiences, to cosy cottages in the woods, and sparkling city breaks full of culture, there are so many choices for a family break in Scotland.</p>
+        /visitscotland:paragraph[2]:
+          jcr:primaryType: visitscotland:ArticleSection
+          /visitscotland:copy:
+            jcr:primaryType: hippostd:html
+            hippostd:content: |-
+              <h3>Weekend Away with Kids in Scotland</h3>
+
+              <p>You don't need to <a href="https://www.visitscotland.com/holidays-breaks/" title="Holidays &amp; Breaks">holiday</a> for a whole week or more in Scotland, a <a href="https://www.visitscotland.com/holidays-breaks/weekend-short/" title="Short &amp; weekend">weekend break</a> away is plenty of time to explore some amazing sights and attractions. Enjoy a long weekend uncovering the dramatic mountain landscapes that you can find across the country, or treat the family to spot of <a href="https://www.visitscotland.com/accommodation/caravan-camping/glamping/" title="Glamping">glamping</a> in an <a href="https://www.visitscotland.com/accommodation/caravan-camping/glamping/pods/" title="Eco &amp; camping pods">eco pod</a> where you can immerse yourself in nature but with a few home comforts too. Why not plan a weekend away at the seaside filled with exhilarating <a href="https://www.visitscotland.com/see-do/active/watersports/" title="Watersports">watersports</a> that will keep the kids entertained? There's lots to do on a weekend break in Scotland.</p>
+        /visitscotland:media:
+          jcr:primaryType: hippogallerypicker:imagelink
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+    /list-of-examples:
+      jcr:primaryType: hippo:handle
+      jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+      jcr:uuid: 7bfdda03-b2a3-487b-87d8-92cfaa2b06c1
+      hippo:name: List of Examples
+      hippo:versionHistory: 3c37923d-b56e-454f-814e-a760530d2e22
+      /list-of-examples[1]:
+        jcr:primaryType: visitscotland:LongCopy
+        jcr:mixinTypes: ['mix:referenceable']
+        jcr:uuid: 02041ad8-5497-4a5b-a7c9-3afcd0a048af
+        hippo:availability: []
+        hippostd:retainable: false
+        hippostd:state: draft
+        hippostd:transferable: false
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2021-08-25T16:04:36.143+01:00
+        hippostdpubwf:lastModificationDate: 2021-08-25T16:16:34.610+01:00
+        hippostdpubwf:lastModifiedBy: admin
+        hippotranslation:id: ee5a2d2a-4640-41e1-8c5d-7d283e295f71
+        hippotranslation:locale: es
+        visitscotland:translation: ''
+        /visitscotland:copy:
+          jcr:primaryType: hippostd:html
+          hippostd:content: |-
+            <p>This is a list of examples of urls</p>
+
+            <ul>
+             <li><a href="/destinations-map/edinburgh">Relative URL</a></li>
+             <li><a href="/info/accommodation/kilmeny-country-house-p213041">Relative DMS URL</a></li>
+             <li><a href="https://www.visitscotland.com/blog/scotland/scenic-weekend-road-trips/">Fully-qualified URL</a></li>
+             <li><a href="https://www.visitscotland.com/info/accommodation/kilmeny-country-house-p213041">Fully-qualified DMS URL</a></li>
+             <li><a href="https://www.visitscotland.com/info/accommodation/search-results?prodtypes=acco&amp;loc=Argyll+%26+The+Isles&amp;locpoly=171&amp;locprox=0&amp;stay=&amp;endDate=&amp;r1a=2&amp;r1children=0&amp;r1infants=0&amp;r1c=0&amp;avail=off">Fully-qualified DMS URL with parameter</a></li>
+             <li><a href="https://www.visitscotland.com/es/holidays-breaks/family/">Already localized URL</a></li>
+             <li><a href="https://www.visitscotland.com/es-es/info/accommodation/kilmeny-country-house-p213041">Already localized DMS URL</a></li>
+             <li><a href="https://www.scotrail.co.uk/kids-for-a-quid">External URL</a></li>
+            </ul>
+      /list-of-examples[2]:
+        jcr:primaryType: visitscotland:LongCopy
+        jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+        jcr:uuid: 53cff60a-e35d-4d84-891a-b6cc26eaed9e
+        hippo:availability: [preview]
+        hippostd:retainable: false
+        hippostd:state: unpublished
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2021-08-25T16:04:36.143+01:00
+        hippostdpubwf:lastModificationDate: 2021-08-25T16:11:59.834+01:00
+        hippostdpubwf:lastModifiedBy: admin
+        hippotranslation:id: ee5a2d2a-4640-41e1-8c5d-7d283e295f71
+        hippotranslation:locale: es
+        visitscotland:translation: ''
+        /visitscotland:copy:
+          jcr:primaryType: hippostd:html
+          hippostd:content: |-
+            <p>This is a list of examples of urls</p>
+
+            <ul>
+             <li><a href="/destinations-map/edinburgh">Relative URL</a></li>
+             <li><a href="/info/accommodation/kilmeny-country-house-p213041">Relative DMS URL</a></li>
+             <li><a href="https://www.visitscotland.com/blog/scotland/scenic-weekend-road-trips/">Fully-qualified URL</a></li>
+             <li><a href="https://www.visitscotland.com/info/accommodation/kilmeny-country-house-p213041">Fully-qualified DMS URL</a></li>
+             <li><a href="https://www.visitscotland.com/info/accommodation/search-results?prodtypes=acco&amp;loc=Argyll+%26+The+Isles&amp;locpoly=171&amp;locprox=0&amp;stay=&amp;endDate=&amp;r1a=2&amp;r1children=0&amp;r1infants=0&amp;r1c=0&amp;avail=off">Fully-qualified DMS URL with parameter</a></li>
+             <li><a href="https://www.visitscotland.com/es/holidays-breaks/family/">Already localized URL</a></li>
+             <li><a href="https://www.visitscotland.com/es-es/info/accommodation/kilmeny-country-house-p213041">Already localized DMS URL</a></li>
+             <li><a href="https://www.scotrail.co.uk/kids-for-a-quid">External URL</a></li>
+            </ul>
+      /list-of-examples[3]:
+        jcr:primaryType: visitscotland:LongCopy
+        jcr:mixinTypes: ['mix:referenceable']
+        jcr:uuid: 21313633-a561-4ea9-8bad-ef9ad70a883a
+        hippo:availability: [live]
+        hippostd:retainable: false
+        hippostd:state: published
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2021-08-25T16:04:36.143+01:00
+        hippostdpubwf:lastModificationDate: 2021-08-25T16:11:59.834+01:00
+        hippostdpubwf:lastModifiedBy: admin
+        hippostdpubwf:publicationDate: 2021-08-25T16:12:19.144+01:00
+        hippotranslation:id: ee5a2d2a-4640-41e1-8c5d-7d283e295f71
+        hippotranslation:locale: es
+        visitscotland:translation: ''
+        /visitscotland:copy:
+          jcr:primaryType: hippostd:html
+          hippostd:content: |-
+            <p>This is a list of examples of urls</p>
+
+            <ul>
+             <li><a href="/destinations-map/edinburgh">Relative URL</a></li>
+             <li><a href="/info/accommodation/kilmeny-country-house-p213041">Relative DMS URL</a></li>
+             <li><a href="https://www.visitscotland.com/blog/scotland/scenic-weekend-road-trips/">Fully-qualified URL</a></li>
+             <li><a href="https://www.visitscotland.com/info/accommodation/kilmeny-country-house-p213041">Fully-qualified DMS URL</a></li>
+             <li><a href="https://www.visitscotland.com/info/accommodation/search-results?prodtypes=acco&amp;loc=Argyll+%26+The+Isles&amp;locpoly=171&amp;locprox=0&amp;stay=&amp;endDate=&amp;r1a=2&amp;r1children=0&amp;r1infants=0&amp;r1c=0&amp;avail=off">Fully-qualified DMS URL with parameter</a></li>
+             <li><a href="https://www.visitscotland.com/es/holidays-breaks/family/">Already localized URL</a></li>
+             <li><a href="https://www.visitscotland.com/es-es/info/accommodation/kilmeny-country-house-p213041">Already localized DMS URL</a></li>
+             <li><a href="https://www.scotrail.co.uk/kids-for-a-quid">External URL</a></li>
+            </ul>
+    /megalinks:
+      jcr:primaryType: hippo:handle
+      jcr:mixinTypes: ['hippo:versionInfo', 'mix:referenceable']
+      jcr:uuid: 57b625fa-86b0-4c03-8c06-45ad9322ef0d
+      hippo:versionHistory: 728e6eae-6a99-4f8b-adb8-485b7e515fc2
+      /megalinks[1]:
+        jcr:primaryType: visitscotland:Megalinks
+        jcr:mixinTypes: ['mix:referenceable']
+        jcr:uuid: fb40a2b9-3501-4c28-9c2f-d708070835cb
+        hippo:availability: []
+        hippostd:retainable: false
+        hippostd:state: draft
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2021-08-27T11:39:11.172+01:00
+        hippostdpubwf:lastModificationDate: 2021-08-27T11:39:11.173+01:00
+        hippostdpubwf:lastModifiedBy: admin
+        hippotranslation:id: 777434c2-c350-4c52-91fa-9daee9998edc
+        hippotranslation:locale: es
+        visitscotland:teaserVisible: true
+        visitscotland:title: ''
+        visitscotland:translation: ''
+        /visitscotland:introduction:
+          jcr:primaryType: hippostd:html
+          hippostd:content: <p>Megalinks module with link to Localized pages</p>
+        /visitscotland:megalinkItems[1]:
+          jcr:primaryType: visitscotland:MegalinkItem
+          visitscotland:feature: false
+          /visitscotland:links:
+            jcr:primaryType: hippo:mirror
+            hippo:docbase: 12769b1b-a558-47da-93e3-77e399eee614
+        /visitscotland:megalinkItems[2]:
+          jcr:primaryType: visitscotland:MegalinkItem
+          visitscotland:feature: false
+          /visitscotland:links:
+            jcr:primaryType: hippo:mirror
+            hippo:docbase: 444422fa-4146-4bb4-a05b-8da787f93ab5
+        /visitscotland:megalinkItems[3]:
+          jcr:primaryType: visitscotland:MegalinkItem
+          visitscotland:feature: false
+          /visitscotland:links:
+            jcr:primaryType: hippo:mirror
+            hippo:docbase: 8e942b8d-2945-4c08-a5f7-436516425c05
+        /visitscotland:megalinkItems[4]:
+          jcr:primaryType: visitscotland:MegalinkItem
+          visitscotland:feature: false
+          /visitscotland:links:
+            jcr:primaryType: hippo:mirror
+            hippo:docbase: 8f9220a7-df66-4104-aafa-cdacb3b76a88
+        /visitscotland:megalinkItems[5]:
+          jcr:primaryType: visitscotland:MegalinkItem
+          visitscotland:feature: false
+          /visitscotland:links:
+            jcr:primaryType: hippo:mirror
+            hippo:docbase: d9369667-48f7-441f-b759-8d9843695c67
+        /visitscotland:megalinkItems[6]:
+          jcr:primaryType: visitscotland:MegalinkItem
+          visitscotland:feature: false
+          /visitscotland:links:
+            jcr:primaryType: hippo:mirror
+            hippo:docbase: eb419930-2ac1-463c-aee1-a8e3a2caaa3d
+      /megalinks[2]:
+        jcr:primaryType: visitscotland:Megalinks
+        jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+        jcr:uuid: c195dad3-a7f3-470b-ad29-fccd05520ac0
+        hippo:availability: [preview]
+        hippostd:retainable: false
+        hippostd:state: unpublished
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2021-08-27T11:39:11.172+01:00
+        hippostdpubwf:lastModificationDate: 2021-08-27T11:41:22.221+01:00
+        hippostdpubwf:lastModifiedBy: admin
+        hippotranslation:id: 777434c2-c350-4c52-91fa-9daee9998edc
+        hippotranslation:locale: es
+        visitscotland:teaserVisible: true
+        visitscotland:title: ''
+        visitscotland:translation: ''
+        /visitscotland:introduction:
+          jcr:primaryType: hippostd:html
+          hippostd:content: <p>Megalinks module with link to Localized pages</p>
+        /visitscotland:megalinkItems[1]:
+          jcr:primaryType: visitscotland:MegalinkItem
+          visitscotland:feature: false
+          /visitscotland:links:
+            jcr:primaryType: hippo:mirror
+            hippo:docbase: 12769b1b-a558-47da-93e3-77e399eee614
+        /visitscotland:megalinkItems[2]:
+          jcr:primaryType: visitscotland:MegalinkItem
+          visitscotland:feature: false
+          /visitscotland:links:
+            jcr:primaryType: hippo:mirror
+            hippo:docbase: 444422fa-4146-4bb4-a05b-8da787f93ab5
+        /visitscotland:megalinkItems[3]:
+          jcr:primaryType: visitscotland:MegalinkItem
+          visitscotland:feature: false
+          /visitscotland:links:
+            jcr:primaryType: hippo:mirror
+            hippo:docbase: 8e942b8d-2945-4c08-a5f7-436516425c05
+        /visitscotland:megalinkItems[4]:
+          jcr:primaryType: visitscotland:MegalinkItem
+          visitscotland:feature: false
+          /visitscotland:links:
+            jcr:primaryType: hippo:mirror
+            hippo:docbase: 8f9220a7-df66-4104-aafa-cdacb3b76a88
+        /visitscotland:megalinkItems[5]:
+          jcr:primaryType: visitscotland:MegalinkItem
+          visitscotland:feature: false
+          /visitscotland:links:
+            jcr:primaryType: hippo:mirror
+            hippo:docbase: d9369667-48f7-441f-b759-8d9843695c67
+        /visitscotland:megalinkItems[6]:
+          jcr:primaryType: visitscotland:MegalinkItem
+          visitscotland:feature: false
+          /visitscotland:links:
+            jcr:primaryType: hippo:mirror
+            hippo:docbase: eb419930-2ac1-463c-aee1-a8e3a2caaa3d
+      /megalinks[3]:
+        jcr:primaryType: visitscotland:Megalinks
+        jcr:mixinTypes: ['mix:referenceable']
+        jcr:uuid: 38249cd8-f9f4-4945-acc9-f53c56065aec
+        hippo:availability: [live]
+        hippostd:retainable: false
+        hippostd:state: published
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2021-08-27T11:39:11.172+01:00
+        hippostdpubwf:lastModificationDate: 2021-08-27T11:41:22.221+01:00
+        hippostdpubwf:lastModifiedBy: admin
+        hippostdpubwf:publicationDate: 2021-08-27T11:41:28.596+01:00
+        hippotranslation:id: 777434c2-c350-4c52-91fa-9daee9998edc
+        hippotranslation:locale: es
+        visitscotland:teaserVisible: true
+        visitscotland:title: ''
+        visitscotland:translation: ''
+        /visitscotland:introduction:
+          jcr:primaryType: hippostd:html
+          hippostd:content: <p>Megalinks module with link to Localized pages</p>
+        /visitscotland:megalinkItems[1]:
+          jcr:primaryType: visitscotland:MegalinkItem
+          visitscotland:feature: false
+          /visitscotland:links:
+            jcr:primaryType: hippo:mirror
+            hippo:docbase: 12769b1b-a558-47da-93e3-77e399eee614
+        /visitscotland:megalinkItems[2]:
+          jcr:primaryType: visitscotland:MegalinkItem
+          visitscotland:feature: false
+          /visitscotland:links:
+            jcr:primaryType: hippo:mirror
+            hippo:docbase: 444422fa-4146-4bb4-a05b-8da787f93ab5
+        /visitscotland:megalinkItems[3]:
+          jcr:primaryType: visitscotland:MegalinkItem
+          visitscotland:feature: false
+          /visitscotland:links:
+            jcr:primaryType: hippo:mirror
+            hippo:docbase: 8e942b8d-2945-4c08-a5f7-436516425c05
+        /visitscotland:megalinkItems[4]:
+          jcr:primaryType: visitscotland:MegalinkItem
+          visitscotland:feature: false
+          /visitscotland:links:
+            jcr:primaryType: hippo:mirror
+            hippo:docbase: 8f9220a7-df66-4104-aafa-cdacb3b76a88
+        /visitscotland:megalinkItems[5]:
+          jcr:primaryType: visitscotland:MegalinkItem
+          visitscotland:feature: false
+          /visitscotland:links:
+            jcr:primaryType: hippo:mirror
+            hippo:docbase: d9369667-48f7-441f-b759-8d9843695c67
+        /visitscotland:megalinkItems[6]:
+          jcr:primaryType: visitscotland:MegalinkItem
+          visitscotland:feature: false
+          /visitscotland:links:
+            jcr:primaryType: hippo:mirror
+            hippo:docbase: eb419930-2ac1-463c-aee1-a8e3a2caaa3d

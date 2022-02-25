@@ -1,0 +1,60 @@
+definitions:
+  config:
+    /hippo:configuration/hippo:update/hippo:registry/v0.0.1 - Video & Megalinks:
+      jcr:primaryType: hipposys:updaterinfo
+      hipposys:batchsize: 10
+      hipposys:description: ''
+      hipposys:dryrun: false
+      hipposys:loglevel: DEBUG
+      hipposys:parameters: ''
+      hipposys:query: /jcr:root
+      hipposys:script: "package com.visitscotland.brxm\r\n\r\nimport org.hippoecm.repository.api.HippoWorkspace\r\
+        \nimport org.onehippo.repository.update.BaseNodeUpdateVisitor\r\n\r\nimport\
+        \ javax.jcr.Node\r\nimport javax.jcr.NodeIterator\r\nimport javax.jcr.RepositoryException\r\
+        \nimport javax.jcr.Session\r\nimport javax.jcr.query.Query\r\nimport javax.jcr.query.QueryResult\r\
+        \n\r\n/**\r\n * Groovy Script created for altering the structure of Megalinks\
+        \ due to the changes related to video.\r\n *\r\n * This Scripts acted also\
+        \ as a practice exercise for future Groovy Scripts\r\n *\r\n * Use the following\
+        \ XPATH /jcr:root\r\n *\r\n * @author jcalcines\r\n * @since November 2021\r\
+        \n * @version 0.0.1\r\n */\r\nclass VideoMegalinks extends BaseNodeUpdateVisitor\
+        \ {\r\n\r\n    void fixArticle(Session session){\r\n        renameField(session,\
+        \ \"Article\", \"image\", \"media\");\r\n    }\r\n\r\n    void fixStop(Session\
+        \ session){\r\n        renameField(session, \"Stop\", \"image\", \"media\"\
+        );\r\n    }\r\n\r\n    void fixMegalinks(Session session){\r\n        renameField(session,\
+        \ \"MegalinkItem\", \"link\", \"links\");\r\n    }\r\n\r\n    void renameField(Session\
+        \ session, String targetDocument, String fromField, String toField) {\r\n\
+        \        NodeIterator it = query(session,\"//content/documents//element(*,\
+        \ visitscotland:${targetDocument})\")\r\n\r\n        while (it.hasNext()){\r\
+        \n            Node n = it.next()\r\n            log.debug n.getPath()\r\n\
+        \            if (n.hasNode(\"visitscotland:${fromField}\")) {\r\n        \
+        \        if (n.hasNode(\"visitscotland:${toField}\")) {\r\n              \
+        \      session.removeItem(n.getNode(\"visitscotland:${fromField}\").getPath())\r\
+        \n                } else {\r\n                    session.move(n.getNode(\"\
+        visitscotland:${fromField}\").getPath(), n.getPath() + \"/visitscotland:${toField}\"\
+        )\r\n                }\r\n            }\r\n        }\r\n    }\r\n\r\n    void\
+        \ fixOTYML(Session session) {\r\n        NodeIterator it = query(session,\"\
+        //content/documents//element(*, visitscotland:OTYML)\")\r\n\r\n        while\
+        \ (it.hasNext()){\r\n            Node n = it.next()\r\n            log.debug\
+        \ n.getPath()\r\n            NodeIterator links = n.getNodes(\"visitscotland:links\"\
+        )\r\n            while (links.hasNext()){\r\n                Node link = links.next()\r\
+        \n                if (link.hasNode(\"visitscotland:link\")) {\r\n        \
+        \            log.info \"Converting ${link.getPath()}\"\r\n               \
+        \     session.move(link.getNode(\"visitscotland:link\").getPath(), n.getPath()\
+        \ + \"/visitscotland:links\")\r\n                    session.removeItem(link.getPath())\r\
+        \n                }\r\n            }\r\n        }\r\n    }\r\n\r\n    /**\r\
+        \n     * Executes a query and log when no results are returned\r\n     * @param\
+        \ session\r\n     * @param query\r\n     * @return\r\n     */\r\n    NodeIterator\
+        \ query(def session, def query){\r\n        QueryResult results = ((HippoWorkspace)\
+        \ session.getWorkspace()).getQueryManager().createQuery(query, Query.XPATH).execute();\r\
+        \n        if (!results.getNodes().hasNext()){\r\n            log.warn \"No\
+        \ query results for ${query}\"\r\n        } else {\r\n            // Note\
+        \ that the method size. Moves the pointer for the iterator at the end. That\
+        \ is why we need to\r\n            // invoke .getNodes() for getting the size\r\
+        \n            log.info \"Matches = ${results.getNodes().size()}\";\r\n   \
+        \     }\r\n        return results.getNodes();\r\n    }\r\n\r\n    @Override\r\
+        \n    boolean doUpdate(Node node) {\r\n        fixOTYML(node.session);\r\n\
+        \r\n        fixArticle(node.session);\r\n        fixStop(node.session)\r\n\
+        \        fixMegalinks(node.session);\r\n        return true;\r\n    }\r\n\r\
+        \n    @Override\r\n    boolean undoUpdate(Node node) throws RepositoryException,\
+        \ UnsupportedOperationException {\r\n        return false\r\n    }\r\n}"
+      hipposys:throttle: 1000

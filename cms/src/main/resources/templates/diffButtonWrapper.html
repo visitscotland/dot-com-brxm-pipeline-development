@@ -1,0 +1,49 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <script th:replace="headerFragment.html :: openui"></script>
+    <script type="text/javascript">
+        var uiExtension;
+
+        document.addEventListener('DOMContentLoaded', async () => {
+            try {
+                const ui = await UiExtension.register();
+                uiExtension = ui;
+                const brDocument = await ui.document.get();
+                const nodeId = brDocument.id;
+                const bodyUri = `./diff/${nodeId}`;
+
+                const iFrame = document.querySelector('iframe');
+                iFrame.setAttribute('src', bodyUri);
+            } catch (error) {
+                console.error('Failed to register extension:', error.message);
+                console.error('- error code:', error.code);
+            }
+        });
+
+        function setupIFrame() {
+            var frame = window.frames['diff-content'];
+            frame.setUiExtension(uiExtension);
+        }
+
+    </script>
+    <style>
+        html {
+            height: 100%;
+        }
+
+        body {
+            height:100%;
+            margin: 0px;
+        }
+
+        iframe {
+            border: none;
+            height:100%;
+        }
+    </style>
+</head>
+<body>
+    <iframe name="diff-content"></iframe>
+</body>
+</html>

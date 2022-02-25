@@ -1,27 +1,38 @@
-target/
+# Application data. Any new file under this section could be bootstrapped in production
+# creating a potential down time for our application due to incoherence in yaml files.
+repository-data/application/src/main/resources/hcm-content/content/
 
-storage*/
+
+# Front-end webfiles artefacts
+repository-data/webfiles/src/main/resources/site/frontend/
+repository-data/webfiles/src/main/resources/site/freemarker/frontend/
+#Other front-end assets
 node_modules/
-*.log
-*.iml
-essentials/overlays/
-
-repository-data/webfiles/coverage/
 *.bundle.map
 *.css.map
 
-
+#BloomReach CMS Related files
+essentials/overlays/
+repository-data/webfiles/coverage/
+#Back-end assets
+target/
+storage*/
 
 ### IDE CONFIGURATION Files
 # Eclipse based IDEs
 .classpath
 .project
 .settings/
+.metadata/
 
 # IntelliJ IDEA
 .idea/
+*.log
+*.iml
 
 #VSCODE
 .vscode/
 
+# JENKINS CI
+ci/logs/
 

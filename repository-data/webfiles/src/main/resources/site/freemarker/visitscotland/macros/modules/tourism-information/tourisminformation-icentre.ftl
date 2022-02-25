@@ -1,0 +1,56 @@
+<#include "../../../../include/imports.ftl">
+<#include "../../../../frontend/components/vs-icentre.ftl">
+<#include "../../../../frontend/components/vs-quote.ftl">
+<#include "../../../../frontend/components/vs-img.ftl">
+<#include "../../../../frontend/components/vs-module-wrapper.ftl">
+
+<#include "../../global/image-with-caption.ftl">
+<#include "../../global/quote.ftl">
+<#include "../../global/cms-errors.ftl">
+
+<#macro icentre module themeName="">
+    <@cmsErrors errors=module.errorMessages!"" editMode=editMode />
+
+    <#if module.image.cmsImage??>
+        <#assign image>
+            <@hst.link hippobean=module.image.cmsImage.original/>
+        </#assign>
+    <#else>
+        <#assign image = module.image.externalImage!'' />
+    </#if>
+
+    <vs-module-wrapper theme="<#if themeName?has_content>${themeName}<#else>light</#if>">
+        <template slot="vsModuleWrapperHeading">
+            ${module.title}
+        </template>
+        <vs-container>
+            <vs-icentre>
+                <template slot="icentreImageWithCaption">
+                    <@imageWithCaption imageSrc=image imageDetails=module.image />
+                </template>
+
+                <template slot="icentreLinks">
+                    ${module.description}
+                    <#list module.links as iCentre>
+                        <vs-link href="${iCentre.link}">
+                            ${iCentre.label}
+                        </vs-link>
+                        <#if iCentre?counter == (module.links?size - 1)>
+                            &nbsp;and&nbsp;
+                        <#else>
+                            <#if iCentre?has_next>,&nbsp;</#if>
+                        </#if>
+                    </#list>
+                    .
+                </template>
+                
+                <#if module.quote??>
+                    <template slot="icentreQuote">
+                        <@quote quoteItem=module.quote variant="wide"/>
+                    </template>
+                </#if>
+            </vs-icentre>
+        </vs-container>
+    </vs-module-wrapper>
+
+</#macro>

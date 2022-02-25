@@ -1,0 +1,7 @@
+definitions:
+  config:
+    /hippo:configuration/hippo:queries/hippo:templates/new-document:
+      hippostd:excludePrimaryTypes: ['visitscotland:IknowCommunity', 'visitscotland:MarketoForm',
+        'visitscotland:Widget', 'visitscotland:Page', 'visitscotland:contentdocument',
+        'visitscotland:default', 'resourcebundle:resourcebundle', 'visitscotland:Image',
+        'selection:valuelist']

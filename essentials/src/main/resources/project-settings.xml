@@ -1,14 +1,23 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <project>
-  <projectNamespace>visitscotland</projectNamespace>
-  <confirmParams>false</confirmParams>
-  <selectedProjectPackage>com.visitscotland.www</selectedProjectPackage>
-  <selectedBeansPackage>com.visitscotland.www.beans</selectedBeansPackage>
-  <selectedComponentsPackage>com.visitscotland.www.components</selectedComponentsPackage>
-  <selectedRestPackage>com.visitscotland.www.rest</selectedRestPackage>
-  <hstRoot>/hst:visitscotland</hstRoot>
-  <webfileBundleName>site</webfileBundleName>
-  <setupDone>false</setupDone>
-  <useSamples>true</useSamples>
-  <extraTemplates>true</extraTemplates>
+    <applicationSubModule>application</applicationSubModule>
+    <cmsDependenciesModule>cms-dependencies</cmsDependenciesModule>
+    <cmsModule>cms</cmsModule>
+    <confirmParams>true</confirmParams>
+    <developmentSubModule>development</developmentSubModule>
+    <enterprise>true</enterprise>
+    <extraTemplates>true</extraTemplates>
+    <hstRoot>/hst:visitscotland</hstRoot>
+    <projectNamespace>visitscotland</projectNamespace>
+    <repositoryDataModule>repository-data</repositoryDataModule>
+    <selectedBeansPackage>com.visitscotland.brxm.hippobeans</selectedBeansPackage>
+    <selectedComponentsPackage>com.visitscotland.brxm.components</selectedComponentsPackage>
+    <selectedProjectPackage>com.visitscotland.brxm</selectedProjectPackage>
+    <selectedRestPackage>com.visitscotland.brxm.rest</selectedRestPackage>
+    <setupDone>true</setupDone>
+    <siteContextPath>/site</siteContextPath>
+    <siteModule>site</siteModule>
+    <useSamples>true</useSamples>
+    <webfileBundleName>site</webfileBundleName>
+    <webfilesSubModule>webfiles</webfilesSubModule>
 </project>

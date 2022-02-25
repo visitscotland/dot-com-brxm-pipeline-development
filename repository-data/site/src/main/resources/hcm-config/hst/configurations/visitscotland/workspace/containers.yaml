@@ -2,3 +2,33 @@ definitions:
   config:
     /hst:hst/hst:configurations/visitscotland/hst:workspace/hst:containers:
       jcr:primaryType: hst:containercomponentfolder
+      /base:
+        jcr:primaryType: hst:containercomponentfolder
+        /top:
+          .meta:residual-child-node-category: content
+          jcr:primaryType: hst:containercomponent
+          hst:label: Top
+          hst:xtype: hst.vbox
+          hippo:identifier: 539e87ec-f7f0-481d-9d61-61eba7d42e77
+        /footer:
+          .meta:residual-child-node-category: content
+          jcr:primaryType: hst:containercomponent
+          hst:label: Footer
+          hst:xtype: hst.vbox
+          hippo:identifier: a984b944-cdaa-46cf-8b9e-f395b8ecab1d
+      /homepage:
+        jcr:primaryType: hst:containercomponentfolder
+        /main:
+          .meta:residual-child-node-category: content
+          jcr:primaryType: hst:containercomponent
+          hst:label: Home Page Main
+          hst:xtype: hst.vbox
+          hippo:identifier: 816c11a4-1e4c-462b-a5eb-b737b28540c5
+      /pagenotfound:
+        jcr:primaryType: hst:containercomponentfolder
+        /main:
+          .meta:residual-child-node-category: content
+          jcr:primaryType: hst:containercomponent
+          hst:label: Page-Not-Found Main
+          hst:xtype: hst.vbox
+          hippo:identifier: ef6887bb-ff0d-4922-844f-8cc83d54a03e
