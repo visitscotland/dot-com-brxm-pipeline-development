@@ -10,7 +10,7 @@ Assets can be documented using the [asset template](asset-template.md)
 
 | Asset                                                  | Type      | Trust Boundaries |
 |--------------------------------------------------------|-----------|------------------|
-| [DF01](DF01.md) User Web Traffic                       | Data Flow | TB001, TB003     |
+| [DF01](DF01.md) User Web Traffic                       | Data Flow | [TB001](../trust-boundaries/TB01.md), [TB003](../trust-boundaries/TB03.md) |
 | [DF02](DF02.md) 3rd-Party Web Traffic                  |           |                  |
 | [DF03](DF03.md) Accomodation Availability Data         |           |                  |
 | [DF04](DF04.md) Industry Content                       |           |                  |
