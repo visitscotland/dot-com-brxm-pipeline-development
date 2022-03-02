@@ -34,7 +34,7 @@ Assets can be documented using the [asset template](asset-template.md)
 | [P02](P02.md) 3rd-Party Websites                       |           |                  |
 | [P03](P03.md) Availability Search Engine               |           |                  |
 | [P04](P04.md) VS.COM Tourism Feed Services             |           |                  |
-| [P05](P05.md) VS.COM Authentication Services           |           |                  |
+| [P05](P05.md) VS.COM Authentication Services           | Process   | [TB007](../trust-boundaries/TB07.md) |
 | [P06](P06.md) VS.COM Website Server                    |           |                  |
 | [P07](P07.md) SimpleView and Provider APIs             |           |                  |
 | [P08](P08.md) VS.COM Release Pipeline Tools            |           |                  |
