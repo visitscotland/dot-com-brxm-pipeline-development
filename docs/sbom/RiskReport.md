@@ -1,4 +1,8 @@
-# VSCOM SBOM: Vulnerable Dependencies
+# Cybersecurity Risk Report
+
+**Application Version**
+
+    com.visitscotland:dot-com-brxm:1.0.1
 
 **Vulnerability Scoring Method**
 
