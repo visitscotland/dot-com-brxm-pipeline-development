@@ -177,3 +177,27 @@ vulnerabilities are always changing with the evolving threat landscape
 > by a vulnerability and can link to specific SBOM data. Other implementations are possible. It is
 > recommended that tools that analyze SBOM data for the customer build in the capability to
 > automatically incorporate VEX data.
+
+## Generating a Dependency Tree with Maven
+
+The Maven goal `dependency:tree` can be used to displays the dependency tree for a project:
+
+https://maven.apache.org/plugins/maven-dependency-plugin/tree-mojo.html
+
+This will combine all the project modules trees into a single text file:
+
+```bash
+$ mvn dependency:tree>dependency_tree.txt
+```
+
+This will create a text file called `dependency_tree.txt` under each project module directory:
+
+```bash
+$ mvn dependency:tree -DoutputFile="dependency_tree.txt" -DoutputType=text
+```
+
+This will create a text file called `dependency_tree.dot` under each project module directory:
+
+```bash
+$ mvn dependency:tree -DoutputFile="dependency_tree.dot" -DoutputType=dot
+```
