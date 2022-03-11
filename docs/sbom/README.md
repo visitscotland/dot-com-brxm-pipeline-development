@@ -99,6 +99,66 @@ in application security contexts and supply chain component analysis.
 </plugins>
 ```
 
+## Generating a Node.js Application SBOM with Cyclone DX
+
+[CycloneDX Node.js Module](https://www.npmjs.com/package/@cyclonedx/bom)
+
+[CycloneDX Node Github](https://github.com/CycloneDX/cyclonedx-node-module)
+
+The CycloneDX module for Node.js creates a valid CycloneDX Software Bill-of-Materials 
+(SBOM) containing an aggregate of all project dependencies. CycloneDX is a lightweight 
+SBOM specification that is easily created, human and machine readable, and simple to parse.
+
+**Installing**
+
+```sh
+npm install -g @cyclonedx/bom
+```
+
+**Getting Help**
+
+```text
+$ cyclonedx-node -h
+Usage: cyclonedx-node [options] [path]
+
+Creates CycloneDX Software Bill of Materials (SBOM) from Node.js projects
+
+Arguments:
+  path                        Path to analyze
+
+Options:
+  -v, --version               output the version number
+  -d, --include-dev           Include devDependencies (default: false)
+  -l, --include-license-text  Include full license text (default: false)
+  -o, --output <output>       Write BOM to file (default: "bom.xml")
+  -t, --type <type>           Project type (default: "library")
+  -ns, --no-serial-number     Do not include BOM serial number
+  -h, --help                  display help for command
+```
+
+**Example (default: XML)**
+
+```shell
+cyclonedx-node
+```
+
+**Example (XML)**
+
+```shell
+cyclonedx-node -o bom.xml
+```
+
+**Usage with docker**
+
+Run `cyclonedx/cyclonedx-node` docker image inside your project folder using:
+
+```shell
+docker run --rm \
+  -v "$PWD":/src \
+  -w /src \
+  cyclonedx/cyclonedx-node -o /src/bom.xml
+```
+
 ## SBOM and Cybersecurity Vulnerabilities
 
 **A security risk report summarizing high-priority vulnerabilities should be**
@@ -180,7 +240,7 @@ vulnerabilities are always changing with the evolving threat landscape
 
 ## Generating a Dependency Tree with Maven
 
-The Maven goal `dependency:tree` can be used to displays the dependency tree for a project:
+The Maven goal `dependency:tree` can be used to display the dependency tree for a project:
 
 https://maven.apache.org/plugins/maven-dependency-plugin/tree-mojo.html
 
