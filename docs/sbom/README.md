@@ -261,3 +261,23 @@ This will create a text file called `dependency_tree.dot` under each project mod
 ```bash
 $ mvn dependency:tree -DoutputFile="dependency_tree.dot" -DoutputType=dot
 ```
+
+## Generating a Dependency Tree with Yarn
+
+[Yarn List Command](https://classic.yarnpkg.com/en/docs/cli/list)
+
+The yarn list command mimics the expected Unix behavior of listing. In Yarn, the list 
+command lists all dependencies for the current working directory by referencing all 
+package manager meta data files, which includes a project’s dependencies.
+
+This will output a dependency tree to the console including just the production packages: 
+
+```bash
+$ yarn list --production
+```
+
+This will output a single combined JSON file called `dependency_tree.json`: 
+
+```bash
+$ yarn list --production --non-interactive --json > dependency_tree.json
+```
