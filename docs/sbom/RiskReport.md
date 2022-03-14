@@ -31,8 +31,10 @@ STRIDE:
 **Scan Report Links**
 
 [VSCOM\visitscotland-2019\site.war](https://iq.visitscotland.com/assets/index.html#/applicationReport/visitscotland-site/cc224f72876d4fa690926b4adf01db56/policy)
+[VSCOM\visitscotland-2019\cms.war](https://iq.visitscotland.com/assets/index.html#/applicationReport/visitscotland-cms/3fff665d4fe143bdaf722ee69ab637c5/policy)
+[VSCOM\visitscotland-2019\ssr](https://iq.visitscotland.com/assets/index.html#/applicationReport/visitscotland-ssr/ddc17b13dd1d4d228dbaa478f14eb85d/policy)
 
-## Application: VSCOM\visitscotland-2019\site.war 
+## Summary Tables 
 
 **Summary of Highly Vulnerable Maven Dependencies**
 
