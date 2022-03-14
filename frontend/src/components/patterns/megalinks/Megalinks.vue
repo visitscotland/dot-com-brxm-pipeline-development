@@ -766,19 +766,31 @@ export default {
                 buttonLink="www.visitscotland.com"
                 imgSrc="https://cimg.visitscotland.com/cms-images/attractions/outlander/claire-standing-stones-craigh-na-dun-outlander?size=sm"
             >
-                <template slot="vsSingleImageCaption">An image of Scotland</template>
-                <template slot="vsSingleImageCredit">@2020 Credit here</template>
+                <template slot="vsSingleImage">
+                    <VsImageWithCaption
+                        mobile-overlap
+                        alt-text="Image alt text"
+                        image-src="https://cimg.visitscotland.com/cms-images/attractions/outlander/claire-standing-stones-craigh-na-dun-outlander?size=sm"
+                    >
+                        <VsCaption
+                            slot="img-caption"
+                            text-align="right"
+                        >
+                            <template slot="caption">
+                                An image of Scotland
+                            </template>
+
+                            <template slot="credit">
+                                @2020 Credit here
+                            </template>
+                        </VsCaption>
+                    </VsImageWithCaption>
+                </template>
                 <template slot="vsSingleImageContent">
                     <p>
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                         Integer et eros at est dignissim interdum. Fusce nisl metus,
-                        pharetra eu feugiat vitae, porttitor eget est. Vivamus
-                        condimentum urna vel ante tempor, a eleifend neque ultricies.
-                        Morbi convallis, felis id semper vulputate, nisl est porta quam,
-                        luctus vehicula sapien orci quis urna. Suspendisse accumsan leo
-                        diam, nec faucibus neque pulvinar vitae. Duis non rutrum felis,
-                        ut pretium purus. Nullam hendrerit quam vitae ipsum aliquam
-                        fermentum. Fusce gravida eu est in convallis.
+                        pharetra eu feugiat vitae, porttitor eget est.
                     </p>
                 </template>
                 <template slot="vsSingleImageLinks">
@@ -833,36 +845,51 @@ export default {
                 imgSrc="https://cimg.visitscotland.com/cms-images/attractions/outlander/claire-standing-stones-craigh-na-dun-outlander?size=sm"
                 alternate
             >
-                <template slot="vsSingleImageCaption">An image of Scotland</template>
-                <template slot="vsSingleImageCredit">@2020 Credit here</template>
+                <template slot="vsSingleImage">
+                    <VsImageWithCaption
+                        mobile-overlap
+                        alt-text="Image alt text"
+                        image-src="https://cimg.visitscotland.com/cms-images/attractions/outlander/claire-standing-stones-craigh-na-dun-outlander?size=sm"
+                    >
+                        <VsCaption
+                            slot="img-caption"
+                            text-align="left"
+                        >
+                            <template slot="caption">
+                                An image of Scotland
+                            </template>
+
+                            <template slot="credit">
+                                @2020 Credit here
+                            </template>
+                        </VsCaption>
+                    </VsImageWithCaption>
+                </template>
                 <template slot="vsSingleImageContent">
                     <p>
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                         Integer et eros at est dignissim interdum. Fusce nisl metus,
-                        pharetra eu feugiat vitae, porttitor eget est. Vivamus
-                        condimentum urna vel ante tempor, a eleifend neque ultricies.
-                        Morbi convallis, felis id semper vulputate, nisl est porta quam,
-                        luctus vehicula sapien orci quis urna. Suspendisse accumsan leo
-                        diam, nec faucibus neque pulvinar vitae. Duis non rutrum felis,
-                        ut pretium purus. Nullam hendrerit quam vitae ipsum aliquam
-                        fermentum. Fusce gravida eu est in convallis.
+                        pharetra eu feugiat vitae, porttitor eget est.
                     </p>
                 </template>
                 <template slot="vsSingleImageLinks">
                     <VsLinkListItem
                         href="www.visitscotland.com"
+                        variant="dark"
                     >
                         This is a link here
                     </VsLinkListItem>
                     <VsLinkListItem
                         href="www.visitscotland.com"
                         type="external"
+                        variant="dark"
                     >
                         This is an external link here
                     </VsLinkListItem>
                     <VsLinkListItem
                         href="www.visitscotland.com"
                         type="download"
+                        variant="dark"
                     >
                         This is a download link here
                     </VsLinkListItem>

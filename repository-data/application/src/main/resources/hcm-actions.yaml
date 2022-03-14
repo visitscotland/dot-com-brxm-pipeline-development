@@ -1,9 +1,12 @@
 # READ THIS!!
 # - The paths added to this file should correspond with the root path in a yaml file.
-# - The SNAPSHOT version must go at the end and It should correspond with the version of the artefact,
+# - The SNAPSHOT version must go at the end, and It should correspond with the version of the artefact,
 # - Only One SNAPSHOT must exist in this file
 #
 # Check Confluence for a more in detail explanation. For a detailed explanation: TBD
 action-lists:
 - 0.1.0:
     /content/documents/administration/configuration/properties: reload
+- 1.0.1:
+      /content/documents/administration/labels/global: reload
+      /content/gallery/visitscotland/static: reload

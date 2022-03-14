@@ -37,6 +37,7 @@ public class DifferenceOpenUi {
     public static final String ATTR_TRANSLATION_LIST = "translations";
     public static final String ENGLISH_TEMPLATE = "diffButtonContentEnglish";
     public static final String FOREIGN_TEMPLATE = "diffButtonContent";
+    public static final String EMPTY_TEMPLATE = "diffButtonEmpty";
     public static final String ERROR_TEMPLATE = "diffViewError";
     public static final String DIFF_VIEW_TEMPLATE = "diffView";
     public static final String CONFIRM_DIALOG_TEMPLATE = "dialogTranslationConfirm";
@@ -68,6 +69,9 @@ public class DifferenceOpenUi {
         try {
             model.addAttribute(ATTR_NODE_ID, nodeId);
             JcrDocument document = translationService.getDocument(nodeId);
+            if (document.getVariantNode(JcrDocument.VARIANT_UNPUBLISHED) == null) {
+                return EMPTY_TEMPLATE;
+            }
             if ( "en".equals(document.getLocaleName()) ) {
                 model.addAttribute(ATTR_HAS_TRANSLATION_PENDING, translationService.hasPendingTranslations(document));
                 model.addAttribute(ATTR_HAS_CHANGED, translationService.hasChangePending(document));

@@ -12,6 +12,7 @@ import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.ui.Model;
 
+import javax.jcr.Node;
 import javax.jcr.RepositoryException;
 
 import java.io.IOException;
@@ -43,6 +44,7 @@ public class DifferenceOpenUiTest {
     public void buttonWithEnglishDocument() throws Exception {
         JcrDocument mockJcrDocument = mock(JcrDocument.class);
         when(mockJcrDocument.getLocaleName()).thenReturn("en");
+        when(mockJcrDocument.getVariantNode(JcrDocument.VARIANT_UNPUBLISHED)).thenReturn(mock(Node.class));
         when(mockTranslationService.getDocument(eq("nodeId"))).thenReturn(mockJcrDocument);
         when(mockTranslationService.hasPendingTranslations(eq(mockJcrDocument))).thenReturn(false);
 
@@ -54,11 +56,25 @@ public class DifferenceOpenUiTest {
         verify(mockModel, times(3)).addAttribute(any(), any());
     }
 
+    @DisplayName("VS-3323 - openUiButton - when only draft, empty template returned")
+    @Test
+    public void draftDocumentOpenUi() throws Exception {
+        JcrDocument mockJcrDocument = mock(JcrDocument.class);
+        when(mockTranslationService.getDocument(eq("nodeId"))).thenReturn(mockJcrDocument);
+
+        String template = differenceOpenUi.openUiButton("nodeId", mockModel);
+
+        assertThat(template).isEqualTo(DifferenceOpenUi.EMPTY_TEMPLATE);
+        verify(mockJcrDocument).getVariantNode(JcrDocument.VARIANT_UNPUBLISHED);
+    }
+
+
     @DisplayName("openUiButton - an english document, with translations pending")
     @Test
     public void buttonWithEnglishDocumentAndTranslationsPending() throws Exception {
         JcrDocument mockJcrDocument = mock(JcrDocument.class);
         when(mockJcrDocument.getLocaleName()).thenReturn("en");
+        when(mockJcrDocument.getVariantNode(JcrDocument.VARIANT_UNPUBLISHED)).thenReturn(mock(Node.class));
         when(mockTranslationService.getDocument(eq("nodeId"))).thenReturn(mockJcrDocument);
         when(mockTranslationService.hasPendingTranslations(eq(mockJcrDocument))).thenReturn(true);
 
@@ -75,6 +91,7 @@ public class DifferenceOpenUiTest {
     public void buttonWithForeignDocument() throws Exception {
         JcrDocument mockJcrDocument = mock(JcrDocument.class);
         when(mockJcrDocument.getLocaleName()).thenReturn("es");
+        when(mockJcrDocument.getVariantNode(JcrDocument.VARIANT_UNPUBLISHED)).thenReturn(mock(Node.class));
         when(mockTranslationService.getDocument(eq("nodeId"))).thenReturn(mockJcrDocument);
         when(mockTranslationService.getTranslationFlag(eq(mockJcrDocument))).thenReturn(false);
 
@@ -90,6 +107,7 @@ public class DifferenceOpenUiTest {
     public void buttonWithForeignDocumentWithTranslationFlag() throws Exception {
         JcrDocument mockJcrDocument = mock(JcrDocument.class);
         when(mockJcrDocument.getLocaleName()).thenReturn("es");
+        when(mockJcrDocument.getVariantNode(JcrDocument.VARIANT_UNPUBLISHED)).thenReturn(mock(Node.class));
         when(mockTranslationService.getDocument(eq("nodeId"))).thenReturn(mockJcrDocument);
         when(mockTranslationService.getTranslationFlag(eq(mockJcrDocument))).thenReturn(true);
 

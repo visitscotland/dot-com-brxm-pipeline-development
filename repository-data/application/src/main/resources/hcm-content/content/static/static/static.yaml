@@ -1,12 +1,12 @@
 /content/gallery/visitscotland/static:
   jcr:primaryType: hippogallery:stdImageGallery
-  hippostd:foldertype: [new-visitscotland-Image-folder]
+  hippostd:foldertype: []
   hippostd:gallerytype: ['visitscotland:Image']
   /modules:
     jcr:primaryType: hippogallery:stdImageGallery
     jcr:mixinTypes: ['mix:versionable']
     jcr:uuid: b6eaaed7-a717-49fe-aaba-a529c5bcdcdb
-    hippostd:foldertype: [new-visitscotland-Image-folder]
+    hippostd:foldertype: []
     hippostd:gallerytype: ['visitscotland:Image']
     /visitscotland-visitor-information-centre.jpg:
       jcr:primaryType: hippo:handle
@@ -19,7 +19,7 @@
         hippogallery:filename: visitscotland-visitor-information-centre.jpg
         visitscotland:altText: VisitScotland iCentre
         visitscotland:credit: VisitScotland / Kenny Lam
-        visitscotland:location: Edinburgh
+        visitscotland:location: ''
         /hippogallery:thumbnail:
           jcr:primaryType: hippogallery:image
           hippo:filename: visitscotland-visitor-information-centre.jpg
@@ -59,31 +59,54 @@
           jcr:primaryType: visitscotland:ImageData
           visitscotland:altText: iCentre di VisitScotland
           visitscotland:caption: Centro informazione di VisitScotland
-    /marketocode.jpg:
-      jcr:primaryType: hippo:handle
-      jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
-      jcr:uuid: 87ed3d38-9b88-4b83-9da2-e3800afb6a87
-      hippo:name: marketoCode.jpg
-      /marketocode.jpg:
-        jcr:primaryType: visitscotland:Image
-        hippo:availability: [live, preview]
-        hippogallery:filename: marketoCode.jpg
-        /hippogallery:thumbnail:
-          jcr:primaryType: hippogallery:image
-          hippo:filename: marketoCode.jpg
-          hippogallery:height: 20
-          hippogallery:width: 60
-          jcr:data:
-            type: binary
-            resource: /content/gallery/visitscotland/static/modules/marketocode.jpg/marketocode.jpg/thumbnail/thumbnail.jpg
-          jcr:lastModified: 2021-05-21T16:42:21.008+01:00
-          jcr:mimeType: image/jpeg
-        /hippogallery:original:
-          jcr:primaryType: hippogallery:image
-          hippogallery:height: 186
-          hippogallery:width: 553
-          jcr:data:
-            type: binary
-            resource: /content/gallery/visitscotland/static/modules/marketocode.jpg/marketocode.jpg/original/original.jpg
-          jcr:lastModified: 2021-05-21T16:42:21.008+01:00
-          jcr:mimeType: image/jpeg
+  /placeholder_highlandcow.jpg:
+    jcr:primaryType: hippo:handle
+    jcr:mixinTypes: ['mix:referenceable']
+    jcr:uuid: a5b5922e-d0d5-420c-af2d-670768cf7bd6
+    /placeholder_highlandcow.jpg:
+      jcr:primaryType: visitscotland:Image
+      hippo:availability: [live, preview]
+      hippogallery:description: A Highland Cow on the road to Elgol, Skye
+      hippogallery:filename: placeholder_highlandcow.jpg
+      visitscotland:altText: A Highland Cow on the road to Elgol, Skye
+      visitscotland:credit: VisitScotland / Kenny Lam
+      visitscotland:location: Elgol
+      /hippogallery:thumbnail:
+        jcr:primaryType: hippogallery:image
+        hippo:filename: placeholder_highlandcow.jpg
+        hippogallery:height: 39
+        hippogallery:width: 60
+        jcr:data:
+          type: binary
+          resource: /content/gallery/visitscotland/static/placeholder_highlandcow.jpg/placeholder_highlandcow.jpg/thumbnail/thumbnail.jpg
+        jcr:lastModified: 2022-03-04T14:27:44.928Z
+        jcr:mimeType: image/jpeg
+      /hippogallery:original:
+        jcr:primaryType: hippogallery:image
+        hippogallery:height: 1365
+        hippogallery:width: 2048
+        jcr:data:
+          type: binary
+          resource: /content/gallery/visitscotland/static/placeholder_highlandcow.jpg/placeholder_highlandcow.jpg/original/original.jpg
+        jcr:lastModified: 2022-03-04T14:27:44.928Z
+        jcr:mimeType: image/jpeg
+      /visitscotland:nl:
+        jcr:primaryType: visitscotland:ImageData
+        visitscotland:altText: ''
+        visitscotland:caption: ''
+      /visitscotland:fr:
+        jcr:primaryType: visitscotland:ImageData
+        visitscotland:altText: ''
+        visitscotland:caption: ''
+      /visitscotland:de:
+        jcr:primaryType: visitscotland:ImageData
+        visitscotland:altText: ''
+        visitscotland:caption: ''
+      /visitscotland:es:
+        jcr:primaryType: visitscotland:ImageData
+        visitscotland:altText: ''
+        visitscotland:caption: ''
+      /visitscotland:it:
+        jcr:primaryType: visitscotland:ImageData
+        visitscotland:altText: ''
+        visitscotland:caption: ''

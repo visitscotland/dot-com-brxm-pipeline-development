@@ -24,6 +24,7 @@ import javax.annotation.Resource;
 import java.util.Collections;
 import java.util.List;
 import java.util.Locale;
+import java.util.Optional;
 
 import static org.easymock.EasyMock.anyObject;
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -121,7 +122,7 @@ public class MegalinkFactoryTest {
     @DisplayName("Allowed items are processed and included to the list")
     void megalinkItem_allowedLinkTypes() {
         List<MegalinkItem> items = new MegalinksMockBuilder().addPageLink().addSharedLink().build().getMegalinkItems();
-        when(linkService.createEnhancedLink(any(),any(), any(), anyBoolean())).thenReturn(new EnhancedLink());
+        when(linkService.createEnhancedLink(any(),any(), any(), anyBoolean())).thenReturn(Optional.of(new EnhancedLink()));
 
         assertEquals(2, factory.convertToEnhancedLinks(null, items, Locale.UK, false).size());
     }
@@ -148,7 +149,7 @@ public class MegalinkFactoryTest {
         Module<Megalinks> module = new Module<>();
 
         when(unpublishedVideo.getPath()).thenReturn("path-to-document");
-        when(linkService.createEnhancedLink(null, module, Locale.UK, false)).thenReturn(null);
+        when(linkService.createEnhancedLink(null, module, Locale.UK, false)).thenReturn(Optional.empty());
 
         assertEquals(0, factory.convertToEnhancedLinks(module, items, Locale.UK, false).size());
     }
@@ -268,7 +269,7 @@ public class MegalinkFactoryTest {
             max.addPageLink().featured(true);
         }
 
-        when(linkService.createEnhancedLink(any(),any(), any(), anyBoolean())).thenReturn(new EnhancedLink());
+        when(linkService.createEnhancedLink(any(),any(), any(), anyBoolean())).thenReturn(Optional.of(new EnhancedLink()));
 
         Assertions.assertEquals(minItems, ((MultiImageLinksModule) factory.getMegalinkModule(min.build(), Locale.UK)).getFeaturedLinks().size());
         Assertions.assertEquals(maxItems, ((MultiImageLinksModule) factory.getMegalinkModule(max.build(), Locale.UK)).getFeaturedLinks().size());

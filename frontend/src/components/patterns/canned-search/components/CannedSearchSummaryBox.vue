@@ -1,5 +1,8 @@
 <template>
-    <div class="vs-canned-search-summary-box">
+    <div
+        class="vs-canned-search-summary-box"
+        :disabled="!slideVisible() ? true : false"
+    >
         <VsContainer>
             <VsRow
                 v-if="!!this.$slots['vsCannedSearchSummaryTop']"
@@ -54,17 +57,16 @@
                 </VsCol>
                 <VsCol
                     class="vs-canned-search-summary-box__summary-item"
-                    v-if="!!this.$slots['vsCannedSearchSummaryRight']"
+                    v-if="linkHref"
                 >
-                    <!--
-                        @slot Holds the content for the third optional item in the grey
-                        summary box  at the bottom of the card, usually a link
-
-                        Expects html
-                    -->
-                    <slot
-                        name="vsCannedSearchSummaryRight"
-                    />
+                    <VsLink
+                        data-test="vs-canned-search-summary-box__link"
+                        :href="linkHref"
+                        :type="linkType.toLowerCase()"
+                        :disabled="!slideVisible()"
+                    >
+                        {{ linkLabel }}
+                    </VsLink>
                 </VsCol>
             </VsRow>
         </VsContainer>
@@ -75,6 +77,7 @@
 import VsContainer from '@components/elements/layout/Container';
 import VsRow from '@components/elements/layout/Row';
 import VsCol from '@components/elements/layout/Col';
+import VsLink from '@components/elements/link/Link';
 
 /**
 * Component that displays a grey summary box for product cards within canned
@@ -91,7 +94,33 @@ export default {
         VsContainer,
         VsRow,
         VsCol,
+        VsLink,
     },
+    props: {
+        /**
+        * The href of a product link, should match the website on the
+        * parent product card
+        */
+        linkHref: {
+            type: String,
+            default: '',
+        },
+        /**
+        * The label of the product link, usually "View Details"
+        */
+        linkLabel: {
+            type: String,
+            default: '',
+        },
+        /**
+        * The link type for the product link, usually "external"
+        */
+        linkType: {
+            type: String,
+            default: '',
+        },
+    },
+    inject: ['slideVisible'],
 };
 
 </script>
@@ -143,13 +172,6 @@ export default {
                     :price="sampleAccom.price.price"
                     :priceOutro="sampleAccom.price.priceBasis"
                 />
-                <VsLink
-                    :href="sampleAccom.website.link"
-                    type="external"
-                    slot="vsCannedSearchSummaryRight"
-                >
-                    Visit Website
-                </VsLink>
             </VsCannedSearchSummaryBox>
         </div>
         <div class="col-12 col-sm-6 col-md-4">
@@ -167,13 +189,6 @@ export default {
                     :price="sampleEvent.price.price"
                     :priceOutro="sampleEvent.price.priceBasis"
                 />
-                <VsLink
-                    :href="sampleEvent.website.link"
-                    :type="sampleEvent.website.type.toLowerCase()"
-                    slot="vsCannedSearchSummaryRight"
-                >
-                    {{ sampleEvent.dmsLink.label }}
-                </VsLink>
             </VsCannedSearchSummaryBox>
         </div>
         <div class="col-12 col-sm-6 col-md-4">
@@ -190,13 +205,6 @@ export default {
                     durationIntro="Length"
                     duration="2 hours"
                 />
-                <VsLink
-                    :href="sampleAccom.website.link"
-                    type="external"
-                    slot="vsCannedSearchSummaryRight"
-                >
-                    Visit Website
-                </VsLink>
             </VsCannedSearchSummaryBox>
         </div>
     </div>

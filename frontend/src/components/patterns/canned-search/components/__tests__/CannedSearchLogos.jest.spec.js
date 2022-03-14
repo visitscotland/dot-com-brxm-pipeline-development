@@ -32,6 +32,9 @@ const factoryMount = (propsData) => mount(VsCannedSearchLogos, {
         awards,
         ...propsData,
     },
+    provide: () => ({
+        slideVisible: () => true,
+    }),
 });
 
 /* eslint-disable */

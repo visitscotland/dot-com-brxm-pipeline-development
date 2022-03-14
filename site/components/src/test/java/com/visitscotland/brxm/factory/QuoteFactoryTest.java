@@ -20,6 +20,7 @@ import org.mockito.junit.jupiter.MockitoExtension;
 
 import javax.annotation.Resource;
 import java.util.Locale;
+import java.util.Optional;
 
 import static org.mockito.Mockito.*;
 
@@ -53,11 +54,12 @@ class QuoteFactoryTest {
         when(quote.getImage()).thenReturn(image);
         when(quote.getProduct()).thenReturn(cmsLink);
         when(cmsLink.getLink()).thenReturn(link);
+        when(cmsLink.getLabel()).thenReturn("Find out more");
 
         EnhancedLink enhancedLink = new EnhancedLink();
         enhancedLink.setLink("www.google.com");
 
-        when(linkService.createEnhancedLink(link,null,Locale.UK,false)).thenReturn(enhancedLink);
+        when(linkService.createEnhancedLink(link,null,Locale.UK,false)).thenReturn(Optional.of(enhancedLink));
         when(linkService.createFindOutMoreLink(null, Locale.UK, cmsLink)).thenReturn(new FlatLink());
 
         FlatQuote flat = embedder.getQuote(quote, null, Locale.UK);

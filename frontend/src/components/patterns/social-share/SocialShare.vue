@@ -2,6 +2,7 @@
     <div
         class="vs-social-share"
         data-test="vs-social-share"
+        :class="noJs ? 'vs-module-wrapper__outer--hidden' : 'vs-module-wrapper__outer--light'"
     >
         <VsButton
             class="vs-social-share__share-btn"

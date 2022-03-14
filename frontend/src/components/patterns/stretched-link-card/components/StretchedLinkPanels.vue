@@ -93,7 +93,7 @@ export default {
             justify-content: center;
 
             &--days {
-                background: $color-secondary-teal-shade-2;
+                background: $color-secondary-teal-shade-3;
             }
 
             p {

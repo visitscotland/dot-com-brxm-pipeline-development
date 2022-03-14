@@ -10,6 +10,7 @@
 
 <#include "../macros/modules/page-intro/page-intro.ftl">
 <#include "../macros/global/cms-errors.ftl">
+<#include "../macros/global/otyml.ftl">
 <#include "../macros/shared/module-builder.ftl">
 <#include "../macros/modules/signpost/signpost.ftl">
 
@@ -46,9 +47,7 @@
 
     <@socialShare nojs=true/>
 
-	<#if otyml??>
-		<@horizontalList otyml />
-	</#if>
+	<@otymlModule otyml editMode />
 
 	<#if newsletterSignpost??>
 		<@signpost module=newsletterSignpost imgSrc="assets/images/illustrations/newsletter.svg"/>

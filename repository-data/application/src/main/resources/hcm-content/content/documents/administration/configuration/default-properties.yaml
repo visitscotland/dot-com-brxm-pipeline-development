@@ -3,7 +3,7 @@
   jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
   jcr:uuid: a8a8926f-e625-4162-98b4-29f3c3b819b8
   hippo:name: Default Properties
-  hippo:versionHistory: 61806154-31bd-462e-a68a-b3e5e8f485e9
+  hippo:versionHistory: dd3889f0-0f85-48bb-b7f8-ad3fcf0f294d
   /default-properties[1]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:versionable']
@@ -46,7 +46,7 @@
     resourcebundle:messages: ['https://graph.facebook.com/v9.0/instagram_oembed?url=http://instagr.am/p/',
       helpdesk@visitscotland.com, 0d41c47eaf42b43fe20de05201c798ec, 'https://www.instagram.com/p/',
       UTF-8, $VS_API_KEY, '2000', '3', '60000', 'https://community.visitscotland.com/',
-      discussions/tagged/, '1293271387429443', 'localhost,www.visitscotland.com,blog.visitscotland.com',
+      discussions/tagged/, '1293271387429443', 'localhost,www.visitscotland.com,beta.visitscotland.com,blog.visitscotland.com',
       'true', '', 'http://172.28.81.65:8089', /data, 'http://172.28.81.65:8089/data',
       www.visitscotland.com, general/navigation/banner/content, $YOUTUBE_API_KEY,
       VisitScotland, '@VisitScotland', 'en,fr,de,nl,it,es', '| VisitScotland', VisitScotland,
@@ -58,10 +58,9 @@
     hippo:availability: []
     hippostd:retainable: false
     hippostd:state: draft
-    hippostd:transferable: false
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2021-02-05T15:37:26.056Z
-    hippostdpubwf:lastModificationDate: 2022-02-15T14:41:52.044Z
+    hippostdpubwf:lastModificationDate: 2022-03-08T09:52:58.124Z
     hippostdpubwf:lastModifiedBy: admin
     resourcebundle:descriptions: [URL prefix for Instagram endpoints, '', Client Token
         for Instagram request, '', Encoding for requests made to dms data endpoints,
@@ -94,8 +93,8 @@
     resourcebundle:messages: ['https://graph.facebook.com/v9.0/instagram_oembed?url=http://instagr.am/p/',
       helpdesk@visitscotland.com, 0d41c47eaf42b43fe20de05201c798ec, 'https://www.instagram.com/p/',
       UTF-8, $VS_API_KEY, '2000', '3', '60000', 'https://community.visitscotland.com/',
-      discussions/tagged/, '1293271387429443', 'localhost,www.visitscotland.com,blog.visitscotland.com',
-      'false', '', 'http://172.28.81.65:8089', /data, 'http://172.28.81.65:8089/data',
+      discussions/tagged/, '1293271387429443', 'localhost,www.visitscotland.com,beta.visitscotland.com,blog.visitscotland.com',
+      'true', '', 'http://172.28.81.65:8089', /data, 'http://172.28.81.65:8089/data',
       www.visitscotland.com, general/navigation/banner/content, $YOUTUBE_API_KEY,
       VisitScotland, '@VisitScotland', 'en,fr,de,nl,it,es', '| VisitScotland', VisitScotland,
       '@VisitScotland']
@@ -108,9 +107,9 @@
     hippostd:state: published
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2021-02-05T15:37:26.056Z
-    hippostdpubwf:lastModificationDate: 2022-02-11T15:40:22.575Z
+    hippostdpubwf:lastModificationDate: 2022-02-11T15:53:13.106Z
     hippostdpubwf:lastModifiedBy: admin
-    hippostdpubwf:publicationDate: 2022-02-11T15:40:47.362Z
+    hippostdpubwf:publicationDate: 2022-03-08T09:53:23.318Z
     resourcebundle:descriptions: [URL prefix for Instagram endpoints, '', Client Token
         for Instagram request, '', Encoding for requests made to dms data endpoints,
       "Token that identifies calls made to vs-dms-products as internal calls giving\
@@ -142,7 +141,7 @@
     resourcebundle:messages: ['https://graph.facebook.com/v9.0/instagram_oembed?url=http://instagr.am/p/',
       helpdesk@visitscotland.com, 0d41c47eaf42b43fe20de05201c798ec, 'https://www.instagram.com/p/',
       UTF-8, $VS_API_KEY, '2000', '3', '60000', 'https://community.visitscotland.com/',
-      discussions/tagged/, '1293271387429443', 'localhost,www.visitscotland.com,blog.visitscotland.com',
+      discussions/tagged/, '1293271387429443', 'localhost,www.visitscotland.com,beta.visitscotland.com,blog.visitscotland.com',
       'true', '', 'http://172.28.81.65:8089', /data, 'http://172.28.81.65:8089/data',
       www.visitscotland.com, general/navigation/banner/content, $YOUTUBE_API_KEY,
       VisitScotland, '@VisitScotland', 'en,fr,de,nl,it,es', '| VisitScotland', VisitScotland,

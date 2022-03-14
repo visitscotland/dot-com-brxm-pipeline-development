@@ -189,6 +189,10 @@ public class JcrDocument {
         return translationDocuments;
     }
 
+    public boolean isDeleted() throws RepositoryException {
+        return handle.getPath() == null || handle.getPath().startsWith("/content/attic/");
+    }
+
     public Set<String> getTranslationLocaleNames() throws RepositoryException {
         // Cache translation locales as HippoTranslatedNode#getTranslations requires the JCR to be queried
         if (translationLocales != null) return translationLocales;

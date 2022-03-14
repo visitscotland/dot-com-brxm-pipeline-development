@@ -54,7 +54,7 @@ public class VsBreadcrumbComponent extends CommonComponent {
             List<BaseDocument> availableTranslations = ((Page) document.get()).getAvailableTranslations(BaseDocument.class).getTranslations();
             request.setAttribute(ORDERED_TRANSLATIONS, documentUtils.sortTranslationsForSeo(availableTranslations));
         } else {
-            logger.error("There is not a document associated for the following request: " + request.getRequestURI());
+            logger.debug("{} page not found - redirecting to 404 page", request.getRequestURI());
             this.pageNotFound(response);
         }
     }

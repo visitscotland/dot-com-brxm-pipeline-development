@@ -1534,3 +1534,11 @@
         hippostd:foldertype: [new-translated-folder-shared, new-shared-document]
         hippotranslation:id: b1fce985-a0c2-437d-86d5-d3296a466eb7
         hippotranslation:locale: nl
+  /video:
+    jcr:primaryType: hippostd:folder
+    jcr:mixinTypes: ['hippo:named', 'hippotranslation:translated', 'mix:versionable']
+    jcr:uuid: ef706dd7-3436-47cb-84c3-e1ca4503973e
+    hippo:name: Videos
+    hippostd:foldertype: [new-translated-folder-videos]
+    hippotranslation:id: cae74ed6-9a80-4370-9e8a-28ee2c1f9594
+    hippotranslation:locale: nl

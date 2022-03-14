@@ -3,8 +3,11 @@ package com.visitscotland.brxm.translation.plugin;
 import org.hippoecm.repository.HippoStdNodeType;
 import org.hippoecm.repository.api.HippoNode;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
 import org.mockito.Mock;
 import org.mockito.invocation.InvocationOnMock;
 import org.mockito.junit.jupiter.MockitoExtension;
@@ -256,6 +259,14 @@ public class JcrDocumentTest {
         when(mockHandle.getNodes()).thenReturn(variantIterator);
 
         assertFalse(document.isDraftBeingEdited());
+    }
+
+    @ParameterizedTest
+    @CsvSource({"/content/attic/a/b,true", "/content/attica/b,false", "/content/documents/a/b,false"})
+    @DisplayName("When node is deleted, isDeleted should be true")
+    public void deletedNodes(String path, boolean isDeleted) throws Exception {
+        when(mockHandle.getPath()).thenReturn(path);
+        assertEquals(isDeleted, document.isDeleted());
     }
 
     private NodeIterator createNodeIterator(Node... nodes) {

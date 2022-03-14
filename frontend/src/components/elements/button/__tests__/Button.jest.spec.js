@@ -142,6 +142,18 @@ describe('VsButton', () => {
                 expect(iconStub.classes('mr-2')).toBe(true);
             });
 
+            it('should set an `ml-2` class if `iconOnly` is not truthy and iconPosition is `right`', () => {
+                const wrapper = factoryShallowMount({
+                    icon: testIcon,
+                    iconOnly: false,
+                    iconPosition: 'right',
+                });
+
+                const iconStub = wrapper.find('vsicon-stub');
+
+                expect(iconStub.classes('ml-2')).toBe(true);
+            });
+
             it('should *NOT* set an `mr-2` class if `iconOnly` is truthy', () => {
                 const wrapper = factoryShallowMount({
                     icon: testIcon,

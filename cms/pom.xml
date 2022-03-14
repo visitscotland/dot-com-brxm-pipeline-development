@@ -4,10 +4,10 @@
   <modelVersion>4.0.0</modelVersion>
   <parent>
     <groupId>com.visitscotland</groupId>
-    <artifactId>visitscotland</artifactId>
-    <version>1.0.0</version>
+    <artifactId>dot-com-brxm</artifactId>
+    <version>1.0.1</version>
   </parent>
-  <artifactId>visitscotland-cms</artifactId>
+  <artifactId>dot-com-brxm-cms</artifactId>
   <packaging>war</packaging>
   <name>www.visitscotland.com CMS Pages CMS</name>
 
@@ -36,7 +36,7 @@
     </dependency>
     <dependency>
       <groupId>${project.groupId}</groupId>
-      <artifactId>visitscotland-cms-dependencies</artifactId>
+      <artifactId>dot-com-brxm-cms-dependencies</artifactId>
       <version>${project.version}</version>
       <type>pom</type>
     </dependency>
@@ -44,7 +44,7 @@
     <!-- TODO review this dependency cms-site -->
     <dependency>
       <groupId>${project.groupId}</groupId>
-      <artifactId>visitscotland-components</artifactId>
+      <artifactId>dot-com-brxm-components</artifactId>
       <version>${project.version}</version>
       <scope>compile</scope>
     </dependency>

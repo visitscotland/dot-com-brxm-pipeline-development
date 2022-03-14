@@ -5,11 +5,11 @@
         :lg="slideCols.md"
         :xl="slideCols.lg"
         class="vs-carousel-slide__card"
-        :aria-disabled="!isVisible(slideIndex)"
+        :aria-disabled="!isVisible()"
     >
         <div
             class="vs-product-card"
-            :class="!isVisible(slideIndex) ? 'vs-product-card--disabled' : ''"
+            :class="!isVisible() ? 'vs-product-card--disabled' : ''"
             data-test="vs-product-card"
         >
             <section
@@ -45,9 +45,9 @@
                     >
                         <VsLink
                             :href="detailLink.link"
-                            class="stretched-link"
+                            class="stretched-link vs-product-card__link"
                             data-test="vs-product-card__link"
-                            :disabled="!isVisible(slideIndex)"
+                            :disabled="!isVisible()"
                         >
                             {{ title }}
                         </VsLink>
@@ -93,6 +93,7 @@
                         <VsLink
                             :href="detailLink.link"
                             class="vs-product-card__description-link"
+                            :disabled="!isVisible()"
                         >
                             {{ detailLink.label }}
                         </VsLink>
@@ -224,12 +225,11 @@ export default {
         /**
          * Detects if the card is one of the currently visible cards in the carousel
          * so it can be disabled if not
-         * @param {String} slideNum - the index of the slide within the canned search
-         * carousel
+         *
          * @returns {Boolean} true if card is visible
          */
-        isVisible(slideNum) {
-            const slideInt = parseInt(slideNum, 10);
+        isVisible() {
+            const slideInt = parseInt(this.slideIndex, 10);
             if (this.visibleSlides.indexOf(slideInt) >= 0) {
                 return true;
             }
@@ -238,6 +238,11 @@ export default {
         },
     },
     inject: ['slideCols', 'visibleSlides'],
+    provide() {
+        return {
+            slideVisible: this.isVisible,
+        };
+    },
 };
 </script>
 
@@ -282,6 +287,12 @@ export default {
 
             &:focus {
                 outline: 2px solid $color-pink;
+            }
+        }
+
+        .vs-product-card__link {
+            &:focus {
+                border: 2px solid $color_pink;
             }
         }
 

@@ -24,10 +24,7 @@ import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 import javax.annotation.Resource;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
-import java.util.Locale;
+import java.util.*;
 
 import static com.visitscotland.brxm.dms.DMSConstants.DMSProduct.LATITUDE;
 import static com.visitscotland.brxm.dms.DMSConstants.DMSProduct.LONGITUDE;
@@ -101,7 +98,7 @@ class ListicleFactoryTest {
 
         when(documentUtils.getAllowedDocuments(page, ListicleItem.class)).thenReturn(Collections.singletonList(item));
         when(imageFactory.getImage(eq(item.getListicleItemImage()), any(), any())).thenReturn(moduleImage);
-        when(linksService.createEnhancedLink(any(), any(), any(),anyBoolean())).thenReturn(link);
+        when(linksService.createEnhancedLink(any(), any(), any(),anyBoolean())).thenReturn(Optional.of(link));
 
         List<ListicleModule> items = factory.generateItems(Locale.UK, page);
 
@@ -121,7 +118,7 @@ class ListicleFactoryTest {
 
         when(documentUtils.getAllowedDocuments(page, ListicleItem.class)).thenReturn(Collections.singletonList(item));
         when(imageFactory.getImage(eq(item.getListicleItemImage()), any(), any())).thenReturn(moduleImage);
-        when(linksService.createEnhancedLink(any(), any(), any(),anyBoolean())).thenReturn(link);
+        when(linksService.createEnhancedLink(any(), any(), any(),anyBoolean())).thenReturn(Optional.of(link));
 
         List<ListicleModule> items = factory.generateItems(Locale.UK, page);
 
@@ -140,7 +137,7 @@ class ListicleFactoryTest {
         link.setLink("www.google.com");
 
         when(documentUtils.getAllowedDocuments(page, ListicleItem.class)).thenReturn(Collections.singletonList(item));
-        when(linksService.createEnhancedLink(any(), any(), any(),anyBoolean())).thenReturn(link);
+        when(linksService.createEnhancedLink(any(), any(), any(),anyBoolean())).thenReturn(Optional.of(link));
 
         List<ListicleModule> items = factory.generateItems(Locale.UK, page);
 
@@ -160,7 +157,7 @@ class ListicleFactoryTest {
         link.setImage(new FlatImage());
 
         when(documentUtils.getAllowedDocuments(page, ListicleItem.class)).thenReturn(Collections.singletonList(item));
-        when(linksService.createEnhancedLink(any(), any(), any(),anyBoolean())).thenReturn(link);
+        when(linksService.createEnhancedLink(any(), any(), any(),anyBoolean())).thenReturn(Optional.of(link));
 
         List<ListicleModule> items = factory.generateItems(Locale.UK, page);
 
@@ -296,7 +293,7 @@ class ListicleFactoryTest {
         JsonNode node = mock(JsonNode.class, withSettings().defaultAnswer(Answers.RETURNS_DEEP_STUBS));
 
         when(documentUtils.getAllowedDocuments(page, ListicleItem.class)).thenReturn(Collections.singletonList(item));
-        when(imageFactory.createImage(any(JsonNode.class), any())).thenReturn(dmsImage);
+        when(imageFactory.createImage(any(JsonNode.class), any(), any())).thenReturn(dmsImage);
         when(dmsData.productCard("1234", Locale.UK)).thenReturn(node);
 
         ListicleModule module = factory.generateItems(Locale.UK, page).get(0);
@@ -378,6 +375,22 @@ class ListicleFactoryTest {
         for (int i = 0; i < items.size(); i++) {
             Assertions.assertEquals(i + 1, items.get(i).getIndex());
         }
+    }
+
+    @Test
+    @DisplayName("VS-3279 - When link is null, then listicle item should be skipped")
+    void listicle_nullCmsLink() {
+        ListicleItem item = new ListicleItemMockBuilder().addImage().cmsLink().build();
+        FlatImage moduleImage = new FlatImage();
+
+        when(documentUtils.getAllowedDocuments(page, ListicleItem.class)).thenReturn(Collections.singletonList(item));
+        when(imageFactory.getImage(eq(item.getListicleItemImage()), any(), any())).thenReturn(moduleImage);
+        when(linksService.createEnhancedLink(any(), any(), any(),anyBoolean())).thenReturn(Optional.empty());
+
+        List<ListicleModule> items = factory.generateItems(Locale.UK, page);
+
+        Assertions.assertEquals(1, items.size());
+        Assertions.assertEquals(0, items.get(0).getLinks().size());
     }
 
     @Test

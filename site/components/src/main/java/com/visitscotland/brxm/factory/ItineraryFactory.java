@@ -34,18 +34,16 @@ public class ItineraryFactory {
     private final ImageFactory imageFactory;
     private final DMSUtils utils;
     private final DocumentUtilsService documentUtils;
-    private final Properties properties;
     private final LinkService linkService;
 
 
     public ItineraryFactory(ResourceBundleService bundle, DMSDataService dmsData, ImageFactory imageFactory,
-                            DMSUtils utils, DocumentUtilsService documentUtils, Properties properties, LinkService linkService) {
+                            DMSUtils utils, DocumentUtilsService documentUtils, LinkService linkService) {
         this.bundle = bundle;
         this.dmsData = dmsData;
         this.imageFactory = imageFactory;
         this.utils = utils;
         this.documentUtils = documentUtils;
-        this.properties = properties;
         this.linkService = linkService;
     }
 
@@ -217,11 +215,11 @@ public class ItineraryFactory {
             return;
         }
 
-        module.setCtaLink(linkService.createFindOutMoreLink(module, locale, dmsLink));
+        module.setCtaLink(linkService.createDmsLink(locale,dmsLink, product));
         module.setFacilities(utils.getKeyFacilities(product));
 
         if (module.getImage() == null && product.has(IMAGE)) {
-            module.setImage(imageFactory.createImage(product, module));
+            module.setImage(imageFactory.createImage(product, module, locale));
         }
 
         if (product.has(ADDRESS)) {

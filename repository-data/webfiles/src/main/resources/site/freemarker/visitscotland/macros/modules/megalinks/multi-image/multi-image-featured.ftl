@@ -23,6 +23,20 @@
             link-type="${feature.type}"
             link-url="${feature.link}"
             theme="${theme}"
+            <#if feature.itineraryTransport??>
+                transport="${feature.itineraryTransport}"
+                transport-name="${label('transports', feature.itineraryTransport)}"
+            </#if>
+            <#if feature.itineraryDays??>
+                <#if feature.itineraryDays = 1>
+                    days-label="${label('itinerary', 'day')}"
+                <#else>
+                    days-label="${label('itinerary', 'days')}"
+                </#if>
+                days="${feature.itineraryDays}"
+            <#else>
+                days-label="${label('itinerary', 'day')}"
+            </#if>
         >
             <template slot="vsMultiImageHeading">
                 ${feature.label}</template>

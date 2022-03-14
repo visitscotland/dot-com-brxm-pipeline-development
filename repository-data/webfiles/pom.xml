@@ -4,18 +4,18 @@
 
   <parent>
     <groupId>com.visitscotland</groupId>
-    <artifactId>visitscotland-repository-data</artifactId>
-    <version>1.0.0</version>
+    <artifactId>dot-com-brxm-repository-data</artifactId>
+    <version>1.0.1</version>
   </parent>
 
   <name>www.visitscotland.com CMS Pages Repository Data Web Files</name>
   <description>www.visitscotland.com CMS Pages Repository Data Web Files</description>
-  <artifactId>visitscotland-repository-data-webfiles</artifactId>
+  <artifactId>dot-com-brxm-repository-data-webfiles</artifactId>
 
   <dependencies>
     <dependency>
       <groupId>com.visitscotland</groupId>
-      <artifactId>visitscotland-components</artifactId>
+      <artifactId>dot-com-brxm-components</artifactId>
       <version>${project.version}</version>
       <type>jar</type>
       <scope>provided</scope>

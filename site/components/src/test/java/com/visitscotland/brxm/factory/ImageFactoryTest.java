@@ -15,7 +15,10 @@ import com.visitscotland.brxm.dms.LocationLoader;
 import com.visitscotland.brxm.services.ResourceBundleService;
 import com.visitscotland.brxm.services.CommonUtilsService;
 
+import com.visitscotland.brxm.utils.HippoUtilsService;
 import com.visitscotland.brxm.utils.Properties;
+import org.hippoecm.hst.content.beans.ObjectBeanManagerException;
+import org.hippoecm.hst.content.beans.query.exceptions.QueryException;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
@@ -26,6 +29,7 @@ import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 import javax.annotation.Resource;
+import javax.jcr.RepositoryException;
 import java.io.IOException;
 import java.util.Locale;
 
@@ -43,11 +47,15 @@ class ImageFactoryTest {
     LocationLoader locationLoader;
 
     @Mock
-    ResourceBundleService bundle;
-
-    @Mock
     CommonUtilsService utils;
 
+    @Mock
+    HippoUtilsService hippoUtils;
+
+    @Mock
+    ResourceBundleService bundle;
+
+    //Injected even though it doesn't override any method. Do not remove
     @Mock
     Properties properties;
 
@@ -80,15 +88,17 @@ class ImageFactoryTest {
     }
 
     @Test
-    @DisplayName("When the instagram object does not match with the spec, a null object is return and the issue is logged")
-    void getImageFromInstagram_incorrect() throws IOException {
+    @DisplayName("VS-3341 - When the instagram object does not match with the spec, a placeholder image is returned instead")
+    void getImageFromInstagram_incorrect() throws IOException, ObjectBeanManagerException, QueryException, RepositoryException {
         InstagramImage image = mock(InstagramImage.class);
         Module module = new Module();
+        Image placeholder = mockPlaceholder();
 
         when(utils.requestUrl(any())).thenReturn("{}");
 
-        assertNull(imageFactory.getImage(image, module, Locale.UK));
+        assertEquals(placeholder, imageFactory.getImage(image, module, Locale.UK).getCmsImage());
         assertEquals(1, module.getErrorMessages().size());
+
     }
 
     @Test
@@ -98,7 +108,7 @@ class ImageFactoryTest {
         Module module = new Module();
         Image cmsImage = mock(Image.class);
 
-        when (cmsImage.getAltText()).thenReturn("Alt Text");
+        when(cmsImage.getAltText()).thenReturn("Alt Text");
         when(cmsImage.getDescription()).thenReturn("Caption");
         when(cmsImage.getLocation()).thenReturn("hl");
         when(locationLoader.getLocation("hl", Locale.UK)).thenReturn(location);
@@ -176,7 +186,7 @@ class ImageFactoryTest {
         Module module = new Module();
         JsonNode dmsProduct = new ObjectMapper().readTree(DMS_OBJECT);
 
-        FlatImage image = imageFactory.createImage(dmsProduct, module);
+        FlatImage image = imageFactory.createImage(dmsProduct, module, Locale.UK);
 
         Assertions.assertEquals("http://www.visitscoland.com/VSHQ.jpeg", image.getExternalImage());
         Assertions.assertEquals("A guy", image.getCredit());
@@ -198,38 +208,36 @@ class ImageFactoryTest {
         Module module = new Module();
         JsonNode dmsProduct = new ObjectMapper().readTree(DMS_OBJECT);
 
-        FlatImage image = imageFactory.createImage(dmsProduct, module);
+        FlatImage image = imageFactory.createImage(dmsProduct, module, Locale.UK);
 
         Assertions.assertEquals("VisitScotland HeadQuarters", image.getDescription());
         Assertions.assertEquals("VisitScotland HeadQuarters", image.getAltText());
     }
 
     @Test
-    @DisplayName("When the image is not valid a null is returned")
-    void getImageFromDMS_invalidImage() throws JsonProcessingException {
+    @DisplayName("VS-3341 - When the image is not valid a placeholder is returned")
+    void getImageFromDMS_invalidImage() throws JsonProcessingException, ObjectBeanManagerException, QueryException, RepositoryException {
         final String DMS_OBJECT = "{ " +
                 "\"name\": \"VisitScotland HeadQuarters\"," +
                 "\"images\": [{}] }";
         Module module = new Module();
-        assertNull(imageFactory.createImage( new ObjectMapper().readTree("{}"), module));
-        assertNull(imageFactory.createImage( new ObjectMapper().readTree("{ " +
-                "\"name\": \"VisitScotland HeadQuarters\"," +
-                "\"image\": [{}] }"), module));
+        Image placeholder = mockPlaceholder();
+
+        assertEquals(placeholder, imageFactory.createImage( new ObjectMapper().readTree("{}"), module, Locale.UK).getCmsImage());
+        assertEquals(placeholder, imageFactory.createImage( new ObjectMapper().readTree(DMS_OBJECT), module, Locale.UK).getCmsImage());
         assertEquals(2, module.getErrorMessages().size());
     }
 
-    @Test
-    @Disabled("The requirements are not completed")
-    @DisplayName("Request an image from a Third Party system")
-    void getImageFromExternalSource(){
-        ExternalLink externalLink = mock(ExternalLink.class);
+    private Image mockPlaceholder() throws ObjectBeanManagerException, QueryException, RepositoryException {
+        Image placeholder = mock(Image.class);
+        //By mocking the following methods we prevent warnings from being logged
+        when(placeholder.getDescription()).thenReturn("Description");
+        when(placeholder.getAltText()).thenReturn("Alt-text");
 
-        when(externalLink.getLink()).thenReturn("http://third-party.com/image");
+        when(bundle.getResourceBundle(ImageFactory.GLOBAL_BUNDLE, "placeholder-image", Locale.UK)).thenReturn("image");
+        when(hippoUtils.getDocumentFromNode("image")).thenReturn(placeholder);
 
-        FlatImage image = imageFactory.getImage(externalLink, null, Locale.UK);
-
-        assertEquals("http://third-party.com/image", image.getExternalImage());
+        return placeholder;
     }
-
 
 }

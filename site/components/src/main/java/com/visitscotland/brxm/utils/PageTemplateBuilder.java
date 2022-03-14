@@ -5,6 +5,7 @@ import com.visitscotland.brxm.factory.*;
 import com.visitscotland.brxm.hippobeans.*;
 import com.visitscotland.brxm.model.*;
 import com.visitscotland.brxm.model.megalinks.LinksModule;
+import com.visitscotland.brxm.model.megalinks.MultiImageLinksModule;
 import com.visitscotland.brxm.model.megalinks.SingleImageLinksModule;
 import com.visitscotland.brxm.services.DocumentUtilsService;
 import com.visitscotland.utils.Contract;
@@ -48,9 +49,13 @@ public class PageTemplateBuilder {
     private final StacklaFactory stacklaFactory;
     private final TravelInformationFactory travelInformationFactory;
     private final CannedSearchFactory cannedSearchFactory;
+    private final PreviewModeFactory previewFactory;
 
     @Autowired
-    public PageTemplateBuilder(DocumentUtilsService documentUtils, MegalinkFactory linksFactory, ICentreFactory iCentre, IKnowFactory iKnow, ArticleFactory article, LongCopyFactory longcopy, IKnowCommunityFactory iKnowCommunityFactory, StacklaFactory stacklaFactory, TravelInformationFactory travelInformationFactory, CannedSearchFactory cannedSearchFactory) {
+    public PageTemplateBuilder(DocumentUtilsService documentUtils, MegalinkFactory linksFactory, ICentreFactory iCentre,
+               IKnowFactory iKnow, ArticleFactory article, LongCopyFactory longcopy, IKnowCommunityFactory iKnowCommunityFactory,
+               StacklaFactory stacklaFactory, TravelInformationFactory travelInformationFactory, CannedSearchFactory cannedSearchFactory,
+               PreviewModeFactory previewFactory) {
         this.linksFactory = linksFactory;
         this.iCentreFactory = iCentre;
         this.iKnowFactory = iKnow;
@@ -61,6 +66,7 @@ public class PageTemplateBuilder {
         this.stacklaFactory = stacklaFactory;
         this.travelInformationFactory = travelInformationFactory;
         this.cannedSearchFactory = cannedSearchFactory;
+        this.previewFactory = previewFactory;
     }
 
     private Page getDocument(HstRequest request) {
@@ -126,11 +132,21 @@ public class PageTemplateBuilder {
             contentLogger.error("The document type LongCopy is not allowed in this page. Path {}", page.getPath());
         }
     }
+
     /**
      * Creates a LinkModule from a Megalinks document
      */
     private void processMegalinks(HstRequest request, PageConfiguration page, Megalinks item){
         LinksModule<?> al = linksFactory.getMegalinkModule(item, request.getLocale());
+        int numLinks = al.getLinks().size();
+        if (al instanceof MultiImageLinksModule) {
+            numLinks += ((MultiImageLinksModule) al).getFeaturedLinks().size();
+        }
+        if (numLinks == 0) {
+            contentLogger.error("Megalinks module at {} contains no valid items", item.getPath());
+            page.modules.add(previewFactory.createErrorModule(al));
+            return;
+        } 
 
         if (al.getType().equalsIgnoreCase(SingleImageLinksModule.class.getSimpleName())) {
             al.setAlignment(alignment[page.alignment++ % alignment.length]);
