@@ -281,3 +281,39 @@ This will output a single combined JSON file called `dependency_tree.json`:
 ```bash
 $ yarn list --production --non-interactive --json > dependency_tree.json
 ```
+
+## Comparing Outputs of Multiple Security Auditing Tools
+
+Auditing dependencies, particularly for frontend (NPM) can be difficult when only using
+a single tool's output for context.
+
+For example, the Nexus IQ server scans a specific tarball of the frontend release code, 
+including an instance of the `node_modules` folder. All libraries included in the 
+`node_modules` folder will be scanned by Nexus IQ, not just the libraries used in the
+production frontend code. This can lead to many false positives.
+
+One way to reduce false positives is to separate out the dependencies which are included
+in the `production` build. This can be done for NPM projects by searching for the reported 
+library and version in the NPM dependency tree output with the `--production` option specified. 
+The dependencies reported by the `production` dependency tree most likely will be used in
+production by the actual SSR server, so those dependencies should be considered for
+potential risk mitigations. Many of those dependencies will only be vulnerable during 
+initial compiling or minification, and therefore no action is needed to mitigate issues.
+
+Some recommendations for NPM packages:
+
+- Deploy (and scan) a release package via NPM which does not include `node_modules`
+
+- Leverage the power of Yarn's `yarn.lock` file to set minimum required versions of 
+packages when deploying an NPM package via Yarn
+
+- Run post-install scripts validate the package versions and report security policy 
+violations to the DevOps team as part of the automated deployment process (some policy
+violation may have temporary overrides in place)
+
+- Use multiple tools to perform automated scanning. For example, the results of running 
+`yarn audit` could be compared to the Nexus IQ report:
+
+```bash
+$ yarn audit --groups dependencies --level high
+```

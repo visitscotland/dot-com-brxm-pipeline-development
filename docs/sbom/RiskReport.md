@@ -34,7 +34,7 @@ STRIDE:
 
 ## Application: VSCOM\visitscotland-2019\site.war 
 
-**Summary of Highly Vulnerable Dependencies**
+**Summary of Highly Vulnerable Maven Dependencies**
 
 | Package | Threat Level | CVSS Score | STRIDE | Dependency Type |
 | ------- | :----------: | :--------: | :----: | :-------------: |
@@ -43,21 +43,42 @@ STRIDE:
 | [com.google.code.gson:gson:2.2.4](#comgooglecodegsongson224) | HIGH 🔥 | 7.5 🟠 | Denial of Service 🚫 | Indirect 🔀 |
 | [org.codehaus.jackson:jackson-mapper-asl:1.9.12](#orgcodehausjacksonjackson-mapper-asl1912) | CRITICAL 🔥🔥🔥 | 9.8 🔴 | Elevation of Privilege ⏫ | Indirect 🔀 |
 | [org.jsoup:jsoup:1.8.3](#orgjsoupjsoup183) | HIGH 🔥 | 7.5 🟠 | Denial of Service 🚫 | Indirect 🔀 |
+| [org.thymeleaf:thymeleaf-spring5:3.0.12.RELEASE](#orgthymeleafthymeleaf-spring53012release) | CRITICAL 🔥🔥🔥 | 9.8 🔴 | Elevation of Privilege ⏫ | Indirect 🔀 |
 
-**Package Dependency Tree**
+**Maven Package Dependency Trees**
 
-- com.visitscotland:site.war
+*com.visitscotland:site.war*
+
+---
+
 - ...
-- - [org.freemarker:freemarker:2.3.28](#orgfreemarkerfreemarker2328)
+- [org.freemarker:freemarker:2.3.28](#orgfreemarkerfreemarker2328)
 - ...
-- - com.visitscotland:utils:jar:2.0.1
-- - - [org.apache.commons:commons-configuration2:2.2](#orgapachecommonscommons-configuration222)
+- com.visitscotland:utils:jar:2.0.1
+- - [org.apache.commons:commons-configuration2:2.2](#orgapachecommonscommons-configuration222)
 - ...
-- - com.visitscotland:data-service-api:jar:1.2.1
-- - - [com.google.code.gson:gson:2.2.4](#comgooglecodegsongson224)
-- - - [org.codehaus.jackson:jackson-mapper-asl:1.9.12](#orgcodehausjacksonjackson-mapper-asl1912)
-- - - [org.jsoup:jsoup:1.8.3](#orgjsoupjsoup183)
+- com.visitscotland:data-service-api:jar:1.2.1
+- - [com.google.code.gson:gson:2.2.4](#comgooglecodegsongson224)
+- - [org.codehaus.jackson:jackson-mapper-asl:1.9.12](#orgcodehausjacksonjackson-mapper-asl1912)
+- - [org.jsoup:jsoup:1.8.3](#orgjsoupjsoup183)
 - ...
+
+*com.visitscotland:dot-com-brxm-cms:war*
+
+---
+
+- ...
+- org.springframework.boot:spring-boot-starter-thymeleaf:jar:2.4.12
+- - [org.thymeleaf:thymeleaf-spring5:jar:3.0.12.RELEASE](#orgthymeleafthymeleaf-spring53012release)
+- ...
+
+**Summary of Highly Vulnerable NPM Dependencies**
+
+| Package       | Versions Detected | Parent Library                | Usage                               | STRIDE Category            | CVE                                                               |
+| ------------- | :---------------: | :---------------------------: | :---------------------------------: | :------------------------: | :---------------------------------------------------------------: |
+| [lodash](#lodash)        | 4.17.15, 4.17.20  | cheerio@1.0.0-rc.3            | ssr\server\ssr.js                   | Elevation of Privilege ⏫  | [CVE-2021-23337](https://nvd.nist.gov/vuln/detail/CVE-2021-23337) |
+| [ansi-html](#ansi-html)     | 0.0.7             | webpack-hot-middleware@2.25.0 | ssr\server\setup-dev-server.js      | Denial of Service 🚫       | [CVE-2021-23424](https://nvd.nist.gov/vuln/detail/CVE-2021-23424) |
+| [axios](#axios)         | 0.21.1            | axios@0.21.1                  | src\components\...\CannedSearch.vue | Denial of Service 🚫       | [CVE-2021-3749](https://nvd.nist.gov/vuln/detail/CVE-2021-3749)   |
 
 ---
 
@@ -406,4 +427,212 @@ Detection
 
 </details>
 
+---
+
+### org.thymeleaf:thymeleaf-spring5:3.0.12.RELEASE
+
+---
+
+<details>
+
+  <summary>Security Threat Level: 🔥🔥🔥 (CRITICAL)</summary>
+
+    Lorem ipsom dolor sit amet!
+
+</details>
+
+<details>
+
+  <summary>CVSS Score: 9.8 🟠</summary>
+
+    CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H
+
+</details>
+
+<details>
+
+  <summary>Dependency Type: Indirect 🔀</summary>
+
+    Parent Package: 
     
+    org.springframework.boot:spring-boot-starter-thymeleaf:2.4.12
+    
+    Parent Included By:
+
+    - VSCOM\visitscotland-2019\cms\pom.xml
+
+</details>
+
+<details>
+
+  <summary>Primary STRIDE Category: Elevation of Privilege ⏫</summary>
+
+> In the thymeleaf-spring5:3.0.12 component, thymeleaf combined with specific 
+> scenarios in template injection may lead to remote code execution.
+> 
+> **Explanation**
+> 
+> The thymeleaf-spring5, thymeleaf-spring4 and thymeleaf-spring5 packages are 
+> vulnerable due to Improper Input Validation. The getExpression() method in 
+> the SPELVariableExpressionEvaluator class fails to prevent instantiation of 
+> objects and the use of static methods in forbidden contexts. An attacker can 
+> exploit this behavior by submitting a crafted request with a fragment 
+> expression in the view name field, potentially leading to Remote Code Execution (RCE).
+> 
+> **Detection**
+> 
+> The application is vulnerable by using this component and having a controller 
+> configuration that uses an unfiltered request parameter as the name of the 
+> view to be rendered.
+> 
+> Reference: https://github.com/thymeleaf/thymeleaf-spring/issues/263#issuecomment-977199524
+> 
+> **Recommendation**
+> 
+> We recommend upgrading to a version of this component that is not vulnerable 
+> to this specific issue.
+> 
+> **Note**: If this component is included as a bundled/transitive dependency of 
+> another component, there may not be an upgrade path. In this instance, we 
+> recommend contacting the maintainers who included the vulnerable package. 
+> Alternatively, we recommend investigating alternative components or a 
+> potential mitigating control.
+> 
+> **Root Cause**
+> 
+> thymeleaf-spring5-3.0.12.RELEASE.jarorg/thymeleaf/spring5/util/SpringStandardExpressionUtils.class[3.0.12.RELEASE, 3.0.13.RELEASE)
+> 
+> **Advisories**
+> 
+> Project: https://github.com/thymeleaf/thymeleaf-spring/issues/263
+> 
+> Project: https://github.com/thymeleaf/thymeleaf/issues/809
+> 
+> Third Party: https://github.com/advisories/GHSA-qcj6-jqrg-4wp2
+
+</details>
+
+---
+
+### lodash
+
+---
+
+<details>
+  <summary>Primary STRIDE Category: Elevation of Privilege ⏫</summary>
+
+> Lodash versions prior to 4.17.21 are vulnerable to Command Injection via the template function.
+> 
+> **Explanation**
+> 
+> The lodash package is vulnerable to Command Injection. The template function in lodash.js and template.js does not properly ensure the variable property of the options parameter to be a valid EcmaScript identifier. An attacker can exploit this by passing in a malicious command as the variable property, which would then be executed.
+> 
+> **Detection**
+> 
+> The application is vulnerable by using this component.
+> 
+> **Recommendation**
+> 
+> We recommend upgrading to a version of this component that is not vulnerable to this specific issue.
+> 
+> **Note**: If this component is included as a bundled/transitive dependency of another component, there may not be an upgrade path. In this instance, we recommend contacting the maintainers who included the vulnerable package. Alternatively, we recommend investigating alternative components or a potential mitigating control.
+> 
+> **Root Cause**
+> 
+> lodash-4.17.20.tgzpackage/lodash.js[4.0.0, 4.17.21)
+> 
+> **Advisories**
+> 
+> Project: https://github.com/lodash/lodash/pull/5085
+> 
+> Third Party: https://bugzilla.redhat.com/show_bug.cgi?id=1928937
+> 
+> CVE CVSS 3: 7.2
+> 
+> CVSS Vector: CVSS:3.1/AV:N/AC:L/PR:H/UI:N/S:U/C:H/I:H/A:H
+
+</details>
+
+---
+
+### ansi-html
+
+---
+
+<details>
+  <summary>Primary STRIDE Category: Denial of Service 🚫</summary>
+
+> This affects all versions of package ansi-html. If an attacker provides a malicious string, it will get stuck processing the input for an extremely long time.
+> 
+> **Explanation**
+> 
+> The ansi-html package is vulnerable to Regular expression Denial Of Service (ReDoS). The ansiHTML function in the index.js file uses an insecure regular expression to replace markup text in a user supplied input. A remote attacker can leverage this behavior by crafting that input that exploits this issue to cause a DoS condition.
+> 
+> **Detection**
+> 
+> The application is vulnerable by using this component.
+> 
+> **Recommendation**
+> 
+> We recommend upgrading to a version of this component that is not vulnerable to this specific issue.
+> 
+> **Note**: If this component is included as a bundled/transitive dependency of another component, there may not be an upgrade path. In this instance, we recommend contacting the maintainers who included the vulnerable package. Alternatively, we recommend investigating alternative components or a potential mitigating control.
+> 
+> **Root Cause**
+> 
+> ansi-html-0.0.7.tgzpackage/index.js( , 0.0.8)
+> 
+> **Advisories**
+> 
+> Project: https://github.com/Tjatse/ansi-html/issues/19
+> 
+> Project: https://github.com/Tjatse/ansi-html/pull/20
+> 
+> Third Party: https://github.com/advisories/GHSA-whgm-jr23-g3j9
+> 
+> CVE CVSS 3: 7.5
+> 
+> CVSS Vector: CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H
+
+</details>
+
+---
+
+### axios
+
+---
+
+<details>
+  <summary>Primary STRIDE Category: Denial of Service 🚫</summary>
+
+> axios is vulnerable to Inefficient Regular Expression Complexity
+> 
+> **Explanation**
+> 
+> The axios package is vulnerable to Regular Expression Denial of Service (ReDoS). The trim function in the utils.js and axios.js files use an insecure regular expression to remove whitespaces from the beginning and end of a user supplied input. A remote attacker who can supply malicious input to the affected function can exploit this vulnerability to cause a Denial of Service condition.
+> 
+> **Detection**
+> 
+> The application is vulnerable by using this component.
+> 
+> **Recommendation**
+> 
+> We recommend upgrading to a version of this component that is not vulnerable to this specific issue.
+> 
+> **Note**: If this component is included as a bundled/transitive dependency of another component, there may not be an upgrade path. In this instance, we recommend contacting the maintainers who included the vulnerable package. Alternatively, we recommend investigating alternative components or a potential mitigating control.
+> 
+> **Root Cause**
+> 
+> axios-0.21.1.tgzpackage/lib/utils.js( , 0.21.2)
+> 
+> **Advisories**
+> 
+> Project: https://github.com/axios/axios/pull/3980
+> 
+> Third Party: https://huntr.dev/bounties/1e8f07fc-c384-4ff9-8498-0690de2e8c31/
+> 
+> CVE CVSS 3: 7.5
+> 
+> CVSS Vector: CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H
+
+</details>
