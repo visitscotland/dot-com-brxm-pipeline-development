@@ -22,7 +22,7 @@
 
 <script>
 import VsIcon from '@components/elements/icon/';
-import { VsRow, VsCol } from '@components/elements/layout';
+import { VsRow, VsCol } from '@components/elements/grid';
 import { trimStart, map } from 'lodash';
 
 const getAllIcons = () => {

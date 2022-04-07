@@ -195,6 +195,6 @@ public class ResourceBundleService {
     }
 
     public String getVideoCtaLabel(String overrideText, Locale locale){
-        return getCtaLabel(overrideText, "video.default-caption", locale);
+        return getCtaLabel(overrideText, "video.play-btn", locale);
     }
 }

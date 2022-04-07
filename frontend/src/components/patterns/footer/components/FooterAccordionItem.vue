@@ -108,7 +108,7 @@ export default {
         background-color: $color-gray-shade-7;
         color: $color-white;
         font-weight: $font-weight-semi-bold;
-        font-size: $h4-font-size;
+        font-size: $font-size-4;
         line-height: $line-height-xs;
         padding: 0;
     }
@@ -123,7 +123,7 @@ export default {
         text-transform: none !important;
         letter-spacing: initial;
         padding: $spacer-3;
-        font-size: $font-size-base;
+        font-size: $font-size-4;
         line-height: $line-height-xs;
         font-weight: $font-weight-semi-bold;
         text-align: left;

@@ -5,14 +5,14 @@
   <parent>
     <groupId>com.visitscotland</groupId>
     <artifactId>hippo-defaults</artifactId>
-    <version>3.1.0-SNAPSHOT</version>
+    <version>4.0.0</version>
   </parent>
   
   <name>www.visitscotland.com CMS Pages</name>
   <description>www.visitscotland.com CMS Pages</description>
   <groupId>com.visitscotland</groupId>
-  <artifactId>visitscotland</artifactId>
-  <version>0.1.0-SNAPSHOT</version>
+  <artifactId>dot-com-brxm</artifactId>
+  <version>1.0.2-SNAPSHOT</version>
   <packaging>pom</packaging>
   
   <properties>
@@ -21,7 +21,7 @@
     <!-- ***END temporary override of versions*** -->
     <!--TODO define this in parent pom -->
    
-    <data-service-api.version>1.2.0-SNAPSHOT</data-service-api.version>
+    <data-service-api.version>1.2.1</data-service-api.version>
     <commons-lan3.version>3.8.1</commons-lan3.version>
     
     <junit.jupiter.version>5.7.1</junit.jupiter.version>
@@ -41,26 +41,6 @@
   <developers>
     <developer/>
   </developers>
-
-  <repositories>
-    <repository>
-      <id>hippo</id>
-      <name>Hippo maven 2 repository.</name>
-      <url>https://maven.onehippo.com/maven2/</url>
-    </repository>
-    <repository>
-      <id>hippo-forge</id>
-      <name>Hippo Forge Maven 2 repository.</name>
-      <url>https://maven.onehippo.com/maven2-forge/</url>
-      <snapshots>
-        <enabled>false</enabled>
-      </snapshots>
-      <releases>
-        <updatePolicy>never</updatePolicy>
-      </releases>
-      <layout>default</layout>
-    </repository>
-  </repositories>
 
   <dependencyManagement>
     <dependencies>
@@ -342,11 +322,11 @@
                 </configfiles>
                 <files>
                   <file>
-                    <file>${project.basedir}/repository-data/development/target/visitscotland-repository-data-development-${project.version}.jar</file>
+                    <file>${project.basedir}/repository-data/development/target/${project.artifactId}-repository-data-development-${project.version}.jar</file>
                     <todir>${development-module-deploy-dir}</todir>
                   </file>
                   <file>
-                    <file>${project.basedir}/repository-data/site-development/target/visitscotland-repository-data-site-development-${project.version}.jar</file>
+                    <file>${project.basedir}/repository-data/site-development/target/${project.artifactId}-repository-data-site-development-${project.version}.jar</file>
                     <todir>${development-module-deploy-dir}</todir>
                   </file>
                 </files>

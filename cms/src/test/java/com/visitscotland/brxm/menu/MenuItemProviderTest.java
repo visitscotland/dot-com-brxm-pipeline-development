@@ -144,8 +144,8 @@ class MenuItemProviderTest {
 
         menuItemProvider.constructPageAndModuleMenus(subjectNode, prototypes, config);
 
-        Assertions.assertEquals(1, prototypes.size());
-        Assertions.assertTrue(prototypes.containsKey("other"));
+        Assertions.assertEquals(0, prototypes.size());
+
     }
 
     @DisplayName("When new document enabled on translation, then new-module added to page")

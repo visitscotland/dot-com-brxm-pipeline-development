@@ -63,11 +63,11 @@ public class TranslationAction extends StdWorkflow<TranslationWorkflow> {
             throws WorkflowException, RepositoryException, RemoteException, ObjectBeanManagerException {
         Session session = userSessionFactory.getUserSession().getJcrSession();
 
-        //Build a change set for the folders and documents that are missing
-        List<ChangeSet> changeSetList = translator.buildChangeSetList(workflowPlugin.getSourceDocumentNode(),
-                workflowPlugin.getAvailableLocales());
-
         try {
+            //Build a change set for the folders and documents that are missing
+            List<ChangeSet> changeSetList = translator.buildChangeSetList(workflowPlugin.getSourceDocumentNode(),
+                    workflowPlugin.getAvailableLocales());
+
             translator.applyChangeSet(changeSetList, session, workflow);
         } catch (TranslationException ex) {
             return ex.getMessage();
@@ -101,6 +101,8 @@ public class TranslationAction extends StdWorkflow<TranslationWorkflow> {
             return new TranslationCloneConfirmationDialog(this, new DocumentChangeProvider(changeSetList), new DocumentChangeProvider(linksChangeSetList));
         } catch (ObjectBeanManagerException | WorkflowSNSException | RepositoryException ex) {
             return new ExceptionDialog(ex);
+        } catch (TranslationException ex) {
+            return new ExceptionDialog(ex.getMessage());
         }
     }
 

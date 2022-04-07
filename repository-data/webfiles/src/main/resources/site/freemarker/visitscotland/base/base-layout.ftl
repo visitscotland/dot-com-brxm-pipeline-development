@@ -1,5 +1,6 @@
 <!doctype html>
 <#include "../../include/imports.ftl">
+<#include "../macros/global/gtm.ftl">
 <#include "headerContributions.ftl">
 <#include "footerContributions.ftl">
 
@@ -8,10 +9,10 @@
         <#if hstRequest.requestContext.channelManagerPreviewRequest>
             <link rel="stylesheet" href="<@hst.webfile  path="/assets/css/cms-request.css"/>" type="text/css"/>
         </#if>
-
         <@headContributions />
     </head>
     <body>
+        <@gtm noscript=true />
         <div class="no-js" data-vue-app-init>
             <@hst.include ref="top"/>
 

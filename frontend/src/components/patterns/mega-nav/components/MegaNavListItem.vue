@@ -84,7 +84,7 @@ export default {
         padding: $spacer-3 $spacer-9;
         border: 2px solid $color-gray-tint-7;
         line-height: 1.4;
-        font-size: $h4-font-size;
+        font-size: $font-size-4;
 
         @include media-breakpoint-up(lg) {
             border: 2px solid $color-white;
@@ -108,7 +108,7 @@ export default {
 
         .vs-link--variant-primary{
             color: $color-secondary-gray-shade-3;
-            font-size: $h3-font-size;
+            font-size: $font-size-5;
             cursor: text;
         }
     }
@@ -168,7 +168,7 @@ export default {
         .vs-link--variant-primary{
             background-color: $color-white;
             color: $color-pink;
-            font-size: $h3-font-size;
+            font-size: $font-size-5;
             line-height: $line-height-s;
             padding-left: $spacer-8;
             padding-right: $spacer-5;
@@ -232,7 +232,7 @@ export default {
             border-bottom: 1px solid $color-gray-tint-5;
 
             .vs-link--variant-primary{
-                font-size: $h2-font-size;
+                font-size: $font-size-6;
             }
         }
     }

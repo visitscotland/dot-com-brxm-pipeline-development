@@ -12,9 +12,7 @@
             <slot>
                 <VsImg
                     v-if="imageSrc"
-                    class="lazyload"
                     :src="imageSrc"
-                    :data-srcset="imageSrc"
                     :alt="altText"
                     data-sizes="auto"
                 />
@@ -37,8 +35,7 @@
 
         <div class="vs-image-with-caption__captions">
             <div
-                class="vs-image-with-caption__video-caption-wrapper"
-                :class="isHeroImage ? 'container' : ''"
+                class="vs-image-with-caption__video-caption-wrapper container-lg"
                 v-if="isVideo"
             >
                 <VsVideoCaption
@@ -48,8 +45,8 @@
                     :video-id="videoId"
                 >
                     <!-- @slot Slot for the video alert message -->
-                    <template slot="video-alert">
-                        <slot name="video-alert" />
+                    <template slot="video-no-js-alert">
+                        <slot name="video-no-js-alert" />
                     </template>
                     <!-- @slot Slot for the video title text -->
                     <template slot="video-title">
@@ -76,8 +73,6 @@
 
 <script>
 
-// eslint-disable-next-line no-unused-vars
-import { lazysizes } from 'lazysizes';
 import VsImg from '@components/elements/img/Img';
 import VsToggleButton from '@components/patterns/toggle-button/ToggleButton';
 import VsVideoCaption from '@components/patterns/video-caption/VideoCaption';
@@ -200,7 +195,7 @@ export default {
 </script>
 
 <style lang="scss">
-    .vs-image-with-caption{
+    .vs-image-with-caption {
         position: relative;
 
         &__image-wrapper {
@@ -279,6 +274,14 @@ export default {
         }
 
         &--video {
+            &.vs-image-with-caption--hero {
+                .vs-image-with-caption__image-wrapper {
+                    .vs-toggle-btn {
+                        display: none;
+                    }
+                }
+            }
+
             .vs-image-with-caption__caption-wrapper {
                 display: none;
                 justify-content: flex-end;
@@ -286,31 +289,30 @@ export default {
 
             .vs-image-with-caption__video-caption-wrapper {
                 margin-top: -50px;
-
-                .vs-video-caption {
-                    &__button {
-                        margin-left: $spacer-3;
-                    }
-
-                    .vs-toggle-btn {
-                        display: none;
-                        top: 10px;
-                        right: $spacer-2;
-                    }
-                }
             }
 
             .vs-image-with-caption__captions {
                 position: relative;
                 top: auto;
                 left: auto;
+                background: $color-gray-shade-6;
             }
 
             .vs-caption {
-                position: relative;
+                &__image-caption {
+                    margin-bottom: $spacer-2;
+                }
 
-                &--large {
-                    bottom: auto;
+                &__caption-info {
+                    padding-left: $spacer-5;
+                }
+
+                .row {
+                    margin: 0;
+                }
+
+                .col {
+                    padding: 0;
                 }
             }
 
@@ -334,10 +336,6 @@ export default {
                 .vs-image-with-caption__video-caption-wrapper {
                     .vs-video-caption {
                         width: 100%;
-
-                        &__button {
-                            margin-left: $spacer-2;
-                        }
                     }
                 }
             }
@@ -353,11 +351,7 @@ export default {
                     padding: 0;
 
                     .vs-video-caption {
-                        width: 310px;
-
-                        &__button {
-                            margin-left: 0;
-                        }
+                        width: 400px;
 
                         .vs-toggle-btn {
                             display: block;
@@ -373,6 +367,7 @@ export default {
                 .vs-caption {
                     position: absolute;
                     bottom: auto;
+                    width: 400px;
                 }
 
                 .vs-toggle-btn {
@@ -386,6 +381,7 @@ export default {
                         width: 100%;
                         right: 0;
                         z-index: 3;
+                        background: transparent;
                     }
                 }
             }
@@ -432,6 +428,7 @@ export default {
                         @include media-breakpoint-down(xs) {
                             text-align: left;
                             display: block;
+                            position: absolute;
 
                             .order-2 {
                                 order: 1;
@@ -593,9 +590,7 @@ export default {
             style="max-width:300px"
         >
             <VsImg
-                class="lazyload"
                 :src="item.imageSrc"
-                :data-srcset="item.imageSrc"
                 :alt="item.altText"
                 data-sizes="auto">
             </VsImg>
@@ -622,9 +617,7 @@ export default {
             :key="`social-${index}`"
         >
             <VsImg
-                class="lazyload"
                 :src="item.imageSrc"
-                :data-srcset="item.imageSrc"
                 :alt="item.altText"
                 data-sizes="auto">
             </VsImg>

@@ -45,4 +45,9 @@ public class Banner extends BaseDocument {
     public Calendar getTranslationDeadline() {
         return getSingleProperty("visitscotland:translationDeadline");
     }
+
+    @HippoEssentialsGenerated(internalName = "visitscotland:translation")
+    public String getTranslation() {
+        return getSingleProperty("visitscotland:translation");
+    }
 }

@@ -62,7 +62,7 @@ export default {
 .vs-favourites-view-button-count {
     color: $color-white;
     display: block;
-    font-size: 0.75rem;
+    font-size: $font-size-2;
     width: 100%;
     position: absolute;
     top: 50%;

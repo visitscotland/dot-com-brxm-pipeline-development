@@ -4,7 +4,7 @@
         data-test="vs-tag"
         :href="href"
     >
-        <!-- @slot Holds the tag text (text expected) -->
+        <!-- @slot Holds the tag text content-->
         <slot />
     </VsLink>
 </template>
@@ -13,7 +13,8 @@
 import VsLink from '@components/elements/link/Link';
 
 /**
- * A styled tag with a link
+ * A tag link is used to label items to
+ * help categorize them for quick navigation.
  *
  * @displayName Tag
  */
@@ -51,23 +52,3 @@ export default {
         }
     }
 </style>
-
-<docs>
-```jsx
-    <VsTag
-        href="https://visitscotland.com"
-    >
-        Activities
-    </VsTag>
-    <VsTag
-        href="#"
-    >
-        Castles
-    </VsTag>
-    <VsTag
-        href="#"
-    >
-        Things to do
-    </VsTag>
-```
-</docs>

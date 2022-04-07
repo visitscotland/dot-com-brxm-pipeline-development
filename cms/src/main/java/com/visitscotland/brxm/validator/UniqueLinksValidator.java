@@ -11,9 +11,8 @@ import org.slf4j.LoggerFactory;
 import javax.jcr.Node;
 import javax.jcr.NodeIterator;
 import javax.jcr.RepositoryException;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
+import java.util.stream.StreamSupport;
 
 /**
  * Ensure that a list of links is unique. Must be configured on a hipposysedit:nodetype, with targetField property
@@ -51,29 +50,27 @@ public class UniqueLinksValidator implements Validator<Node> {
     @Override
     public Optional<Violation> validate(ValidationContext validationContext, Node node) {
         try {
-            if (node == null || !node.hasNode(targetField)) {
-                logger.error("Can not validate as targetField `{}` does not exist on node", targetField);
+            NodeIterator linkNodes = node.getParent().getNodes(targetField);
+            boolean seenLinkId = false;
+            String targetLinkId = getLinkId(node);
+            // ID given to link that is not set. Mandatory validator takes care of ensuring links are set
+            if (targetLinkId == null || targetLinkId.equals(JcrConstants.ROOT_NODE_ID)) {
                 return Optional.empty();
             }
-            NodeIterator linkNodes = node.getNodes(targetField);
-            List<String> linkIds = new ArrayList<>();
+
             while (linkNodes.hasNext()) {
                 Node linkNode = linkNodes.nextNode();
-                String id;
-                if (linkNode.hasNode(linkIdProperty)) {
-                    id = getLinkId(linkNode.getNode(linkIdProperty));
-                } else if (linkNode.hasProperty(linkIdProperty)) {
-                    id = linkNode.getProperty(linkIdProperty).getString();
-                } else {
+                String id = getLinkId(linkNode);
+                if (id == null) {
                     logger.error("Link on node `{}` does not have a linkIdProperty `{}` or property with hippo:docbase",node.getPath(), linkIdProperty);
                     continue;
                 }
-                if (linkIds.contains(id)) {
-                    return Optional.of(validationContext.createViolation());
-                }
-                // ID given to link that is not set. Mandatory validator takes care of ensuring links are set
-                if (!id.equals(JcrConstants.ROOT_NODE_ID)) {
-                    linkIds.add(id);
+                if (id.equals(targetLinkId)) {
+                    if (seenLinkId) {
+                        return Optional.of(validationContext.createViolation());
+                    } else {
+                        seenLinkId = true;
+                    }
                 }
             }
         } catch (RepositoryException ex) {
@@ -87,16 +84,22 @@ public class UniqueLinksValidator implements Validator<Node> {
      */
     private String getLinkId(Node linkNode) throws RepositoryException {
         String id = null;
-        Node node = linkNode;
-        while (id == null) {
-            if (node.hasProperty(DEFAULT_HIPPO_LINK)){
-                id = node.getProperty(DEFAULT_HIPPO_LINK).getString();
-            } else if (node.getNodes().getSize() == 1) {
-                node = node.getNodes().nextNode();
-            } else {
-                logger.error("LinkValidator does not support the structure of the node `{}`", node.getPath());
-                id = JcrConstants.ROOT_NODE_ID;
+        if (linkNode.hasNode(linkIdProperty)) {
+            Node node = linkNode.getNode(linkIdProperty);
+            while (id == null) {
+                if (node.hasProperty(DEFAULT_HIPPO_LINK)){
+                    id = node.getProperty(DEFAULT_HIPPO_LINK).getString();
+                } else if (node.getNodes().getSize() == 1) {
+                    node = node.getNodes().nextNode();
+                } else {
+                    logger.error("LinkValidator does not support the structure of the node `{}`", node.getPath());
+                    id = JcrConstants.ROOT_NODE_ID;
+                }
             }
+        }
+
+        if (id == null || id.equals(JcrConstants.ROOT_NODE_ID) && linkNode.hasProperty(linkIdProperty)) {
+            return linkNode.getProperty(linkIdProperty).getString();
         }
         return id;
     }

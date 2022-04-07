@@ -22,6 +22,7 @@ public final class MockJcrDocumentBuilder {
     Boolean isDraftBeingEdited;
     List<String> typeList = new ArrayList<>();
     String localeName;
+    Boolean isDeleted;
 
     public MockJcrDocumentBuilder withJcrDocumentFactory(JcrDocumentFactory factory) {
         this.factory = factory;

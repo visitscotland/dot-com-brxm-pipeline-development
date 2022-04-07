@@ -20,7 +20,7 @@ Hippo.Reports.TranslationListPanel = Ext.extend(Hippo.Reports.Portlet, {
             root: "data",
             totalProperty: "total",
             method: "GET",
-            proxy: new Hippo.Reports.PageableHttpProxy({url: GET_UNTRANSLATED_FILES_ENDPOINT, api: {}}, {locale: INITIAL_LOCALE}),
+            proxy: new Hippo.Reports.PageableHttpProxy({url: GET_UNTRANSLATED_FILES_ENDPOINT, api: {}}),
             fields: ["displayName", "translatedLocales", "sentForTranslationLocales", "path", "translationStatus",
                 "translationPriority", "handleId", "lastModified", "lastModifiedBy", "publishStatus", "type", "clonedLocales", {name: "translationDeadline", type: "date"}]
         })
@@ -147,6 +147,14 @@ Hippo.Reports.TranslationListPanel = Ext.extend(Hippo.Reports.Portlet, {
             }
         }
 
+
+        this.statusLabel = {
+            xtype: "label",
+            text: "Status",
+            id: STATUS_LABEL_ID,
+            style: SIDEBAR_LABEL_STYLE
+        }
+
         this.moduleLabel = {
             xtype: "label",
             text: "Module type",
@@ -199,12 +207,6 @@ Hippo.Reports.TranslationListPanel = Ext.extend(Hippo.Reports.Portlet, {
                         Hippo.Reports.priorityFilterComboConfig,
                         {
                             xtype: "label",
-                            text: "Status",
-                            style: SIDEBAR_LABEL_STYLE
-                        },
-                        Hippo.Reports.typeFilterComboConfig,
-                        {
-                            xtype: "label",
                             text: "Document type",
                             style: SIDEBAR_LABEL_STYLE
                         },
@@ -225,6 +227,24 @@ Hippo.Reports.TranslationListPanel = Ext.extend(Hippo.Reports.Portlet, {
         });
 
         Hippo.Reports.TranslationListPanel.superclass.constructor.call(this, config);
+    },
+
+    addTranslationStatusFilter() {
+        console.log("adding translation status filter");
+        const cmp = Ext.getCmp(FILTER_SIDEBAR_ID);
+        if (cmp.get(STATUS_FILTER_ID) === undefined) {
+            cmp.insert(2, this.statusLabel);
+            cmp.insert(3, Hippo.Reports.typeFilterComboConfig);
+            cmp.doLayout();
+        }
+    },
+
+    removeTranslationStatusFilter() {
+        console.log("removing translation filter");
+        const cmp = Ext.getCmp(FILTER_SIDEBAR_ID);
+        cmp.remove(STATUS_FILTER_ID);
+        cmp.remove(STATUS_LABEL_ID);
+        cmp.doLayout();
     },
 
     removePageSubtypeFilters() {

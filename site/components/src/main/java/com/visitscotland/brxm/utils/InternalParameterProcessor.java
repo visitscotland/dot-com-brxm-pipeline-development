@@ -36,6 +36,7 @@ public class InternalParameterProcessor {
 
     public static final String FULLY_QUALIFIED_URLS = "fullyQualified";
     public static final String LOGINREDIRECT_PARAMETERS = "loginredirectParameters";
+    public static final String VERSION = "version";
     public static final String GLOBAL_MENU_URLS = "placeholerLocalizedURLs";
 
     public void processParameters(HstRequest request) {
@@ -43,6 +44,7 @@ public class InternalParameterProcessor {
         String external = utils.getParameterFromUrl(request, PARAM_EXTERNAL);
         String authority = getAuthority(request);
         String sso = utils.getParameterFromUrl(request, PARAM_SSO);
+        String version = utils.getParameterFromUrl(request, VERSION);
 
         if (authority != null) {
             returnUrl.append(authority).append("/").append(PATH_PLACEHOLDER);
@@ -58,17 +60,22 @@ public class InternalParameterProcessor {
             returnUrl.append("&id=").append(sso);
         }
 
+        if (!Contract.isEmpty(version)) {
+            request.setModel(VERSION, version);
+            logger.debug("The '{}' version of an internal endpoint was requested ", version);
+        }
+
         request.setModel(LOGINREDIRECT_PARAMETERS, returnUrl.toString());
     }
 
     /**
      * This piece of logic has been based on visitscotland (legacy project). The logic of this parameter was
      * spread between header.jsp & page-header.tag. The logic has been updated in order to fix a couple of issues
-     * related with url
+     * related to URLs
      * <p>
      * Some refactoring has been done to while copying the logic over in order to  fix some bugs and to make the logic a
      * bit more simple. I am not completely sure that this logic is useful but WebOps has advice to take a cautious
-     * approach and keep the functionality as It was (even though the specification doesn't states how these bits)
+     * approach and keep the functionality as It was (even though the specification doesn't states how these bits work)
      *
      * @return a URL containing just the schema and the domain (host) or {@code null} if the URL defined in root-path
      * is malformed

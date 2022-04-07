@@ -13,10 +13,12 @@
 <#include "../macros/modules/page-intro/social-share.ftl">
 <#include "../macros/modules/listicles/listicle-item.ftl">
 <#include "../macros/global/cms-errors.ftl">
+<#include "../macros/global/otyml.ftl">
 <#include "../macros/shared/module-builder.ftl">
 <#include "../macros/modules/horizontal-list/horizontal-list.ftl">
 <#include "../macros/modules/page-intro/page-intro.ftl">
 <#include "../macros/modules/signpost/signpost.ftl">
+<#include "../macros/modules/product-search/psr-module.ftl">
 
 <#-- Implicit Request Objects -->
 <#-- @ftlvariable name="document" type="com.visitscotland.brxm.hippobeans.Listicle" -->
@@ -67,8 +69,10 @@
 
     <@socialShare nojs=true/>
 
+    <@productSearchWidget psrWidget />
+
     <#if otyml??>
-        <@horizontalList otyml />
+        <@otymlModule otyml editMode />
     </#if>
 
     <#if newsletterSignpost??>

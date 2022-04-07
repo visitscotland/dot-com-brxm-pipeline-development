@@ -15,7 +15,7 @@
         >
             <VsIcon
                 :name="transport"
-                variant="reverse-white"
+                variant="color-white"
                 class="vs-stretched-link-panels__icon"
             />
             <p data-test="vs-stretched-link-panel__icon">
@@ -93,19 +93,19 @@ export default {
             justify-content: center;
 
             &--days {
-                background: $color-secondary-teal-shade-2;
+                background: $color-secondary-teal-shade-3;
             }
 
             p {
                 margin-bottom: 0;
                 text-align: center;
                 line-height: $line_height_xs;
-                font-size: $xs-font-size;
+                font-size: $font-size-1;
             }
         }
 
         &__days {
-            font-size: $font-size-lg;
+            font-size: $font-size-6;
             font-family: "Source Sans Pro";
             font-weight: $font-weight-bold;
             display: block;

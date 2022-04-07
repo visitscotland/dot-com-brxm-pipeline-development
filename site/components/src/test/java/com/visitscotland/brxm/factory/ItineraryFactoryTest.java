@@ -180,7 +180,7 @@ class ItineraryFactoryTest {
         when(documentUtils.getAllowedDocuments(itinerary, Day.class)).thenReturn(days);
         when(dmsData.productCard("123", Locale.UK)).thenReturn(node);
 //        when(properties.getDmsHost()).thenReturn("https://mock.visitscotland.com");
-        when(linkService.createFindOutMoreLink(any(), eq(Locale.UK), any())).thenReturn(
+        when(linkService.createDmsLink(eq(Locale.UK),any(), any())).thenReturn(
                 new FlatLink("Find out more", "https://mock.visitscotland.com/info/fake-product-p123", LinkType.INTERNAL));
 
         ItineraryPage iti = factory.buildItinerary(itinerary, Locale.UK);
@@ -193,7 +193,7 @@ class ItineraryFactoryTest {
         assertEquals("https://mock.visitscotland.com/info/fake-product-p123", module.getCtaLink().getLink());
         assertEquals("Find out more", module.getCtaLink().getLabel());
         assertEquals("Edinburgh", module.getSubTitle());
-        verify(imageFactory).createImage(any(), any());
+        verify(imageFactory).createImage(any(JsonNode.class), any(), any());
     }
 
     @Test
@@ -274,7 +274,7 @@ class ItineraryFactoryTest {
         when(dmsData.productCard("123", Locale.UK)).thenReturn(node);
         when(bundle.getResourceBundle(ItineraryFactory.BUNDLE_FILE, "stop.opening", Locale.UK)).thenReturn("show times");
 //        when(properties.getDmsHost()).thenReturn("https://mock.visitscotland.com");
-        when(linkService.createFindOutMoreLink(any(), eq(Locale.UK), any())).thenReturn(
+        when(linkService.createDmsLink(eq(Locale.UK), any(), any())).thenReturn(
                 new FlatLink(null, "https://mock.visitscotland.com/info/fake-product-p123", LinkType.INTERNAL));
 
         ItineraryStopModule module = getSingleStop(factory.buildItinerary(itinerary, Locale.UK));

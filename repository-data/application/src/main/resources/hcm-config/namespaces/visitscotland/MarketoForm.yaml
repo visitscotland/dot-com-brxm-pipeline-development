@@ -11,7 +11,7 @@ definitions:
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:uuid: 32ed2976-e829-470e-bdc8-1af3868b6fe3
+          jcr:uuid: c90f39ba-84e1-445f-a869-18bcd42c0894
           hipposysedit:node: true
           hipposysedit:supertype: ['visitscotland:basedocument', 'hippostd:relaxed',
             'hippotranslation:translated']
@@ -51,14 +51,6 @@ definitions:
             hipposysedit:path: visitscotland:translation
             hipposysedit:primary: false
             hipposysedit:type: OpenUiString
-          /guide:
-            jcr:primaryType: hipposysedit:field
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: false
-            hipposysedit:ordered: false
-            hipposysedit:path: visitscotland:guide
-            hipposysedit:primary: false
-            hipposysedit:type: hippostd:html
       /hipposysedit:prototypes:
         jcr:primaryType: hipposysedit:prototypeset
         /hipposysedit:prototype:
@@ -73,24 +65,10 @@ definitions:
           visitscotland:title: ''
           visitscotland:marketoId: ''
           visitscotland:munchkinId: ''
-          jcr:uuid: 4337de46-254a-42b5-bf3f-d069c480e441
+          jcr:uuid: 5d41a295-d3d8-4bfa-9618-b416af4a52a1
           hippostdpubwf:lastModificationDate: 2021-05-14T11:09:19.663+01:00
           hippostdpubwf:creationDate: 2021-05-14T11:09:19.664+01:00
           visitscotland:translation: ''
-          /visitscotland:guide:
-            jcr:primaryType: hippostd:html
-            hippostd:content: |-
-              <h3>Marketo id in Red</h3>
-
-              <h3>Munchkin id in Green</h3>
-
-              <p><img src="marketocode.jpg/{_document}/hippogallery:original" /></p>
-            /marketocode.jpg:
-              jcr:primaryType: hippo:facetselect
-              hippo:docbase: 87ed3d38-9b88-4b83-9da2-e3800afb6a87
-              hippo:facets: []
-              hippo:modes: []
-              hippo:values: []
       /editor:templates:
         jcr:primaryType: editor:templateset
         /_default_:
@@ -127,19 +105,6 @@ definitions:
             wicket.id: ${cluster.id}.field
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-          /guide:
-            jcr:primaryType: frontend:plugin
-            caption: Marketo Fields Guide
-            field: guide
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
-            wicket.id: ${cluster.id}.field
-            hint: ''
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
-              ckeditor.config.appended.json: '{ readOnly : true}'
-              ckeditor.config.overlayed.json: '{toolbarGroups: [{ name: ''links''
-                },{name:''insert''},{name:''clipboard''},{name:''tools''},{name:''undo''}]
-                , removeButtons: ''Youtube,Table''}'
           /translation:
             jcr:primaryType: frontend:plugin
             caption: Translation

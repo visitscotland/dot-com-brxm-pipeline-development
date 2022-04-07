@@ -61,7 +61,7 @@ export default {
 
 <style lang="scss">
     .vs-canned-search-dates__intro {
-        font-size: $small-font-size;
+        font-size: $font-size-3;
     }
 
     .vs-canned-search-dates__main {

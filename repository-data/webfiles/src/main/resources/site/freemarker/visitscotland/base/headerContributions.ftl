@@ -1,6 +1,10 @@
+<#include "../macros/global/gtm.ftl">
+
 <#macro headContributions>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <@gtm />
 
     <!-- BEGIN HEAD CONTRIBUTIONS: seo -->
     <@hst.headContributions categoryIncludes="seo" xhtml=true/>

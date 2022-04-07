@@ -7,6 +7,7 @@
             class="p-0"
             variant="transparent"
             data-test="vs-canned-search-logos__good-to-go"
+            :disabled="!slideVisible()"
         >
             <VsImg
                 :alt="goodToGoLogo.name"
@@ -21,6 +22,7 @@
             class="p-0"
             variant="transparent"
             data-test="vs-canned-search-logos__safe-travels"
+            :disabled="!slideVisible()"
         >
             <VsImg
                 :alt="safeTravelsLogo.name"
@@ -35,6 +37,7 @@
             href="#"
             class="p-0"
             variant="transparent"
+            :disabled="!slideVisible()"
         >
             <VsImg
                 :src="award.image"
@@ -50,6 +53,7 @@
             variant="transparent"
             class="vs-canned-search-logos__access p-0"
             data-test="vs-canned-search-logos__access-guide"
+            :disabled="!slideVisible()"
         >
             <VsImg
                 :src="accessGuide.image"
@@ -113,6 +117,7 @@ export default {
             default: null,
         },
     },
+    inject: ['slideVisible'],
 };
 
 </script>

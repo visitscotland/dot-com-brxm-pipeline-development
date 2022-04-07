@@ -29,7 +29,7 @@ definitions:
             hipposysedit:ordered: true
             hipposysedit:path: visitscotland:links
             hipposysedit:type: hippo:compound
-            hipposysedit:validators: [contentblocks-validator, required]
+            hipposysedit:validators: [contentblocks-validator, required, 'visitscotland:link-validator']
       /hipposysedit:prototypes:
         jcr:primaryType: hipposysedit:prototypeset
         /hipposysedit:prototype:

@@ -11,7 +11,7 @@
             name="chevron"
             orientation="down"
             size="xs"
-            variant="reverse-white"
+            variant="color-white"
         />
     </VsButton>
 </template>

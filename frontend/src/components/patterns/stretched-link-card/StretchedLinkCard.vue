@@ -198,7 +198,7 @@ export default {
         }
 
         .vs-stretched-link-card__title {
-            font-size: $small-font-size;
+            font-size: $font-size-3;
             line-height: $line-height-s;
             letter-spacing: $letter-spacing-l;
             color: $color-base-text;
@@ -211,7 +211,7 @@ export default {
 
         .vs-stretched-link-card__category {
             font-family: $font-family-base;
-            font-size: $small-font-size;
+            font-size: $font-size-3;
             line-height: $line-height-xs;
             color: $color-secondary-teal-shade-2;
             letter-spacing: normal;
@@ -221,7 +221,7 @@ export default {
         .vs-stretched-link-card__content {
             margin-top: $spacer-2;
             line-height: $line-height-s;
-            font-size: $teaser-font-size;
+            font-size: $font-size-teaser;
 
             p:last-of-type {
                 margin-bottom: 0;
@@ -251,7 +251,7 @@ export default {
 
         @include media-breakpoint-up(xl) {
             .vs-stretched-link-card__title {
-                font-size: $small-font-size;
+                font-size: $font-size-3;
                 line-height: $line-height-s;
             }
 

@@ -72,7 +72,7 @@ definitions:
               jcr:primaryType: frontend:pluginconfig
               ckeditor.config.appended.json: '{extraPlugins: ''wordcount'',   wordcount:
                 {countSpacesAsChars: true, showCharCount: true}}'
-              ckeditor.config.overlayed.json: '{stylesSet: ''long_copy:./vs_styles.js'',toolbarGroups:
+              ckeditor.config.overlayed.json: '{disallowedContent: ''p[align]'', stylesSet: ''long_copy:./vs_styles.js'',toolbarGroups:
                 [ {name: ''styles''},{name:''listindentalign'',groups:[''list'']},
                 {name:''links''},{name:''insert''},{name:''clipboard''},{name:''tools''},{name:''undo''}
                 ] , removeButtons: ''PickImage,Youtube,Table''}'

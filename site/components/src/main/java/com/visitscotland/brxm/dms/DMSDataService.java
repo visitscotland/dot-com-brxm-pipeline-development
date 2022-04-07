@@ -6,6 +6,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.visitscotland.utils.Contract;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Component;
 
 import java.util.Locale;
@@ -21,16 +22,18 @@ public class DMSDataService {
         this.proxy = proxy;
     }
 
+
     /**
      * Returns a summary of the product as a JsonNode. This is usually use to show product cards
      *
-     * @param productId Id of the producct
+     * @param productId Id of the product
      * @param locale locale for translated texts
      *
      * @return JsonNode with the product card Information
      *
      *
      */
+    @Cacheable(value="dmsProduct")
     public JsonNode productCard(String productId, Locale locale) {
         String responseString = null;
 

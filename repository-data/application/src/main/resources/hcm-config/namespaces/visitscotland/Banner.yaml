@@ -11,7 +11,7 @@ definitions:
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:uuid: 748c4e48-8ec0-4ad5-868e-0be268b15e0d
+          jcr:uuid: a092642f-4d8f-4bb0-87c4-6418f5607361
           hipposysedit:node: true
           hipposysedit:supertype: ['visitscotland:basedocument', 'hippostd:relaxed',
             'hippotranslation:translated']
@@ -40,6 +40,14 @@ definitions:
             hipposysedit:path: visitscotland:ctaLink
             hipposysedit:type: hippo:compound
             hipposysedit:validators: [contentblocks-validator, required]
+          /translation:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: visitscotland:translation
+            hipposysedit:primary: false
+            hipposysedit:type: OpenUiString
       /hipposysedit:prototypes:
         jcr:primaryType: hipposysedit:prototypeset
         /hipposysedit:prototype:
@@ -52,9 +60,10 @@ definitions:
           hippotranslation:locale: document-type-locale
           jcr:mixinTypes: ['mix:referenceable']
           visitscotland:title: ''
-          jcr:uuid: e358f25c-cd46-4e96-9d52-052a864679ad
+          jcr:uuid: 1403bdfe-a9ec-4eb2-98b2-1ce8e4f1fc37
           hippostdpubwf:lastModificationDate: 2021-12-03T13:55:59.687Z
           hippostdpubwf:creationDate: 2021-12-03T13:55:59.687Z
+          visitscotland:translation: ''
           /visitscotland:copy:
             jcr:primaryType: hippostd:html
             hippostd:content: ''
@@ -88,7 +97,7 @@ definitions:
               jcr:primaryType: frontend:pluginconfig
               ckeditor.config.appended.json: '{extraPlugins: ''wordcount'', wordcount:
                 {countSpacesAsChars: true, showCharCount: true, maxCharCount: 200}}'
-              ckeditor.config.overlayed.json: '{toolbarGroups: [{name:''links''},{name:''insert''},{name:''clipboard''},{name:''tools''},{name:''undo''}
+              ckeditor.config.overlayed.json: '{disallowedContent: ''p[align]'', toolbarGroups: [{name:''links''},{name:''insert''},{name:''clipboard''},{name:''tools''},{name:''undo''}
                 ] , removeButtons: ''PickImage,Youtube,Table''}'
           /ctaLink:
             jcr:primaryType: frontend:plugin
@@ -102,3 +111,13 @@ definitions:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
               maxitems: 1
+          /translation:
+            jcr:primaryType: frontend:plugin
+            caption: Translation
+            field: translation
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
+            hint: ''
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+              ui.extension: translationDiff

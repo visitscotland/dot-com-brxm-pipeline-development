@@ -1,0 +1,9 @@
+@mixin themed-text-editor($theme) {
+    .vs-megalinks--#{$theme} .vs-rich-text-wrapper {
+        @content;
+    }
+
+    .vs-module-wrapper--#{$theme} .vs-rich-text-wrapper {
+        @content;
+    }
+}

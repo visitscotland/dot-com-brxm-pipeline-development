@@ -21,6 +21,20 @@
             link-type="${megalink.type}"
             theme="${theme}"
             link-url="${megalink.link}"
+            <#if megalink.itineraryTransport??>
+                transport="${megalink.itineraryTransport}"
+                transport-name="${label('transports', megalink.itineraryTransport)}"
+            </#if>
+            <#if megalink.itineraryDays??>
+                <#if megalink.itineraryDays = 1>
+                    days-label="${label('itinerary', 'day')}"
+                <#else>
+                    days-label="${label('itinerary', 'days')}"
+                </#if>
+                days="${megalink.itineraryDays}"
+            <#else>
+                days-label="${label('itinerary', 'day')}"
+            </#if>
         >
             <template slot="vsMultiImageHeading">
                 ${megalink.label}</template>

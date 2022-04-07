@@ -1,3 +1,4 @@
+<#include "../../../include/imports.ftl">
 <#--
     This macro takes all the relevant information with SEO purposes from a document. Therefore, this macro
     has no use for Channel Manager pages
@@ -5,7 +6,6 @@
     TODO: SEO for Channel Manager pages (at the moment 0 CM pages have been created))
 
 -->
-<#include "../../../include/imports.ftl">
 
 <#-- @ftlvariable name="document" type="com.visitscotland.brxm.hippobeans.Page" -->
 <#-- @ftlvariable name="orderedTranslations" type="java.util.List<com.visitscotland.brxm.hippobeans.BaseDocument>" -->

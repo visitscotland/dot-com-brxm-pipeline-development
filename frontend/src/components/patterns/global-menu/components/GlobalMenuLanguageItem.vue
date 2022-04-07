@@ -101,7 +101,7 @@ export default {
         .dropdown-item {
             color: $color-white;
             text-decoration: underline;
-            font-size: $h4-font-size;
+            font-size: $font-size-4;
 
             &:hover {
                 background:transparent;

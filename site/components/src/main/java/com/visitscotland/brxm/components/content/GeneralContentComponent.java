@@ -27,6 +27,8 @@ public class GeneralContentComponent extends PageContentComponent<Destination> {
         super.doBeforeRender(request, response);
 
         builder.addModules(request);
+
+
     }
 
 }

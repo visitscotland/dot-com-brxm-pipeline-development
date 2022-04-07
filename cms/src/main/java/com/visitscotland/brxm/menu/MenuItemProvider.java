@@ -21,7 +21,7 @@ public class MenuItemProvider {
 
     private static final String NEW_PAGE_MENU = "new-page";
     private static final String NEW_MODULE_MENU = "new-module";
-    private static final String NEW_FOLDER_MENU = "new-translated-folder";
+
     private static final String LOCALE_PROPERTY_PATH = "hippotranslation:locale";
 
     private static final Logger logger = LoggerFactory.getLogger(MenuItemProvider.class);
@@ -36,9 +36,7 @@ public class MenuItemProvider {
             Object createDocumentOnTranslationObject = workflowConfiguration.get("visitscotland:create-documents-on-translations");
             boolean createDocumentOnTranslation = createDocumentOnTranslationObject instanceof Boolean ? (Boolean) createDocumentOnTranslationObject : true;
             if (!isEnglishFolder(subjectNode) && !createDocumentOnTranslation) {
-                prototypes.remove(NEW_PAGE_MENU);
-                prototypes.remove(NEW_MODULE_MENU);
-                prototypes.remove(NEW_FOLDER_MENU);
+                prototypes.clear();
             } else if (prototypes.containsKey(NEW_PAGE_MENU) && prototypes.containsKey(NEW_MODULE_MENU)) {
                 Optional<Page> optionalPage = getPageContentBean(subjectNode);
                 if (optionalPage.isPresent()) {

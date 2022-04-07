@@ -75,7 +75,7 @@ export default {
     .social-credit__link {
         color: $color-white !important;
         font-weight: $font-weight-light;
-        font-size: $small-font-size;
+        font-size: $font-size-3;
         line-height: $line-height-standard;
         margin-bottom: $spacer-0;
 

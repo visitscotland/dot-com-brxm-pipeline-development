@@ -22,10 +22,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Locale;
-import java.util.MissingFormatArgumentException;
+import java.util.*;
 
 @Component
 public class NavigationFactory {
@@ -135,13 +132,14 @@ public class NavigationFactory {
                 contentLogger.warn("An incorrect Type of link has been set in a featured item: {}", document.getPath());
                 continue;
             }
-            EnhancedLink link = linkService.createEnhancedLink((Linkable) cmsLink.getLink(), widget, locale, false);
+            Optional<EnhancedLink> optionalLink = linkService.createEnhancedLink((Linkable) cmsLink.getLink(), widget, locale, false);
 
-            if (!Contract.isEmpty(cmsLink.getLabel())){
-                link.setCta(cmsLink.getLabel());
-            } else {
-                contentLogger.warn("A CTA Text has not been provided for the featured Item {}", document.getPath());
+            if (!optionalLink.isPresent()) {
+                contentLogger.warn("Failed to create widget: {}. Check link is published & valid", document.getPath());
+                continue;
             }
+            EnhancedLink link = optionalLink.get();
+            link.setCta(bundle.getCtaLabel(cmsLink.getLabel(), locale));
             items.add(link);
         }
 

@@ -47,10 +47,9 @@ public class ListicleItemMockBuilder {
         return this;
     }
 
-    public ListicleItemMockBuilder cmsLink(){
+    public ListicleItemMockBuilder cmsLink(Page linkTo){
         CMSLink cmsLink = mock(CMSLink.class);
-        Page page = mock(Page.class);
-        when(cmsLink.getLink()).thenReturn(page);
+        when(cmsLink.getLink()).thenReturn(linkTo);
         when(listicle.getListicleItem()).thenReturn(cmsLink);
 
         return this;
@@ -63,6 +62,10 @@ public class ListicleItemMockBuilder {
         when(listicle.getListicleItem()).thenReturn(cmsLink);
 
         return this;
+    }
+
+    public ListicleItemMockBuilder cmsLink(){
+        return cmsLink(mock(Page.class));
     }
 
     public ListicleItemMockBuilder dmsLink(String id){

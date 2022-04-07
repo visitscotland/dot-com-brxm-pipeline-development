@@ -617,9 +617,9 @@ findHippoArtifact() {
       echo "`eval $VS_LOG_DATESTAMP` INFO  [$VS_SCRIPTNAME] searching for latest Hippo distribution files in $WORKSPACE/target"
       HIPPO_LATEST=`ls -alht $WORKSPACE/target/visit*.tar.gz | head -1 | awk '{print $9}'` 2>&1 > /dev/null
       if [ -z "$HIPPO_LATEST" ]; then
-        # recursive search in $WORKSPACE/ for files matching "visit*.tar.gz"
+        # recursive search in $WORKSPACE/ for files matching "dot-com-brxm*.tar.gz"
         echo "`eval $VS_LOG_DATESTAMP` WARN  [$VS_SCRIPTNAME] no archive found in $WORKSPACE/target/, widening search"
-        HIPPO_LATEST=`find $WORKSPACE/ -name "visit*.tar.gz" | head -1`
+        HIPPO_LATEST=`find $WORKSPACE/ -name "dot-com-brxm*.tar.gz" | head -1`
       fi
       if [ ! -z "$HIPPO_LATEST" ]; then
         echo "`eval $VS_LOG_DATESTAMP` INFO  [$VS_SCRIPTNAME]  - found $HIPPO_LATEST"

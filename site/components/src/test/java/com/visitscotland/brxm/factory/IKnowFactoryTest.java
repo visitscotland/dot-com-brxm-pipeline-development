@@ -87,7 +87,7 @@ class IKnowFactoryTest {
 
         assertEquals(location, locationCaptor.getValue());
         assertEquals(DMSConstants.AWARD_IKNOW, awardCaptor.getValue(), location);
-        assertEquals(DMSConstants.TYPE_SEE_DO, typeCaptor.getValue(), location);
+        assertEquals(DMSConstants.TYPE_IKNOW, typeCaptor.getValue(), location);
     }
 
 

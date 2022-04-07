@@ -95,6 +95,21 @@ class LinkValidatorTest {
     }
 
     @Test
+    @DisplayName("VS-3348 - link to a deleted document")
+    void deletedDocumentChannel() throws RepositoryException {
+        Node parentNode = Mockito.mock(Node.class, withSettings().defaultAnswer(RETURNS_DEEP_STUBS));
+        Node childNode = Mockito.mock(Node.class, withSettings().defaultAnswer(RETURNS_DEEP_STUBS));
+
+        when(parentNode.getProperty(HIPPO_DOCBASE).getString()).thenReturn("NODE-ID");
+        when(mockSessionFactory.getHippoNodeByIdentifier("NODE-ID")).thenReturn(childNode);
+
+        when(childNode.getPath()).thenReturn("/content/attic/");
+
+        when(context.createViolation("removedLink")).thenReturn(mock(Violation.class));
+        assertTrue(validator.validate(context, parentNode).isPresent());
+    }
+
+    @Test
     @DisplayName("VS-2784 - documents can't link to themselves - direct link on content")
     void linkToSelf() throws Exception {
         Node linkedToNode = new MockNodeBuilder().withNodeId("link-id").withPrimaryNodeType("visitscotland:Page").build();

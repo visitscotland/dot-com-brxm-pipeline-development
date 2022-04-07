@@ -23,13 +23,19 @@ module.exports = function(env, argv) {
       path: assetOutputPath,
     },
     plugins: [
-      new CopyPlugin([
-        {
-          from: srcPath,
-          to: assetOutputPath,
-        },
-      ]),
-      new CleanWebpackPlugin(),
+        new CopyPlugin([
+            {
+                from: './embed/processed-styles/*.css',
+                to: '../static/third-party/',
+            },
+        ]),
+        new CopyPlugin([
+            {
+            from: srcPath,
+            to: assetOutputPath,
+            },
+        ]),
+        new CleanWebpackPlugin(),
     ],
     module: {
       rules: [

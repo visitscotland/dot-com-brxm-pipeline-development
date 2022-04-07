@@ -9,7 +9,7 @@
         </template>
 
         <BCardText class="vs-panel__text">
-            <!-- @slot default slot containing main body text -->
+            <!-- @slot Default slot containing main body text -->
             <slot />
         </BCardText>
     </BCard>
@@ -19,7 +19,8 @@
 import { BCard, BCardText } from 'bootstrap-vue';
 
 /**
- * The panel is used for simple content and contains slots for title and content.
+ * The panel component is a container
+ * that helps to emphasise content.
  *
  * @displayName Panel
  */
@@ -59,7 +60,7 @@ export default {
     .vs-panel__text {
         @include media-breakpoint-down(xs) {
             .vs-rich-text-wrapper.lead {
-                font-size: $font-size-base;
+                font-size: $font-size-4;
                 line-height: $line-height-m;
             }
         }
@@ -72,19 +73,3 @@ export default {
     }
 }
 </style>
-
-<docs>
-```jsx
-    <VsPanel>
-        <VsHeading thin level="4" slot="vs-panel-title">A Title Would Go Here</VsHeading>
-
-        <VsRichTextWrapper variant="lead">
-             <!-- eslint-disable-next-line max-len -->
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras maximus est congue nunc fermentum, eu hendrerit odio fringilla. Donec porta eleifend ipsum Praesent in magna fringilla.</p>
-
-             <!-- eslint-disable-next-line max-len -->
-            <p>Morbi faucibus risus in varius sollicitudin. Aenean eget leo ullamcorper, scelerisque urna eu, imperdiet nibh. Duis sit amet nibh tortor. Donec ac ante eros. Praesent in magna fringilla, consectetur eros id, fermentum nibh. Duis luctus ante sapien, scelerisque fermentum massa tincidunt eu. Nullam sed arcu a justo auctor consectetur.</p>
-        </VsRichTextWrapper>
-    </VsPanel>
-```
-</docs>

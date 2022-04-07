@@ -53,7 +53,7 @@ class InternalResourceTest {
     @DisplayName("fragment - Return a fragment from the page")
     void fragment() throws IOException {
         when(utils.requestUrl(Mockito.anyString())).thenReturn(MOCK_RESPONSE);
-        Response res = service.fragment(request,"f1",  null,null, null);
+        Response res = service.fragment(request,"f1",  null,null, null, null);
         assertEquals("Fragment1",res.getEntity().toString());
         assertEquals(200,res.getStatus());
     }
@@ -62,7 +62,7 @@ class InternalResourceTest {
     @DisplayName("fragment - Return a No match when the fragment is not found")
     void fragment_noMatch() throws IOException {
         when(utils.requestUrl(Mockito.anyString())).thenReturn(MOCK_RESPONSE);
-        Response res = service.fragment(request,"f3", null, null,null);
+        Response res = service.fragment(request,"f3", null, null,null, null);
         assertEquals(InternalResource.NO_MATCH,res.getEntity().toString());
         assertEquals(404,res.getStatus());
     }
@@ -78,7 +78,7 @@ class InternalResourceTest {
         when(utils.buildQueryString(parametersCaptor.capture(), any())).thenReturn("?params");
         when(request.getParameterMap().containsKey("external")).thenReturn(true);
 
-        String fragment = service.fragment(request,"f1", "root-path", "sso", null).getEntity().toString();
+        String fragment = service.fragment(request,"f1", "root-path", "sso", null, null).getEntity().toString();
         assertEquals("Fragment1",fragment);
         assertEquals("true", parametersCaptor.getValue().get("external"));
         assertEquals("sso", parametersCaptor.getValue().get("sso"));
@@ -96,7 +96,7 @@ class InternalResourceTest {
         when(utils.requestUrl(urlCaptor.capture())).thenReturn(MOCK_RESPONSE);
         when(utils.buildQueryString(parametersCaptor.capture(), any())).thenReturn("?params");
 
-        String fragment = service.fragment(request,"f1", null, null, null).getEntity().toString();
+        String fragment = service.fragment(request,"f1", null, null, null, null).getEntity().toString();
         assertEquals("Fragment1",fragment);
         assertNull(parametersCaptor.getValue().get("external"));
         assertNull(parametersCaptor.getValue().get("sso"));
@@ -111,8 +111,18 @@ class InternalResourceTest {
         when(utils.requestUrl(urlCaptor.capture())).thenReturn(MOCK_RESPONSE);
         when(utils.buildQueryString(any(), any())).thenReturn("");
 
-        service.fragment(request,"f1", null,null,  "es").getEntity().toString();
+        service.fragment(request,"f1", null,null,  "es", null).getEntity().toString();
         assertEquals("http://localhost:8080/es/internal", urlCaptor.getValue());
+    }
+
+    @Test
+    @DisplayName("version - The fragment locale is being processed")
+    void fragment_buildUrl_version() {
+        ArgumentCaptor<Map<String, String>> parametersCaptor = ArgumentCaptor.forClass(Map.class);
+        when(utils.buildQueryString(parametersCaptor.capture(), any())).thenReturn("?params");
+
+        String fragment = service.fragment(request,"f1", null, null, null, "legacy").getEntity().toString();
+        assertEquals("legacy", parametersCaptor.getValue().get("version"));
     }
 
     @Test
@@ -120,7 +130,7 @@ class InternalResourceTest {
     void fragment_error() throws IOException {
         when(utils.requestUrl(any())).thenThrow(new RuntimeException());
 
-        Response res = service.fragment(request,"f1", null,null, null);
+        Response res = service.fragment(request,"f1", null,null, null, null);
         assertEquals(500, res.getStatus());
     }
 

@@ -8,9 +8,7 @@
 <script>
 import { BRow } from 'bootstrap-vue';
 /**
- * Rows are used to organise content into rows. Their parent must be a container or column
- * element and they must always have column elements as their direct children. Our row component
- * utilises the <a href="https://bootstrap-vue.js.org/docs/components/layout">b-row Bootstrap Vue component</a>.
+ * Rows are used to wrap column elements to ensure consistent alignment.
  *
  * @displayName Row
  */
@@ -39,15 +37,3 @@ export default {
     }
 }
 </style>
-
-<docs>
-  ```jsx
-    <VsContainer>
-      <VsRow>
-        <VsCol>
-          This is a row with a single column
-        </VsCol>
-      </VsRow>
-    </VsContainer>
-  ```
-</docs>

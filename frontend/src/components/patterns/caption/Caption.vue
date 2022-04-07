@@ -52,7 +52,7 @@
 
 <script>
 import designTokens from '@/assets/tokens/tokens.json';
-import { VsRow, VsCol } from '@components/elements/layout';
+import { VsRow, VsCol } from '@components/elements/grid';
 import VsCaptionImageMap from './components/CaptionImageMap';
 
 /**
@@ -198,7 +198,7 @@ export default {
 
     &__image-caption,
     &__image-credit {
-        font-size: $small-font-size;
+        font-size: $font-size-3;
         line-height: $line-height-standard;
     }
 

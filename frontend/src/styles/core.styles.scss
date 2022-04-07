@@ -12,6 +12,8 @@
 @import "~bootstrap/scss/reboot";
 @import "~bootstrap/scss/utilities";
 @import "./sr-only-resets";
+@import "./global-styles.scss";
+@import "./cludo-styles.scss";
 
 /* Bootstrap components */
 @import "~bootstrap/scss/breadcrumb";
@@ -38,4 +40,3 @@
 @import "~bootstrap-vue/src/components/tooltip/tooltip";
 @import "~bootstrap-vue/src/components/modal/modal";
 
-@import "./global-styles.scss";

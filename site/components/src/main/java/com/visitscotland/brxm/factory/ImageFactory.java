@@ -11,12 +11,15 @@ import com.visitscotland.brxm.model.Coordinates;
 import com.visitscotland.brxm.model.FlatImage;
 import com.visitscotland.brxm.model.Module;
 import com.visitscotland.brxm.services.CommonUtilsService;
+import com.visitscotland.brxm.services.ResourceBundleService;
+import com.visitscotland.brxm.utils.HippoUtilsService;
 import com.visitscotland.brxm.utils.Language;
 import com.visitscotland.brxm.utils.Properties;
 import com.visitscotland.utils.Contract;
 import org.hippoecm.hst.content.beans.standard.HippoBean;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.io.IOException;
@@ -30,14 +33,38 @@ public class ImageFactory {
     private static final Logger logger = LoggerFactory.getLogger(ImageFactory.class);
     private static final Logger contentLogger = LoggerFactory.getLogger("content");
 
+    static final String GLOBAL_BUNDLE = "essentials.global";
+
     private final LocationLoader locationLoader;
     private final CommonUtilsService utils;
+    private final HippoUtilsService hippoUtils;
     private final Properties properties;
+    private final ResourceBundleService bundle;
 
-    public ImageFactory(LocationLoader locationLoader, CommonUtilsService utils, Properties properties) {
+    @Autowired
+    public ImageFactory(LocationLoader locationLoader, CommonUtilsService utils, Properties properties, HippoUtilsService hippoUtils, ResourceBundleService bundle) {
         this.locationLoader = locationLoader;
         this.utils = utils;
         this.properties = properties;
+        this.hippoUtils = hippoUtils;
+        this.bundle = bundle;
+    }
+
+    FlatImage getPlaceholder(Module<?> module, Locale locale){
+        String nodePath = "";
+        try {
+            nodePath = bundle.getResourceBundle(GLOBAL_BUNDLE, "placeholder-image", locale);
+            Image defaultImage = hippoUtils.getDocumentFromNode(nodePath);
+            return createImage(defaultImage, module, locale);
+        } catch (Exception e) {
+            if (Contract.isEmpty(nodePath)) {
+                contentLogger.error("The property placeholder-image has not been configured properly");
+            } else {
+                contentLogger.error("The placeholder image could not be located at {}", nodePath);
+            }
+            module.addErrorMessage("The placeholder image hasn't been properly configured");
+        }
+        return null;
     }
 
     public FlatImage getImage(HippoBean image, Module<?> module, Locale locale) {
@@ -60,6 +87,11 @@ public class ImageFactory {
      * @return FlatImage Object
      */
     public FlatImage createImage(Image cmsImage, Module<?> module, Locale locale) {
+        // When an image is expected but the CMS doesn't have one because it was removed
+        if (cmsImage == null){
+            return getPlaceholder(module, locale);
+        }
+
         FlatImage image = new FlatImage();
         ImageData data = null;
 
@@ -149,16 +181,19 @@ public class ImageFactory {
             logger.error("Error while accessing Instagram", e);
         }
 
-        return null;
+        return getPlaceholder(module, locale);
     }
 
     /**
      * Creates an Image from a DMS product node.
      *
+     * If the product does not contain an image a Placeholder image is returned instead
+     *
      * @param dmsProduct JsonNode with the information of the product.
      * @param module     Module used to log potential issues that can be translated into CMS warning later on
+     * @param locale     Localization for the placeholder image.
      */
-    public FlatImage createImage(JsonNode dmsProduct, Module<?> module) {
+    public FlatImage createImage(JsonNode dmsProduct, Module<?> module, Locale locale) {
 
         if (dmsProduct.has(IMAGE)) {
 
@@ -186,7 +221,7 @@ public class ImageFactory {
             module.addErrorMessage(String.format("The dmsProduct '%s' does not have an image", get(dmsProduct, ID, "unknown")));
         }
 
-        return null;
+        return getPlaceholder(module, locale);
     }
 
     private String get(JsonNode node, String field, String defaultValue) {

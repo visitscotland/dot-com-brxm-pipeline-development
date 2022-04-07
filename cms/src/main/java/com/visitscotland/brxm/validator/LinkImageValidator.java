@@ -1,10 +1,8 @@
 package com.visitscotland.brxm.validator;
 
-import com.visitscotland.brxm.hippobeans.InstagramImage;
 import com.visitscotland.brxm.hippobeans.ListicleItem;
 import com.visitscotland.brxm.hippobeans.SharedLink;
 import com.visitscotland.brxm.hippobeans.Stop;
-import com.visitscotland.brxm.translation.SessionFactory;
 import org.onehippo.cms.services.validation.api.ValidationContext;
 import org.onehippo.cms.services.validation.api.Validator;
 import org.onehippo.cms.services.validation.api.Violation;
@@ -22,13 +20,12 @@ public class LinkImageValidator implements Validator<Node> {
 
     public static final String EMPTY_IMAGE = "cafebabe-cafe-babe-cafe-babecafebabe";
 
-    //TODO Should we rename these fields?
     /** Mainly used by Listicle */
-    final static String PRODUCT = ListicleItem.PRODUCT;
+    final static String LISTICLE_PRODUCT = ListicleItem.PRODUCT;
     /** Mainly used by Stop */
-    final static String PRODUCTS = Stop.PRODUCTS;
+    final static String STOP_PRODUCT = Stop.PRODUCTS;
     /** Mainly used by SharedLink */
-    final static String LINK_TYPE = SharedLink.LINK_TYPES;
+    final static String SHAREDLINK_PRODUCT = SharedLink.LINK_TYPES;
 
     /**
      * Evaluates if the Media item is required for the document.
@@ -39,12 +36,12 @@ public class LinkImageValidator implements Validator<Node> {
      */
     private boolean isMediaRequired(final Node document) throws RepositoryException {
         Node node = null;
-        if (document.hasNode(LINK_TYPE)) {
-            node = document.getNode(LINK_TYPE);
-        } else if (document.hasNode(PRODUCTS)) {
-            node = document.getNode(PRODUCTS);
-        } else if (document.hasNode(PRODUCT)) {
-            node = document.getNode(PRODUCT);
+        if (document.hasNode(SHAREDLINK_PRODUCT)) {
+            node = document.getNode(SHAREDLINK_PRODUCT);
+        } else if (document.hasNode(STOP_PRODUCT)) {
+            node = document.getNode(STOP_PRODUCT);
+        } else if (document.hasNode(LISTICLE_PRODUCT)) {
+            node = document.getNode(LISTICLE_PRODUCT);
         }
 
         return node != null && !node.isNodeType("visitscotland:CMSLink") && !node.isNodeType("visitscotland:DMSLink");

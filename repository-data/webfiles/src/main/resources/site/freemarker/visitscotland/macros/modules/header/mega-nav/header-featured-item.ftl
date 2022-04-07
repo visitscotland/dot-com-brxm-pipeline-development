@@ -2,7 +2,14 @@
 <#include "../../../../../include/imports.ftl">
 
 <#macro headerFeaturedItem item index accordion>
-    <@hst.link var="imageSrc" hippobean=item.image.cmsImage.original/>
+    <#assign imageSrc=""/>
+    <#if item.image.cmsImage??>
+        <#assign imageSrc>
+            <@hst.link hippobean=item.image.cmsImage.original/>
+        </#assign>
+    <#else>
+        <#assign imageSrc = item.image.externalImage!'' />
+    </#if>
     <#if accordion=true>
         <template>
     <#elseif index = 0>

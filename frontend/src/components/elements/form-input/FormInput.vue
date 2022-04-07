@@ -27,7 +27,7 @@ export default {
     props: {
         /**
          * Set the form field size.
-         * `sm, md, lg`
+         * `sm|md|lg`
          */
         size: {
             default: 'md',
@@ -56,19 +56,31 @@ export default {
 
 <style lang="scss">
 .vs-form-input {
-  &.form-control {
-    border-color: $color-gray-tint-1;
-    transition: box-shadow $duration-base;
+    &.form-control {
+        border-color: $color-gray-tint-1;
+        transition: box-shadow $duration-base;
 
-    &:focus {
-      border-color: $color-gray-tint-1;
-      box-shadow: 0 0 0 0.2rem rgba(187, 38, 132, 0.5); // primary rgb equivalent
-    }
+        &::placeholder {
+            color: $color-secondary-gray;
+        }
 
-    &[type="search"] {
-      @extend %reset-clear;
+        &:focus {
+            border-color: $color-gray-tint-1;
+            box-shadow: $shadow-form-input;
+        }
+
+        &[type='search'] {
+            @extend %reset-clear;
+        }
+
+        &.is-valid{
+            border-color: $color-theme-success!important;
+        }
+
+        &.is-invalid{
+            border-color: $color-theme-danger!important;
+        }
     }
-  }
 }
 </style>
 

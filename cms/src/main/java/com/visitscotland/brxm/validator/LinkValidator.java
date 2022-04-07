@@ -41,18 +41,22 @@ public class LinkValidator implements Validator<Node> {
             String nodeId = document.getProperty(HIPPO_DOCBASE).getString();
             if (!nodeId.equals(EMPTY_DOCUMENT)) {
                 Node childNode = sessionFactory.getHippoNodeByIdentifier(nodeId);
-                String childNodeChannel = childNode.getPath().split("/")[3];
-                //VS-2886 Any language can link to english documents but no to any other different language
-                if (!childNodeChannel.equals(ENGLISH_CHANNEL) && !document.getPath().split("/")[3].equals(childNodeChannel)) {
-                    return Optional.of(context.createViolation("channel"));
-                } else {
-                    Optional<Violation> checkAllowed = checkAllowedDocuments(context, document, childNode);
-                    if (checkAllowed.isPresent()) {
-                        return checkAllowed;
+                if (childNode.getPath().startsWith("/content/attic/")){
+                    return Optional.of(context.createViolation("removedLink"));
+                }else{
+                    String childNodeChannel = childNode.getPath().split("/")[3];
+                    //VS-2886 Any language can link to english documents but no to any other different language
+                    if (!childNodeChannel.equals(ENGLISH_CHANNEL) && !document.getPath().split("/")[3].equals(childNodeChannel)) {
+                        return Optional.of(context.createViolation("channel"));
+                    } else {
+                        Optional<Violation> checkAllowed = checkAllowedDocuments(context, document, childNode);
+                        if (checkAllowed.isPresent()) {
+                            return checkAllowed;
+                        }
+                        return checkLinkToSameDocument(context, document, nodeId);
                     }
-                    return checkLinkToSameDocument(context, document, nodeId);
                 }
-            } else {
+            }else {
                 return Optional.of(context.createViolation("emptyLink"));
             }
         } catch (PathNotFoundException e) {
@@ -68,9 +72,14 @@ public class LinkValidator implements Validator<Node> {
             while (!folder.isNodeType("hippostd:folder")) {
                 folder = folder.getParent();
             }
-            Node contentNode = folder.getNode("content");
-            if (contentNode.getIdentifier().equals(linkNodeId)) {
-                return Optional.of(context.createViolation("linkToSelf"));
+            if (folder.hasNode("content")) {
+                Node contentNode =folder.getNode("content");
+
+                if (contentNode.getIdentifier().equals(linkNodeId)) {
+                    return Optional.of(context.createViolation("linkToSelf"));
+                }
+            }else{
+                return Optional.empty();
             }
         } catch (ItemNotFoundException | PathNotFoundException e) {
             logger.info("Failed to find folder or content relative to node {}", document.getPath(), e);

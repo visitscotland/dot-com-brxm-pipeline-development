@@ -11,10 +11,12 @@ import org.hippoecm.hst.core.request.HstRequestContext;
 import org.hippoecm.hst.core.request.ResolvedSiteMapItem;
 import org.hippoecm.hst.core.sitemenu.HstSiteMenuItem;
 import org.onehippo.forge.breadcrumb.components.BreadcrumbProvider;
+import org.onehippo.forge.breadcrumb.om.Breadcrumb;
 import org.onehippo.forge.breadcrumb.om.BreadcrumbItem;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.util.Collections;
 import java.util.List;
 
 
@@ -34,6 +36,15 @@ public class VsBreadCrumbProvider extends BreadcrumbProvider {
 
     public VsBreadCrumbProvider(BaseHstComponent component) {
         super(component);
+    }
+
+    @Override
+    public Breadcrumb getBreadcrumb(HstRequest request) {
+        Breadcrumb breadcrumb = super.getBreadcrumb(request);
+        if (breadcrumb.getItems().isEmpty() && request.getRequestContext().getContentBean() != null) {
+            return new Breadcrumb(Collections.singletonList(getBreadcrumbItem(request, request.getRequestContext().getContentBean())), breadcrumb.getSeparator(), null);
+        }
+        return breadcrumb;
     }
 
     /**

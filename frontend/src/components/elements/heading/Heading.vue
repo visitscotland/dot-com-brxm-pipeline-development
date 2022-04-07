@@ -14,6 +14,7 @@
             class="vs-heading__sub-heading"
             v-if="!!this.$slots['sub-heading']"
         >
+            <!-- @slot Slot for sub-heading content -->
             <slot name="sub-heading" />
         </span>
     </Component>
@@ -22,9 +23,8 @@
 <script>
 import { isNumber } from 'lodash';
 /**
- * Headings are used as the titles of each major section of a page in the
- * interface. For example, templates generally use headings as their title.
- * Heading element provides an option to change the level of the heading.
+ * Headings are used to create visual hierarchy on a page.
+ * This component uses the correct heading tags for semantic markup.
  *
  * @displayName Heading
  */
@@ -35,7 +35,7 @@ export default {
     props: {
         /**
          * The heading level used for the heading.
-         * `1, 2, 3, 4, 5, 6`
+         * `1|2|3|4|5|6`
          */
         level: {
             type: [String, Number],
@@ -72,27 +72,27 @@ export default {
 @import "../../../assets/fonts/fonts.css";
 
 $font-sizes: (
-    1: $h1-font-size,
-    2: $h2-font-size,
-    3: $h3-font-size,
-    4: $h4-font-size,
-    5: $h5-font-size,
-    6: $h6-font-size,
+    1: $font-size-h1,
+    2: $font-size-h2,
+    3: $font-size-h3,
+    4: $font-size-h4,
+    5: $font-size-h5,
+    6: $font-size-h6,
 );
 
 $md-font-sizes: (
-    1: $h1-font-size-md,
-    2: $h2-font-size-md,
-    3: $h3-font-size-md,
-    4: $h4-font-size-md,
-    5: $h5-font-size-md,
-    6: $h6-font-size-md,
+    1: $font-size-h1-md,
+    2: $font-size-h2-md,
+    3: $font-size-h3-md,
+    4: $font-size-h4,
+    5: $font-size-h5-md,
+    6: $font-size-h6-md,
 );
 
 /* Update font sizes */
 $sub-font-sizes: (
-    2: $h2-sub-font-size,
-    3: $h3-sub-font-size,
+    2: $font-size-h2-sub,
+    3: $font-size-h3-sub,
 );
 
 .vs-heading {
@@ -137,7 +137,8 @@ $sub-font-sizes: (
 
     &--alternative {
         font-family: $font_family_sans_serif;
-        font-weight: $font-weight-normal;
+        font-weight: $font-weight-light;
+        letter-spacing: normal;
     }
 }
 
@@ -148,47 +149,3 @@ h6.vs-heading, h5.vs-heading{
 }
 
 </style>
-
-<docs>
-  ```jsx
-  <div>
-    <VsHeading>H1 Heading</VsHeading>
-    <VsHeading thin>H1 Heading Thin</VsHeading>
-
-    <hr/>
-
-    <VsHeading level="2">H2 Heading</VsHeading>
-    <VsHeading thin level="2">H2 Heading  Thin</VsHeading>
-
-    <hr/>
-
-    <VsHeading level="2" alternative>H2 Heading</VsHeading>
-
-    <hr/>
-
-    <VsHeading level="3">H3 Heading</VsHeading>
-    <VsHeading thin level="3">H3 Heading Thin</VsHeading>
-
-    <hr/>
-
-    <VsHeading level="4">H4 Heading</VsHeading>
-    <VsHeading thin level="4">H4 Heading Thin</VsHeading>
-
-    <hr/>
-
-    <VsHeading level="5">H5 Heading</VsHeading>
-
-    <hr/>
-
-    <VsHeading level="6">H6 Heading</VsHeading>
-
-    <hr/>
-
-    <VsHeading level="3">
-        H3 Heading With Subtitle
-        <span slot="sub-heading">This Is a Subtitle</span>
-    </VsHeading>
-  </div>
-
-  ```
-</docs>

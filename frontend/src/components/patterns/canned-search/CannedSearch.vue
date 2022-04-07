@@ -120,6 +120,9 @@
                     />
                     <VsCannedSearchSummaryBox
                         slot="vsCannedSearchSummary"
+                        :link-href="prod.website.link"
+                        :link-type="prod.website.type"
+                        :link-label="prod.website.label"
                     >
                         <VsCannedSearchDates
                             v-if="prod.opening && searchType !== 'tour'"
@@ -146,14 +149,6 @@
                             slot="vsCannedSearchSummaryLeft"
                             :cuisines="prod.cuisines"
                         />
-                        <VsLink
-                            v-if="prod.website"
-                            :href="prod.website.link"
-                            :type="prod.website.type.toLowerCase()"
-                            slot="vsCannedSearchSummaryRight"
-                        >
-                            {{ prod.website.label }}
-                        </VsLink>
                     </VsCannedSearchSummaryBox>
                 </VsCannedSearchProductCard>
                 <template slot="vsCarouselOf">
@@ -200,10 +195,9 @@ import VsCannedSearchTourRuns from '@components/patterns/canned-search/component
 import VsCannedSearchTourDeparts from '@components/patterns/canned-search/components/CannedSearchTourDeparts';
 import VsCarousel from '@components/patterns/carousel/Carousel';
 import VsModuleWrapper from '@components/patterns/module-wrapper/ModuleWrapper';
-import VsContainer from '@components/elements/layout/Container';
-import VsRow from '@components/elements/layout/Row';
-import VsCol from '@components/elements/layout/Col';
-import VsLink from '@components/elements/link/Link';
+import {
+    VsContainer, VsRow, VsCol,
+} from '@components/elements/grid';
 
 const axios = require('axios');
 
@@ -236,7 +230,6 @@ export default {
         VsContainer,
         VsRow,
         VsCol,
-        VsLink,
         VsModuleWrapper,
     },
     props: {
@@ -442,7 +435,7 @@ export default {
 
     .vs-canned-search__credit-container {
         text-align: right;
-        font-size: $font-size-sm;
+        font-size: $font-size-2;
     }
 </style>
 

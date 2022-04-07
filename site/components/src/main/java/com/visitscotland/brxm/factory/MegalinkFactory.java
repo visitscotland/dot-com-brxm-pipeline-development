@@ -12,10 +12,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.Locale;
+import java.util.*;
 import java.util.stream.Collectors;
 
 @Component
@@ -206,7 +203,7 @@ public class MegalinkFactory {
     }
 
     private EnhancedLink convertToEnhancedLink(Module<?> module, HippoBean item, Locale locale, boolean addCategory) {
-        EnhancedLink link = null;
+        Optional<EnhancedLink> link;
 
         if (item instanceof Linkable) {
             link = linkService.createEnhancedLink((Linkable) item, module, locale, addCategory);
@@ -222,11 +219,12 @@ public class MegalinkFactory {
             return null;
         }
 
-        if (link == null) {
+        if (!link.isPresent()) {
             contentLogger.warn("The module {} might be linking an unpublished document", item.getPath());
+            return null;
         }
 
-        return link;
+        return link.get();
     }
 
     private void addError(Module<?> module, String message) {

@@ -60,6 +60,10 @@ public class BannerFactory {
         module.setTitle(document.getTitle());
         module.setCopy(document.getCopy());
         FlatLink ctaLink = linkService.createFindOutMoreLink(module, locale, document.getCtaLink());
+        if (ctaLink == null || ctaLink.getLink() == null) {
+            contentLogger.error("Banner module contains no published link. Skipping banner");
+            return null;
+        }
         module.setCtaLink(ctaLink);
         return module;
     }

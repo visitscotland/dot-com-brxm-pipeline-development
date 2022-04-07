@@ -25,8 +25,8 @@ public class TranslationReportRestController {
     }
 
     @GetMapping("/translation/untranslated")
-    public RestListContainer<DocumentTranslationReportModel> untranslatedFiles(@RequestParam String locale) {
-        if (!translationReportService.isLocaleSupported(locale)) {
+    public RestListContainer<DocumentTranslationReportModel> untranslatedFiles(@RequestParam(required = false) String locale) {
+        if (locale != null && !translationReportService.isLocaleSupported(locale)) {
             return new RestListContainer<>(Collections.emptyList());
         }
         return new RestListContainer<>(translationReportService.getUntranslatedDocuments(locale));

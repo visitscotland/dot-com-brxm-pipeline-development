@@ -45,12 +45,13 @@ public class InternalResource extends AbstractResource {
                              @PathParam("fragment") String fragment,
                              @QueryParam("root-path") String rootPath,
                              @QueryParam("sso") String sso,
-                             @QueryParam("vs-locale-ctx") String locale) {
+                             @QueryParam("vs-locale-ctx") String locale,
+                             @QueryParam("version") String version) {
         // It is not possible to difference between a non send parameter and a parameter without value.
         // This is the reason why the parameter is extracted from the request instead of using injection.
         boolean external = request.getParameterMap().containsKey("external");
 
-        String url = buildUrl(external, rootPath, sso, locale);
+        String url = buildUrl(external, rootPath, sso, locale, version);
         try {
             String body = getFragment(utils.requestUrl(url), fragment);
             if (NO_MATCH.equals(body)) {
@@ -70,7 +71,9 @@ public class InternalResource extends AbstractResource {
     private String buildUrl(boolean external,
                             String rootPath,
                             String sso,
-                            String locale) {
+                            String locale,
+                            String version
+    ) {
         Map<String, String> parameters = new HashMap<>();
         String languageSubsite = "";
         if (external) {
@@ -81,6 +84,11 @@ public class InternalResource extends AbstractResource {
         }
         if (sso != null) {
             parameters.put("sso", sso);
+        }
+        if (version == null) {
+            parameters.put("version", properties.getDefaultCssVersion());
+        } else {
+            parameters.put("version", version);
         }
 
         if (locale != null) {

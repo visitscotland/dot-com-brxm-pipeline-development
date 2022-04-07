@@ -1,10 +1,13 @@
 <#ftl output_format="XML">
 <#include "../../include/imports.ftl">
 <#include "../macros/global/cms-errors.ftl">
+<#include "../macros/global/otyml.ftl">
 <#include "../macros/modules/page-intro/social-share.ftl">
 <#include "../macros/modules/page-intro/page-intro.ftl">
 <#include "../macros/modules/signpost/signpost.ftl">
+<#include "../macros/modules/product-search/psr-module.ftl">
 <#include "../macros/shared/module-builder.ftl">
+
 
 <#-- Implicit Request Objects -->
 <#-- @ftlvariable name="document" type="com.visitscotland.brxm.hippobeans.Destination" -->
@@ -18,7 +21,9 @@
 	<@hst.manageContent hippobean=document/>
     <@cmsErrors errors=alerts!"" editMode=editMode />
 
-    <@pageIntro content=document heroDetails=heroImage />
+    <@pageIntro content=document heroDetails=heroImage lightBackground=true/>
+
+    <@productSearchWidget psrWidget "top"/>
 
 	<#list pageItems as item>
         <@moduleBuilder item />
@@ -26,9 +31,7 @@
 
     <@socialShare nojs=true/>
 
-    <#if otyml??>
-        <@horizontalList otyml />
-    </#if>
+    <@otymlModule otyml editMode />
 
     <#if newsletterSignpost??>
 		<@signpost module=newsletterSignpost imgSrc="assets/images/illustrations/newsletter.svg"/>

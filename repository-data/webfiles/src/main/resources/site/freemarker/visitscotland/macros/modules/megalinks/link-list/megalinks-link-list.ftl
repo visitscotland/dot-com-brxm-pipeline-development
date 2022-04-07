@@ -29,6 +29,20 @@
                             link-type="${listItem.type}"
                             theme="${theme}"
                             link-url="${listItem.link}"
+                            <#if listItem.itineraryTransport??>
+                                transport="${listItem.itineraryTransport}"
+                                transport-name="${label('transports', listItem.itineraryTransport)}"
+                            </#if>
+                            <#if listItem.itineraryDays??>
+                                <#if listItem.itineraryDays = 1>
+                                    days-label="${label('itinerary', 'day')}"
+                                <#else>
+                                    days-label="${label('itinerary', 'days')}"
+                                </#if>
+                                days="${listItem.itineraryDays}"
+                            <#else>
+                                days-label="${label('itinerary', 'day')}"
+                            </#if>
                         >
                             <template slot="vsLinkListHeading">
                                 ${listItem.label}

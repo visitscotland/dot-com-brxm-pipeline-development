@@ -9,6 +9,10 @@ const factoryShallowMount = () => shallowMount(VsMegalinkMultiImage, {
         linkType: 'external',
         linkUrl: 'www.visitscotland.com',
         theme: 'dark',
+        days: 3,
+        daysLabel: 'days',
+        transport: 'bus',
+        transportName: 'Bus',
     },
     slots: {
         vsMultiImageHeading: 'Multi-image heading',
@@ -31,6 +35,9 @@ describe('VsMegalinkMultiImage', () => {
         });
         it('renders the correct theme class', () => {
             expect(wrapper.find('[data-test="megalink-multi-image-featured"]').classes()).toContain('vs-megalink-multi-image--dark');
+        });
+        it('renders card panels if days and transport are provided', () => {
+            expect(wrapper.find('[data-test="vs-itinerary-panels"]').exists()).toBe(true);
         });
     });
 

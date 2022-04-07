@@ -79,7 +79,7 @@ export default {
 
     &_item {
         a {
-            padding: 0 $spacer_5;
+            padding: 0 $spacer-5;
             line-height: 35px;
             height: 35px;
             display: inline-block;
@@ -144,7 +144,7 @@ export default {
                 max-height: none;
                 display: block;
                 text-align: center;
-                font-size: $font-size-base;
+                font-size: $font-size-4;
                 padding: $spacer-5;
                 line-height: $line-height-standard;
             }

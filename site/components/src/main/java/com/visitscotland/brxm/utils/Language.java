@@ -32,7 +32,7 @@ public enum Language {
 
     /**
      * Return a list of the allowed locales
-     * @return
+     * @return List of locales
      */
     public static List<Locale> getLocales(){
         return Arrays.stream(values()).map(Language::getLocale).collect(Collectors.toList());

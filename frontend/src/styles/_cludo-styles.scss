@@ -1,0 +1,152 @@
+#cludo-search-results, 
+.cludo-search-results {
+    .cludo-c-3, .cludo-c-9{
+        flex: 0 0 100%;
+        max-width: 100%;
+
+        ul{
+            margin:0; 
+            padding: 0;
+        }
+    }
+
+    .cludo-c-3{
+        margin-bottom: $spacer-6;
+
+        .search-result-count,
+        .search-filters{
+            background: $color-gray-tint-7;
+        }
+
+        .search-result-count{
+            padding: $spacer-7 $spacer-7 0;
+            font-size: $font-size-7;
+
+            b{
+                color: $color-pink;
+            }
+        }
+
+        .search-filters{
+            padding: $spacer-5 $spacer-7 $spacer-5;
+        }
+    
+        ul{
+            .facet-list-item{
+                display: inline-block;
+                margin: 0 $spacer-1 $spacer-2 0;
+    
+                a{
+                    background: $color-white;
+                    padding: $spacer-2 $spacer-3;
+                    display: block;
+                    border-radius: $border-radius-lg;
+                    font-size: $font-size-6;
+                    text-decoration: none;
+                    color: $color-base-text;
+                    transition: all .2s;
+    
+                    &:hover {
+                        background: $color-pink;
+                        color: $color-white;
+                    }
+                }
+    
+                &.active{
+                    a{
+                        background: $color-pink;
+                        color: $color-white;
+                    }
+                }
+            }
+        }
+    }
+
+    .cludo-c-9{
+        ul{
+            .search-results-item{
+                list-style: none;
+                position: relative;
+                padding: $spacer-3 0;
+
+                @include media-breakpoint-up(sm) {
+                    padding: $spacer-6 0;
+                }
+
+                .search-result-card{
+                    display: flex;
+                    flex-direction: row;
+                    height: 100%;
+                    background: transparent;
+                    transition: box-shadow .5s;
+                    padding: $spacer-2;
+
+                    &:after{
+                        content: "";
+                        border-bottom: 1px solid $color-gray-tint-5;
+                        position: absolute;
+                        width: 100%;
+                        bottom: 0;
+                    }
+
+                    &:hover{
+                        box-shadow: $shadow-card;
+                    }
+
+                    .search-result-image{
+                        display: none;
+                        width: 30%;
+                        max-width: 30%;
+                        align-self: flex-start;
+                        margin-right: $spacer-8;
+
+                        @include media-breakpoint-up(sm) {
+                            display: block;
+                        }
+
+                        @include media-breakpoint-up(lg) {
+                            margin-right: $spacer-9;
+                        }
+    
+                        img{
+                            width: 100%;
+                        }
+                    }
+    
+                    .search-result-data{
+                        background: transparent;
+                        padding: 0;
+                        align-self: flex-start;
+                        width: 100%;
+
+                        @include media-breakpoint-up(sm) {
+                            width: 70%;
+                        }
+
+                        p{
+                            margin-bottom: 0;
+                        }
+    
+                        a{
+                            text-decoration: none;
+                            color: $color-base-text;
+    
+                            &:after{
+                                position: absolute;
+                                top: 0;
+                                right: 0;
+                                bottom: 0;
+                                left: 0;
+                                z-index: 1;
+                                pointer-events: auto;
+                                content: "";
+                                background-color: transparent;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+}

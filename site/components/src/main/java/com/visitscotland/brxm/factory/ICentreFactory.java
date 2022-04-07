@@ -3,7 +3,6 @@ package com.visitscotland.brxm.factory;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.visitscotland.brxm.hippobeans.ICentre;
 import com.visitscotland.brxm.hippobeans.Image;
-import com.visitscotland.brxm.model.FlatImage;
 import com.visitscotland.brxm.model.FlatLink;
 import com.visitscotland.brxm.model.ICentreModule;
 import com.visitscotland.brxm.model.LinkType;
@@ -113,7 +112,6 @@ public class ICentreFactory {
         if (!Contract.isEmpty(location)) {
             return getVicList(location, locale);
         } else {
-            //TODO: Create labels
             String url = bundle.getResourceBundle(BUNDLE_ID, "icentre.description.link", locale);
             String text = bundle.getResourceBundle(BUNDLE_ID, "icentre.description.link.text", locale);
 

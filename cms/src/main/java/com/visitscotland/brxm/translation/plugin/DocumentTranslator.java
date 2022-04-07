@@ -23,6 +23,7 @@ import java.util.List;
 public class DocumentTranslator {
     public static final String COULD_NOT_CREATE_FOLDERS = "could-not-create-folders";
     private static final Logger logger = LoggerFactory.getLogger(DocumentTranslator.class);
+    private static final Logger contentLog = LoggerFactory.getLogger("content");
     private HippoTranslatedNodeFactory hippoTranslatedNodeFactory;
     private SessionFactory sessionFactory;
     private JcrDocumentFactory jcrDocumentFactory;
@@ -58,7 +59,7 @@ public class DocumentTranslator {
      * @param targetLocaleList
      * @return
      */
-    public List<ChangeSet> buildChangeSetList(Node sourceDocument, List<ILocaleProvider.HippoLocale> targetLocaleList) throws RepositoryException, ObjectBeanManagerException {
+    public List<ChangeSet> buildChangeSetList(Node sourceDocument, List<ILocaleProvider.HippoLocale> targetLocaleList) throws RepositoryException, ObjectBeanManagerException, TranslationException {
         List<ChangeSet> changeSetList = new ArrayList<>();
         for (ILocaleProvider.HippoLocale targetLocale : targetLocaleList) {
             ChangeSet change = changeSetFactory.createChangeSet(targetLocale);
@@ -110,13 +111,19 @@ public class DocumentTranslator {
     }
 
     protected void addTranslationLinkChangeSets(HippoBean sourceDocument, ILocaleProvider.HippoLocale targetLocale, List<ChangeSet> changeSetList)
-            throws RepositoryException, ObjectBeanManagerException {
+            throws RepositoryException, ObjectBeanManagerException, TranslationException {
         // Get the translatable links from the container,
         // and then check each one to see if it has been translated
         List<Node> translatableChildNodes = getChildTranslatableLinkNodes(sourceDocument.getNode());
         for (Node link : translatableChildNodes) {
             Node linkedNode = sessionFactory.getJcrSession().getNodeByIdentifier(link.getProperty("hippo:docbase").getString());
             JcrDocument linkDocument = jcrDocumentFactory.createFromNode(linkedNode);
+            if (linkDocument.isDeleted()) {
+                // Links can reference deleted documents - these should be fixed immediately
+                contentLog.error("Document {} contains reference to deleted item {}", sourceDocument.getPath(), linkDocument.getHandle().getPath());
+                throw new TranslationException(String.format("Document %s contains link to deleted item", sourceDocument.getPath()));
+            }
+
             if (!linkDocument.hasTranslation(targetLocale)) {
                 // Create a ChangeSet for the linked document, and populate the folders,
                 // this will allow the checking of the ChangeSet path to see if there is already a

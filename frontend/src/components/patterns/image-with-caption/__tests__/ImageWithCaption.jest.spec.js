@@ -21,7 +21,7 @@ const factoryShallowMount = (propsData) => shallowMount(VsImageWithCaption, {
     slots: {
         'toggle-icon': toggleIconSlot,
         'img-caption': captionSlot,
-        'video-alert': alertSlot,
+        'video-no-js-alert': alertSlot,
         'video-title': videoTitleSlot,
         'video-duration': videoDurationSlot,
         default: defaultSlotText,
@@ -121,7 +121,7 @@ describe('VsImageWithCaption', () => {
             expect(captionWrapper.text()).toContain(captionSlot);
         });
 
-        it('renders content in the `video-alert` slot', () => {
+        it('renders content in the `video-no-js-alert` slot', () => {
             const wrapper = factoryShallowMount();
             const videoCaptionStub = wrapper.find('vsvideocaption-stub');
 

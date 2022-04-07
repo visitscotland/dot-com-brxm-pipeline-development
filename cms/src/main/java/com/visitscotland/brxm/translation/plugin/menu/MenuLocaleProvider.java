@@ -1,9 +1,6 @@
 package com.visitscotland.brxm.translation.plugin.menu;
 
-import com.visitscotland.brxm.translation.plugin.ChangeSet;
-import com.visitscotland.brxm.translation.plugin.DocumentTranslator;
-import com.visitscotland.brxm.translation.plugin.TranslationWorkflowPlugin;
-import com.visitscotland.brxm.translation.plugin.UntranslatedLocale;
+import com.visitscotland.brxm.translation.plugin.*;
 import org.apache.wicket.markup.repeater.data.IDataProvider;
 import org.apache.wicket.model.IModel;
 import org.apache.wicket.model.LoadableDetachableModel;
@@ -67,7 +64,7 @@ public class MenuLocaleProvider implements IDataProvider<ILocaleProvider.HippoLo
                 if (!changeSetList.isEmpty()) {
                     availableLocales.add(0, new UntranslatedLocale());
                 }
-            } catch (ObjectBeanManagerException | RepositoryException ex) {
+            } catch (ObjectBeanManagerException | RepositoryException | TranslationException ex) {
                 logger.error("Unable to build change set for document children");
             }
         }

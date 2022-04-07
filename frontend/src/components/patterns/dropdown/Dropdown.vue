@@ -57,7 +57,7 @@ export default {
             content: "";
             border: solid $color-white;
             border-width: 0 1px 1px 0;
-            padding: 0.25rem;
+            padding: $spacer-1;
             transform: rotate(45deg);
         }
     }
