@@ -28,7 +28,7 @@
     "build:frontend:ssr:dev": "yarn --cwd ../frontend/ ssr:build:dev",
     "install:frontend": "yarn --cwd ../frontend/",
     "preinstall": "yarn install:frontend",
-    "prepack": "node build/copyToDist.js"
+    "prepack": "node build/copyToDist.js",
     "preinstall": "yarn install:frontend",
     "third-party": "webpack --config ./build/thirdparty.webpack.conf.js"
   },
