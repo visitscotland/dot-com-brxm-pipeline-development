@@ -2,69 +2,37 @@
 # FONT-SIZE TOKENS
 # Use these tokens to set a font-size.
 #
-aliases:
-    font_size_base: 1rem
 props:
-    - name: font-size-base
-      value: "{!font_size_base}"
-    - name: font-size-xl
-      value: "{!font_size_base} * 2"
-    - name: font-size-lg
-      value: "{!font_size_base} * 1.25"
-    - name: font-size-md
-      value: "{!font_size_base} * 1.125"
-    - name: font-size-sm
-      value: "{!font_size_base} * .75"
-    - name: h1-font-size
-      value: "{!font_size_base} * 1.5"
-    - name: h1-font-size-md
-      value: "{!font_size_base} * 1.875"
-    - name: h2-font-size
-      value: "{!font_size_base} * 1.25"
-    - name: h2-font-size-md
-      value: "{!font_size_base} * 1.5"
-    - name: h3-font-size
-      value: "{!font_size_base} * 1.125"
-    - name: h3-font-size-md
-      value: "{!font_size_base} * 1.25"
-    - name: h4-font-size
-      value: "{!font_size_base} * 1"
-    - name: h4-font-size-md
-      value: "{!font_size_base} * 0.875"
-    - name: h5-font-size
-      value: "{!font_size_base} * 1.25"
-    - name: h5-font-size-md
-      value: "{!font_size_base} * 1.375"
-    - name: h6-font-size
-      value: "{!font_size_base} * 1.125"
-    - name: h6-font-size-md
-      value: "{!font_size_base} * 1.25"
-    - name: h3-sub-font-size
-      value: "{!font_size_base} * 1"
-    - name: h2-sub-font-size
-      value: "{!font_size_base} * 1.5"
-    - name: body-font-size
-      value: "{!font_size_base} * 1"
-    - name: body-font-size-md
-      value: "{!font_size_base} * 1.125"
-    - name: display1-size
-      value: "{!font_size_base} * 1.875"
-    - name: display2-size
-      value: "{!font_size_base} * 1.5"
-    - name: display3-size
-      value: "{!font_size_base} * 1.375"
-    - name: display4-size
-      value: "{!font_size_base} * 1.125"
-    - name: lead-font-size
-      value: "{!font_size_base} * 1.125"
-    - name: lead-font-size-md
-      value: "{!font_size_base} * 1.25"
-    - name: teaser-font-size
-      value: "{!font_size_base} * 1"
-    - name: small-font-size
-      value: "{!font_size_base} * .875"
-    - name: xs-font-size
-      value: "{!font_size_base} * 0.625"
+    - name: font-size-1
+      value: "0.625rem"
+    - name: font-size-2
+      value: "0.75rem" 
+    - name: font-size-3
+      value: "0.875rem"
+    - name: font-size-4
+      value: "1rem"
+    - name: font-size-5
+      value: "1.125rem"
+    - name: font-size-6
+      value: "1.25rem"
+    - name: font-size-7
+      value: "1.375rem"
+    - name: font-size-8
+      value: "1.5rem"
+    - name: font-size-9
+      value: "1.875rem"
+    - name: font-size-10
+      value: "2.5rem"
+    - name: font-size-body
+      value: "1rem"
+    - name: font-size-body-md
+      value: "1.125rem"
+    - name: font-size-lead
+      value: "1.125rem"
+    - name: font-size-lead-md
+      value: "1.25rem"
+    - name: font-size-teaser
+      value: "1rem"
 global:
     type: number
     category: font-size

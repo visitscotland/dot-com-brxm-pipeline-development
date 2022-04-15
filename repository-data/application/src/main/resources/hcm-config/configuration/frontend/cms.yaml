@@ -79,3 +79,7 @@ definitions:
       location.levels: [REGION, DESTINATION, DISTRICT]
       plugin.class: com.visitscotland.brxm.components.DmsLocationListProvider
       valuelist.provider: service.locationlist.image
+    /hippo:configuration/hippo:frontend/cms/cms-folder-views/hippostd:folder/root/filters/showFolderType:
+      display: false
+    /hippo:configuration/hippo:frontend/cms/cms-folder-views/hippostd:folder/root:
+      plugin.class: com.visitscotland.brxm.menu.UnsortableFolderViewPlugin

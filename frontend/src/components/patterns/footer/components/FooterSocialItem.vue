@@ -71,7 +71,7 @@ export default {
             background: $color-gray-shade-1;
             box-shadow: 0 0 0 2px $color-gray-shade-1;
             border: 1px solid $color-gray-shade-1;
-            border-radius: 0.5rem;
+            border-radius: $border-radius-xl;
             display: block;
             height: 42px;
             width: 42px;

@@ -1,7 +1,7 @@
 <template>
     <div>
         <div
-            v-for="(category, categoryKey) in tokenGroups"
+            v-for="(category, categoryKey) in filterGroups(filterCategory)"
             :key="categoryKey"
             class="color-category"
             :class="['color-category-' + category.name]"
@@ -102,6 +102,12 @@ import designTokens from "@/assets/tokens/tokens.raw.json"
 
 export default {
     name: "Color",
+    props: {
+        filterCategory: {
+            type: String,
+            default: null,
+        },
+    },
     data() {
         const groups = []
         const colours = filter(designTokens.props, ["type", "color"])
@@ -180,6 +186,13 @@ export default {
         removeSubgroup() {
             this.currentSubgroup = ""
             this.subgroup = []
+        },
+        filterGroups(term) {
+            if (!term) {
+                return this.tokenGroups;
+            }
+
+            return filter(this.tokenGroups, ['name', term]);
         },
     },
 }

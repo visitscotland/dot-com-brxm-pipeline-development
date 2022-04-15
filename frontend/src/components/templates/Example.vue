@@ -61,7 +61,7 @@
 <script>
 import {
     VsContainer, VsRow, VsCol,
-} from '../elements/layout';
+} from '../elements/grid';
 import VsHeading from '../elements/heading/Heading';
 import VsArticle from '../patterns/article/Article';
 

@@ -177,7 +177,7 @@ export default {
     .btn.vs-accordion-toggle {
         text-align: left;
         font-weight: $font-weight-bold;
-        font-size: $font-size-lg;
+        font-size: $font-size-6;
         letter-spacing: normal;
         padding: $spacer-3;
 
@@ -189,7 +189,7 @@ export default {
     .vs-accordion-item__title {
         line-height: $line-height-lead;
         font-weight: $font-weight-bold;
-        font-size: $font-size-lg;
+        font-size: $font-size-6;
         letter-spacing: normal;
         padding: $spacer-3;
         margin-bottom: 0;

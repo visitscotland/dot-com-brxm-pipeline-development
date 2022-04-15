@@ -53,7 +53,7 @@ export default {
 <style lang="scss">
     h4.vs-canned-search-sub-heading {
         font-family: $font-family-base;
-        font-size: $font-size-base;
+        font-size: $font-size-4;
         color: $color-secondary-teal-shade-2;
         letter-spacing: normal;
         margin: $spacer-0;

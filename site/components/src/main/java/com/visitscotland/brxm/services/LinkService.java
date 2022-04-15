@@ -528,17 +528,15 @@ public class LinkService {
 
 
     public String getDownloadText(String link, Locale locale, Module<?> module) {
-        String downloadLabel = bundle.getResourceBundle("essentials.global", "label.download", locale);
-        //TODO: The following operation is expensive. We should cache the value
         String size = commonUtils.getExternalDocumentSize(link, locale);
         if (size == null) {
             if (module != null) {
                 module.addErrorMessage("The Link to the External document might be broken");
             }
             contentLogger.warn("The external document {} might be broken.", link);
-            return " (" + downloadLabel + ")";
+            return "";
         } else {
-            return " (" + downloadLabel + " " + size + ")";
+            return " | " + size;
         }
     }
 

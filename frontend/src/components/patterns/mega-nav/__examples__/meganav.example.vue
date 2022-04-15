@@ -2,6 +2,7 @@
     <VsMegaNav
         href="/"
         menu-toggle-alt-text="Toggle Menu"
+        search-button-text="Search"
     >
         <template #megaNavTopMenuItems>
             <VsMegaNavTopMenuItem

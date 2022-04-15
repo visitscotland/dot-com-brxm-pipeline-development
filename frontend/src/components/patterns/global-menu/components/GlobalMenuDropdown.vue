@@ -93,7 +93,7 @@ export default {
 
     .btn-primary.dropdown-toggle {
         padding: 0.3rem $spacer-3;
-        font-size: $font-size-sm;
+        font-size: $font-size-2;
         align-items: center;
 
         &:not(:disabled):not(.disabled):active {
@@ -142,7 +142,7 @@ export default {
                 padding: $spacer-3;
                 color: $color-white;
                 text-decoration: none;
-                font-size: $font-size-sm;
+                font-size: $font-size-2;
                 line-height: $line-height-s;
 
                 &:hover, &:focus {

@@ -73,12 +73,12 @@ export default {
 
 <style lang="scss">
 .vs-favourites-list__link {
-    font-size: 1.5rem;
+    font-size: $font-size-8;
 }
 
 .vs-favourites-list__header {
     color: $color-gray-shade-2;
-    font-size: 2rem;
+    font-size: $font-size-9;
     font-weight: $font-weight-light;
     letter-spacing: $letter-spacing-l;
 }

@@ -7,10 +7,10 @@
  */
 
 body {
-    font-size: $body-font-size;
+    font-size: $font-size-body;
 
     @include media-breakpoint-up(md) {
-        font-size: $body-font-size-md;
+        font-size: $font-size-body-md;
     }
 }
 

@@ -3,6 +3,7 @@ package com.visitscotland.brxm.services;
 import com.visitscotland.utils.Contract;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Component;
 
 import java.io.BufferedReader;
@@ -96,6 +97,7 @@ public class CommonUtilsService {
      * Calculates the Size of the External document if the document
      *
      */
+    @Cacheable (value="externalDocument")
     public String getExternalDocumentSize(String link, Locale locale) {
         DecimalFormatSymbols dfs = new DecimalFormatSymbols(locale);
         DecimalFormat decimalFormat = new DecimalFormat("#.#", dfs);
@@ -104,6 +106,7 @@ public class CommonUtilsService {
             String type = con.getContentType();
             if (type.contains("pdf")) {
                 double bytes = con.getContentLength();
+
                 return "PDF " + decimalFormat.format(bytes / 1024 / 1024) + "MB";
             }
         } catch (IOException e) {

@@ -119,7 +119,7 @@ export default {
 .vs-itinerary-map-marker__count {
     color: $color-white;
     display: block;
-    font-size: 1rem;
+    font-size: $font-size-4;
     font-family: $headings-font-family;
     position: absolute;
     top: 4px;

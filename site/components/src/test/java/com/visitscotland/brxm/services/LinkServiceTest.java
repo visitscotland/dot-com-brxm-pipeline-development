@@ -425,11 +425,10 @@ class LinkServiceTest {
         final String category= "see-do";
         SharedLink externalDocument = new SharedLinkMockBuilder().externalDocument("title",url,category).build();
 
-        when (resourceBundle.getResourceBundle("essentials.global", "label.download", Locale.UK )).thenReturn("DOWNLOAD");
         when(commonUtils.getExternalDocumentSize(any(), any())).thenReturn("PDF 15.5MB");
         EnhancedLink enhancedLink = service.createEnhancedLink(externalDocument,null, Locale.UK, true).get();
 
-        assertEquals("title (DOWNLOAD PDF 15.5MB)", enhancedLink.getLabel());
+        assertEquals("title | PDF 15.5MB", enhancedLink.getLabel());
         assertEquals(com.visitscotland.brxm.model.LinkType.DOWNLOAD, enhancedLink.getType());
         assertEquals(category, enhancedLink.getCategory());
     }
@@ -440,12 +439,11 @@ class LinkServiceTest {
         final String url = "https://www.visitscotland.com/ebrochures/en/what-to-see-and-do/perthshireanddundee.pdf";
         final Module<?> module = new Module<>();
 
-        when (resourceBundle.getResourceBundle("essentials.global", "label.download", Locale.UK )).thenReturn("DOWNLOAD");
         EnhancedLink enhancedLink = service.createEnhancedLink(
                 new SharedLinkMockBuilder().externalDocument("title",url,"see-do").build(), module,
                 Locale.UK, true).get();
 
-        assertEquals("title (DOWNLOAD)", enhancedLink.getLabel());
+        assertEquals("title", enhancedLink.getLabel());
         assertTrue(module.getErrorMessages().contains("The Link to the External document might be broken"));
     }
 
@@ -468,11 +466,10 @@ class LinkServiceTest {
         final String url= "https://www.visitscotland.com/ebrochures/en/what-to-see-and-do/perthshireanddundee.pdf";
         SharedLink externalDocument = new SharedLinkMockBuilder().externalDocument("title",url,  null).build();
 
-        when(resourceBundle.getResourceBundle("essentials.global", "label.download", Locale.UK)).thenReturn("DOWNLOAD");
         when(commonUtils.getExternalDocumentSize(any(), any())).thenReturn("PDF 15.5MB");
         EnhancedLink enhancedLink = service.createEnhancedLink(externalDocument, null, Locale.UK, false).get();
 
-        assertEquals("title (DOWNLOAD PDF 15.5MB)", enhancedLink.getLabel());
+        assertEquals("title | PDF 15.5MB", enhancedLink.getLabel());
         assertEquals(com.visitscotland.brxm.model.LinkType.DOWNLOAD, enhancedLink.getType());
         Mockito.verify((ExternalDocument)externalDocument.getLinkType(),Mockito.never()).getCategory();
     }
@@ -528,11 +525,10 @@ class LinkServiceTest {
     @DisplayName("getDownloadText returns the label with the size")
     void getDownloadText() {
 
-        when (resourceBundle.getResourceBundle("essentials.global", "label.download", Locale.CANADA )).thenReturn("DOWNLOAD");
         when(commonUtils.getExternalDocumentSize(any(), any())).thenReturn("PDF 15.5MB");
         when(utils.getRequestLocale()).thenReturn(Locale.CANADA);
 
-        assertEquals(" (DOWNLOAD PDF 15.5MB)", service.getDownloadText("http://www.visitscotlan.com/pdf"));
+        assertEquals(" | PDF 15.5MB", service.getDownloadText("http://www.visitscotlan.com/pdf"));
     }
 
     @Test

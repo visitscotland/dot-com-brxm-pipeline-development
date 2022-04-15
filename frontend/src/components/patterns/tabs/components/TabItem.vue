@@ -56,11 +56,11 @@ export default {
             font-weight: $font-weight-bold;
             border-color: $color-secondary-gray-tint-6 $color-secondary-gray-tint-6 $color-white;
             padding: $spacer-3;
-            font-size: $font-size-lg;
+            font-size: $font-size-6;
 
             @include media-breakpoint-up(sm) {
                 padding: $spacer-5;
-                font-size: $display3-size;
+                font-size: $font-size-7;
             }
 
             &:focus-visible{
@@ -111,7 +111,7 @@ export default {
                 padding: $spacer-7 $spacer-5;
                 font-family: $font-family-sans-serif;
                 color: $color-base-text;
-                font-size: $display3-size;
+                font-size: $font-size-7;
                 font-weight: $font-weight-bold;
                 text-align: center;
                 letter-spacing: normal;

@@ -27,9 +27,7 @@ import {
 import svgContext from '@/utils/svg-context';
 
 /**
- * SVGs are used to display vector images
- *
- * The display name being set to just "SVG" throws a console error
+ * The SVG wrapper is used to display vector images.
  *
  * @displayName SVG Wrapper
  */
@@ -39,28 +37,28 @@ export default {
     status: 'prototype',
     props: {
         /**
-         * The path of the svg to display, relative to /src/assets
+         * The path of the SVG to display, relative to /src/assets
          */
         path: {
             type: String,
             required: true,
         },
         /**
-     * The fill color of the SVG.
+     * The fill color of the SVG
      */
         fill: {
             type: String,
             default: '',
         },
         /**
-     * The height attributeof the svg
+     * The height attribute of the SVG
      */
         height: {
             type: [Number, String],
             default: '',
         },
         /**
-     * The width attributeof the svg
+     * The width attribute of the SVG
      */
         width: {
             type: [Number, String],
@@ -127,30 +125,3 @@ export default {
     },
 };
 </script>
-
-<style lang="scss"></style>
-
-<docs>
-  ```jsx
-  <div>
-    <pre>&lt;vs-svg path="svg/visitscotland" /&gt; </pre>
-    <VsSvg path="visitscotland" />
-
-    <br /><hr /><br />
-
-    <pre>height="50"</pre>
-    <VsSvg path="visitscotland" height="50" />
-
-    <br /><hr /><br />
-
-    <pre>width="110"</pre>
-    <VsSvg path="visitscotland" width="110" />
-
-    <br /><hr /><br />
-
-    <pre>fill="red"</pre>
-    <VsSvg path="visitscotland" fill="red" />
-
-  </div>
-  ```
-</docs>

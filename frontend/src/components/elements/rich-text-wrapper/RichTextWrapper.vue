@@ -8,14 +8,15 @@
             },
         ]"
     >
+        <!-- @slot Default slot for rich text content -->
         <slot />
     </div>
 </template>
 
 <script>
 /**
-  * Text Wrapper is used to wrap and render HTML or text strings from
-  * WYSIWYG editors or others and apply styles when needed.
+ * The rich text wrapper renders HTML or text
+ * content from WYSIWYG editors.
  *
  * @displayName Rich Text Wrapper
  */
@@ -26,7 +27,7 @@ export default {
     props: {
         /**
          * The font size used by the wrapper
-         * `normal | lead`
+         * `normal|lead`
          */
         variant: {
             type: String,
@@ -41,55 +42,21 @@ export default {
 .vs-rich-text-wrapper {
     &--variant-normal{
         font-family: $font-family-base;
-        font-size: $body-font-size;
+        font-size: $font-size-body;
 
         @include media-breakpoint-up(md) {
-            font-size: $body-font-size-md;
+            font-size: $font-size-body-md;
         }
     }
 
     &--variant-lead {
         line-height: $line-height-lead;
-        font-size: $lead-font-size;
+        font-size: $font-size-lead;
 
         @include media-breakpoint-up(md) {
-            font-size: $lead-font-size-md;
+            font-size: $font-size-lead-md;
         }
     }
 }
 
 </style>
-
-<docs>
-```jsx
-    <BsWrapper class="mb-9">
-        <h3>Normal Variant</h3>
-        <VsRichTextWrapper>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis
-             <VsLink href="#foo">eget</VsLink> ante urna.<br/> Pellentesque aliquam faucibus
-             enim fermentum fringilla. Vivamus ultrices dictum justo ac porta.
-            Quisque mattis <b>tortor</b> dapibus tellus aliquet, finibus lacinia felis pulvinar.</p>
-        </VsRichTextWrapper>
-    </BsWrapper>
-
-    <BsWrapper class="mb-4">
-        <h3>Lead Variant</h3>
-        <VsRichTextWrapper variant="lead">
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis
-             <VsLink href="#foo">eget</VsLink> ante urna.<br/> Pellentesque aliquam faucibus
-              enim fermentum fringilla. Vivamus ultrices dictum justo ac porta.
-            Quisque mattis <b>tortor</b> dapibus tellus aliquet, finibus lacinia felis pulvinar.</p>
-        </VsRichTextWrapper>
-    </BsWrapper>
-
-    <VsRichTextWrapper>
-        <VsHeading level="3">
-            How do I climb Ben Nevis safely?
-        </VsHeading>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis
-            <VsLink href="#foo">eget</VsLink> ante urna.<br/> Pellentesque aliquam faucibus
-            enim fermentum fringilla. Vivamus ultrices dictum justo ac porta.
-        Quisque mattis <b>tortor</b> dapibus tellus aliquet, finibus lacinia felis pulvinar.
-    </VsRichTextWrapper>
-```
-</docs>

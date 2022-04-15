@@ -1,17 +1,5 @@
 @import './docs.tokens.scss';
 
-*[class*='rsg--preview'] {
-    .style-cols {
-        .col,
-        *[class*='col-'] {
-            background: #ccc;
-            border: 1px solid white;
-            padding: 1rem 2rem;
-            text-align: center;
-        }
-    }
-}
-
 .vds-example {
     position: relative;
     margin-bottom: $space-l;
@@ -99,6 +87,49 @@
         border-radius: 0;
         display: block;
         width: 100%;
+
+        
+        // Component Preview Styles
+
+        //Icon
+        .vs-icon-preview{
+            text-align: center;
+
+            @media (min-width: $docs-breakpoint-sm) {
+                display: flex;
+            }
+
+            &__column{
+                align-items: center;
+                margin: 0 $space-m $space-m 0;
+
+                h4{
+                    margin-bottom: $space-xx-small;
+                }
+
+                p{
+                    font-size: $size-s;
+                }
+
+                @media (min-width: $docs-breakpoint-sm) {
+                    display: flex;
+                    flex-direction: column;
+                }
+            }
+        }
+
+        // Layout
+        .style-cols {
+            .col > p,
+            *[class*='col-'] > p {
+                background: $docs-color-light-blue;
+                border: 1px solid white;
+                padding: $space-m $space-xl/2;
+                text-align: center;
+                margin-bottom: $space-m;
+            }
+        }
+
     }
 
     article[class^='rsg--root']{
@@ -179,7 +210,7 @@
                 font-weight: $weight-semi-bold;
                 text-transform: none;
                 letter-spacing: -0.5px;
-                margin: $space-base 0;
+                margin: $space-xl / 2 0 20px;
                 color: $docs-color-heading;
                 cursor: auto;
 
@@ -225,6 +256,14 @@
                         p[class^=rsg--para]{
                             font-weight: $weight-normal;
                             font-size: $size-m;
+                        }
+                        
+                        // style event arguments in the table
+                        div[class^='rsg--headingWrapper'] ~ span:nth-of-type(3n+4){
+                            &:before{
+                                content: "\A";
+                                white-space: pre;
+                            }
                         }
                     }
                 }

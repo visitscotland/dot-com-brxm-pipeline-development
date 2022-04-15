@@ -1,0 +1,18 @@
+@import './docs.tokens.scss';
+
+// Specific style overrides for demos so they don't appear broken
+// in component pages within design system
+
+.section-components {
+    .vds-example {        
+        div[class^='rsg--preview']{
+
+            // Site search
+            .vs-site-search-form{
+                position: relative;
+            }
+
+            
+        }
+    }
+}

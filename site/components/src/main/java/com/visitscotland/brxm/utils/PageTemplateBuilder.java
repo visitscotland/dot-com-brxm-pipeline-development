@@ -28,6 +28,8 @@ public class PageTemplateBuilder {
     //Static Constant
     static final String INTRO_THEME = "introTheme";
     static final String PAGE_ITEMS = "pageItems";
+    static final String SEARCH_RESULTS = "searchResultsPage";
+
 
     static final String[] alignment = {"right", "left"};
 
@@ -50,6 +52,7 @@ public class PageTemplateBuilder {
     private final TravelInformationFactory travelInformationFactory;
     private final CannedSearchFactory cannedSearchFactory;
     private final PreviewModeFactory previewFactory;
+
 
     @Autowired
     public PageTemplateBuilder(DocumentUtilsService documentUtils, MegalinkFactory linksFactory, ICentreFactory iCentre,
@@ -110,6 +113,10 @@ public class PageTemplateBuilder {
         }
 
         setIntroTheme(request, page.modules);
+        //TODO try to move this to GeneralContentComponent
+        if (getDocument(request).getPath().contains("/site-search-results")){
+            request.setAttribute(SEARCH_RESULTS, true);
+        }
 
         request.setAttribute(PAGE_ITEMS, page.modules);
     }
@@ -180,8 +187,8 @@ public class PageTemplateBuilder {
 
     /**
      * Sets the theme for the intro of the page based on the list of modules.
-     * @param request
-     * @param modules
+     * @param request HstRequest request
+     * @param modules List Modules
      */
     private void setIntroTheme(HstRequest request, List<Module<?>> modules){
         if(!modules.isEmpty() && modules.get(0) instanceof LinksModule){

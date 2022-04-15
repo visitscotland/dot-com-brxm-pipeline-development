@@ -55,7 +55,7 @@
 <script>
 import {
     VsCol, VsRow, VsContainer,
-} from '@components/elements/layout';
+} from '@components/elements/grid';
 import VsRichTextWrapper from '@components/elements/rich-text-wrapper/RichTextWrapper';
 import VsHeading from '@components/elements/heading/Heading';
 

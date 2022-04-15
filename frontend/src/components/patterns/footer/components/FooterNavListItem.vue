@@ -61,7 +61,7 @@ export default {
 <style lang="scss">
 .vs-footer-nav-list-item {
     list-style: none;
-    font-size: $small-font-size;
+    font-size: $font-size-3;
     line-height: $line-height-s;
     padding: $spacer-3 $spacer-8;
 

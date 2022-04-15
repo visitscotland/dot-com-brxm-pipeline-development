@@ -1,7 +1,7 @@
+import VsSiteSearchForm from './components/SiteSearchForm';
 import VsSiteSearch from './SiteSearch';
-import VsSiteSearchToggleButton from './components/SiteSearchToggleButton';
 
 export default {
+    VsSiteSearchForm,
     VsSiteSearch,
-    VsSiteSearchToggleButton,
 };

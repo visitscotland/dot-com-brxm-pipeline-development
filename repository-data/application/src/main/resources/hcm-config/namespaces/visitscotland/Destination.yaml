@@ -11,7 +11,7 @@ definitions:
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:uuid: 6f8b2a33-769f-43a4-9953-21795ef5527a
+          jcr:uuid: 13e48a53-62c6-4ad7-b92a-ff14d42fa3ac
           hipposysedit:node: true
           hipposysedit:supertype: ['visitscotland:Page', 'hippostd:relaxed', 'hippotranslation:translated']
           hipposysedit:uri: http://www.visitscotland.com/visitscotland/nt/1.0
@@ -42,7 +42,7 @@ definitions:
           visitscotland:seoDescription: ''
           visitscotland:teaser: ''
           visitscotland:seoTitle: ''
-          jcr:uuid: 0de273e3-b4d8-412a-a574-d48032565fbd
+          jcr:uuid: 0ba457aa-f658-4476-bf99-420036e74731
           hippostdpubwf:lastModificationDate: 2020-05-15T09:26:41.741+01:00
           hippostdpubwf:creationDate: 2020-05-15T09:26:41.742+01:00
           visitscotland:translation: ''
@@ -174,10 +174,10 @@ definitions:
             hint: Max length suggestion is 500.
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-              ckeditor.config.overlayed.json: '{toolbarGroups: [{ name: ''links''
-                },{name:''insert''},{name:''clipboard''},{name:''tools''},{name:''undo''}]
+              ckeditor.config.overlayed.json: '{disallowedContent: ''p[align]'', toolbarGroups:
+                [{ name: ''links'' },{name:''insert''},{name:''clipboard''},{name:''tools''},{name:''undo''}]
                 , removeButtons: ''PickImage,Youtube,Table''}'
-              ckeditor.config.appended.json: "{   extraPlugins: 'wordcount',   wordcount:\
+              ckeditor.config.appended.json: "{extraPlugins: 'wordcount',   wordcount:\
                 \ { \tcountSpacesAsChars: true,     showCharCount: true ,maxCharCount:750\
                 \   }  }"
           /otherThings:

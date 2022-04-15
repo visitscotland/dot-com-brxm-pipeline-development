@@ -195,7 +195,7 @@ export default {
         }
 
         .vs-megalink-multi-image__title {
-            font-size: $font-size-sm;
+            font-size: $font-size-2;
             line-height: $line-height-s;
             letter-spacing: $letter-spacing-xl;
         }
@@ -237,7 +237,7 @@ export default {
             margin-bottom: $spacer-11;
 
             .vs-megalink-multi-image__title {
-                font-size: $small-font-size;
+                font-size: $font-size-3;
                 line-height: $line-height-s;
             }
 
@@ -252,7 +252,7 @@ export default {
             justify-content: flex-start;
 
             .vs-megalink-multi-image__title {
-                font-size: $h3-font-size;
+                font-size: $font-size-5;
                 letter-spacing: $letter-spacing-xxl;
             }
 
@@ -266,7 +266,7 @@ export default {
             }
 
             .megalink-multi-image__content {
-                font-size: $font-size-md;
+                font-size: $font-size-5;
                 margin-top: $spacer-8;
                 line-height: $line-height-m;
             }
@@ -278,6 +278,11 @@ export default {
 
             &.vs-megalink-multi-image--featured-last {
                 flex-direction: row-reverse;
+
+                .vs-stretched-link-panels {
+                    left: calc(50% + 20px);
+                    right: auto;
+                }
             }
 
             .vs-stretched-link-panels {
@@ -407,6 +412,10 @@ export default {
                         imgAlt="This is the alt text"
                         linkType="internal"
                         linkUrl="www.visitscotland.com"
+                        days="6"
+                        daysLabel="days"
+                        transport="bus"
+                        transportName="bus"
                     >
                         <template slot="vsMultiImageHeading">
                             The Edinburgh International Festival and summer festival</template>

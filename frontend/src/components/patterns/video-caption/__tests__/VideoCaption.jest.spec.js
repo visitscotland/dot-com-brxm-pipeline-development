@@ -12,7 +12,7 @@ const factoryShallowMount = (propsData) => shallowMount(VsVideoCaption, {
     slots: {
         'video-title': videoTitleSlot,
         'video-duration': videoDurationSlot,
-        'video-alert': alertMsgSlot,
+        'video-no-js-alert': alertMsgSlot,
     },
     propsData: {
         videoBtnText: buttonText,

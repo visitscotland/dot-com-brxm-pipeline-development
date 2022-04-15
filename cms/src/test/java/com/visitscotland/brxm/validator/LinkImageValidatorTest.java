@@ -1,15 +1,10 @@
 package com.visitscotland.brxm.validator;
 
-import com.visitscotland.brxm.hippobeans.*;
 import com.visitscotland.brxm.translation.MockNodeBuilder;
-import com.visitscotland.brxm.translation.SessionFactory;
-import jdk.nashorn.internal.runtime.regexp.joni.constants.NodeType;
-import org.junit.Ignore;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
-import org.mockito.Answers;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
@@ -42,7 +37,7 @@ class LinkImageValidatorTest {
         LinkImageValidator validator = new LinkImageValidator();
         Node image = new MockNodeBuilder().withPrimaryNodeType(NT_MIRROR).withProperty(HIPPO_DOCBASE, LinkImageValidator.EMPTY_IMAGE).build();
         Node document = new MockNodeBuilder()
-                .withChildNode(LinkImageValidator.PRODUCT, Mockito.mock(Node.class))
+                .withChildNode(LinkImageValidator.LISTICLE_PRODUCT, Mockito.mock(Node.class))
                 .withChildNode("visitscotland:image", image).build();
 
         assertTrue(validator.validate(context, document).isPresent());
@@ -54,7 +49,7 @@ class LinkImageValidatorTest {
         LinkImageValidator validator = new LinkImageValidator();
         Node image = new MockNodeBuilder().withPrimaryNodeType(NT_MIRROR).withProperty(HIPPO_DOCBASE, "node-id-for-image").build();
         Node document = new MockNodeBuilder()
-                .withChildNode(LinkImageValidator.PRODUCT, Mockito.mock(Node.class))
+                .withChildNode(LinkImageValidator.LISTICLE_PRODUCT, Mockito.mock(Node.class))
                 .withChildNode("visitscotland:image", image).build();
 
         assertFalse(validator.validate(context, document).isPresent());
@@ -66,7 +61,7 @@ class LinkImageValidatorTest {
         LinkImageValidator validator = new LinkImageValidator();
         Node image = new MockNodeBuilder().withPrimaryNodeType(NT_MIRROR).withProperty(HIPPO_DOCBASE, LinkImageValidator.EMPTY_IMAGE).build();
         Node document = new MockNodeBuilder()
-                .withChildNode(LinkImageValidator.PRODUCTS, Mockito.mock(Node.class))
+                .withChildNode(LinkImageValidator.STOP_PRODUCT, Mockito.mock(Node.class))
                 .withChildNode("visitscotland:image", image).build();
 
         assertTrue(validator.validate(context, document).isPresent());
@@ -78,7 +73,7 @@ class LinkImageValidatorTest {
         LinkImageValidator validator = new LinkImageValidator();
         Node image = new MockNodeBuilder().withPrimaryNodeType(NT_MIRROR).withProperty(HIPPO_DOCBASE, "node-id-for-image").build();
         Node document = new MockNodeBuilder()
-                .withChildNode(LinkImageValidator.PRODUCTS, Mockito.mock(Node.class))
+                .withChildNode(LinkImageValidator.STOP_PRODUCT, Mockito.mock(Node.class))
                 .withChildNode("visitscotland:image", image).build();
 
         assertFalse(validator.validate(context, document).isPresent());
@@ -89,7 +84,7 @@ class LinkImageValidatorTest {
     void listicleNoDms_noContentblockImagesProvided() throws RepositoryException {
         LinkImageValidator validator = new LinkImageValidator();
         Node document = new MockNodeBuilder()
-                .withChildNode(LinkImageValidator.PRODUCT, new MockNodeBuilder().build())
+                .withChildNode(LinkImageValidator.LISTICLE_PRODUCT, new MockNodeBuilder().build())
                 .build();
 
         assertTrue(validator.validate(context, document).isPresent());
@@ -102,7 +97,7 @@ class LinkImageValidatorTest {
         LinkImageValidator validator = new LinkImageValidator();
         Node product = new MockNodeBuilder().withPrimaryNodeType("visitscotland:CMSLink").build();
         Node document = new MockNodeBuilder()
-                .withChildNode(LinkImageValidator.PRODUCT, product).build();
+                .withChildNode(LinkImageValidator.LISTICLE_PRODUCT, product).build();
 
         assertFalse(validator.validate(context, document).isPresent());
   }
@@ -114,7 +109,7 @@ class LinkImageValidatorTest {
         Node media = new MockNodeBuilder().withPrimaryNodeType("visitscotland:InstagramImage").build();
         Node compound = new MockNodeBuilder().withPrimaryNodeType("visitscotland:CMSLink").build();
         Node document = new MockNodeBuilder()
-                .withChildNode(LinkImageValidator.PRODUCT, compound)
+                .withChildNode(LinkImageValidator.LISTICLE_PRODUCT, compound)
                 .withChildNode("visitscotland:image", media).build();
 
         assertFalse(validator.validate(context, document).isPresent());
@@ -127,7 +122,7 @@ class LinkImageValidatorTest {
         LinkImageValidator validator = new LinkImageValidator();
         Node media = new MockNodeBuilder().withPrimaryNodeType("visitscotland:VideoLink").build();
         Node document = new MockNodeBuilder()
-                .withChildNode(LinkImageValidator.PRODUCT, new MockNodeBuilder().build())
+                .withChildNode(LinkImageValidator.LISTICLE_PRODUCT, new MockNodeBuilder().build())
                 .withChildNode("visitscotland:image", media).build();
 
         assertFalse(validator.validate(context, document).isPresent());

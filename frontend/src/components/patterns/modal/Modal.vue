@@ -46,7 +46,7 @@
 <script>
 import {
     VsCol, VsRow, VsContainer,
-} from '@components/elements/layout';
+} from '@components/elements/grid';
 import { BModal } from 'bootstrap-vue';
 import VsButton from '@components/elements/button';
 import VsIcon from '@components/elements/icon';
@@ -155,7 +155,7 @@ export default {
         letter-spacing: initial;
         text-decoration: underline;
         font-weight: $font-weight-normal;
-        font-size: $small-font-size;
+        font-size: $font-size-3;
         line-height: $line_height_l;
         color: $color-white;
 

@@ -2,3 +2,8 @@ definitions:
   config:
     /hst:hst/hst:configurations/hst:default/hst:sitemap/webfiles:
       hst:responseheaders: ['Access-Control-Allow-Origin: http://localhost:8082']
+      /static:
+        jcr:primaryType: hst:sitemapitem
+        /_any_:
+          jcr:primaryType: hst:sitemapitem
+          hst:relativecontentpath: static/${1}

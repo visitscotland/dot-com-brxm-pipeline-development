@@ -6457,6 +6457,22 @@
           visitscotland:toursSearch: https://www.visitscotland.com/info/tours/search-results?prodtypes=tour&origins%5B%5D=glasgow&source=tms
           visitscotland:translation: ''
           visitscotland:viewAll: ''
+    /product-search-module:
+      jcr:primaryType: hippostd:folder
+      jcr:mixinTypes: ['hippo:named', 'hippotranslation:translated', 'mix:versionable']
+      jcr:uuid: 1b15a6cc-b850-4e41-bc06-a72f0eb71336
+      hippo:name: Product Search Module
+      hippostd:foldertype: [new-translated-folder-test, new-document]
+      hippotranslation:id: 2c699b11-4baf-4277-b87e-9cbc3d4a9d67
+      hippotranslation:locale: en
+      /by-page-type:
+        jcr:primaryType: hippostd:folder
+        jcr:mixinTypes: ['hippo:named', 'hippotranslation:translated', 'mix:versionable']
+        jcr:uuid: bbd20764-856b-4871-b889-e5611c03834e
+        hippo:name: By page type
+        hippostd:foldertype: [new-translated-folder-test, new-document]
+        hippotranslation:id: 0b169280-1ccf-4bf1-b0a0-ce9f52d96fab
+        hippotranslation:locale: en
   /pages:
     jcr:primaryType: hippostd:folder
     jcr:mixinTypes: ['hippo:named', 'hippotranslation:translated', 'mix:versionable']

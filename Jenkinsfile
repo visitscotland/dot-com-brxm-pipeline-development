@@ -191,6 +191,8 @@ pipeline {
         anyOf {
           // Always build the feature environment for 'develop' builds
           branch 'develop'
+          // Build an environment for release branches so SSR artefact gets created
+          branch 'release/*'
 
           // Always build the feature environment for pull requests
           changeRequest()

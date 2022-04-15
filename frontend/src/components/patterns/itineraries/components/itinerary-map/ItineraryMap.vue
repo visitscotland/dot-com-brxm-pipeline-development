@@ -273,7 +273,7 @@ export default {
 @import "https://labs.os.uk/public/os-api-branding/v0.2.0/os-api-branding.css";
 
 .os-api-branding.logo {
-    margin: 0.5rem;
+    margin: $spacer-2;
 }
 
 .vs-itinerary-map {
@@ -286,24 +286,24 @@ export default {
 
     .mapboxgl-popup-content {
         display: flex;
-        padding: 0.5rem;
+        padding: $spacer-2;
     }
 
     .vs-itinerary-map__popup-stop-number {
         font-family: $font-family-base;
-        font-size: $font-size-base;
+        font-size: $font-size-4;
         font-weight: $font-weight-bold;
     }
 
     .vs-itinerary-map__popup-stop-name {
         font-family: $font-family-base;
-        font-size: $font-size-base;
+        font-size: $font-size-4;
         font-weight: $font-weight-normal;
     }
 
     .vs-itinerary-map__popup-image {
         width: 105px;
-        margin-right: 1rem;
+        margin-right: $spacer-4;
     }
 }
 </style>

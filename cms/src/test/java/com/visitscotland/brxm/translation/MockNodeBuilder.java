@@ -176,10 +176,9 @@ public final class MockNodeBuilder {
         }
 
         for (Map.Entry<String, List<Node>> childNodeEntry : childNodes.entrySet()) {
-            final NodeIterator mockNodeIterator = createNodeIterator(childNodeEntry.getValue());
             when(mockNode.hasNode(eq(childNodeEntry.getKey()))).thenReturn(true);
-
-            when(mockNode.getNodes(eq(childNodeEntry.getKey()))).thenReturn(mockNodeIterator);
+            // Use thenAnswer here as we want a new iterator (reset at the start) each time getNodes(...) is called
+            when(mockNode.getNodes(eq(childNodeEntry.getKey()))).thenAnswer(x -> createNodeIterator(childNodeEntry.getValue()));
             if (childNodeEntry.getValue().size() == 1) {
                 when(mockNode.getNode(eq(childNodeEntry.getKey()))).thenReturn(childNodeEntry.getValue().get(0));
             }
@@ -191,6 +190,9 @@ public final class MockNodeBuilder {
         }
         final NodeIterator mockAllNodeIterator = createNodeIterator(allChildNodes);
         when(mockNode.getNodes()).thenReturn(mockAllNodeIterator);
+        for (Node childNode : allChildNodes) {
+            lenient().when(childNode.getParent()).thenReturn(mockNode);
+        }
 
         return mockNode;
     }

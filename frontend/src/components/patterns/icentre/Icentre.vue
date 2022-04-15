@@ -70,9 +70,9 @@
 
 <script>
 import VsSvg from '@components/elements/svg/Svg';
-import VsContainer from '@components/elements/layout/Container';
-import VsRow from '@components/elements/layout/Row';
-import VsCol from '@components/elements/layout/Col';
+import {
+    VsContainer, VsRow, VsCol,
+} from '@components/elements/grid';
 
 /**
  * A summary block for an icentre with a name, cover image and an optional slot for an
@@ -109,7 +109,7 @@ export default {
     }
 
     &__links {
-        font-size: $display4-size;
+        font-size: $font-size-5;
         margin-bottom: $spacer-9;
 
         @include media-breakpoint-up(lg) {
@@ -153,7 +153,7 @@ export default {
     &__links-contained {
         margin-bottom: $spacer-0;
         margin-top: $spacer-9;
-        font-size: $display4-size;
+        font-size: $font-size-5;
 
         @include media-breakpoint-up(lg) {
             line-height: $spacer-7;

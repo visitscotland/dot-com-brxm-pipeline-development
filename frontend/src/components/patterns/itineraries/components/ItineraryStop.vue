@@ -139,7 +139,7 @@ export default {
     .map-marker__count {
         color: $color-white;
         font-family: $headings-font-family;
-        font-size: 1rem;
+        font-size: $font-size-4;
         display: block;
         position: absolute;
         top: 4px;

@@ -43,7 +43,7 @@
 import VsFooterNavList from '@components/patterns/footer/components/FooterNavList';
 import {
     VsContainer, VsRow, VsCol,
-} from '@components/elements/layout';
+} from '@components/elements/grid';
 
 /**
  * This component is the main Footer wrapper for the bottom of the page.

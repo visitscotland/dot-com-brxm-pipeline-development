@@ -67,9 +67,9 @@
 </template>
 
 <script>
-import VsContainer from '@components/elements/layout/Container';
-import VsCol from '@components/elements/layout/Col';
-import VsRow from '@components/elements/layout/Row';
+import {
+    VsContainer, VsRow, VsCol,
+} from '@components/elements/grid';
 import VsSvg from '@components/elements/svg/Svg';
 import VsRichTextWrapper from '@components/elements/rich-text-wrapper/RichTextWrapper';
 

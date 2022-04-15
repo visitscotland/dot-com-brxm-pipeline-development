@@ -8,6 +8,7 @@
             class="vs-address__map-marker mr-2"
         />
         <address class="vs-address__address-box">
+            <!-- @slot Default slot for address items -->
             <slot />
         </address>
     </div>
@@ -16,7 +17,8 @@
 import VsIcon from '@components/elements/icon';
 
 /**
- * Address
+ * The address component uses the HTML address tag
+ * to display the data semantically.
  *
  * @displayName Address
  */
@@ -33,35 +35,20 @@ export default {
 <style lang="scss">
     .vs-address {
         padding: $spacer-2 $spacer-0;
-    }
 
-    .vs-address span {
-        display: block;
-    }
+        span {
+            display: block;
+        }
 
-    .vs-address__map-marker {
-        display: inline-block;
-        vertical-align: top;
-    }
+        &__map-marker {
+            display: inline-block;
+            vertical-align: top;
+        }
 
-    .vs-address__address-box {
-        line-height: $line-height-s;
-        display: inline-block;
-        vertical-align: top;
+        &__address-box {
+            line-height: $line-height-s;
+            display: inline-block;
+            vertical-align: top;
+        }
     }
 </style>
-
-<docs>
-  ```js
-
-    <h3>Basic Address</h3>
-    <VsAddress>
-        <span>Edinburgh Castle,</span>
-        <span>Castle Hill,</span>
-        <span>Edinburgh,</span>
-        <span>City of Edinburgh,</span>
-        <span>EH1 2NG</span>
-    </VsAddress>
-
-  ```
-</docs>

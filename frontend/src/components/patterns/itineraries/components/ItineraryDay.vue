@@ -70,7 +70,7 @@ import {
     VsContainer,
     VsRow,
     VsCol,
-} from '@components/elements/layout';
+} from '@components/elements/grid';
 import VsIcon from '@components/elements/icon/Icon';
 import VsHeading from '@components/elements/heading/Heading';
 import VsAccordionItem from '@components/patterns/accordion/components/AccordionItem';

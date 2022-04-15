@@ -15,7 +15,7 @@ definitions:
           hipposysedit:node: true
           hipposysedit:supertype: ['hippo:compound', 'hippostd:relaxed']
           hipposysedit:uri: http://www.visitscotland.com/visitscotland/nt/1.0
-          hipposysedit:validators: ['visitscotland:otyml-link-validator', 'visitscotland:otyml-unique-link-validator']
+          hipposysedit:validators: ['visitscotland:otyml-link-validator']
           /title:
             jcr:primaryType: hipposysedit:field
             hipposysedit:mandatory: false
@@ -31,7 +31,7 @@ definitions:
             hipposysedit:ordered: true
             hipposysedit:path: visitscotland:links
             hipposysedit:type: hippo:compound
-            hipposysedit:validators: [contentblocks-validator, required]
+            hipposysedit:validators: [contentblocks-validator, required, 'visitscotland:link-validator', 'visitscotland:otyml-unique-link-validator']
           /html:
             jcr:primaryType: hipposysedit:field
             hipposysedit:mandatory: false
@@ -91,7 +91,7 @@ definitions:
             wicket.id: ${cluster.id}.field
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-              ckeditor.config.overlayed.json: '{toolbarGroups: [{ name: ''links''
+              ckeditor.config.overlayed.json: '{disallowedContent: ''p[align]'', toolbarGroups: [{ name: ''links''
                 },{name:''insert''},{name:''clipboard''},{name:''tools''},{name:''undo''}]
                 , removeButtons: ''PickImage,Youtube,Table''}'
               ckeditor.config.appended.json: "{   extraPlugins: 'wordcount',   wordcount:\

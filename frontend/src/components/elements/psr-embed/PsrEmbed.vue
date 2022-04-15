@@ -8,8 +8,8 @@
 
 <script>
 /**
- * The PSR widget is embedded from an external source.
- * It can be customised with data attributes.
+ * The PSR embed component is a wrapper for the the product
+ * search widget which comes from an external source.
  *
  * @displayName PSR Embed
  */
@@ -43,6 +43,12 @@ export default {
                 },
                 es: {
                     localeUrl: 'es-es',
+                },
+                it: {
+                    localeUrl: 'it-it',
+                },
+                nl: {
+                    localeUrl: 'nl-nl',
                 },
             },
         };
@@ -78,7 +84,9 @@ export default {
         },
         /* returns the environment variable to include various files from */
         getEnvironment() {
-            if (window.location.hostname.includes('develop') || window.location.hostname.includes('localhost')) {
+            if (window.location.hostname.includes('develop')
+                || window.location.hostname.includes('localhost')
+                || window.location.hostname.includes('feature')) {
                 return 'develop';
             }
             return 'www';
@@ -115,19 +123,4 @@ export default {
         display: none;
     }
 }
-
 </style>
-
-<docs>
-```jsx
-    <VsContainer>
-        <VsRow>
-            <VsCol md="6">
-                <vs-psr-embed
-                    :config="[{'lang': 'fr'},{'subSearchType': 'acco'},{'locplace': '4161'}]"
-                />
-            </VsCol>
-        </VsRow>
-    </VsContainer>
-```
-</docs>

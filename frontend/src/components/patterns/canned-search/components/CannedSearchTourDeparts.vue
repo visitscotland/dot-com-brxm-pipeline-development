@@ -58,7 +58,7 @@ export default {
 
 <style lang="scss">
     .vs-canned-search-tour-departs {
-        font-size: $font-size-base;
+        font-size: $font-size-4;
         line-height: $line-height-s;
         margin-bottom: $spacer-1;
 

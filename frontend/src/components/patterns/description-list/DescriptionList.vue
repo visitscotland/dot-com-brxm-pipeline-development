@@ -10,7 +10,7 @@
 </template>
 
 <script>
-import { VsRow } from '@components/elements/layout';
+import { VsRow } from '@components/elements/grid';
 /**
  * A description list can be used where there is a list of terms and descriptions.
  *

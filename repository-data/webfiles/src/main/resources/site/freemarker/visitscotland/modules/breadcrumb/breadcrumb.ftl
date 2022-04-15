@@ -41,7 +41,7 @@
                 <vs-breadcrumb-item
                         key="${item.title?html}"
                         href="${link}"
-                        <#if link?? && link == requestedURI >active</#if>
+                        <#if (link?? && link == requestedURI) || item?counter == breadcrumb.items?size>active</#if>
                         text="${item.title?html}"
                 >
                 </vs-breadcrumb-item>

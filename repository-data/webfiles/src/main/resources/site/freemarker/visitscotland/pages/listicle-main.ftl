@@ -18,6 +18,7 @@
 <#include "../macros/modules/horizontal-list/horizontal-list.ftl">
 <#include "../macros/modules/page-intro/page-intro.ftl">
 <#include "../macros/modules/signpost/signpost.ftl">
+<#include "../macros/modules/product-search/psr-module.ftl">
 
 <#-- Implicit Request Objects -->
 <#-- @ftlvariable name="document" type="com.visitscotland.brxm.hippobeans.Listicle" -->
@@ -68,7 +69,11 @@
 
     <@socialShare nojs=true/>
 
-    <@otymlModule otyml editMode />
+    <@productSearchWidget psrWidget />
+
+    <#if otyml??>
+        <@otymlModule otyml editMode />
+    </#if>
 
     <#if newsletterSignpost??>
 		<@signpost module=newsletterSignpost imgSrc="assets/images/illustrations/newsletter.svg"/>

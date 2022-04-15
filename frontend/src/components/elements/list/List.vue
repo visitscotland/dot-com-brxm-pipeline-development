@@ -9,13 +9,15 @@
         }"
         v-bind="$attrs"
     >
+        <!-- @slot Default slot for a set of `<li>` items -->
         <slot />
     </Component>
 </template>
 
 <script>
 /**
- * The List component can be used for unordered, ordered, unstyled, inline or nested lists.
+ * The list component groups related content together
+ * to help break text up into chunks.
  *
  * @displayName List
  */
@@ -63,7 +65,7 @@ export default {
             color: $color-pink;
             padding-right: 0.7rem;
             margin-left: -$spacer-6;
-            font-size: $h2-font-size;
+            font-size: $font-size-6;
             line-height: $line-height-xs;
         }
 
@@ -71,6 +73,7 @@ export default {
         ol,
         ul {
             list-style: none;
+            padding-inline-start: $spacer-8;
             margin: $spacer-4 0 $spacer-5 $spacer-6;
         }
 
@@ -79,7 +82,7 @@ export default {
                 &::before {
                     content: "– ";
                     padding-right: 0.6rem;
-                    font-size: $h3-font-size;
+                    font-size: $font-size-5;
                 }
             }
         }
@@ -128,7 +131,7 @@ export default {
                     &::before {
                         content: "– ";
                         padding-right: 0.6rem;
-                        font-size: $h3-font-size;
+                        font-size: $font-size-5;
                     }
                 }
             }
@@ -155,57 +158,3 @@ export default {
     }
 }
 </style>
-
-<docs>
-```jsx
-    <h3>Unordered List</h3>
-    <VsList>
-        <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-            <ul>
-                <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </li>
-                <li>Maecenas nec massa placerat, bibendum ex sit amet, blandit dolor.</li>
-                <li>Curabitur tempus quam et dolor venenatis blandit. Nulla et erat orci.
-                Suspendisse consequat ipsum et ex molestie viverra.
-                In faucibus eget nisi eu lobortis.</li>
-                <li>Integer efficitur lacus id mi scelerisque, porta feugiat leo egestas. </li>
-            </ul>
-        </li>
-        <li>Curabitur tempus quam et dolor venenatis blandit. Nulla et erat orci.
-        Suspendisse consequat ipsum et ex molestie viverra. In faucibus eget nisi eu lobortis.</li>
-        <li>Integer efficitur lacus id mi scelerisque, porta feugiat leo egestas. </li>
-    </VsList>
-
-    <h3 class="mt-8">Ordered List</h3>
-    <VsList ordered>
-        <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-            <ol>
-                <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </li>
-                <li>Maecenas nec massa placerat, bibendum ex sit amet, blandit dolor.</li>
-                <li>Curabitur tempus quam et dolor venenatis blandit. Nulla et erat orci.
-                Suspendisse consequat ipsum et ex molestie viverra.
-                In faucibus eget nisi eu lobortis.</li>
-                <li>Integer efficitur lacus id mi scelerisque, porta feugiat leo egestas. </li>
-            </ol>
-        </li>
-        <li>Curabitur tempus quam et dolor venenatis blandit. Nulla et erat orci.
-        Suspendisse consequat ipsum et ex molestie viverra. In faucibus eget nisi eu lobortis.</li>
-        <li>Integer efficitur lacus id mi scelerisque, porta feugiat leo egestas. </li>
-    </VsList>
-
-    <h3 class="mt-8">Unstyled List</h3>
-    <VsList unstyled>
-        <li>Car</li>
-        <li>Ferry</li>
-        <li>Bike</li>
-        <li>Plane</li>
-    </VsList>
-
-    <h3 class="mt-8">Inline Unstyled List</h3>
-    <VsList unstyled inline>
-        <li class="mr-7">Car</li>
-        <li class="mr-7">Ferry</li>
-        <li class="mr-7">Bike</li>
-        <li class="mr-7">Plane</li>
-    </VsList>
-```
-</docs>

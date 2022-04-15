@@ -147,8 +147,8 @@ public class HippoUtilsService {
      * Obtain the content bean for a request. If the content bean is not found in request mount, then check english
      * mount (as part of the traslation fallback)
      *
-     * @param request
-     * @return
+     * @param request HstRequest
+     * @return Optional<HippoBean>
      */
     public Optional<HippoBean> getContentBeanWithTranslationFallback(HstRequest request) {
         HstRequestContext context = request.getRequestContext();

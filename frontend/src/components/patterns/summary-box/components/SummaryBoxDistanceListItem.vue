@@ -113,7 +113,7 @@ export default {
 
 .vs-summary-box-distance__display {
     top: 35%;
-    font-size: $small-font-size;
+    font-size: $font-size-3;
 
     .vs-summary-box-distance__display-entry {
         width: 80%;
@@ -127,7 +127,7 @@ export default {
     }
 
     .vs-summary-box-distance__display-value {
-        font-size: $font-size-lg;
+        font-size: $font-size-6;
         display: inline-block;
         width: 60%;
         text-align: left;
@@ -137,7 +137,7 @@ export default {
     }
 
     .vs-summary-box-distance__display-label {
-        font-size: $font-size-base;
+        font-size: $font-size-4;
         display: inline-block;
         width: 40%;
         text-align: right;
@@ -169,12 +169,12 @@ export default {
 
     .vs-summary-box-distance__label-inner {
         display: block;
-        font-size: $small-font-size;
+        font-size: $font-size-3;
         line-height: $line_height_standard;
         font-weight: $font-weight-bold;
 
         @include media-breakpoint-up(lg) {
-            font-size: $font-size-md
+            font-size: $font-size-5
         }
     }
 }

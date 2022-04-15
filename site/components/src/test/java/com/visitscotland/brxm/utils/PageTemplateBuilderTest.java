@@ -76,7 +76,7 @@ class PageTemplateBuilderTest {
     @Test
     void pageWithoutElements() {
         when(utils.getAllowedDocuments(page)).thenReturn(Collections.emptyList());
-
+        when(page.getPath()).thenReturn("/home");
         builder.addModules(request);
 
         List items = (List) request.getAttribute(PageTemplateBuilder.PAGE_ITEMS);
@@ -93,6 +93,7 @@ class PageTemplateBuilderTest {
         LinksModule<?> module = new LinksModuleMockBuilder().withLink(mock(EnhancedLink.class)).build();
 
         when(utils.getAllowedDocuments(page)).thenReturn(Collections.singletonList(megalinks));
+        when(page.getPath()).thenReturn("/home");
         doReturn(module).when(linksFactory).getMegalinkModule(megalinks, Locale.UK);
 
         builder.addModules(request);
@@ -115,6 +116,7 @@ class PageTemplateBuilderTest {
         doReturn(module).when(linksFactory).getMegalinkModule(megalinks, Locale.UK);
         when(previewModeFactory.createErrorModule(any())).thenReturn(new Module());
 
+        when(page.getPath()).thenReturn("/home");
         builder.addModules(request);
         List items = (List) request.getAttribute(PageTemplateBuilder.PAGE_ITEMS);
 
@@ -143,6 +145,7 @@ class PageTemplateBuilderTest {
         doReturn(module3).when(linksFactory).getMegalinkModule((Megalinks) list.get(2), Locale.UK);
         doReturn(module4).when(linksFactory).getMegalinkModule((Megalinks) list.get(3), Locale.UK);
 
+        when(page.getPath()).thenReturn("/home");
         builder.addModules(request);
         List<LinksModule> items = (List<LinksModule>) request.getAttribute(PageTemplateBuilder.PAGE_ITEMS);
 
@@ -176,6 +179,7 @@ class PageTemplateBuilderTest {
         doReturn(module3).when(linksFactory).getMegalinkModule((Megalinks) list.get(2), Locale.UK);
         doReturn(module4).when(linksFactory).getMegalinkModule((Megalinks) list.get(3), Locale.UK);
 
+        when(page.getPath()).thenReturn("/home");
         builder.addModules(request);
         List<LinksModule> items = (List<LinksModule>) request.getAttribute(PageTemplateBuilder.PAGE_ITEMS);
 
@@ -199,6 +203,7 @@ class PageTemplateBuilderTest {
         LinksModule module1 = new LinksModuleMockBuilder().withLink(mock(EnhancedLink.class)).build();
         LinksModule module2 = new LinksModuleMockBuilder().withLink(mock(EnhancedLink.class)).title("h2").build();
         doReturn(module1).when(linksFactory).getMegalinkModule(mega, Locale.UK);
+        when(page.getPath()).thenReturn("/home");
         builder.addModules(request);
 
         // Build the second case where the first element has a title
@@ -232,6 +237,7 @@ class PageTemplateBuilderTest {
         doReturn(module3).when(linksFactory).getMegalinkModule((Megalinks) list.get(2), Locale.UK);
         doReturn(module4).when(linksFactory).getMegalinkModule((Megalinks) list.get(3), Locale.UK);
 
+        when(page.getPath()).thenReturn("/home");
         builder.addModules(request);
         List<LinksModule> items = (List<LinksModule>) request.getAttribute(PageTemplateBuilder.PAGE_ITEMS);
         assertEquals(4, items.size());
@@ -253,6 +259,7 @@ class PageTemplateBuilderTest {
         when(utils.getAllowedDocuments(page)).thenReturn(Collections.singletonList(ti));
         when(iKnowFactory.getIKnowModule(any(), eq(null), eq(request.getLocale()))).thenReturn(new IKnowModule());
 
+        when(page.getPath()).thenReturn("/home");
         builder.addModules(request);
 
         List<Module> items = (List<Module>) request.getAttribute(PageTemplateBuilder.PAGE_ITEMS);
@@ -312,6 +319,7 @@ class PageTemplateBuilderTest {
         when(utils.getAllowedDocuments(page)).thenReturn(Collections.singletonList(mega));
 
         doReturn(new LinksModuleMockBuilder().withLink(mock(EnhancedLink.class)).build()).when(linksFactory).getMegalinkModule(mega, Locale.UK);
+        when(page.getPath()).thenReturn("/home");
         builder.addModules(request);
         LinksModule module = (LinksModule) ((List<Module>) request.getAttribute(PageTemplateBuilder.PAGE_ITEMS)).get(0);
 
@@ -323,6 +331,7 @@ class PageTemplateBuilderTest {
     @DisplayName("VS-2015 - introTheme is populated with a neutral theme when the theme cannot be inferred")
     void setIntroTheme_forNonMegalinks(){
         when(utils.getAllowedDocuments(page)).thenReturn(Collections.emptyList());
+        when(page.getPath()).thenReturn("/home");
         builder.addModules(request);
 
         assertNull(request.getAttribute(PageTemplateBuilder.INTRO_THEME));
@@ -340,7 +349,7 @@ class PageTemplateBuilderTest {
 
         when(utils.getAllowedDocuments(page)).thenReturn(Collections.singletonList(longCopy));
         when(longCopyFactory.getModule(any(LongCopy.class))).thenReturn(new LongCopyModule());
-
+        when(page.getPath()).thenReturn("/home");
         builder.addModules(request);
 
         //List<Module> items = (List<Module>) request.getAttribute(PageTemplateBuilder.PAGE_ITEMS);
@@ -358,6 +367,7 @@ class PageTemplateBuilderTest {
         request.setAttribute("document", page);
 
         when(utils.getAllowedDocuments(page)).thenReturn(Collections.singletonList(longCopy));
+        when(page.getPath()).thenReturn("/home");
         builder.addModules(request);
 
         assertEquals(0, ((List<Module>) request.getAttribute(PageTemplateBuilder.PAGE_ITEMS)).size());
@@ -374,6 +384,7 @@ class PageTemplateBuilderTest {
         request.setAttribute("document", page);
 
         when(utils.getAllowedDocuments(page)).thenReturn(Collections.singletonList(longCopy));
+        when(page.getPath()).thenReturn("/home");
         builder.addModules(request);
 
         assertEquals(0, ((List<Module>) request.getAttribute(PageTemplateBuilder.PAGE_ITEMS)).size());
@@ -390,9 +401,26 @@ class PageTemplateBuilderTest {
 
         when(utils.getAllowedDocuments(page)).thenReturn(Arrays.asList(mock(LongCopy.class), mock(LongCopy.class), mock(LongCopy.class)));
         when(longCopyFactory.getModule(any(LongCopy.class))).thenReturn(new LongCopyModule());
-
+        when(page.getPath()).thenReturn("/home");
         builder.addModules(request);
 
         assertEquals(1, ((List<Module>) request.getAttribute(PageTemplateBuilder.PAGE_ITEMS)).size());
+    }
+
+    @Test
+    @DisplayName("VS-3168 - Test global search page")
+    void globalSearchPage(){
+        General page = mock(General.class);
+
+        //The module is only allowed got general pages.
+        when(page.getTheme()).thenReturn("Simple");
+        request.setAttribute("document", page);
+
+        when(utils.getAllowedDocuments(page)).thenReturn(Arrays.asList(mock(LongCopy.class), mock(LongCopy.class), mock(LongCopy.class)));
+        when(longCopyFactory.getModule(any(LongCopy.class))).thenReturn(new LongCopyModule());
+        when(page.getPath()).thenReturn("/site-search-results");
+        builder.addModules(request);
+
+        assertNotNull(request.getAttribute(PageTemplateBuilder.SEARCH_RESULTS));
     }
 }

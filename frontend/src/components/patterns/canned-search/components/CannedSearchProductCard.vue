@@ -124,7 +124,7 @@
 import VsImg from '@components/elements/img/Img';
 import VsHeading from '@components/elements/heading/Heading';
 import VsLink from '@components/elements/link/Link';
-import VsCol from '@components/elements/layout/Col';
+import VsCol from '@components/elements/grid/Col';
 
 /**
 * Generic product card for canned search
@@ -319,7 +319,7 @@ export default {
         }
 
         .vs-product-card__title {
-            font-size: $font-size-base;
+            font-size: $font-size-4;
             line-height: $line-height-s;
             letter-spacing: $letter-spacing-l;
             color: $color-base-text;
@@ -332,7 +332,7 @@ export default {
         }
 
         .vs-product-card__description {
-            font-size: $font-size-base;
+            font-size: $font-size-4;
             height: $spacer-8;
 
             p {

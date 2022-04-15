@@ -21,7 +21,7 @@
             play-button-text="${label('video', 'video.play-btn')}"
         </#if>
     >
-        <template slot="video-alert">
+        <template slot="video-no-js-alert">
             ${label('video', 'video.no-js')}
         </template>
         <template slot="video-title">

@@ -28,7 +28,7 @@
 import VsList from '@components/elements/list/List';
 import {
     VsRow, VsContainer, VsCol,
-} from '@components/elements/layout';
+} from '@components/elements/grid';
 
 /**
  * The FooterUtilityList is a list of FooterNavListItems
@@ -93,7 +93,7 @@ export default {
 
         .vs-footer-nav-list-item {
             display: inline-block;
-            font-size: $font-size-sm;
+            font-size: $font-size-2;
             padding: $spacer-3;
             flex: 1 0 50%;
 
@@ -117,7 +117,7 @@ export default {
                 flex: none;
             }
             @include media-breakpoint-up(xl) {
-                font-size: $font-size-base;
+                font-size: $font-size-4;
             }
         }
     }

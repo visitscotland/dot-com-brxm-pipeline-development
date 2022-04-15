@@ -31,7 +31,7 @@
                             link-url="${listItem.link}"
                             <#if listItem.itineraryTransport??>
                                 transport="${listItem.itineraryTransport}"
-                                transport-name="${label('transports', megalink.itineraryTransport)}"
+                                transport-name="${label('transports', listItem.itineraryTransport)}"
                             </#if>
                             <#if listItem.itineraryDays??>
                                 <#if listItem.itineraryDays = 1>

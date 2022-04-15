@@ -12,9 +12,7 @@
             <slot>
                 <VsImg
                     v-if="imageSrc"
-                    class="lazyload"
                     :src="imageSrc"
-                    :data-srcset="imageSrc"
                     :alt="altText"
                     data-sizes="auto"
                 />
@@ -47,8 +45,8 @@
                     :video-id="videoId"
                 >
                     <!-- @slot Slot for the video alert message -->
-                    <template slot="video-alert">
-                        <slot name="video-alert" />
+                    <template slot="video-no-js-alert">
+                        <slot name="video-no-js-alert" />
                     </template>
                     <!-- @slot Slot for the video title text -->
                     <template slot="video-title">
@@ -75,8 +73,6 @@
 
 <script>
 
-// eslint-disable-next-line no-unused-vars
-import { lazysizes } from 'lazysizes';
 import VsImg from '@components/elements/img/Img';
 import VsToggleButton from '@components/patterns/toggle-button/ToggleButton';
 import VsVideoCaption from '@components/patterns/video-caption/VideoCaption';
@@ -594,9 +590,7 @@ export default {
             style="max-width:300px"
         >
             <VsImg
-                class="lazyload"
                 :src="item.imageSrc"
-                :data-srcset="item.imageSrc"
                 :alt="item.altText"
                 data-sizes="auto">
             </VsImg>
@@ -623,9 +617,7 @@ export default {
             :key="`social-${index}`"
         >
             <VsImg
-                class="lazyload"
                 :src="item.imageSrc"
-                :data-srcset="item.imageSrc"
                 :alt="item.altText"
                 data-sizes="auto">
             </VsImg>

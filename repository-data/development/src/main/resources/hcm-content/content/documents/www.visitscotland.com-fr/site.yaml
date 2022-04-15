@@ -133,3 +133,84 @@
           <p>Notre pays, ses entreprises, ses régions, ses villes, ses villages sont uniques, et nous joindrons nos efforts afin de garantir que votre prochain voyage vous laisse des souvenirs inoubliables, quand voyager ne présentera plus aucun problème.</p>
 
           <p>Nous avons hâte de vous accueillir très prochainement en Écosse.</p>
+  /site-search-results:
+    jcr:primaryType: hippostd:folder
+    jcr:mixinTypes: ['hippo:named', 'hippotranslation:translated', 'mix:versionable']
+    jcr:uuid: f8c907bb-3a13-4ef8-9ab1-7b0ad46e9a53
+    hippo:name: search-results
+    hippostd:foldertype: [new-translated-folder, new-page, new-module]
+    hippotranslation:id: ff87714b-7240-4eab-b6bd-12b1ff545ee3
+    hippotranslation:locale: fr
+    /content:
+      jcr:primaryType: hippo:handle
+      jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+      jcr:uuid: 4545241e-bc54-43e1-b4bd-0b311b21112c
+      hippo:name: Search results (FR)
+      hippo:versionHistory: cd06b79d-84a2-4334-9dc3-8f58c9a5114f
+      /content[1]:
+        jcr:primaryType: visitscotland:General
+        jcr:mixinTypes: ['mix:versionable']
+        jcr:uuid: c2843555-b265-4cf3-a4ac-f081774af90c
+        hippo:availability: [preview]
+        hippostd:retainable: false
+        hippostd:state: unpublished
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2022-03-10T15:17:12.264Z
+        hippostdpubwf:lastModificationDate: 2022-03-10T15:17:12.132Z
+        hippostdpubwf:lastModifiedBy: admin
+        hippotranslation:id: 389c358c-554d-4201-a9cc-56732e7e313b
+        hippotranslation:locale: fr
+        visitscotland:breadcrumb: ''
+        visitscotland:diff: ''
+        visitscotland:hideNewsletter: true
+        visitscotland:seoDescription: Search results
+        visitscotland:seoNoIndex: true
+        visitscotland:seoTitle: Search results
+        visitscotland:teaser: Search results
+        visitscotland:theme: Simple
+        visitscotland:title: Search Results
+        visitscotland:translation: ''
+        visitscotland:translationFlag: true
+        /visitscotland:heroImage:
+          jcr:primaryType: hippogallerypicker:imagelink
+          hippo:docbase: a5b5922e-d0d5-420c-af2d-670768cf7bd6
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+        /visitscotland:introduction:
+          jcr:primaryType: hippostd:html
+          hippostd:content: <p>Search results</p>
+      /content[2]:
+        jcr:primaryType: visitscotland:General
+        jcr:mixinTypes: ['mix:referenceable']
+        jcr:uuid: ee47235a-c793-411e-9a75-53771e466c23
+        hippo:availability: [live]
+        hippostd:retainable: false
+        hippostd:state: published
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2022-03-10T15:17:12.264Z
+        hippostdpubwf:lastModificationDate: 2022-03-10T15:17:12.132Z
+        hippostdpubwf:lastModifiedBy: admin
+        hippostdpubwf:publicationDate: 2022-03-10T17:31:51.876Z
+        hippotranslation:id: 389c358c-554d-4201-a9cc-56732e7e313b
+        hippotranslation:locale: fr
+        visitscotland:breadcrumb: ''
+        visitscotland:diff: ''
+        visitscotland:hideNewsletter: true
+        visitscotland:seoDescription: Search results
+        visitscotland:seoNoIndex: true
+        visitscotland:seoTitle: Search results
+        visitscotland:teaser: Search results
+        visitscotland:theme: Simple
+        visitscotland:title: Search Results
+        visitscotland:translation: ''
+        visitscotland:translationFlag: true
+        /visitscotland:heroImage:
+          jcr:primaryType: hippogallerypicker:imagelink
+          hippo:docbase: a5b5922e-d0d5-420c-af2d-670768cf7bd6
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+        /visitscotland:introduction:
+          jcr:primaryType: hippostd:html
+          hippostd:content: <p>Search results</p>

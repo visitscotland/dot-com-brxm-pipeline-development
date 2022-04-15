@@ -27,12 +27,15 @@
 
                     <VsRichTextWrapper
                         class="vs-banner__text"
-                        v-if="!!this.$slots['bannerText']"
+                        v-if="!!this.$slots['bannerText'] || !!this.$slots['bannerCta']"
                     >
                         <!-- @slot Slot to contain banner text -->
                         <slot name="bannerText" />
 
-                        <span class="vs-banner__cta-link">
+                        <span
+                            class="vs-banner__cta-link"
+                            v-if="!!this.$slots['bannerCta']"
+                        >
                             <!-- @slot Slot to contain CTA link -->
                             <slot name="bannerCta" />
                         </span>
@@ -70,7 +73,7 @@ import VsRichTextWrapper from '@components/elements/rich-text-wrapper/RichTextWr
 import VsIcon from '@components/elements/icon/';
 import {
     VsContainer, VsRow, VsCol,
-} from '@components/elements/layout';
+} from '@components/elements/grid';
 import cookieMixin from '../../../mixins/cookieMixin';
 
 /**
@@ -152,7 +155,7 @@ export default {
 
     &__text.vs-rich-text-wrapper--variant-normal,
     &__cta-link{
-        font-size: $body-font-size;
+        font-size: $font-size-4;
         line-height: $line-height-s;
     }
 
@@ -181,6 +184,24 @@ export default {
                 of characters we could fit on this banner… Is it ok
                 to add two lines? Let's see how it looks on mobile.
             </p>
+        </template>
+
+        <template slot="bannerCta">
+            <VsLink href="#">
+                View Covid-19 Travel Advice
+            </VsLink>
+        </template>
+
+        <template slot="closeBtnText">
+            Close
+        </template>
+    </VsBanner>
+
+    <br />
+
+    <VsBanner>
+        <template slot="bannerTitle">
+            Covid-19 Travel Advice With No Text
         </template>
 
         <template slot="bannerCta">

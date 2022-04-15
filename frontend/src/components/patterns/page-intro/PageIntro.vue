@@ -84,7 +84,7 @@ import {
     VsContainer,
     VsRow,
     VsCol,
-} from '@components/elements/layout';
+} from '@components/elements/grid';
 
 /**
 * Component for the page hero and introduction.
@@ -323,7 +323,7 @@ const sampleItinerary = require("../../../assets/fixtures/itineraries/sample-iti
         :image-src="itineraries.sampleItinerary.image.imageSrc"
     >
 
-        <template slot="video-alert">
+        <template slot="video-no-js-alert">
             JavaScript needs to be enabled to watch this video.
             You can turn this on in your browser settings.
         </template>

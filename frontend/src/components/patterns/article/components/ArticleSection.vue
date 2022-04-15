@@ -36,7 +36,7 @@
 </template>
 
 <script>
-import { VsCol, VsRow } from '@components/elements/layout';
+import { VsCol, VsRow } from '@components/elements/grid';
 import VsRichTextWrapper from '@components/elements/rich-text-wrapper/RichTextWrapper';
 /**
  * The ArticleSection component is used within an Article to alternate paragraphs.

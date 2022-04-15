@@ -16,7 +16,7 @@
 
 <script>
 import VsAccordion from '@components/patterns/accordion/Accordion';
-import { VsRow, VsContainer } from '@components/elements/layout';
+import { VsRow, VsContainer } from '@components/elements/grid';
 
 /**
  * The FooterNavList is a set of menu items used for

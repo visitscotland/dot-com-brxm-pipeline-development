@@ -93,7 +93,7 @@ export default {
     .dropdown-menu {
         width: 100%;
         background: $color-purple;
-        font-size: $font-size-sm;
+        font-size: $font-size-2;
         margin: 0;
         max-height: 0;
         overflow: hidden;
@@ -121,7 +121,7 @@ export default {
 
     .btn-primary.dropdown-toggle {
         padding: 0.3rem $spacer-4;
-        font-size: $font-size-sm;
+        font-size: $font-size-2;
         background: $color-purple;
         border: none;
 
@@ -207,7 +207,7 @@ export default {
             color: $color-white;
             padding: $spacer-3;
             line-height: $line-height-s;
-            font-size: $h4-font-size;
+            font-size: $font-size-4;
             margin: 0 auto;
 
             @include media-breakpoint-up(md) {

@@ -24,10 +24,14 @@
                             {{ title }}
                         </VsHeading>
 
-                        <div class="vs-megalinks__intro-content lead">
+                        <VsRichTextWrapper
+                            class="vs-megalinks__intro-content"
+                            v-if="!!this.$slots['vsMegalinksIntro']"
+                            data-test="vs-megalinks__intro-content"
+                        >
                             <!-- @slot Slot to contain optional intro content -->
                             <slot name="vsMegalinksIntro" />
-                        </div>
+                        </VsRichTextWrapper>
                     </div>
                 </VsCol>
             </VsRow>
@@ -59,7 +63,7 @@ import {
     VsContainer,
     VsRow,
     VsCol,
-} from '@components/elements/layout';
+} from '@components/elements/grid';
 
 /**
  * Megalinks wrapper used with Megalinks components.
@@ -169,13 +173,6 @@ export default {
             }
         }
 
-        .vs-megalinks__intro-content,
-        .vs-megalinks__intro-content .vs-rich-text-wrapper {
-            margin-top: $spacer-6;
-            font-size: $lead-font-size;
-            line-height: $line-height-s;
-        }
-
         .vs-megalinks__button {
             width: 100%;
             text-align: center;
@@ -201,12 +198,6 @@ export default {
             .vs-megalinks__intro {
                 text-align: center;
                 margin-bottom: $spacer-9;
-            }
-
-            .vs-megalinks__intro-content,
-            .vs-megalinks__intro-content .vs-rich-text-wrapper {
-                font-size: $font-size-lg;
-                line-height: $line-height-m;
             }
 
             &--multi-image {
@@ -430,6 +421,10 @@ export default {
                             imgAlt="This is the alt text"
                             linkType="internal"
                             linkUrl="https://www.visitscotland.com"
+                            days="6"
+                            daysLabel="days"
+                            transport="bus"
+                            transportName="bus"
                         >
                             <template slot="vsMultiImageHeading">
                                 The Edinburgh International Festival
@@ -547,6 +542,10 @@ export default {
                             linkType="external"
                             theme="dark"
                             linkUrl="https://www.visitscotland.com"
+                            days="6"
+                            daysLabel="days"
+                            transport="bus"
+                            transportName="bus"
                         >
                             <template slot="vsMultiImageHeading">
                                 Count 7,000 shining stars in the iconic galloway forest

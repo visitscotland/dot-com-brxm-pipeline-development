@@ -14,7 +14,7 @@
 </template>
 
 <script>
-import { VsCol } from '@components/elements/layout';
+import { VsCol } from '@components/elements/grid';
 /**
  * TODO: Document usage
  *

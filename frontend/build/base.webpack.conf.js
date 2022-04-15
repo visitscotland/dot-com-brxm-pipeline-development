@@ -77,29 +77,6 @@ module.exports = {
                 },
             },
             {
-                test: /\.svg$/,
-                use: [
-                    'html-loader',
-                    {
-                        loader: 'image-webpack-loader',
-                        options: {
-                            svgo: {
-                                plugins: [
-                                    {
-                                        removeViewBox: false,
-                                    },
-                                    {
-                                        inlineStyles: {
-                                            onlyMatchedOnce: false,
-                                        },
-                                    },
-                                ],
-                            },
-                        },
-                    },
-                ],
-            },
-            {
                 test: /\.(mp4|webm|ogg|mp3|wav|flac|aac)(\?.*)?$/,
                 loader: 'file-loader',
                 options: {
@@ -112,6 +89,40 @@ module.exports = {
                 options: {
                     name: 'fonts/[name].[ext]',
                 },
+            },
+            {
+                test: /\.svg$/,
+                oneOf: [
+                    {
+                        resourceQuery: /optimise/,
+                        use: [
+                            'html-loader',
+                            {
+                                loader: 'image-webpack-loader',
+                                options: {
+                                    svgo: {
+                                        plugins: [
+                                            {
+                                                removeViewBox: false,
+                                            },
+                                            {
+                                                inlineStyles: {
+                                                    onlyMatchedOnce: false,
+                                                },
+                                            },
+                                        ],
+                                    },
+                                },
+                            },
+                        ],
+                    },
+                    {
+                        options: {
+                            name: 'img/[name].[hash:7].[ext]',
+                        },
+                        loader: 'file-loader',
+                    },
+                ],
             },
         ],
     },

@@ -36,6 +36,7 @@
                         class="vs-module-wrapper__intro"
                         v-if="!!this.$slots['vsModuleWrapperIntro']"
                         data-test="vs-module-wrapper__intro"
+                        lead
                     >
                         <!-- @slot Slot to contain intro text -->
                         <slot name="vsModuleWrapperIntro" />
@@ -54,7 +55,7 @@ import VsHeading from '@components/elements/heading/Heading';
 import VsRichTextWrapper from '@components/elements/rich-text-wrapper/RichTextWrapper';
 import {
     VsContainer, VsRow, VsCol,
-} from '@components/elements/layout';
+} from '@components/elements/grid';
 
 /**
 * Header intro and button wrapper for module content
