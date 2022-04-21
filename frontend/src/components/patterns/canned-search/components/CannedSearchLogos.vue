@@ -145,15 +145,3 @@ export default {
         }
     }
 </style>
-
-<docs>
-```jsx
-    const sampleFood = require("../../../../assets/fixtures/canned-search/sample-food.json");
-
-    <VsCannedSearchLogos
-        :goodToGoLogo="sampleFood.covidInformation.goodToGo"
-        :safeTravelsLogo="sampleFood.covidInformation.safeTravels"
-        :awards="sampleFood.awards"
-    />
-```
-</docs>

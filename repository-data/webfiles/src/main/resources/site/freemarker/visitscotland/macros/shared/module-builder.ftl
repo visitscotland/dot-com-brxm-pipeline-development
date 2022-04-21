@@ -1,5 +1,4 @@
 <#include "../../../include/imports.ftl">
-<#include "../global/cms-errors.ftl">
 <#include "../global/preview-warning.ftl">
 <#include "../modules/megalinks/megalinks.ftl">
 <#include "../modules/article/article.ftl">
@@ -73,7 +72,7 @@
             <@cannedSearch module themeName/>
 
         <#else >
-            <@previewWarning editMode module true />
+            <@previewWarning editMode module module.errorMessages true />
         </#if>
     </div>
 </#macro>

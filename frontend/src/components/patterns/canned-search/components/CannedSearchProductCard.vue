@@ -40,7 +40,7 @@
                 >
                     <VsHeading
                         level="3"
-                        class="card-title vs-product-card__title text-truncate text-truncate--2"
+                        class="card-title vs-product-card__title"
                         data-test="vs-product-card__title"
                     >
                         <VsLink
@@ -85,7 +85,7 @@
                             name="vsCannedSearchTourInfo"
                         />
                         <p
-                            class="text-truncate text-truncate--2"
+                            class="vs-product-card__description-inner"
                             v-if="description"
                         >
                             {{ description }}
@@ -326,6 +326,8 @@ export default {
             display: flex;
             margin: $spacer-3 $spacer-0 $spacer-2;
 
+            @include truncate-text(2);
+
             a {
                 letter-spacing: inherit;
             }
@@ -338,17 +340,9 @@ export default {
             p {
                 margin-bottom: $spacer-1;
             }
-        }
 
-        .text-truncate {
-            text-overflow: ellipsis;
-            overflow: hidden;
-            display: -webkit-box !important;
-            -webkit-box-orient: vertical;
-            white-space: normal;
-
-            &--2 {
-                -webkit-line-clamp: 2;
+            .vs-product-card__description-inner {
+                @include truncate-text(2);
             }
         }
 
@@ -371,198 +365,3 @@ export default {
         }
     }
 </style>
-
-<docs>
-```jsx
-    const sampleAccom = require("../../../../assets/fixtures/canned-search/sample-accom.json");
-    const sampleEvent = require("../../../../assets/fixtures/canned-search/sample-event.json");
-    const sampleFood = require("../../../../assets/fixtures/canned-search/sample-food.json");
-
-    <VsCarousel
-        next-text="next page"
-        prev-text="previous page"
-        slides-xs="1"
-        slides-md="2"
-        slides-lg="3"
-    >
-        <VsCannedSearchProductCard
-            slideIndex="0"
-            :imgSrc="sampleAccom.images[0].mediaUrl"
-            :imgAlt="sampleAccom.name"
-            :title="sampleAccom.name"
-            :categories="sampleAccom.locations"
-            :description="sampleAccom.description"
-            :detailLink="{
-                link: sampleAccom.dmsLink.link,
-                label: sampleAccom.dmsLink.label,
-                type: sampleAccom.dmsLink.type.toLowerCase()
-            }"
-            searchType="acco"
-        >
-            <VsCannedSearchSubHeading
-                slot="vsCannedSearchSubHeading"
-                :sub-heading="sampleAccom.address.city + ', ' + sampleAccom.address.county"
-            />
-            <VsCannedSearchStars
-                slot="vsCannedSearchStarRating"
-                :min="sampleAccom.grading.minStars"
-                :max="sampleAccom.grading.maxStars"
-                :gold="sampleAccom.grading.gold"
-            />
-            <VsCannedSearchCategories
-                slot="vsCannedSearchCategories"
-                v-if="sampleAccom.locations"
-                :categories="sampleAccom.locations"
-            />
-            <VsCannedSearchLogos
-                slot="vsCannedSearchLogos"
-                :goodToGoLogo="sampleAccom.covidInformation.goodToGo"
-                :safeTravelsLogo="sampleAccom.covidInformation.safeTravels"
-                :awards="sampleAccom.awards"
-            />
-            <VsCannedSearchBadges
-                slot="vsCannedSearchBadges"
-                :badgeOne="sampleAccom.category.name"
-                :badgeTwo="sampleAccom.offers"
-                :badgeThree="sampleAccom.covidInformation ?
-                    sampleAccom.covidInformation.weAreOpen : ''"
-            />
-            <VsCannedSearchSummaryBox
-                slot="vsCannedSearchSummary"
-            >
-                <VsCannedSearchPrice
-                    v-if="sampleAccom.price"
-                    slot="vsCannedSearchSummaryLeft"
-                    :priceIntro="sampleAccom.price.priceLabel"
-                    :price="sampleAccom.price.price"
-                    :priceOutro="sampleAccom.price.priceBasis"
-                />
-                <VsLink
-                    :href="sampleAccom.website.link"
-                    :type="sampleAccom.website.type.toLowerCase()"
-                    slot="vsCannedSearchSummaryRight"
-                >
-                    {{ sampleAccom.dmsLink.label }}
-                </VsLink>
-            </VsCannedSearchSummaryBox>
-        </VsCannedSearchProductCard>
-
-        <VsCannedSearchProductCard
-            slideIndex="1"
-            :imgSrc="sampleEvent.images[0].mediaUrl"
-            :imgAlt="sampleEvent.name"
-            :title="sampleEvent.name"
-            :categories="sampleEvent.locations"
-            :description="sampleEvent.description"
-            :detailLink="{
-                link: sampleEvent.dmsLink.link,
-                label: sampleEvent.dmsLink.label,
-                type: sampleEvent.dmsLink.type.toLowerCase()
-            }"
-            searchType="even"
-        >
-            <VsCannedSearchSubHeading
-                slot="vsCannedSearchSubHeading"
-                :sub-heading="sampleEvent.address.city + ', ' + sampleEvent.address.county"
-            />
-            <VsCannedSearchLogos
-                slot="vsCannedSearchLogos"
-                :goodToGoLogo="sampleEvent.covidInformation.goodToGo"
-                :safeTravelsLogo="sampleEvent.covidInformation.safeTravels"
-                :awards="sampleEvent.awards"
-            />
-            <VsCannedSearchBadges
-                slot="vsCannedSearchBadges"
-                :badgeOne="sampleEvent.category.name"
-                :badgeTwo="sampleAccom.offers"
-                badgeThree="Now On"
-            />
-            <VsCannedSearchSummaryBox
-                slot="vsCannedSearchSummary"
-            >
-                <VsCannedSearchDates
-                    v-if="sampleEvent.opening"
-                    slot="vsCannedSearchSummaryTop"
-                    :period="sampleEvent.opening.period"
-                    :label="sampleEvent.opening.label"
-                />
-                <VsCannedSearchPrice
-                    v-if="sampleEvent.price"
-                    slot="vsCannedSearchSummaryLeft"
-                    :priceIntro="sampleEvent.price.priceLabel"
-                    :price="sampleEvent.price.price"
-                    :priceOutro="sampleEvent.price.priceBasis"
-                />
-                <VsLink
-                    :href="sampleEvent.website.link"
-                    :type="sampleEvent.website.type.toLowerCase()"
-                    slot="vsCannedSearchSummaryRight"
-                >
-                    {{ sampleEvent.dmsLink.label }}
-                </VsLink>
-            </VsCannedSearchSummaryBox>
-        </VsCannedSearchProductCard>
-
-        <VsCannedSearchProductCard
-            slideIndex="2"
-            :imgSrc="sampleFood.images[0].mediaUrl"
-            :imgAlt="sampleFood.name"
-            :title="sampleFood.name"
-            :categories="sampleFood.locations"
-            :description="sampleFood.description"
-            :detailLink="{
-                link: sampleFood.dmsLink.link,
-                label: sampleFood.dmsLink.label,
-                type: sampleFood.dmsLink.type.toLowerCase()
-            }"
-            searchType="cate"
-        >
-            <VsCannedSearchSubHeading
-                slot="vsCannedSearchSubHeading"
-                :sub-heading="sampleFood.address.city + ', ' + sampleFood.address.county"
-            />
-
-            <VsCannedSearchStars
-                slot="vsCannedSearchStarRating"
-                :min="sampleFood.grading.minStars"
-                :max="sampleFood.grading.maxStars"
-                :gold="sampleFood.grading.gold"
-            />
-            <VsCannedSearchCategories
-                slot="vsCannedSearchCategories"
-                v-if="sampleFood.locations"
-                :categories="sampleFood.locations"
-            />
-            <VsCannedSearchLogos
-                slot="vsCannedSearchLogos"
-                :goodToGoLogo="sampleFood.covidInformation.goodToGo"
-                :safeTravelsLogo="sampleFood.covidInformation.safeTravels"
-                :awards="sampleFood.awards"
-            />
-            <VsCannedSearchBadges
-                slot="vsCannedSearchBadges"
-                :badgeOne="sampleFood.category.name"
-                :badgeTwo="sampleFood.offers"
-                :badgeThree="sampleFood.covidInformation ?
-                    sampleFood.covidInformation.weAreOpen : ''"
-            />
-            <VsCannedSearchSummaryBox
-                slot="vsCannedSearchSummary"
-            >
-                <VsCannedSearchCuisines
-                    v-if="sampleFood.cuisines"
-                    slot="vsCannedSearchSummaryLeft"
-                    :cuisines="sampleFood.cuisines"
-                />
-                <VsLink
-                    :href="sampleFood.website.link"
-                    :type="sampleFood.website.type.toLowerCase()"
-                    slot="vsCannedSearchSummaryRight"
-                >
-                    {{ sampleFood.dmsLink.label }}
-                </VsLink>
-            </VsCannedSearchSummaryBox>
-        </VsCannedSearchProductCard>
-    </VsCarousel>
-```
-</docs>

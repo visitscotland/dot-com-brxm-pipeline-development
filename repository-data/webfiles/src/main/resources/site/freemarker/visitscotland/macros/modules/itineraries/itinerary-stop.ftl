@@ -12,7 +12,7 @@
 
 <#include "../../global/key-facilities.ftl">
 <#include "../../global/image-with-caption.ftl">
-<#include "../../global/cms-errors.ftl">
+<#include "../../global/preview-warning.ftl">
 
 <#macro itineraryStop stop isLastStop>
 <#-- @ftlvariable name="stop" type="com.visitscotland.brxm.model.ItineraryStopModule" -->
@@ -35,7 +35,7 @@
         stop-label="${stop.title}"
         stop-title="${stop.subTitle!''}"
     >
-        <@cmsErrors errors=stop.errorMessages!"" editMode=editMode />
+        <@previewWarning editMode stop stop.errorMessages />
         <@hst.manageContent hippobean=stop.hippoBean />
 
         <#if image?? && image?has_content> 

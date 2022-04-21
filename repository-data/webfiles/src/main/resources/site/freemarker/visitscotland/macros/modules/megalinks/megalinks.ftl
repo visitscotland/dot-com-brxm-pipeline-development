@@ -20,7 +20,7 @@
         <#assign showTeaser = item.teaserVisible?string('true', 'false') />
     </#if>
 
-    <@previewWarning editMode item />
+    <@previewWarning editMode item item.errorMessages/>
     <vs-megalinks 
         variant="${variant}"
         title="${item.title}"

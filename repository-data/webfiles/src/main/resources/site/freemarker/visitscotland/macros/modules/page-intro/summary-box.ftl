@@ -1,5 +1,4 @@
 <#include "../../../../include/imports.ftl">
-<#include "../../../macros/global/cms-errors.ftl">
 <#include "../../../../frontend/components/vs-summary-box-list.ftl">
 <#include "../../../../frontend/components/vs-summary-box-list-item.ftl">
 <#include "../../../../frontend/components/vs-summary-box-distance-list-item.ftl">

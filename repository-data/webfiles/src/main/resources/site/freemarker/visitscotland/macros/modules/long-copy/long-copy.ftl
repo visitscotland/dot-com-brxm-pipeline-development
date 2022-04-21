@@ -3,13 +3,12 @@
 <#include "../../../../frontend/components/vs-container.ftl">
 <#include "../../../../frontend/components/vs-row.ftl">
 <#include "../../../../frontend/components/vs-col.ftl">
-
-<#include "../../global/cms-errors.ftl">
+<#include "../../global/preview-warning.ftl">
 
 <#-- @ftlvariable name="module" type="com.visitscotland.brxm.model.LongCopyModule" -->
 
 <#macro longCopy module>
-    <@cmsErrors errors=module.errorMessages!"" editMode=editMode />
+    <@previewWarning editMode module module.errorMessages />
     <vs-container class="mb-10">
         <vs-row>
             <vs-col

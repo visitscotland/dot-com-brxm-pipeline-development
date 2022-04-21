@@ -75,7 +75,9 @@ public class BannerFactoryTest {
 
         BannerModule banner = factory.getBannerModule(request);
 
-        Assertions.assertNull(banner);
+        Assertions.assertNull(banner.getCtaLink());
+        Assertions.assertNull(banner.getTitle());
+        Assertions.assertNull(banner.getCopy());
         verify(linkService).createFindOutMoreLink(any(), any(), any());
     }
 }

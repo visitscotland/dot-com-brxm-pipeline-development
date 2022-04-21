@@ -16,6 +16,13 @@
          diskPersistent="false"
          memoryStoreEvictionPolicy="LRU"
          overflowToDisk="false" />
+  <cache name="dmsProductSearch"
+         maxElementsInMemory="10000"
+         eternal="false"
+         timeToLiveSeconds="3600"
+         diskPersistent="false"
+         memoryStoreEvictionPolicy="LRU"
+         overflowToDisk="false" />
   <cache name="youtube"
          maxElementsInMemory="1000"
          eternal="false"

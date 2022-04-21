@@ -1,7 +1,5 @@
 package com.visitscotland.brxm.components.navigation;
 
-import com.visitscotland.brxm.hippobeans.Widget;
-import com.visitscotland.brxm.model.navigation.NavigationWidget;
 import org.hippoecm.hst.core.sitemenu.HstSiteMenuItem;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;

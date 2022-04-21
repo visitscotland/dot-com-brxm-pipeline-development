@@ -28,7 +28,7 @@ describe('VsRichTextWrapper', () => {
                 variant: testVariant,
             });
 
-            expect(wrapper.classes(`${testVariant}`)).toBe(true);
+            expect(wrapper.classes('vs-rich-text-wrapper--lead')).toBe(true);
         });
     });
 

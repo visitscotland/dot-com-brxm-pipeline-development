@@ -12,7 +12,6 @@
 
 <#include "../macros/modules/page-intro/social-share.ftl">
 <#include "../macros/modules/listicles/listicle-item.ftl">
-<#include "../macros/global/cms-errors.ftl">
 <#include "../macros/global/otyml.ftl">
 <#include "../macros/shared/module-builder.ftl">
 <#include "../macros/modules/horizontal-list/horizontal-list.ftl">
@@ -29,7 +28,6 @@
 </#compress>
 <div class="has-edit-button">
     <@hst.manageContent hippobean=document/>
-    <@cmsErrors errors=alerts!"" editMode=editMode />
 
     <@pageIntro content=document />
 

@@ -47,6 +47,15 @@
                 </template>
 
                 <template
+                    slot="navFeaturedEvent"
+                    v-if="item.title === 'Things to do'"
+                >
+                    <MegaNavFeaturedEvent
+                        source-url="http://172.28.81.65:8089/data/component/cannedsearch?prodtypes=even&locplace=&locprox=&loc=Scotland&size=1"
+                    />
+                </template>
+
+                <template
                     slot="navFeaturedItem"
                     v-if="item.title === 'Accommodation' || item.title === 'Inspiration'"
                 >
@@ -152,6 +161,13 @@
                         </VsMegaNavList>
                     </VsMegaNavAccordionItem>
                     <div class="featured-items">
+                        <template
+                            v-if="item.title === 'Things to do'"
+                        >
+                            <MegaNavFeaturedEvent
+                                source-url="http://172.28.81.65:8089/data/component/cannedsearch?prodtypes=even&locplace=&locprox=&loc=Scotland&size=1"
+                            />
+                        </template>
                         <template
                             v-if="item.title === 'Accommodation' || item.title === 'Inspiration'"
                         >

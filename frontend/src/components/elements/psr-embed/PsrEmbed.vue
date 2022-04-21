@@ -106,7 +106,7 @@ export default {
 
         const psrScriptEl = document.createElement('script');
         psrScriptEl.async = false;
-        psrScriptEl.setAttribute('src', `https://${this.getEnvironment}.visitscotland.com/api/dev/ui/product-search/static/js/bundle.js`);
+        psrScriptEl.setAttribute('src', '/api/dev/ui/product-search/static/js/bundle.js');
         // psrScriptEl.setAttribute('src', 'http://localhost:9999/static/js/bundle.js');
         document.head.appendChild(psrScriptEl);
     },
@@ -115,7 +115,7 @@ export default {
 
 <style lang="scss">
 
-@import "https://develop.visitscotland.com/api/dev/ui/product-search/css/main.css";
+@import "https://api.visitscotland.com/dev/ui/product-search/css/main.css";
 // @import "http://localhost:9999/css/main.css";
 
 .no-js {

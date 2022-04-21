@@ -73,13 +73,3 @@ export default {
         }
     }
 </style>
-
-<docs>
-```jsx
-    <VsCannedSearchPrice
-        priceIntro="Price from"
-        price="£110"
-        priceOutro="Per room per night (breakfast inc.)"
-    />
-```
-</docs>

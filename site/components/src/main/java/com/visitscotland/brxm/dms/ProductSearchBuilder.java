@@ -57,7 +57,7 @@ public class ProductSearchBuilder {
     private Boolean offers;
     private Boolean free;
     private Boolean safeTravels;
-    private Boolean goodToGo;
+    private String keywords;
     private Order order;
 
     private final Set<String> categories = new TreeSet<>();
@@ -95,7 +95,7 @@ public class ProductSearchBuilder {
             proximity(ps.getDistance());
             offers(ps.getOffers());
             free(ps.getFree());
-            goodToGo(ps.getGoodToGo());
+            keywords(ps.getKeywords());
             safeTravels(ps.getSafeTravels());
         }
         return this;
@@ -235,8 +235,8 @@ public class ProductSearchBuilder {
         return this;
     }
 
-    public ProductSearchBuilder goodToGo(Boolean goodToGo){
-        this.goodToGo = goodToGo;
+    public ProductSearchBuilder keywords(String keywords){
+        this.keywords = keywords;
 
         return this;
     }
@@ -351,8 +351,8 @@ public class ProductSearchBuilder {
         if (Boolean.TRUE.equals(safeTravels)){
             compose = addParams(compose, FACILITY_PARAM, "safetrav");
         }
-        if (Boolean.TRUE.equals(goodToGo)){
-            compose = addParams(compose, FACILITY_PARAM, "goodtogo");
+        if (keywords != null){
+            compose = addParams(compose, KEYWORDS, keywords);
         }
         if (Boolean.TRUE.equals(offers)){
             compose = addParams(compose, OFFERS, "true");

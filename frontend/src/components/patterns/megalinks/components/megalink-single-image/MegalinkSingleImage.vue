@@ -32,7 +32,7 @@
                         <slot name="vsSingleImageContent" />
                     </VsRichTextWrapper>
 
-                    <VsLinkList class="lead">
+                    <VsLinkList>
                         <!-- @slot Slot for links list -->
                         <slot name="vsSingleImageLinks" />
                     </VsLinkList>

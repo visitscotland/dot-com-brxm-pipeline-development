@@ -212,6 +212,7 @@ public final class MockNodeBuilder {
                 return nodeIterator.next();
             }
         });
+        lenient().when(mockNodeIterator.getSize()).thenReturn((long)nodeList.size());
         return mockNodeIterator;
     }
 }

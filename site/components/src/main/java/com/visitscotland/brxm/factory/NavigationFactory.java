@@ -2,11 +2,15 @@ package com.visitscotland.brxm.factory;
 
 import com.visitscotland.brxm.components.navigation.MenuItem;
 import com.visitscotland.brxm.components.navigation.RootMenuItem;
+import com.visitscotland.brxm.dms.ProductSearchBuilder;
 import com.visitscotland.brxm.hippobeans.CMSLink;
 import com.visitscotland.brxm.hippobeans.FeaturedWidget;
 import com.visitscotland.brxm.hippobeans.Page;
+import com.visitscotland.brxm.hippobeans.ProductsSearch;
 import com.visitscotland.brxm.hippobeans.capabilities.Linkable;
+import com.visitscotland.brxm.model.FlatLink;
 import com.visitscotland.brxm.model.megalinks.EnhancedLink;
+import com.visitscotland.brxm.model.navigation.FeaturedEvent;
 import com.visitscotland.brxm.model.navigation.FeaturedItem;
 import com.visitscotland.brxm.model.navigation.NavigationWidget;
 import com.visitscotland.brxm.services.LinkService;
@@ -37,11 +41,13 @@ public class NavigationFactory {
     private ResourceBundleService bundle;
     private HippoUtilsService utils;
     private LinkService linkService;
+    private ProductSearchBuilder productSearchBuilder;
 
-    public NavigationFactory(ResourceBundleService bundle, HippoUtilsService utils, LinkService linkService) {
+    public NavigationFactory(ResourceBundleService bundle, HippoUtilsService utils, LinkService linkService, ProductSearchBuilder productSearchBuilder) {
         this.bundle = bundle;
         this.utils = utils;
         this.linkService = linkService;
+        this.productSearchBuilder = productSearchBuilder;
     }
 
     /**
@@ -124,28 +130,54 @@ public class NavigationFactory {
      * Adds a Featured Navigation Widget
      */
     private NavigationWidget addFeatureItem(FeaturedWidget document, Locale locale) {
-       FeaturedItem widget = new FeaturedItem();
-        ArrayList<EnhancedLink> items = new ArrayList<>();
-
-        for (CMSLink cmsLink : document.getItems()) {
-            if (!(cmsLink.getLink() instanceof Linkable)){
-                contentLogger.warn("An incorrect Type of link has been set in a featured item: {}", document.getPath());
-                continue;
+        NavigationWidget widget;
+        if (document.getItems().size() == 1 && document.getItems().get(0) instanceof ProductsSearch) {
+            widget = addFeatureEvent((ProductsSearch) document.getItems().get(0), document);
+        } else {
+            List<CMSLink> cmsLinks = new ArrayList<>();
+            for (HippoBean item : document.getItems()) {
+                if (!(item instanceof CMSLink)) {
+                    contentLogger.error("{} found in featured item - expected CMSLink", item.getClass().getSimpleName());
+                    return null;
+                }
+                cmsLinks.add((CMSLink) item);
             }
-            Optional<EnhancedLink> optionalLink = linkService.createEnhancedLink((Linkable) cmsLink.getLink(), widget, locale, false);
-
-            if (!optionalLink.isPresent()) {
-                contentLogger.warn("Failed to create widget: {}. Check link is published & valid", document.getPath());
-                continue;
-            }
-            EnhancedLink link = optionalLink.get();
-            link.setCta(bundle.getCtaLabel(cmsLink.getLabel(), locale));
-            items.add(link);
+            return addFeatureItem(cmsLinks, document, locale);
         }
-
-        widget.setLinks(items);
-        widget.setHippoBean(document);
         return widget;
+    }
+
+    private FeaturedItem addFeatureItem(List<CMSLink> cmsLinks, FeaturedWidget document, Locale locale) {
+        FeaturedItem widget = new FeaturedItem();
+
+        List<EnhancedLink> enhancedLinks = new ArrayList<>();
+        for (CMSLink cmsLink : cmsLinks) {
+                if (!(cmsLink.getLink() instanceof Linkable)){
+                    contentLogger.warn("An incorrect Type of link has been set in a featured item: {}", document.getPath());
+                    continue;
+                }
+                Optional<EnhancedLink> optionalLink = linkService.createEnhancedLink((Linkable) cmsLink.getLink(), widget, locale, false);
+
+                if (!optionalLink.isPresent()) {
+                    String errorMessage = String.format("Failed to create the  navigation widget '%s', please review the document attached at: %s", cmsLink.getDisplayName(), document.getPath());
+                widget.addErrorMessage(errorMessage);contentLogger.warn("Failed to create widget: {}. Check link is published & valid", document.getPath());
+                    continue;
+                }
+                EnhancedLink link = optionalLink.get();
+                link.setCta(bundle.getCtaLabel(cmsLink.getLabel(), locale));
+                enhancedLinks.add(link);
+        }
+        widget.setHippoBean(document);
+        widget.setLinks(enhancedLinks);
+        return widget;
+    }
+
+    private FeaturedEvent addFeatureEvent(ProductsSearch productsSearch, FeaturedWidget document) {
+        String productSearchApi = productSearchBuilder.fromHippoBean(productsSearch).buildCannedSearch() + "&size=1";
+        FeaturedEvent featuredEvent = new FeaturedEvent();
+        featuredEvent.setApiUrl(productSearchApi);
+        featuredEvent.setHippoBean(document);
+        return featuredEvent;
     }
 
     /**

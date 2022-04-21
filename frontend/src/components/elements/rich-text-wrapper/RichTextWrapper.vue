@@ -2,10 +2,7 @@
     <div
         class="vs-rich-text-wrapper"
         :class="[
-            `vs-rich-text-wrapper--variant-${variant}`,
-            {
-                lead: variant === 'lead',
-            },
+            `vs-rich-text-wrapper--${variant}`,
         ]"
     >
         <!-- @slot Default slot for rich text content -->
@@ -40,7 +37,7 @@ export default {
 
 <style lang="scss">
 .vs-rich-text-wrapper {
-    &--variant-normal{
+    &--normal{
         font-family: $font-family-base;
         font-size: $font-size-body;
 
@@ -49,7 +46,7 @@ export default {
         }
     }
 
-    &--variant-lead {
+    &--lead {
         line-height: $line-height-lead;
         font-size: $font-size-lead;
 

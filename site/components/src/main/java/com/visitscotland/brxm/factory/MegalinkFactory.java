@@ -100,6 +100,9 @@ public class MegalinkFactory {
         sil.setInnerTitle(doc.getSingleImageModule().getTitle());
         sil.setInnerIntroduction(doc.getSingleImageModule().getIntroduction());
         sil.setImage(imageFactory.createImage(doc.getSingleImageModule().getImage(), sil, locale));
+        if (doc.getSingleImageModule().getImage() == null){
+            sil.addErrorMessage(String.format("The image selected for '%s' is not available. Please select a valid image for the single image document '%s' at: %s",  sil.getTitle(), doc.getDisplayName(), doc.getPath()));
+        }
         sil.setLinks(convertToEnhancedLinks(sil, doc.getMegalinkItems(), locale, false));
 
         return sil;

@@ -57,6 +57,7 @@ public class DMSConstants {
         public static final String OFFERS = "offers";
         public static final String FREE = "maxprice";
         public static final String LOCALE = "locale";
+        public static final String KEYWORDS = "name";
     }
 
     public static final class DMSProduct {

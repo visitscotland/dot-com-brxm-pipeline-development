@@ -57,8 +57,8 @@ public class ProductsSearch extends HippoCompound {
         return getSingleProperty("visitscotland:safeTravels");
     }
 
-    @HippoEssentialsGenerated(internalName = "visitscotland:goodToGo")
-    public Boolean getGoodToGo() {
-        return getSingleProperty("visitscotland:goodToGo");
+    @HippoEssentialsGenerated(internalName = "visitscotland:keywords")
+    public String getKeywords() {
+        return getSingleProperty("visitscotland:keywords");
     }
 }

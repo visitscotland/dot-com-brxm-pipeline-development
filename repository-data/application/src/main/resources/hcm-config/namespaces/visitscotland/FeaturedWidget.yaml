@@ -11,10 +11,11 @@ definitions:
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:uuid: 5792b171-334e-4168-8963-6d662a3f0796
+          jcr:uuid: 8fa64611-e508-4bca-84f5-e735f3b27388
           hipposysedit:node: true
           hipposysedit:supertype: ['visitscotland:Widget', 'hippostd:relaxed', 'hippotranslation:translated']
           hipposysedit:uri: http://www.visitscotland.com/visitscotland/nt/1.0
+          hipposysedit:validators: ['visitscotland:featured-widget-validator']
           /items:
             jcr:primaryType: hipposysedit:field
             hipposysedit:multiple: true
@@ -34,7 +35,7 @@ definitions:
           hippotranslation:locale: document-type-locale
           visitscotland:translation: ''
           jcr:mixinTypes: ['mix:referenceable']
-          jcr:uuid: 01c6c04b-d821-4b3b-99e9-fbd28e84037f
+          jcr:uuid: ba3f86d4-2d4c-40cb-90ed-4b030ad11d3c
           hippostdpubwf:lastModificationDate: 2021-05-12T09:57:59.465+01:00
           hippostdpubwf:creationDate: 2021-05-12T09:57:59.466+01:00
           /visitscotland:items:
@@ -57,7 +58,7 @@ definitions:
           /items:
             jcr:primaryType: frontend:plugin
             caption: Items
-            compoundList: visitscotland:CMSLink
+            compoundList: visitscotland:CMSLink,visitscotland:ProductsSearch
             contentPickerType: links
             field: items
             plugin.class: org.onehippo.forge.contentblocks.ContentBlocksFieldPlugin

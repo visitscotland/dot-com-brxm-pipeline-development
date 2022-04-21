@@ -52,12 +52,3 @@ export default {
         }
     }
 </style>
-
-<docs>
-```jsx
-    const sampleFood = require("../../../../assets/fixtures/canned-search/sample-food.json");
-
-    <VsCannedSearchCuisines
-        :cuisines="sampleFood.cuisines"
-    />
-</docs>

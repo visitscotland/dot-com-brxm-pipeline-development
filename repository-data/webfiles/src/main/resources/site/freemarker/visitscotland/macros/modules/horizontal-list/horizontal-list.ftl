@@ -4,7 +4,7 @@
 <#include "../../global/preview-warning.ftl">
 
 <#macro horizontalList item themeName="" testId="">
-    <@previewWarning editMode item />
+    <@previewWarning editMode item item.errorMessages/>
 
     <vs-module-wrapper
         theme="<#if themeName?has_content>${themeName}<#else>light</#if>"

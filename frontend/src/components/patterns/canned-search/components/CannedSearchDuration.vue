@@ -55,12 +55,3 @@ export default {
         }
     }
 </style>
-
-<docs>
-```jsx
-    <VsCannedSearchDuration
-        durationIntro="Length"
-        duration="2 hours"
-    />
-```
-</docs>

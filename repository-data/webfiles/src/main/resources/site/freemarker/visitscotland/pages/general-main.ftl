@@ -1,6 +1,5 @@
 <#ftl output_format="XML">
 <#include "../../include/imports.ftl">
-<#include "../macros/global/cms-errors.ftl">
 <#include "../macros/modules/page-intro/social-share.ftl">
 <#include "../macros/modules/product-search/psr-module.ftl">
 <#include "../macros/modules/signpost/signpost.ftl">
@@ -25,7 +24,6 @@
 
 <div class="has-edit-button">
 	<@hst.manageContent hippobean=document/>
-    <@cmsErrors errors=alerts!"" editMode=editMode />
 
     <#if standardTemplate>
         <@pageIntro content=document heroDetails=heroImage lightBackground=psrWidget?has_content />

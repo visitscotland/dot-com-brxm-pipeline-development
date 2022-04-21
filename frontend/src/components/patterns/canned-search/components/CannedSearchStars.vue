@@ -86,28 +86,3 @@ export default {
         }
     }
 </style>
-
-<docs>
-```jsx
-    <VsCannedSearchStars
-        :min="4"
-        :max="4"
-        :gold="true"
-    />
-    <VsCannedSearchStars
-        :min="3"
-        :max="4"
-        :gold="true"
-    />
-    <VsCannedSearchStars
-        :min="5"
-        :max="5"
-        :gold="false"
-    />
-    <VsCannedSearchStars
-        :min="1"
-        :max="3"
-        :gold="false"
-    />
-```
-</docs>

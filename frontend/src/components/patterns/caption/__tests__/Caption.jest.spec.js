@@ -3,7 +3,6 @@ import VsCaption from '../Caption';
 
 const captionSlot = 'A Scottish Castle';
 const creditSlot = 'VisitScotland';
-const socialLinkSlot = '@VisitScotland';
 
 const factoryShallowMount = (propsData) => shallowMount(VsCaption, {
     propsData: {
@@ -12,7 +11,6 @@ const factoryShallowMount = (propsData) => shallowMount(VsCaption, {
     slots: {
         caption: captionSlot,
         credit: creditSlot,
-        socialLink: socialLinkSlot,
     },
 });
 
@@ -92,13 +90,6 @@ describe('VsCaption', () => {
             const captionInfo = wrapper.find('[data-test="vs-caption"]').find('.vs-caption__caption-info');
 
             expect(captionInfo.text()).toContain(creditSlot);
-        });
-
-        it('renders content in the `socialLinkSlot` slot', () => {
-            const wrapper = factoryShallowMount();
-            const captionInfo = wrapper.find('[data-test="vs-caption"]').find('.vs-caption__caption-info');
-
-            expect(captionInfo.text()).toContain(socialLinkSlot);
         });
     });
 });

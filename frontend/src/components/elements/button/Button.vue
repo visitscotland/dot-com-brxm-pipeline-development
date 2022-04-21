@@ -239,7 +239,7 @@ export default {
         font-weight: $font-weight-light;
         transition: $transition-base;
         text-decoration: none;
-        letter-spacing: $letter-spacing-xxl;
+        letter-spacing: $letter-spacing-m;
         position: relative;
         overflow: hidden;
 
@@ -346,7 +346,7 @@ export default {
             border-width: 0;
         }
 
-        &.vs-button--icon-only{
+        &.vs-button--icon-only {
             padding: $spacer-1;
             line-height: 1;
 

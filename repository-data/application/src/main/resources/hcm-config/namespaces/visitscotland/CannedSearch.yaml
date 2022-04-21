@@ -11,7 +11,7 @@ definitions:
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:uuid: aac49da0-f0c4-4bda-9b0f-bd38255619e0
+          jcr:uuid: b6924ae5-02bc-48c5-8782-b4fc85a0e8f9
           hipposysedit:node: true
           hipposysedit:supertype: ['visitscotland:basedocument', 'hippostd:relaxed',
             'hippotranslation:translated']
@@ -63,7 +63,7 @@ definitions:
           hippotranslation:locale: document-type-locale
           jcr:mixinTypes: ['mix:referenceable']
           visitscotland:title: ''
-          jcr:uuid: e903e306-7296-4968-9fa4-4e3b39e08c52
+          jcr:uuid: 26ce0f16-ef5d-441c-87d7-e01b63efdf25
           hippostdpubwf:lastModificationDate: 2021-05-11T15:47:43.297+01:00
           hippostdpubwf:creationDate: 2021-05-11T15:47:43.297+01:00
           visitscotland:translation: ''
@@ -115,8 +115,8 @@ definitions:
               ckeditor.config.appended.json: "{   extraPlugins: 'wordcount',   wordcount:\
                 \ { \tcountSpacesAsChars: true,     showCharCount: true ,maxCharCount:375\
                 \   }  }"
-              ckeditor.config.overlayed.json: '{disallowedContent: ''p[align]'', toolbarGroups: [{ name: ''links''
-                },{name:''insert''},{name:''clipboard''},{name:''tools''},{name:''undo''}]
+              ckeditor.config.overlayed.json: '{disallowedContent: ''p[align]'', toolbarGroups:
+                [{ name: ''links'' },{name:''insert''},{name:''clipboard''},{name:''tools''},{name:''undo''}]
                 , removeButtons: ''PickImage,Youtube,Table''}'
           /criteria:
             jcr:primaryType: frontend:plugin

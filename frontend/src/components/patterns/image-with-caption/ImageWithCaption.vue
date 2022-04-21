@@ -635,7 +635,7 @@ export default {
                 </span>
 
                 <VsSocialCreditLink
-                    slot="socialLink"
+                    slot="credit"
                     :credit="item.credit"
                     :socialPostUrl="item.socialPostUrl"
                     :source="item.source"

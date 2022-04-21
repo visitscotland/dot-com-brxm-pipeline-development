@@ -29,7 +29,6 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
     private static final Logger contentLogger = LoggerFactory.getLogger("content");
 
     public static final String DOCUMENT = "document";
-    public static final String EDIT_PATH = "path";
     public static final String OTYML = "otyml";
     public static final String NEWSLETTER_SIGNPOST = "newsletterSignpost";
     public static final String PREVIEW_ALERTS = "alerts";
@@ -72,6 +71,12 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
         Module<T> introModule = new Module<>();
 
         FlatImage heroImage = imageFactory.createImage(getDocument(request).getHeroImage(), introModule, request.getLocale());
+        if (getDocument(request).getHeroImage() == null){
+            String message = String.format("The image selected for '%s' is not available, please select a valid image for '%s' at: %s ",
+                    getDocument(request).getTitle(), getDocument(request).getDisplayName(),getDocument(request).getPath());
+            contentLogger.warn(message);
+            introModule.addErrorMessage(message);
+        }
         request.setAttribute(HERO_IMAGE, heroImage);
 
         VideoLink videoDocument = getDocument(request).getHeroVideo();
@@ -136,7 +141,7 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
         }
     }
 
-    protected void setErrorMessages(HstRequest request, Collection<String> errorMessages) {
+    public static void setErrorMessages(HstRequest request, Collection<String> errorMessages) {
         if (request.getAttribute(PREVIEW_ALERTS) != null){
             Collection<String> requestMessages = (Collection<String>) request.getAttribute(PREVIEW_ALERTS);
             requestMessages.addAll(errorMessages);

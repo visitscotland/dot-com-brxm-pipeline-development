@@ -52,7 +52,6 @@ public class QuoteFactory {
             }
 
             if (quote.getLink() == null) {
-                module.addErrorMessage("The product provided for the quote is not valid, please review the document at: " + doc.getPath());
                 contentLogger.warn("The Product for this iCentre ({})is not a valid link.", doc.getPath());
             }
         }

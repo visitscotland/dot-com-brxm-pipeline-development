@@ -27,7 +27,7 @@
 
         <VsRichTextWrapper
             slot="stretchedCardContent"
-            class="lead vs-megalink-multi-image__content"
+            class="vs-megalink-multi-image__content"
             data-test="megalink-multi-image__content"
         >
             <!-- @slot Slot to contain content -->

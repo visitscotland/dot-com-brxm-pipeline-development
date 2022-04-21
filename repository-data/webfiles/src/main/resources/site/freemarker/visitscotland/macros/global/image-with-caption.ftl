@@ -35,24 +35,24 @@
             variant="${variant}"
             text-align="${alignment}"
         >
-            <span slot="caption">
+            <template slot="caption">
                 ${label('essentials.global', 'image.title')}: ${(imageDetails.description)!''}
-            </span>
+            </template>
 
             <#if imageDetails.source?has_content>
                 <vs-svg slot="toggle-icon" path="${imageDetails.source + '-bg'}" height="24" width="24"></vs-svg>
 
                 <vs-social-credit-link
-                    slot="social-link"
+                    slot="credit"
                     credit="<#if imageDetails.credit??>${imageDetails.credit}<#else>${label('essentials.global', 'image.no.credit')}</#if>"
                     social-post-url="${imageDetails.postUrl}"
                     source="${imageDetails.source}"
                 ></vs-social-credit-link>
             <#else>
                 <#if imageDetails.credit?has_content>
-                    <span slot="credit">
+                    <template slot="credit">
                         &copy; ${imageDetails.credit}
-                    </span>
+                    </template>
                 </#if>
             </#if>
         </vs-caption>

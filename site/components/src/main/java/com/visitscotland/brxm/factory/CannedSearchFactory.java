@@ -1,8 +1,10 @@
 package com.visitscotland.brxm.factory;
 
 
+import com.fasterxml.jackson.databind.JsonNode;
 import com.visitscotland.brxm.config.VsComponentManager;
 import com.visitscotland.brxm.dms.DMSConstants;
+import com.visitscotland.brxm.dms.DMSDataService;
 import com.visitscotland.brxm.dms.ProductSearchBuilder;
 import com.visitscotland.brxm.hippobeans.CannedSearch;
 import com.visitscotland.brxm.hippobeans.CannedSearchTours;
@@ -33,11 +35,13 @@ public class CannedSearchFactory {
     private final ResourceBundleService bundle;
     private final LinkService linkService;
     private final Properties properties;
+    private final DMSDataService dmsData;
 
-    public CannedSearchFactory(ResourceBundleService bundle, LinkService linkService, Properties properties){
+    public CannedSearchFactory(ResourceBundleService bundle, LinkService linkService, Properties properties, DMSDataService dmsData){
         this.bundle = bundle;
         this.linkService = linkService;
         this.properties = properties;
+        this.dmsData = dmsData;
     }
 
     public CannedSearchModule getCannedSearchModule(CannedSearch document, Locale locale){
@@ -57,6 +61,12 @@ public class CannedSearchFactory {
         module.setViewAllLink(viewAllCta);
 
         module.setCannedSearchEndpoint(productSearch().fromHippoBean(document.getCriteria().getSearch()).locale(locale).buildCannedSearch());
+
+        if(!dmsData.cannedSearchHasResults(module.getCannedSearchEndpoint() + "&size=1")){
+           String message =String.format( "The Canned search module '%s' does not return any results, please review your search criteria for '%s' at: %s", document.getTitle(), document.getDisplayName(), document.getPath());
+           module.addErrorMessage(message);
+           contentLog.error(message);
+        }
 
         if (document.getCriteria().getSearch().getProductType().equals(ProductTypes.EVENT.getId())){
             module.setCredit(bundle.getResourceBundle(BUNDLE_ID,"canned-search.credit-events", locale));
@@ -92,6 +102,12 @@ public class CannedSearchFactory {
                 .build().toString();
 
         module.setCannedSearchEndpoint(tmsCannedSearchUrl);
+
+        if(!dmsData.cannedSearchHasResults(tmsCannedSearchUrl + "&limit=1")){
+            String message = String.format( "The Canned search tours module '%s' does not return any results, please review your search criteria for '%s' at: %s", document.getTitle(), document.getDisplayName(), document.getPath());
+            module.addErrorMessage(message);
+            contentLog.error(message);
+        }
 
         FlatLink viewAllCta = linkService.createExternalLink(document.getToursSearch());
         if (!Contract.isEmpty(document.getViewAll())) {

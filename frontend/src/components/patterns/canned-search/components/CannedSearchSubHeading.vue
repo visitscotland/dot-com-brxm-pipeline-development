@@ -2,7 +2,7 @@
     <VsHeading
         level="4"
         class="vs-canned-search-sub-heading"
-        :class="lineLimit ? 'text-truncate text-truncate--' + lineLimit : ''"
+        :class="lineLimit ? 'vs-canned-search-sub-heading--lines-' + lineLimit : ''"
         data-test="vs-canned-search-sub-heading"
     >
         {{ subHeading }}
@@ -58,36 +58,13 @@ export default {
         letter-spacing: normal;
         margin: $spacer-0;
         margin-bottom: $spacer-3;
-    }
 
-    .text-truncate {
-        text-overflow: ellipsis;
-        overflow: hidden;
-        display: -webkit-box !important;
-        -webkit-box-orient: vertical;
-        white-space: normal;
-
-        &--1 {
-            -webkit-line-clamp: 1;
+        &--lines-1 {
+            @include truncate-text(1);
         }
 
-        &--2 {
-            -webkit-line-clamp: 2;
+        &--lines-2 {
+            @include truncate-text(2);
         }
     }
 </style>
-
-<docs>
-```jsx
-    <VsCannedSearchSubHeading
-        style="max-width: 25rem"
-        sub-heading="Callander, Loch Lomond, The Trossachs, Stirling & Forth Valley"
-    />
-    <VsCannedSearchSubHeading
-        style="max-width: 25rem"
-        sub-heading="A very very long list of themes, it's so long it should overflow onto a second
-        row but it has a line limit"
-        :line-limit="1"
-    />
-```
-</docs>

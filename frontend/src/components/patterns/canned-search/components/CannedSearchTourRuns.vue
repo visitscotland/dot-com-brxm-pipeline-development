@@ -1,6 +1,6 @@
 <template>
     <p
-        class="text-truncate text-truncate--2 vs-canned-search-tour-runs"
+        class="vs-canned-search-tour-runs"
     >
         {{ formattedPeriod }}
     </p>
@@ -63,17 +63,7 @@ export default {
 <style lang="scss">
     .vs-canned-search-tour-runs {
         font-weight: $font-weight-bold;
+
+        @include truncate-text(2);
     }
 </style>
-
-<docs>
-```jsx
-    const sampleTour = require("../../../../assets/fixtures/canned-search/sample-tour.json");
-
-    <VsCannedSearchTourRuns
-        :label="sampleTour.opening.period.label"
-        :startDay="sampleTour.opening.period.startDay"
-        :endDay="sampleTour.opening.period.endDay"
-    />
-```
-</docs>

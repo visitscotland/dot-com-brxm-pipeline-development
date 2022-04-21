@@ -485,7 +485,7 @@ class LinkServiceTest {
 
         service.createEnhancedLink(dmsLink, module,Locale.UK,false);
 
-        assertEquals(1, module.getErrorMessages().size());
+        assertTrue( module.getErrorMessages().size() > 0);
     }
 
     @Test
@@ -517,7 +517,7 @@ class LinkServiceTest {
 
         EnhancedLink link = service.createEnhancedLink(dmsLink, module,Locale.UK,false).get();
         assertEquals("/info/fake-product-p0123456798", link.getLink());
-        assertEquals(1, module.getErrorMessages().size());
+        assertTrue( module.getErrorMessages().size() > 0);
         assertNull(link.getImage());
     }
 

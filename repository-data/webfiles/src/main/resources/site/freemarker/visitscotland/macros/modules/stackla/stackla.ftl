@@ -2,8 +2,6 @@
 <#include "../../../../frontend/components/vs-module-wrapper.ftl">
 <#include "../../../../frontend/components/vs-embed-wrapper.ftl">
 
-<#include "../../global/cms-errors.ftl">
-
 <#-- @ftlvariable name="module" type="com.visitscotland.brxm.model.StacklaModule" -->
 
 <#macro stackla module>
@@ -21,7 +19,7 @@
         </script>
     </@hst.headContribution>
 
-    <@cmsErrors errors=module.errorMessages!"" editMode=editMode />
+    <@previewWarning editMode module module.errorMessages />
 
     <vs-module-wrapper theme="<#if themeName?has_content>${themeName}<#else>light</#if>">
         <template slot="vsModuleWrapperHeading">

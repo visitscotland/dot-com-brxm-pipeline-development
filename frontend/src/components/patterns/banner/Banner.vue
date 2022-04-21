@@ -21,8 +21,7 @@
                             custom-colour="#700E57"
                         />
 
-                        <!-- @slot Slot to contain banner title -->
-                        <slot name="bannerTitle" />
+                        {{ title }}
                     </VsHeading>
 
                     <VsRichTextWrapper
@@ -55,9 +54,8 @@
                         icon-only
                         @click.native="hideBanner"
                     >
-                        <!-- @slot Default slot to contain screenreader-only text for button-->
                         <span class="sr-only">
-                            <slot name="closeBtnText" />
+                            {{ closeBtnText }}
                         </span>
                     </VsButton>
                 </VsCol>
@@ -99,6 +97,22 @@ export default {
     mixins: [
         cookieMixin,
     ],
+    props: {
+        /**
+         * Accessible text for close button
+         */
+        closeBtnText: {
+            type: String,
+            required: true,
+        },
+        /**
+         * Title for the banner
+         */
+        title: {
+            type: String,
+            required: true,
+        },
+    },
     data() {
         return {
             showBanner: true,
@@ -143,7 +157,7 @@ export default {
         }
     }
 
-    &__text.vs-rich-text-wrapper--variant-normal{
+    &__text.vs-rich-text-wrapper--normal{
         p{
             display: inline;
 
@@ -153,7 +167,7 @@ export default {
         }
     }
 
-    &__text.vs-rich-text-wrapper--variant-normal,
+    &__text.vs-rich-text-wrapper--normal,
     &__cta-link{
         font-size: $font-size-4;
         line-height: $line-height-s;
@@ -169,50 +183,3 @@ export default {
 }
 
 </style>
-
-<docs>
-  ```jsx
-    <VsBanner>
-        <template slot="bannerTitle">
-            Covid-19 Travel Advice
-        </template>
-
-        <template slot="bannerText">
-            <p>
-                Find the latest information on travel, and Good to Go (Covid-safe)
-                businesses. This is a test to check what would be the maximum number
-                of characters we could fit on this banner… Is it ok
-                to add two lines? Let's see how it looks on mobile.
-            </p>
-        </template>
-
-        <template slot="bannerCta">
-            <VsLink href="#">
-                View Covid-19 Travel Advice
-            </VsLink>
-        </template>
-
-        <template slot="closeBtnText">
-            Close
-        </template>
-    </VsBanner>
-
-    <br />
-
-    <VsBanner>
-        <template slot="bannerTitle">
-            Covid-19 Travel Advice With No Text
-        </template>
-
-        <template slot="bannerCta">
-            <VsLink href="#">
-                View Covid-19 Travel Advice
-            </VsLink>
-        </template>
-
-        <template slot="closeBtnText">
-            Close
-        </template>
-    </VsBanner>
-  ```
-</docs>

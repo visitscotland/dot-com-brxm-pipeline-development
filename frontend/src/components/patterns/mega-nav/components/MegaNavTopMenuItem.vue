@@ -50,6 +50,14 @@
                     >
                         <slot name="navFeaturedItem" />
                     </div>
+
+                    <div
+                        class="vs-mega-nav-top-menu-item__featured-event"
+                        data-test="vs-mega-nav-top-menu-item__featured-event"
+                        v-if="hasFeaturedEvent"
+                    >
+                        <slot name="navFeaturedEvent" />
+                    </div>
                 </div>
             </template>
         </VsMegaNavDropdown>
@@ -103,6 +111,9 @@ export default {
         },
         hasFeaturedItemLeft() {
             return !!this.$slots.navFeaturedItemLeft;
+        },
+        hasFeaturedEvent() {
+            return !!this.$slots.navFeaturedEvent;
         },
         alignmentClass() {
             return this.align === 'bottom'
@@ -164,6 +175,20 @@ export default {
                         background: $color-gray-tint-6;
                     }
                 }
+            }
+        }
+
+        &__featured-event {
+            @include media-breakpoint-up(lg) {
+                width: 23%;
+            }
+
+            @include media-breakpoint-up(xl) {
+                width: 21.8%;
+            }
+
+            @include media-breakpoint-up(xxl) {
+                width: 21.3%;
             }
         }
 

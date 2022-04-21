@@ -116,8 +116,9 @@ public class ListicleFactory {
             DMSLink dmsLink = (DMSLink) link;
             JsonNode product = dmsData.productCard(dmsLink.getProduct(), locale);
             if (product == null) {
-                contentLogger.warn("There is no product with the id '{}', ({}) ", dmsLink.getProduct(), link.getPath());
-                module.addErrorMessage("Main Link: There is no a product with the id " + dmsLink.getProduct());
+                String message = String.format("The DMS product added to '%s' was not found, please review the DMS Product id field in the document %s at: %s ", module.getTitle(), dmsLink.getDisplayName(), dmsLink.getPath());
+                contentLogger.warn(message);
+                module.addErrorMessage(message);
             }else {
                 processDMSMainProduct(locale, module, dmsLink, product);
                 return linksService.createDmsLink(locale, dmsLink, product);
@@ -127,7 +128,6 @@ public class ListicleFactory {
             Optional<EnhancedLink> optionalLink = linksService.createEnhancedLink((Linkable) cmsLink.getLink(), module, locale,false);
             if (!optionalLink.isPresent()) {
                 String linkPath = cmsLink.getLink() == null ? "" : cmsLink.getLink().getPath();
-                module.addErrorMessage(String.format("Invalid link at %s", link.getPath()));
                 contentLogger.error("Failed to add main product link to listicle item {} - check link is valid and published", linkPath);
                 return null;
             }
@@ -164,8 +164,9 @@ public class ListicleFactory {
      */
     private void processDMSMainProduct(Locale locale, ListicleModule item, DMSLink dmsLink, JsonNode product) {
         if (product == null) {
-            item.addErrorMessage("The product id does not match in the DMS");
-            contentLogger.warn("The product id was not provided or the product was not found (id={}), Listicle = {} - {}",  dmsLink.getProduct(), item.getHippoBean(), item.getHippoBean().getTitle());
+            String message = String.format("The DMS product added to '%s' was not found, please review the DMS Product id field in the document %s at: %s ", item.getTitle(), dmsLink.getDisplayName(), dmsLink.getPath());
+            item.addErrorMessage(message);
+            contentLogger.warn(message);
         } else {
             if (item.getImage() == null) {
                 item.setImage(imageFactory.createImage(product, item, locale));

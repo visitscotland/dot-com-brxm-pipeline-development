@@ -2,8 +2,8 @@
 <#include "../../../frontend/components/vs-alert.ftl">
 <#include "../../../frontend/components/vs-list.ftl">
 
-<#macro previewWarning editMode module hidden=false message="">
-    <#if editMode && module.errorMessages?has_content >
+<#macro previewWarning editMode module errorMessages hidden=false message="">
+    <#if editMode && errorMessages?has_content >
         <vs-container
             class="py-4"
         >
@@ -18,7 +18,7 @@
                         <p>The following issues have been detected in the document ${module.hippoBean.displayName}:</p>
                     </#if>
                     <vs-list>
-                        <#list module.errorMessages as error>
+                        <#list errorMessages as error>
                             <li>${error}</li>
                         </#list>
                     </vs-list>

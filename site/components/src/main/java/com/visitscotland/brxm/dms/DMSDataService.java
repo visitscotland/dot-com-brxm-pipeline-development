@@ -70,8 +70,9 @@ public class DMSDataService {
      *
      * @param psb ProductSearchBuilder
      *
-     * @return
+     * @return Json node with DMS results
      */
+    @Cacheable (value="dmsProductSearch")
     public JsonNode legacyMapSearch(ProductSearchBuilder psb){
 
         String responseString = null;
@@ -95,5 +96,38 @@ public class DMSDataService {
         }
 
         return  null;
+    }
+
+    /**
+     * This method invokes the canned search endpoint to check if there are results coming
+     *
+     * @param toursUrl tours search url
+     *
+     * @return boolean to indicate if the search returns products
+     */
+    @Cacheable (value="dmsProductSearch")
+    public boolean cannedSearchHasResults(String toursUrl){
+
+        String responseString = null;
+
+        logger.info("Requesting data to the tms: {}", toursUrl);
+        try {
+            responseString = proxy.request(toursUrl);
+
+            if (responseString!=null) {
+
+                ObjectMapper mapper = new ObjectMapper();
+                JsonNode json = mapper.readTree(responseString);
+
+                if (json.has("data") ) {
+                    int count =  Integer.parseInt(String.valueOf(json.get("data").get("count")));
+                    return count>0;
+                }
+            }
+        } catch (JsonProcessingException e){
+            logger.error("The response could not be parsed:\n {}", responseString, e);
+        }
+
+        return false;
     }
 }

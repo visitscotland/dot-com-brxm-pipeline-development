@@ -104,10 +104,10 @@ public class LinkService {
 
     /**
      * Creates a FlatLink from a CMSLink Document
-     * @param module
-     * @param locale
-     * @param cmsLink
-     * @return
+     * @param module actual module
+     * @param locale locale value
+     * @param cmsLink link to CMS document
+     * @return FLatLink to a CMS document
      */
     FlatLink createCMSLink(Module<?> module, Locale locale, CMSLink cmsLink){
         FlatLink link = null;
@@ -206,7 +206,7 @@ public class LinkService {
      *
      * @param locale Locale
      * @param link   SharedLink Object;
-     * @return
+     * @return Plain link
      */
     public String getPlainLink(Module module, Locale locale, SharedLink link) {
         return getPlainLink(locale, link.getLinkType(), getNodeFromSharedLink(link, module,locale));
@@ -271,8 +271,8 @@ public class LinkService {
      * <p>
      * Note: Malformed URLs will be treated as external URLs
      *
-     * @param url
-     * @return
+     * @param url ULR domain
+     * @return boolean if the URL is internal
      */
     private boolean isInternalDomain(String url) {
         try {
@@ -331,10 +331,10 @@ public class LinkService {
      * Creates an enhanced link form a {@code Linkable} object
      *
      * @param linkable    Page or Shared link that contains the information about the link
-     * @param module      Module to
-     * @param locale
-     * @param addCategory
-     * @return
+     * @param module      Module
+     * @param locale locale
+     * @param addCategory category for OTYML
+     * @return Enhanced link
      */
     public Optional<EnhancedLink> createEnhancedLink(Linkable linkable, Module<?> module, Locale locale, boolean addCategory) {
         EnhancedLink link = null;
@@ -358,8 +358,9 @@ public class LinkService {
         }
 
         if (link.getImage() == null) {
+
             if (module != null) {
-                module.addErrorMessage("The link to '" + link.getLink() + "' does not contain an image.");
+                module.addErrorMessage(String.format("The Link to '%s' does not contain an image, please review the document %s at: %s", link.getLabel(), ((BaseDocument) linkable).getDisplayName(), ((BaseDocument) linkable).getPath()));
             } else {
                 logger.error("The error message cannot be displayed in preview");
             }
@@ -372,10 +373,10 @@ public class LinkService {
     /**
      * Creates a FlatLink from a Page or a Shared Document
      *
-     * @param linkable
-     * @param module
-     * @param locale
-     * @return
+     * @param linkable document to be linked
+     * @param module the actual module
+     * @param locale locale value
+     * @return FlatLink simple format
      */
     public FlatLink createSimpleLink(@NotNull Linkable linkable, Module<?> module, Locale locale) {
         FlatLink link = new FlatLink();
@@ -409,8 +410,9 @@ public class LinkService {
         if (sharedLink.getLinkType() instanceof DMSLink) {
             product = dmsData.productCard(((DMSLink) sharedLink.getLinkType()).getProduct(), locale);
             if (product == null){
-                contentLogger.warn("The DMS ID for '{}' is not valid. Please review at {}", sharedLink.getTitle(), sharedLink.getPath());
-                module.addErrorMessage(String.format("The DMS ID for '%s' is not valid. Please review at %s", sharedLink.getTitle(), sharedLink.getPath()));
+                String message =  String.format("The DMS ID for '%s' is not valid. Please review the document '%s' at %s", sharedLink.getTitle(),sharedLink.getDisplayName(), sharedLink.getPath());
+                contentLogger.warn(message);
+                module.addErrorMessage(message);
             }
         }
         return product;
@@ -430,6 +432,9 @@ public class LinkService {
         link.setLink(utils.createUrl(page));
         link.setType(LinkType.INTERNAL);
 
+        if (page.getImage() == null){
+            module.addErrorMessage(String.format("The image selected for '%s' is not available. Please select a valid image for the page '%s' at: %s",  page.getTitle(), page.getDisplayName(), page.getPath()));
+        }
         link.setImage(imageFactory.createImage(page.getImage(), module, locale));
 
         if (page instanceof Itinerary) {
@@ -462,11 +467,12 @@ public class LinkService {
             return null;
         }
 
-        if (sharedLink.getImage() != null) {
-            link.setImage(imageFactory.createImage(sharedLink.getImage(), module, locale));
-        } else if (product != null && product.has(DMSConstants.DMSProduct.IMAGE)) {
+        if (product != null && product.has(DMSConstants.DMSProduct.IMAGE)) {
             link.setImage(imageFactory.createImage(product, module, locale));
+        }else{
+            link.setImage(imageFactory.createImage(sharedLink.getImage(), module, locale));
         }
+
 
         if (sharedLink.getLinkType() instanceof ExternalDocument) {
             link.setLabel(formatLabel(sharedLink, sharedLink.getTitle(), module, locale));
@@ -482,7 +488,9 @@ public class LinkService {
                 link.setCta(bundle.getCtaLabel(((DMSLink)sharedLink.getLinkType()).getLabel(), locale));
             }
         }
-
+        if (sharedLink.getImage() == null && !(sharedLink.getLinkType() instanceof DMSLink)){
+            module.addErrorMessage(String.format("The image selected for '%s' is not available. Please select a valid image for the shared document '%s' at: %s",  sharedLink.getTitle(), sharedLink.getDisplayName(), sharedLink.getPath()));
+        }
         return link;
     }
 
@@ -509,7 +517,7 @@ public class LinkService {
     /**
      * Formats label and includes additional information when needed
      *
-     * @param linkable
+     * @param linkable link to external document
      * @param locale   Language for the label
      * @param module   Module to feed with any possible issue found while creating the page.
      * @return Formatted label
@@ -546,7 +554,7 @@ public class LinkService {
      * @param video  Video Document
      * @param module Module that will log all issues for the modules.
      * @param locale Locale for the localization
-     * @return
+     * @return enhancedLink for the video
      */
     public EnhancedLink createVideo(Video video, Module<?> module, Locale locale) {
         EnhancedLink videoLink = new EnhancedLink();

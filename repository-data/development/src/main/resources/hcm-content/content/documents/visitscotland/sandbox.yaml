@@ -18117,7 +18117,7 @@
       jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
       jcr:uuid: 6f97356d-ecd8-493c-a97a-bcee0856ac19
       hippo:name: Inspiration - Feature Widget
-      hippo:versionHistory: 59da8657-de13-49ec-855f-b941bc54c937
+      hippo:versionHistory: 25eb29cb-5be5-4855-b3d2-723b28cb9544
       /inspiration---feature-widget[1]:
         jcr:primaryType: visitscotland:FeaturedWidget
         jcr:mixinTypes: ['mix:referenceable']
@@ -18127,8 +18127,8 @@
         hippostd:state: draft
         hippostdpubwf:createdBy: admin
         hippostdpubwf:creationDate: 2021-05-12T10:08:23.582+01:00
-        hippostdpubwf:lastModificationDate: 2022-01-20T17:32:33.151Z
-        hippostdpubwf:lastModifiedBy: editor
+        hippostdpubwf:lastModificationDate: 2022-03-17T14:08:44.704Z
+        hippostdpubwf:lastModifiedBy: admin
         hippotranslation:id: 096dd137-b94b-44f6-822c-661ae7e40261
         hippotranslation:locale: en
         visitscotland:translation: ''
@@ -18144,18 +18144,19 @@
           /visitscotland:links:
             jcr:primaryType: hippo:mirror
             hippo:docbase: a1e16b7c-7390-43b8-b2a6-4a8d88834402
-        /visitscotland:items[1]:
-          jcr:primaryType: visitscotland:CMSLink
-          visitscotland:label: With CTA
-          /visitscotland:link:
-            jcr:primaryType: hippo:mirror
-            hippo:docbase: 2cd6819b-dc3e-4884-9942-f3b64c744de1
-        /visitscotland:items[2]:
-          jcr:primaryType: visitscotland:CMSLink
-          visitscotland:label: A different CTA
-          /visitscotland:link:
-            jcr:primaryType: hippo:mirror
-            hippo:docbase: 2cd6819b-dc3e-4884-9942-f3b64c744de1
+        /visitscotland:items:
+          jcr:primaryType: visitscotland:ProductsSearch
+          visitscotland:distance: 10.0
+          visitscotland:dmsAwards: []
+          visitscotland:dmsCategories: []
+          visitscotland:dmsFacilities: []
+          visitscotland:free: false
+          visitscotland:goodToGo: false
+          visitscotland:location: Scotland
+          visitscotland:offers: false
+          visitscotland:officialrating: []
+          visitscotland:productType: even
+          visitscotland:safeTravels: false
       /inspiration---feature-widget[2]:
         jcr:primaryType: visitscotland:FeaturedWidget
         jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
@@ -18165,8 +18166,8 @@
         hippostd:state: unpublished
         hippostdpubwf:createdBy: admin
         hippostdpubwf:creationDate: 2021-05-12T10:08:23.582+01:00
-        hippostdpubwf:lastModificationDate: 2022-01-20T19:13:50.401Z
-        hippostdpubwf:lastModifiedBy: editor
+        hippostdpubwf:lastModificationDate: 2022-03-17T14:09:02.320Z
+        hippostdpubwf:lastModifiedBy: admin
         hippotranslation:id: 096dd137-b94b-44f6-822c-661ae7e40261
         hippotranslation:locale: en
         visitscotland:translation: ''
@@ -18182,18 +18183,19 @@
           /visitscotland:links:
             jcr:primaryType: hippo:mirror
             hippo:docbase: a1e16b7c-7390-43b8-b2a6-4a8d88834402
-        /visitscotland:items[1]:
-          jcr:primaryType: visitscotland:CMSLink
-          visitscotland:label: With CTA
-          /visitscotland:link:
-            jcr:primaryType: hippo:mirror
-            hippo:docbase: 2cd6819b-dc3e-4884-9942-f3b64c744de1
-        /visitscotland:items[2]:
-          jcr:primaryType: visitscotland:CMSLink
-          visitscotland:label: A different CTA
-          /visitscotland:link:
-            jcr:primaryType: hippo:mirror
-            hippo:docbase: 2cd6819b-dc3e-4884-9942-f3b64c744de1
+        /visitscotland:items:
+          jcr:primaryType: visitscotland:ProductsSearch
+          visitscotland:distance: 10.0
+          visitscotland:dmsAwards: []
+          visitscotland:dmsCategories: []
+          visitscotland:dmsFacilities: []
+          visitscotland:free: false
+          visitscotland:goodToGo: false
+          visitscotland:location: Scotland
+          visitscotland:offers: false
+          visitscotland:officialrating: []
+          visitscotland:productType: even
+          visitscotland:safeTravels: false
       /inspiration---feature-widget[3]:
         jcr:primaryType: visitscotland:FeaturedWidget
         jcr:mixinTypes: ['mix:referenceable']
@@ -18203,9 +18205,9 @@
         hippostd:state: published
         hippostdpubwf:createdBy: admin
         hippostdpubwf:creationDate: 2021-05-12T10:08:23.582+01:00
-        hippostdpubwf:lastModificationDate: 2022-01-20T19:13:50.401Z
-        hippostdpubwf:lastModifiedBy: editor
-        hippostdpubwf:publicationDate: 2022-01-20T19:13:53.377Z
+        hippostdpubwf:lastModificationDate: 2022-03-17T14:09:02.320Z
+        hippostdpubwf:lastModifiedBy: admin
+        hippostdpubwf:publicationDate: 2022-03-17T14:09:05.013Z
         hippotranslation:id: 096dd137-b94b-44f6-822c-661ae7e40261
         hippotranslation:locale: en
         visitscotland:translation: ''
@@ -18221,18 +18223,19 @@
           /visitscotland:links:
             jcr:primaryType: hippo:mirror
             hippo:docbase: a1e16b7c-7390-43b8-b2a6-4a8d88834402
-        /visitscotland:items[1]:
-          jcr:primaryType: visitscotland:CMSLink
-          visitscotland:label: With CTA
-          /visitscotland:link:
-            jcr:primaryType: hippo:mirror
-            hippo:docbase: 2cd6819b-dc3e-4884-9942-f3b64c744de1
-        /visitscotland:items[2]:
-          jcr:primaryType: visitscotland:CMSLink
-          visitscotland:label: A different CTA
-          /visitscotland:link:
-            jcr:primaryType: hippo:mirror
-            hippo:docbase: 2cd6819b-dc3e-4884-9942-f3b64c744de1
+        /visitscotland:items:
+          jcr:primaryType: visitscotland:ProductsSearch
+          visitscotland:distance: 10.0
+          visitscotland:dmsAwards: []
+          visitscotland:dmsCategories: []
+          visitscotland:dmsFacilities: []
+          visitscotland:free: false
+          visitscotland:goodToGo: false
+          visitscotland:location: Scotland
+          visitscotland:offers: false
+          visitscotland:officialrating: []
+          visitscotland:productType: even
+          visitscotland:safeTravels: false
     /accommodation:
       jcr:primaryType: hippo:handle
       jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
@@ -18336,6 +18339,94 @@
           /visitscotland:link:
             jcr:primaryType: hippo:mirror
             hippo:docbase: ab8d2643-1517-4a6a-aa86-f5a9c8b5e2c3
+    /things-to-do---feature-event:
+      jcr:primaryType: hippo:handle
+      jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+      jcr:uuid: eeefe0e7-1cb2-43a4-8744-b9aa072a1c61
+      hippo:name: Things to do - Feature event
+      hippo:versionHistory: 5c675d6b-463b-4ad2-a587-27121cc4187d
+      /things-to-do---feature-event[1]:
+        jcr:primaryType: visitscotland:FeaturedWidget
+        jcr:mixinTypes: ['mix:referenceable']
+        jcr:uuid: ecaf8203-74c6-4f2f-b57e-bd654c259582
+        hippo:availability: []
+        hippostd:retainable: false
+        hippostd:state: draft
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2022-03-23T14:25:52.287Z
+        hippostdpubwf:lastModificationDate: 2022-03-23T14:25:52.287Z
+        hippostdpubwf:lastModifiedBy: admin
+        hippotranslation:id: 9d3e0b81-987b-42d4-9846-12ab04adc86a
+        hippotranslation:locale: en
+        visitscotland:translation: ''
+        /visitscotland:items:
+          jcr:primaryType: visitscotland:ProductsSearch
+          visitscotland:distance: 10.0
+          visitscotland:dmsAwards: []
+          visitscotland:dmsCategories: []
+          visitscotland:dmsFacilities: []
+          visitscotland:free: false
+          visitscotland:goodToGo: false
+          visitscotland:location: Scotland
+          visitscotland:offers: false
+          visitscotland:officialrating: []
+          visitscotland:productType: even
+          visitscotland:safeTravels: false
+      /things-to-do---feature-event[2]:
+        jcr:primaryType: visitscotland:FeaturedWidget
+        jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+        jcr:uuid: 31c81e3a-a583-462e-9a32-992d705b88f0
+        hippo:availability: [preview]
+        hippostd:retainable: false
+        hippostd:state: unpublished
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2022-03-23T14:25:52.287Z
+        hippostdpubwf:lastModificationDate: 2022-03-23T14:26:09.042Z
+        hippostdpubwf:lastModifiedBy: admin
+        hippotranslation:id: 9d3e0b81-987b-42d4-9846-12ab04adc86a
+        hippotranslation:locale: en
+        visitscotland:translation: ''
+        /visitscotland:items:
+          jcr:primaryType: visitscotland:ProductsSearch
+          visitscotland:distance: 10.0
+          visitscotland:dmsAwards: []
+          visitscotland:dmsCategories: []
+          visitscotland:dmsFacilities: []
+          visitscotland:free: false
+          visitscotland:goodToGo: false
+          visitscotland:location: Scotland
+          visitscotland:offers: false
+          visitscotland:officialrating: []
+          visitscotland:productType: even
+          visitscotland:safeTravels: false
+      /things-to-do---feature-event[3]:
+        jcr:primaryType: visitscotland:FeaturedWidget
+        jcr:mixinTypes: ['mix:referenceable']
+        jcr:uuid: fab567b1-2509-4323-b69e-bb05acb84e69
+        hippo:availability: [live]
+        hippostd:retainable: false
+        hippostd:state: published
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2022-03-23T14:25:52.287Z
+        hippostdpubwf:lastModificationDate: 2022-03-23T14:26:09.042Z
+        hippostdpubwf:lastModifiedBy: admin
+        hippostdpubwf:publicationDate: 2022-03-23T14:26:12.386Z
+        hippotranslation:id: 9d3e0b81-987b-42d4-9846-12ab04adc86a
+        hippotranslation:locale: en
+        visitscotland:translation: ''
+        /visitscotland:items:
+          jcr:primaryType: visitscotland:ProductsSearch
+          visitscotland:distance: 10.0
+          visitscotland:dmsAwards: []
+          visitscotland:dmsCategories: []
+          visitscotland:dmsFacilities: []
+          visitscotland:free: false
+          visitscotland:goodToGo: false
+          visitscotland:location: Scotland
+          visitscotland:offers: false
+          visitscotland:officialrating: []
+          visitscotland:productType: even
+          visitscotland:safeTravels: false
   /white-module-spacing:
     jcr:primaryType: hippostd:folder
     jcr:mixinTypes: ['hippotranslation:translated', 'mix:versionable']

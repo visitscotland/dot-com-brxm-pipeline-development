@@ -6,10 +6,10 @@
 
 <#include "../../global/image-with-caption.ftl">
 <#include "../../global/quote.ftl">
-<#include "../../global/cms-errors.ftl">
+<#include "../../global/preview-warning.ftl">
 
 <#macro icentre module themeName="">
-    <@cmsErrors errors=module.errorMessages!"" editMode=editMode />
+    <@previewWarning editMode module module.errorMessages />
 
     <#if module.image.cmsImage??>
         <#assign image>

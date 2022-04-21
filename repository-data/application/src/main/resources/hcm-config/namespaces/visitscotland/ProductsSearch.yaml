@@ -11,7 +11,7 @@ definitions:
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:uuid: ac3cdee2-6a40-480f-853c-bece8858c573
+          jcr:uuid: 0e0564c8-7721-4253-ae8c-155aee8c7c5e
           hipposysedit:node: true
           hipposysedit:supertype: ['hippo:compound', 'hippostd:relaxed']
           hipposysedit:uri: http://www.visitscotland.com/visitscotland/nt/1.0
@@ -74,14 +74,14 @@ definitions:
             hipposysedit:path: visitscotland:safeTravels
             hipposysedit:primary: false
             hipposysedit:type: Boolean
-          /goodToGo:
+          /keywords:
             jcr:primaryType: hipposysedit:field
             hipposysedit:mandatory: false
             hipposysedit:multiple: false
             hipposysedit:ordered: false
-            hipposysedit:path: visitscotland:goodToGo
+            hipposysedit:path: visitscotland:keywords
             hipposysedit:primary: false
-            hipposysedit:type: Boolean
+            hipposysedit:type: String
       /hipposysedit:prototypes:
         jcr:primaryType: hipposysedit:prototypeset
         /hipposysedit:prototype:
@@ -96,7 +96,7 @@ definitions:
           visitscotland:free: false
           visitscotland:offers: false
           visitscotland:safeTravels: false
-          visitscotland:goodToGo: false
+          visitscotland:keywords: ''
       /editor:templates:
         jcr:primaryType: editor:templateset
         /_default_:
@@ -232,10 +232,10 @@ definitions:
             wicket.id: ${cluster.id}.right.item
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-          /goodToGo:
+          /keywords:
             jcr:primaryType: frontend:plugin
-            caption: We're Good to Go
-            field: goodToGo
+            caption: Keywords
+            field: keywords
             hint: ''
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.right.item
