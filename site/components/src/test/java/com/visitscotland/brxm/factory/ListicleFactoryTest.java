@@ -13,6 +13,7 @@ import com.visitscotland.brxm.mock.ListicleItemMockBuilder;
 import com.visitscotland.brxm.model.megalinks.EnhancedLink;
 import com.visitscotland.brxm.services.LinkService;
 import com.visitscotland.brxm.services.DocumentUtilsService;
+import com.visitscotland.brxm.services.ResourceBundleService;
 import com.visitscotland.brxm.utils.VsException;
 import com.visitscotland.dataobjects.DataType;
 import org.hippoecm.hst.content.beans.standard.HippoBean;
@@ -42,6 +43,8 @@ class ListicleFactoryTest {
     ImageFactory imageFactory;
     @Mock
     DMSUtils dmsUtils;
+    @Mock
+    ResourceBundleService bundle;
     @Mock
     DocumentUtilsService documentUtils;
 
@@ -75,6 +78,7 @@ class ListicleFactoryTest {
 
         when(documentUtils.getAllowedDocuments(page, ListicleItem.class)).thenReturn(Collections.singletonList(item));
         when(linksService.createFindOutMoreLink(any(), any(), any())).thenReturn(link);
+        when(bundle.getFindOutMoreAboutCta(any(),any())).thenReturn("Find out more about");
 
         List<ListicleModule> items = factory.generateItems(Locale.UK, page);
 
