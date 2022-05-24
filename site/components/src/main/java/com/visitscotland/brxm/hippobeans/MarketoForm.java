@@ -2,7 +2,6 @@ package com.visitscotland.brxm.hippobeans;
 
 import org.onehippo.cms7.essentials.dashboard.annotations.HippoEssentialsGenerated;
 import org.hippoecm.hst.content.beans.Node;
-import org.hippoecm.hst.content.beans.standard.HippoBean;
 import org.hippoecm.hst.content.beans.standard.HippoHtml;
 import java.util.Calendar;
 
@@ -12,16 +11,6 @@ public class MarketoForm extends BaseDocument {
     @HippoEssentialsGenerated(internalName = "visitscotland:title")
     public String getTitle() {
         return getSingleProperty("visitscotland:title");
-    }
-
-    @HippoEssentialsGenerated(internalName = "visitscotland:marketoId")
-    public String getMarketoId() {
-        return getSingleProperty("visitscotland:marketoId");
-    }
-
-    @HippoEssentialsGenerated(internalName = "visitscotland:munchkinId")
-    public String getMunchkinId() {
-        return getSingleProperty("visitscotland:munchkinId");
     }
 
     @HippoEssentialsGenerated(internalName = "visitscotland:translation")
@@ -44,13 +33,23 @@ public class MarketoForm extends BaseDocument {
         return getSingleProperty("visitscotland:translationPriority");
     }
 
-    @HippoEssentialsGenerated(internalName = "visitscotland:guide")
-    public HippoHtml getGuide() {
-        return getHippoHtml("visitscotland:guide");
-    }
-
     @HippoEssentialsGenerated(internalName = "visitscotland:translationDeadline")
     public Calendar getTranslationDeadline() {
         return getSingleProperty("visitscotland:translationDeadline");
+    }
+
+    @HippoEssentialsGenerated(internalName = "visitscotland:configuration")
+    public String getJsonUrl() {
+        return getSingleProperty("visitscotland:jsonUrl");
+    }
+
+    @HippoEssentialsGenerated(internalName = "visitscotland:nonJavaScriptMessage")
+    public String getNonJavaScriptMessage() {
+        return getSingleProperty("visitscotland:nonJavaScriptMessage");
+    }
+
+    @HippoEssentialsGenerated(internalName = "visitscotland:copy")
+    public HippoHtml getCopy() {
+        return getHippoHtml("visitscotland:copy");
     }
 }

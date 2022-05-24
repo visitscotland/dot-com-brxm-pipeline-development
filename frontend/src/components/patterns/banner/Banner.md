@@ -3,10 +3,13 @@ The banner component sits below the main navigation at the top of a page across 
 
 The banner must contain a title and call to action link to more information. It may also include extra text content for a better description.  
 
+Only one banner should ever be displayed at one time.
+
 ```jsx
     <VsBanner
         close-btn-text="Close"
         title="Covid-19 Travel Advice"
+        :dont-show-again="false"
     >
         <template slot="bannerText">
             <p>
@@ -23,10 +26,10 @@ The banner must contain a title and call to action link to more information. It 
     </VsBanner>
   ```
 
-A user can remove the banner from a page using the close button and if the user allows cookies, the banner won’t reappear until their next session. 
+### Removing the Banner
+By default, a user can remove the banner from a page using the close button and if the user allows the setting of cookies, the banner won’t reappear until their next session. 
 
-Only one banner should ever be displayed at one time.
-
+The `dontShowAgain` prop can be set to false so that a cookie is never set and the banner will reappear every time the page is reloaded. 
 
 
 ## Accessibility

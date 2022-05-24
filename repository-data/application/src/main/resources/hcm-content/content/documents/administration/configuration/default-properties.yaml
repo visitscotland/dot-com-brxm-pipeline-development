@@ -3,7 +3,7 @@
   jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
   jcr:uuid: a8a8926f-e625-4162-98b4-29f3c3b819b8
   hippo:name: Default Properties
-  hippo:versionHistory: 453fdd72-d213-488f-aae7-aa6c3c39a481
+  hippo:versionHistory: f2a8b2ca-b998-42e8-9425-2b5feac403a9
   /default-properties[1]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:versionable']
@@ -13,7 +13,7 @@
     hippostd:state: unpublished
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2021-02-05T15:37:26.056Z
-    hippostdpubwf:lastModificationDate: 2022-03-21T17:20:10.268Z
+    hippostdpubwf:lastModificationDate: 2022-05-18T09:57:43.380+01:00
     hippostdpubwf:lastModifiedBy: admin
     resourcebundle:descriptions: [URL prefix for Instagram endpoints, '', Client Token
         for Instagram request, '', Encoding for requests made to dms data endpoints,
@@ -37,12 +37,12 @@
         for all page titles, '', '', '', Container ID from Google Tag Manager, "GTM\
         \ Query Parameter for the environment. \r\n\r\nTypically production wouldn't\
         \ have any query parameters while rest of the environment would use a test\
-        \ container with query parameters", '', "Default DMS version served by Hippo.\r\n\
-        \r\nCurrent allowed values:\r\n - \"legacy\": For legacy applications based\
+        \ container with query parameters", '', "Default DMS version served by Hippo.\r\
+        \n\r\nCurrent allowed values:\r\n - \"legacy\": For legacy applications based\
         \ on 10 pixels base line\r\n - \"\": Standard version for newly developed\
         \ applications.\r\n\r\nValues that are not in this list are going to be interpreted\
         \ as standard version.\r\n\r\nNote: This property should be removed once all\
-        \ legacy applications are send the query parameter version=\"legacy\""]
+        \ legacy applications are send the query parameter version=\"legacy\"", '']
     resourcebundle:id: default.config
     resourcebundle:keys: [instagram.api, helpdesk-email, instagram.accesstoken, instagram.post-url,
       dms-data.encoding, dms-data.api-key, dms-data.timeout, dms-data.tries, dms-data.sleep-time,
@@ -51,7 +51,7 @@
       dms-data.public-url, dms-data.private-url, links.convert-to-relative, youtube.api-key,
       og.site-name, og.twitter.site, seo.alternate-link-locale-order, seo.title-suffix,
       seo.og.site-name, seo.og.twitter.site, gtm.is-production, gtm.container-id,
-      gtm.preview-query-string, search.path, data-internal.default-css-version]
+      gtm.preview-query-string, search.path, data-internal.default-css-version, form.is-production]
     resourcebundle:messages: ['https://graph.facebook.com/v9.0/instagram_oembed?url=http://instagr.am/p/',
       helpdesk@visitscotland.com, 0d41c47eaf42b43fe20de05201c798ec, 'https://www.instagram.com/p/',
       UTF-8, $VS_API_KEY, '2000', '3', '60000', 'https://community.visitscotland.com/',
@@ -59,7 +59,7 @@
       'true', '', 'http://172.28.81.65:8089', /data, 'http://172.28.81.65:8089/data',
       www.visitscotland.com, $YOUTUBE_API_KEY, VisitScotland, '@VisitScotland', 'en,fr,de,nl,it,es',
       '| VisitScotland', VisitScotland, '@VisitScotland', 'false', GTM-WWKWV5K, '&gtm_auth=YWMt6gew5Au1PAnzyzMADQ&gtm_preview=env-3&gtm_cookies_win=x',
-      site-search-results, legacy]
+      site-search-results, legacy, 'false']
   /default-properties[2]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:referenceable']
@@ -69,7 +69,7 @@
     hippostd:state: draft
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2021-02-05T15:37:26.056Z
-    hippostdpubwf:lastModificationDate: 2022-03-21T17:54:22.065Z
+    hippostdpubwf:lastModificationDate: 2022-05-18T09:57:27.414+01:00
     hippostdpubwf:lastModifiedBy: admin
     resourcebundle:descriptions: [URL prefix for Instagram endpoints, '', Client Token
         for Instagram request, '', Encoding for requests made to dms data endpoints,
@@ -93,12 +93,12 @@
         for all page titles, '', '', '', Container ID from Google Tag Manager, "GTM\
         \ Query Parameter for the environment. \r\n\r\nTypically production wouldn't\
         \ have any query parameters while rest of the environment would use a test\
-        \ container with query parameters", '', "Default DMS version served by Hippo.\r\n\
-        \r\nCurrent allowed values:\r\n - \"legacy\": For legacy applications based\
+        \ container with query parameters", '', "Default DMS version served by Hippo.\r\
+        \n\r\nCurrent allowed values:\r\n - \"legacy\": For legacy applications based\
         \ on 10 pixels base line\r\n - \"\": Standard version for newly developed\
         \ applications.\r\n\r\nValues that are not in this list are going to be interpreted\
         \ as standard version.\r\n\r\nNote: This property should be removed once all\
-        \ legacy applications are send the query parameter version=\"legacy\""]
+        \ legacy applications are send the query parameter version=\"legacy\"", '']
     resourcebundle:id: default.config
     resourcebundle:keys: [instagram.api, helpdesk-email, instagram.accesstoken, instagram.post-url,
       dms-data.encoding, dms-data.api-key, dms-data.timeout, dms-data.tries, dms-data.sleep-time,
@@ -107,7 +107,7 @@
       dms-data.public-url, dms-data.private-url, links.convert-to-relative, youtube.api-key,
       og.site-name, og.twitter.site, seo.alternate-link-locale-order, seo.title-suffix,
       seo.og.site-name, seo.og.twitter.site, gtm.is-production, gtm.container-id,
-      gtm.preview-query-string, search.path, data-internal.default-css-version]
+      gtm.preview-query-string, search.path, data-internal.default-css-version, form.is-production]
     resourcebundle:messages: ['https://graph.facebook.com/v9.0/instagram_oembed?url=http://instagr.am/p/',
       helpdesk@visitscotland.com, 0d41c47eaf42b43fe20de05201c798ec, 'https://www.instagram.com/p/',
       UTF-8, $VS_API_KEY, '2000', '3', '60000', 'https://community.visitscotland.com/',
@@ -115,7 +115,7 @@
       'true', '', 'http://172.28.81.65:8089', /data, 'http://172.28.81.65:8089/data',
       www.visitscotland.com, $YOUTUBE_API_KEY, VisitScotland, '@VisitScotland', 'en,fr,de,nl,it,es',
       '| VisitScotland', VisitScotland, '@VisitScotland', 'false', GTM-WWKWV5K, '&gtm_auth=YWMt6gew5Au1PAnzyzMADQ&gtm_preview=env-3&gtm_cookies_win=x',
-      site-search-results, legacy]
+      site-search-results, legacy, 'false']
   /default-properties[3]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:referenceable']
@@ -125,9 +125,9 @@
     hippostd:state: published
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2021-02-05T15:37:26.056Z
-    hippostdpubwf:lastModificationDate: 2022-03-21T17:20:10.268Z
+    hippostdpubwf:lastModificationDate: 2022-05-18T09:57:43.380+01:00
     hippostdpubwf:lastModifiedBy: admin
-    hippostdpubwf:publicationDate: 2022-03-21T17:54:14.769Z
+    hippostdpubwf:publicationDate: 2022-05-18T09:57:48.386+01:00
     resourcebundle:descriptions: [URL prefix for Instagram endpoints, '', Client Token
         for Instagram request, '', Encoding for requests made to dms data endpoints,
       "Token that identifies calls made to vs-dms-products as internal calls giving\
@@ -150,12 +150,12 @@
         for all page titles, '', '', '', Container ID from Google Tag Manager, "GTM\
         \ Query Parameter for the environment. \r\n\r\nTypically production wouldn't\
         \ have any query parameters while rest of the environment would use a test\
-        \ container with query parameters", '', "Default DMS version served by Hippo.\r\n\
-        \r\nCurrent allowed values:\r\n - \"legacy\": For legacy applications based\
+        \ container with query parameters", '', "Default DMS version served by Hippo.\r\
+        \n\r\nCurrent allowed values:\r\n - \"legacy\": For legacy applications based\
         \ on 10 pixels base line\r\n - \"\": Standard version for newly developed\
         \ applications.\r\n\r\nValues that are not in this list are going to be interpreted\
         \ as standard version.\r\n\r\nNote: This property should be removed once all\
-        \ legacy applications are send the query parameter version=\"legacy\""]
+        \ legacy applications are send the query parameter version=\"legacy\"", '']
     resourcebundle:id: default.config
     resourcebundle:keys: [instagram.api, helpdesk-email, instagram.accesstoken, instagram.post-url,
       dms-data.encoding, dms-data.api-key, dms-data.timeout, dms-data.tries, dms-data.sleep-time,
@@ -164,7 +164,7 @@
       dms-data.public-url, dms-data.private-url, links.convert-to-relative, youtube.api-key,
       og.site-name, og.twitter.site, seo.alternate-link-locale-order, seo.title-suffix,
       seo.og.site-name, seo.og.twitter.site, gtm.is-production, gtm.container-id,
-      gtm.preview-query-string, search.path, data-internal.default-css-version]
+      gtm.preview-query-string, search.path, data-internal.default-css-version, form.is-production]
     resourcebundle:messages: ['https://graph.facebook.com/v9.0/instagram_oembed?url=http://instagr.am/p/',
       helpdesk@visitscotland.com, 0d41c47eaf42b43fe20de05201c798ec, 'https://www.instagram.com/p/',
       UTF-8, $VS_API_KEY, '2000', '3', '60000', 'https://community.visitscotland.com/',
@@ -172,4 +172,4 @@
       'true', '', 'http://172.28.81.65:8089', /data, 'http://172.28.81.65:8089/data',
       www.visitscotland.com, $YOUTUBE_API_KEY, VisitScotland, '@VisitScotland', 'en,fr,de,nl,it,es',
       '| VisitScotland', VisitScotland, '@VisitScotland', 'false', GTM-WWKWV5K, '&gtm_auth=YWMt6gew5Au1PAnzyzMADQ&gtm_preview=env-3&gtm_cookies_win=x',
-      site-search-results, legacy]
+      site-search-results, legacy, 'false']

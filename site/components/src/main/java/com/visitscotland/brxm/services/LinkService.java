@@ -37,8 +37,6 @@ public class LinkService {
     private static final Logger logger = LoggerFactory.getLogger(LinkService.class);
     private static final Logger contentLogger = LoggerFactory.getLogger("content");
 
-    private static final String DMS_PAGE = "(/[a-z0-9\\-._~%!$&'()*+,;=@]*)?(/info/).*";
-
     private final DMSDataService dmsData;
     private final ResourceBundleService bundle;
     private final HippoUtilsService utils;
@@ -143,7 +141,7 @@ public class LinkService {
         return createExternalLink(utils.getRequestLocale(), url, null);
     }
 
-    FlatLink createExternalLink(final Locale locale, final String url, final String label) {
+   public FlatLink createExternalLink(final Locale locale, final String url, final String label) {
         LinkType linkType = getType(url);
         String localizedUrl = processURL(locale, url);
 
@@ -179,22 +177,19 @@ public class LinkService {
         return url;
     }
 
-    /**
-     * TODO Refactor this method when DMS language URLs are the same as CMS language URLs
-     */
     private String localize(Locale locale, String site, String path) {
-        boolean isDms = path.matches(DMS_PAGE);
-        String languagePath = isDms ?
-                Language.getLanguageForLocale(locale).getDMSPathVariable() : Language.getLanguageForLocale(locale).getCMSPathVariable();
-
+        String languagePath = Language.getLanguageForLocale(locale).getPathVariable();
 
         if (path.startsWith(languagePath)) {
             return site + path;
-        } else if (isDms && path.startsWith(Language.getLanguageForLocale(locale).getCMSPathVariable())) {
-            return site + languagePath + path.substring(path.indexOf("/", 1));
         } else {
             return site + languagePath + path;
         }
+    }
+
+    public FlatLink createDmsLink(Locale locale, DMSLink dmsLink, JsonNode dmsProductJson, String defaultCta) {
+        String cta = Contract.isEmpty(dmsLink.getLabel()) ? defaultCta : dmsLink.getLabel();
+        return new FlatLink(cta, getPlainLink(locale, dmsLink, dmsProductJson), LinkType.INTERNAL);
     }
 
     public FlatLink createDmsLink(Locale locale, DMSLink dmsLink, JsonNode dmsProductJson) {

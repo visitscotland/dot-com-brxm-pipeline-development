@@ -92,7 +92,7 @@ public class InternalResource extends AbstractResource {
         }
 
         if (locale != null) {
-            languageSubsite = Language.getLanguageForLocale(Locale.forLanguageTag(locale)).getCMSPathVariable();
+            languageSubsite = Language.getLanguageForLocale(Locale.forLanguageTag(locale)).getPathVariable();
         }
 
         return  properties.getCmsBasePath() + languageSubsite + "/internal" +

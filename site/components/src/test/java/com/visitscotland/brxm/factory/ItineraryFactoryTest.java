@@ -5,9 +5,7 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.visitscotland.brxm.dms.DMSDataService;
 import com.visitscotland.brxm.dms.DMSUtils;
-import com.visitscotland.brxm.hippobeans.Day;
-import com.visitscotland.brxm.hippobeans.Image;
-import com.visitscotland.brxm.hippobeans.Itinerary;
+import com.visitscotland.brxm.hippobeans.*;
 import com.visitscotland.brxm.mock.ItineraryDayMockBuilder;
 import com.visitscotland.brxm.model.*;
 import com.visitscotland.brxm.services.DocumentUtilsService;
@@ -180,7 +178,7 @@ class ItineraryFactoryTest {
         when(documentUtils.getAllowedDocuments(itinerary, Day.class)).thenReturn(days);
         when(dmsData.productCard("123", Locale.UK)).thenReturn(node);
 //        when(properties.getDmsHost()).thenReturn("https://mock.visitscotland.com");
-        when(linkService.createDmsLink(eq(Locale.UK),any(), any())).thenReturn(
+        when(linkService.createDmsLink(eq(Locale.UK),any(), any(), any())).thenReturn(
                 new FlatLink("Find out more", "https://mock.visitscotland.com/info/fake-product-p123", LinkType.INTERNAL));
 
         ItineraryPage iti = factory.buildItinerary(itinerary, Locale.UK);
@@ -274,7 +272,7 @@ class ItineraryFactoryTest {
         when(dmsData.productCard("123", Locale.UK)).thenReturn(node);
         when(bundle.getResourceBundle(ItineraryFactory.BUNDLE_FILE, "stop.opening", Locale.UK)).thenReturn("show times");
 //        when(properties.getDmsHost()).thenReturn("https://mock.visitscotland.com");
-        when(linkService.createDmsLink(eq(Locale.UK), any(), any())).thenReturn(
+        when(linkService.createDmsLink(eq(Locale.UK), any(), any(), any())).thenReturn(
                 new FlatLink(null, "https://mock.visitscotland.com/info/fake-product-p123", LinkType.INTERNAL));
 
         ItineraryStopModule module = getSingleStop(factory.buildItinerary(itinerary, Locale.UK));
@@ -305,7 +303,7 @@ class ItineraryFactoryTest {
 
         ItineraryStopModule module = getSingleStop(factory.buildItinerary(itinerary, Locale.UK));
 
-        verify(linkService, atLeastOnce()).createFindOutMoreLink(any(), any(), any());
+        verify(linkService, atLeastOnce()).createExternalLink(any(), any(), any());
 
         assertTrue(Contract.isEmpty(module.getErrorMessages()));
         assertEquals(1., module.getCoordinates().getLatitude());
@@ -358,6 +356,39 @@ class ItineraryFactoryTest {
         assertEquals("Pear", iti.getStops().get("b").getSubTitle());
         assertEquals(1, iti.getErrorMessages().size());
     }
+
+    @Test
+    @DisplayName("When no cta provided for DMS link, default cta is set")
+    void dmsCtaSet() throws Exception {
+        final String JSON = "{" +
+                " \"dmsLink\": {\"link\": \"/info/fake-product-p123\"}," +
+                " \"name\":\"dms title\", " +
+                " \"images\":[{" +
+                "    \"mediaUrl\":\"https://img.visitscotland.com/fake-product.jpg\"" +
+                "}]}";
+        JsonNode node = new ObjectMapper().readTree(JSON);
+        List<Day> days = new ItineraryDayMockBuilder().addDmsStop("123").title("module title").buildAsList();
+        when(documentUtils.getAllowedDocuments(itinerary, Day.class)).thenReturn(days);
+        when(dmsData.productCard("123", Locale.UK)).thenReturn(node);
+        when(bundle.getFindOutMoreAboutCta("module title", Locale.UK)).thenReturn("Find out more about module title");
+
+        factory.buildItinerary(itinerary, Locale.UK);
+
+        verify(linkService).createDmsLink(Locale.UK, (DMSLink) days.get(0).getStops().get(0).getStopItem(), node, "Find out more about module title");
+    }
+
+    @Test
+    @DisplayName("When no cta provided for external link, default cta is set")
+    void externalCtaSet() throws Exception {
+        List<Day> days = new ItineraryDayMockBuilder().addExternalStop("https://example.com").title("title").buildAsList();
+        when(documentUtils.getAllowedDocuments(itinerary, Day.class)).thenReturn(days);
+        when(bundle.getFindOutMoreAboutCta("title", Locale.UK)).thenReturn("Find out more about title");
+
+        factory.buildItinerary(itinerary, Locale.UK);
+
+        verify(linkService).createExternalLink(Locale.UK, "https://example.com", "Find out more about title");
+    }
+
 
 
 }

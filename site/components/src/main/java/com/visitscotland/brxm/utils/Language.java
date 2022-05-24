@@ -42,19 +42,11 @@ public enum Language {
         return locale;
     }
 
-    public String getCMSPathVariable() {
+    public String getPathVariable() {
         if (this == ENGLISH) {
             return "";
         } else {
             return "/" + locale.getLanguage();
-        }
-    }
-
-    public String getDMSPathVariable() {
-        if (this == ENGLISH) {
-            return "";
-        } else {
-            return "/" + locale.toLanguageTag().toLowerCase();
         }
     }
 }

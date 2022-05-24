@@ -3,7 +3,7 @@
   jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
   jcr:uuid: 766a22ea-0b28-44cf-9937-953443a6fb02
   hippo:name: Global
-  hippo:versionHistory: fba722f5-6f83-4718-a5cb-5c71569d67d8
+  hippo:versionHistory: 4c2ccfd0-5a19-4cc2-8284-1b0b3f83f72b
   /common-label[1]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:referenceable']
@@ -13,27 +13,33 @@
     hippostd:state: published
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2014-08-21T22:10:13.443+02:00
-    hippostdpubwf:lastModificationDate: 2022-03-08T09:53:55.702Z
+    hippostdpubwf:lastModificationDate: 2022-05-18T10:50:34.397+01:00
     hippostdpubwf:lastModifiedBy: admin
-    hippostdpubwf:publicationDate: 2022-03-17T10:07:11.468Z
-    resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '', '', '']
+    hippostdpubwf:publicationDate: 2022-05-18T10:50:39.213+01:00
+    resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '', '', '', '']
     resourcebundle:id: essentials.global
     resourcebundle:keys: [button.find-out-more, default.alt-text, label.download,
       keyfacilities.title, home, image.toggle.text, image.no.credit, image.title,
-      close, view-article, placeholder-image]
+      close, view-article, placeholder-image, find-out-more-about]
     resourcebundle:messages: [Find out more, No image title, Download, Key facilities,
       Home, Toggle caption information, No credit available, Image, Close, View article,
-      /content/gallery/visitscotland/static/placeholder_highlandcow.jpg]
+      /content/gallery/visitscotland/static/placeholder_highlandcow.jpg, Find out
+        more about]
     resourcebundle:messages_de: [Mehr erfahren, Kein Titel, Download, Ausstattung,
-      Startseite, '', '', '', '', '', /content/gallery/visitscotland/static/placeholder_highlandcow.jpg]
+      Startseite, '', '', '', '', '', /content/gallery/visitscotland/static/placeholder_highlandcow.jpg,
+      Erfahren Sie mehr über]
     resourcebundle:messages_es: [Más información, Sin título, Descargar, Instalaciones
-        destacadas, Inicio, '', '', '', '', '', /content/gallery/visitscotland/static/placeholder_highlandcow.jpg]
+        destacadas, Inicio, '', '', '', '', '', /content/gallery/visitscotland/static/placeholder_highlandcow.jpg,
+      'Descubre más sobre:']
     resourcebundle:messages_fr: [En savoir plus, Aucune légende, Télécharger, Infrastructures,
-      Accueil, '', '', '', '', '', /content/gallery/visitscotland/static/placeholder_highlandcow.jpg]
+      Accueil, '', '', '', '', '', /content/gallery/visitscotland/static/placeholder_highlandcow.jpg,
+      Découvrez-en plus sur]
     resourcebundle:messages_it: [Per saperne di più, Immagine priva di titolo, Scarica,
-      Servizi chiave, Inizio, '', '', '', '', '', /content/gallery/visitscotland/static/placeholder_highlandcow.jpg]
+      Servizi chiave, Inizio, '', '', '', '', '', /content/gallery/visitscotland/static/placeholder_highlandcow.jpg,
+      'Scopri di più su:']
     resourcebundle:messages_nl: [Meer info, Geen beschrijving, Download, Faciliteiten,
-      Startpagina, '', '', '', '', '', /content/gallery/visitscotland/static/placeholder_highlandcow.jpg]
+      Startpagina, '', '', '', '', '', /content/gallery/visitscotland/static/placeholder_highlandcow.jpg,
+      Meer info over]
   /common-label[2]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:versionable']
@@ -43,26 +49,32 @@
     hippostd:state: unpublished
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2014-08-21T22:10:13.443+02:00
-    hippostdpubwf:lastModificationDate: 2022-03-08T09:53:55.702Z
+    hippostdpubwf:lastModificationDate: 2022-05-18T10:50:34.397+01:00
     hippostdpubwf:lastModifiedBy: admin
-    resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '', '', '']
+    resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '', '', '', '']
     resourcebundle:id: essentials.global
     resourcebundle:keys: [button.find-out-more, default.alt-text, label.download,
       keyfacilities.title, home, image.toggle.text, image.no.credit, image.title,
-      close, view-article, placeholder-image]
+      close, view-article, placeholder-image, find-out-more-about]
     resourcebundle:messages: [Find out more, No image title, Download, Key facilities,
       Home, Toggle caption information, No credit available, Image, Close, View article,
-      /content/gallery/visitscotland/static/placeholder_highlandcow.jpg]
+      /content/gallery/visitscotland/static/placeholder_highlandcow.jpg, Find out
+        more about]
     resourcebundle:messages_de: [Mehr erfahren, Kein Titel, Download, Ausstattung,
-      Startseite, '', '', '', '', '', /content/gallery/visitscotland/static/placeholder_highlandcow.jpg]
+      Startseite, '', '', '', '', '', /content/gallery/visitscotland/static/placeholder_highlandcow.jpg,
+      Erfahren Sie mehr über]
     resourcebundle:messages_es: [Más información, Sin título, Descargar, Instalaciones
-        destacadas, Inicio, '', '', '', '', '', /content/gallery/visitscotland/static/placeholder_highlandcow.jpg]
+        destacadas, Inicio, '', '', '', '', '', /content/gallery/visitscotland/static/placeholder_highlandcow.jpg,
+      'Descubre más sobre:']
     resourcebundle:messages_fr: [En savoir plus, Aucune légende, Télécharger, Infrastructures,
-      Accueil, '', '', '', '', '', /content/gallery/visitscotland/static/placeholder_highlandcow.jpg]
+      Accueil, '', '', '', '', '', /content/gallery/visitscotland/static/placeholder_highlandcow.jpg,
+      Découvrez-en plus sur]
     resourcebundle:messages_it: [Per saperne di più, Immagine priva di titolo, Scarica,
-      Servizi chiave, Inizio, '', '', '', '', '', /content/gallery/visitscotland/static/placeholder_highlandcow.jpg]
+      Servizi chiave, Inizio, '', '', '', '', '', /content/gallery/visitscotland/static/placeholder_highlandcow.jpg,
+      'Scopri di più su:']
     resourcebundle:messages_nl: [Meer info, Geen beschrijving, Download, Faciliteiten,
-      Startpagina, '', '', '', '', '', /content/gallery/visitscotland/static/placeholder_highlandcow.jpg]
+      Startpagina, '', '', '', '', '', /content/gallery/visitscotland/static/placeholder_highlandcow.jpg,
+      Meer info over]
   /common-label[3]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:referenceable']
@@ -70,26 +82,31 @@
     hippo:availability: []
     hippostd:retainable: false
     hippostd:state: draft
-    hippostd:transferable: false
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2014-08-21T22:10:13.443+02:00
-    hippostdpubwf:lastModificationDate: 2022-03-17T10:03:39.419Z
+    hippostdpubwf:lastModificationDate: 2022-05-18T10:50:13.472+01:00
     hippostdpubwf:lastModifiedBy: admin
-    resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '', '', '']
+    resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '', '', '', '']
     resourcebundle:id: essentials.global
     resourcebundle:keys: [button.find-out-more, default.alt-text, label.download,
       keyfacilities.title, home, image.toggle.text, image.no.credit, image.title,
-      close, view-article, placeholder-image]
+      close, view-article, placeholder-image, find-out-more-about]
     resourcebundle:messages: [Find out more, No image title, Download, Key facilities,
       Home, Toggle caption information, No credit available, Image, Close, View article,
-      /content/gallery/visitscotland/static/placeholder_highlandcow.jpg]
+      /content/gallery/visitscotland/static/placeholder_highlandcow.jpg, Find out
+        more about]
     resourcebundle:messages_de: [Mehr erfahren, Kein Titel, Download, Ausstattung,
-      Startseite, '', '', '', '', '', /content/gallery/visitscotland/static/placeholder_highlandcow.jpg]
+      Startseite, '', '', '', '', '', /content/gallery/visitscotland/static/placeholder_highlandcow.jpg,
+      Erfahren Sie mehr über]
     resourcebundle:messages_es: [Más información, Sin título, Descargar, Instalaciones
-        destacadas, Inicio, '', '', '', '', '', /content/gallery/visitscotland/static/placeholder_highlandcow.jpg]
+        destacadas, Inicio, '', '', '', '', '', /content/gallery/visitscotland/static/placeholder_highlandcow.jpg,
+      'Descubre más sobre:']
     resourcebundle:messages_fr: [En savoir plus, Aucune légende, Télécharger, Infrastructures,
-      Accueil, '', '', '', '', '', /content/gallery/visitscotland/static/placeholder_highlandcow.jpg]
+      Accueil, '', '', '', '', '', /content/gallery/visitscotland/static/placeholder_highlandcow.jpg,
+      Découvrez-en plus sur]
     resourcebundle:messages_it: [Per saperne di più, Immagine priva di titolo, Scarica,
-      Servizi chiave, Inizio, '', '', '', '', '', /content/gallery/visitscotland/static/placeholder_highlandcow.jpg]
+      Servizi chiave, Inizio, '', '', '', '', '', /content/gallery/visitscotland/static/placeholder_highlandcow.jpg,
+      'Scopri di più su:']
     resourcebundle:messages_nl: [Meer info, Geen beschrijving, Download, Faciliteiten,
-      Startpagina, '', '', '', '', '', /content/gallery/visitscotland/static/placeholder_highlandcow.jpg]
+      Startpagina, '', '', '', '', '', /content/gallery/visitscotland/static/placeholder_highlandcow.jpg,
+      Meer info over]

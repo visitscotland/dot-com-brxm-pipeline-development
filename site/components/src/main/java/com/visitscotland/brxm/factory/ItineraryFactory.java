@@ -192,7 +192,7 @@ public class ItineraryFactory {
         }
 
         if (externalLink.getExternalLink() != null) {
-            FlatLink ctaLink = linkService.createFindOutMoreLink(module, locale, externalLink.getExternalLink());
+            FlatLink ctaLink = linkService.createExternalLink(locale, externalLink.getExternalLink().getLink(), bundle.getFindOutMoreAboutCta(module.getTitle(), locale));
             module.setCtaLink(ctaLink);
         }
 
@@ -216,7 +216,7 @@ public class ItineraryFactory {
             return;
         }
 
-        module.setCtaLink(linkService.createDmsLink(locale, dmsLink, product));
+        module.setCtaLink(linkService.createDmsLink(locale, dmsLink, product, bundle.getFindOutMoreAboutCta(module.getTitle(), locale)));
         module.setFacilities(utils.getKeyFacilities(product));
 
         if (module.getImage() == null && product.has(IMAGE)) {

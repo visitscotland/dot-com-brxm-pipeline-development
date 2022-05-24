@@ -1471,6 +1471,11 @@
   optionalDependencies:
     prettier "^1.18.2"
 
+"@vue/composition-api@^1.4.5":
+  version "1.4.5"
+  resolved "https://registry.yarnpkg.com/@vue/composition-api/-/composition-api-1.4.5.tgz#a15f5407708a6566ade81965476218dfaa4faa29"
+  integrity sha512-2Esgcc0EGBqyck4b/yrP2VnGmMr6cPYAE4nF3StIzP8+umNAbRZqBJDc6AhE58whPRt3lHAPf83eppgW7a2dUg==
+
 "@vue/test-utils@^1.0.3":
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/@vue/test-utils/-/test-utils-1.1.0.tgz#76305e73a786c921ede1352849614e26c7113f94"
@@ -1479,6 +1484,20 @@
     dom-event-types "^1.0.0"
     lodash "^4.17.15"
     pretty "^2.0.0"
+
+"@vuelidate/core@^2.0.0-alpha.34":
+  version "2.0.0-alpha.34"
+  resolved "https://registry.yarnpkg.com/@vuelidate/core/-/core-2.0.0-alpha.34.tgz#4a2ce2ae18c8ffadb76b296b2c7c0e10a2f48a37"
+  integrity sha512-8SHViBA+bBaXGH8UwcdGG7vEQ8mG8rhtsddJiq9Abz9YvzWxFxd8spAhe9ggfCtyRuvwCCpPbxx63NOGThVZkQ==
+  dependencies:
+    vue-demi "^0.12.0"
+
+"@vuelidate/validators@^2.0.0-alpha.26":
+  version "2.0.0-alpha.26"
+  resolved "https://registry.yarnpkg.com/@vuelidate/validators/-/validators-2.0.0-alpha.26.tgz#dbea8d44b7607ac0b4dced36ea3e4641f1617942"
+  integrity sha512-O53AU/dGMMOEPMC6bqhs9JvJAz03z0lLxIDq1tL8bWZylzRWeuF9a2sERxy82t2MnQ+ag15tUpTFpTbaYBm9tg==
+  dependencies:
+    vue-demi "^0.12.0"
 
 "@vxna/mini-html-webpack-template@^0.1.7":
   version "0.1.7"
@@ -3727,9 +3746,9 @@ caniuse-db@^1.0.30000935:
   integrity sha512-IngAS9iePELYyzIdxbqPm1+UEP3wso1mHUQiCXsHb0y3ab47FbgfBWURpe7TS07rUGUxNxY097+2hGKW+2wmIw==
 
 caniuse-lite@^1.0.0, caniuse-lite@^1.0.30000929, caniuse-lite@^1.0.30000989, caniuse-lite@^1.0.30001109, caniuse-lite@^1.0.30001135:
-  version "1.0.30001280"
-  resolved "https://registry.npmjs.org/caniuse-lite/-/caniuse-lite-1.0.30001280.tgz"
-  integrity sha512-kFXwYvHe5rix25uwueBxC569o53J6TpnGu0BEEn+6Lhl2vsnAumRFWEBhDft1fwyo6m1r4i+RqA4+163FpeFcA==
+  version "1.0.30001335"
+  resolved "https://registry.npmjs.org/caniuse-lite/-/caniuse-lite-1.0.30001335.tgz"
+  integrity sha512-ddP1Tgm7z2iIxu6QTtbZUv6HJxSaV/PZeSrWFZtbY4JZ69tOeNhBCl3HyRQgeNZKE5AOn1kpV7fhljigy0Ty3w==
 
 canonicalize@^1.0.1:
   version "1.0.3"
@@ -17072,6 +17091,11 @@ vt-pbf@^3.1.1:
     "@mapbox/vector-tile" "^1.3.1"
     pbf "^3.0.5"
 
+vue-demi@^0.12.0, vue-demi@^0.12.1:
+  version "0.12.1"
+  resolved "https://registry.yarnpkg.com/vue-demi/-/vue-demi-0.12.1.tgz#f7e18efbecffd11ab069d1472d7a06e319b4174c"
+  integrity sha512-QL3ny+wX8c6Xm1/EZylbgzdoDolye+VpCXRhI2hug9dJTP3OUJ3lmiKN3CsVV3mOJKwFi0nsstbgob0vG7aoIw==
+
 vue-docgen-api@^3.26.0:
   version "3.26.0"
   resolved "https://registry.yarnpkg.com/vue-docgen-api/-/vue-docgen-api-3.26.0.tgz#2afc6a39e72862fbbc60ceb8510c681749f05460"
@@ -17187,6 +17211,13 @@ vue-meta@^1.6.0:
     lodash.isplainobject "^4.0.6"
     lodash.uniqueid "^4.0.1"
     object-assign "^4.1.1"
+
+vue-recaptcha@^2.0.1:
+  version "2.0.2"
+  resolved "https://registry.yarnpkg.com/vue-recaptcha/-/vue-recaptcha-2.0.2.tgz#22f323089ff15f4eacde26215ca61ac4806d009a"
+  integrity sha512-bE5WMz9jyiiY1PlaBOSUvsgTZ/ONoRV7Oq4Fn4JVz//ul+DJ0LHIJERfoF0NNEIDWXv6GjhwGLveGhoq0sEerg==
+  dependencies:
+    vue-demi "^0.12.1"
 
 vue-router@^3.4.2:
   version "3.4.6"
@@ -17308,6 +17339,11 @@ vuejs-logger@^1.5.4:
   dependencies:
     es6-object-assign "1.1.0"
     vue "2.6.11"
+
+vuelidate@^0.7.7:
+  version "0.7.7"
+  resolved "https://registry.yarnpkg.com/vuelidate/-/vuelidate-0.7.7.tgz#5df3930a63ddecf56fde7bdacea9dbaf0c9bf899"
+  integrity sha512-pT/U2lDI67wkIqI4tum7cMSIfGcAMfB+Phtqh2ttdXURwvHRBJEAQ0tVbUsW9Upg83Q5QH59bnCoXI7A9JDGnA==
 
 vuex@^3.5.1:
   version "3.5.1"

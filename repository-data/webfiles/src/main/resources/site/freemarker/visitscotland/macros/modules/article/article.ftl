@@ -26,20 +26,15 @@
         <#assign image = "" />
     </#if>
 
-    <vs-article>
+    <vs-article
+        title="${module.title}"
+        anchor-link="<#if module.anchor?has_content>${module.anchor}</#if>"
+    >
         <#if image?? && image?has_content>
             <template slot="vsArticleImg">
                 <@imageWithCaption imageSrc=image imageDetails=module.image />
             </template>
         </#if>
-
-        <template slot="vsArticleTitle">
-            <#if module.anchor?has_content>
-                <span id="${module.anchor}">${module.title}</span>
-            <#else>
-                ${module.title}
-            </#if>
-        </template>
 
         <template slot="vsArticleIntro">
             <@hst.html hippohtml=module.introduction/>

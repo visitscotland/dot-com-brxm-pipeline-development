@@ -1,0 +1,40 @@
+{
+    "formSandboxId": "90",
+    "formLiveId": "91",
+    "content": {
+        "successHeading": "What happens next?",
+        "successContent": "Since you’ve just joined us, we’ll send you a couple of extra emails to introduce ourselves properly. After this Scottish hello, you’ll receive the newsletter twice a month, packed with lots of exciting information and news about Scotland to help you plan your trip.",
+        "noJs": "<p><strong>You need JavaScript enabled to be able to display our newsletter subscription form.</strong></p> <p>You can enable this in your browser settings. You can also ask to subscribe by sending an email to <a href='mailto:info@visitscotland.com'>info@visitscotland.com</a>.</p>",
+        "submit": "Subscribe"
+    },
+    "fields": [
+        {
+            "name": "previousVisit",
+            "element": "select",
+            "options": [
+                { "text": "Yes", "value": "yes" },
+                { "text": "No", "value": "no" },
+                { "text": "I don't know", "value": "dontKnow" }
+            ],
+            "label": "Have you visited Scotland before?",
+            "validation": {
+                "required": true
+            }
+        },
+        {
+            "name": "lastVisit",
+            "element": "select",
+            "options": [
+                { "text": "Within the last year", "value": "lastYear" },
+                { "text": "1-3 years ago", "value": "1" },
+                { "text": "3-5 years ago", "value": "3" },
+                { "text": "5+ years ago", "value": "5" }
+            ],
+            "label": "When was your last visit?",
+            "conditional": {
+                "previousVisit": "yes"
+            }
+        }
+    ]
+}
+    

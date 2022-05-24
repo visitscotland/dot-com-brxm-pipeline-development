@@ -6,7 +6,9 @@ Multiple articles can be used on a page to help break lots of content up into bi
 ### Standard
 A standard article with a cover image, title, introduction text and one section that includes an image and quote.
 ```jsx
-<VsArticle>
+<VsArticle
+    title="The mountain with its head in the clouds"
+>
     <template slot="vsArticleImg">
         <VsImageWithCaption
             altText="Ben Nevis"
@@ -22,10 +24,6 @@ A standard article with a cover image, title, introduction text and one section 
                 </span>
             </VsCaption>
         </VsImageWithCaption>
-    </template>
-
-    <template slot="vsArticleTitle">
-        The mountain with its head in the clouds
     </template>
 
     <template slot="vsArticleIntro">
@@ -106,11 +104,9 @@ A standard article with a cover image, title, introduction text and one section 
 The cover image and introduction are optional for an article item.
 
 ```jsx
-<VsArticle>
-    <template slot="vsArticleTitle">
-        Routes to the Summit
-    </template>
-
+<VsArticle
+    title="Routes to the Summit"
+>
     <VsArticleSection sidebar-align="left">
         <template slot="articleSidebar">
             <VsArticleSidebar sidebar-align="left">
@@ -156,11 +152,9 @@ The alignment of the sidebar should alternate between right and left by setting 
 On smaller devices, the sidebar is displayed above the related content in its section. 
 
   ```jsx
-<VsArticle>
-    <template slot="vsArticleTitle">
-        Frequently asked questions
-    </template>
-
+<VsArticle
+    title="Frequently asked questions"
+>
     <template slot="vsArticleIntro">
         Turn your Munro-bagging dreams into reality and find out everything you need to know before you lace up your walking boots. Remember, discovering the sheer magic of Scotland's most famous mountain is all the more fun when you're completely prepared for anything.
     </template>

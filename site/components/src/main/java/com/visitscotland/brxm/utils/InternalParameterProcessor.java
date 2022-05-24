@@ -151,8 +151,8 @@ public class InternalParameterProcessor {
                     .build().normalize());
         }
 
-        if (locale != null && Language.getLanguageForLocale(locale).getCMSPathVariable().length() != 0) {
-            uri.append(Language.getLanguageForLocale(locale).getCMSPathVariable());
+        if (locale != null && Language.getLanguageForLocale(locale).getPathVariable().length() != 0) {
+            uri.append(Language.getLanguageForLocale(locale).getPathVariable());
         }
 
         uri.append("/").append(PATH_PLACEHOLDER);

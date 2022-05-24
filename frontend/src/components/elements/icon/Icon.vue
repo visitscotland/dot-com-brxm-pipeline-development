@@ -18,7 +18,7 @@
 <script>
 import { get } from 'lodash';
 import designTokens from '@/assets/tokens/tokens.raw.json';
-import VsSvg from '../svg';
+import VsSvg from '@components/elements/svg';
 
 const iconPath = 'icons/';
 

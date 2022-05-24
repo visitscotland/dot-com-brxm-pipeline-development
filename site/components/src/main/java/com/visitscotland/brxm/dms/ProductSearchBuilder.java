@@ -59,6 +59,7 @@ public class ProductSearchBuilder {
     private Boolean safeTravels;
     private String keywords;
     private Order order;
+    private Integer size;
 
     private final Set<String> categories = new TreeSet<>();
     private final Set<String> awards = new TreeSet<>();
@@ -246,6 +247,11 @@ public class ProductSearchBuilder {
         return this;
     }
 
+    public ProductSearchBuilder size(Integer size) {
+        this.size = size;
+        return this;
+    }
+
     private boolean valid(String s){
         return  s != null && s.trim().length() > 0 && !s.contains("&");
     }
@@ -295,9 +301,9 @@ public class ProductSearchBuilder {
             }
         } else {
             if (Contract.isEmpty(properties.getDmsHost())) {
-                return composeUrl(Language.getLanguageForLocale(locale).getDMSPathVariable() + path);
+                return composeUrl(Language.getLanguageForLocale(locale).getPathVariable() + path);
             } else {
-                return composeUrl(properties.getDmsHost() + Language.getLanguageForLocale(locale).getDMSPathVariable() + path);
+                return composeUrl(properties.getDmsHost() + Language.getLanguageForLocale(locale).getPathVariable() + path);
             }
         }
     }
@@ -356,6 +362,10 @@ public class ProductSearchBuilder {
         }
         if (Boolean.TRUE.equals(offers)){
             compose = addParams(compose, OFFERS, "true");
+        }
+
+        if (size != null) {
+            compose = addParams(compose, SIZE, size.toString());
         }
 
         //Add categories, awards, facilities and rating

@@ -25,8 +25,9 @@
                                         level="2"
                                         class="text-center mb-8 mb-lg-9"
                                     >
-                                        <!-- @slot Slot to contain the title for this article -->
-                                        <slot name="vsArticleTitle" />
+                                        <span :id="anchorLink ? anchorLink : ''">
+                                            {{ title }}
+                                        </span>
                                     </VsHeading>
 
                                     <VsRichTextWrapper
@@ -76,6 +77,22 @@ export default {
         VsContainer,
         VsRichTextWrapper,
         VsHeading,
+    },
+    props: {
+        /**
+         * Title of the article
+         */
+        title: {
+            type: String,
+            required: true,
+        },
+        /**
+         * ID of the anchor link if needed
+         */
+        anchorLink: {
+            type: String,
+            default: '',
+        },
     },
 };
 </script>

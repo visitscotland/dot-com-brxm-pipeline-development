@@ -2,18 +2,18 @@ import { shallowMount } from '@vue/test-utils';
 import VsArticle from '../Article';
 
 const defaultSlotText = 'Article content';
-const titleSlotText = 'Article title';
 const introSlotText = 'Article intro';
 const imgSlotText = 'Article img';
 
 const factoryShallowMount = (propsData) => shallowMount(VsArticle, {
     propsData: {
         ...propsData,
+        title: 'Route to the summit',
+        anchorLink: 'Routes',
     },
     slots: {
         default: defaultSlotText,
         vsArticleImg: imgSlotText,
-        vsArticleTitle: titleSlotText,
         vsArticleIntro: introSlotText,
     },
 });
@@ -28,13 +28,20 @@ describe('VsArticle', () => {
         expect(wrapper.attributes('data-test')).toBe('vs-article');
     });
 
+    describe(':props', () => {
+        it('renders `title` passed to the article', () => {
+            expect(wrapper.text()).toContain('Route to the summit');
+        });
+        it('renders `anchorLink` passed to the article', () => {
+            const header = wrapper.find('article[data-test=vs-article]').find('.vs-article__header');
+            const anchor = header.find('#Routes');
+            expect(anchor.exists()).toBe(true);
+        });
+    });
+
     describe(':slots', () => {
         it('renders content inserted in a vsArticleImg slot', () => {
             expect(wrapper.text()).toContain(imgSlotText);
-        });
-
-        it('renders content inserted in a vsArticleTitle slot', () => {
-            expect(wrapper.text()).toContain(titleSlotText);
         });
 
         it('renders content inserted in a vsArticleIntro slot', () => {

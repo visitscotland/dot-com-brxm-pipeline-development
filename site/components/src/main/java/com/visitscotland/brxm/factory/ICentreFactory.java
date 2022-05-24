@@ -145,7 +145,7 @@ public class ICentreFactory {
                     child.get(DMSConstants.MapSearch.PROPERTIES).has(DMSConstants.MapSearch.ID)) {
                 String label = child.get(DMSConstants.MapSearch.PROPERTIES).get(DMSConstants.MapSearch.NAME).asText();
                 String id = child.get(DMSConstants.MapSearch.PROPERTIES).get(DMSConstants.MapSearch.ID).asText();
-                String languagePath = Language.getLanguageForLocale(locale).getDMSPathVariable();
+                String languagePath = Language.getLanguageForLocale(locale).getPathVariable();
                 String url = properties.getDmsHost() + DataServiceUtils.getProductURL(label, id, DMSConstants.TYPE_SERVICES, languagePath);
                 vicList.add(new FlatLink(label, url, LinkType.INTERNAL));
             }

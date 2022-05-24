@@ -548,7 +548,7 @@ class LinkServiceTest {
         when(properties.getInternalSites()).thenReturn(Arrays.asList("www.visitscotland.com,x.y.z".split(",")));
 
         assertEquals("https://www.visitscotland.com/fr/unit-test/", service.createExternalLink(Locale.FRANCE, "https://www.visitscotland.com/unit-test/",null).getLink());
-        assertEquals("https://www.visitscotland.com/fr-fr/info/accommodation/unit-test/", service.createExternalLink(Locale.FRANCE, "https://www.visitscotland.com/info/accommodation/unit-test/",null).getLink());
+        assertEquals("https://www.visitscotland.com/fr/info/accommodation/unit-test/", service.createExternalLink(Locale.FRANCE, "https://www.visitscotland.com/info/accommodation/unit-test/",null).getLink());
         assertEquals("ftp://x.y.z/fr", service.createExternalLink(Locale.FRANCE, "ftp://x.y.z",null).getLink());
         assertEquals("https://www.visitedimburg.com/unit-test/", service.createExternalLink(Locale.FRANCE, "https://www.visitedimburg.com/unit-test/",null).getLink());
     }
@@ -562,7 +562,6 @@ class LinkServiceTest {
         assertEquals("/unit-test/", service.createExternalLink(Locale.UK, "https://www.visitscotland.com/unit-test/",null).getLink());
         assertEquals("/info/accommodation/unit-test/", service.createExternalLink(Locale.UK, "https://www.visitscotland.com/info/accommodation/unit-test/",null).getLink());
         assertEquals("/fr/unit-test/", service.createExternalLink(Locale.FRANCE, "https://www.visitscotland.com/unit-test/",null).getLink());
-        assertEquals("/fr-fr/info/accommodation/unit-test/", service.createExternalLink(Locale.FRANCE, "https://www.visitscotland.com/info/accommodation/unit-test/",null).getLink());
     }
 
     @ParameterizedTest
@@ -590,7 +589,7 @@ class LinkServiceTest {
     @DisplayName("VS-2756 - Create a localized External Link for an French page")
     void createExternalLink_languange(){
         assertEquals("/fr/unit-test/", service.createExternalLink(Locale.FRANCE, "/unit-test/","Label").getLink());
-        assertEquals("/fr-fr/info/accommodation/unit-test/", service.createExternalLink(Locale.FRANCE, "/info/accommodation/unit-test/",null).getLink());
+        assertEquals("/fr/info/accommodation/unit-test/", service.createExternalLink(Locale.FRANCE, "/info/accommodation/unit-test/",null).getLink());
         assertEquals("#anchor-link", service.createExternalLink(Locale.FRANCE, "#anchor-link",null).getLink());
     }
 

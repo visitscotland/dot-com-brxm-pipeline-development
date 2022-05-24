@@ -52,13 +52,14 @@ public class PageTemplateBuilder {
     private final TravelInformationFactory travelInformationFactory;
     private final CannedSearchFactory cannedSearchFactory;
     private final PreviewModeFactory previewFactory;
+    private final MarketoFormFactory marketoFormFactory;
 
 
     @Autowired
     public PageTemplateBuilder(DocumentUtilsService documentUtils, MegalinkFactory linksFactory, ICentreFactory iCentre,
                IKnowFactory iKnow, ArticleFactory article, LongCopyFactory longcopy, IKnowCommunityFactory iKnowCommunityFactory,
                StacklaFactory stacklaFactory, TravelInformationFactory travelInformationFactory, CannedSearchFactory cannedSearchFactory,
-               PreviewModeFactory previewFactory) {
+               PreviewModeFactory previewFactory, MarketoFormFactory marketoFormFactory) {
         this.linksFactory = linksFactory;
         this.iCentreFactory = iCentre;
         this.iKnowFactory = iKnow;
@@ -70,6 +71,7 @@ public class PageTemplateBuilder {
         this.travelInformationFactory = travelInformationFactory;
         this.cannedSearchFactory = cannedSearchFactory;
         this.previewFactory = previewFactory;
+        this.marketoFormFactory = marketoFormFactory;
     }
 
     private Page getDocument(HstRequest request) {
@@ -104,6 +106,8 @@ public class PageTemplateBuilder {
                     page.modules.add(cannedSearchFactory.getCannedSearchModule((CannedSearch) item, request.getLocale()));
                 } else if (item instanceof CannedSearchTours) {
                     page.modules.add(cannedSearchFactory.getCannedSearchToursModule((CannedSearchTours) item, request.getLocale()));
+                } else if (item instanceof MarketoForm) {
+                    page.modules.add(marketoFormFactory.getModule((MarketoForm) item));
                 }
             } catch (MissingResourceException e){
                 logger.error("The module for {} couldn't be built because some labels do not exist", item.getPath(), e);

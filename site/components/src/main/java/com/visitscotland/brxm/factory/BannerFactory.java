@@ -69,7 +69,7 @@ public class BannerFactory {
             module.setCopy(document.getCopy());
             module.setCtaLink(ctaLink);
         }
-
+        module.setHippoBean(document);
         return module;
     }
 }

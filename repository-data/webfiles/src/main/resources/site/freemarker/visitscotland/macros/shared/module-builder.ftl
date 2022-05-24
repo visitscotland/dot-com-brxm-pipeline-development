@@ -3,6 +3,7 @@
 <#include "../modules/megalinks/megalinks.ftl">
 <#include "../modules/article/article.ftl">
 <#include "../modules/long-copy/long-copy.ftl">
+<#include "../modules/marketo/marketo.ftl">
 <#include "../modules/iknow-community/iknow-community.ftl">
 <#include "../modules/travel-information/travel-information.ftl">
 <#include "../modules/tourism-information/tourisminformation-iknow.ftl">
@@ -70,7 +71,8 @@
 
         <#elseif module.getType()== "CannedSearchModule">
             <@cannedSearch module themeName/>
-
+        <#elseif module.getType()== "MarketoFormModule">
+            <@marketo module/>
         <#else >
             <@previewWarning editMode module module.errorMessages true />
         </#if>

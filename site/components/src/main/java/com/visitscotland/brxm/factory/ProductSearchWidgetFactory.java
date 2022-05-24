@@ -43,7 +43,7 @@ public class ProductSearchWidgetFactory {
         module.setDomain(properties.getDmsHost());
 
         // Non-JavaScript fall-back URL
-        module.setSearchUrl(properties.getDmsHost() + Language.getLanguageForLocale(request.getLocale()).getDMSPathVariable() + String.format(DMSConstants.PRODUCT_SEARCH, type.getPathVariable()));
+        module.setSearchUrl(properties.getDmsHost() + Language.getLanguageForLocale(request.getLocale()).getPathVariable() + String.format(DMSConstants.PRODUCT_SEARCH, type.getPathVariable()));
 
         return module;
     }

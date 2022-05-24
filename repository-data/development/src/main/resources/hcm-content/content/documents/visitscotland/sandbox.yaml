@@ -16280,6 +16280,72 @@
           hippo:facets: []
           hippo:modes: []
           hippo:values: []
+    /form:
+      jcr:primaryType: hippo:handle
+      jcr:mixinTypes: ['hippo:versionInfo', 'mix:referenceable']
+      jcr:uuid: beab4981-7d7c-407a-b596-33ed083e1951
+      hippo:versionHistory: b2f99d06-f62c-441c-9cf6-914ffbae4368
+      /form[1]:
+        jcr:primaryType: visitscotland:MarketoForm
+        jcr:mixinTypes: ['mix:referenceable']
+        jcr:uuid: 45e18534-27ab-4903-8b72-c66636835eb0
+        hippo:availability: []
+        hippostd:retainable: false
+        hippostd:state: draft
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2022-03-17T14:00:05.713Z
+        hippostdpubwf:lastModificationDate: 2022-03-17T14:00:05.713Z
+        hippostdpubwf:lastModifiedBy: admin
+        hippotranslation:id: 7c22e71d-9936-4523-a120-dcb29b15eb9d
+        hippotranslation:locale: en
+        visitscotland:jsonUrl: https://www.example.com
+        visitscotland:nonJavaScriptMessage: No js message
+        visitscotland:title: Form title
+        visitscotland:translation: ''
+        /visitscotland:copy:
+          jcr:primaryType: hippostd:html
+          hippostd:content: <p>Form copy</p>
+      /form[2]:
+        jcr:primaryType: visitscotland:MarketoForm
+        jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+        jcr:uuid: 9221b5c7-044b-436c-ac14-9bb9e62fb314
+        hippo:availability: [preview]
+        hippostd:retainable: false
+        hippostd:state: unpublished
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2022-03-17T14:00:05.713Z
+        hippostdpubwf:lastModificationDate: 2022-03-17T14:00:20.394Z
+        hippostdpubwf:lastModifiedBy: admin
+        hippotranslation:id: 7c22e71d-9936-4523-a120-dcb29b15eb9d
+        hippotranslation:locale: en
+        visitscotland:jsonUrl: https://www.example.com
+        visitscotland:nonJavaScriptMessage: No js message
+        visitscotland:title: Form title
+        visitscotland:translation: ''
+        /visitscotland:copy:
+          jcr:primaryType: hippostd:html
+          hippostd:content: <p>Form copy</p>
+      /form[3]:
+        jcr:primaryType: visitscotland:MarketoForm
+        jcr:mixinTypes: ['mix:referenceable']
+        jcr:uuid: 1ef5ab41-b52d-4fb9-bc70-a7bbf5cb20ea
+        hippo:availability: [live]
+        hippostd:retainable: false
+        hippostd:state: published
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2022-03-17T14:00:05.713Z
+        hippostdpubwf:lastModificationDate: 2022-03-17T14:00:20.394Z
+        hippostdpubwf:lastModifiedBy: admin
+        hippostdpubwf:publicationDate: 2022-03-17T14:00:25.019Z
+        hippotranslation:id: 7c22e71d-9936-4523-a120-dcb29b15eb9d
+        hippotranslation:locale: en
+        visitscotland:jsonUrl: https://www.example.com
+        visitscotland:nonJavaScriptMessage: No js message
+        visitscotland:title: Form title
+        visitscotland:translation: ''
+        /visitscotland:copy:
+          jcr:primaryType: hippostd:html
+          hippostd:content: <p>Form copy</p>
   /long-copy:
     jcr:primaryType: hippostd:folder
     jcr:mixinTypes: ['hippo:named', 'hippotranslation:translated', 'mix:versionable']

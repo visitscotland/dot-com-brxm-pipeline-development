@@ -2,6 +2,7 @@
     <div
         class="vs-site-search-form"
         data-test="vs-site-search-form"
+        v-if="showSearchForm"
     >
         <VsContainer fluid="lg">
             <VsRow>
@@ -13,8 +14,6 @@
                         action
                         method="get"
                         :novalidate="true"
-                        :validated="validated"
-                        @focus="focusOnInput"
                         @submit="onSubmit"
                         tabindex="-1"
                     >
@@ -33,33 +32,18 @@
                                 />
                             </label>
 
-                            <VsFormInput
+                            <VsInput
                                 type="search"
-                                class="vs-site-search-form__input search-input"
                                 aria-label="Search"
                                 :placeholder="labelText"
                                 autocomplete="off"
-                                v-model="searchTerm"
-                                :state="validated"
                                 ref="searchInput"
                                 id="search-input"
-                                @input.native="onInput"
+                                @updated="updateVal"
+                                :clear-button-text="clearButtonText"
+                                required="true"
+                                field-name="site-search"
                             />
-
-                            <VsButton
-                                v-if="searchTerm.length"
-                                class="vs-site-search-form__clear-button d-none d-lg-block"
-                                variant="transparent"
-                                icon-variant-override="secondary"
-                                icon="close"
-                                size="md"
-                                icon-only
-                                @click.native.prevent="clearSearchFieldAndFocus()"
-                            >
-                                <span class="sr-only">
-                                    {{ clearButtonText }}
-                                </span>
-                            </VsButton>
                         </div>
 
                         <VsButton
@@ -94,7 +78,7 @@
 
 <script>
 import VsIcon from '@components/elements/icon/Icon';
-import VsFormInput from '@components/elements/form-input/FormInput';
+import VsInput from '@components/elements/input/Input';
 import VsButton from '@components/elements/button/Button';
 import {
     VsCol, VsRow, VsContainer,
@@ -114,7 +98,7 @@ export default {
     components: {
         VsIcon,
         BForm,
-        VsFormInput,
+        VsInput,
         VsButton,
         VsCol,
         VsRow,
@@ -153,57 +137,23 @@ export default {
     data() {
         return {
             searchTerm: '',
-            validated: null,
             showSearchForm: true,
         };
     },
-    computed: {
-        /**
-         * Checks if anything has been entered into the search form
-         */
-        isValid() {
-            return this.searchTerm.length > 0;
-        },
-    },
     methods: {
         /**
-         * Clear any text entered in the search input
+         * Update searchTerm value with returned data
          */
-        clearSearchField() {
-            this.searchTerm = '';
+        updateVal(data) {
+            this.searchTerm = data.value;
         },
         /**
-         * Focus on the input
+         * Only submit if the field has a vale
          */
-        focusOnInput() {
-            this.$refs.searchInput.$el.focus();
-        },
-        /**
-         * Clears the search input on button click
-         * and adds focus back to the input
-         */
-        clearSearchFieldAndFocus() {
-            this.clearSearchField();
-            this.focusOnInput();
-        },
-        /**
-         * Validates the form and submits if true
-         */
-        onSubmit($event) {
-            if (!this.isValid) {
-                $event.preventDefault();
-                this.validated = false;
-            } else {
-                return true;
+        onSubmit(e) {
+            if (this.searchTerm === '') {
+                e.preventDefault();
             }
-
-            return false;
-        },
-        /**
-         * Validates the form on input
-         */
-        onInput() {
-            this.validated = this.isValid ? null : false;
         },
         /**
          * Closes the search form popover
@@ -218,7 +168,7 @@ export default {
 
 <style lang="scss">
 
-.vs-site-search-form{
+.vs-site-search-form {
     background-color: rgba(239, 239, 239, 0.5);
     backdrop-filter: blur(30px);
     padding: $spacer-7 0;
@@ -229,7 +179,7 @@ export default {
         padding: $spacer-9 0;
     }
 
-    &__label{
+    &__label {
         position: absolute;
         left: $spacer-2;
         top: 50%;
@@ -269,6 +219,26 @@ export default {
         }
     }
 
+    .vs-input--site-search.form-control {
+        @extend %reset-clear;
+        font-size: $font-size-body;
+        height: 50px;
+        padding: $spacer-3 $spacer-7 $spacer-3 $spacer-6;
+        margin: 0;
+        border-color: $color-white;
+
+        @include media-breakpoint-up(lg) {
+            padding: $spacer-4 $spacer-10 $spacer-4 $spacer-12;
+            font-size: $display1-size;
+            height: 79px;
+        }
+
+        @include media-breakpoint-up(xl) {
+            font-size: $font-size-10;
+            height: 94px;
+        }
+    }
+
     &__search-button{
         height: 50px;
         padding: $spacer-3 $spacer-2;
@@ -283,14 +253,6 @@ export default {
         @include media-breakpoint-up(xl) {
             height: 94px;
         }
-    }
-
-    &__clear-button.vs-button.btn {
-        position: absolute;
-        right: $spacer-5;
-        top: 50%;
-        transform: translate(0, -50%);
-        padding: $spacer-1;
     }
 
     &__close-button.vs-button.btn {

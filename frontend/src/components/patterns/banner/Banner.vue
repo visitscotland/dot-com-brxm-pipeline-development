@@ -112,6 +112,13 @@ export default {
             type: String,
             required: true,
         },
+        /**
+         * Set to false to let the banner show again on page refresh
+         */
+        dontShowAgain: {
+            type: Boolean,
+            required: true,
+        },
     },
     data() {
         return {
@@ -129,7 +136,10 @@ export default {
          */
         hideBanner() {
             this.showBanner = !this.showBanner;
-            this.setHiddenCookie();
+
+            if (this.dontShowAgain) {
+                this.setHiddenCookie();
+            }
         },
         /**
          * Sets cookie to hide the banner for the user's session

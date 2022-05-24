@@ -11,6 +11,7 @@ const factoryShallowMount = (propsData) => shallowMount(VsBanner, {
         ...propsData,
         closeBtnText: 'close',
         title: 'Covid-19 Travel Advice',
+        dontShowAgain: true,
     },
     slots: {
         bannerText: textSlotText,
@@ -37,6 +38,18 @@ describe('VsBanner', () => {
         it('should render title `Covid-19 Travel Advice` when passed `title` prop', () => {
             const banner = wrapper.find('div[data-test=vs-banner');
             expect(banner.text()).toContain('Covid-19 Travel Advice');
+        });
+
+        it('does not set a cookie if `dontShowAgain` is false', async() => {
+            wrapper.setProps({
+                dontShowAgain: false,
+            });
+            const mockSetCookie = jest.fn();
+            wrapper.vm.setHiddenCookie = mockSetCookie;
+
+            await wrapper.find('[data-test=vs-banner__close-btn]').trigger('click');
+
+            expect(mockSetCookie).not.toHaveBeenCalled();
         });
     });
 

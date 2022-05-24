@@ -1,0 +1,70 @@
+/content/documents/administration/labels/modules/forms:
+  jcr:primaryType: hippo:handle
+  jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+  jcr:uuid: ac908ed6-3c2d-47f0-962e-3dccc5cc7d60
+  hippo:name: Forms
+  hippo:versionHistory: 1b4bf2a5-c87a-4218-9dd8-9d6202e2520b
+  /forms[1]:
+    jcr:primaryType: resourcebundle:resourcebundle
+    jcr:mixinTypes: ['mix:referenceable']
+    jcr:uuid: c4471aa2-f807-445d-b1bb-98c30a02bcdc
+    hippo:availability: []
+    hippostd:retainable: false
+    hippostd:state: draft
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2022-04-14T11:08:53.925+01:00
+    hippostdpubwf:lastModificationDate: 2022-04-22T15:29:17.662+01:00
+    hippostdpubwf:lastModifiedBy: admin
+    resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '', '']
+    resourcebundle:id: forms
+    resourcebundle:keys: [form.messaging-url, form.country-url, form.recaptcha-key,
+      form.munchkin-sandbox, form.munchkin-prod, form.submitting, form.error, form.marketo-instance-sandbox,
+      form.marketo-instance-prod, form.script-url]
+    resourcebundle:messages: ['https://static.visitscotland.com/forms/common/messaging.json',
+      'https://static.visitscotland.com/forms/common/countries.json', 6LfqqfcZAAAAACbkbPaHRZTIFpKZGAPZBDkwBKhe,
+      830-QYE-256, 638-HHZ-510, We're just submitting your form, 'We''re sorry there''s
+        been a problem, please try again later.', //830-QYE-256.mktoweb.com, //e.visitscotland.com,
+      //e.visitscotland.com/js/forms2/js/forms2.min.js]
+  /forms[2]:
+    jcr:primaryType: resourcebundle:resourcebundle
+    jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+    jcr:uuid: 8ccdcdf8-d85e-4a7c-bf94-b7f1a7f7d0f4
+    hippo:availability: [preview]
+    hippostd:retainable: false
+    hippostd:state: unpublished
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2022-04-14T11:08:53.925+01:00
+    hippostdpubwf:lastModificationDate: 2022-05-04T11:40:03.904+01:00
+    hippostdpubwf:lastModifiedBy: admin
+    resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '', '']
+    resourcebundle:id: forms
+    resourcebundle:keys: [form.messaging-url, form.country-url, form.recaptcha-key,
+      form.munchkin-sandbox, form.munchkin-prod, form.submitting, form.error, form.marketo-instance-sandbox,
+      form.marketo-instance-prod, form.script-url]
+    resourcebundle:messages: ['https://static.visitscotland.com/forms/common/messaging.json',
+      'https://static.visitscotland.com/forms/common/countries.json', 6LfqqfcZAAAAACbkbPaHRZTIFpKZGAPZBDkwBKhe,
+      830-QYE-256, 638-HHZ-510, We're just submitting your form, 'We''re sorry there''s
+        been a problem, please try again later.', //830-QYE-256.mktoweb.com, //e.visitscotland.com,
+      //e.visitscotland.com/js/forms2/js/forms2.min.js]
+  /forms[3]:
+    jcr:primaryType: resourcebundle:resourcebundle
+    jcr:mixinTypes: ['mix:referenceable']
+    jcr:uuid: 8c37551e-f83b-4cdc-a6f5-ad7d31dd6c4d
+    hippo:availability: [live]
+    hippostd:retainable: false
+    hippostd:state: published
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2022-04-14T11:08:53.925+01:00
+    hippostdpubwf:lastModificationDate: 2022-05-04T11:40:03.904+01:00
+    hippostdpubwf:lastModifiedBy: admin
+    hippostdpubwf:publicationDate: 2022-05-04T11:40:06.438+01:00
+    resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '', '']
+    resourcebundle:id: forms
+    resourcebundle:keys: [form.messaging-url, form.country-url, form.recaptcha-key,
+      form.munchkin-sandbox, form.munchkin-prod, form.submitting, form.error, form.marketo-instance-sandbox,
+      form.marketo-instance-prod, form.script-url]
+    resourcebundle:messages: ['https://static.visitscotland.com/forms/common/messaging.json',
+      'https://static.visitscotland.com/forms/common/countries.json', 6LfqqfcZAAAAACbkbPaHRZTIFpKZGAPZBDkwBKhe,
+      830-QYE-256, 638-HHZ-510, We're just submitting your form, 'We''re sorry there''s
+        been a problem, please try again later.', //830-QYE-256.mktoweb.com, //e.visitscotland.com,
+      //e.visitscotland.com/js/forms2/js/forms2.min.js]

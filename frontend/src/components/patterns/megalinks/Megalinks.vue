@@ -59,6 +59,7 @@
 <script>
 import VsHeading from '@components/elements/heading/Heading';
 import VsButton from '@components/elements/button/Button';
+import VsRichTextWrapper from '@components/elements/rich-text-wrapper/RichTextWrapper';
 import {
     VsContainer,
     VsRow,
@@ -80,6 +81,7 @@ export default {
         VsCol,
         VsHeading,
         VsButton,
+        VsRichTextWrapper,
     },
     props: {
         /**

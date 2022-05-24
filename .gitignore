@@ -1,7 +1,9 @@
 # Application data. Any new file under this section could be bootstrapped in production
 # creating a potential down time for our application due to incoherence in yaml files.
-repository-data/application/src/main/resources/hcm-content/content/
-
+repository-data/application/src/main/resources/hcm-content/content/*
+!repository-data/application/src/main/resources/hcm-content/content/documents
+repository-data/application/src/main/resources/hcm-content/content/documents/*
+!repository-data/application/src/main/resources/hcm-content/content/documents/administration
 
 # Front-end webfiles artefacts
 repository-data/webfiles/src/main/resources/site/frontend/
