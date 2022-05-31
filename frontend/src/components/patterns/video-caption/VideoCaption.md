@@ -37,7 +37,7 @@ which will toggle the appearance of that modal, and automatically show the video
     </VsModal>
 ```
 
-## No JS
+## Accessibility
 
 When JavaScript is disabled the video cannot instantiate and the contents of the video caption are
 hidden
