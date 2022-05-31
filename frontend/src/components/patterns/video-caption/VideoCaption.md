@@ -1,9 +1,9 @@
 ## Usage
 
-The VideoCaption component should be attached to another component, usually by embedding it in a
-position relative container. It takes a `videoId` and should be accompanied by a *modal* with a 
- matching `modalId`. It then displays a play button which will toggle the appearance of that modal,
- and automatically show the video's duration.
+The VideoCaption component should be attached to another component when that component needs a
+popup video, usually by embedding it in a position relative container. It takes a `videoId`
+and should be accompanied by a *modal* with a matching `modalId`. It then displays a play button
+which will toggle the appearance of that modal, and automatically show the video's duration.
 
 ```js
     <VsVideoCaption
