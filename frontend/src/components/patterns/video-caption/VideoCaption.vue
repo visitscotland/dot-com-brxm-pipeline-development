@@ -67,8 +67,8 @@ import VsToggleButton from '@components/elements/toggle-button/ToggleButton';
 import videoStore from '../../../stores/video.store';
 
 /**
- * A caption element providing information about a video, and a play button that
- * opens that video in a modal
+ * A caption element that providing information about a given video. It can be used in conjunction
+ * with video regardless of how that video is displayed on the page.
  *
  * @displayName Video Caption
  */

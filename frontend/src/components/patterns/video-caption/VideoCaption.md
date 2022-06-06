@@ -1,65 +1,34 @@
 ## Usage
 
-The VideoCaption component should be attached to another component when that component needs a
-popup video, usually by embedding it in a position relative container. It takes a `videoId`
-and should be accompanied by a *modal* with a matching `modalId`. It then displays a play button
-which will toggle the appearance of that modal, and automatically show the video's duration.
+The VideoCaption component should be attached to another component when that component needs to
+display information about a video. It takes a `videoId` prop, referencing the youtube id of the
+video that it is captioning, and draws play time information automatically. It also takes a
+`video-title` slot.
 
 ```js
     <VsVideoCaption
         class="mt-5 mb-5"
-        videoBtnText="Play video"
-        videoId="c05sg3G4oA4"
+        videoId="FlG6tbYaA88"
     >
         <template slot="video-title">
             This is the video title
         </template>
-        <template slot="video-no-js-alert">
-            JavaScript needs to be enabled to watch this video.
-            You can turn this on in your browser settings.
-        </template>
     </VsVideoCaption>
-
-
-    <VsModal
-        modalId="c05sg3G4oA4"
-        closeBtnText="Close"
-        :isVideoModal="true"
-    >
-        <VsRow>
-            <VsCol cols="12">
-                <VsVideo
-                    video-id="c05sg3G4oA4"
-                    class="mb-8"
-                />
-            </VsCol>
-        </VsRow>
-    </VsModal>
 ```
 
-## Accessibility
-
-When JavaScript is disabled the video cannot instantiate and the contents of the video caption are
-hidden
+If a `videoBtnText` prop is supplied then an additional button is rendered, which opens and
+autoplays any *VsModal* components in the page that contains the same video the caption references.
 
 ```js
-    <div class="no-js">
-        <VsVideoCaption
-            withToggleBtn
-            videoBtnText="Play video"
-            videoId="FlG6tbYaA88"
-            class="mt-12"
-        >
-            <template slot="video-title">
-                This is the video title
-            </template>
-            <template slot="video-no-js-alert">
-                This is display when JS is turned off.<br />
-                JavaScript needs to be enabled to watch this video.
-                You can turn this on in your browser settings.
-            </template>
-        </VsVideoCaption>
-    </div>
+    <VsVideoCaption
+        class="mt-5 mb-5"
+        videoId="FlG6tbYaA88"
+        videoBtnText="Play video"
+    >
+        <template slot="video-title">
+            This is the video title
+        </template>
+    </VsVideoCaption>
 
     <VsModal
         modalId="FlG6tbYaA88"
@@ -76,3 +45,9 @@ hidden
         </VsRow>
     </VsModal>
 ```
+
+## Accessibility
+
+When JavaScript is disabled the video cannot instantiate and the entire caption will be hidden. A
+`video-no-js-alert` slot can be provided in additional to the `video-title` which will display in
+that case. 
