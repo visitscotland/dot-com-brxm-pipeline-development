@@ -59,7 +59,7 @@ import VsSvg from '@components/elements/svg/Svg';
 import VsIcon from '@components/elements/icon/Icon';
 
 /**
- * A simple button to toggle elements in other components
+ * A simple button to control interactive behaviour in other components.
  *
  * @displayName Toggle Button
  */

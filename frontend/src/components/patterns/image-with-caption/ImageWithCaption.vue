@@ -73,7 +73,7 @@
 <script>
 
 import VsImg from '@components/elements/img/Img';
-import VsToggleButton from '@components/patterns/toggle-button/ToggleButton';
+import VsToggleButton from '@components/elements/toggle-button/ToggleButton';
 import VsVideoCaption from '@components/patterns/video-caption/VideoCaption';
 
 /**

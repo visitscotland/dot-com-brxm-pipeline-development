@@ -63,7 +63,7 @@
 <script>
 import VsButton from '@components/elements/button/Button';
 import VsIcon from '@components/elements/icon/Icon';
-import VsToggleButton from '@components/patterns/toggle-button/ToggleButton';
+import VsToggleButton from '@components/elements/toggle-button/ToggleButton';
 import videoStore from '../../../stores/video.store';
 
 /**
