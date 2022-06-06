@@ -13,8 +13,8 @@
 <script>
 import { BTabs } from 'bootstrap-vue';
 /**
- * The Tabs component contains a list of horizontally sequenced tabs, one of which displays
- * content on the page at a time
+ * Tabs group related content together on the same page and allow a user to navigate through one
+ * section of content at a time.
  *
  * @displayName Tabs
  */
