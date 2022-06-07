@@ -86,8 +86,8 @@ import VsLink from '@components/elements/link/Link';
 import VsImg from '@components/elements/img/Img';
 
 /**
- * The Stretched Link Card is a block that stretches its nested link across its whole area
- * meaning that the whole block is clickable
+ * A card that can contain images, text, video and info panels, which serves as a link. Generally
+ * used in multiples that the user can browse through and navigate to.
  *
  * @displayName Stretched Link Card
  */
@@ -267,61 +267,3 @@ export default {
         }
     }
 </style>
-
-<docs>
-  ```jsx
-    <VsContainer>
-        <VsRow>
-            <VsCol cols="12" md="6">
-                <VsStretchedLinkCard
-                    link="https://visitscotland.com"
-                    type="external"
-                    imgSrc="https://cimg.visitscotland.com/cms-images/attractions/outlander/claire-standing-stones-craigh-na-dun-outlander?size=sm"
-                    imgAlt="This is the alt text"
-                >
-                    <template slot="stretchedCardCategory">
-                        A category header
-                    </template>
-                    <template slot="stretchedCardPanels">
-                        <VsStretchedLinkPanels
-                            days="14"
-                            transport="car"
-                            transportName="Car"
-                            daysLabel="days"
-                        />
-                    </template>
-
-                    <template slot="stretchedCardHeader">
-                        A Title Would Go Here
-                    </template>
-
-                    <VsRichTextWrapper slot="stretchedCardContent">
-                        <p>The content for the card goes here</p>
-
-                        <p>A second line of content</p>
-                    </VsRichTextWrapper>
-                </VsStretchedLinkCard>
-            </VsCol>
-
-            <VsCol cols="12" md="6">
-                <VsStretchedLinkCard
-                    link="https://visitscotland.com"
-                    type="internal"
-                    imgSrc=""
-                    imgAlt="This is the alt text"
-                >
-                    <template slot="stretchedCardHeader">
-                        A Title Would Go Here
-                    </template>
-
-                    <VsRichTextWrapper slot="stretchedCardContent">
-                        <p>The content for the card goes here</p>
-
-                        <p>A second line of content</p>
-                    </VsRichTextWrapper>
-                </VsStretchedLinkCard>
-            </VsCol>
-        </VsRow>
-    </VsContainer>
-  ```
-</docs>
