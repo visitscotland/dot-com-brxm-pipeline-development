@@ -204,11 +204,10 @@ p[class^='rsg--para'] {
 }
 
 article[class^='rsg--root']{
+    div:first-of-type >
     p[class^='rsg--para'] {
         &:first-of-type{
             font-weight: 100;
-            font-size: 28px;
-            line-height: initial;
         }
     }
 }

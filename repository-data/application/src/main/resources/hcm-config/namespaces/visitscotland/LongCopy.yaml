@@ -11,7 +11,7 @@ definitions:
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:uuid: 7134e7e4-ebff-4ea5-a0f1-4b54863bf5a5
+          jcr:uuid: 3b5a1ef6-acb7-4eba-aa10-1f36cc37e232
           hipposysedit:node: true
           hipposysedit:supertype: ['visitscotland:basedocument', 'hippostd:relaxed',
             'hippotranslation:translated']
@@ -24,6 +24,7 @@ definitions:
             hipposysedit:path: visitscotland:copy
             hipposysedit:primary: false
             hipposysedit:type: hippostd:html
+            hipposysedit:validators: [required]
           /translation:
             jcr:primaryType: hipposysedit:field
             hipposysedit:mandatory: false
@@ -43,7 +44,7 @@ definitions:
           hippotranslation:id: document-type-locale-id
           hippotranslation:locale: document-type-locale
           jcr:mixinTypes: ['mix:referenceable']
-          jcr:uuid: 9caff480-bb3a-44c2-aed5-ce904bb34433
+          jcr:uuid: b67118de-0915-43e5-93de-ff7a9bdcdfe8
           hippostdpubwf:lastModificationDate: 2021-02-03T15:18:17.811Z
           hippostdpubwf:creationDate: 2021-02-03T15:18:17.812Z
           visitscotland:translation: ''
@@ -72,10 +73,10 @@ definitions:
               jcr:primaryType: frontend:pluginconfig
               ckeditor.config.appended.json: '{extraPlugins: ''wordcount'',   wordcount:
                 {countSpacesAsChars: true, showCharCount: true}}'
-              ckeditor.config.overlayed.json: '{disallowedContent: ''p[align]'', stylesSet: ''long_copy:./vs_styles.js'',toolbarGroups:
-                [ {name: ''styles''},{name:''listindentalign'',groups:[''list'']},
-                {name:''links''},{name:''insert''},{name:''clipboard''},{name:''tools''},{name:''undo''}
-                ] , removeButtons: ''PickImage,Youtube,Table''}'
+              ckeditor.config.overlayed.json: '{disallowedContent: ''p[align]'', stylesSet:
+                ''long_copy:./vs_styles.js'',toolbarGroups: [ { name: ''basicstyles''},{name:
+                ''styles''},{name:''listindentalign'',groups:[''list'']}, {name:''links''},{name:''insert''},{name:''clipboard''},{name:''tools''},{name:''undo''}
+                ] , removeButtons: ''PickImage,Youtube,Table,Bold,Underline,Strike,Subscript,Superscript''}'
           /translation:
             jcr:primaryType: frontend:plugin
             caption: Translation

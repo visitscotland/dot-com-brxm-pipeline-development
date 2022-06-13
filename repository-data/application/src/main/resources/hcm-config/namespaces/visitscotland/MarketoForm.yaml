@@ -11,7 +11,7 @@ definitions:
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:uuid: 6afd917d-bd17-4f1c-b7d5-0717c7102e6d
+          jcr:uuid: e212f562-1fe4-45b0-b990-09acbad4c4fd
           hipposysedit:node: true
           hipposysedit:supertype: ['visitscotland:basedocument', 'hippostd:relaxed',
             'hippotranslation:translated']
@@ -40,6 +40,7 @@ definitions:
             hipposysedit:path: visitscotland:copy
             hipposysedit:primary: false
             hipposysedit:type: hippostd:html
+            hipposysedit:validators: [optional]
           /configuration:
             jcr:primaryType: hipposysedit:field
             hipposysedit:mandatory: false
@@ -69,15 +70,12 @@ definitions:
           hippotranslation:locale: document-type-locale
           jcr:mixinTypes: ['mix:referenceable']
           visitscotland:title: ''
-          jcr:uuid: 527c652d-c0b6-4146-98d2-9b3006bf54a2
+          jcr:uuid: 92e72440-56a6-49bd-9d96-936f4cbefe50
           hippostdpubwf:lastModificationDate: 2021-05-14T11:09:19.663+01:00
           hippostdpubwf:creationDate: 2021-05-14T11:09:19.664+01:00
           visitscotland:translation: ''
           visitscotland:nonJavaScriptMessage: ''
           visitscotland:jsonUrl: ''
-          /visitscotland:copy:
-            jcr:primaryType: hippostd:html
-            hippostd:content: ''
       /editor:templates:
         jcr:primaryType: editor:templateset
         /_default_:
@@ -110,8 +108,9 @@ definitions:
               jcr:primaryType: frontend:pluginconfig
               ckeditor.config.appended.json: '{extraPlugins: ''wordcount'',   wordcount:
                 {countSpacesAsChars: true, showCharCount: true, maxCharCount: 375}}'
-              ckeditor.config.overlayed.json: '{toolbarGroups: [{name:''links''},{name:''insert''},{name:''clipboard''},{name:''tools''},{name:''undo''}
-                ] , removeButtons: ''PickImage,Youtube,Table''}'
+              ckeditor.config.overlayed.json: '{disallowedContent: ''p[align]'', toolbarGroups:
+                [{ name: ''basicstyles''},{ name: ''links'' },{name:''insert''},{name:''clipboard''},{name:''tools''},{name:''undo''}]
+                , removeButtons: ''PickImage,Youtube,Table,Bold,Underline,Strike,Subscript,Superscript''}'
           /jsonUrl:
             jcr:primaryType: frontend:plugin
             caption: Configuration JSON URL

@@ -11,7 +11,7 @@ definitions:
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:uuid: 1977f91b-7293-4684-8fa4-0c87ee62d42d
+          jcr:uuid: 16ed3d55-bf91-4b8c-8d6b-c21eb157f31b
           hipposysedit:node: true
           hipposysedit:supertype: ['visitscotland:basedocument', 'hippostd:relaxed',
             'hippotranslation:translated']
@@ -63,7 +63,7 @@ definitions:
           hippotranslation:locale: document-type-locale
           jcr:mixinTypes: ['mix:referenceable']
           visitscotland:title: ''
-          jcr:uuid: 19efb971-566e-46b7-8609-a2989921fa88
+          jcr:uuid: 6074e92b-d89b-4e45-96f4-a9b802f8a0b2
           hippostdpubwf:lastModificationDate: 2020-11-25T16:59:04.086Z
           hippostdpubwf:creationDate: 2020-11-25T16:59:04.086Z
           visitscotland:tags: []
@@ -105,9 +105,9 @@ definitions:
               ckeditor.config.appended.json: "{   extraPlugins: 'wordcount',   wordcount:\
                 \ { \tcountSpacesAsChars: true,     showCharCount: true ,maxCharCount:375\
                 \   }  }"
-              ckeditor.config.overlayed.json: '{disallowedContent: ''p[align]'', toolbarGroups: [{ name: ''links''
-                },{name:''insert''},{name:''clipboard''},{name:''tools''},{name:''undo''}]
-                , removeButtons: ''PickImage,Youtube,Table''}'
+              ckeditor.config.overlayed.json: '{disallowedContent: ''p[align]'', toolbarGroups:
+                [{ name: ''basicstyles''},{ name: ''links'' },{name:''insert''},{name:''clipboard''},{name:''tools''},{name:''undo''}]
+                , removeButtons: ''PickImage,Youtube,Table,Bold,Underline,Strike,Subscript,Superscript''}'
           /tags:
             jcr:primaryType: frontend:plugin
             caption: Tags *

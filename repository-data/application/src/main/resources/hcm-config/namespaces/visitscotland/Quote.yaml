@@ -11,7 +11,7 @@ definitions:
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:uuid: 8529e139-fa0e-4df1-9f66-ebfaee25e067
+          jcr:uuid: f28a9b67-2afd-4ace-a2e7-881c27b0426c
           hipposysedit:node: true
           hipposysedit:supertype: ['hippo:compound', 'hippostd:relaxed']
           hipposysedit:uri: http://www.visitscotland.com/visitscotland/nt/1.0
@@ -95,9 +95,9 @@ definitions:
             wicket.id: ${cluster.id}.field
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-              ckeditor.config.overlayed.json: 'disallowedContent: ''p[align]'', toolbarGroups: [{ name: ''links''
-                },{name:''insert''},{name:''clipboard''},{name:''tools''},{name:''undo''}]
-                , removeButtons: ''PickImage,Youtube,Table''}'
+              ckeditor.config.overlayed.json: '{disallowedContent: ''p[align]'', toolbarGroups:
+                [{ name: ''basicstyles''},{ name: ''links'' },{name:''insert''},{name:''clipboard''},{name:''tools''},{name:''undo''}]
+                , removeButtons: ''PickImage,Youtube,Table,Bold,Underline,Strike,Subscript,Superscript''}'
               ckeditor.config.appended.json: '{extraPlugins: ''wordcount'',   wordcount:
                 {countSpacesAsChars: true, showCharCount: true, maxCharCount: 300}}'
           /product:

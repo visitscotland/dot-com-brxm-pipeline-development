@@ -10,6 +10,8 @@
             :img-src="imgSrc"
             :img-alt="imgAlt"
             :theme="theme"
+            :video-id="videoId"
+            :video-btn-text="videoBtnText"
         >
             <VsStretchedLinkPanels
                 v-if="days && transport"
@@ -80,12 +82,12 @@ export default {
         },
         /**
         * The type of link. This will set the icon.
-        * `external, internal, download`
+        * `external, internal, download, video`
         */
         linkType: {
             type: String,
             required: true,
-            validator: (value) => value.match(/(default|external|internal|download)/),
+            validator: (value) => value.match(/(default|external|internal|download|video)/),
         },
         /**
         * The component color theme
@@ -131,6 +133,21 @@ export default {
             type: String,
             default: '',
         },
+        /**
+         * An optional YouTube video ID
+         */
+        videoId: {
+            type: String,
+            default: '',
+        },
+        /**
+         * A label to add to the youtube play button if one is present.
+         * Only appears in certain page layouts.
+         */
+        videoBtnText: {
+            type: String,
+            default: 'Play Video',
+        },
     },
 };
 </script>
@@ -172,14 +189,31 @@ export default {
                 background: transparent;
                 padding: 0;
                 align-self: flex-start;
-                width: 66%;
+                width: 50%;
+
+                @include media-breakpoint-up(sm) {
+                    width: 66%;
+                }
             }
 
-            .vs-stretched-link-card__img {
-                width: 33%;
-                max-width: 33%;
+            .vs-stretched-link-card__img-container {
+                width: 50%;
+                max-width: 50%;
                 align-self: flex-start;
                 margin-right: $spacer-4;
+
+                @include media-breakpoint-up(sm) {
+                    width: 33%;
+                    max-width: 33%;
+                }
+
+                @include media-breakpoint-up(md) {
+                    padding-bottom: calc(#{$spacer-8} + #{$spacer-7});
+                }
+
+                @include media-breakpoint-up(xl) {
+                    padding-bottom: $spacer-0;
+                }
             }
 
             .vs-megalink-link-list__title {
@@ -219,8 +253,8 @@ export default {
         }
 
         @include media-breakpoint-up(sm) {
-            .megalink-link-list__wrapper.card {
-                .megalink-link-list__content {
+            .vs-megalink-link-list__wrapper.card {
+                .vs-megalink-link-list__content {
                     display: block;
                 }
             }

@@ -7043,6 +7043,86 @@
             hippo:facets: []
             hippo:modes: []
             hippo:values: []
+      /only-in-scotland-why-scotland-needs-you:
+        jcr:primaryType: hippo:handle
+        jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+        jcr:uuid: 531e8256-dfdc-4af0-b2ff-4835fe3aef10
+        hippo:name: 'Only in Scotland: Why Scotland Needs You'
+        hippo:versionHistory: c6efc49c-2861-4ce2-826c-40db35eec616
+        /only-in-scotland-why-scotland-needs-you[1]:
+          jcr:primaryType: visitscotland:Video
+          jcr:mixinTypes: ['mix:referenceable']
+          jcr:uuid: 208eb9bc-c0b7-4136-957a-af7e59ce370c
+          hippo:availability: []
+          hippostd:retainable: false
+          hippostd:state: draft
+          hippostd:transferable: false
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2022-05-11T16:38:04.967+01:00
+          hippostdpubwf:lastModificationDate: 2022-05-17T09:40:11.044+01:00
+          hippostdpubwf:lastModifiedBy: admin
+          hippotranslation:id: 8a865d39-b8d2-4f7a-baa8-4347b8a23a14
+          hippotranslation:locale: en
+          visitscotland:label: ''
+          visitscotland:teaser: Scotland. The country you love needs you.
+          visitscotland:title: 'Only in Scotland: Why Scotland Needs You'
+          visitscotland:translation: ''
+          visitscotland:url: https://www.youtube.com/watch?v=h9bQwcndGfo
+          /visitscotland:image:
+            jcr:primaryType: hippogallerypicker:imagelink
+            hippo:docbase: c3eafb5b-6c18-4caa-9c9a-63279b816630
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+        /only-in-scotland-why-scotland-needs-you[2]:
+          jcr:primaryType: visitscotland:Video
+          jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+          jcr:uuid: cabf70a3-a3cb-4a8e-b3ea-cdfb89d7ea0a
+          hippo:availability: [preview]
+          hippostd:retainable: false
+          hippostd:state: unpublished
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2022-05-11T16:38:04.967+01:00
+          hippostdpubwf:lastModificationDate: 2022-05-11T16:40:42.919+01:00
+          hippostdpubwf:lastModifiedBy: admin
+          hippotranslation:id: 8a865d39-b8d2-4f7a-baa8-4347b8a23a14
+          hippotranslation:locale: en
+          visitscotland:label: ''
+          visitscotland:teaser: Scotland. The country you love needs you.
+          visitscotland:title: 'Only in Scotland: Why Scotland Needs You'
+          visitscotland:translation: ''
+          visitscotland:url: https://www.youtube.com/watch?v=h9bQwcndGfo
+          /visitscotland:image:
+            jcr:primaryType: hippogallerypicker:imagelink
+            hippo:docbase: c3eafb5b-6c18-4caa-9c9a-63279b816630
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+        /only-in-scotland-why-scotland-needs-you[3]:
+          jcr:primaryType: visitscotland:Video
+          jcr:mixinTypes: ['mix:referenceable']
+          jcr:uuid: c6f4e43f-df6d-41be-8ab0-927dd1fc469e
+          hippo:availability: [live]
+          hippostd:retainable: false
+          hippostd:state: published
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2022-05-11T16:38:04.967+01:00
+          hippostdpubwf:lastModificationDate: 2022-05-11T16:40:42.919+01:00
+          hippostdpubwf:lastModifiedBy: admin
+          hippostdpubwf:publicationDate: 2022-06-07T10:09:41.944+01:00
+          hippotranslation:id: 8a865d39-b8d2-4f7a-baa8-4347b8a23a14
+          hippotranslation:locale: en
+          visitscotland:label: ''
+          visitscotland:teaser: Scotland. The country you love needs you.
+          visitscotland:title: 'Only in Scotland: Why Scotland Needs You'
+          visitscotland:translation: ''
+          visitscotland:url: https://www.youtube.com/watch?v=h9bQwcndGfo
+          /visitscotland:image:
+            jcr:primaryType: hippogallerypicker:imagelink
+            hippo:docbase: c3eafb5b-6c18-4caa-9c9a-63279b816630
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
   /itinerary:
     jcr:primaryType: hippostd:folder
     jcr:mixinTypes: ['hippotranslation:translated', 'mix:versionable']
@@ -7241,7 +7321,7 @@
           hippostd:transferable: false
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2019-12-06T12:48:04.149Z
-          hippostdpubwf:lastModificationDate: 2022-02-10T12:31:50.802Z
+          hippostdpubwf:lastModificationDate: 2022-05-31T17:09:43.411+01:00
           hippostdpubwf:lastModifiedBy: admin
           hippotranslation:id: 56cf92c8-5887-4146-ad53-eaa062f4e07a
           hippotranslation:locale: en
@@ -7277,16 +7357,8 @@
             hippo:values: []
           /visitscotland:introduction:
             jcr:primaryType: hippostd:html
-            hippostd:content: <p>It was in Scotland's capital city that JK Rowling
-              started to plot the adventures of Harry and his friends. With cobbled
-              streets, winding alleys and medieval architecture, the city certainly
-              have a few things in common with the settings from the books and films.
-              She wrote the early chapters in various cafés around the city's Old
-              Town, before coming back to finish off the series from a peaceful suite
-              in The Balmoral Hotel. It is also said that Hogwarts School was styled
-              on Edinburgh’s Fettes College, a private school on the outskirts of
-              Edinburgh’s west end new town. You could also try the <a href="https://www.visitscotland.com/info/tours/wizarding-world-of-edinburgh-03e61189">Wizarding
-              World of Edinburgh</a> tour.</p>
+            hippostd:content: <p>Module map (will be added to general pages or Destinations,
+              having different behaviour</p>
           /visitscotland:ProductsSearch:
             jcr:primaryType: visitscotland:ProductsSearch
             visitscotland:distance: 0
@@ -7330,7 +7402,7 @@
           hippostd:state: unpublished
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2019-12-10T13:28:39.550Z
-          hippostdpubwf:lastModificationDate: 2021-06-24T13:53:11.734+01:00
+          hippostdpubwf:lastModificationDate: 2022-05-31T17:04:34.110+01:00
           hippostdpubwf:lastModifiedBy: admin
           hippotranslation:id: 533c98b2-c2cd-491f-929a-ea2c4a491bb2
           hippotranslation:locale: en
@@ -7339,16 +7411,8 @@
           visitscotland:transports: [car, public, walking]
           /visitscotland:introduction:
             jcr:primaryType: hippostd:html
-            hippostd:content: <p>It was in Scotland's capital city that JK Rowling
-              started to plot the adventures of Harry and his friends. With cobbled
-              streets, winding alleys and medieval architecture, the city certainly
-              has a few things in common with the settings from the books and films.
-              She wrote the early chapters in various cafés around the city's Old
-              Town, before coming back to finish off the series from a peaceful suite
-              in The Balmoral Hotel. It is also said that Hogwarts School was styled
-              on Edinburgh’s Fettes College, a private school on the outskirts of
-              Edinburgh’s west end new town. You could also try the Wizarding World
-              of Edinburgh tour.</p>
+            hippostd:content: <p><em>Module map</em> (will be added to general pages
+              or Destinations, having different behaviour</p>
           /visitscotland:stops[1]:
             jcr:primaryType: hippo:mirror
             hippo:docbase: 9830f174-d0eb-47bf-9b1a-02f86f43e17f
@@ -7411,7 +7475,7 @@
           hippostd:state: draft
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2019-12-10T13:28:39.550Z
-          hippostdpubwf:lastModificationDate: 2021-06-24T13:53:02.456+01:00
+          hippostdpubwf:lastModificationDate: 2022-05-31T17:04:34.284+01:00
           hippostdpubwf:lastModifiedBy: admin
           hippotranslation:id: 533c98b2-c2cd-491f-929a-ea2c4a491bb2
           hippotranslation:locale: en
@@ -7420,16 +7484,8 @@
           visitscotland:transports: [car, public, walking]
           /visitscotland:introduction:
             jcr:primaryType: hippostd:html
-            hippostd:content: <p>It was in Scotland's capital city that JK Rowling
-              started to plot the adventures of Harry and his friends. With cobbled
-              streets, winding alleys and medieval architecture, the city certainly
-              has a few things in common with the settings from the books and films.
-              She wrote the early chapters in various cafés around the city's Old
-              Town, before coming back to finish off the series from a peaceful suite
-              in The Balmoral Hotel. It is also said that Hogwarts School was styled
-              on Edinburgh’s Fettes College, a private school on the outskirts of
-              Edinburgh’s west end new town. You could also try the Wizarding World
-              of Edinburgh tour.</p>
+            hippostd:content: <p><em>Module map</em> (will be added to general pages
+              or Destinations, having different behaviour</p>
           /visitscotland:stops[1]:
             jcr:primaryType: hippo:mirror
             hippo:docbase: 9830f174-d0eb-47bf-9b1a-02f86f43e17f
@@ -9001,11 +9057,12 @@
         jcr:mixinTypes: ['mix:referenceable']
         jcr:uuid: 2c1304a5-dc8f-4280-92d0-606a0c013510
         hippo:availability: []
+        hippostd:holder: admin
         hippostd:retainable: false
         hippostd:state: draft
         hippostdpubwf:createdBy: admin
         hippostdpubwf:creationDate: 2021-06-25T09:58:52.867+01:00
-        hippostdpubwf:lastModificationDate: 2022-01-20T18:33:21.966Z
+        hippostdpubwf:lastModificationDate: 2022-05-31T17:38:00.943+01:00
         hippostdpubwf:lastModifiedBy: admin
         hippotranslation:id: 096ebf00-630e-491f-b0bd-22b592cd3e9d
         hippotranslation:locale: en
@@ -10663,11 +10720,12 @@
           jcr:mixinTypes: ['mix:referenceable']
           jcr:uuid: 76bab125-f189-4ab2-ae52-8d216ed96af5
           hippo:availability: []
+          hippostd:holder: admin
           hippostd:retainable: false
           hippostd:state: draft
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2020-05-15T11:13:39.117+01:00
-          hippostdpubwf:lastModificationDate: 2022-01-20T17:08:01.815Z
+          hippostdpubwf:lastModificationDate: 2022-05-31T17:46:13.138+01:00
           hippostdpubwf:lastModifiedBy: admin
           hippotranslation:id: 1fbcced7-88f7-4124-8470-b9ed88b5ead0
           hippotranslation:locale: en
@@ -11004,11 +11062,12 @@
           jcr:mixinTypes: ['mix:referenceable']
           jcr:uuid: d6d547f6-3654-4f51-8ac8-b10f428ea62e
           hippo:availability: []
+          hippostd:holder: admin
           hippostd:retainable: false
           hippostd:state: draft
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2020-09-30T12:03:00.630+01:00
-          hippostdpubwf:lastModificationDate: 2021-06-25T10:06:28.359+01:00
+          hippostdpubwf:lastModificationDate: 2022-05-31T17:39:32.356+01:00
           hippostdpubwf:lastModifiedBy: admin
           hippotranslation:id: 2b3e0a8d-aca4-472b-9536-7fa106b8bff9
           hippotranslation:locale: en
@@ -13944,11 +14003,12 @@
         jcr:mixinTypes: ['mix:referenceable']
         jcr:uuid: 2ba579be-e5eb-45fd-83dc-0041c9c22c74
         hippo:availability: []
+        hippostd:holder: admin
         hippostd:retainable: false
         hippostd:state: draft
         hippostdpubwf:createdBy: admin
         hippostdpubwf:creationDate: 2021-06-25T10:03:42.014+01:00
-        hippostdpubwf:lastModificationDate: 2022-01-20T18:32:21.325Z
+        hippostdpubwf:lastModificationDate: 2022-05-31T17:46:27.463+01:00
         hippostdpubwf:lastModifiedBy: admin
         hippotranslation:id: 6b2f6fc5-802f-4be9-8506-eceeb17049cf
         hippotranslation:locale: en
@@ -15652,11 +15712,12 @@
         jcr:mixinTypes: ['mix:referenceable']
         jcr:uuid: e6b5186c-da70-4456-b680-947e7ad1646b
         hippo:availability: []
+        hippostd:holder: admin
         hippostd:retainable: false
         hippostd:state: draft
         hippostdpubwf:createdBy: admin
         hippostdpubwf:creationDate: 2020-11-27T12:36:37.172Z
-        hippostdpubwf:lastModificationDate: 2022-01-20T18:29:59.528Z
+        hippostdpubwf:lastModificationDate: 2022-05-31T17:38:41.528+01:00
         hippostdpubwf:lastModifiedBy: admin
         hippotranslation:id: 2652febc-9606-4736-ab2c-03d6aa3852a3
         hippotranslation:locale: en
@@ -15840,9 +15901,10 @@
         hippo:availability: []
         hippostd:retainable: false
         hippostd:state: draft
+        hippostd:transferable: false
         hippostdpubwf:createdBy: admin
         hippostdpubwf:creationDate: 2021-01-11T14:27:02.137Z
-        hippostdpubwf:lastModificationDate: 2022-01-20T18:28:22.870Z
+        hippostdpubwf:lastModificationDate: 2022-05-31T17:38:52.042+01:00
         hippostdpubwf:lastModifiedBy: admin
         hippotranslation:id: 5334df0e-22f9-4166-996d-5d461420769a
         hippotranslation:locale: en

@@ -7,6 +7,8 @@ definitions:
         jcr:primaryType: hst:component
         hst:componentclassname: com.visitscotland.brxm.components.content.GeneralContentComponent
         hst:template: general-main
+        hst:parameternames: [status]
+        hst:parametervalues: ['500']
         /breadcrumb:
           jcr:primaryType: hst:component
           hst:referencecomponent: hst:components/breadcrumb

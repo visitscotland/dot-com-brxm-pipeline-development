@@ -11,7 +11,7 @@ definitions:
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:uuid: ab04d1e6-a8b2-4b94-8b81-e0f065790236
+          jcr:uuid: c241e443-15cc-47f2-a220-0dccbe7a666a
           hipposysedit:node: true
           hipposysedit:supertype: ['visitscotland:Page', 'hippostd:relaxed', 'hippotranslation:translated']
           hipposysedit:uri: http://www.visitscotland.com/visitscotland/nt/1.0
@@ -41,7 +41,7 @@ definitions:
           visitscotland:title: ''
           visitscotland:seoTitle: ''
           jcr:mixinTypes: ['mix:referenceable']
-          jcr:uuid: ae319858-5bc3-4321-8e89-1a8462e0a167
+          jcr:uuid: bdf6f699-3b1a-4884-87d2-0ed02b32fb86
           hippostdpubwf:lastModificationDate: 2020-09-25T13:13:22.744+01:00
           hippostdpubwf:creationDate: 2020-09-25T13:13:22.744+01:00
           visitscotland:theme: Standard
@@ -177,9 +177,10 @@ definitions:
               jcr:primaryType: frontend:pluginconfig
               ckeditor.config.appended.json: '{extraPlugins: ''wordcount'',   wordcount:
                 {countSpacesAsChars: true, showCharCount: true, maxCharCount:750}}'
-              ckeditor.config.overlayed.json: '{disallowedContent: ''p[align]'', stylesSet: ''general_intro:./vs_styles.js'',toolbarGroups:
-                [{name: ''styles''},{name:''links''},{name:''insert''},{name:''clipboard''},{name:''tools''},{name:''undo''}
-                ] , removeButtons: ''PickImage,Youtube,Table''}'
+              ckeditor.config.overlayed.json: '{disallowedContent: ''p[align]'', stylesSet:
+                ''general_intro:./vs_styles.js'',toolbarGroups: [{name: ''basicstyles''},{name:
+                ''styles''},{name:''links''},{name:''insert''},{name:''clipboard''},{name:''tools''},{name:''undo''}
+                ] , removeButtons: ''PickImage,Youtube,Table,Bold,Underline,Strike,Subscript,Superscript''}'
           /otherThings:
             jcr:primaryType: frontend:plugin
             caption: Other things you might like

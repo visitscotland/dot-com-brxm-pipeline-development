@@ -11,7 +11,7 @@ definitions:
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:uuid: f5f4fb58-a942-4edc-aa5c-37ac5c99196b
+          jcr:uuid: f9e7197a-3757-4ff7-8649-afb6379e44f8
           hipposysedit:node: true
           hipposysedit:supertype: ['hippo:compound', 'hippostd:relaxed']
           hipposysedit:uri: http://www.visitscotland.com/visitscotland/nt/1.0
@@ -71,10 +71,10 @@ definitions:
               jcr:primaryType: frontend:pluginconfig
               ckeditor.config.appended.json: '{extraPlugins: ''wordcount'',   wordcount:
                 {countSpacesAsChars: true, showCharCount: true, maxCharCount: 4000}}'
-              ckeditor.config.overlayed.json: '{disallowedContent: ''p[align]'',  stylesSet: ''article:./vs_styles.js'',  toolbarGroups:
-                [ {name: ''styles''},{name:''listindentalign'',groups:[''list'']},
-                {name:''links''},{name:''insert''},{name:''clipboard''},{name:''tools''},{name:''undo''}
-                ] , removeButtons: ''PickImage,Youtube,Table''}'
+              ckeditor.config.overlayed.json: '{disallowedContent: ''p[align]'',  stylesSet:
+                ''article:./vs_styles.js'',  toolbarGroups: [ { name: ''basicstyles''},{name:
+                ''styles''},{name:''listindentalign'',groups:[''list'']}, {name:''links''},{name:''insert''},{name:''clipboard''},{name:''tools''},{name:''undo''}
+                ] , removeButtons: ''PickImage,Youtube,Table,Bold,Underline,Strike,Subscript,Superscript''}'
           /media:
             jcr:primaryType: frontend:plugin
             caption: Media

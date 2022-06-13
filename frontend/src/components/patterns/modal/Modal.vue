@@ -168,6 +168,10 @@ export default {
             color: $color-yellow;
         }
     }
+
+    .row > [class*='col-'] {
+        display: block;
+    }
 }
 </style>
 

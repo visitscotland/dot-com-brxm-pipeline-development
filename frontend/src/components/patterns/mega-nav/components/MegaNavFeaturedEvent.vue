@@ -196,7 +196,7 @@ export default {
                 }
             }
 
-            .vs-stretched-link-card__img {
+            .vs-stretched-link-card__img-container {
                 width: 245px;
                 height: auto;
             }
@@ -207,7 +207,7 @@ export default {
             flex-direction: column;
             border-top: none;
 
-            .vs-stretched-link-card__img {
+            .vs-stretched-link-card__img-container {
                 width: 100%;
             }
 
