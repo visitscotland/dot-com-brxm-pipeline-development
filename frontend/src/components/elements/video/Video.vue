@@ -6,6 +6,7 @@
         <div class="vs-video__iframe-wrapper">
             <!-- eslint-disable-next-line vue/component-name-in-template-casing -->
             <youtube
+                v-if="!cookiesMissing"
                 :video-id="videoId"
                 :player-vars="playerVars"
                 ref="youtube"
@@ -111,6 +112,13 @@ export default {
         player() {
             return this.$refs.youtube.player;
         },
+        // Checks whether appropriate cookies have been rejected for the video, and prevents
+        // initialisation if so
+        cookiesMissing() {
+            // TODO: Add cookie functionality once checker integrated
+            // See VS-3606
+            return false;
+        },
     },
     mounted() {
         /**
@@ -210,6 +218,7 @@ export default {
                 id: this.videoId,
                 durationMsg: this.duration.roundedMinutes,
                 duration: (this.duration.minutes * 60) + this.duration.seconds,
+                fullDuration: this.duration,
             });
         },
     },

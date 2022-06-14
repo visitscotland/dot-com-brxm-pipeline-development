@@ -11,7 +11,7 @@ definitions:
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:uuid: b6924ae5-02bc-48c5-8782-b4fc85a0e8f9
+          jcr:uuid: 27827eb2-0a89-4588-94e9-239c4f99429a
           hipposysedit:node: true
           hipposysedit:supertype: ['visitscotland:basedocument', 'hippostd:relaxed',
             'hippotranslation:translated']
@@ -63,7 +63,7 @@ definitions:
           hippotranslation:locale: document-type-locale
           jcr:mixinTypes: ['mix:referenceable']
           visitscotland:title: ''
-          jcr:uuid: 26ce0f16-ef5d-441c-87d7-e01b63efdf25
+          jcr:uuid: 9575bbe1-50aa-492f-a349-209125d9b62a
           hippostdpubwf:lastModificationDate: 2021-05-11T15:47:43.297+01:00
           hippostdpubwf:creationDate: 2021-05-11T15:47:43.297+01:00
           visitscotland:translation: ''
@@ -77,13 +77,14 @@ definitions:
               visitscotland:dmsCategories: []
               visitscotland:dmsFacilities: []
               visitscotland:free: false
-              visitscotland:location: Scotland
+              visitscotland:location: ''
               visitscotland:offers: false
               visitscotland:officialrating: []
               visitscotland:productType: ''
               visitscotland:producttype: ''
               visitscotland:goodToGo: false
               visitscotland:safeTravels: false
+              visitscotland:keywords: ''
       /editor:templates:
         jcr:primaryType: editor:templateset
         /_default_:
@@ -116,8 +117,8 @@ definitions:
                 \ { \tcountSpacesAsChars: true,     showCharCount: true ,maxCharCount:375\
                 \   }  }"
               ckeditor.config.overlayed.json: '{disallowedContent: ''p[align]'', toolbarGroups:
-                [{ name: ''links'' },{name:''insert''},{name:''clipboard''},{name:''tools''},{name:''undo''}]
-                , removeButtons: ''PickImage,Youtube,Table''}'
+                [{ name: ''basicstyles''},{ name: ''links'' },{name:''insert''},{name:''clipboard''},{name:''tools''},{name:''undo''}]
+                , removeButtons: ''PickImage,Youtube,Table,Bold,Underline,Strike,Subscript,Superscript''}'
           /criteria:
             jcr:primaryType: frontend:plugin
             caption: Criteria

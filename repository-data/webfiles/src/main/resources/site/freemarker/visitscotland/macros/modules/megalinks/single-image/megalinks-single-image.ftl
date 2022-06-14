@@ -3,6 +3,7 @@
 <#include "../../../../../frontend/components/vs-link.ftl">
 <#include "../../../../../frontend/components/vs-link-list-item.ftl">
 <#include "../../../global/image-with-caption.ftl">
+<#include "../../video/video-modal.ftl">
 
 <#macro singleImage item theme>
     <#if item.image.cmsImage??>
@@ -37,12 +38,26 @@
             <template slot="vsSingleImageLinks">
                 <#list item.links as listItem>
                     <vs-link-list-item
-                        href="${listItem.link}"
-                        <#if listItem.type != "internal">type="${listItem.type}"</#if>
                         variant="${linkVariant}"
+
+                        <#if listItem.youtubeId??>
+                            type="video"
+                            href="#"
+                            video-id="${listItem.youtubeId}"
+                            video-descriptor="${label('video', 'video.video-descriptor')}"
+                        <#else>
+                            href="${listItem.link}"
+                            link-type="${feature.type}"
+
+                            <#if listItem.type != "internal">type="${listItem.type}"</#if>
+                        </#if>
                     >
                         ${listItem.label}
                     </vs-link-list-item>
+
+                    <#if listItem.youtubeId??>
+                        <@videoModal videoId=listItem.youtubeId />
+                    </#if>
                 </#list>
             </template>
             

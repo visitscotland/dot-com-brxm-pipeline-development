@@ -3,6 +3,7 @@ import { shallowMount, mount } from '@vue/test-utils';
 import VsImg from '../Img';
 
 const slotText = 'Image text';
+const imgUrl = 'https://cimg.visitscotland.com/cms-images/attractions/outlander/claire-standing-stones-craigh-na-dun-outlander';
 
 const factoryShallowMount = (propsData) => shallowMount(VsImg, {
     slots: {
@@ -10,7 +11,7 @@ const factoryShallowMount = (propsData) => shallowMount(VsImg, {
     },
     propsData: {
         ...propsData,
-        src: 'https://cimg.visitscotland.com/cms-images/attractions/outlander/claire-standing-stones-craigh-na-dun-outlander?size=sm',
+        src: `${imgUrl}?size=sm`,
         alt: 'Claire standing stones',
     },
 });
@@ -21,8 +22,9 @@ const factoryMount = (propsData) => mount(VsImg, {
     },
     propsData: {
         ...propsData,
-        src: 'https://cimg.visitscotland.com/cms-images/attractions/outlander/claire-standing-stones-craigh-na-dun-outlander?size=sm',
+        src: `${imgUrl}?size=sm`,
         alt: 'Claire standing stones',
+        lowResImage: `${imgUrl}?size=xxs`,
     },
 });
 
@@ -37,13 +39,19 @@ describe('VsImg', () => {
         it('should accept and render a `src` property', () => {
             const wrapper = factoryShallowMount();
 
-            expect(wrapper.attributes('src')).toBe('https://cimg.visitscotland.com/cms-images/attractions/outlander/claire-standing-stones-craigh-na-dun-outlander?size=sm');
+            expect(wrapper.attributes('src')).toBe(`${imgUrl}?size=sm`);
         });
 
         it('should accept and render an `alt` property', () => {
             const wrapper = factoryShallowMount();
 
             expect(wrapper.attributes('alt')).toBe('Claire standing stones');
+        });
+
+        it('should accept and render a `lowResImage` property', () => {
+            const wrapper = factoryMount();
+
+            expect(wrapper.attributes('style')).toContain(`${imgUrl}?size=xxs`);
         });
 
         it('should set an `img-fluid` class if the `fluid` property is truthy', () => {

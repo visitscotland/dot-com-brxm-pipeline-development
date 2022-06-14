@@ -11,7 +11,7 @@ definitions:
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:uuid: ad4f9cd1-9bd3-4ee9-a067-957d65f1b700
+          jcr:uuid: 4b093934-a1a0-4716-87ac-324f0deea67d
           hipposysedit:node: true
           hipposysedit:supertype: ['visitscotland:basedocument', 'hippostd:relaxed',
             'hippotranslation:translated']
@@ -33,6 +33,7 @@ definitions:
             hipposysedit:path: visitscotland:copy
             hipposysedit:primary: false
             hipposysedit:type: hippostd:html
+            hipposysedit:validators: [optional]
           /stacklaId:
             jcr:primaryType: hipposysedit:field
             hipposysedit:mandatory: false
@@ -73,13 +74,10 @@ definitions:
           visitscotland:title: ''
           visitscotland:stacklaId: ''
           visitscotland:stacklaHash: ''
-          jcr:uuid: 48c46a9f-9485-4423-964b-afe3fe2ab120
+          jcr:uuid: 22f64408-9d5f-415b-938a-d9830c972824
           hippostdpubwf:lastModificationDate: 2021-05-06T14:34:32.434+01:00
           hippostdpubwf:creationDate: 2021-05-06T14:34:32.434+01:00
           visitscotland:translation: ''
-          /visitscotland:copy:
-            jcr:primaryType: hippostd:html
-            hippostd:content: ''
       /editor:templates:
         jcr:primaryType: editor:templateset
         /_default_:
@@ -110,8 +108,9 @@ definitions:
               jcr:primaryType: frontend:pluginconfig
               ckeditor.config.appended.json: '{extraPlugins: ''wordcount'',   wordcount:
                 {countSpacesAsChars: true, showCharCount: true, maxCharCount: 375}}'
-              ckeditor.config.overlayed.json: '{disallowedContent: ''p[align]'', toolbarGroups: [{name:''links''},{name:''insert''},{name:''clipboard''},{name:''tools''},{name:''undo''}
-                ] , removeButtons: ''PickImage,Youtube,Table''}'
+              ckeditor.config.overlayed.json: '{disallowedContent: ''p[align]'', toolbarGroups:
+                [{ name: ''basicstyles''},{ name: ''links'' },{name:''insert''},{name:''clipboard''},{name:''tools''},{name:''undo''}]
+                , removeButtons: ''PickImage,Youtube,Table,Bold,Underline,Strike,Subscript,Superscript''}'
           /stacklaHash:
             jcr:primaryType: frontend:plugin
             caption: Stackla Data Hash

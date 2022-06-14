@@ -47,6 +47,28 @@ export default {
             >
                 This is a third link
             </VsLinkListItem>
+            <VsLinkListItem
+                videoId="g-Fhvj7vW-E"
+                videoDescriptor="Video"
+                type="video"
+                href="#"
+            >
+                This is a video link
+            </VsLinkListItem>
         </VsLinkList>
+        <VsModal
+            modalId="g-Fhvj7vW-E"
+            closeBtnText="Close"
+            :isVideoModal="true"
+        >
+            <VsRow>
+                <VsCol cols="12">
+                    <VsVideo
+                        videoId="g-Fhvj7vW-E"
+                        class="mb-8"
+                    />
+                </VsCol>
+            </VsRow>
+        </VsModal>
     ```
 </docs>

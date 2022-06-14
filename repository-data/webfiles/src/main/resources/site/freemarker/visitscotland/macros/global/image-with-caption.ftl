@@ -5,8 +5,6 @@
 
 <#macro imageWithCaption imageSrc imageDetails variant="fullwidth" isHero="false" mobileOverlap="false" alignment="left" isVideo="false" videoId="" videoTitle="" videoBtn="">
     <vs-image-with-caption
-        alt-text="${(imageDetails.altText)!'${label("essentials.global", "default.alt-text")}'}"
-        image-src="${imageSrc}"
         latitude="<#if variant != 'fullwidth'>${(imageDetails.coordinates.latitude)!''}</#if>"
         longitude="<#if variant != 'fullwidth'>${(imageDetails.coordinates.longitude)!''}</#if>"
         variant="${variant}"
@@ -27,6 +25,18 @@
         <template slot="video-title">
             ${videoTitle}
         </template>
+
+        <vs-img
+            src="${imageSrc}"
+            alt="${(imageDetails.altText)!'${label("essentials.global", "default.alt-text")}'}"
+            srcset="${imageSrc}?size=xs 300w, 
+                    ${imageSrc}?size=sm 600w,
+                    ${imageSrc}?size=md 1200w, 
+                    ${imageSrc}?size=lg 2048w"
+            sizes="(min-width: 768px) 75vw, 100vw"
+            low-res-image="${imageSrc}?size=xxs"
+        >
+        </vs-img>
 
         <vs-caption
             slot="img-caption"

@@ -15,6 +15,7 @@ export default new Vuex.Store({
                 videoId: payload.id,
                 videoDurationMsg: payload.durationMsg,
                 videoDuration: payload.duration,
+                videoFullDuration: payload.fullDuration,
             });
         },
     },

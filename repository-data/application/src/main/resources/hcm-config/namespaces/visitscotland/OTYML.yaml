@@ -11,7 +11,7 @@ definitions:
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:uuid: 838468b2-dc9a-46fc-9ddb-29a5a3887625
+          jcr:uuid: 4fdf6d64-c7f7-4363-b209-a16b7a80ee52
           hipposysedit:node: true
           hipposysedit:supertype: ['hippo:compound', 'hippostd:relaxed']
           hipposysedit:uri: http://www.visitscotland.com/visitscotland/nt/1.0
@@ -31,7 +31,8 @@ definitions:
             hipposysedit:ordered: true
             hipposysedit:path: visitscotland:links
             hipposysedit:type: hippo:compound
-            hipposysedit:validators: [contentblocks-validator, required, 'visitscotland:link-validator', 'visitscotland:otyml-unique-link-validator']
+            hipposysedit:validators: [contentblocks-validator, required, 'visitscotland:link-validator',
+              'visitscotland:otyml-unique-link-validator']
           /html:
             jcr:primaryType: hipposysedit:field
             hipposysedit:mandatory: false
@@ -91,9 +92,9 @@ definitions:
             wicket.id: ${cluster.id}.field
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-              ckeditor.config.overlayed.json: '{disallowedContent: ''p[align]'', toolbarGroups: [{ name: ''links''
-                },{name:''insert''},{name:''clipboard''},{name:''tools''},{name:''undo''}]
-                , removeButtons: ''PickImage,Youtube,Table''}'
+              ckeditor.config.overlayed.json: '{disallowedContent: ''p[align]'', toolbarGroups:
+                [{ name: ''basicstyles''},{ name: ''links'' },{name:''insert''},{name:''clipboard''},{name:''tools''},{name:''undo''}]
+                , removeButtons: ''PickImage,Youtube,Table,Bold,Underline,Strike,Subscript,Superscript''}'
               ckeditor.config.appended.json: "{   extraPlugins: 'wordcount',   wordcount:\
                 \ { \tcountSpacesAsChars: true,     showCharCount: true ,maxCharCount:375\
                 \   }  }"

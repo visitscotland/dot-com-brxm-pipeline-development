@@ -24,7 +24,8 @@ describe('VsStretchedLinkCard', () => {
             const wrapper = factoryShallowMount();
             expect(wrapper.find('[data-test="vs-stretched-link"]').attributes().href).toBe('https://www.visitscotland.com/');
         });
-        it('should not render an image if not src attribute is set', async() => {
+
+        it('should not render an image if no src attribute is set', async() => {
             const wrapper = shallowMount(VsStretchedLinkCard, {
                 propsData: {
                     link: 'https://www.visitscotland.com/',
@@ -35,6 +36,63 @@ describe('VsStretchedLinkCard', () => {
             });
 
             await expect(wrapper.find('[data-test="vs-stretched-link__img"]').exists()).toBe(false);
+        });
+
+        it('should render a video play button if a videoId is set', async() => {
+            const wrapper = shallowMount(VsStretchedLinkCard, {
+                propsData: {
+                    link: 'https://www.visitscotland.com/',
+                    type: 'external',
+                    imgSrc: imgUrl,
+                    imgAlt: 'Image alt',
+                    videoId: '12345',
+                },
+                computed: {
+                    videoLoaded() {
+                        return true;
+                    },
+                    videoDetails() {
+                        return {
+                            videoFullDuration: {
+                                minutes: 1,
+                                seconds: 13,
+                            },
+                        };
+                    },
+                },
+            });
+
+            await expect(wrapper.find('[data-test="vs-stretched-link-card__video-button"]').exists()).toBe(true);
+        });
+
+        it('should render `videoBtnText` if set and a videoId is present', async() => {
+            const videoBtnText = 'PlayVideo';
+
+            const wrapper = shallowMount(VsStretchedLinkCard, {
+                propsData: {
+                    link: 'https://www.visitscotland.com/',
+                    type: 'external',
+                    imgSrc: imgUrl,
+                    imgAlt: 'Image alt',
+                    videoId: '12345',
+                    videoBtnText,
+                },
+                computed: {
+                    videoLoaded() {
+                        return true;
+                    },
+                    videoDetails() {
+                        return {
+                            videoFullDuration: {
+                                minutes: 1,
+                                seconds: 13,
+                            },
+                        };
+                    },
+                },
+            });
+
+            await expect(wrapper.html()).toContain(videoBtnText);
         });
     });
 

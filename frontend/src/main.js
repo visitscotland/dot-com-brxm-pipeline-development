@@ -20,15 +20,15 @@ const removeNoJSClass = () => {
 };
 
 export const initApp = (options, skipRemoveNoJsClass) => {
+    if (!skipRemoveNoJsClass) {
+        removeNoJSClass();
+    }
+
     const app = new Vue({
         ...defaultVueOptions,
         ...isObject(options) ? options : {
         },
     });
-
-    if (!skipRemoveNoJsClass) {
-        removeNoJSClass();
-    }
 
     return app;
 };

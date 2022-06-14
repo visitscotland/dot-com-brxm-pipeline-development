@@ -44,6 +44,7 @@ class LinkValidatorTest {
     void LinksEmptyValues() throws RepositoryException {
         Node node = Mockito.mock(Node.class, RETURNS_DEEP_STUBS);
 
+        when(node.hasProperty(HIPPO_DOCBASE)).thenReturn(true);
         when(node.getProperty(HIPPO_DOCBASE).getString()).thenReturn(LinkValidator.EMPTY_DOCUMENT);
         when(context.createViolation("emptyLink")).thenReturn(mock(Violation.class));
 
@@ -84,6 +85,7 @@ class LinkValidatorTest {
         Node parentNode = Mockito.mock(Node.class, withSettings().defaultAnswer(RETURNS_DEEP_STUBS));
         Node childNode = Mockito.mock(Node.class, withSettings().defaultAnswer(RETURNS_DEEP_STUBS));
 
+        when(parentNode.hasProperty(HIPPO_DOCBASE)).thenReturn(true);
         when(parentNode.getProperty(HIPPO_DOCBASE).getString()).thenReturn("NODE-ID");
         when(mockSessionFactory.getHippoNodeByIdentifier("NODE-ID")).thenReturn(childNode);
 
@@ -100,6 +102,7 @@ class LinkValidatorTest {
         Node parentNode = Mockito.mock(Node.class, withSettings().defaultAnswer(RETURNS_DEEP_STUBS));
         Node childNode = Mockito.mock(Node.class, withSettings().defaultAnswer(RETURNS_DEEP_STUBS));
 
+        when(parentNode.hasProperty(HIPPO_DOCBASE)).thenReturn(true);
         when(parentNode.getProperty(HIPPO_DOCBASE).getString()).thenReturn("NODE-ID");
         when(mockSessionFactory.getHippoNodeByIdentifier("NODE-ID")).thenReturn(childNode);
 
@@ -164,6 +167,7 @@ class LinkValidatorTest {
         boolean isDefault = !LinkValidator.DAY.equals(parentType) && !LinkValidator.VIDEO.equals(parentType);
 
         Property docbaseProp = mock(Property.class);
+        when(parentNode.hasProperty(HIPPO_DOCBASE)).thenReturn(true);
         when(docbaseProp.getString()).thenReturn("NODE-ID");
         when(parentNode.getProperty(HIPPO_DOCBASE)).thenReturn(docbaseProp);
         when(mockSessionFactory.getHippoNodeByIdentifier("NODE-ID")).thenReturn(childNode);

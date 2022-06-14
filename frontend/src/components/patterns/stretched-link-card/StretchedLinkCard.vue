@@ -1,18 +1,39 @@
 <template>
     <div
         class="card vs-stretched-link-card"
-        :class="disabled ? 'vs-stretched-link-card--disabled': ''"
+        :class="stretchedLinkCardClasses"
+        @click="emitShowModal"
+        @keypress="emitShowModal"
     >
-        <template
-            v-if="imgSrc"
-        >
-            <VsImg
-                :src="imgSrc"
-                :alt="imgAlt"
-                class="vs-stretched-link-card__img"
-                data-test="vs-stretched-link-card__img"
+        <div class="vs-stretched-link-card__img-container">
+            <template
+                v-if="imgSrc"
+            >
+                <VsImg
+                    :src="imgSrc"
+                    :alt="imgAlt"
+                    :srcset="`${imgSrc}?size=xs 300w,
+                        ${imgSrc}?size=sm 600w,
+                        ${imgSrc}?size=md 1200w,
+                        ${imgSrc}?size=lg 2048w`"
+                    sizes="(min-width: 768px) 50vw, 100vw"
+                    :low-res-image="`${imgSrc}?size=xxs`"
+                    class="vs-stretched-link-card__img"
+                    data-test="vs-stretched-link-card__img"
+                />
+            </template>
+
+            <VsWarning
+                v-if="videoId && jsDisabled"
+                :warning-message="noJsMessage"
             />
-        </template>
+
+            <VsWarning
+                v-if="videoId && !jsDisabled && cookiesMissing"
+                :warning-message="noCookiesMessage"
+                :warning-link="noCookiesLink"
+            />
+        </div>
 
         <template
             v-if="!!this.$slots['stretchedCardPanels']"
@@ -21,7 +42,29 @@
             <slot name="stretchedCardPanels" />
         </template>
 
-        <div class="card-body">
+        <div
+            class="card-body"
+            :class="videoId ? 'position-relative' : ''"
+        >
+            <VsButton
+                class="vs-stretched-link-card__video-button"
+                data-test="vs-stretched-link-card__video-button"
+                icon="play"
+                icon-position="left"
+                size="md"
+                ref="videoShow"
+                @click.native="emitShowModal"
+                v-if="videoId && videoLoaded && !disableVideo"
+            >
+                <span
+                    class="vs-stretched-link-card__video-btn-text"
+                    v-if="videoBtnText"
+                >
+                    {{ formattedVideoBtnText }}
+                </span>
+                {{ formattedVideoDuration }}
+            </VsButton>
+
             <span
                 class="vs-stretched-link-card__category"
                 v-if="!!this.$slots['stretchedCardCategory']"
@@ -39,6 +82,10 @@
                     <slot name="stretchedCardHeader" />
                 </template>
 
+                <template v-else-if="type === 'video'">
+                    <slot name="stretchedCardHeader" />
+                </template>
+
                 <VsLink
                     v-else
                     :href="link"
@@ -48,6 +95,7 @@
                     :variant="theme === 'dark' ? 'dark' : 'primary'"
                     data-test="vs-stretched-link"
                     :disabled="disabled"
+                    :tabindex="videoId ? '-1' : '0'"
                 >
                     <!-- @slot Contains header content for the card  -->
                     <slot name="stretchedCardHeader" />
@@ -78,6 +126,10 @@
 import VsHeading from '@components/elements/heading/Heading';
 import VsLink from '@components/elements/link/Link';
 import VsImg from '@components/elements/img/Img';
+import VsButton from '@components/elements/button/Button';
+import VsWarning from '@components/patterns/warning/Warning';
+import jsIsDisabled from '@/utils/js-is-disabled';
+import videoStore from '../../../stores/video.store';
 
 /**
  * The Stretched Link Card is a block that stretches its nested link across its whole area
@@ -93,6 +145,8 @@ export default {
         VsHeading,
         VsLink,
         VsImg,
+        VsButton,
+        VsWarning,
     },
     props: {
         /**
@@ -105,12 +159,12 @@ export default {
         },
         /**
         * The type of link. This will set the icon.
-        * `external, internal, download`
+        * `external, internal, download, video`
         */
         type: {
             type: String,
             required: true,
-            validator: (value) => value.match(/(default|external|internal|download)/),
+            validator: (value) => value.match(/(default|external|internal|download|video)/),
         },
         /**
         * The component color theme
@@ -141,6 +195,109 @@ export default {
             type: Boolean,
             default: false,
         },
+        /**
+         * An optional YouTube video ID
+         */
+        videoId: {
+            type: String,
+            default: '',
+        },
+        /**
+         * A label to add to the youtube play button if one is present.
+         * Only appears in certain page layouts.
+         */
+        videoBtnText: {
+            type: String,
+            default: '',
+        },
+    },
+    inject: {
+        noJsMessage: {
+            default: '',
+        },
+        noCookiesMessage: {
+            default: '',
+        },
+        noCookiesLink: {
+            default: null,
+        },
+    },
+    data() {
+        return {
+            jsDisabled: true,
+        };
+    },
+    computed: {
+        formattedVideoBtnText() {
+            return `${this.videoBtnText} | `;
+        },
+        formattedVideoDuration() {
+            let seconds = `${this.videoDetails.videoFullDuration.seconds}`;
+
+            if (seconds.length === 1) {
+                seconds = `0${seconds}`;
+            }
+
+            return `${this.videoDetails.videoFullDuration.minutes}:${seconds}`;
+        },
+        stretchedLinkCardClasses() {
+            let outputClasses = '';
+
+            if (this.disabled) {
+                outputClasses += 'vs-stretched-link-card--disabled';
+            }
+
+            if (this.type === 'video') {
+                outputClasses += 'vs-stretched-link-card--video';
+            }
+
+            return outputClasses;
+        },
+        videoDetails() {
+            return videoStore.getters.getVideoDetails(this.videoId);
+        },
+        videoLoaded() {
+            if (typeof this.videoDetails !== 'undefined' && this.videoDetails.videoDuration > 0) {
+                return true;
+            }
+
+            return false;
+        },
+        // Checks whether appropriate cookies have been rejected for the video on this megalink,
+        // to display an appropriate warning to the user
+        cookiesMissing() {
+            // TODO: Add cookie functionality once checker integrated
+            // See VS-3606
+            return false;
+        },
+        // Checks both cookiesMissing and jsDisabled to determine whether the video should be
+        // prevented from initialising
+        disableVideo() {
+            return (this.cookiesMissing || this.jsDisabled);
+        },
+    },
+    mounted() {
+        // Checks whether js is disabled, to display an appropriate warning to the user
+        this.jsDisabled = jsIsDisabled();
+    },
+    methods: {
+        emitShowModal() {
+            if (!this.videoId) {
+                return;
+            }
+
+            /**
+             * Triggers when the video button is clicked, requests that the appropriate
+             * video modal becomes visible
+             *
+             * @event bv::show::modal
+             *
+             * @property {string} videoId the id of the video to show, acts as a key for the modal
+             * @property {string} triggerRef the #ref of the button that triggered the event,
+             * focus is returned here after the modal closes
+             */
+            this.$root.$emit('bv::show::modal', this.videoId, '#videoShow');
+        },
     },
 };
 </script>
@@ -158,6 +315,27 @@ export default {
             .megalink-link-list__title {
                 text-decoration: underline;
             }
+
+            .vs-stretched-link-card__video-button {
+                background-color: darken($color-theme-primary, 10%);
+                border-color: darken($color-theme-primary, 12%);
+            }
+        }
+
+        &:active {
+            .vs-stretched-link-card__video-button {
+                .vs-icon {
+                    fill: $color-theme-primary;
+                }
+            }
+        }
+
+        &:focus {
+            .vs-stretched-link-card__video-button {
+                background-color: $color-white;
+                border-color: $color-theme-primary;
+                color: $color-theme-primary;
+            }
         }
 
         &--disabled {
@@ -168,6 +346,10 @@ export default {
             .megalink-link-list__title {
                 text-decoration: none;
             }
+        }
+
+        &--video {
+            cursor: pointer;
         }
 
         .stretched-link {
@@ -190,11 +372,16 @@ export default {
             width: 12px;
         }
 
-        .vs-stretched-link-card__img {
+        .vs-stretched-link-card__img-container {
             width: 100%;
             max-width: 100%;
             align-self: flex-start;
             flex-shrink: 0; // IE11 fix, prevents image vertical stretching
+            position: relative;
+        }
+
+        .vs-stretched-link-card__img {
+            width: 100%;
         }
 
         .vs-stretched-link-card__title {
@@ -213,7 +400,7 @@ export default {
             font-family: $font-family-base;
             font-size: $font-size-3;
             line-height: $line-height-xs;
-            color: $color-secondary-teal-shade-2;
+            color: $color-secondary-teal-shade-3;
             letter-spacing: normal;
             margin-bottom: $spacer-4;
         }
@@ -242,6 +429,16 @@ export default {
             text-decoration: underline;
         }
 
+        .vs-stretched-link-card__video-button {
+            position: absolute;
+            bottom: 100%;
+            left: 0;
+        }
+
+        .vs-stretched-link-card__video-btn-text {
+            padding-right: $spacer-1;
+        }
+
         @include media-breakpoint-up(sm) {
             .vs-stretched-link-card__panels {
                 top: $spacer-2;
@@ -259,6 +456,106 @@ export default {
                 padding-bottom: $spacer-5;
             }
         }
+    }
+
+    @mixin square-video-button {
+        .vs-stretched-link-card__video-button {
+            padding: $spacer-3 $spacer-4 $spacer-2;
+            flex-direction: column;
+
+            .vs-icon {
+                margin-right: $spacer-0;
+                margin-top: $spacer-0;
+                margin-bottom: $spacer-1;
+            }
+        }
+
+        .vs-stretched-link-card__video-btn-text {
+            display: none;
+        }
+    }
+
+    @mixin small-rectangle-video-button {
+        .vs-stretched-link-card__video-button {
+            padding: $spacer-3 $spacer-4;
+            flex-direction: row;
+
+            .vs-icon {
+                margin-right: $spacer-2;
+                margin-top: -.05em;
+                margin-bottom: $spacer-0;
+            }
+        }
+
+        .vs-stretched-link-card__video-btn-text {
+            display: none;
+        }
+    }
+
+    @mixin full-rectangle-video-button {
+        .vs-stretched-link-card__video-button {
+            padding: $spacer-3 calc(#{$spacer-8} + #{$spacer-2});
+            flex-direction: row;
+
+            .vs-icon {
+                margin-right: $spacer-2;
+                margin-top: -.05rem;
+                margin-bottom: $spacer-0;
+            }
+        }
+
+        .vs-stretched-link-card__video-btn-text {
+            display: block;
+        }
+    }
+
+    .vs-stretched-link-card.vs-megalink-multi-image {
+        .vs-stretched-link-card__video-button {
+            position: absolute;
+            bottom: 100%;
+            left: 0;
+        }
+
+        @include square-video-button();
+
+        @include media-breakpoint-up(lg) {
+            &.vs-megalink-multi-image--featured {
+                .vs-stretched-link-card__video-button {
+                    bottom: 100%;
+                    left: $spacer-0;
+                }
+
+                @include full-rectangle-video-button();
+            }
+        }
+
+        @include media-breakpoint-up(xl) {
+            &.vs-megalink-multi-image--featured {
+                .card-body {
+                    position: initial !important;
+                }
+
+                .vs-stretched-link-card__video-button {
+                    bottom: $spacer-2;
+                    left: $spacer-2;
+                    z-index: 2;
+                }
+            }
+        }
+    }
+
+    .vs-megalink-link-list .vs-stretched-link-card {
+        .card-body {
+            position: initial !important;
+        }
+
+        .vs-stretched-link-card__video-button {
+            bottom: $spacer-2;
+            left: $spacer-2;
+            z-index: 2;
+        }
+
+        @include small-rectangle-video-button();
     }
 </style>
 
@@ -315,7 +612,55 @@ export default {
                     </VsRichTextWrapper>
                 </VsStretchedLinkCard>
             </VsCol>
+
+            <VsCol cols="12" md="6">
+                <VsStretchedLinkCard
+                    link="#"
+                    type="video"
+                    imgSrc="https://cimg.visitscotland.com/cms-images/attractions/outlander/claire-standing-stones-craigh-na-dun-outlander?size=sm"
+                    imgAlt="This is the alt text"
+                    videoId="FlG6tbYaA88"
+                    videoBtnText="Play Video"
+                >
+                    <template slot="stretchedCardCategory">
+                        A category header
+                    </template>
+                    <template slot="stretchedCardPanels">
+                        <VsStretchedLinkPanels
+                            days="14"
+                            transport="car"
+                            transportName="Car"
+                            daysLabel="days"
+                        />
+                    </template>
+
+                    <template slot="stretchedCardHeader">
+                        A Title Would Go Here
+                    </template>
+
+                    <VsRichTextWrapper slot="stretchedCardContent">
+                        <p>The content for the card goes here</p>
+
+                        <p>A second line of content</p>
+                    </VsRichTextWrapper>
+                </VsStretchedLinkCard>
+            </VsCol>
         </VsRow>
     </VsContainer>
+
+    <VsModal
+        modalId="FlG6tbYaA88"
+        closeBtnText="Close"
+        :isVideoModal="true"
+    >
+        <VsRow>
+            <VsCol cols="12">
+                <VsVideo
+                    videoId="FlG6tbYaA88"
+                    class="mb-8"
+                />
+            </VsCol>
+        </VsRow>
+    </VsModal>
   ```
 </docs>

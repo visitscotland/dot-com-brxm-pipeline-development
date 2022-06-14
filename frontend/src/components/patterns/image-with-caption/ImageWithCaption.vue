@@ -14,7 +14,6 @@
                     v-if="imageSrc"
                     :src="imageSrc"
                     :alt="altText"
-                    data-sizes="auto"
                 />
             </slot>
 

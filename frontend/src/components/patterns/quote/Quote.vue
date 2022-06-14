@@ -176,8 +176,6 @@ export default {
         <VsImg
             src="https://cimg.visitscotland.com/cms-images/attractions/outlander/claire-standing-stones-craigh-na-dun-outlander?size=sm"
             alt="This is the alt text"
-            data-sizes="auto"
-            class="lazyload"
             slot="quoteImage">
         </VsImg>
         <p slot="quoteContent">

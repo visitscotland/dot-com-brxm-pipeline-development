@@ -138,7 +138,7 @@ export default {
                 }
             }
 
-            .vs-stretched-link-card__img {
+            .vs-stretched-link-card__img-container {
                 width: 245px;
                 height: auto;
             }
@@ -153,7 +153,7 @@ export default {
                 padding: $spacer-5 $spacer-3;
             }
 
-            .vs-stretched-link-card__img {
+            .vs-stretched-link-card__img-container {
                 width: 100%;
             }
 
@@ -178,7 +178,7 @@ export default {
     @include no-js {
         @include media-breakpoint-down(md) {
             .card.vs-mega-nav-featured-item {
-                .vs-stretched-link-card__img {
+                .vs-stretched-link-card__img-container {
                     width: 100%;
                 }
 

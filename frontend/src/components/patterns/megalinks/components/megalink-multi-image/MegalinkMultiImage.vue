@@ -8,6 +8,8 @@
         :img-alt="imgAlt"
         :data-test="featured ? 'megalink-multi-image-featured' : 'megalink-multi-image-card'"
         :theme="theme"
+        :video-id="videoId"
+        :video-btn-text="videoBtnText"
     >
         <VsStretchedLinkPanels
             v-if="days && transport"
@@ -91,12 +93,12 @@ export default {
         },
         /**
         * The type of link. This will set the icon.
-        * `external, internal, download`
+        * `external, internal, download, video`
         */
         linkType: {
             type: String,
             required: true,
-            validator: (value) => value.match(/(default|external|internal|download)/),
+            validator: (value) => value.match(/(default|external|internal|download|video)/),
         },
         /**
         * The link destination
@@ -141,6 +143,21 @@ export default {
         transportName: {
             type: String,
             default: '',
+        },
+        /**
+         * An optional YouTube video ID
+         */
+        videoId: {
+            type: String,
+            default: '',
+        },
+        /**
+         * A label to add to the youtube play button if one is present.
+         * Only appears in certain page layouts.
+         */
+        videoBtnText: {
+            type: String,
+            default: 'Play Video',
         },
     },
     computed: {
@@ -222,6 +239,8 @@ export default {
 
     .vs-megalink-multi-image--dark.card {
         .vs-stretched-link-card__title {
+            color: $color-white;
+
             .stretched-link {
                 color: $color-white;
             }
@@ -261,7 +280,7 @@ export default {
                 width: 16px;
             }
 
-            .vs-stretched-link-card__img {
+            .vs-stretched-link-card__img-container {
                 width: calc(50% - 20px);
             }
 

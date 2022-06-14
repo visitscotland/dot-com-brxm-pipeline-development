@@ -117,7 +117,7 @@ export default {
          */
         dontShowAgain: {
             type: Boolean,
-            required: true,
+            default: true,
         },
     },
     data() {

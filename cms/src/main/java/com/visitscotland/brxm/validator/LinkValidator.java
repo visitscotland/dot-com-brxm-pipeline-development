@@ -38,6 +38,9 @@ public class LinkValidator implements Validator<Node> {
 
     public Optional<Violation> validate(final ValidationContext context, final Node document) {
         try {
+            if (!document.hasProperty(HIPPO_DOCBASE)){
+                return Optional.empty();
+            }
             String nodeId = document.getProperty(HIPPO_DOCBASE).getString();
             if (!nodeId.equals(EMPTY_DOCUMENT)) {
                 Node childNode = sessionFactory.getHippoNodeByIdentifier(nodeId);
