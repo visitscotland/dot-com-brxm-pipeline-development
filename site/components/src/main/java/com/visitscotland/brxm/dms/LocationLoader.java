@@ -33,7 +33,7 @@ public class LocationLoader {
      */
     private void validateMaps() {
         synchronized (LocationLoader.class) {
-            if (locationToId.size() == 0) {
+            if (locationToId.size() == 0 && proxy.canMakeRequest()) {
                 loadLocations();
             }
         }
@@ -58,7 +58,7 @@ public class LocationLoader {
                     }
                 }
 
-            } catch (IOException e) {
+            } catch (IOException | NullPointerException e) {
                 logger.warn("Location List couldn't been loaded for the locale {}", lang.getLocale());
             } catch (Exception e) {
                 logger.error("Unexpected exception ", e);

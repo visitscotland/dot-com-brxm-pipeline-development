@@ -18,6 +18,7 @@
                             class="vs-carousel__control vs-carousel__control--prev"
                             @click.native="sliderNavigate('prev')"
                             @keypress.native="sliderNavigate('prev', true)"
+                            @btnFocus="controlFocus($event, 'prev')"
                             icon="internal-link"
                             icon-orientation="down"
                             icon-size-override="xs"
@@ -45,6 +46,7 @@
                             class="vs-carousel__control vs-carousel__control--next"
                             @keypress.native="sliderNavigate('next', true)"
                             @click.native="sliderNavigate('next')"
+                            @btnFocus="controlFocus($event, 'next')"
                             icon="internal-link"
                             icon-position="right"
                             icon-size-override="xs"
@@ -243,6 +245,13 @@ export default {
         this.initNavigation();
     },
     methods: {
+        controlFocus(event, direction) {
+            if (direction === 'next' && !event.shiftKey) {
+                this.sliderNavigate('next', true, this.activeSlides[this.activeSlides.length - 1]);
+            } else if (direction === 'prev' && event.shiftKey) {
+                this.sliderNavigate('prev', true, this.activeSlides[0]);
+            }
+        },
         defineActiveSlides(remainder) {
             this.calcViewport();
             this.activeSlides.length = 0;
@@ -323,7 +332,7 @@ export default {
             // the same position they were at before the resize
             this.sliderNavigate(this.currentPage);
         },
-        sliderNavigate(direction, keypressNavigation) {
+        sliderNavigate(direction, keypressNavigation, oldSlide) {
             if (this.navigating) {
                 return;
             }
@@ -331,9 +340,15 @@ export default {
             this.navigating = true;
 
             if (direction === 'next') {
-                this.currentPage += 1;
+                // increase the current page if not already at the max pages amount
+                if (this.currentPage + 1 < this.maxPages) {
+                    this.currentPage += 1;
+                }
             } else if (direction === 'prev') {
-                this.currentPage -= 1;
+                // decrease the current page if not already at zero
+                if (this.currentPage > 0) {
+                    this.currentPage -= 1;
+                }
             } else {
                 this.currentPage = direction;
             }
@@ -355,17 +370,27 @@ export default {
 
             this.defineActiveSlides(finalSlideRemainder);
 
-            setTimeout(() => {
-                this.navigating = false;
+            this.navigating = false;
 
-                if (keypressNavigation) {
-                    if (direction === 'next') {
-                        this.$refs.prevButton.$el.focus();
-                    } else if (direction === 'prev') {
-                        this.$refs.nextButton.$el.focus();
-                    }
+            if (keypressNavigation) {
+                if (direction === 'next' && this.totalSlides - 1 > oldSlide) {
+                    // if 'next' movement has happened via keypress automatically focus
+                    // on the next slide link
+                    const firstActiveSlide = this.$refs.carousel.querySelectorAll('.card')[oldSlide + 1];
+                    const firstLink = firstActiveSlide.querySelectorAll('a')[0];
+                    setTimeout(() => {
+                        firstLink.focus();
+                    }, 250);
+                } else if (direction === 'prev' && this.currentPage >= 0) {
+                    // if 'previous' movement has happened via keypress automatically focus
+                    // on the previous slide link
+                    const lastActiveSlide = this.$refs.carousel.querySelectorAll('.card')[oldSlide - 1];
+                    const lastLink = lastActiveSlide.querySelectorAll('a')[0];
+                    setTimeout(() => {
+                        lastLink.focus();
+                    }, 250);
                 }
-            }, 250);
+            }
         },
         initNavigation() {
             // method to enable/disable arrow controls for carousel
@@ -689,7 +714,7 @@ export default {
             slide-index="3"
         >
             <template slot="vsCarouselSlideHeading">
-                3 Count 7,000 shining stars in the iconic
+                4 Count 7,000 shining stars in the iconic
                 galloway forest
             </template>
             <template slot="vsCarouselSlideContent">
@@ -712,7 +737,7 @@ export default {
             slide-index="4"
         >
             <template slot="vsCarouselSlideHeading">
-                3 Count 7,000 shining stars in the iconic
+                5 Count 7,000 shining stars in the iconic
                 galloway forest
             </template>
             <template slot="vsCarouselSlideContent">
@@ -735,7 +760,7 @@ export default {
             slide-index="5"
         >
             <template slot="vsCarouselSlideHeading">
-                3 Count 7,000 shining stars in the iconic
+                6 Count 7,000 shining stars in the iconic
                 galloway forest
             </template>
             <template slot="vsCarouselSlideContent">
@@ -758,7 +783,7 @@ export default {
             slide-index="6"
         >
             <template slot="vsCarouselSlideHeading">
-                3 Count 7,000 shining stars in the iconic
+                7 Count 7,000 shining stars in the iconic
                 galloway forest
             </template>
             <template slot="vsCarouselSlideContent">
@@ -781,7 +806,7 @@ export default {
             slide-index="7"
         >
             <template slot="vsCarouselSlideHeading">
-                3 Count 7,000 shining stars in the iconic
+                8 Count 7,000 shining stars in the iconic
                 galloway forest
             </template>
             <template slot="vsCarouselSlideContent">
@@ -804,7 +829,7 @@ export default {
             slide-index="8"
         >
             <template slot="vsCarouselSlideHeading">
-                3 Count 7,000 shining stars in the iconic
+                9 Count 7,000 shining stars in the iconic
                 galloway forest
             </template>
             <template slot="vsCarouselSlideContent">
@@ -827,7 +852,7 @@ export default {
             slide-index="9"
         >
             <template slot="vsCarouselSlideHeading">
-                3 Count 7,000 shining stars in the iconic
+                10 Count 7,000 shining stars in the iconic
                 galloway forest
             </template>
             <template slot="vsCarouselSlideContent">
@@ -850,7 +875,7 @@ export default {
             slide-index="10"
         >
             <template slot="vsCarouselSlideHeading">
-                3 Count 7,000 shining stars in the iconic
+                11 Count 7,000 shining stars in the iconic
                 galloway forest
             </template>
             <template slot="vsCarouselSlideContent">
@@ -873,7 +898,7 @@ export default {
             slide-index="11"
         >
             <template slot="vsCarouselSlideHeading">
-                3 Count 7,000 shining stars in the iconic
+                12Count 7,000 shining stars in the iconic
                 galloway forest
             </template>
             <template slot="vsCarouselSlideContent">
@@ -896,7 +921,7 @@ export default {
             slide-index="12"
         >
             <template slot="vsCarouselSlideHeading">
-                3 Count 7,000 shining stars in the iconic
+                13 Count 7,000 shining stars in the iconic
                 galloway forest
             </template>
             <template slot="vsCarouselSlideContent">

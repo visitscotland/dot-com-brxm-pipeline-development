@@ -59,9 +59,11 @@
 <#--  Get correct URL for internal or external link -->
 <#--  Usage: ${getUrl(navItem)} -->
 <#function getUrl item>
-    <#if item.hstLink??>
-        <#assign href><@hst.link fullyQualified=fullyQualifiedURLs link=item.hstLink/></#assign>
-        <#return href> 
+    <#if item.page??>
+        <#assign href><@hst.link hippobean=item.page fullyQualified=fullyQualifiedURLs/></#assign>
+        <#return href>
+    <#elseif item.hstLink??>
+        <#return "pagenotfound">
     <#elseif item.externalLink??>
         <#return item.externalLink?replace("\"", "")> 
     <#else>

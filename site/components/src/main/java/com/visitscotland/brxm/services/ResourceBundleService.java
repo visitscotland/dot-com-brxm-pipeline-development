@@ -19,12 +19,6 @@ public class ResourceBundleService {
 
     ResourceBundleRegistry registry;
 
-    private CommonUtilsService common;
-
-    public ResourceBundleService (CommonUtilsService common){
-        this.common = common;
-    }
-
     /**
      * ResourceBundleRegistry is not a Spring Component, therefore when Spring is wiring the component it cannot
      * wire this the {@code ResourceBundleRegistry}. That's the reason why we need to check the registry before
@@ -36,8 +30,6 @@ public class ResourceBundleService {
         }
         return registry;
     }
-
-
 
     /**
      * Gets a string for the given key from this resource bundle or one of its parents.
@@ -119,7 +111,7 @@ public class ResourceBundleService {
                 if (Contract.isEmpty(value) && locale != null && !optional) {
                     value = getResourceBundle(bundleName,key, (Locale) null, false);
                     if (!Contract.isEmpty(value)) {
-                        logContentIssue("The label key {} does not exists for the %s channel. Resource Bundle key {}", key, bundle.getLocale(), bundleName);
+                        logContentIssue("The label key {} does not exists for the {} channel. Resource Bundle key {}", key, locale, bundleName);
                     }
                 }
             }

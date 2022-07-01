@@ -118,7 +118,7 @@ public class NavigationFactory {
      */
     private NavigationWidget createWidget(HstRequest request, HippoBean bean) {
         if (bean instanceof FeaturedWidget) {
-           return addFeatureItem((FeaturedWidget) bean, request);
+            return addFeatureItem((FeaturedWidget) bean, request);
         } else {
             contentLogger.warn("Skipping Unexpected document type: {}", bean.getClass().getSimpleName());
         }
@@ -152,33 +152,33 @@ public class NavigationFactory {
 
         List<EnhancedLink> enhancedLinks = new ArrayList<>();
         for (CMSLink cmsLink : cmsLinks) {
-                if (!(cmsLink.getLink() instanceof Linkable)){
-                    contentLogger.warn("An incorrect Type of link has been set in a featured item: {}", document.getPath());
-                    continue;
-                }
-                Optional<EnhancedLink> optionalLink = linkService.createEnhancedLink((Linkable) cmsLink.getLink(), widget, request.getLocale(), false);
+            if (!(cmsLink.getLink() instanceof Linkable)){
+                contentLogger.warn("An incorrect Type of link has been set in a featured item: {}", document.getPath());
+                continue;
+            }
+            Optional<EnhancedLink> optionalLink = linkService.createEnhancedLink((Linkable) cmsLink.getLink(), widget, request.getLocale(), false);
 
-                if (!optionalLink.isPresent()) {
-                    contentLogger.warn("Failed to create widget: {}. Check link is published & valid", document.getPath());
-                    continue;
-                }
-                EnhancedLink link = optionalLink.get();
-                link.setCta(bundle.getCtaLabel(cmsLink.getLabel(), request.getLocale()));
-                enhancedLinks.add(link);
+            if (!optionalLink.isPresent()) {
+                contentLogger.warn("Failed to create widget: {}. Check link is published & valid", document.getPath());
+                continue;
+            }
+            EnhancedLink link = optionalLink.get();
+            link.setCta(bundle.getCtaLabel(cmsLink.getLabel(), request.getLocale()));
+            enhancedLinks.add(link);
         }
         widget.setHippoBean(document);
         widget.setLinks(enhancedLinks);
 
-       if (widget.getErrorMessages() != null ) {
-           List<FeaturedItem> listWidget;
-           if (request.getModel(WIDGET_LIST) == null) {
-               listWidget = new ArrayList<>();
-           } else {
-               listWidget = request.getModel(WIDGET_LIST);
-           }
-           listWidget.add(widget);
-           request.setModel(WIDGET_LIST, listWidget);
-       }
+        if (widget.getErrorMessages() != null ) {
+            List<FeaturedItem> listWidget;
+            if (request.getModel(WIDGET_LIST) == null) {
+                listWidget = new ArrayList<>();
+            } else {
+                listWidget = request.getModel(WIDGET_LIST);
+            }
+            listWidget.add(widget);
+            request.setModel(WIDGET_LIST, listWidget);
+        }
         return widget;
     }
 
@@ -199,6 +199,8 @@ public class NavigationFactory {
      * @param locale   Request Locale
      */
     private void createMenuItemFromPage(MenuItem menuItem, Page document, String bundleId, Locale locale) {
+        menuItem.setPage(document);
+
         //If the menu hasn't been set we use the title coming from the document.
         if (Contract.isEmpty(menuItem.getTitle())) {
             if (!Contract.isEmpty(document.getBreadcrumb())) {

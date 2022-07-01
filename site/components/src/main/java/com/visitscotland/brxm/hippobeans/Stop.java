@@ -79,4 +79,9 @@ public class Stop extends BaseDocument {
     public Calendar getTranslationDeadline() {
         return getSingleProperty("visitscotland:translationDeadline");
     }
+
+    @HippoEssentialsGenerated(internalName = "hippotaxonomy:keys")
+    public String[] getKeys() {
+        return getMultipleProperty("hippotaxonomy:keys");
+    }
 }

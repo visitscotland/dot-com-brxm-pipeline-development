@@ -39,7 +39,8 @@ public class Properties {
     static final String INTERNAL_SITES = "links.internal-sites";
     static final String CMS_BASE_PATH = "links.cms-base-path.url";
     static final String CONVERT_TO_RELATIVE = "links.convert-to-relative";
-    static final String DEFAULT_CSS_VERSION = "data-internal.default-css-version";
+    static final String SERVE_LECAGY_CSS = "data-internal.serve-legacy-css";
+    static final String DMS_INTERNAL_PATH = "data-internal.path";
 
     // DMS Properties
     public static final String DMS_DATA_HOST = "dms-data.private-url";
@@ -158,6 +159,10 @@ public class Properties {
         return readString(YOUTUBE_API_KEY);
     }
 
+    public String getDmsInternalPath() {
+        return readString(DMS_INTERNAL_PATH);
+    }
+
     /**
      * Default DMS version served by Hippo.
      * <p>
@@ -169,11 +174,9 @@ public class Properties {
      * <p>
      * Values that are not in this list are going to be interpreted as standard version.
      * <p>
-     * @deprecated This property should be removed once all legacy applications are sending the query parameter {@<code>version="legacy"</code>}
      */
-    @Deprecated
-    public String getDefaultCssVersion() {
-        return readString(DEFAULT_CSS_VERSION);
+    public Boolean isServeLegacyCss() {
+        return readBoolean(SERVE_LECAGY_CSS);
     }
 
     public List<String> getInternalSites() {
@@ -265,7 +268,7 @@ public class Properties {
 
     public String getProperty(String key){
         String bundleId = getEnvironmentProperties();
-        String value = bundle.getResourceBundle(bundleId, key, Locale.UK);
+        String value = bundle.getResourceBundle(bundleId, key, Locale.UK, true);
 
         if (Contract.isEmpty(value)) {
             value = bundle.getResourceBundle(DEFAULT_CONFIG, key, Locale.UK);

@@ -13,11 +13,11 @@
 <#-- @ftlvariable name="editMode" type="java.lang.Boolean"-->
 </#compress>
 
-<#if ciBranch??>
-    <@devEnvMenu />
-</#if>
-
 <#if menu??>
+    <#if ciBranch??>
+        <@devEnvMenu />
+    </#if>
+
     <div class="has-edit-button">
         <header class="position-relative zindex-fixed">
             <@headerGlobalMenu />
@@ -30,11 +30,10 @@
             <@previewWarning editMode navigationWidget navigationWidget.errorMessages/>
         </#list>
     </#if>
+<#elseif integration??>
+    ${log("The main navigation menu is not available")}
 </#if>
 
 <#if banner??>
     <@emergencyBanner module=banner/>
 </#if>
-
-
-

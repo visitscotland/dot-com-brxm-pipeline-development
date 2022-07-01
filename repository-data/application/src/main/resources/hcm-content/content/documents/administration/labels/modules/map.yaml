@@ -4,7 +4,7 @@
   jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
   jcr:uuid: 71df6e9b-23c6-447c-85c9-28e719ee59a2
   hippo:name: Map
-  hippo:versionHistory: c8605022-36b8-4f0b-a33a-37992425710d
+  hippo:versionHistory: b2e215e5-0ab2-493f-a51c-603388025ef4
   /map[1]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:referenceable']
@@ -14,22 +14,22 @@
     hippostd:state: draft
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2020-03-02T10:09:34.350Z
-    hippostdpubwf:lastModificationDate: 2021-09-06T07:57:05.244Z
-    hippostdpubwf:lastModifiedBy: spanish
-    resourcebundle:descriptions: ['', '', '', '', '']
+    hippostdpubwf:lastModificationDate: 2022-06-16T12:50:04.858+01:00
+    hippostdpubwf:lastModifiedBy: admin
+    resourcebundle:descriptions: ['', '', '', '', '', '']
     resourcebundle:id: map
     resourcebundle:keys: [map.fullscreen, map.exitfullscreen, map.reset, map.zoomin,
-      map.zoomout]
+      map.zoomout, map.feature-default-title]
     resourcebundle:messages: [Show fullscreen, Exit fullscreen, Reset angle, Zoom
-        in, Zoom out]
+        in, Zoom out, Featured Places]
     resourcebundle:messages_de: [Vollbild anzeigen, Vollbild schließen, Zurücksetzen,
-      Vergrößern, Verkleinern]
+      Vergrößern, Verkleinern, '']
     resourcebundle:messages_es: [Mostrar pantalla completa, Cerrar pantalla completa,
-      Restablecer ángulo, Ampliar, Reducir]
-    resourcebundle:messages_fr: ['', '', '', '', '']
-    resourcebundle:messages_it: ['', '', '', '', '']
+      Restablecer ángulo, Ampliar, Reducir, '']
+    resourcebundle:messages_fr: ['', '', '', '', '', '']
+    resourcebundle:messages_it: ['', '', '', '', '', '']
     resourcebundle:messages_nl: [Volledig scherm tonen, Volledig scherm sluiten, Heroriënteren,
-      Inzoomen, Uitzoomen]
+      Inzoomen, Uitzoomen, '']
   /map[2]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:versionable']
@@ -39,22 +39,22 @@
     hippostd:state: unpublished
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2020-03-02T10:09:34.350Z
-    hippostdpubwf:lastModificationDate: 2021-09-06T07:57:39.271Z
-    hippostdpubwf:lastModifiedBy: spanish
-    resourcebundle:descriptions: ['', '', '', '', '']
+    hippostdpubwf:lastModificationDate: 2022-06-16T12:50:04.756+01:00
+    hippostdpubwf:lastModifiedBy: admin
+    resourcebundle:descriptions: ['', '', '', '', '', '']
     resourcebundle:id: map
     resourcebundle:keys: [map.fullscreen, map.exitfullscreen, map.reset, map.zoomin,
-      map.zoomout]
+      map.zoomout, map.feature-default-title]
     resourcebundle:messages: [Show fullscreen, Exit fullscreen, Reset angle, Zoom
-        in, Zoom out]
+        in, Zoom out, Featured Places]
     resourcebundle:messages_de: [Vollbild anzeigen, Vollbild schließen, Zurücksetzen,
-      Vergrößern, Verkleinern]
+      Vergrößern, Verkleinern, '']
     resourcebundle:messages_es: [Mostrar pantalla completa, Cerrar pantalla completa,
-      Restablecer ángulo, Ampliar, Reducir]
-    resourcebundle:messages_fr: ['', '', '', '', '']
-    resourcebundle:messages_it: ['', '', '', '', '']
+      Restablecer ángulo, Ampliar, Reducir, '']
+    resourcebundle:messages_fr: ['', '', '', '', '', '']
+    resourcebundle:messages_it: ['', '', '', '', '', '']
     resourcebundle:messages_nl: [Volledig scherm tonen, Volledig scherm sluiten, Heroriënteren,
-      Inzoomen, Uitzoomen]
+      Inzoomen, Uitzoomen, '']
   /map[3]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:referenceable']
@@ -64,20 +64,20 @@
     hippostd:state: published
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2020-03-02T10:09:34.350Z
-    hippostdpubwf:lastModificationDate: 2021-09-06T07:57:39.271Z
-    hippostdpubwf:lastModifiedBy: spanish
-    hippostdpubwf:publicationDate: 2021-09-06T07:57:41.656Z
-    resourcebundle:descriptions: ['', '', '', '', '']
+    hippostdpubwf:lastModificationDate: 2022-06-16T12:50:04.756+01:00
+    hippostdpubwf:lastModifiedBy: admin
+    hippostdpubwf:publicationDate: 2022-06-16T12:50:07.933+01:00
+    resourcebundle:descriptions: ['', '', '', '', '', '']
     resourcebundle:id: map
     resourcebundle:keys: [map.fullscreen, map.exitfullscreen, map.reset, map.zoomin,
-      map.zoomout]
+      map.zoomout, map.feature-default-title]
     resourcebundle:messages: [Show fullscreen, Exit fullscreen, Reset angle, Zoom
-        in, Zoom out]
+        in, Zoom out, Featured Places]
     resourcebundle:messages_de: [Vollbild anzeigen, Vollbild schließen, Zurücksetzen,
-      Vergrößern, Verkleinern]
+      Vergrößern, Verkleinern, '']
     resourcebundle:messages_es: [Mostrar pantalla completa, Cerrar pantalla completa,
-      Restablecer ángulo, Ampliar, Reducir]
-    resourcebundle:messages_fr: ['', '', '', '', '']
-    resourcebundle:messages_it: ['', '', '', '', '']
+      Restablecer ángulo, Ampliar, Reducir, '']
+    resourcebundle:messages_fr: ['', '', '', '', '', '']
+    resourcebundle:messages_it: ['', '', '', '', '', '']
     resourcebundle:messages_nl: [Volledig scherm tonen, Volledig scherm sluiten, Heroriënteren,
-      Inzoomen, Uitzoomen]
+      Inzoomen, Uitzoomen, '']

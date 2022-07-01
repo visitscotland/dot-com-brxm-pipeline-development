@@ -43,7 +43,7 @@
             hippo:versionHistory: a70c4572-ae70-46a3-9c26-aa2087159972
             /stop-1a[1]:
               jcr:primaryType: visitscotland:Stop
-              jcr:mixinTypes: ['mix:referenceable']
+              jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
               jcr:uuid: abfea040-86f2-4be6-b5b3-94e6620c4761
               hippo:availability: []
               hippostd:retainable: false
@@ -76,7 +76,8 @@
                 hippo:values: []
             /stop-1a[2]:
               jcr:primaryType: visitscotland:Stop
-              jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+              jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable',
+                'mix:versionable']
               jcr:uuid: a925193d-4301-43fc-8cc9-1563cdedca58
               hippo:availability: [preview]
               hippostd:retainable: false
@@ -109,7 +110,7 @@
                 hippo:values: []
             /stop-1a[3]:
               jcr:primaryType: visitscotland:Stop
-              jcr:mixinTypes: ['mix:referenceable']
+              jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
               jcr:uuid: 2b558e70-f070-43cd-b6cd-5b618238d4e3
               hippo:availability: [live]
               hippostd:retainable: false
@@ -149,7 +150,7 @@
             hippo:versionHistory: 03204fcb-c3bd-4900-b86a-80b100e809fb
             /stop-1b[1]:
               jcr:primaryType: visitscotland:Stop
-              jcr:mixinTypes: ['mix:referenceable']
+              jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
               jcr:uuid: a5759031-3e7e-4b4c-9c87-12ef054575e5
               hippo:availability: []
               hippostd:retainable: false
@@ -182,7 +183,8 @@
                 hippo:values: []
             /stop-1b[2]:
               jcr:primaryType: visitscotland:Stop
-              jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+              jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable',
+                'mix:versionable']
               jcr:uuid: fad2025d-0752-43b9-a201-15ff1ed613f8
               hippo:availability: [preview]
               hippostd:retainable: false
@@ -215,7 +217,7 @@
                 hippo:values: []
             /stop-1b[3]:
               jcr:primaryType: visitscotland:Stop
-              jcr:mixinTypes: ['mix:referenceable']
+              jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
               jcr:uuid: 7d4276b6-587c-41aa-9d08-94c3072e97c4
               hippo:availability: [live]
               hippostd:retainable: false
@@ -255,7 +257,7 @@
             hippo:versionHistory: e8f62e21-16cb-41c0-b0c0-0b7f64f114e8
             /stop-2a[1]:
               jcr:primaryType: visitscotland:Stop
-              jcr:mixinTypes: ['mix:referenceable']
+              jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
               jcr:uuid: 9abdaba3-4d9b-4dce-8a21-81de7d901a01
               hippo:availability: []
               hippostd:retainable: false
@@ -288,7 +290,8 @@
                 hippo:values: []
             /stop-2a[2]:
               jcr:primaryType: visitscotland:Stop
-              jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+              jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable',
+                'mix:versionable']
               jcr:uuid: b6288901-8821-4d5c-9947-7083453d9a5b
               hippo:availability: [preview]
               hippostd:retainable: false
@@ -321,7 +324,7 @@
                 hippo:values: []
             /stop-2a[3]:
               jcr:primaryType: visitscotland:Stop
-              jcr:mixinTypes: ['mix:referenceable']
+              jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
               jcr:uuid: eb2f3f7d-277c-482a-8e2d-d435a71f1992
               hippo:availability: [live]
               hippostd:retainable: false
@@ -361,7 +364,7 @@
             hippo:versionHistory: c5a3e5d9-3a95-434b-8923-2f913647ae3f
             /stop-2b[1]:
               jcr:primaryType: visitscotland:Stop
-              jcr:mixinTypes: ['mix:referenceable']
+              jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
               jcr:uuid: d0b28fed-2eb1-466f-982e-f6332e46a45d
               hippo:availability: []
               hippostd:retainable: false
@@ -394,7 +397,8 @@
                 hippo:values: []
             /stop-2b[2]:
               jcr:primaryType: visitscotland:Stop
-              jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+              jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable',
+                'mix:versionable']
               jcr:uuid: f82cec7e-4d8c-418b-a0bc-cc63fd965807
               hippo:availability: [preview]
               hippostd:retainable: false
@@ -427,7 +431,7 @@
                 hippo:values: []
             /stop-2b[3]:
               jcr:primaryType: visitscotland:Stop
-              jcr:mixinTypes: ['mix:referenceable']
+              jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
               jcr:uuid: 836f2eba-cfec-4987-9ac1-d0ad00b857e8
               hippo:availability: [live]
               hippostd:retainable: false
@@ -467,7 +471,7 @@
             hippo:versionHistory: 188ff5d1-1fad-4c97-9327-9176746a25c2
             /stop-3[1]:
               jcr:primaryType: visitscotland:Stop
-              jcr:mixinTypes: ['mix:referenceable']
+              jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
               jcr:uuid: e7270ce2-70ce-4e35-8a2d-5f130aa43fc7
               hippo:availability: []
               hippostd:retainable: false
@@ -500,7 +504,8 @@
                 hippo:values: []
             /stop-3[2]:
               jcr:primaryType: visitscotland:Stop
-              jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+              jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable',
+                'mix:versionable']
               jcr:uuid: 3cdbacf5-3071-411c-8396-019e2cd8e444
               hippo:availability: [preview]
               hippostd:retainable: false
@@ -533,7 +538,7 @@
                 hippo:values: []
             /stop-3[3]:
               jcr:primaryType: visitscotland:Stop
-              jcr:mixinTypes: ['mix:referenceable']
+              jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
               jcr:uuid: 53d20186-b5e4-4cef-9864-b4128377cf9f
               hippo:availability: [live]
               hippostd:retainable: false
@@ -885,7 +890,7 @@
             hippo:versionHistory: 83f1b049-de25-4454-96e1-c0ae22487df4
             /stop-1a[1]:
               jcr:primaryType: visitscotland:Stop
-              jcr:mixinTypes: ['mix:versionable']
+              jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:versionable']
               jcr:uuid: 2530f7ac-37d5-479b-853c-96cef094716f
               hippo:availability: [preview]
               hippostd:retainable: false
@@ -918,7 +923,7 @@
                 hippo:values: []
             /stop-1a[2]:
               jcr:primaryType: visitscotland:Stop
-              jcr:mixinTypes: ['mix:referenceable']
+              jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
               jcr:uuid: d9262e7b-9ebb-4eb0-816d-1d2b9447d907
               hippo:availability: [live]
               hippostd:retainable: false
@@ -952,7 +957,7 @@
                 hippo:values: []
             /stop-1a[3]:
               jcr:primaryType: visitscotland:Stop
-              jcr:mixinTypes: ['mix:referenceable']
+              jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
               jcr:uuid: ca1af075-b6d4-416c-b216-eae58ed1346b
               hippo:availability: []
               hippostd:retainable: false
@@ -991,7 +996,7 @@
             hippo:versionHistory: 399d6f70-c045-4d85-82e0-c37d03cb9951
             /stop-1b[1]:
               jcr:primaryType: visitscotland:Stop
-              jcr:mixinTypes: ['mix:versionable']
+              jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:versionable']
               jcr:uuid: a71d0682-1e59-4b8a-a2c2-34af455a813d
               hippo:availability: [preview]
               hippostd:retainable: false
@@ -1024,7 +1029,7 @@
                 hippo:values: []
             /stop-1b[2]:
               jcr:primaryType: visitscotland:Stop
-              jcr:mixinTypes: ['mix:referenceable']
+              jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
               jcr:uuid: 8534e580-57bc-40a2-97a6-3d4f999ef077
               hippo:availability: []
               hippostd:retainable: false
@@ -1057,7 +1062,7 @@
                 hippo:values: []
             /stop-1b[3]:
               jcr:primaryType: visitscotland:Stop
-              jcr:mixinTypes: ['mix:referenceable']
+              jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
               jcr:uuid: a72cc2a9-056f-4fb1-bb10-ac0013128335
               hippo:availability: [live]
               hippostd:retainable: false
@@ -1097,7 +1102,7 @@
             hippo:versionHistory: b7f7988c-e34f-46bf-913e-ccebae8546d2
             /stop-2a[1]:
               jcr:primaryType: visitscotland:Stop
-              jcr:mixinTypes: ['mix:versionable']
+              jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:versionable']
               jcr:uuid: fe9313df-d4f8-4776-9335-b5e4ca672cb1
               hippo:availability: [preview]
               hippostd:retainable: false
@@ -1130,7 +1135,7 @@
                 hippo:values: []
             /stop-2a[2]:
               jcr:primaryType: visitscotland:Stop
-              jcr:mixinTypes: ['mix:referenceable']
+              jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
               jcr:uuid: 5c5f9a9f-1863-402f-8fe7-adb51cea8f9c
               hippo:availability: [live]
               hippostd:retainable: false
@@ -1164,7 +1169,7 @@
                 hippo:values: []
             /stop-2a[3]:
               jcr:primaryType: visitscotland:Stop
-              jcr:mixinTypes: ['mix:referenceable']
+              jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
               jcr:uuid: a3a16795-46bc-48ea-b526-ca17364dda70
               hippo:availability: []
               hippostd:retainable: false
@@ -1203,7 +1208,7 @@
             hippo:versionHistory: bbfce319-6f7c-43fe-976f-8acee8075606
             /stop-2b[1]:
               jcr:primaryType: visitscotland:Stop
-              jcr:mixinTypes: ['mix:versionable']
+              jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:versionable']
               jcr:uuid: dfe33c00-f222-4395-81a5-5989b75c2016
               hippo:availability: [preview]
               hippostd:retainable: false
@@ -1236,7 +1241,7 @@
                 hippo:values: []
             /stop-2b[2]:
               jcr:primaryType: visitscotland:Stop
-              jcr:mixinTypes: ['mix:referenceable']
+              jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
               jcr:uuid: 2ce7b1ea-b49a-4472-bf29-6c50986d188d
               hippo:availability: [live]
               hippostd:retainable: false
@@ -1270,7 +1275,7 @@
                 hippo:values: []
             /stop-2b[3]:
               jcr:primaryType: visitscotland:Stop
-              jcr:mixinTypes: ['mix:referenceable']
+              jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
               jcr:uuid: e1f7d2bf-d8f1-4044-bb68-3fde8041d87d
               hippo:availability: []
               hippostd:retainable: false
@@ -1310,7 +1315,7 @@
             hippo:versionHistory: eaa79547-2966-4f10-b8cc-d0e820af1b6a
             /stop-3[1]:
               jcr:primaryType: visitscotland:Stop
-              jcr:mixinTypes: ['mix:versionable']
+              jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:versionable']
               jcr:uuid: a0854204-337c-4d82-ac43-fa3b2d1b46c8
               hippo:availability: [preview]
               hippostd:retainable: false
@@ -1343,7 +1348,7 @@
                 hippo:values: []
             /stop-3[2]:
               jcr:primaryType: visitscotland:Stop
-              jcr:mixinTypes: ['mix:referenceable']
+              jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
               jcr:uuid: 3cf91973-4e38-402f-a902-1e4a9139623d
               hippo:availability: [live]
               hippostd:retainable: false
@@ -1377,7 +1382,7 @@
                 hippo:values: []
             /stop-3[3]:
               jcr:primaryType: visitscotland:Stop
-              jcr:mixinTypes: ['mix:referenceable']
+              jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
               jcr:uuid: 19d13605-6c3f-4165-ad79-7c3da58e8dd6
               hippo:availability: []
               hippostd:retainable: false
@@ -1728,7 +1733,7 @@
             hippo:versionHistory: 11f08294-81f7-4d68-b7a1-503d292000c0
             /stop-1a[1]:
               jcr:primaryType: visitscotland:Stop
-              jcr:mixinTypes: ['mix:versionable']
+              jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:versionable']
               jcr:uuid: 528407fb-ae8f-405c-a6de-e00fe95fd04c
               hippo:availability: [preview]
               hippostd:state: unpublished
@@ -1759,7 +1764,7 @@
                 hippo:values: []
             /stop-1a[2]:
               jcr:primaryType: visitscotland:Stop
-              jcr:mixinTypes: ['mix:referenceable']
+              jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
               jcr:uuid: da9743be-fb09-4963-8989-3878bd7b7936
               hippo:availability: [live]
               hippostd:state: published
@@ -1797,7 +1802,7 @@
             hippo:versionHistory: 52d67f8a-f224-473d-bbd0-f2e7f6814733
             /stop-1b[1]:
               jcr:primaryType: visitscotland:Stop
-              jcr:mixinTypes: ['mix:versionable']
+              jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:versionable']
               jcr:uuid: ce4104e8-3a09-4a24-a638-258a3f3a1d58
               hippo:availability: [preview]
               hippostd:state: unpublished
@@ -1828,7 +1833,7 @@
                 hippo:values: []
             /stop-1b[2]:
               jcr:primaryType: visitscotland:Stop
-              jcr:mixinTypes: ['mix:referenceable']
+              jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
               jcr:uuid: 95cd334d-e77e-46f0-9b50-96219d0870bd
               hippo:availability: [live]
               hippostd:state: published
@@ -1866,7 +1871,7 @@
             hippo:versionHistory: a457b1a7-b933-4af1-b6ae-4ccbf1893244
             /stop-2a[1]:
               jcr:primaryType: visitscotland:Stop
-              jcr:mixinTypes: ['mix:versionable']
+              jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:versionable']
               jcr:uuid: 233d47dd-aec1-485d-902c-7c0c672e62b9
               hippo:availability: [preview]
               hippostd:state: unpublished
@@ -1897,7 +1902,7 @@
                 hippo:values: []
             /stop-2a[2]:
               jcr:primaryType: visitscotland:Stop
-              jcr:mixinTypes: ['mix:referenceable']
+              jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
               jcr:uuid: 8acc3cb4-d5cc-4faa-b2b9-cf42fbe9ce15
               hippo:availability: [live]
               hippostd:state: published
@@ -1935,7 +1940,7 @@
             hippo:versionHistory: a55d89f3-40d5-4170-b31a-affd483be9ee
             /stop-2b[1]:
               jcr:primaryType: visitscotland:Stop
-              jcr:mixinTypes: ['mix:versionable']
+              jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:versionable']
               jcr:uuid: bf80211e-84a5-43cf-8af3-5ffa314ca344
               hippo:availability: [preview]
               hippostd:state: unpublished
@@ -1966,7 +1971,7 @@
                 hippo:values: []
             /stop-2b[2]:
               jcr:primaryType: visitscotland:Stop
-              jcr:mixinTypes: ['mix:referenceable']
+              jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
               jcr:uuid: 06d931a6-3c3a-4b5f-8315-2d978627b542
               hippo:availability: [live]
               hippostd:state: published
@@ -2559,7 +2564,7 @@
         hippo:versionHistory: add09cf3-21d5-4010-ad0b-cff0e0c6a730
         /content[1]:
           jcr:primaryType: visitscotland:Destination
-          jcr:mixinTypes: ['mix:referenceable']
+          jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
           jcr:uuid: 1eafae57-6087-402d-a87a-aa4608e5b00f
           hippo:availability: []
           hippostd:retainable: false
@@ -2595,7 +2600,7 @@
               <p>The second example has no quote and is a lot simpler.</p>
         /content[2]:
           jcr:primaryType: visitscotland:Destination
-          jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+          jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable', 'mix:versionable']
           jcr:uuid: c211f313-94b8-471d-917e-038e4998f6ca
           hippo:availability: [preview]
           hippostd:retainable: false
@@ -2631,7 +2636,7 @@
               <p>The second example has no quote and is a lot simpler.</p>
         /content[3]:
           jcr:primaryType: visitscotland:Destination
-          jcr:mixinTypes: ['mix:referenceable']
+          jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
           jcr:uuid: 0ca8e6b0-9feb-46f1-aa80-44c59c5bfa18
           hippo:availability: [live]
           hippostd:retainable: false
@@ -2928,7 +2933,7 @@
         hippo:versionHistory: 24d9d6aa-54b5-4bf4-9ad4-0a03dc17ab07
         /content[1]:
           jcr:primaryType: visitscotland:Destination
-          jcr:mixinTypes: ['mix:referenceable']
+          jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
           jcr:uuid: 2448d23a-f68d-495e-926b-106c36111a76
           hippo:availability: []
           hippostd:retainable: false
@@ -2998,7 +3003,7 @@
               hippo:docbase: 379b86e5-872c-441c-bd30-aaf3f49054d6
         /content[2]:
           jcr:primaryType: visitscotland:Destination
-          jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+          jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable', 'mix:versionable']
           jcr:uuid: c6ba8ec4-586f-4d8e-95ab-d1b22241a45a
           hippo:availability: [preview]
           hippostd:retainable: false
@@ -3067,7 +3072,7 @@
               hippo:docbase: b3a03184-6cf7-4186-bf5f-2c7f4e8c64b6
         /content[3]:
           jcr:primaryType: visitscotland:Destination
-          jcr:mixinTypes: ['mix:referenceable']
+          jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
           jcr:uuid: 9d33c189-56b0-4e4e-8a2e-2d3b5bbb5f59
           hippo:availability: [live]
           hippostd:retainable: false
@@ -3281,13 +3286,15 @@
             hippo:availability: []
             hippostd:retainable: false
             hippostd:state: draft
+            hippostd:transferable: false
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2021-05-20T13:55:42.965+01:00
-            hippostdpubwf:lastModificationDate: 2021-06-25T14:49:34.711+01:00
+            hippostdpubwf:lastModificationDate: 2022-06-16T15:22:37.171+01:00
             hippostdpubwf:lastModifiedBy: admin
             hippotranslation:id: e5fca8e2-fc2c-4c5d-869f-3026e36c9500
             hippotranslation:locale: en
             visitscotland:breadcrumb: ''
+            visitscotland:hideNewsletter: false
             visitscotland:newsletter: true
             visitscotland:seoDescription: Meta description
             visitscotland:seoNoIndex: false
@@ -3590,7 +3597,7 @@
           jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
           jcr:uuid: 0432ba9a-0631-4d08-9f78-ac2f75338627
           hippo:name: Single image example 2
-          hippo:versionHistory: 1439b6ad-311f-437e-b55f-db54552232ae
+          hippo:versionHistory: c0c99bf1-9116-4951-8583-a16e6da00889
           /single-image-example-2[1]:
             jcr:primaryType: visitscotland:Megalinks
             jcr:mixinTypes: ['mix:referenceable']
@@ -3600,10 +3607,11 @@
             hippostd:state: draft
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2021-05-20T14:05:53.122+01:00
-            hippostdpubwf:lastModificationDate: 2021-06-25T14:50:08.353+01:00
+            hippostdpubwf:lastModificationDate: 2022-06-16T15:22:50.517+01:00
             hippostdpubwf:lastModifiedBy: admin
             hippotranslation:id: 93ce5c48-6189-4b3f-aabd-bbd1223c14eb
             hippotranslation:locale: en
+            visitscotland:layout: Default
             visitscotland:teaserVisible: true
             visitscotland:title: ''
             visitscotland:translation: ''
@@ -3641,10 +3649,11 @@
             hippostd:state: unpublished
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2021-05-20T14:05:53.122+01:00
-            hippostdpubwf:lastModificationDate: 2021-05-20T14:07:21.126+01:00
+            hippostdpubwf:lastModificationDate: 2022-06-16T15:22:54.518+01:00
             hippostdpubwf:lastModifiedBy: admin
             hippotranslation:id: 93ce5c48-6189-4b3f-aabd-bbd1223c14eb
             hippotranslation:locale: en
+            visitscotland:layout: Default
             visitscotland:teaserVisible: true
             visitscotland:title: ''
             visitscotland:translation: ''
@@ -3682,11 +3691,12 @@
             hippostd:state: published
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2021-05-20T14:05:53.122+01:00
-            hippostdpubwf:lastModificationDate: 2021-05-20T14:07:21.126+01:00
+            hippostdpubwf:lastModificationDate: 2022-06-16T15:22:54.518+01:00
             hippostdpubwf:lastModifiedBy: admin
-            hippostdpubwf:publicationDate: 2021-05-20T14:07:23.895+01:00
+            hippostdpubwf:publicationDate: 2022-06-16T15:22:58.678+01:00
             hippotranslation:id: 93ce5c48-6189-4b3f-aabd-bbd1223c14eb
             hippotranslation:locale: en
+            visitscotland:layout: Default
             visitscotland:teaserVisible: true
             visitscotland:title: ''
             visitscotland:translation: ''
@@ -3728,9 +3738,10 @@
             hippo:availability: []
             hippostd:retainable: false
             hippostd:state: draft
+            hippostd:transferable: false
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2021-05-20T14:07:57.713+01:00
-            hippostdpubwf:lastModificationDate: 2021-06-25T14:50:12.338+01:00
+            hippostdpubwf:lastModificationDate: 2022-06-16T15:23:01.240+01:00
             hippostdpubwf:lastModifiedBy: admin
             hippotranslation:id: f71990d0-1047-4273-8976-c0197d8b9380
             hippotranslation:locale: en
@@ -3856,7 +3867,7 @@
           jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
           jcr:uuid: b520e025-fae3-4442-9e8b-678dced13947
           hippo:name: Single image dark 2
-          hippo:versionHistory: 6c2e450e-6fc8-47fd-b50f-b86b7c98e954
+          hippo:versionHistory: c2a80406-942f-44bf-8b10-2ff3b18e5311
           /single-image-dark-2[1]:
             jcr:primaryType: visitscotland:Megalinks
             jcr:mixinTypes: ['mix:versionable']
@@ -3866,7 +3877,7 @@
             hippostd:state: unpublished
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2021-05-20T14:07:57.713+01:00
-            hippostdpubwf:lastModificationDate: 2021-05-25T09:12:46.787+01:00
+            hippostdpubwf:lastModificationDate: 2022-06-16T15:23:13.456+01:00
             hippostdpubwf:lastModifiedBy: admin
             hippotranslation:id: e6f54dd9-261a-41b4-935d-d4fbf19359f1
             hippotranslation:locale: en
@@ -3874,9 +3885,6 @@
             visitscotland:teaserVisible: true
             visitscotland:title: ''
             visitscotland:translation: ''
-            /visitscotland:introduction:
-              jcr:primaryType: hippostd:html
-              hippostd:content: ''
             /visitscotland:singleImageLinks:
               jcr:primaryType: visitscotland:SingleImageModule
               visitscotland:title: You can also just have a title and links
@@ -3916,18 +3924,15 @@
             hippostd:state: published
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2021-05-20T14:07:57.713+01:00
-            hippostdpubwf:lastModificationDate: 2021-05-25T09:12:46.787+01:00
+            hippostdpubwf:lastModificationDate: 2022-06-16T15:23:13.456+01:00
             hippostdpubwf:lastModifiedBy: admin
-            hippostdpubwf:publicationDate: 2021-05-25T09:12:48.257+01:00
+            hippostdpubwf:publicationDate: 2022-06-16T15:23:17.626+01:00
             hippotranslation:id: e6f54dd9-261a-41b4-935d-d4fbf19359f1
             hippotranslation:locale: en
             visitscotland:layout: Default
             visitscotland:teaserVisible: true
             visitscotland:title: ''
             visitscotland:translation: ''
-            /visitscotland:introduction:
-              jcr:primaryType: hippostd:html
-              hippostd:content: ''
             /visitscotland:singleImageLinks:
               jcr:primaryType: visitscotland:SingleImageModule
               visitscotland:title: You can also just have a title and links
@@ -3967,7 +3972,7 @@
             hippostd:state: draft
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2021-05-20T14:07:57.713+01:00
-            hippostdpubwf:lastModificationDate: 2021-06-25T14:50:16.440+01:00
+            hippostdpubwf:lastModificationDate: 2022-06-16T15:23:10.166+01:00
             hippostdpubwf:lastModifiedBy: admin
             hippotranslation:id: e6f54dd9-261a-41b4-935d-d4fbf19359f1
             hippotranslation:locale: en
@@ -3975,9 +3980,6 @@
             visitscotland:teaserVisible: true
             visitscotland:title: ''
             visitscotland:translation: ''
-            /visitscotland:introduction:
-              jcr:primaryType: hippostd:html
-              hippostd:content: ''
             /visitscotland:singleImageLinks:
               jcr:primaryType: visitscotland:SingleImageModule
               visitscotland:title: You can also just have a title and links
@@ -4441,7 +4443,7 @@
           jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
           jcr:uuid: 291cd1bb-e055-4c0e-b4bd-aa23bf9aa34d
           hippo:name: Links List example
-          hippo:versionHistory: 802d769b-688c-4fa0-b777-bce7357bc19d
+          hippo:versionHistory: 558dbd88-385c-47a7-b204-c5ff3c5223ec
           /links-list-example[1]:
             jcr:primaryType: visitscotland:Megalinks
             jcr:mixinTypes: ['mix:referenceable']
@@ -4451,7 +4453,7 @@
             hippostd:state: draft
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2021-05-25T09:15:37.452+01:00
-            hippostdpubwf:lastModificationDate: 2022-05-12T17:11:20.569+01:00
+            hippostdpubwf:lastModificationDate: 2022-06-16T15:23:40.073+01:00
             hippostdpubwf:lastModifiedBy: admin
             hippotranslation:id: 2da36471-45ae-47c8-8511-ec586eed7422
             hippotranslation:locale: en
@@ -4459,9 +4461,6 @@
             visitscotland:teaserVisible: true
             visitscotland:title: An example of a links list
             visitscotland:translation: ''
-            /visitscotland:introduction:
-              jcr:primaryType: hippostd:html
-              hippostd:content: ''
             /visitscotland:megalinkItems[1]:
               jcr:primaryType: visitscotland:MegalinkItem
               visitscotland:feature: false
@@ -4503,7 +4502,7 @@
             hippostd:state: unpublished
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2021-05-25T09:15:37.452+01:00
-            hippostdpubwf:lastModificationDate: 2022-05-12T17:11:35.579+01:00
+            hippostdpubwf:lastModificationDate: 2022-06-16T15:23:38.158+01:00
             hippostdpubwf:lastModifiedBy: admin
             hippotranslation:id: 2da36471-45ae-47c8-8511-ec586eed7422
             hippotranslation:locale: en
@@ -4511,9 +4510,6 @@
             visitscotland:teaserVisible: true
             visitscotland:title: An example of a links list
             visitscotland:translation: ''
-            /visitscotland:introduction:
-              jcr:primaryType: hippostd:html
-              hippostd:content: ''
             /visitscotland:megalinkItems[1]:
               jcr:primaryType: visitscotland:MegalinkItem
               visitscotland:feature: false
@@ -4555,18 +4551,15 @@
             hippostd:state: published
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2021-05-25T09:15:37.452+01:00
-            hippostdpubwf:lastModificationDate: 2022-05-12T17:11:35.579+01:00
+            hippostdpubwf:lastModificationDate: 2022-06-16T15:23:38.158+01:00
             hippostdpubwf:lastModifiedBy: admin
-            hippostdpubwf:publicationDate: 2022-05-12T17:11:37.506+01:00
+            hippostdpubwf:publicationDate: 2022-06-16T15:23:46.859+01:00
             hippotranslation:id: 2da36471-45ae-47c8-8511-ec586eed7422
             hippotranslation:locale: en
             visitscotland:layout: List
             visitscotland:teaserVisible: true
             visitscotland:title: An example of a links list
             visitscotland:translation: ''
-            /visitscotland:introduction:
-              jcr:primaryType: hippostd:html
-              hippostd:content: ''
             /visitscotland:megalinkItems[1]:
               jcr:primaryType: visitscotland:MegalinkItem
               visitscotland:feature: false
@@ -4746,7 +4739,7 @@
         jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
         jcr:uuid: 184af86e-1868-4132-9eba-ef0f0452952c
         hippo:name: Megalinks landing links
-        hippo:versionHistory: ca3b07f9-05be-477a-87e6-ce16683cb188
+        hippo:versionHistory: 0236afd9-3ead-4121-9e12-768d522bd8d4
         /megalinks-landing-links[1]:
           jcr:primaryType: visitscotland:Megalinks
           jcr:mixinTypes: ['mix:referenceable']
@@ -4756,16 +4749,14 @@
           hippostd:state: draft
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2021-05-20T14:04:53.962+01:00
-          hippostdpubwf:lastModificationDate: 2021-06-25T14:49:26.395+01:00
+          hippostdpubwf:lastModificationDate: 2022-06-16T15:22:19.504+01:00
           hippostdpubwf:lastModifiedBy: admin
           hippotranslation:id: 727ee257-a676-4a28-8817-8a039a4baf78
           hippotranslation:locale: en
+          visitscotland:layout: Default
           visitscotland:teaserVisible: true
           visitscotland:title: ''
           visitscotland:translation: ''
-          /visitscotland:introduction:
-            jcr:primaryType: hippostd:html
-            hippostd:content: ''
           /visitscotland:megalinkItems[1]:
             jcr:primaryType: visitscotland:MegalinkItem
             visitscotland:feature: false
@@ -4793,16 +4784,14 @@
           hippostd:state: unpublished
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2021-05-20T14:04:53.962+01:00
-          hippostdpubwf:lastModificationDate: 2021-05-25T09:17:39.639+01:00
+          hippostdpubwf:lastModificationDate: 2022-06-16T15:22:23.652+01:00
           hippostdpubwf:lastModifiedBy: admin
           hippotranslation:id: 727ee257-a676-4a28-8817-8a039a4baf78
           hippotranslation:locale: en
+          visitscotland:layout: Default
           visitscotland:teaserVisible: true
           visitscotland:title: ''
           visitscotland:translation: ''
-          /visitscotland:introduction:
-            jcr:primaryType: hippostd:html
-            hippostd:content: ''
           /visitscotland:megalinkItems[1]:
             jcr:primaryType: visitscotland:MegalinkItem
             visitscotland:feature: false
@@ -4830,17 +4819,15 @@
           hippostd:state: published
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2021-05-20T14:04:53.962+01:00
-          hippostdpubwf:lastModificationDate: 2021-05-25T09:17:39.639+01:00
+          hippostdpubwf:lastModificationDate: 2022-06-16T15:22:23.652+01:00
           hippostdpubwf:lastModifiedBy: admin
-          hippostdpubwf:publicationDate: 2021-05-25T09:17:42.277+01:00
+          hippostdpubwf:publicationDate: 2022-06-16T15:22:26.870+01:00
           hippotranslation:id: 727ee257-a676-4a28-8817-8a039a4baf78
           hippotranslation:locale: en
+          visitscotland:layout: Default
           visitscotland:teaserVisible: true
           visitscotland:title: ''
           visitscotland:translation: ''
-          /visitscotland:introduction:
-            jcr:primaryType: hippostd:html
-            hippostd:content: ''
           /visitscotland:megalinkItems[1]:
             jcr:primaryType: visitscotland:MegalinkItem
             visitscotland:feature: false
@@ -4875,7 +4862,7 @@
         hippo:versionHistory: 2b4f9d3e-a17d-4c69-adce-ee2523b3b502
         /content[1]:
           jcr:primaryType: visitscotland:Destination
-          jcr:mixinTypes: ['mix:referenceable']
+          jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
           jcr:uuid: b8837415-d3d5-434d-a635-3c8f0ad328eb
           hippo:availability: []
           hippostd:retainable: false
@@ -4911,7 +4898,7 @@
               Aenean euismod condimentum erat a interdum.</p>
         /content[2]:
           jcr:primaryType: visitscotland:Destination
-          jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+          jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable', 'mix:versionable']
           jcr:uuid: 8add3e8c-c6a1-4236-b951-4a6823fe0de9
           hippo:availability: [preview]
           hippostd:retainable: false
@@ -4947,7 +4934,7 @@
               Aenean euismod condimentum erat a interdum.</p>
         /content[3]:
           jcr:primaryType: visitscotland:Destination
-          jcr:mixinTypes: ['mix:referenceable']
+          jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
           jcr:uuid: a577661f-5fee-4fbf-8972-021c3aad7d29
           hippo:availability: [live]
           hippostd:retainable: false
@@ -5190,9 +5177,9 @@
           jcr:mixinTypes: ['mix:referenceable']
           jcr:uuid: 06d74559-281c-4e33-997e-55708f912386
           hippo:availability: []
-          hippostd:holder: admin
           hippostd:retainable: false
           hippostd:state: draft
+          hippostd:transferable: false
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2021-07-07T12:14:38.200+01:00
           hippostdpubwf:lastModificationDate: 2022-05-23T14:27:19.593+01:00
@@ -5693,7 +5680,7 @@
         hippo:versionHistory: 9c50bff5-5889-4820-afe1-154440424a7e
         /content[1]:
           jcr:primaryType: visitscotland:Destination
-          jcr:mixinTypes: ['mix:referenceable']
+          jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
           jcr:uuid: 3cc7ce39-5c5a-410c-88fd-d535a534e3b6
           hippo:availability: []
           hippostd:retainable: false
@@ -5731,7 +5718,7 @@
               ornare gravida massa convallis.&nbsp;</p>
         /content[2]:
           jcr:primaryType: visitscotland:Destination
-          jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+          jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable', 'mix:versionable']
           jcr:uuid: a21ddac8-0ed4-445d-b97a-d3aeba22895e
           hippo:availability: [preview]
           hippostd:retainable: false
@@ -5768,7 +5755,7 @@
               ornare gravida massa convallis.&nbsp;</p>
         /content[3]:
           jcr:primaryType: visitscotland:Destination
-          jcr:mixinTypes: ['mix:referenceable']
+          jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
           jcr:uuid: 86e7bf16-d237-471a-b51f-b473a7d017f2
           hippo:availability: [live]
           hippostd:retainable: false
@@ -7592,7 +7579,7 @@
         hippo:versionHistory: 6b64653e-3b96-409c-8d5d-992a18493721
         /content[1]:
           jcr:primaryType: visitscotland:Destination
-          jcr:mixinTypes: ['mix:referenceable']
+          jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
           jcr:uuid: 9943eef9-0882-4394-94be-cc1f1c32d1d8
           hippo:availability: []
           hippostd:retainable: false
@@ -7648,7 +7635,7 @@
               hippo:docbase: a917046f-7774-4544-9762-3e51e4fa0529
         /content[2]:
           jcr:primaryType: visitscotland:Destination
-          jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+          jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable', 'mix:versionable']
           jcr:uuid: f26098b8-99fb-4a4f-a2a1-4833401d10a3
           hippo:availability: [preview]
           hippostd:retainable: false
@@ -7704,7 +7691,7 @@
               hippo:docbase: a917046f-7774-4544-9762-3e51e4fa0529
         /content[3]:
           jcr:primaryType: visitscotland:Destination
-          jcr:mixinTypes: ['mix:referenceable']
+          jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
           jcr:uuid: 5be279c2-88cd-4a51-a3d3-26c4a81dde79
           hippo:availability: [live]
           hippostd:retainable: false
@@ -8712,7 +8699,7 @@
     jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
     jcr:uuid: 865a8912-d7e6-4431-9b36-5a209fd549b5
     hippo:name: Test landing page links
-    hippo:versionHistory: 58b900fc-43c1-4108-b6df-23af89f15182
+    hippo:versionHistory: bf90c8b9-ea93-4d74-80bf-1aca5bcd88f8
     /test-landing-page-links[1]:
       jcr:primaryType: visitscotland:Megalinks
       jcr:mixinTypes: ['mix:referenceable']
@@ -8722,7 +8709,7 @@
       hippostd:state: draft
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2021-05-25T14:13:14.618+01:00
-      hippostdpubwf:lastModificationDate: 2021-05-25T14:16:40.635+01:00
+      hippostdpubwf:lastModificationDate: 2022-06-16T15:21:51.221+01:00
       hippostdpubwf:lastModifiedBy: admin
       hippotranslation:id: cbbc6226-475a-4c36-b34c-8767d1b07351
       hippotranslation:locale: en
@@ -8730,9 +8717,6 @@
       visitscotland:teaserVisible: true
       visitscotland:title: ''
       visitscotland:translation: ''
-      /visitscotland:introduction:
-        jcr:primaryType: hippostd:html
-        hippostd:content: ''
       /visitscotland:megalinkItems[1]:
         jcr:primaryType: visitscotland:MegalinkItem
         visitscotland:feature: false
@@ -8760,7 +8744,7 @@
       hippostd:state: unpublished
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2021-05-25T14:13:14.618+01:00
-      hippostdpubwf:lastModificationDate: 2021-05-25T14:16:49.219+01:00
+      hippostdpubwf:lastModificationDate: 2022-06-16T15:21:54.653+01:00
       hippostdpubwf:lastModifiedBy: admin
       hippotranslation:id: cbbc6226-475a-4c36-b34c-8767d1b07351
       hippotranslation:locale: en
@@ -8768,9 +8752,6 @@
       visitscotland:teaserVisible: true
       visitscotland:title: ''
       visitscotland:translation: ''
-      /visitscotland:introduction:
-        jcr:primaryType: hippostd:html
-        hippostd:content: ''
       /visitscotland:megalinkItems[1]:
         jcr:primaryType: visitscotland:MegalinkItem
         visitscotland:feature: false
@@ -8798,18 +8779,15 @@
       hippostd:state: published
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2021-05-25T14:13:14.618+01:00
-      hippostdpubwf:lastModificationDate: 2021-05-25T14:16:49.219+01:00
+      hippostdpubwf:lastModificationDate: 2022-06-16T15:21:54.653+01:00
       hippostdpubwf:lastModifiedBy: admin
-      hippostdpubwf:publicationDate: 2021-05-25T14:16:51.245+01:00
+      hippostdpubwf:publicationDate: 2022-06-16T15:21:57.451+01:00
       hippotranslation:id: cbbc6226-475a-4c36-b34c-8767d1b07351
       hippotranslation:locale: en
       visitscotland:layout: Default
       visitscotland:teaserVisible: true
       visitscotland:title: ''
       visitscotland:translation: ''
-      /visitscotland:introduction:
-        jcr:primaryType: hippostd:html
-        hippostd:content: ''
       /visitscotland:megalinkItems[1]:
         jcr:primaryType: visitscotland:MegalinkItem
         visitscotland:feature: false

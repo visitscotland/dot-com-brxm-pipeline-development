@@ -1,18 +1,16 @@
 <#include "../macros/global/gtm.ftl">
 
 <#macro headContributions>
-    <meta charset="utf-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <#if integration??>
+        <@gtm />
+        <!-- BEGIN HEAD CONTRIBUTIONS: seo -->
+        <@hst.headContributions categoryIncludes="seo" xhtml=true/>
+        <!-- END HEAD CONTRIBUTIONS: seo -->
 
-    <@gtm />
-
-    <!-- BEGIN HEAD CONTRIBUTIONS: seo -->
-    <@hst.headContributions categoryIncludes="seo" xhtml=true/>
-    <!-- END HEAD CONTRIBUTIONS: seo -->
-
-    <!-- BEGIN HEAD CONTRIBUTIONS: opengraph -->
-    <@hst.headContributions categoryIncludes="opengraph" xhtml=true/>
-    <!-- END HEAD CONTRIBUTIONS: opengraph -->
+        <!-- BEGIN HEAD CONTRIBUTIONS: opengraph -->
+        <@hst.headContributions categoryIncludes="opengraph" xhtml=true/>
+        <!-- END HEAD CONTRIBUTIONS: opengraph -->
+    </#if>
 
     <!-- BEGIN HEAD CONTRIBUTIONS: htmlHeadPreload -->
     <@hst.headContributions categoryIncludes="htmlHeadPreload" xhtml=true/>

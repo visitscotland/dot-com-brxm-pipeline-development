@@ -323,7 +323,7 @@ module.exports = function(manifest) {
     partial.placeholder,
     partial.placeholder,
     configPaths,
-    options.appMountTarget,
+    options.appMountTarget
   ))
 
   return manifest

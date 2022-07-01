@@ -24,7 +24,7 @@
 <#-- @ftlvariable name="introTheme" type="int" -->
 
 <#macro pageIntro content heroDetails="" itinerary="" lightBackground=false >
-    <@previewWarning editMode content alerts />
+    <@previewWarning editMode content alerts!"" />
     <#if lightBackground>
         <#assign themeName = themeCalculator(1)>
     <#else>

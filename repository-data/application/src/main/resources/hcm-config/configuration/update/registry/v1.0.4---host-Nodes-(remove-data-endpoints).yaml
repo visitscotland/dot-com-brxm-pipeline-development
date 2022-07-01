@@ -1,0 +1,37 @@
+definitions:
+  config:
+    /hippo:configuration/hippo:update/hippo:registry/v1.0.4 - host Nodes (remove data endpoints):
+      jcr:primaryType: hipposys:updaterinfo
+      hipposys:batchsize: 10
+      hipposys:description: ''
+      hipposys:dryrun: false
+      hipposys:loglevel: DEBUG
+      hipposys:parameters: ''
+      hipposys:query: /jcr:root
+      hipposys:script: "package com.visitscotland.brxm\r\n\r\nimport org.hippoecm.repository.api.HippoWorkspace\r\
+        \nimport org.onehippo.repository.update.BaseNodeUpdateVisitor\r\n\r\nimport\
+        \ javax.jcr.Node\r\nimport javax.jcr.NodeIterator\r\nimport javax.jcr.RepositoryException\r\
+        \nimport javax.jcr.Session\r\nimport javax.jcr.query.Query\r\nimport javax.jcr.query.QueryResult\r\
+        \n\r\n/**\r\n * Groovy Script created for removing the data nodes from the\
+        \ configuration for hosts/hst:root/data\r\n * after removing the /data/internal\
+        \ endpoints\r\n *\r\n * Use the following XPATH /jcr:root\r\n *\r\n * @author\
+        \ jcalcines\r\n * @since April 2022\r\n * @version 1.0.4\r\n */\r\nclass VideoMegalinks\
+        \ extends BaseNodeUpdateVisitor {\r\n\r\n    void removeDataNodes(Session\
+        \ session) {\r\n        NodeIterator it = query(session,\"//hst:visitscotland/hst:hosts//element(data,\
+        \ hst:mount)\")\r\n\r\n        while (it.hasNext()){\r\n            Node dataNode\
+        \ = it.next()\r\n            log.debug dataNode.getPath()\r\n\t\t\tsession.removeItem(dataNode.getPath())\r\
+        \n        }\r\n    }\r\n\r\n    /**\r\n     * Executes a query and log when\
+        \ no results are returned\r\n     * @param session\r\n     * @param query\r\
+        \n     * @return\r\n     */\r\n    NodeIterator query(def session, def query){\r\
+        \n        QueryResult results = ((HippoWorkspace) session.getWorkspace()).getQueryManager().createQuery(query,\
+        \ Query.XPATH).execute();\r\n        if (!results.getNodes().hasNext()){\r\
+        \n            log.warn \"No query results for ${query}\"\r\n        } else\
+        \ {\r\n            // Note that the method size. Moves the pointer for the\
+        \ iterator at the end. That is why we need to\r\n            // invoke .getNodes()\
+        \ for getting the size\r\n            log.info \"Matches = ${results.getNodes().size()}\"\
+        ;\r\n        }\r\n        return results.getNodes();\r\n    }\r\n\r\n    @Override\r\
+        \n    boolean doUpdate(Node node) {\r\n        removeDataNodes(node.session);\r\
+        \n        return true;\r\n    }\r\n\r\n    @Override\r\n    boolean undoUpdate(Node\
+        \ node) throws RepositoryException, UnsupportedOperationException {\r\n  \
+        \      return false\r\n    }\r\n}"
+      hipposys:throttle: 1000

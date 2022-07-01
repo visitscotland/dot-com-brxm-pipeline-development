@@ -184,6 +184,15 @@ describe('VsButton', () => {
         });
     });
 
+    describe(':methods', () => {
+        it('should emit `btnFocus` when `tabbedIn` method is called', () => {
+            const wrapper = factoryShallowMount();
+
+            wrapper.vm.tabbedIn();
+            expect(wrapper.emitted().btnFocus).toBeTruthy();
+        });
+    });
+
     describe(':slots', () => {
         it('renders content inserted into default `slot`', () => {
             const wrapper = factoryShallowMount();

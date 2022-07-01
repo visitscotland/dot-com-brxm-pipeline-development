@@ -10,6 +10,7 @@
         @click="animateHandler"
         @mouseover="hovered = true"
         @focusin="hovered = true"
+        @keyup.tab="tabbedIn"
         @mouseleave="hovered = false"
         @focusout="hovered = false"
     >
@@ -228,6 +229,11 @@ export default {
             setTimeout(() => {
                 this.isAnimating = false;
             }, 1000);
+        },
+        tabbedIn(event) {
+            // provides option for parent component to listen to emitted event
+            // when button is tabbed into
+            this.$emit('btnFocus', event);
         },
     },
 };

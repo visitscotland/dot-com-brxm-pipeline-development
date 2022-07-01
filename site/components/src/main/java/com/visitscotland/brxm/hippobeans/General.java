@@ -20,7 +20,7 @@ public class General extends Page {
                 "visitscotland:Stackla",
                 "visitscotland:CannedSearchTours",
                 "visitscotland:CannedSearch",
-                "visitscotland:MarketoForm",};
+                "visitscotland:MarketoForm"};
     }
 
     @HippoEssentialsGenerated(internalName = "visitscotland:otherThings")

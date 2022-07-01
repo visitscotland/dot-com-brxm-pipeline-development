@@ -11,10 +11,10 @@ definitions:
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:uuid: edf9cce5-2a96-4fa3-9da7-b28a0db7d0e4
+          jcr:uuid: e73e30cd-2fae-436f-81e1-4904c5bd8150
           hipposysedit:node: true
-          hipposysedit:supertype: ['visitscotland:basedocument', 'hippostd:relaxed',
-            'hippotranslation:translated']
+          hipposysedit:supertype: ['hippotranslation:translated', 'hippotaxonomy:classifiable',
+            'visitscotland:basedocument', 'hippostd:relaxed']
           hipposysedit:uri: http://www.visitscotland.com/visitscotland/nt/1.0
           hipposysedit:validators: ['visitscotland:link-image-validator', 'visitscotland:location-validator']
           /description:
@@ -85,8 +85,8 @@ definitions:
           hippostdpubwf:lastModifiedBy: ''
           hippotranslation:id: document-type-locale-id
           hippotranslation:locale: document-type-locale
-          jcr:mixinTypes: ['mix:referenceable']
-          jcr:uuid: 3d153eac-4969-436e-9438-77f6946a2df2
+          jcr:mixinTypes: ['mix:referenceable', 'hippotaxonomy:classifiable']
+          jcr:uuid: 76a25329-c2e3-4147-bd19-db815131051a
           hippostdpubwf:lastModificationDate: 2019-12-05T15:13:21.853Z
           hippostdpubwf:creationDate: 2019-12-05T15:13:21.853Z
           visitscotland:title: ''
@@ -124,6 +124,16 @@ definitions:
             wicket.id: ${cluster.id}.field
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
+          /classifiable:
+            jcr:primaryType: frontend:plugin
+            essentials-taxonomy-name: Visitsctoland-categories
+            mixin: hippotaxonomy:classifiable
+            plugin.class: org.hippoecm.frontend.editor.plugins.mixin.MixinLoaderPlugin
+            wicket.id: ${cluster.id}.field
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+              taxonomy.name: Visitsctoland-categories
+              caption: Category
           /description:
             jcr:primaryType: frontend:plugin
             caption: Copy

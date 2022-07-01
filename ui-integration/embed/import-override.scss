@@ -64,6 +64,16 @@
 }
 
 .vs-mega-nav {
+    .vs-mega-nav-accordion-item {
+        width: 100%;
+        height: auto; 
+    }
+
+    .card.vs-mega-nav-featured-item {
+        width: 100%;
+        height: auto;
+        text-align: left;
+    }
 
     @media (max-width: 499px) {
         .vs-mega-nav-dropdown .btn.dropdown-toggle,
@@ -106,8 +116,10 @@
             font-size: 2rem !important;
         }
 
-        .card.vs-mega-nav-featured-item .card-body {
-            padding: 2.5rem 1.5rem !important;
+        .card.vs-mega-nav-featured-item {
+            .card-body {
+                padding: 2.5rem 1.5rem !important;
+            }
         }
 
         .card.vs-mega-nav-featured-item .vs-stretched-link-card__link,
@@ -192,7 +204,23 @@
     }
 }
 
-.vs-footer {
+.vs-footer {    
+    .vs-accordion-item__title {
+        text-transform: none !important;
+        font-size: 1.6rem !important;
+        margin: 0.4rem 0 1.2rem !important;
+    }
+
+    .vs-footer-social-item {
+        margin: 0 1.2rem 1.2rem 0 !important;
+    }
+
+    .vs-footer-accordion-item.card {
+        width: 100%;
+        height: auto;
+        text-align: left;
+    }
+
     @media (max-width: 499px) {
         .vs-footer-accordion-item.card .btn.vs-accordion-toggle {
             font-size: 2rem !important;
@@ -218,16 +246,6 @@
         .vs-footer-utility-list .vs-list--unstyled .vs-footer-nav-list-item {
             padding: 1.5rem 1.5rem 1.5rem 0 !important;
         }
-    }
-
-    .vs-accordion-item__title {
-        text-transform: none !important;
-        font-size: 1.6rem !important;
-        margin: 0.4rem 0 1.2rem !important;
-    }
-
-    .vs-footer-social-item {
-        margin: 0 1.2rem 1.2rem 0 !important;
     }
 
     @media (min-width: 500px) and (max-width: 991px) {
@@ -275,3 +293,41 @@
     }
 }
 
+// correct clashes with code outside of header/footer
+.c-results__grid.row {
+    display: block;
+}
+
+.c-results__product__card > a {
+    text-decoration: none;
+}
+
+.c-search__button--submit {
+    bottom: 0 !important;
+    background: #af006e !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+    color: #fff !important;
+    padding: 5px 20px 6px !important;
+    text-align: center !important;
+    text-transform: uppercase !important;
+    max-width: 164px !important;
+}
+
+@media (min-width: 500px) {
+    .c-results__filters__list-title,
+    .c-results__pagination__li {
+        font-size: 1.8rem !important;
+    }
+}
+
+@media (min-width: 992px) {
+    .c-search__button--submit {
+        padding: 5px 30px 6px !important;
+    }
+}
+
+// fix spacing at top for old floating header
+html body main > #wrapper {
+    padding-top: 0 !important;
+}

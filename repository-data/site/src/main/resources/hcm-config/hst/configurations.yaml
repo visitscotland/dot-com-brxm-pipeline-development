@@ -352,10 +352,6 @@ definitions:
                 hst:componentconfigurationmappingvalues: ['hst:pages/itinerary-page',
                   'hst:pages/listicle-page', 'hst:pages/general-page', 'hst:pages/destination-page']
                 hst:relativecontentpath: ${parent}/content
-          /internal:
-            jcr:primaryType: hst:sitemapitem
-            hst:componentconfigurationid: hst:pages/internal
-            hst:pagetitle: Fragmented Page
           /test:
             jcr:primaryType: hst:sitemapitem
             hst:componentconfigurationid: hst:pages/pagenotfound
@@ -503,6 +499,25 @@ definitions:
               jcr:primaryType: hst:sitemapitem
               hst:componentconfigurationid: hst:pages/pagenotfound
               hst:relativecontentpath: ${parent}/${1}
+          /data:
+            jcr:primaryType: hst:sitemapitem
+            hst:componentconfigurationid: hst:pages/pagenotfound
+            /internal:
+              jcr:primaryType: hst:sitemapitem
+              hst:componentconfigurationid: hst:pages/pagenotfound
+              hst:pagetitle: Fragmented Page
+              /css-header:
+                jcr:primaryType: hst:sitemapitem
+                hst:componentconfigurationid: hst:pages/internal-css-header
+              /header:
+                jcr:primaryType: hst:sitemapitem
+                hst:componentconfigurationid: hst:pages/internal-header
+              /footer:
+                jcr:primaryType: hst:sitemapitem
+                hst:componentconfigurationid: hst:pages/internal-footer
+              /script-footer:
+                jcr:primaryType: hst:sitemapitem
+                hst:componentconfigurationid: hst:pages/internal-script-footer
         /hst:abstractpages:
           jcr:primaryType: hst:pages
         /hst:pages:
@@ -550,6 +565,18 @@ definitions:
           /internal:
             jcr:primaryType: hst:template
             hst:renderpath: webfile:/freemarker/visitscotland/base/internal.ftl
+          /internal-css-header:
+            jcr:primaryType: hst:template
+            hst:renderpath: webfile:/freemarker/visitscotland/base/internal/css-header.ftl
+          /internal-header:
+            jcr:primaryType: hst:template
+            hst:renderpath: webfile:/freemarker/visitscotland/base/internal/header.ftl
+          /internal-script-footer:
+            jcr:primaryType: hst:template
+            hst:renderpath: webfile:/freemarker/visitscotland/base/internal/script-footer.ftl
+          /internal-footer:
+            jcr:primaryType: hst:template
+            hst:renderpath: webfile:/freemarker/visitscotland/base/internal/footer.ftl
         /hst:catalog:
           jcr:primaryType: hst:catalog
           /visitscotland-catalog:

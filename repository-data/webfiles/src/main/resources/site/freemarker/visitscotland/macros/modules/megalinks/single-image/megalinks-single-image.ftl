@@ -47,7 +47,7 @@
                             video-descriptor="${label('video', 'video.video-descriptor')}"
                         <#else>
                             href="${listItem.link}"
-                            link-type="${feature.type}"
+                            link-type="${listItem.type}"
 
                             <#if listItem.type != "internal">type="${listItem.type}"</#if>
                         </#if>
