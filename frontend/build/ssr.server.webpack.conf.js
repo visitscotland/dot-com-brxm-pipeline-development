@@ -3,7 +3,7 @@ const path = require('path');
 const { get } = require('lodash');
 const nodeExternals = require('webpack-node-externals');
 const VueSSRServerPlugin = require('vue-server-renderer/server-plugin');
-const merge = require('webpack-merge');
+const { merge } = require('webpack-merge');
 
 const base = require('./library.webpack.conf');
 
@@ -24,7 +24,9 @@ module.exports = merge(base, {
     target: 'node',
     output: {
         path: path.resolve(__dirname, '../dist/ssr/server'),
-        libraryTarget: 'commonjs2',
+        library: {
+            type: 'commonjs2',
+        },
     },
     // https://webpack.js.org/configuration/externals/#function
     // https://github.com/liady/webpack-node-externals
@@ -54,7 +56,5 @@ module.exports = merge(base, {
 
     // This is the plugin that turns the entire output of the server build
     // into a single JSON file. The default file name is`vue-ssr-server-bundle.json`
-    plugins: [
-        new VueSSRServerPlugin(),
-    ],
+    plugins: [new VueSSRServerPlugin()],
 });

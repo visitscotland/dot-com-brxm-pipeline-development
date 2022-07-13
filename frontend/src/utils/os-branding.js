@@ -32,8 +32,7 @@ const osBranding = {
             this.options.suffix = scriptTag.getAttribute('data-suffix') || this.options.suffix;
 
             // eslint-disable-next-line
-            obj = (typeof obj !== 'undefined') ? obj : {
-            };
+            obj = typeof obj !== 'undefined' ? obj : {};
             Object.assign(this.options, obj);
 
             const elem = document.getElementById(this.options.div);
@@ -47,14 +46,16 @@ const osBranding = {
             copyrightStatement = copyrightStatement.replace('YYYY', new Date().getFullYear());
 
             if (this.options.prefix !== '') {
-                copyrightStatement = `${this.options.prefix }<span>|</span>${ copyrightStatement}`;
+                copyrightStatement = `${this.options.prefix}<span>|</span>${copyrightStatement}`;
             }
 
             if (this.options.suffix !== '') {
-                copyrightStatement = `${copyrightStatement }<span>|</span>${ this.options.suffix}`;
+                copyrightStatement = `${copyrightStatement}<span>|</span>${this.options.suffix}`;
             }
 
-            document.querySelectorAll(`#${ this.options.div } .os-api-branding`).forEach((el) => el.remove());
+            document
+                .querySelectorAll(`#${this.options.div} .os-api-branding`)
+                .forEach((el) => el.remove());
 
             // Append the API logo.
             const div1 = document.createElement('div');

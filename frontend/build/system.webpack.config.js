@@ -1,6 +1,7 @@
 const path = require('path');
 
-const merge = require('webpack-merge');
+const webpack = require('webpack');
+const { merge } = require('webpack-merge');
 
 const baseWebpackConfig = require('./base.webpack.conf');
 const mergeIE11Fix = require('./webpack.ie11-fix');
@@ -27,13 +28,13 @@ const config = {
         },
     },
     module: {
-        rules: [
-            ...styleRules,
-        ],
+        rules: [...styleRules],
     },
+    plugins: [
+        new webpack.ProvidePlugin({
+            process: 'process/browser',
+        }),
+    ],
 };
 
-module.exports = merge(
-    mergeIE11Fix(baseWebpackConfig),
-    config,
-);
+module.exports = merge(mergeIE11Fix(baseWebpackConfig), config);

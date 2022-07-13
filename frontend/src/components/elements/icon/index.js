@@ -1,1 +1,3 @@
-export { default } from './Icon';
+import VSIcon from './Icon';
+
+export default VSIcon;

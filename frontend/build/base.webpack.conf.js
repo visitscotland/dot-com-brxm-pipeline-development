@@ -2,8 +2,14 @@ const path = require('path');
 
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const { VueLoaderPlugin } = require('vue-loader');
+const ESLintPlugin = require('eslint-webpack-plugin');
 
 const buildMode = require('./base.build-mode');
+
+const myESLintOptions = {
+    extensions: [`js`, `jsx`, `ts`],
+    exclude: [`node_modules`, `/ssr/`, `/src/components/patterns/header/components/Chart/`],
+};
 
 function resolve(dir) {
     return path.join(__dirname, '..', dir);
@@ -19,8 +25,7 @@ module.exports = {
     output: {
         path: path.resolve(__dirname, '../dist/base'),
         filename: '[name].js',
-        publicPath:
-      buildMode === 'development' ? '/' : '../',
+        publicPath: buildMode === 'development' ? '/' : '../',
     },
     resolve: {
         extensions: ['.js', '.vue', '.json'],
@@ -36,16 +41,6 @@ module.exports = {
     },
     module: {
         rules: [
-            {
-                enforce: 'pre',
-                test: /src.*\.(js|vue)$/,
-                exclude: ['/ssr/', '/src/components/patterns/header/components/Chart/'],
-                loader: 'eslint-loader',
-                options: {
-                    failOnError: true,
-                    failOnWarning: false,
-                },
-            },
             {
                 test: /\.vue$/,
                 loader: 'vue-loader',
@@ -136,10 +131,10 @@ module.exports = {
     plugins: [
         new VueLoaderPlugin(),
         new MiniCssExtractPlugin('style.css'),
+        new ESLintPlugin({
+            fix: true,
+            emitError: true,
+            emitWarning: true,
+        }),
     ],
-    node: {
-    // prevent webpack from injecting useless setImmediate polyfill because Vue
-    // source contains it (although only uses it if it's native).
-        setImmediate: false,
-    },
 };

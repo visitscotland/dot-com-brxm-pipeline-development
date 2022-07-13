@@ -1,5 +1,5 @@
 const path = require('path');
-const merge = require('webpack-merge');
+const { merge } = require('webpack-merge');
 const VueSSRClientPlugin = require('vue-server-renderer/client-plugin');
 
 const base = require('./library.webpack.conf');
@@ -17,7 +17,5 @@ module.exports = merge(base, {
     output: {
         path: path.resolve(__dirname, '../dist/ssr/client'),
     },
-    plugins: [
-        new VueSSRClientPlugin(),
-    ],
+    plugins: [new VueSSRClientPlugin()],
 });

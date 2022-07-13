@@ -3,6 +3,7 @@
 /* eslint-disable import/no-extraneous-dependencies */
 /* eslint-disable no-use-before-define */
 /* eslint-disable no-param-reassign */
+/* eslint-disable max-len */
 
 const fs = require('fs');
 const rm = require('rimraf');
@@ -40,7 +41,7 @@ function _getTurndownService() {
     outTurndownService.addRule('transform-code', {
         filter: ['code', 'pre'],
         replacement(content) {
-            return `\`\`\`\n${ content }\n\`\`\``;
+            return `\`\`\`\n${content}\n\`\`\``;
         },
     });
 
@@ -58,11 +59,11 @@ function _makeRemoteUriFromRemoteConfig(config) {
     }
 
     queryString = _.join(
-        _.map(_.get(config, 'uriParams'), (value, key) => `${key }=${ value}`),
+        _.map(_.get(config, 'uriParams'), (value, key) => `${key}=${value}`),
         '&'
     );
 
-    return uri + (queryString ? `?${ queryString}` : '');
+    return uri + (queryString ? `?${queryString}` : '');
 }
 
 function _makeRequestOptions(inpRemoteConfig) {
@@ -74,8 +75,7 @@ function _makeRequestOptions(inpRemoteConfig) {
 }
 
 function _mergeConfig(inpRemoteConfig, localConfig) {
-    return _.assign({
-    }, localConfig, inpRemoteConfig);
+    return _.assign({}, localConfig, inpRemoteConfig);
 }
 
 function _prepOutputDir(tempOutputPath) {
@@ -100,8 +100,7 @@ function _processSection(section, tempOutputPath) {
     // process child sections first
     section = _processSections(section, tempOutputPath);
 
-    return _.merge({
-    }, section, {
+    return _.merge({}, section, {
         content: _processSectionContent(section, tempOutputPath),
     });
 }
@@ -121,12 +120,11 @@ function _processSections(parentObject, tempOutputPath) {
 }
 
 function _makeSectionMarkdownFileName(section) {
-    return `${_.kebabCase(_.get(section, 'name')) }.md`;
+    return `${_.kebabCase(_.get(section, 'name'))}.md`;
 }
 
 function _applyRemoteConfigDefaults(inpRemoteConfig) {
-    return _.defaultsDeep({
-    }, inpRemoteConfig, defaultRemoteConfig);
+    return _.defaultsDeep({}, inpRemoteConfig, defaultRemoteConfig);
 }
 
 function _addPrivateComponents(mergedConfig) {
@@ -150,9 +148,7 @@ function _extractRemoteConfig(config, profileName) {
     _.unset(config, KEY_REMOTE_CONFIG);
 
     if (_.isEmpty(outRemoteConfig)) {
-        console.log(
-            chalk.red('No remote config defined')
-        );
+        console.log(chalk.red('No remote config defined'));
 
         return null;
     }
@@ -163,7 +159,7 @@ function _extractRemoteConfig(config, profileName) {
     } else if (!_.has(outRemoteConfig, profileName)) {
         console.log(
             chalk.red(
-        `Profile ${profileName} not included in remote config - 
+                `Profile ${profileName} not included in remote config - 
         add at least one profile to the "remoteProfile" key of the config. 
         Falling back to first profile in config`
             )
@@ -172,7 +168,7 @@ function _extractRemoteConfig(config, profileName) {
         profileName = _.first(_.keys(outRemoteConfig));
     }
 
-    console.log(chalk.cyan(`Selected remote profile - ${ profileName }.`));
+    console.log(chalk.cyan(`Selected remote profile - ${profileName}.`));
 
     return _.get(outRemoteConfig, profileName);
 }
@@ -190,7 +186,7 @@ function getRemoteConfig(config, argv) {
 
     const requestOptions = _makeRequestOptions(remoteConfig);
 
-    spinner = ora(`Getting remote config from ${ requestOptions.uri }...`);
+    spinner = ora(`Getting remote config from ${requestOptions.uri}...`);
 
     spinner.start();
 
@@ -198,17 +194,19 @@ function getRemoteConfig(config, argv) {
         .then(_.partial(_mergeConfig, _, config))
         .then(_.partial(_processSections, _, _.get(remoteConfig, 'tempPath')))
         .then(_addPrivateComponents)
-        .then((mergedConfig) => {
+        .then(mergedConfig => {
             spinner.stop();
 
             console.log(chalk.cyan('Remote config merged!'));
 
             return mergedConfig;
         })
-        .catch((err) => {
+        .catch(err => {
             spinner.stop();
 
-            console.log(chalk.red(`Problem encountered getting remote config from ${ requestOptions.uri}`));
+            console.log(
+                chalk.red(`Problem encountered getting remote config from ${requestOptions.uri}`)
+            );
             console.log(err);
 
             // return the original static config on error
@@ -226,10 +224,12 @@ function cleanup(docsConfig) {
 
     const tempPath = _.get(_applyRemoteConfigDefaults(remoteConfig), 'tempPath');
 
-    _.each(sectionMarkdownFiles, (fileName) => {
-        rm(path.join(tempPath, fileName), (err) => {
+    _.each(sectionMarkdownFiles, fileName => {
+        rm(path.join(tempPath, fileName), err => {
             if (err) {
-                console.log(chalk.red('Cleanup: failed to remove temp markdown file', fileName, ':', err));
+                console.log(
+                    chalk.red('Cleanup: failed to remove temp markdown file', fileName, ':', err)
+                );
             }
         });
     });

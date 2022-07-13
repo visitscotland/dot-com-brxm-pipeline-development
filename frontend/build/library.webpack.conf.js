@@ -1,26 +1,25 @@
 const path = require('path');
 
 const webpack = require('webpack');
-const merge = require('webpack-merge');
+const { merge } = require('webpack-merge');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const OptimizeCSSPlugin = require('optimize-css-assets-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const SafeParser = require('postcss-safe-parser');
-const ManifestPlugin = require('webpack-manifest-plugin');
+const { WebpackManifestPlugin } = require('webpack-manifest-plugin');
 const baseWebpackConfig = require('./base.webpack.conf');
 
 const utils = require('./utils');
 const generateManifest = require('./library.generate-manifest');
-const mergeIE11Fix = require('./webpack.ie11-fix');
 
 baseWebpackConfig.entry = require('./library.entry');
 
 // Remove the CSS extract from the base config to prevent duplicate CSS file
 baseWebpackConfig.plugins = baseWebpackConfig.plugins.filter(
-    (plugin) => !(plugin instanceof MiniCssExtractPlugin)
+    plugin => !(plugin instanceof MiniCssExtractPlugin)
 );
 
-const webpackConfig = merge(mergeIE11Fix(baseWebpackConfig), {
+const webpackConfig = merge(baseWebpackConfig, {
     module: {
         rules: utils.styleLoaders({
             sourceMap: baseWebpackConfig.mode === 'development',
@@ -31,7 +30,10 @@ const webpackConfig = merge(mergeIE11Fix(baseWebpackConfig), {
     devtool: false,
     output: {
         path: path.resolve(__dirname, '../dist', 'library'),
-        filename: baseWebpackConfig.mode === 'development' ? 'scripts/[name].js' : 'scripts/[chunkhash].js',
+        filename:
+            baseWebpackConfig.mode === 'development'
+                ? 'scripts/[name].js'
+                : 'scripts/[chunkhash].js',
         publicPath: '../',
         library: '[name]',
         libraryTarget: 'umd',
@@ -44,12 +46,15 @@ const webpackConfig = merge(mergeIE11Fix(baseWebpackConfig), {
         },
         runtimeChunk: 'single',
         concatenateModules: false,
+        moduleIds: 'deterministic',
     },
     plugins: [
-
         // extract css into its own file
         new MiniCssExtractPlugin({
-            filename: baseWebpackConfig.mode === 'development' ? 'styles/[name].css' : 'styles/[chunkhash].css',
+            filename:
+                baseWebpackConfig.mode === 'development'
+                    ? 'styles/[name].css'
+                    : 'styles/[chunkhash].css',
         }),
 
         // Compress and dedupe extracted CSS
@@ -60,10 +65,10 @@ const webpackConfig = merge(mergeIE11Fix(baseWebpackConfig), {
         }),
 
         // Keep module.id stable when vendor modules does not change
-        new webpack.HashedModuleIdsPlugin(),
+        new webpack.ids.HashedModuleIdsPlugin(),
 
         // Generate custom manifest.json
-        new ManifestPlugin({
+        new WebpackManifestPlugin({
             generate: generateManifest,
             fileName: 'manifest.json',
         }),
