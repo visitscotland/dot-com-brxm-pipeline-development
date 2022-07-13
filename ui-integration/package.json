@@ -4,37 +4,40 @@
   "main": "index.js",
   "license": "MIT",
   "devDependencies": {
-    "clean-webpack-plugin": "^3.0.0",
-    "copy-webpack-plugin": "^5.0.4",
+    "clean-webpack-plugin": "^4.0.0",
+    "copy-webpack-plugin": "^11.0.0",
     "lodash": "^4.17.21",
     "npm-run-all": "^4.1.5",
-    "rimraf": "^3.0.0",
-    "schema-utils": "^2.1.0",
-    "webpack-cli": "^3.3.7",
-    "yargs": "^15.3.1"
+    "rimraf": "^3.0.2",
+    "schema-utils": "^4.0.0",
+    "webpack-cli": "^4.10.0",
+    "yargs": "^17.5.1"
   },
   "scripts": {
     "build": "npm-run-all build:frontend build:integrate",
     "build:dev": "npm-run-all build:frontend:dev build:integrate",
-    "build:ssr": "npm-run-all build:frontend:ssr \"build:integrate --src-path=../frontend/dist/ssr/client\"",
-    "build:ssr:dev": "npm-run-all build:frontend:ssr:dev \"build:integrate --src-path=../frontend/dist/ssr/client\"",
-    "build:integrate": "webpack --config webpack.config.js",
+    "build:ssr": "npm-run-all build:frontend:ssr \"build:integrate --env src-path=../frontend/dist/ssr/client\"",
+    "build:ssr:dev": "npm-run-all build:frontend:ssr:dev \"build:integrate --env src-path=../frontend/dist/ssr/client\"",
+    "build:integrate": "npx webpack --config webpack.config.js",
     "build:frontend": "yarn --cwd ../frontend/ library",
     "build:frontend:dev": "yarn --cwd ../frontend/ library:dev",
     "build:frontend:ssr": "yarn --cwd ../frontend/ ssr:build",
     "build:frontend:ssr:dev": "yarn --cwd ../frontend/ ssr:build:dev",
     "install:frontend": "yarn --cwd ../frontend/",
     "preinstall": "yarn install:frontend",
-    "third-party": "webpack --config ./build/thirdparty.webpack.conf.js"
+    "third-party": "npx webpack --config ./build/thirdparty.webpack.conf.js"
   },
   "dependencies": {
     "autoprefixer": "^10.4.2",
     "css-loader": "^6.7.1",
+    "loader-utils": "1.4.0",
     "mini-css-extract-plugin": "0.9.0",
-    "postcss": "^8.4.14",
     "postcss-loader": "7.0.1",
     "sass": "^1.49.9",
     "sass-loader": "10.1.1",
     "webpack": "^5.73.0"
+  },
+  "peerDependencies": {
+    "postcss": "^8.4.14"
   }
 }

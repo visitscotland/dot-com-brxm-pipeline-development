@@ -38,9 +38,12 @@ exports.cssLoaders = function(options) {
     };
 
     const baseSassLoaderOptions = {
-        style: 'compressed',
-        implementation: require('sass'),
-        sourceMap: options.sourceMap,
+        sassOptions: {
+            style: 'compressed',
+            implementation: require('sass'),
+            sourceMap: options.sourceMap,
+        },
+
     };
 
     const sassResourcesLoader = {

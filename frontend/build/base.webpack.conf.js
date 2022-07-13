@@ -7,8 +7,8 @@ const ESLintPlugin = require('eslint-webpack-plugin');
 const buildMode = require('./base.build-mode');
 
 const myESLintOptions = {
-    extensions: [`js`, `jsx`, `ts`],
-    exclude: [`node_modules`, `/ssr/`, `/src/components/patterns/header/components/Chart/`],
+    extensions: ['js', 'jsx', 'ts'],
+    exclude: ['node_modules', '/ssr/', '/src/components/patterns/header/components/Chart/'],
 };
 
 function resolve(dir) {
@@ -91,18 +91,24 @@ module.exports = {
                     {
                         resourceQuery: /optimise/,
                         use: [
-                            'html-loader',
+                            'file-loader',
                             {
                                 loader: 'image-webpack-loader',
                                 options: {
                                     svgo: {
                                         plugins: [
                                             {
-                                                removeViewBox: false,
-                                            },
-                                            {
-                                                inlineStyles: {
-                                                    onlyMatchedOnce: false,
+                                                name: 'preset-default',
+                                                params: {
+                                                    overrides: {
+                                                        // customize default plugin options
+                                                        inlineStyles: {
+                                                            onlyMatchedOnce: false,
+                                                        },
+
+                                                        // or disable plugins
+                                                        removeDoctype: false,
+                                                    },
                                                 },
                                             },
                                         ],
@@ -130,11 +136,9 @@ module.exports = {
     },
     plugins: [
         new VueLoaderPlugin(),
-        new MiniCssExtractPlugin('style.css'),
-        new ESLintPlugin({
-            fix: true,
-            emitError: true,
-            emitWarning: true,
+        new MiniCssExtractPlugin({
+            filename: 'style.css',
         }),
+        new ESLintPlugin(myESLintOptions),
     ],
 };

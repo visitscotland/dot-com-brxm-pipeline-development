@@ -11,7 +11,7 @@ const {
   isEmpty,
 } = require("lodash")
 const { getOptions } = require("loader-utils")
-const validateOptions = require("schema-utils")
+const {  validate } = require("schema-utils");
 
 
 /**
@@ -308,7 +308,7 @@ module.exports = function(manifest) {
   const modules = JSON.parse(manifest)
   const options = getOptions(this)
 
-  validateOptions(optionsSchema, options, "Generate Freemarker Template")
+  validate(optionsSchema, options, "Generate Freemarker Template")
 
   prepTargetDir(options.freemarkerTargetPath)
 
