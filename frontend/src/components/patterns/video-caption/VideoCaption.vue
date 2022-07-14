@@ -50,6 +50,7 @@
             <VsWarning
                 :warning-message="noCookiesMessage"
                 :show-cookie-link="true"
+                :cookie-link-text="cookieLinkText"
                 variant="row"
             />
         </div>
@@ -130,9 +131,6 @@ export default {
             default: '',
         },
         noCookiesMessage: {
-            default: '',
-        },
-        cookieLinkText: {
             default: '',
         },
     },

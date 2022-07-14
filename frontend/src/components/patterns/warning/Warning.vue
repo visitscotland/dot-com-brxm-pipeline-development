@@ -133,6 +133,9 @@ export default {
         &__cookie-trigger {
             color: $color-yellow !important;
             font-weight: $font-weight-normal !important;
+            background: transparent;
+            border: none;
+            box-shadow: none;
 
             &:focus {
                 outline: 2px solid $color_yellow;

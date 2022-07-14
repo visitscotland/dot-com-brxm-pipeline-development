@@ -43,6 +43,7 @@
                     :with-toggle-btn="true"
                     @toggleAction="toggleCaption"
                     :video-id="videoId"
+                    :cookie-link-text="cookieLinkText"
                 >
                     <!-- @slot Slot for the video title text -->
                     <template slot="video-title">
@@ -231,7 +232,6 @@ export default {
         return {
             noJsMessage: this.noJsMessage,
             noCookiesMessage: this.noCookiesMessage,
-            cookieLinkText: this.cookieLinkText,
         };
     },
 };
