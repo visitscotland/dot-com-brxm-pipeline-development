@@ -113,8 +113,10 @@ pipeline {
       }
       steps {
         sh 'sh ./infrastructure/scripts/infrastructure.sh setvars'
-        sh "sh alias gcc='scl enable devtoolset-3 -- gcc'"
-        sh "sh alias g++='scl enable devtoolset-3 -- g++'"
+        sh '''#!/bin/bash
+        	alias gcc="scl enable devtoolset-3 -- gcc"
+            alias g++="scl enable devtoolset-3 -- g++"
+        '''
         // -- 20200712: QUESTION FOR SE, "why do we not build with-development-data?"
         sh 'mvn -f pom.xml clean package'
       }
