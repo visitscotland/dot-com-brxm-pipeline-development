@@ -1,7 +1,6 @@
 ## Usage
 Use the warning component to display a dark generic warning message aimed
-at the end user. It can contain a message and a link to a page the user can go
-to to correct the issue.
+at the end user. It contains a message.
 
 Automatically expands to fill whatever container it is placed in - usually
 covering or replacing an existing element
@@ -22,10 +21,23 @@ covering or replacing an existing element
     >
         <VsWarning
             warningMessage="Cookies are needed to watch this video."
-            :warningLink="{
-                url: 'https://google.com',
-                label: 'Update my cookie settings'
-            }"
+            :showCookieLink="true"
+        />
+    </div>
+  ```
+
+    ### Cookie preference centre link
+    A link to OneTrust's preference
+
+  ```js
+    <div
+        class="position-relative"
+        style="width: 25em;"
+    >
+        <VsWarning
+            warningMessage="Cookies are needed to watch this video."
+            variant="row"
+            :showCookieLink="true"
         />
     </div>
 

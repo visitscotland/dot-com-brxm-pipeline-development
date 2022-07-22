@@ -13,6 +13,13 @@ const factoryShallowMount = () => shallowMount(VsEmbedWrapper, {
         embedIntroCopyNoCookies: noCookiesContent,
         embedWidget: widgetcontent,
     },
+    computed: {
+        cookiesSetStatus: {
+            get() {
+                return true;
+            },
+        },
+    },
 });
 
 let wrapper;

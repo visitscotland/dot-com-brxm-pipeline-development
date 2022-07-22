@@ -4,15 +4,11 @@ import VsVideoCaption from '../VideoCaption';
 jest.mock('../../../../stores/video.store.js');
 
 const videoTitleSlot = 'Video title';
-const videoDurationSlot = '3 minute video';
-const alertMsgSlot = 'This is a no-js alert';
 const buttonText = 'Button text';
 
 const factoryShallowMount = (propsData) => shallowMount(VsVideoCaption, {
     slots: {
         'video-title': videoTitleSlot,
-        'video-duration': videoDurationSlot,
-        'video-no-js-alert': alertMsgSlot,
     },
     propsData: {
         videoBtnText: buttonText,
@@ -45,19 +41,15 @@ describe('VsVideoCaption', () => {
     });
 
     describe(':slots', () => {
-        it('should render the video title slot content', () => {
+        it('should render the video title slot content', async() => {
             const wrapper = factoryShallowMount();
+
+            wrapper.setData({
+                requiredCookies: [],
+            });
+            await wrapper.vm.$nextTick();
 
             expect(wrapper.html()).toContain(videoTitleSlot);
-        });
-
-        it('should render the video alert message slot content', async() => {
-            const wrapper = factoryShallowMount();
-            wrapper.vm.videoLoaded = false;
-            await wrapper.vm.$nextTick();
-            const nojsMsg = wrapper.find('[data-test="video-caption-nojs"]');
-
-            expect(nojsMsg.html()).toContain(alertMsgSlot);
         });
     });
 
@@ -68,8 +60,13 @@ describe('VsVideoCaption', () => {
             expect(wrapper.vm.videoDetails.videoId).toBe('123456');
         });
 
-        it('renders the video duration', () => {
+        it('renders the video duration', async() => {
             const wrapper = factoryShallowMount();
+            wrapper.setData({
+                requiredCookies: [],
+            });
+            await wrapper.vm.$nextTick();
+
             const durationText = wrapper.find('.vs-video-caption__duration');
 
             expect(durationText.text()).toBe('1 minute video');
@@ -105,26 +102,39 @@ describe('VsVideoCaption', () => {
     });
 
     describe(':props', () => {
-        it('should populate button text with the `videoBtnText` prop', () => {
+        it('should populate button text with the `videoBtnText` prop', async() => {
             const wrapper = factoryShallowMount();
+            wrapper.setData({
+                requiredCookies: [],
+            });
+            await wrapper.vm.$nextTick();
+
             const playButton = wrapper.find('.vs-video-caption__button');
 
             expect(playButton.text()).toBe(buttonText);
         });
 
-        it('should include a toggle button if `withToggleBtn` prop is true', () => {
+        it('should include a toggle button if `withToggleBtn` prop is true', async() => {
             const wrapper = factoryShallowMount();
+            wrapper.setData({
+                requiredCookies: [],
+            });
+            await wrapper.vm.$nextTick();
 
             expect(wrapper.find('vstogglebutton-stub').exists()).toBe(true);
         });
 
-        it('should not include a toggle button if `withToggleBtn` prop is false', () => {
+        it('should not include a toggle button if `withToggleBtn` prop is false', async() => {
             const wrapper = factoryShallowMount();
             wrapper.setProps({
                 withToggleBtn: false,
             });
+            wrapper.setData({
+                requiredCookies: [],
+            });
+            await wrapper.vm.$nextTick();
 
-            expect(wrapper.find('vstogglebutton-stub').exists()).toBe(true);
+            expect(wrapper.find('vstogglebutton-stub').exists()).toBe(false);
         });
     });
 

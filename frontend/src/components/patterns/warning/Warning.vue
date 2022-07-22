@@ -10,26 +10,25 @@
             class="vs-warning__icon"
             name="review"
             custom-colour="#FCCA1B"
+            :size="iconSize"
         />
-        <p
-            class="vs-warning__message"
-        >
-            {{ warningMessage }}
-        </p>
-        <VsLink
-            v-if="warningLink && warningLink.url"
-            data-test="vs-warning__link"
-            :href="warningLink.url"
-            variant="dark"
-        >
-            {{ warningLink.label }}
-        </VsLink>
+        <div>
+            <p class="vs-warning__message">
+                {{ warningMessage }}
+            </p>
+            <button
+                v-if="showCookieLink"
+                class="ot-sdk-show-settings vs-warning__cookie-trigger"
+                id="ot-sdk-btn"
+            >
+                {{ cookieLinkText }}
+            </button>
+        </div>
     </div>
 </template>
 <script>
 
 import VsIcon from '@components/elements/icon';
-import VsLink from '@components/elements/link';
 
 /**
  * A generic warning component that expands to cover whatever component
@@ -43,7 +42,6 @@ export default {
     release: '0.1.0',
     components: {
         VsIcon,
-        VsLink,
     },
     props: {
         /**
@@ -54,19 +52,30 @@ export default {
             required: true,
         },
         /**
-        * An optional link to a page that the user can go to to try and
-        * correct the issue
+        * If set to true, the cookie preference centre link is displayed
         */
-        warningLink: {
-            type: Object,
-            default: null,
+        showCookieLink: {
+            type: Boolean,
+            default: false,
+        },
+        /**
+        * Text for the link to the cookies preference centre.
+        */
+        cookieLinkText: {
+            type: String,
+            required: true,
         },
         variant: {
             type: String,
             default: 'normal',
             validator: (value) => value.match(
-                /(small|normal)/,
+                /(small|normal|row)/,
             ),
+        },
+    },
+    computed: {
+        iconSize() {
+            return this.variant === 'row' ? 'lg' : 'md';
         },
     },
 };
@@ -85,25 +94,66 @@ export default {
         align-items: center;
         text-align: center;
         justify-content: center;
-        background-color: rgba($color-black, 0.8);
         color: $color-white;
-    }
 
-    .vs-warning__icon {
-        width: 4rem !important;
-        height: 4rem !important;
-        margin-bottom: 2rem;
-    }
-
-    .vs-warning--small {
-        .vs-warning__icon {
-            width: 3rem !important;
-            height: 3rem !important;
-            margin-bottom: 1rem;
+        &--normal {
+            .vs-warning__icon {
+                width: 4rem !important;
+                height: 4rem !important;
+                margin-bottom: 2rem;
+            }
         }
-    }
 
-    .vs-warning__message {
-        margin-bottom: $spacer-0;
+        &--small {
+            .vs-warning__icon {
+                width: 3rem !important;
+                height: 3rem !important;
+                margin-bottom: 1rem;
+            }
+        }
+
+        &--row {
+            position: relative;
+            flex-direction: row;
+            align-items: flex-start;
+            justify-content: flex-start;
+            text-align: left;
+            padding: $spacer-6;
+
+            .vs-warning__icon {
+                margin: 0 $spacer-8 0 0;
+            }
+        }
+
+        &__message {
+            margin-bottom: $spacer-0;
+        }
+
+        /** override OneTrust styles **/
+        &__cookie-trigger {
+            color: $color-yellow !important;
+            font-weight: $font-weight-normal !important;
+            background: transparent;
+            border: none;
+            box-shadow: none;
+
+            &:focus {
+                outline: 2px solid $color_yellow;
+            }
+        }
+
+        @include media-breakpoint-up(sm) {
+            &--row {
+                padding: $spacer-5;
+            }
+        }
+
+        @include media-breakpoint-up(md) {
+            &--row {
+                .vs-warning__icon {
+                    margin: 0 $spacer-5 0 0;
+                }
+            }
+        }
     }
 </style>

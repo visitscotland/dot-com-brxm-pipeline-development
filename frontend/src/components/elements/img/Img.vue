@@ -5,7 +5,7 @@
         :alt="alt"
         :fluid="fluid"
         :fluid-grow="fluidGrow"
-        loading="lazy"
+        :loading="useLazyLoading ? 'lazy' : 'eager'"
         :style="imgStyle"
         class="low-res-img"
     >
@@ -69,6 +69,13 @@ export default {
          */
         fluidGrow: {
             type: Boolean,
+        },
+        /**
+         * If true switches on lazy loading for the image
+        */
+        useLazyLoading: {
+            type: Boolean,
+            default: true,
         },
     },
     computed: {

@@ -5,6 +5,7 @@
 <#include "../../frontend/components/vs-container.ftl">
 <#include "../../frontend/components/vs-row.ftl">
 <#include "../../frontend/components/vs-col.ftl">
+<#include "../../frontend/components/vs-cookie-checker.ftl">
 
 <#include "../macros/modules/footer/footer-accordion-item.ftl">
 <#include "../macros/modules/footer/footer-copyright.ftl">
@@ -30,6 +31,7 @@
 
         <@footerCopyright />
     </vs-footer>
+    <vs-cookie-checker></vs-cookie-checker>
 <#elseif integration??>
     ${log("The footer menu is not available")}
 </#if>

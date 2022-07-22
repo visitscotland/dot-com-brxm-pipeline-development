@@ -36,9 +36,14 @@ describe('VsVideo', () => {
     });
 
     describe(':props', () => {
-        it('should pass a videoId prop to the youtube component', () => {
+        it('should pass a videoId prop to the youtube component', async() => {
             const wrapper = factoryShallowMount();
 
+            wrapper.setData({
+                requiredCookies: [],
+            });
+
+            await wrapper.vm.$nextTick();
             expect(wrapper.find('youtube-stub').attributes('videoid')).toBe(videoId);
         });
 
@@ -51,35 +56,29 @@ describe('VsVideo', () => {
 
     describe(':data', () => {
         it('should show a roundedDuration that rounds up, if the duration is 0 minutes and < 30 seconds', async() => {
-            // a 25 second video, which should round down to 1 minute
-            const wrapper = factoryShallowMount(null, {
-                player() {
-                    return {
-                        getDuration() {
-                            return Promise.resolve(25);
-                        },
-                    };
-                },
-            });
+            const wrapper = factoryShallowMount();
 
-            await wrapper.setData({
+            // a 25 second video, which should round to 1 minute
+            wrapper.vm.formatTime(25);
+
+            wrapper.setData({
                 showDuration: true,
             });
+
+            wrapper.setData({
+                requiredCookies: [],
+            });
+
+            await wrapper.vm.$nextTick();
 
             expect(wrapper.vm.duration.roundedMinutes).toContain('1');
         });
 
         it('should show a roundedDuration that rounds down, if the duration is x minutes and < 30 seconds', async() => {
+            const wrapper = factoryShallowMount();
+
             // a 1 minute 20 second video, which should round down to 1 minute
-            const wrapper = factoryShallowMount(null, {
-                player() {
-                    return {
-                        getDuration() {
-                            return Promise.resolve(80);
-                        },
-                    };
-                },
-            });
+            wrapper.vm.formatTime(80);
 
             await wrapper.setData({
                 showDuration: true,
@@ -90,15 +89,9 @@ describe('VsVideo', () => {
 
         it('should show a roundedDuration that rounds up, if the duration is x minutes and >= 30 seconds', async() => {
             // a 1 minute 30 second video, which should round up to 2 minutes
-            const wrapper = factoryShallowMount(null, {
-                player() {
-                    return {
-                        getDuration() {
-                            return Promise.resolve(90);
-                        },
-                    };
-                },
-            });
+            const wrapper = factoryShallowMount();
+
+            wrapper.vm.formatTime(90);
 
             await wrapper.setData({
                 showDuration: true,
@@ -109,15 +102,9 @@ describe('VsVideo', () => {
 
         it('should show render the singleMinuteDescriptor for a 1 minute video', async() => {
             // a 1 minute 20 second video, which should round down to 1 minute
-            const wrapper = factoryShallowMount(null, {
-                player() {
-                    return {
-                        getDuration() {
-                            return Promise.resolve(80);
-                        },
-                    };
-                },
-            });
+            const wrapper = factoryShallowMount();
+
+            wrapper.vm.formatTime(80);
 
             await wrapper.setData({
                 showDuration: true,
@@ -126,17 +113,11 @@ describe('VsVideo', () => {
             expect(wrapper.vm.duration.roundedMinutes).toBe(singleMinuteDescriptor.replace('%s', '1'));
         });
 
-        it('should show render the pluralMinuteDiscriptor for a multi minute video', async() => {
+        it('should render the pluralMinuteDiscriptor for a multi minute video', async() => {
+            const wrapper = factoryShallowMount();
+
             // a 3 minute 40 second video, which should round up to 4 minute
-            const wrapper = factoryShallowMount(null, {
-                player() {
-                    return {
-                        getDuration() {
-                            return Promise.resolve(220);
-                        },
-                    };
-                },
-            });
+            wrapper.vm.formatTime(220);
 
             await wrapper.setData({
                 showDuration: true,
@@ -173,22 +154,16 @@ describe('VsVideo', () => {
 
         it('should return the formatted time in minutes and seconds', async() => {
             const wrapper = factoryShallowMount();
-            await wrapper.vm.player.getDuration();
+            wrapper.vm.formatTime(210);
 
             expect(wrapper.vm.duration.minutes).toBe(3);
             expect(wrapper.vm.duration.seconds).toBe(30);
         });
 
         it('should not render the video duration if video duration is 0', () => {
-            const wrapper = factoryShallowMount(null, {
-                player() {
-                    return {
-                        getDuration() {
-                            return Promise.resolve(0);
-                        },
-                    };
-                },
-            });
+            const wrapper = factoryShallowMount();
+
+            wrapper.vm.formatTime(0);
 
             expect(wrapper.find('p[data-test="vs-video-duration"]').exists()).toBe(false);
         });

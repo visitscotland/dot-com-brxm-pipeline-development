@@ -109,13 +109,15 @@ public class ItineraryDayMockBuilder {
         return this;
     }
 
-    public ItineraryDayMockBuilder addExternalStop(String url){
+    public ItineraryDayMockBuilder addExternalStop(String url, Boolean cta){
         addStop();
         link = mock(ItineraryExternalLink.class, Answers.RETURNS_DEEP_STUBS);
 
         when(currentStop.getStopItem()).thenReturn(link);
         //This is only used for opening times
         lenient().when(link.getExternalLink().getLink()).thenReturn(url);
+        String ctaLabel = cta? "Discover the external link": "";
+        lenient().when(link.getExternalLink().getLabel()).thenReturn(ctaLabel);
 
         //This mocked value is not representative of the real object.
         when(currentStop.getIdentifier()).thenReturn(url);

@@ -3,21 +3,38 @@
         class="vs-video"
         data-test="vs-video"
     >
-        <div class="vs-video__iframe-wrapper">
-            <!-- eslint-disable-next-line vue/component-name-in-template-casing -->
-            <youtube
-                v-if="!cookiesMissing"
-                :video-id="videoId"
-                :player-vars="playerVars"
-                ref="youtube"
-            />
+        <div
+            class="vs-video__iframe-wrapper"
+        >
+            <div v-if="requiredCookiesExist">
+                <!-- eslint-disable-next-line vue/component-name-in-template-casing -->
+                <youtube
+                    :video-id="videoId"
+                    :player-vars="playerVars"
+                    @ready="ready"
+                    ref="youtube"
+                />
+            </div>
+
+            <div
+                class="vs-video__fallback-wrapper"
+                v-if="!requiredCookiesExist && cookiesSetStatus"
+                key="fallback"
+            >
+                <VsWarning
+                    :warning-message="noCookiesMessage"
+                    :warning-link-text="cookieLinkText"
+                    :show-cookie-link="true"
+                />
+            </div>
         </div>
     </div>
 </template>
 
 <style lang="scss">
     .vs-video {
-        &__iframe-wrapper {
+        &__iframe-wrapper,
+        &__fallback-wrapper {
             position: relative;
             padding-bottom: 56.25%;
             height: 0;
@@ -38,7 +55,12 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
 import VueYoutube from 'vue-youtube';
 import Vue from 'vue';
+import VsWarning from '@components/patterns/warning/Warning';
 import videoStore from '../../../stores/video.store';
+import verifyCookiesMixin from '../../../mixins/verifyCookiesMixin';
+import requiredCookiesData from '../../../utils/required-cookies-data';
+
+const cookieValues = requiredCookiesData.youtube;
 
 Vue.use(VueYoutube, {
     global: false,
@@ -55,6 +77,12 @@ export default {
     name: 'VsVideo',
     status: 'prototype',
     release: '0.0.1',
+    components: {
+        VsWarning,
+    },
+    mixins: [
+        verifyCookiesMixin,
+    ],
     props: {
         /**
         * The YouTube ID for the video
@@ -92,6 +120,29 @@ export default {
             type: String,
             default: '%s minute video',
         },
+        /**
+        * A message explaining why the component has been disabled with disabled cookies, is
+        * provided for descendent components to inject
+        */
+        noCookiesMessage: {
+            type: String,
+            default: '',
+        },
+        /**
+        * Text used for the link which opens the cookie preference centre.
+        */
+        cookieLinkText: {
+            type: String,
+            default: '',
+        },
+        /**
+        * A message explaining why the component has been disabled when js is disabled,
+        * is provided for descendent components to inject
+        */
+        noJsMessage: {
+            type: String,
+            default: '',
+        },
     },
     data() {
         return {
@@ -103,6 +154,8 @@ export default {
             playerVars: {
                 hl: this.language,
             },
+            requiredCookies: cookieValues,
+            playerRef: null,
         };
     },
     computed: {
@@ -110,26 +163,14 @@ export default {
          * Return the player instance
          */
         player() {
-            return this.$refs.youtube.player;
-        },
-        // Checks whether appropriate cookies have been rejected for the video, and prevents
-        // initialisation if so
-        cookiesMissing() {
-            // TODO: Add cookie functionality once checker integrated
-            // See VS-3606
-            return false;
+            if (typeof this.$refs.youtube !== 'undefined') {
+                return this.$refs.youtube.player;
+            }
+
+            return null;
         },
     },
     mounted() {
-        /**
-         * Upon promise resolution, if the video ID returns
-         * a YouTube video, process the time into the desired format.
-         */
-        this.player.getDuration().then((response) => {
-            this.formatTime(response);
-            this.storeVideoDetails();
-        });
-
         /**
          * Sets up listener for play/pause events
          * from $root
@@ -150,17 +191,33 @@ export default {
         });
     },
     methods: {
+        ready() {
+            this.playerRef = this.$refs.youtube.player;
+            this.getPlayerDetails();
+        },
         /**
          * Plays the video
          */
         playVideo() {
-            this.player.playVideo();
+            this.playerRef.playVideo();
         },
         /**
          * Pauses the video
          */
         pauseVideo() {
-            this.player.pauseVideo();
+            this.playerRef.pauseVideo();
+        },
+        getPlayerDetails() {
+            /**
+             * Upon promise resolution, if the video ID returns
+             * a YouTube video, process the time into the desired format.
+             */
+            if (typeof this.player !== 'undefined') {
+                this.player.getDuration().then((response) => {
+                    this.formatTime(response);
+                    this.storeVideoDetails();
+                });
+            }
         },
         /**
          * Converts time in seconds to minutes and seconds,

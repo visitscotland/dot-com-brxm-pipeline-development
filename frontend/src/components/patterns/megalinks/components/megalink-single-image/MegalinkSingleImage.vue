@@ -3,11 +3,18 @@
         class="vs-megalink-single-image"
         :class="singleImageClasses"
         data-test="megalink-single-image"
+        :style="cssVars"
     >
-        <!-- @slot Slot for main image -->
-        <slot name="vsSingleImage" />
+        <div class="vs-megalink-single-image__image-container">
+            <!-- @slot Slot for main image -->
+            <slot
+                name="vsSingleImage"
+            />
+        </div>
 
-        <VsRow>
+        <VsRow
+            class="vs-megalink-single-image__text-container"
+        >
             <VsCol
                 cols="12"
                 sm="10"
@@ -109,6 +116,12 @@ export default {
             validator: (value) => value.match(/(light|dark)/),
         },
     },
+    data() {
+        return {
+            negativeMargin: '200px',
+            imageHeight: '400px',
+        };
+    },
     computed: {
         singleImageClasses() {
             return [
@@ -116,12 +129,36 @@ export default {
                 this.alternate ? 'vs-megalink-single-image--alternate' : '',
             ];
         },
+        cssVars() {
+            return {
+                // How much negative vertical margin to add to the image with
+                // caption. Defaults to 200px.
+                '--negative-margin': `-${this.negativeMargin}`,
+                '--image-height': `${this.imageHeight}`,
+            };
+        },
+    },
+    // Once the image has loaded (accounting for lazy load), calculate its aspect
+    // ratio and what percent of the element width to offset the caption by to
+    // place it half way up the image
+    mounted() {
+        const imgWithCaption = this.$el.querySelector('.vs-image-with-caption');
+        const img = imgWithCaption.querySelector('img');
+
+        img.addEventListener('load', () => {
+            const offsetPercentToMiddle = img.clientHeight / 2 / img.clientWidth;
+            this.negativeMargin = `${offsetPercentToMiddle * 100}%`;
+            this.imageHeight = `${img.clientHeight}px`;
+        });
     },
 };
 </script>
 
 <style lang="scss">
     .vs-megalink-single-image {
+        --negative-margin: -200px;
+        --image-height: 400px;
+
         min-width: 100%;
 
         .vs-megalink-single-image__title {
@@ -202,20 +239,29 @@ export default {
             display: flex;
             flex-direction: column;
 
+            .vs-megalink-single-image__text-container {
+                min-height: calc((var(--image-height) / 2) + 4rem);
+            }
+
             .vs-megalink-single-image__content {
+                min-height: 100%;
                 padding: $spacer-9 $spacer-9 $spacer-9 $spacer-9;
                 margin: 0;
                 background: $color-white;
             }
 
-            .vs-image-with-caption {
+            .vs-megalink-single-image__image-container {
                 width: 66%;
                 align-self: flex-end;
-                margin: 0 0 -200px;
+            }
+
+            .vs-image-with-caption {
+                width: 100%;
+                margin: 0 0 calc(var(--negative-margin) - #{$spacer-10});
             }
 
             &--alternate {
-                .vs-image-with-caption {
+                .vs-megalink-single-image__image-container {
                     align-self: flex-start;
                 }
 

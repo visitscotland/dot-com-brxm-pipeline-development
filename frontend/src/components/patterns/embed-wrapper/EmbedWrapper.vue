@@ -29,8 +29,9 @@
                         <slot name="embedIntroCopyNoJs" />
                     </VsRichTextWrapper>
                     <VsRichTextWrapper
-                        class="vs-module-wrapper__intro vs-embed-wrapper__no-cookies"
-                        v-if="!!this.$slots['embedIntroCopyNoCookies']"
+                        class="vs-module-wrapper__intro"
+                        v-if="!!this.$slots['embedIntroCopyNoCookies']
+                            && !requiredCookiesExist && cookiesSetStatus"
                         data-test="vs-module-wrapper__intro"
                     >
                         <!-- @slot Slot to contain intro text if cookies aren't enabled -->
@@ -40,7 +41,11 @@
                 <VsCol
                     cols="12"
                 >
-                    <div class="vs-embed-wrapper__container">
+                    <div
+                        class="vs-embed-wrapper__container"
+                        :class="requiredCookiesExist ? '' : 'd-none'"
+                        key="embeddedContent"
+                    >
                         <!--
                             @slot Takes the dom element for the embedded javascript widget, any
                             associated script tags can't be passed into the vue element and should
@@ -54,7 +59,10 @@
                             path="no-js-coo"
                         />
                     </div>
-                    <div class="vs-embed-wrapper__no-cookies">
+                    <div
+                        v-if="!requiredCookiesExist && cookiesSetStatus"
+                        key="fallback"
+                    >
                         <VsSvg
                             class="vs-embed-wrapper__error-image"
                             path="cookie-coo"
@@ -72,6 +80,10 @@ import {
 } from '@components/elements/grid';
 import VsSvg from '@components/elements/svg/Svg';
 import VsRichTextWrapper from '@components/elements/rich-text-wrapper/RichTextWrapper';
+import verifyCookiesMixin from '../../../mixins/verifyCookiesMixin';
+import requiredCookiesData from '../../../utils/required-cookies-data';
+
+const cookieValues = requiredCookiesData.embed;
 
 /**
  * This component acts as a wrapper for an embedded javascript widget and provides
@@ -89,6 +101,14 @@ export default {
         VsCol,
         VsSvg,
         VsRichTextWrapper,
+    },
+    mixins: [
+        verifyCookiesMixin,
+    ],
+    data() {
+        return {
+            requiredCookies: cookieValues,
+        };
     },
 };
 </script>

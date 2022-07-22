@@ -55,7 +55,27 @@ the time is automatically added using these video prop values.
         <template slot="video-title">
             Scotch Whisky: Explained
         </template>
-    </VsVideoCaption>
+    </VsVideoCaption>    
+  ```
+
+  ### No cookies and no JavaScript messaging
+  The video component uses the YouTube API which requires JavaScript and will set cookies. Use these prop values to define messaging that displays if the user doesn't have JavaScript enabled, or hasn't allowed the required cookies.
+
+  ```jsx
+    <VsVideo
+        video-id="dKI8IEnqvbU"
+        single-minute-descriptor="%s minute video"
+        plural-minute-descriptor="%s minutes video"
+        noCookiesMessage="Cookies are needed to play this video"
+        noJsMessage="You need JavaScript enabled to play this video"
+    />
+    <VsVideoCaption
+        video-id="dKI8IEnqvbU"
+    >
+        <template slot="video-title">
+            Scotch Whisky: Explained
+        </template>
+    </VsVideoCaption>    
   ```
 
   ## Accessibility

@@ -1,8 +1,8 @@
 <#include "../macros/global/gtm.ftl">
 
 <#macro headContributions>
-    <#if integration??>
-        <@gtm />
+    <@gtm />
+    <#if !integration>
         <!-- BEGIN HEAD CONTRIBUTIONS: seo -->
         <@hst.headContributions categoryIncludes="seo" xhtml=true/>
         <!-- END HEAD CONTRIBUTIONS: seo -->
@@ -23,6 +23,8 @@
     <!-- BEGIN HEAD CONTRIBUTIONS: general -->
     <@hst.headContributions categoryExcludes="htmlHeadPreload,htmlHeadStyles,htmlBodyEndScriptsFirst,htmlBodyEndScripts,htmlBodyEndAppInit,seo,opengraph" xhtml=true/>
     <!-- END HEAD CONTRIBUTIONS: general -->
+
+    <link rel="icon" type="image/png" href="<@hst.webfile path="/assets/images/32x32.png"/>" sizes="32x32">
 
     <style>
         body {

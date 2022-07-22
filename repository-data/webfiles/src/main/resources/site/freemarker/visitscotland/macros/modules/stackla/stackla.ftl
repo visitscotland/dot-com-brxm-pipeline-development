@@ -6,7 +6,7 @@
 
 <#macro stackla module>
     <@hst.headContribution category="htmlBodyEnd">
-        <script type="text/javascript">
+        <script type="text/plain" class="optanon-category-C0001-C0003-C0004">
             (function (d, id) {
                 var t, el = d.scripts[d.scripts.length - 1].previousElementSibling;
                 if (el) el.dataset.initTimestamp = (new Date()).getTime();
@@ -15,6 +15,8 @@
                 t.src = '//assetscdn.stackla.com/media/js/widget/fluid-embed.js';
                 t.id = id;
                 (d.getElementsByTagName('head')[0] || d.getElementsByTagName('body')[0]).appendChild(t);
+
+                Stackla.WidgetManager.sync();
             }(document, 'stackla-widget-js'));
         </script>
     </@hst.headContribution>
@@ -34,6 +36,12 @@
             </template>
             <template slot="embedIntroCopyNoCookies">
                 ${module.noCookiesMessage}
+                <button
+                    class="ot-sdk-show-settings"
+                    id="ot-sdk-btn"
+                >
+                    ${label('stackla', 'stackla.update-cookies-link.label')}
+                </button>
             </template>
             <template slot="embedWidget">
                 <div class="stackla-widget" data-ct="" data-hash="${module.dataHash}"

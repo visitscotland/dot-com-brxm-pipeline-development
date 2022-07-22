@@ -8570,6 +8570,73 @@
             /visitscotland:videoLink:
               jcr:primaryType: hippo:mirror
               hippo:docbase: b193d2fa-424d-44b0-a720-1d2cb5cf0184
+      /stackla-example:
+        jcr:primaryType: hippo:handle
+        jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+        jcr:uuid: c3c52c4d-d36c-4b46-b66a-884c5afb22ac
+        hippo:name: Stackla example
+        hippo:versionHistory: a35dc959-3f06-47f5-a844-84d64ec2a572
+        /stackla-example[1]:
+          jcr:primaryType: visitscotland:Stackla
+          jcr:mixinTypes: ['mix:referenceable']
+          jcr:uuid: 10be0c98-c740-4096-a609-9ff7e16567bb
+          hippo:availability: []
+          hippostd:retainable: false
+          hippostd:state: draft
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2022-06-07T16:11:46.834+01:00
+          hippostdpubwf:lastModificationDate: 2022-06-07T16:11:46.834+01:00
+          hippostdpubwf:lastModifiedBy: admin
+          hippotranslation:id: e0e30108-7496-4709-ad82-66363d484539
+          hippotranslation:locale: en
+          visitscotland:stacklaHash: 60ddb1e64808c
+          visitscotland:stacklaId: '83137'
+          visitscotland:title: Stackla example
+          visitscotland:translation: ''
+          /visitscotland:copy:
+            jcr:primaryType: hippostd:html
+            hippostd:content: ''
+        /stackla-example[2]:
+          jcr:primaryType: visitscotland:Stackla
+          jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+          jcr:uuid: b5adaa8f-5f0a-4447-ad56-9fe5a34d66c7
+          hippo:availability: [preview]
+          hippostd:retainable: false
+          hippostd:state: unpublished
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2022-06-07T16:11:46.834+01:00
+          hippostdpubwf:lastModificationDate: 2022-06-07T16:14:50.505+01:00
+          hippostdpubwf:lastModifiedBy: admin
+          hippotranslation:id: e0e30108-7496-4709-ad82-66363d484539
+          hippotranslation:locale: en
+          visitscotland:stacklaHash: 60ddb1e64808c
+          visitscotland:stacklaId: '83137'
+          visitscotland:title: Stackla example
+          visitscotland:translation: ''
+          /visitscotland:copy:
+            jcr:primaryType: hippostd:html
+            hippostd:content: ''
+        /stackla-example[3]:
+          jcr:primaryType: visitscotland:Stackla
+          jcr:mixinTypes: ['mix:referenceable']
+          jcr:uuid: e5aaa2fa-686a-46c4-a514-2eea77c184c0
+          hippo:availability: [live]
+          hippostd:retainable: false
+          hippostd:state: published
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2022-06-07T16:11:46.834+01:00
+          hippostdpubwf:lastModificationDate: 2022-06-07T16:14:50.505+01:00
+          hippostdpubwf:lastModifiedBy: admin
+          hippostdpubwf:publicationDate: 2022-06-07T16:14:53.054+01:00
+          hippotranslation:id: e0e30108-7496-4709-ad82-66363d484539
+          hippotranslation:locale: en
+          visitscotland:stacklaHash: 60ddb1e64808c
+          visitscotland:stacklaId: '83137'
+          visitscotland:title: Stackla example
+          visitscotland:translation: ''
+          /visitscotland:copy:
+            jcr:primaryType: hippostd:html
+            hippostd:content: ''
   /content:
     jcr:primaryType: hippo:handle
     jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']

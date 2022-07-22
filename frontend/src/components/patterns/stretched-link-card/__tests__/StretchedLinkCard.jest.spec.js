@@ -62,7 +62,12 @@ describe('VsStretchedLinkCard', () => {
                 },
             });
 
-            await expect(wrapper.find('[data-test="vs-stretched-link-card__video-button"]').exists()).toBe(true);
+            wrapper.setData({
+                requiredCookies: [],
+            });
+            await wrapper.vm.$nextTick();
+
+            expect(wrapper.find('[data-test="vs-stretched-link-card__video-button"]').exists()).toBe(true);
         });
 
         it('should render `videoBtnText` if set and a videoId is present', async() => {
@@ -92,7 +97,12 @@ describe('VsStretchedLinkCard', () => {
                 },
             });
 
-            await expect(wrapper.html()).toContain(videoBtnText);
+            wrapper.setData({
+                requiredCookies: [],
+            });
+            await wrapper.vm.$nextTick();
+
+            expect(wrapper.html()).toContain(videoBtnText);
         });
     });
 

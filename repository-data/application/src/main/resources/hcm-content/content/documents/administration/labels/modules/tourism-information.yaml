@@ -2,20 +2,21 @@
   .meta:order-before: otyml
   jcr:primaryType: hippo:handle
   jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
-  jcr:uuid: 522ca9d4-e11c-4aa6-8716-42f3aa699636
+  jcr:uuid: dca77615-fa6b-4652-846b-18ecdd4f5403
   hippo:name: Tourism Information (iCentre/iKnow)
   hippo:versionHistory: 7929acdd-652a-44b2-a60a-e5a22fa0a9c8
   /tourism-information[1]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:referenceable']
-    jcr:uuid: e99eaf51-8ace-461a-9463-29774b5171db
+    jcr:uuid: 6e510c35-1518-46a9-a446-040d5834e28f
     hippo:availability: []
     hippostd:retainable: false
     hippostd:state: draft
+    hippostd:transferable: false
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2020-11-04T15:30:47.380Z
-    hippostdpubwf:lastModificationDate: 2021-10-14T10:33:09.785Z
-    hippostdpubwf:lastModifiedBy: admin
+    hippostdpubwf:lastModificationDate: 2022-07-08T10:31:45.876+02:00
+    hippostdpubwf:lastModifiedBy: nikki.sherret
     resourcebundle:descriptions: ['', '', '', '', '', "IDEAL = content/gallery/visitscotland/static/modules/visitscotland-visitor-information-centre.jpg\r\
         \n\r\nRELATIVE = /site/binaries/content/gallery/visitscotland/static/modules/visitscotland-visitor-information-centre.jpg\r\
         \n\r\nLIVE = https://cimg.visitscotland.com/cms-images/about/458950/fort-william-visitscotland-icentre-sign",
@@ -72,7 +73,7 @@
   /tourism-information[2]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:versionable']
-    jcr:uuid: e95e7fd7-b3eb-46cb-90f5-d2196ea3a24b
+    jcr:uuid: 6c9cb1a4-e115-4a4c-b422-dfc70694e2ad
     hippo:availability: [preview]
     hippostd:retainable: false
     hippostd:state: unpublished
@@ -136,7 +137,7 @@
   /tourism-information[3]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:referenceable']
-    jcr:uuid: 6eef08b8-8863-4a43-ae07-b31111345901
+    jcr:uuid: 3c8aac46-5851-45ae-a568-232c7ec45e48
     hippo:availability: [live]
     hippostd:retainable: false
     hippostd:state: published

@@ -134,12 +134,11 @@ export default {
             default: '',
         },
         /**
-        * An object containing a link to the cookie settings page, should contain a `url`
-        * field and a `label` field, is provided for descendent components to inject
+        *  Text for the link to the cookies preference centre.
         */
-        noCookiesLink: {
-            type: Object,
-            default: null,
+        cookieLinkText: {
+            type: String,
+            default: '',
         },
     },
     computed: {
@@ -154,7 +153,7 @@ export default {
         return {
             noJsMessage: this.noJsMessage,
             noCookiesMessage: this.noCookiesMessage,
-            noCookiesLink: this.noCookiesLink,
+            cookieLinkText: this.cookieLinkText,
         };
     },
 };

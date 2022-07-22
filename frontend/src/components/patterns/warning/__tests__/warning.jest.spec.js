@@ -37,50 +37,5 @@ describe('VsWarning', () => {
 
             expect(wrapper.html()).toContain(warningMessage);
         });
-
-        it('should render a link with the test attr `vs-warning__link` if `warningLink` provided', async() => {
-            const wrapper = factoryShallowMount();
-
-            const warningLink = {
-                url: 'https://google.com',
-                lable: 'Update settings here',
-            };
-
-            await wrapper.setProps({
-                warningLink,
-            });
-
-            expect(wrapper.find('[data-test="vs-warning__link"]').exists()).toBe(true);
-        });
-
-        it('should render a link with the href provided in `warningLink`', async() => {
-            const wrapper = factoryShallowMount();
-
-            const warningLink = {
-                url: 'https://google.com',
-                label: 'Update settings here',
-            };
-
-            await wrapper.setProps({
-                warningLink,
-            });
-
-            expect(wrapper.find('[data-test="vs-warning__link"]').props().href).toBe(warningLink.url);
-        });
-
-        it('should render a link with the content provided in `noCookiesLink`', async() => {
-            const wrapper = factoryShallowMount();
-
-            const warningLink = {
-                url: 'https://google.com',
-                label: 'Update settings here',
-            };
-
-            await wrapper.setProps({
-                warningLink,
-            });
-
-            expect(wrapper.find('[data-test="vs-warning__link"]').html()).toContain(warningLink.label);
-        });
     });
 });

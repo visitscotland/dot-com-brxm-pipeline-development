@@ -1,13 +1,13 @@
 /content/documents/administration/labels/navigation/banner:
   jcr:primaryType: hippo:handle
   jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
-  jcr:uuid: aa92d58d-385a-4aaa-972b-9801df747c82
+  jcr:uuid: 89bd05c3-1b20-47f8-a01b-376da2dc1852
   hippo:name: Banner (Don't translate)
   hippo:versionHistory: 0f9f4c3d-7203-47a1-9234-8638f46cb947
   /banner[1]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:referenceable']
-    jcr:uuid: c7524489-b258-4e18-bbca-cca4c75ae49f
+    jcr:uuid: 1a116331-3522-41aa-8fb8-efc767f556d0
     hippo:availability: []
     hippostd:retainable: false
     hippostd:state: draft
@@ -21,8 +21,8 @@
     resourcebundle:messages: [general/navigation/banner/content]
   /banner[2]:
     jcr:primaryType: resourcebundle:resourcebundle
-    jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
-    jcr:uuid: 49c844ba-b153-4907-be9a-daaffb0255e6
+    jcr:mixinTypes: ['mix:versionable']
+    jcr:uuid: fae5c642-52cd-4ee7-88ad-8bbe28074dd6
     hippo:availability: [preview]
     hippostd:retainable: false
     hippostd:state: unpublished
@@ -37,7 +37,7 @@
   /banner[3]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:referenceable']
-    jcr:uuid: eb63c46b-48b4-4bc4-8eba-5b9b0808732f
+    jcr:uuid: bf16b137-7262-4867-ad8f-14ddb6d5d645
     hippo:availability: [live]
     hippostd:retainable: false
     hippostd:state: published

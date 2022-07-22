@@ -74,7 +74,7 @@
         </#if>
 
         <#if stop??>
-            <#if stop.address?? && stop.address.line1?? && stop.address.line1?has_content>
+            <#if stop.address??>
                 <vs-address slot="stop-address">
                     <#assign addressArr = [
                         stop.address.line1!"",

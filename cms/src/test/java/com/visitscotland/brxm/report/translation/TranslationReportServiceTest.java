@@ -1,12 +1,12 @@
 package com.visitscotland.brxm.report.translation;
 
+import com.fasterxml.jackson.databind.util.StdDateFormat;
 import com.visitscotland.brxm.translation.MockJcrDocumentBuilder;
 import com.visitscotland.brxm.translation.MockNodeBuilder;
 import com.visitscotland.brxm.translation.SessionFactory;
 import com.visitscotland.brxm.translation.plugin.JcrDocument;
 import com.visitscotland.brxm.translation.plugin.JcrDocumentFactory;
 import org.assertj.core.util.Sets;
-import org.codehaus.jackson.map.util.StdDateFormat;
 import org.hamcrest.MatcherAssert;
 import org.hippoecm.repository.HippoStdNodeType;
 import org.junit.jupiter.api.Assertions;

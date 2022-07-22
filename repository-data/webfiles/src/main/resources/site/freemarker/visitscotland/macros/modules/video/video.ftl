@@ -5,9 +5,12 @@
 <#macro video video>
     <@videoSchema video />
     <vs-video
-            video-id="${video.youtubeId}"
-            language="${locale}"
-            single-minute-descriptor="${label('video', 'video.minute-text')}"
-            plural-minute-descriptor="${label('video', 'video.minutes-text')}"
+        video-id="${video.youtubeId}"
+        language="${locale}"
+        single-minute-descriptor="${label('video', 'video.minute-text')}"
+        plural-minute-descriptor="${label('video', 'video.minutes-text')}"
+        no-cookies-message="${label('video', 'video.no-cookies')}"
+        no-js-message="${label('video', 'video.no-js')}"
+        cookie-link-text="${label('essentials.global', 'cookie.link-message')}"
     />
 </#macro>

@@ -1,7 +1,8 @@
 package com.visitscotland.brxm.report.translation;
 
+import com.fasterxml.jackson.databind.util.StdDateFormat;
 import com.visitscotland.brxm.report.ReportException;
-import org.codehaus.jackson.map.util.StdDateFormat;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;

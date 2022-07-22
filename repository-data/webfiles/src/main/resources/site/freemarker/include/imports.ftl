@@ -14,3 +14,4 @@
 <#-- Indicates if the URLs need to be fully qualified. (i.e. For integration with 3rd parties) -->
 <#assign fullyQualifiedURLs = hstRequestContext.getModel("fullyQualified")???then(true,false)>
 <#include "./helpers.ftl">
+<#assign integration=false>

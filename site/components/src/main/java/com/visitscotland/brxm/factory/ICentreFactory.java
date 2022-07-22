@@ -19,6 +19,7 @@ import com.visitscotland.utils.DataServiceUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
+import vs.ase.dms.ProductTypes;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -146,7 +147,7 @@ public class ICentreFactory {
                 String label = child.get(DMSConstants.MapSearch.PROPERTIES).get(DMSConstants.MapSearch.NAME).asText();
                 String id = child.get(DMSConstants.MapSearch.PROPERTIES).get(DMSConstants.MapSearch.ID).asText();
                 String languagePath = Language.getLanguageForLocale(locale).getPathVariable();
-                String url = properties.getDmsHost() + DataServiceUtils.getProductURL(label, id, DMSConstants.TYPE_SERVICES, languagePath);
+                String url = properties.getDmsHost() + DataServiceUtils.getProductURL(label, id, ProductTypes.TOURIST_INFO.getUrlPath(), languagePath);
                 vicList.add(new FlatLink(label, url, LinkType.INTERNAL));
             }
         }

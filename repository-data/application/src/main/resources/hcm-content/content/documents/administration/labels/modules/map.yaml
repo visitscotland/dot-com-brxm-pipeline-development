@@ -2,20 +2,20 @@
   .meta:order-before: canned-search
   jcr:primaryType: hippo:handle
   jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
-  jcr:uuid: 71df6e9b-23c6-447c-85c9-28e719ee59a2
+  jcr:uuid: 90a989a9-0550-481a-ba43-189d8c527974
   hippo:name: Map
-  hippo:versionHistory: b2e215e5-0ab2-493f-a51c-603388025ef4
+  hippo:versionHistory: 7c01643c-8d60-42cf-a813-4bd0c0e6bdc9
   /map[1]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:referenceable']
-    jcr:uuid: b5487bda-8e8d-46ab-94eb-ac0fa8077bf1
+    jcr:uuid: 15fc245f-a0b8-414a-a7b6-046ac7b9ebb3
     hippo:availability: []
     hippostd:retainable: false
     hippostd:state: draft
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2020-03-02T10:09:34.350Z
-    hippostdpubwf:lastModificationDate: 2022-06-16T12:50:04.858+01:00
-    hippostdpubwf:lastModifiedBy: admin
+    hippostdpubwf:lastModificationDate: 2022-07-08T10:33:09.737+02:00
+    hippostdpubwf:lastModifiedBy: nikki.sherret
     resourcebundle:descriptions: ['', '', '', '', '', '']
     resourcebundle:id: map
     resourcebundle:keys: [map.fullscreen, map.exitfullscreen, map.reset, map.zoomin,
@@ -23,24 +23,26 @@
     resourcebundle:messages: [Show fullscreen, Exit fullscreen, Reset angle, Zoom
         in, Zoom out, Featured Places]
     resourcebundle:messages_de: [Vollbild anzeigen, Vollbild schließen, Zurücksetzen,
-      Vergrößern, Verkleinern, '']
+      Vergrößern, Verkleinern, Besondere Orte]
     resourcebundle:messages_es: [Mostrar pantalla completa, Cerrar pantalla completa,
-      Restablecer ángulo, Ampliar, Reducir, '']
-    resourcebundle:messages_fr: ['', '', '', '', '', '']
-    resourcebundle:messages_it: ['', '', '', '', '', '']
+      Restablecer ángulo, Ampliar, Reducir, Lugares destacados]
+    resourcebundle:messages_fr: [Afficher en mode plein écran, Fermer le mode plein
+        écran, Réinitialiser, Zoomer, Dézoomer, Lieux d’intérêt]
+    resourcebundle:messages_it: [Mostra a schermo intero, Esci dallo schermo intero,
+      Reset, Ingrandisci, Riduci, Luoghi in primo piano]
     resourcebundle:messages_nl: [Volledig scherm tonen, Volledig scherm sluiten, Heroriënteren,
       Inzoomen, Uitzoomen, '']
   /map[2]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:versionable']
-    jcr:uuid: cefe9dbb-9a42-49b4-92c1-f5f6d7a1fe37
+    jcr:uuid: 2d17be4c-bae1-48af-8219-a26362972710
     hippo:availability: [preview]
     hippostd:retainable: false
     hippostd:state: unpublished
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2020-03-02T10:09:34.350Z
-    hippostdpubwf:lastModificationDate: 2022-06-16T12:50:04.756+01:00
-    hippostdpubwf:lastModifiedBy: admin
+    hippostdpubwf:lastModificationDate: 2022-07-08T10:34:06.690+02:00
+    hippostdpubwf:lastModifiedBy: nikki.sherret
     resourcebundle:descriptions: ['', '', '', '', '', '']
     resourcebundle:id: map
     resourcebundle:keys: [map.fullscreen, map.exitfullscreen, map.reset, map.zoomin,
@@ -48,25 +50,27 @@
     resourcebundle:messages: [Show fullscreen, Exit fullscreen, Reset angle, Zoom
         in, Zoom out, Featured Places]
     resourcebundle:messages_de: [Vollbild anzeigen, Vollbild schließen, Zurücksetzen,
-      Vergrößern, Verkleinern, '']
+      Vergrößern, Verkleinern, Besondere Orte]
     resourcebundle:messages_es: [Mostrar pantalla completa, Cerrar pantalla completa,
-      Restablecer ángulo, Ampliar, Reducir, '']
-    resourcebundle:messages_fr: ['', '', '', '', '', '']
-    resourcebundle:messages_it: ['', '', '', '', '', '']
+      Restablecer ángulo, Ampliar, Reducir, Lugares destacados]
+    resourcebundle:messages_fr: [Afficher en mode plein écran, Fermer le mode plein
+        écran, Réinitialiser, Zoomer, Dézoomer, Lieux d’intérêt]
+    resourcebundle:messages_it: [Mostra a schermo intero, Esci dallo schermo intero,
+      Reset, Ingrandisci, Riduci, Luoghi in primo piano]
     resourcebundle:messages_nl: [Volledig scherm tonen, Volledig scherm sluiten, Heroriënteren,
       Inzoomen, Uitzoomen, '']
   /map[3]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:referenceable']
-    jcr:uuid: 9c0d09cc-c833-443a-a4b2-437b2e18ab6e
+    jcr:uuid: 2f1fc321-5506-4c38-8fc9-8b48f19292ea
     hippo:availability: [live]
     hippostd:retainable: false
     hippostd:state: published
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2020-03-02T10:09:34.350Z
-    hippostdpubwf:lastModificationDate: 2022-06-16T12:50:04.756+01:00
-    hippostdpubwf:lastModifiedBy: admin
-    hippostdpubwf:publicationDate: 2022-06-16T12:50:07.933+01:00
+    hippostdpubwf:lastModificationDate: 2022-07-08T10:34:06.690+02:00
+    hippostdpubwf:lastModifiedBy: nikki.sherret
+    hippostdpubwf:publicationDate: 2022-07-13T17:54:15.038+02:00
     resourcebundle:descriptions: ['', '', '', '', '', '']
     resourcebundle:id: map
     resourcebundle:keys: [map.fullscreen, map.exitfullscreen, map.reset, map.zoomin,
@@ -74,10 +78,12 @@
     resourcebundle:messages: [Show fullscreen, Exit fullscreen, Reset angle, Zoom
         in, Zoom out, Featured Places]
     resourcebundle:messages_de: [Vollbild anzeigen, Vollbild schließen, Zurücksetzen,
-      Vergrößern, Verkleinern, '']
+      Vergrößern, Verkleinern, Besondere Orte]
     resourcebundle:messages_es: [Mostrar pantalla completa, Cerrar pantalla completa,
-      Restablecer ángulo, Ampliar, Reducir, '']
-    resourcebundle:messages_fr: ['', '', '', '', '', '']
-    resourcebundle:messages_it: ['', '', '', '', '', '']
+      Restablecer ángulo, Ampliar, Reducir, Lugares destacados]
+    resourcebundle:messages_fr: [Afficher en mode plein écran, Fermer le mode plein
+        écran, Réinitialiser, Zoomer, Dézoomer, Lieux d’intérêt]
+    resourcebundle:messages_it: [Mostra a schermo intero, Esci dallo schermo intero,
+      Reset, Ingrandisci, Riduci, Luoghi in primo piano]
     resourcebundle:messages_nl: [Volledig scherm tonen, Volledig scherm sluiten, Heroriënteren,
       Inzoomen, Uitzoomen, '']

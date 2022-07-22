@@ -1,20 +1,20 @@
 /content/documents/administration/labels/modules/canned-search:
   jcr:primaryType: hippo:handle
   jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
-  jcr:uuid: 2fc12e8a-5156-437e-9395-0b02b37f440c
+  jcr:uuid: d3723bbf-fbfe-4da1-a491-e54f1859d742
   hippo:name: Canned Search
-  hippo:versionHistory: 535c63f3-36e6-475e-9360-d41fa71093c1
+  hippo:versionHistory: 90121ecd-8bac-4469-bd55-c68a286a904e
   /canned-search[1]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:referenceable']
-    jcr:uuid: cd46a422-9904-4939-8593-3cf49484862b
+    jcr:uuid: 5edb680e-91a9-46db-b33d-5faad02cd2b0
     hippo:availability: []
     hippostd:retainable: false
     hippostd:state: draft
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2021-07-28T16:42:54.442+01:00
-    hippostdpubwf:lastModificationDate: 2021-10-14T10:27:59.717Z
-    hippostdpubwf:lastModifiedBy: admin
+    hippostdpubwf:lastModificationDate: 2022-07-08T10:34:58.822+02:00
+    hippostdpubwf:lastModifiedBy: nikki.sherret
     resourcebundle:descriptions: ['', '', '']
     resourcebundle:id: canned-search
     resourcebundle:keys: [canned-search.listview, canned-search.mapview, canned-search.credit-events]
@@ -24,8 +24,8 @@
         von <a href="http://www.list.co.uk">The List</a>']
     resourcebundle:messages_es: [Ver todos, Ver en el mapa, '© Información de eventos
         de <a href="http://www.list.co.uk">The List</a>']
-    resourcebundle:messages_fr: [Voir tout, Voir sur la carte, '© Informations relatives
-        aux événements de <a href="http://www.list.co.uk">The List</a>']
+    resourcebundle:messages_fr: [Tout afficher, Afficher sur la carte, '© Informations
+        relatives aux événements de <a href="http://www.list.co.uk">The List</a>']
     resourcebundle:messages_it: [Visualizza tutto, Visualizza sulla mappa, '© Informazioni
         sugli eventi a cura di <a href="http://www.list.co.uk">The List</a>']
     resourcebundle:messages_nl: [Alles zien, Op de kaart, '© Evenementinformatie van
@@ -33,14 +33,14 @@
   /canned-search[2]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:versionable']
-    jcr:uuid: db645568-df73-49e9-8d4c-afae0220381c
+    jcr:uuid: ae99253f-623f-4d91-9cd8-bc9eebfdb1ea
     hippo:availability: [preview]
     hippostd:retainable: false
     hippostd:state: unpublished
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2021-07-28T16:42:54.442+01:00
-    hippostdpubwf:lastModificationDate: 2021-10-14T10:28:28.972Z
-    hippostdpubwf:lastModifiedBy: admin
+    hippostdpubwf:lastModificationDate: 2022-07-08T10:35:18.858+02:00
+    hippostdpubwf:lastModifiedBy: nikki.sherret
     resourcebundle:descriptions: ['', '', '']
     resourcebundle:id: canned-search
     resourcebundle:keys: [canned-search.listview, canned-search.mapview, canned-search.credit-events]
@@ -50,8 +50,8 @@
         von <a href="http://www.list.co.uk">The List</a>']
     resourcebundle:messages_es: [Ver todos, Ver en el mapa, '© Información de eventos
         de <a href="http://www.list.co.uk">The List</a>']
-    resourcebundle:messages_fr: [Voir tout, Voir sur la carte, '© Informations relatives
-        aux événements de <a href="http://www.list.co.uk">The List</a>']
+    resourcebundle:messages_fr: [Tout afficher, Afficher sur la carte, '© Informations
+        relatives aux événements de <a href="http://www.list.co.uk">The List</a>']
     resourcebundle:messages_it: [Visualizza tutto, Visualizza sulla mappa, '© Informazioni
         sugli eventi a cura di <a href="http://www.list.co.uk">The List</a>']
     resourcebundle:messages_nl: [Alles zien, Op de kaart, '© Evenementinformatie van
@@ -59,15 +59,15 @@
   /canned-search[3]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:referenceable']
-    jcr:uuid: cb87ce28-d502-4900-b3a0-f53144ad39a1
+    jcr:uuid: 25221150-b119-4339-9ed9-fb578aa19828
     hippo:availability: [live]
     hippostd:retainable: false
     hippostd:state: published
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2021-07-28T16:42:54.442+01:00
-    hippostdpubwf:lastModificationDate: 2021-10-14T10:28:28.972Z
-    hippostdpubwf:lastModifiedBy: admin
-    hippostdpubwf:publicationDate: 2021-10-14T10:28:31.303Z
+    hippostdpubwf:lastModificationDate: 2022-07-08T10:35:18.858+02:00
+    hippostdpubwf:lastModifiedBy: nikki.sherret
+    hippostdpubwf:publicationDate: 2022-07-13T17:54:15.213+02:00
     resourcebundle:descriptions: ['', '', '']
     resourcebundle:id: canned-search
     resourcebundle:keys: [canned-search.listview, canned-search.mapview, canned-search.credit-events]
@@ -77,8 +77,8 @@
         von <a href="http://www.list.co.uk">The List</a>']
     resourcebundle:messages_es: [Ver todos, Ver en el mapa, '© Información de eventos
         de <a href="http://www.list.co.uk">The List</a>']
-    resourcebundle:messages_fr: [Voir tout, Voir sur la carte, '© Informations relatives
-        aux événements de <a href="http://www.list.co.uk">The List</a>']
+    resourcebundle:messages_fr: [Tout afficher, Afficher sur la carte, '© Informations
+        relatives aux événements de <a href="http://www.list.co.uk">The List</a>']
     resourcebundle:messages_it: [Visualizza tutto, Visualizza sulla mappa, '© Informazioni
         sugli eventi a cura di <a href="http://www.list.co.uk">The List</a>']
     resourcebundle:messages_nl: [Alles zien, Op de kaart, '© Evenementinformatie van

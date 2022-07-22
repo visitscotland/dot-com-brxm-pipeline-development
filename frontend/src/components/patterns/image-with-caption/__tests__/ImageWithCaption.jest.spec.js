@@ -121,13 +121,6 @@ describe('VsImageWithCaption', () => {
             expect(captionWrapper.text()).toContain(captionSlot);
         });
 
-        it('renders content in the `video-no-js-alert` slot', () => {
-            const wrapper = factoryShallowMount();
-            const videoCaptionStub = wrapper.find('vsvideocaption-stub');
-
-            expect(videoCaptionStub.text()).toContain(alertSlot);
-        });
-
         it('renders content in the `video-title` slot', () => {
             const wrapper = factoryShallowMount();
             const videoCaptionStub = wrapper.find('vsvideocaption-stub');
