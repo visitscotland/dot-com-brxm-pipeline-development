@@ -115,9 +115,9 @@ pipeline {
         sh 'sh ./infrastructure/scripts/infrastructure.sh setvars'
 		sh 'echo $PATH'
         sh 'g++ -v'
-        sh 'export PATH=/opt/rh/devtoolset-3/root/usr/bin:$PATH'
+        sh 'export PATH=/opt/rh/devtoolset-3/root/usr/bin:$PATH; g++ -v'
 		sh 'echo $PATH'
-        sh 'g++ -v'
+        sh 'which g++'
         // -- 20200712: QUESTION FOR SE, "why do we not build with-development-data?"
         sh 'mvn -f pom.xml clean package'
       }
