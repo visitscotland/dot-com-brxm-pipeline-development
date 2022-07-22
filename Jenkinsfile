@@ -114,6 +114,7 @@ pipeline {
       steps {
         sh 'sh ./infrastructure/scripts/infrastructure.sh setvars'
         sh '''#!/bin/bash
+        	shopt -s expand_aliases
         	alias gcc="scl enable devtoolset-3 -- gcc"
             alias g++="scl enable devtoolset-3 -- g++"
         '''
