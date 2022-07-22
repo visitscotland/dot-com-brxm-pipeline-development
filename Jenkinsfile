@@ -116,7 +116,6 @@ pipeline {
 		sh 'sh echo $PATH'
         sh 'sh export PATH=/opt/rh/devtoolset-3/root/usr/bin;$PATH'
 		sh 'sh echo $PATH'
-		sh 'echo $PATH'
         // -- 20200712: QUESTION FOR SE, "why do we not build with-development-data?"
         sh 'mvn -f pom.xml clean package'
       }
