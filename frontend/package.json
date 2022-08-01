@@ -48,7 +48,8 @@
     "pretest:watch": "yarn theo",
     "pretest:coverage": "yarn theo",
     "pretest:debug:chrome": "yarn theo",
-    "pretest:e2e": "yarn theo"
+    "pretest:e2e": "yarn theo",
+    "postinstall": "rm ../yarn.l* && ln -s ./yarn.lock ../yarn.lock"
   },
   "repository": {
     "type": "git",

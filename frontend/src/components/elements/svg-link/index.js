@@ -1,5 +1,3 @@
 import VsSvgLink from './SvgLink';
 
-export default {
-    VsSvgLink,
-};
+export default VsSvgLink;
