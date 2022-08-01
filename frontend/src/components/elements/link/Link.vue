@@ -9,6 +9,7 @@
         :download="type === 'download'"
         :disabled="disabled"
         v-bind="$attrs"
+        @click="clickHandler($event)"
     >
         <!-- @slot Default slot for link content -->
         <slot /><VsIcon
@@ -24,6 +25,7 @@
 <script>
 import { BLink } from 'bootstrap-vue';
 import VsIcon from '@components/elements/icon/Icon';
+import dataLayerMixin from '../../../mixins/dataLayerMixin';
 
 /**
  * Links allow a user to navigate through
@@ -40,6 +42,7 @@ export default {
         BLink,
         VsIcon,
     },
+    mixins: [dataLayerMixin],
     props: {
         /**
          * The URL the link will point to
@@ -86,6 +89,17 @@ export default {
     computed: {
         variantClass() {
             return `vs-link--variant-${this.variant}`;
+        },
+    },
+    methods: {
+        clickHandler(event) {
+            event.preventDefault();
+            if (this.type === 'external') {
+                this.externalLinkDataEvent(event);
+            } else {
+                this.internalLinkDataEvent(event);
+            }
+            window.location.replace(this.href);
         },
     },
 };

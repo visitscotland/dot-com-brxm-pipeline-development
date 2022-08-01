@@ -1,20 +1,22 @@
 /content/documents/administration/labels/modules/iknow-community-tags:
+  .meta:order-before: forms
   jcr:primaryType: hippo:handle
   jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
-  jcr:uuid: 1db63d8c-5663-4194-a594-990b1a52103b
-  hippo:name: Iknow Community Tags
-  hippo:versionHistory: 7abd21f0-0b31-41c2-9b45-b1f34306eed4
+  jcr:uuid: 4b465611-5a27-4e11-bd97-7c46ae0b1611
+  hippo:name: Iknow Community Tags (Don't translate)
+  hippo:versionHistory: 948aa783-4a08-484f-ae5b-7f13a3a286c2
   /iknow-community-tags[1]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:referenceable']
-    jcr:uuid: 2e12de39-1364-4715-a6cc-130ef64b893f
+    jcr:uuid: 1f52eac9-c27c-4c14-80f0-3f04da8bbb9c
     hippo:availability: []
     hippostd:retainable: false
     hippostd:state: draft
+    hippostd:transferable: false
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2021-10-08T08:44:06.647Z
-    hippostdpubwf:lastModificationDate: 2021-10-20T11:57:01.210+01:00
-    hippostdpubwf:lastModifiedBy: admin
+    hippostdpubwf:lastModificationDate: 2022-02-23T13:12:24.954+01:00
+    hippostdpubwf:lastModifiedBy: juanluis.hurtado
     resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '', '', '', '',
       '', '', '', '', '', '', '', '']
     resourcebundle:id: iknow-community-tags
@@ -38,7 +40,7 @@
   /iknow-community-tags[2]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:versionable']
-    jcr:uuid: 504b93a4-6796-4b50-a35b-d8c450ec3772
+    jcr:uuid: 48ff07dd-a56f-4089-83b7-8933071b56ab
     hippo:availability: [preview]
     hippostd:retainable: false
     hippostd:state: unpublished
@@ -69,7 +71,7 @@
   /iknow-community-tags[3]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:referenceable']
-    jcr:uuid: 0fb71dad-e5fa-4ac5-baf2-5685481467e0
+    jcr:uuid: 01c36963-2e58-46f6-a819-e1483bed0745
     hippo:availability: [live]
     hippostd:retainable: false
     hippostd:state: published
@@ -77,7 +79,7 @@
     hippostdpubwf:creationDate: 2021-10-08T08:44:06.647Z
     hippostdpubwf:lastModificationDate: 2021-10-20T11:57:32.293+01:00
     hippostdpubwf:lastModifiedBy: admin
-    hippostdpubwf:publicationDate: 2021-10-20T11:57:43.489+01:00
+    hippostdpubwf:publicationDate: 2022-02-23T13:12:41.463+01:00
     resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '', '', '', '',
       '', '', '', '', '', '', '', '']
     resourcebundle:id: iknow-community-tags

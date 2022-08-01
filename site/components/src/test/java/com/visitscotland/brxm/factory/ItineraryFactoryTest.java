@@ -99,11 +99,11 @@ class ItineraryFactoryTest {
     void itineraryDistance(Double distance) {
         List<Day> days = new ArrayList<>();
         days.add(new ItineraryDayMockBuilder()
-                .addExternalStop("1.1").coordinates(-1., -1.)
-                .addExternalStop("1.2").coordinates(-1., 1.).build());
+                .addExternalStop("1.1", false).coordinates(-1., -1.)
+                .addExternalStop("1.2",false).coordinates(-1., 1.).build());
         days.add(new ItineraryDayMockBuilder()
-                .addExternalStop("2.1").coordinates(1., 1.)
-                .addExternalStop("2.2").coordinates(1., -1.).build());
+                .addExternalStop("2.1",false).coordinates(1., 1.)
+                .addExternalStop("2.2",false).coordinates(1., -1.).build());
 
         when(documentUtils.getAllowedDocuments(itinerary, Day.class)).thenReturn(days);
         when(itinerary.getDistance()).thenReturn(distance);
@@ -297,7 +297,22 @@ class ItineraryFactoryTest {
 
     @Test
     void externalStop() {
-        List<Day> days = new ItineraryDayMockBuilder().addExternalStop("mysite.com").coordinates(1., -2.).buildAsList();
+        List<Day> days = new ItineraryDayMockBuilder().addExternalStop("mysite.com",false).coordinates(1., -2.).buildAsList();
+
+        when(documentUtils.getAllowedDocuments(itinerary, Day.class)).thenReturn(days);
+
+        ItineraryStopModule module = getSingleStop(factory.buildItinerary(itinerary, Locale.UK));
+
+        verify(linkService, atLeastOnce()).createExternalLink(any(), any(), any());
+
+        assertTrue(Contract.isEmpty(module.getErrorMessages()));
+        assertEquals(1., module.getCoordinates().getLatitude());
+        assertEquals(-2., module.getCoordinates().getLongitude());
+    }
+
+    @Test
+    void externalStopWithCta() {
+        List<Day> days = new ItineraryDayMockBuilder().addExternalStop("mysite.com",true).coordinates(1., -2.).buildAsList();
 
         when(documentUtils.getAllowedDocuments(itinerary, Day.class)).thenReturn(days);
 
@@ -312,7 +327,7 @@ class ItineraryFactoryTest {
 
     @Test
     void externalStop_timeToExplore() {
-        List<Day> days = new ItineraryDayMockBuilder().addExternalStop("mysite.com").timeToExplore("2").buildAsList();
+        List<Day> days = new ItineraryDayMockBuilder().addExternalStop("mysite.com",false).timeToExplore("2").buildAsList();
 
         when(documentUtils.getAllowedDocuments(itinerary, Day.class)).thenReturn(days);
         when(bundle.getResourceBundle(ItineraryFactory.BUNDLE_FILE, "stop.hours", Locale.UK)).thenReturn("hours");
@@ -380,7 +395,7 @@ class ItineraryFactoryTest {
     @Test
     @DisplayName("When no cta provided for external link, default cta is set")
     void externalCtaSet() throws Exception {
-        List<Day> days = new ItineraryDayMockBuilder().addExternalStop("https://example.com").title("title").buildAsList();
+        List<Day> days = new ItineraryDayMockBuilder().addExternalStop("https://example.com",false).title("title").buildAsList();
         when(documentUtils.getAllowedDocuments(itinerary, Day.class)).thenReturn(days);
         when(bundle.getFindOutMoreAboutCta("title", Locale.UK)).thenReturn("Find out more about title");
 

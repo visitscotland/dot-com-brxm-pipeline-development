@@ -12,7 +12,7 @@
   <description>www.visitscotland.com CMS Pages</description>
   <groupId>com.visitscotland</groupId>
   <artifactId>dot-com-brxm</artifactId>
-  <version>1.0.7-SNAPSHOT</version>
+  <version>1.0.8-SNAPSHOT</version>
   <packaging>pom</packaging>
   
   <properties>
@@ -20,8 +20,6 @@
     <!--***START temporary override of versions*** -->
     <!-- ***END temporary override of versions*** -->
     <!--TODO define this in parent pom -->
-   
-    <data-service-api.version>1.2.1</data-service-api.version>
     <commons-lan3.version>3.8.1</commons-lan3.version>
     
     <junit.jupiter.version>5.7.1</junit.jupiter.version>
@@ -91,11 +89,10 @@
       </dependency>
 
       <!-- VisitScotland Dependencies -->
-
       <dependency>
         <groupId>com.visitscotland</groupId>
         <artifactId>data-service-api</artifactId>
-        <version>${data-service-api.version}</version>
+        <version>1.2.1</version>
         <exclusions>
           <exclusion>
             <groupId>org.jboss.resteasy</groupId>
@@ -114,6 +111,12 @@
             <artifactId>slf4j-log4j12</artifactId>
           </exclusion>
         </exclusions>
+      </dependency>
+
+      <dependency>
+        <groupId>com.visitscotland</groupId>
+        <artifactId>utils</artifactId>
+        <version>3.0.0</version>
       </dependency>
 
       <!-- Test Dependencies -->

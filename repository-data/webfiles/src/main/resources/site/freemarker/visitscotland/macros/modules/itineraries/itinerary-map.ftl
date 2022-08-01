@@ -28,12 +28,12 @@
                         </#if>
                         <#if stop.coordinates?? && stop.coordinates.latitude?? && stop.coordinates.latitude?has_content && stop.coordinates.longitude?? && stop.coordinates.longitude?has_content>
                         {
-                            title: '${stop.title}',
+                            title: '${escapeJSON(stop.title)}',
                             latitude: '${stop.coordinates.latitude}',
                             longitude: '${stop.coordinates.longitude}',
                             stopCount: '${stop.index}',
                             imageSrc: '${image}',
-                            altText: '${stop.title}'
+                            altText: '${escapeJSON(stop.title)}'
                         },
                         </#if>
                     </#if>

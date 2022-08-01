@@ -11,7 +11,7 @@ definitions:
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:uuid: c241e443-15cc-47f2-a220-0dccbe7a666a
+          jcr:uuid: c1e07c20-f147-40b7-8a59-05ca11de96e2
           hipposysedit:node: true
           hipposysedit:supertype: ['visitscotland:Page', 'hippostd:relaxed', 'hippotranslation:translated']
           hipposysedit:uri: http://www.visitscotland.com/visitscotland/nt/1.0
@@ -41,7 +41,7 @@ definitions:
           visitscotland:title: ''
           visitscotland:seoTitle: ''
           jcr:mixinTypes: ['mix:referenceable']
-          jcr:uuid: bdf6f699-3b1a-4884-87d2-0ed02b32fb86
+          jcr:uuid: 90660825-a5a3-45b3-a16f-b216a4e8106b
           hippostdpubwf:lastModificationDate: 2020-09-25T13:13:22.744+01:00
           hippostdpubwf:creationDate: 2020-09-25T13:13:22.744+01:00
           visitscotland:theme: Standard
@@ -116,7 +116,7 @@ definitions:
               to use.
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-              selectable.options: Standard,Simple
+              selectable.options: Top-Level,Standard,Simple
           /breadcrumb:
             jcr:primaryType: frontend:plugin
             caption: Override Navigation & Breadcrumb

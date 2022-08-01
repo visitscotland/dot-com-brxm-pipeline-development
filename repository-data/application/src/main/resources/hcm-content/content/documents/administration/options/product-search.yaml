@@ -2,12 +2,12 @@
   .meta:order-before: official-rating
   jcr:primaryType: hippo:handle
   jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
-  jcr:uuid: 315c51e6-f04a-4a8f-852d-2a2bb12575c1
+  jcr:uuid: 650f4b7d-d0bb-4c5b-8fd5-ccb0b32a93c8
   hippo:name: Product Search - Product type
   /product-search:
     jcr:primaryType: selection:valuelist
     jcr:mixinTypes: ['hippotranslation:translated', 'mix:referenceable']
-    jcr:uuid: 74791faa-eab1-490d-9ba3-3c831f1c8714
+    jcr:uuid: 464a5759-fd7f-407d-ad86-7e8e387e2a0b
     hippo:availability: [live, preview]
     hippotranslation:id: 30da6cb4-6f41-41b3-a594-1c0418d66cb4
     hippotranslation:locale: inherited - from query
@@ -27,4 +27,3 @@
       jcr:primaryType: selection:listitem
       selection:key: cate
       selection:label: Food & Drink
-

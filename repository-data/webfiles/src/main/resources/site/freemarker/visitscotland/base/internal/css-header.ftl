@@ -5,6 +5,8 @@
     <#include "../base-top-menu.ftl">
     <#include "../utility-footer.ftl">
 
+    <#assign integration=true>
+
     <#if legacy?? && (legacy != "false")>
         <link rel="stylesheet" href="<@hst.link fullyQualified=fullyQualifiedURLs path='/webfiles/static/third-party/embed/processed-styles/legacy.css' />" />
     </#if>

@@ -1,91 +1,88 @@
 /content/documents/administration/labels/modules/video:
   jcr:primaryType: hippo:handle
   jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
-  jcr:uuid: 13e2d0f4-9ae5-412d-bde8-059b1c0494d7
+  jcr:uuid: e7380fa0-eaa8-413a-9a0c-8fdbd20f7cfd
   hippo:name: Video
-  hippo:versionHistory: 5aa66650-519f-4edf-923d-1d16cfcc8bce
+  hippo:versionHistory: 4cc8ae73-82c4-437f-9cea-a1537877ba8a
   /video[1]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:referenceable']
-    jcr:uuid: 94c16270-7794-4153-b69c-7e413309dae5
+    jcr:uuid: d1c55bb9-fc31-409e-b16a-858629cce3db
     hippo:availability: []
     hippostd:retainable: false
     hippostd:state: draft
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2021-12-06T14:16:20.241Z
-    hippostdpubwf:lastModificationDate: 2022-06-24T09:28:00.349+01:00
-    hippostdpubwf:lastModifiedBy: admin
-    resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '']
+    hippostdpubwf:lastModificationDate: 2022-07-14T14:23:10.241+02:00
+    hippostdpubwf:lastModifiedBy: juanluis.hurtado
+    resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '', '']
     resourcebundle:id: video
     resourcebundle:keys: [video.play-btn, video.no-js, video.minute-text, video.minutes-text,
       video.video-descriptor, video.no-js-message, video.missing-cookies-message,
-      video.cookie-setting-link-url, video.no-cookies]
+      video.cookie-setting-link-message, video.cookie-setting-link-url, video.no-cookies]
     resourcebundle:messages: [Play video, JavaScript needs to be enabled to watch
         this video. You can turn this on in your browser settings., '%s minute video',
       '%s minute video', Video, JavaScript needs to be enabled to watch this video.
         You can turn this on in your browser settings., Cookies are needed to watch
-        this video., 'https://www.visitscotland.com/policies/privacy/cookies/', You
-        need cookies to view the video]
-    resourcebundle:messages_de: ['', '', '', '', '', '', '', '', '']
-    resourcebundle:messages_es: ['', '', '', '', '', '', '', '', '']
-    resourcebundle:messages_fr: ['', '', '', '', '', '', '', '', '']
-    resourcebundle:messages_it: ['', '', '', '', '', '', '', '', '']
-    resourcebundle:messages_nl: ['', '', '', '', '', '', '', '', '']
-    resourcebundle:messages_video.video: ['', '', '', '', '', '', '', '', '']
+        this video., Update my cookie settings, 'https://www.visitscotland.com/policies/privacy/cookies/',
+      You need cookies to view the video]
+    resourcebundle:messages_de: ['', '', '', '', '', '', '', '', '', '']
+    resourcebundle:messages_es: ['', '', '', '', '', '', '', '', '', '']
+    resourcebundle:messages_fr: ['', '', '', '', '', '', '', '', '', '']
+    resourcebundle:messages_it: ['', '', '', '', '', '', '', '', '', '']
+    resourcebundle:messages_nl: ['', '', '', '', '', '', '', '', '', '']
   /video[2]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
-    jcr:uuid: f88ed2b8-4046-438c-aab3-512d24843ae1
+    jcr:uuid: bcf71e80-f162-4d2d-9a62-86c48874ba64
     hippo:availability: [preview]
     hippostd:retainable: false
     hippostd:state: unpublished
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2021-12-06T14:16:20.241Z
-    hippostdpubwf:lastModificationDate: 2022-07-04T11:18:06.609+01:00
-    hippostdpubwf:lastModifiedBy: admin
-    resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '']
+    hippostdpubwf:lastModificationDate: 2022-07-14T14:23:10.148+02:00
+    hippostdpubwf:lastModifiedBy: juanluis.hurtado
+    resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '', '']
     resourcebundle:id: video
     resourcebundle:keys: [video.play-btn, video.no-js, video.minute-text, video.minutes-text,
       video.video-descriptor, video.no-js-message, video.missing-cookies-message,
-      video.cookie-setting-link-url, video.no-cookies]
+      video.cookie-setting-link-message, video.cookie-setting-link-url, video.no-cookies]
     resourcebundle:messages: [Play video, JavaScript needs to be enabled to watch
         this video. You can turn this on in your browser settings., '%s minute video',
       '%s minute video', Video, JavaScript needs to be enabled to watch this video.
         You can turn this on in your browser settings., Cookies are needed to watch
-        this video., 'https://www.visitscotland.com/policies/privacy/cookies/', You
-        need cookies to view the video]
-    resourcebundle:messages_de: ['', '', '', '', '', '', '', '', '']
-    resourcebundle:messages_es: ['', '', '', '', '', '', '', '', '']
-    resourcebundle:messages_fr: ['', '', '', '', '', '', '', '', '']
-    resourcebundle:messages_it: ['', '', '', '', '', '', '', '', '']
-    resourcebundle:messages_nl: ['', '', '', '', '', '', '', '', '']
-    resourcebundle:messages_video.video: ['', '', '', '', '', '', '', '', '']
+        this video., Update my cookie settings, 'https://www.visitscotland.com/policies/privacy/cookies/',
+      You need cookies to view the video]
+    resourcebundle:messages_de: ['', '', '', '', '', '', '', '', '', '']
+    resourcebundle:messages_es: ['', '', '', '', '', '', '', '', '', '']
+    resourcebundle:messages_fr: ['', '', '', '', '', '', '', '', '', '']
+    resourcebundle:messages_it: ['', '', '', '', '', '', '', '', '', '']
+    resourcebundle:messages_nl: ['', '', '', '', '', '', '', '', '', '']
   /video[3]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:referenceable']
-    jcr:uuid: d0ac0462-de9d-4c67-bc51-f686c614cbb5
+    jcr:uuid: c2c1ed56-022a-44b3-bb35-a45403d4dc37
     hippo:availability: [live]
     hippostd:retainable: false
     hippostd:state: published
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2021-12-06T14:16:20.241Z
-    hippostdpubwf:lastModificationDate: 2022-07-04T11:18:06.609+01:00
-    hippostdpubwf:lastModifiedBy: admin
-    hippostdpubwf:publicationDate: 2022-07-04T11:18:10.120+01:00
-    resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '']
+    hippostdpubwf:lastModificationDate: 2022-07-14T14:23:10.148+02:00
+    hippostdpubwf:lastModifiedBy: juanluis.hurtado
+    hippostdpubwf:publicationDate: 2022-07-14T14:23:16.143+02:00
+    resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '', '']
     resourcebundle:id: video
     resourcebundle:keys: [video.play-btn, video.no-js, video.minute-text, video.minutes-text,
       video.video-descriptor, video.no-js-message, video.missing-cookies-message,
-      video.cookie-setting-link-url, video.no-cookies]
+      video.cookie-setting-link-message, video.cookie-setting-link-url, video.no-cookies]
     resourcebundle:messages: [Play video, JavaScript needs to be enabled to watch
         this video. You can turn this on in your browser settings., '%s minute video',
       '%s minute video', Video, JavaScript needs to be enabled to watch this video.
         You can turn this on in your browser settings., Cookies are needed to watch
-        this video., 'https://www.visitscotland.com/policies/privacy/cookies/', You
-        need cookies to view the video]
-    resourcebundle:messages_de: ['', '', '', '', '', '', '', '', '']
-    resourcebundle:messages_es: ['', '', '', '', '', '', '', '', '']
-    resourcebundle:messages_fr: ['', '', '', '', '', '', '', '', '']
-    resourcebundle:messages_it: ['', '', '', '', '', '', '', '', '']
-    resourcebundle:messages_nl: ['', '', '', '', '', '', '', '', '']
-    resourcebundle:messages_video.video: ['', '', '', '', '', '', '', '', '']
+        this video., Update my cookie settings, 'https://www.visitscotland.com/policies/privacy/cookies/',
+      You need cookies to view the video]
+    resourcebundle:messages_de: ['', '', '', '', '', '', '', '', '', '']
+    resourcebundle:messages_es: ['', '', '', '', '', '', '', '', '', '']
+    resourcebundle:messages_fr: ['', '', '', '', '', '', '', '', '', '']
+    resourcebundle:messages_it: ['', '', '', '', '', '', '', '', '', '']
+    resourcebundle:messages_nl: ['', '', '', '', '', '', '', '', '', '']

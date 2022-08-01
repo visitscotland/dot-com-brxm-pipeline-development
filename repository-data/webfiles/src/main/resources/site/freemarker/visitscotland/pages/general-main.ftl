@@ -25,10 +25,12 @@
 <div class="has-edit-button">
 	<@hst.manageContent hippobean=document/>
 
-    <#if standardTemplate>
-        <@pageIntro content=document heroDetails=heroImage lightBackground=psrWidget?has_content />
+	<#--TODO current Starndard template will become Top-level and the Starndard Template will be the same with the hero image displayed as an article
+	for now both options are in the CMS so the content team can keep working and both will display the same format -->
+	<#if standardTemplate || document.theme=="Top-Level">
+		<@pageIntro content=document heroDetails=heroImage lightBackground=psrWidget?has_content />
 		<@productSearchWidget psrWidget "top"/>
-    <#else>
+	<#else>
         <@pageIntro content=document lightBackground=true />
     </#if>
 
@@ -36,7 +38,7 @@
 	<#list pageItems as module>
 
 		<#--TODO Colour should be only added to Megalinks, add this code to macros or create a common macro to control it-->
-		<#if standardTemplate >
+		<#if standardTemplate || document.theme=="Top-Level" >
 			<@moduleBuilder module />
 		<#else>
 			<@moduleBuilder module=module colourScheme=["light", "light", "light"] />
@@ -50,7 +52,7 @@
 
     <@socialShare nojs=true/>
 
-	<#if !standardTemplate>
+	<#if !standardTemplate && !document.theme=="Top-Level">
 		<@productSearchWidget psrWidget />
 	</#if>
 

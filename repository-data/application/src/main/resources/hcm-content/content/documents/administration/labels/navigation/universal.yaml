@@ -1,14 +1,14 @@
 /content/documents/administration/labels/navigation/universal:
-  .meta:order-before: meganav
+  .meta:order-before: meganav-links
   jcr:primaryType: hippo:handle
   jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
-  jcr:uuid: 181a31e2-43f8-4c94-bda8-177479aac47d
+  jcr:uuid: 4e19c3fa-22b3-44e0-9167-f015d34860cc
   hippo:name: Language List  (Don't translate)
   hippo:versionHistory: 2c80fab1-31ea-42ac-b187-7d9f46f8fb41
   /universal[1]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:referenceable']
-    jcr:uuid: b588147f-fe38-4051-89a9-f3fafc11a818
+    jcr:uuid: 1e1f65ba-8bc7-4023-be6e-41fd85a7de31
     hippo:availability: []
     hippostd:state: draft
     hippostdpubwf:createdBy: admin
@@ -22,7 +22,7 @@
   /universal[2]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:versionable']
-    jcr:uuid: dd762450-1d38-4b66-829f-5486e125f4d5
+    jcr:uuid: 01f10df1-fe29-4fe3-89af-c7451b4dff85
     hippo:availability: [preview]
     hippostd:state: unpublished
     hippostdpubwf:createdBy: admin
@@ -36,7 +36,7 @@
   /universal[3]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:referenceable']
-    jcr:uuid: 0bfce1d8-6c67-48a3-be71-6453c94bfffe
+    jcr:uuid: e2a0fabd-08c5-4e13-adfa-9725689b431c
     hippo:availability: [live]
     hippostd:state: published
     hippostdpubwf:createdBy: admin
