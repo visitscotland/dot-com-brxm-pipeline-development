@@ -1,6 +1,7 @@
+/* eslint-disable import/no-import-module-exports */
 /* eslint-disable no-use-before-define */
 
-const _ = require('lodash');
+import _ from 'lodash-es';
 
 // Specifies the project name stub, which is needed to extract field values
 // Set the VS_DS_REMOTE_CONFIG_HIPPO_PROJECT_NAME environment variable to override
@@ -87,6 +88,4 @@ function _parseSection(section) {
     return fields;
 }
 
-module.exports = {
-    transformRawResponse,
-};
+export default transformRawResponse;

@@ -1,17 +1,23 @@
+/* eslint-disable import/no-unresolved */
+/* eslint-disable import/extensions */
 /* eslint-disable import/no-extraneous-dependencies */
 /* eslint-disable import/no-dynamic-require */
 
-const path = require('path');
+import path from 'path';
 
-const minimist = require('minimist');
-const partial = require('lodash/partial');
-const chalk = require('chalk');
-const ora = require('ora');
+import minimist from 'minimist';
+import { partial } from 'lodash-es';
+import chalk from 'chalk';
+import ora from 'ora';
 
-const StyleguidistError = require('react-styleguidist/lib/scripts/utils/error');
-const styleguidist = require('vue-styleguidist');
+import StyleguidistError from 'react-styleguidist/lib/scripts/utils/error.js';
+import styleguidist from 'vue-styleguidist';
 
-const { getRemoteConfig, cleanup: cleanupRemoteBuild } = require('./system.remote.utils');
+import { getRemoteConfig, cleanup } from './system.remote.utils.js';
+
+import config from './system.config.js';
+
+let systemConfig = config;
 
 const argv = minimist(process.argv.slice(2));
 const command = argv._[0];
@@ -21,8 +27,6 @@ if (!process.env.NODE_ENV) {
     process.env.NODE_ENV = command === 'build' ? 'production' : 'development';
 }
 
-let config = require(path.resolve(__dirname, './system.config'));
-
 const spinner = ora('Building design system...');
 
 // Do not show nasty stack traces for Styleguidist errors
@@ -30,11 +34,9 @@ process.on('uncaughtException', (err) => {
     if (err.code === 'EADDRINUSE') {
         console.log(
       `Another server is running at ${
-        config ? `port ${ config.serverPort}` : 'the port'
-      } already. Please stop it or change the default port to continue. You can change the port using the \`serverPort\` option in the styleguide config`
+        systemConfig ? `port ${ systemConfig.serverPort}` : 'the port'
+      } already. Please stop it or change the default port to continue. You can change the port using the \`serverPort\` option in the styleguide config`,
         );
-    } else if (err instanceof StyleguidistError) {
-        console.error(chalk.red(err.message));
     } else {
         console.error(err.toString());
         console.error(err.stack);
@@ -54,7 +56,7 @@ function callbackCommon(err, stats) {
                 children: false,
                 chunks: false,
                 chunkModules: false,
-            }) }\n\n`
+            }) }\n\n`,
         );
 
         if (stats.hasErrors()) {
@@ -69,14 +71,14 @@ function callbackCommon(err, stats) {
 function buildCallback(err, inpConfig, stats) {
     callbackCommon(err, stats);
 
-    cleanupRemoteBuild(inpConfig);
+    cleanup(inpConfig);
 }
 
 function serverCallback(err, inpConfig, stats) {
     callbackCommon(err, stats);
 
     const url = `http://${inpConfig.serverHost === '0.0.0.0' ? 'localhost' : inpConfig.serverHost}:${
-    config.serverPort
+    systemConfig.serverPort
   }`;
 
     console.log(chalk.yellow(inpConfig.title, `running at ${url}`));
@@ -86,10 +88,11 @@ function serverCallback(err, inpConfig, stats) {
 }
 
 function run(inpCommand, returnedConfig) {
-    config = returnedConfig;
+    systemConfig = returnedConfig;
     spinner.start();
 
-    const styleguide = styleguidist(config);
+    const styleguide = styleguidist(systemConfig);
+    console.log('STYLE',styleguide);
 
     switch (inpCommand) {
     case 'server':

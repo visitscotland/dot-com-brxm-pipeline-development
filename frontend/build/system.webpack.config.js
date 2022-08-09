@@ -1,14 +1,17 @@
-const path = require('path');
+/* eslint-disable no-underscore-dangle */
+/* eslint-disable import/no-extraneous-dependencies */
+/* eslint-disable import/extensions */
+import path from 'path';
+import { fileURLToPath } from 'url';
 
-const webpack = require('webpack');
-const { merge } = require('webpack-merge');
+import baseWebpackConfig from './base.webpack.conf.js';
 
-const baseWebpackConfig = require('./base.webpack.conf');
-const mergeIE11Fix = require('./webpack.ie11-fix');
+import { styleLoaders } from './utils.js';
 
-const utils = require('./utils');
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
-const styleRules = utils.styleLoaders({
+const styleRules = styleLoaders({
     sourceMap: baseWebpackConfig.mode === 'development',
     extract: baseWebpackConfig.mode !== 'development',
     usePostCSS: true,
@@ -16,7 +19,7 @@ const styleRules = utils.styleLoaders({
 
 const config = {
     output: {
-        // note that this folder is overriden by the `styleguideDir` vue-styleguidist option
+    // note that this folder is overriden by the `styleguideDir` vue-styleguidist option
         path: path.resolve(__dirname, '../dist/system'),
     },
     resolve: {
@@ -28,13 +31,10 @@ const config = {
         },
     },
     module: {
-        rules: [...styleRules],
+        rules: [
+            ...styleRules,
+        ],
     },
-    plugins: [
-        new webpack.ProvidePlugin({
-            process: 'process/browser',
-        }),
-    ],
 };
 
-module.exports = merge(mergeIE11Fix(baseWebpackConfig), config);
+export default config;

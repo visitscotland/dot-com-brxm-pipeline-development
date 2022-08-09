@@ -1,7 +1,9 @@
+/* eslint-disable import/no-import-module-exports */
 /* eslint-disable no-use-before-define */
 
-const { documentToHtmlString } = require('@contentful/rich-text-html-renderer');
-const _ = require('lodash');
+import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
+
+import _ from 'lodash-es';
 
 function transformRawResponse(raw) {
     const instance = _.get(raw, 'items.0');
@@ -21,15 +23,15 @@ function _extractContentfulEntrySections(contentfulEntry, relatedEntries) {
     return _.filter(
         _.map(
             _getContentfulFieldValue(contentfulEntry, 'sections'),
-            _.partial(_parseContentfulSection, _, relatedEntries)
-        )
+            _.partial(_parseContentfulSection, _, relatedEntries),
+        ),
     );
 }
 
 function _parseContentfulSection(sectionLinkObj, relatedEntries) {
     const section = _.find(
         relatedEntries,
-        _.matchesProperty('sys.id', _.get(sectionLinkObj, 'sys.id'))
+        _.matchesProperty('sys.id', _.get(sectionLinkObj, 'sys.id')),
     );
 
     if (!section) {
@@ -49,6 +51,4 @@ function _parseContentfulSection(sectionLinkObj, relatedEntries) {
     return fields;
 }
 
-module.exports = {
-    transformRawResponse,
-};
+export default transformRawResponse;

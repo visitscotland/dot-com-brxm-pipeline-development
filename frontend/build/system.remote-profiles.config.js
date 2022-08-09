@@ -1,11 +1,18 @@
-const { merge } = require('lodash');
-const dotenv = require('dotenv');
+/* eslint-disable import/extensions */
+/* eslint-disable import/no-import-module-exports */
+import { dirname } from 'path';
+import { fileURLToPath } from 'url';
+import { merge } from 'lodash-es';
+import dotenv from 'dotenv';
+import * as trHippo from './system.transform-response.hippo.js';
+import * as trContentful from './system.transform-response.contentful.js';
 
-const trHippo = require('./system.transform-response.hippo');
-const trContentful = require('./system.transform-response.contentful');
+const __dirname = dirname(fileURLToPath(import.meta.url));
 
 if (!process.env.VS_DS_REMOTE_CONFIG_URL) {
-    dotenv.config();
+    dotenv.config({
+        path: `${__dirname}/./../../.env`,
+    });
 }
 
 /**
@@ -49,7 +56,7 @@ const commonConfig = {
     },
 };
 
-const hippo = merge({
+const hippo = merge({   
 }, commonConfig, {
     requestOptions: {
         transform: trHippo.transformRawResponse,
@@ -68,7 +75,7 @@ const contentful = merge({
     },
 });
 
-module.exports = {
+export default {
     hippo,
     contentful,
 };

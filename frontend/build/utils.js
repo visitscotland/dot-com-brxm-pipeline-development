@@ -1,3 +1,8 @@
+/* eslint-disable no-underscore-dangle */
+/* eslint-disable import/first */
+/* eslint-disable import/extensions */
+/* eslint-disable import/no-extraneous-dependencies */
+/* eslint-disable import/no-import-module-exports */
 /* eslint-disable func-names */
 /* eslint-disable no-param-reassign */
 /* eslint-disable global-require */
@@ -6,14 +11,16 @@
 /* eslint-disable no-restricted-syntax */
 /* eslint-disable guard-for-in */
 
-const path = require('path');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const { cloneDeep, find } = require('lodash');
+import path from 'path';
+import MiniCssExtractPlugin from 'mini-css-extract-plugin';
+import { cloneDeep, find } from 'lodash-es';
+import { fileURLToPath } from 'url';
+import buildMode from './base.build-mode.js';
 
-const packageConfig = require('../package.json');
-const buildMode = require('./base.build-mode');
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
-exports.cssLoaders = function(options) {
+export const cssLoaders = function(options) {
     options = options || {
     };
 
@@ -38,12 +45,9 @@ exports.cssLoaders = function(options) {
     };
 
     const baseSassLoaderOptions = {
-        sassOptions: {
-            style: 'compressed',
-            implementation: require('sass'),
-            sourceMap: options.sourceMap,
-        },
-
+        style: 'compressed',
+        implementation: 'sass',
+        sourceMap: options.sourceMap,
     };
 
     const sassResourcesLoader = {
@@ -129,14 +133,14 @@ exports.cssLoaders = function(options) {
 };
 
 // Generate loaders for standalone style files
-exports.styleLoaders = function(options) {
+export const styleLoaders = function(options) {
     const output = [];
-    const loaders = exports.cssLoaders(options);
+    const loaders = cssLoaders(options);
 
     for (const extension in loaders) {
         const loader = loaders[extension];
         output.push({
-            test: new RegExp(`\\.${ extension }$`),
+            test: new RegExp(`\\.${extension}$`),
             // use: loader,
             oneOf: loader,
         });
@@ -145,4 +149,8 @@ exports.styleLoaders = function(options) {
     return output;
 };
 
-exports.packageName = packageConfig.name;
+const packageName = 'vs-dotcom-frontend';
+
+export default {
+    packageName,
+};

@@ -1,31 +1,35 @@
-const path = require('path');
+/* eslint-disable no-underscore-dangle */
+/* eslint-disable import/extensions */
+/* eslint-disable import/no-extraneous-dependencies */
+/* eslint-disable import/no-import-module-exports */
+import path from 'path';
+import { fileURLToPath } from 'url';
 
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const { VueLoaderPlugin } = require('vue-loader');
-const ESLintPlugin = require('eslint-webpack-plugin');
+import MiniCssExtractPlugin from 'mini-css-extract-plugin';
+import { VueLoaderPlugin } from 'vue-loader';
+import pkg from 'eslint-webpack-plugin';
+import buildMode from './base.build-mode.js';
 
-const buildMode = require('./base.build-mode');
-
-const myESLintOptions = {
-    extensions: ['js', 'jsx', 'ts'],
-    exclude: ['node_modules', '/ssr/', '/src/components/patterns/header/components/Chart/'],
-};
+const ESLintPlugin = pkg;
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 function resolve(dir) {
     return path.join(__dirname, '..', dir);
 }
 
-module.exports = {
+const baseWebpackConfig = {
     mode: buildMode,
     context: path.resolve(__dirname, '../'),
     entry: {
         app: './src/main.js',
     },
-    devtool: process.env.NODE_ENV === 'development' ? 'source-map' : '',
+    devtool: process.env.NODE_ENV === 'development' ? 'source-map' : false,
     output: {
         path: path.resolve(__dirname, '../dist/base'),
         filename: '[name].js',
-        publicPath: buildMode === 'development' ? '/' : '../',
+        publicPath:
+            buildMode === 'development' ? '/' : '../',
     },
     resolve: {
         extensions: ['.js', '.vue', '.json'],
@@ -41,6 +45,16 @@ module.exports = {
     },
     module: {
         rules: [
+            {
+                enforce: 'pre',
+                test: /src.*\.(js|vue)$/,
+                exclude: ['/ssr/', '/src/components/patterns/header/components/Chart/'],
+                options: {
+                    fix: true,
+                    emitError: true,
+                    emitWarning: true,
+                },
+            },
             {
                 test: /\.vue$/,
                 loader: 'vue-loader',
@@ -91,24 +105,18 @@ module.exports = {
                     {
                         resourceQuery: /optimise/,
                         use: [
-                            'file-loader',
+                            'html-loader',
                             {
                                 loader: 'image-webpack-loader',
                                 options: {
                                     svgo: {
                                         plugins: [
                                             {
-                                                name: 'preset-default',
-                                                params: {
-                                                    overrides: {
-                                                        // customize default plugin options
-                                                        inlineStyles: {
-                                                            onlyMatchedOnce: false,
-                                                        },
-
-                                                        // or disable plugins
-                                                        removeDoctype: false,
-                                                    },
+                                                removeViewBox: false,
+                                            },
+                                            {
+                                                inlineStyles: {
+                                                    onlyMatchedOnce: false,
                                                 },
                                             },
                                         ],
@@ -136,9 +144,10 @@ module.exports = {
     },
     plugins: [
         new VueLoaderPlugin(),
-        new MiniCssExtractPlugin({
-            filename: 'style.css',
-        }),
-        new ESLintPlugin(myESLintOptions),
+        new MiniCssExtractPlugin(),
+        new ESLintPlugin(),
     ],
+    node: false,
 };
+
+export default baseWebpackConfig;

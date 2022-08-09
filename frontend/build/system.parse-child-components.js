@@ -1,6 +1,10 @@
+/* eslint-disable import/extensions */
+/* eslint-disable import/named */
+/* eslint-disable import/no-import-module-exports */
 /* eslint-disable import/no-extraneous-dependencies */
+import visit from 'ast-types';
 
-const {
+import {
     includes,
     extend,
     split,
@@ -11,9 +15,8 @@ const {
     get,
     capitalize,
     map,
-} = require('lodash');
-const { visit } = require('ast-types');
-const { packageName } = require('./utils');
+} from 'lodash-es';
+import packageName from './utils.js';
 
 function getLocalPackageName() {
     return packageName || 'local';
@@ -37,7 +40,7 @@ function getImportLink(inpPackageName, sourceBits) {
         const componentIndex = findIndex(sourceBits, (bit) => bit === 'components');
 
         if (componentIndex !== -1) {
-            return rootUrl + (componentIndex === -1 ? '' : `/${ get(sourceBits, componentIndex + 1)}`);
+            return rootUrl + (componentIndex === -1 ? '' : `/${get(sourceBits, componentIndex + 1)}`);
         }
     }
 
@@ -89,7 +92,7 @@ function getComponentsDetails(astPath, childComponentVariableNames, options) {
         visitImportDeclaration(importAstPath) {
             extend(
                 components,
-                getImportComponentDetail(childComponentVariableNames, importAstPath, options)
+                getImportComponentDetail(childComponentVariableNames, importAstPath, options),
             );
 
             return false;
@@ -99,11 +102,11 @@ function getComponentsDetails(astPath, childComponentVariableNames, options) {
     return components;
 }
 
-exports.default = function parseChildComponents(
+function parseChildComponents(
     documentation,
     componentDefinition,
     astPath,
-    options
+    options,
 ) {
     const componentPath = componentDefinition.get('properties').filter((prop) => prop.node.key.name === 'components');
 
@@ -114,8 +117,10 @@ exports.default = function parseChildComponents(
     const childComponents = getComponentsDetails(
         astPath,
         getChildComponentNames(componentPath[0]),
-        options
+        options,
     );
 
     documentation.set('childComponents', childComponents);
 };
+
+export default parseChildComponents;
