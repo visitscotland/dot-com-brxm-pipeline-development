@@ -22,7 +22,7 @@ const baseWebpackConfig = {
     mode: buildMode,
     context: path.resolve(__dirname, '../'),
     entry: {
-        app: './src/main.js',
+        app: 'src/main.js',
     },
     devtool: process.env.NODE_ENV === 'development' ? 'source-map' : false,
     output: {

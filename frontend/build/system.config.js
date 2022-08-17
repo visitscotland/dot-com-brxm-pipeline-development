@@ -1,4 +1,3 @@
-/* eslint-disable no-underscore-dangle */
 /* eslint-disable import/extensions */
 /* eslint-disable no-console */
 /* eslint-disable import/no-extraneous-dependencies */
@@ -18,7 +17,6 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const config = {
-    id: '',
   version: packageConfig.version,
   /**
      * Most of the styles are defined in /docs/styles/docs.styles.scss
@@ -32,7 +30,7 @@ const config = {
     },
   },
   renderRootJsx: path.join(__dirname, '../docs/components/Preview.js'),
-//   assetsDir: path.join(__dirname, '../node_modules/vs-component-library/src/assets/'),
+  assetsDir: path.join(__dirname, '../src/assets'),
   /**
      * Enabling the below option will break things!
      */
@@ -83,6 +81,7 @@ const config = {
   webpackConfig,
   compilerConfig: {
     target: {
+      ie: '11',
       chrome: '71',
       firefox: '64',
       safari: '11',
@@ -90,6 +89,8 @@ const config = {
     },
   },
   styleguideDir: 'dist/system',
+  printServerInstructions() {
+  },
   printBuildInstructions(passedConfig) {
     console.log(chalk.cyan('\n  Design System Docs build finished succesfully!\n'));
     console.log(

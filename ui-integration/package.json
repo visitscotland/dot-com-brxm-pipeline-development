@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "main": "index.js",
   "license": "MIT",
+  "type": "module",
   "devDependencies": {
     "clean-webpack-plugin": "^4.0.0",
     "copy-webpack-plugin": "^11.0.0",
@@ -18,14 +19,14 @@
     "build:dev": "npm-run-all build:frontend:dev build:integrate",
     "build:ssr": "npm-run-all build:frontend:ssr \"build:integrate --env src-path=../frontend/dist/ssr/client\"",
     "build:ssr:dev": "npm-run-all build:frontend:ssr:dev \"build:integrate --env src-path=../frontend/dist/ssr/client\"",
-    "build:integrate": "npx webpack --config webpack.config.js",
+    "build:integrate": "npx webpack --config webpack.config.cjs",
     "build:frontend": "yarn --cwd ../frontend/ library",
     "build:frontend:dev": "yarn --cwd ../frontend/ library:dev",
     "build:frontend:ssr": "yarn --cwd ../frontend/ ssr:build",
     "build:frontend:ssr:dev": "yarn --cwd ../frontend/ ssr:build:dev",
     "install:frontend": "yarn --cwd ../frontend/",
     "preinstall": "yarn install:frontend",
-    "third-party": "npx webpack --config ./build/thirdparty.webpack.conf.js"
+    "third-party": "npx webpack --config ./build/thirdparty.webpack.conf.cjs"
   },
   "dependencies": {
     "autoprefixer": "^10.4.2",

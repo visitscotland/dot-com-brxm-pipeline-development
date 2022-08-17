@@ -145,7 +145,7 @@ function addPrivateComponents(mergedConfig) {
 }
 
 function extractRemoteConfig(config, profileName) {
-  let outRemoteConfig = _.get(config, KEY_REMOTE_CONFIG);
+  const outRemoteConfig = _.get(config, KEY_REMOTE_CONFIG);
 
   _.unset(config, KEY_REMOTE_CONFIG);
 

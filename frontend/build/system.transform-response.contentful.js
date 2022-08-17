@@ -1,4 +1,5 @@
 /* eslint-disable import/no-import-module-exports */
+/* eslint-disable import/no-extraneous-dependencies */
 /* eslint-disable no-use-before-define */
 
 import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
@@ -10,25 +11,25 @@ function transformRawResponse(raw) {
     const relatedEntries = _.get(raw, 'includes.Entry');
 
     return {
-        title: _getContentfulFieldValue(instance, 'title'),
-        sections: _extractContentfulEntrySections(instance, relatedEntries),
+    title: getContentfulFieldValue(instance, 'title'),
+    sections: extractContentfulEntrySections(instance, relatedEntries),
     };
 }
 
-function _getContentfulFieldValue(contentfulEntry, fieldPath) {
+function getContentfulFieldValue(contentfulEntry, fieldPath) {
     return _.get(contentfulEntry, `fields.${ fieldPath}`);
 }
 
-function _extractContentfulEntrySections(contentfulEntry, relatedEntries) {
+function extractContentfulEntrySections(contentfulEntry, relatedEntries) {
     return _.filter(
         _.map(
-            _getContentfulFieldValue(contentfulEntry, 'sections'),
-            _.partial(_parseContentfulSection, _, relatedEntries),
+      getContentfulFieldValue(contentfulEntry, 'sections'),
+      _.partial(parseContentfulSection, _, relatedEntries),
         ),
     );
 }
 
-function _parseContentfulSection(sectionLinkObj, relatedEntries) {
+function parseContentfulSection(sectionLinkObj, relatedEntries) {
     const section = _.find(
         relatedEntries,
         _.matchesProperty('sys.id', _.get(sectionLinkObj, 'sys.id')),
@@ -45,7 +46,7 @@ function _parseContentfulSection(sectionLinkObj, relatedEntries) {
     }
 
     if (fields.sections) {
-        fields.sections = _extractContentfulEntrySections(section, relatedEntries);
+    fields.sections = extractContentfulEntrySections(section, relatedEntries);
     }
 
     return fields;

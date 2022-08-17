@@ -1,12 +1,14 @@
+/* eslint-disable import/no-import-module-exports */
+/* eslint-disable import/no-extraneous-dependencies */
 /**
  * This file outputs an object for consumption by webpack as its entry config.
  * The object lists components to build and their file paths.
  */
 
-const glob = require('glob');
-const path = require('path');
+import glob from 'glob';
+import path from 'path';
 
-const { camelCase, upperFirst } = require('lodash');
+import { camelCase, upperFirst } from 'lodash-es';
 
 const componentPaths = [
     './src/components/elements/**/*.vue',
@@ -34,4 +36,4 @@ glob.sync(storePattern).forEach((storePath) => {
     components[itemKey(path.basename(storePath, '.js'), true)] = storePath;
 });
 
-module.exports = components;
+export default components;

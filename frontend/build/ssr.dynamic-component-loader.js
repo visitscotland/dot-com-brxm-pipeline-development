@@ -1,11 +1,16 @@
+/* eslint-disable import/no-import-module-exports */
 /* eslint-disable func-names */
 /* eslint-disable import/no-extraneous-dependencies */
 
-const os = require('os');
-const path = require('path');
+import os from 'os';
+import path from 'path';
+import { fileURLToPath } from 'url';
 
-const { getOptions } = require('loader-utils');
-const { get, map, keys } = require('lodash');
+import { getOptions } from 'loader-utils';
+import { get, map, keys } from 'lodash-es';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const importsPlaceholder = '/** PLACEHOLDER: COMPONENT IMPORTS */';
 const registrationsPlaceholder = '/** PLACEHOLDER: COMPONENT REGISTRATION */';
@@ -25,26 +30,28 @@ const ssrAppPath = './ssr/src/';
 const generateComponentImportStatement = (modulePath, componentName) => {
     const relativePath = path.posix.relative(ssrAppPath, modulePath);
 
-    return `import ${componentName} from "${relativePath}"`;
+    return `const ${componentName} = () => await import("${relativePath}")`;
 };
 
 const insertComponentImports = (subject, componentsMap) => subject.replace(
     importsPlaceholder,
-    map(componentsMap, generateComponentImportStatement).join(os.EOL)
+  map(componentsMap, generateComponentImportStatement).join(os.EOL),
 );
 
 const insertComponentRegistrations = (subject, componentsMap) => subject.replace(
     registrationsPlaceholder,
-    keys(componentsMap).join(`,${os.EOL}`)
+  keys(componentsMap).join(`,${os.EOL}`),
 );
 
 const transformSource = (subject, componentsMap) => {
     const transformedSource = insertComponentImports(subject, componentsMap);
 
+    console.log(transformSource);
+
     return insertComponentRegistrations(transformedSource, componentsMap);
 };
 
-module.exports = function(source) {
+export default function(source) {
     const options = getOptions(this);
     const componentsMap = get(options, 'componentMap');
 
@@ -53,4 +60,4 @@ module.exports = function(source) {
     }
 
     return source;
-};
+}

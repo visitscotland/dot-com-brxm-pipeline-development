@@ -1,23 +1,21 @@
-/* eslint-disable import/no-unresolved */
+/* eslint-disable no-console */
 /* eslint-disable import/extensions */
 /* eslint-disable import/no-extraneous-dependencies */
 /* eslint-disable import/no-dynamic-require */
 
-import path from 'path';
 
 import minimist from 'minimist';
-import { partial } from 'lodash-es';
+import partial from 'lodash-es';
 import chalk from 'chalk';
 import ora from 'ora';
 
-import StyleguidistError from 'react-styleguidist/lib/scripts/utils/error.js';
+import StyleguidistError from 'react-styleguidist';
 import styleguidist from 'vue-styleguidist';
 
 import { getRemoteConfig, cleanup } from './system.remote.utils.js';
 
 import config from './system.config.js';
 
-let systemConfig = config;
 
 const argv = minimist(process.argv.slice(2));
 const command = argv._[0];
@@ -34,9 +32,11 @@ process.on('uncaughtException', (err) => {
     if (err.code === 'EADDRINUSE') {
         console.log(
       `Another server is running at ${
-        systemConfig ? `port ${ systemConfig.serverPort}` : 'the port'
+        config ? `port ${config.serverPort}` : 'the port'
       } already. Please stop it or change the default port to continue. You can change the port using the \`serverPort\` option in the styleguide config`,
         );
+  } else if (err instanceof StyleguidistError) {
+    console.error(chalk.red(err.message));
     } else {
         console.error(err.toString());
         console.error(err.stack);
@@ -78,7 +78,7 @@ function serverCallback(err, inpConfig, stats) {
     callbackCommon(err, stats);
 
     const url = `http://${inpConfig.serverHost === '0.0.0.0' ? 'localhost' : inpConfig.serverHost}:${
-    systemConfig.serverPort
+    config.serverPort
   }`;
 
     console.log(chalk.yellow(inpConfig.title, `running at ${url}`));
@@ -88,11 +88,11 @@ function serverCallback(err, inpConfig, stats) {
 }
 
 function run(inpCommand, returnedConfig) {
-    systemConfig = returnedConfig;
+//   config = config;
     spinner.start();
+    config = {}
 
-    const styleguide = styleguidist(systemConfig);
-    console.log('STYLE',styleguide);
+  const styleguide = styleguidist(config);
 
     switch (inpCommand) {
     case 'server':

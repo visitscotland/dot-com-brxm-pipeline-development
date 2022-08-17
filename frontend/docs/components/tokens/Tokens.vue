@@ -70,7 +70,7 @@
 import {
     orderBy, filter, map, uniq, castArray,
 } from 'lodash';
-import designTokens from '@/assets/tokens/tokens.raw.json';
+import designTokens from '#assets/tokens/tokens.raw.json';
 
 /**
  * A list of available tokens in Vue Design System. Use these tokens in place

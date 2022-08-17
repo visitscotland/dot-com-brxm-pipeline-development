@@ -1,9 +1,15 @@
-const path = require('path');
-const { merge } = require('webpack-merge');
-const VueSSRClientPlugin = require('vue-server-renderer/client-plugin');
+/* eslint-disable no-underscore-dangle */
+/* eslint-disable import/extensions */
+/* eslint-disable import/no-extraneous-dependencies */
+/* eslint-disable import/no-import-module-exports */
+import path from 'path';
+import VueSSRClientPlugin from 'vue-server-renderer/client-plugin.js';
+import { fileURLToPath } from 'url';
 
-const base = require('./library.webpack.conf');
+import base from './library.webpack.conf.js';
 
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 const clientEntry = {
     VsApp: path.resolve(__dirname, '../ssr/src/client-entry.js'),
 };
@@ -13,9 +19,11 @@ base.entry = {
     ...clientEntry,
 };
 
-module.exports = merge(base, {
+export default {
     output: {
         path: path.resolve(__dirname, '../dist/ssr/client'),
     },
-    plugins: [new VueSSRClientPlugin()],
-});
+  plugins: [
+    new VueSSRClientPlugin(),
+  ],
+};

@@ -1,4 +1,4 @@
-const {
+import {
     get,
     map,
     zipObject,
@@ -11,7 +11,7 @@ const {
     castArray,
     omitBy,
     clone,
-} = require('lodash');
+} from 'lodash-es';
 
 /**
  * This module prepares moduleMap for the ssr.dynamic-component-loader
@@ -47,7 +47,7 @@ const getIncludedModules = (moduleMap, exclude) => {
         includes,
         castArray(exclude),
         partial.placeholder,
-        0
+    0,
     );
 
     if (exclude) {
@@ -57,12 +57,12 @@ const getIncludedModules = (moduleMap, exclude) => {
     return clone(moduleMap);
 };
 
-module.exports = (moduleMap, exclude) => {
+export default (moduleMap, exclude) => {
     const includedModules = getIncludedModules(moduleMap, exclude);
 
     const groupedModules = groupBy(
         map(includedModules, prepareModule),
-        'type'
+    'type',
     );
 
     return mapValues(groupedModules, (items, groupName) => {

@@ -13,7 +13,7 @@
 
 <script>
 import { orderBy, filter } from "lodash"
-import designTokens from "@/assets/tokens/tokens.raw.json"
+import designTokens from "#assets/tokens/tokens.raw.json"
 
 /**
  * This typographic scale makes it easier to achieve visual harmony in the

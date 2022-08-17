@@ -50,7 +50,7 @@ module.exports = function(env, argv) {
           test: /\.json$/,
           use: [
             {
-              loader: path.resolve("./build/generateFreemarkerTemplate.js"),
+              loader: path.resolve("./build/generateFreemarkerTemplate.cjs"),
               options: {
                 webfilesPath: ASSET_OUTPUT_PATH,
                 freemarkerTargetPath: templateOutputPath,

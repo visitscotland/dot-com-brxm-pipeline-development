@@ -9,13 +9,13 @@
             <h2>{{ category.name }}</h2>
 
             <ul class="colors">
-                <li 
-					v-for="(prop, index) in category.colors" 
-					:key="index" 
+                <li
+					v-for="(prop, index) in category.colors"
+					:key="index"
 					class="color"
 				>
-                    <div 
-						class="swatch" 
+                    <div
+						class="swatch"
 						:style="{ backgroundColor: prop.value }"
 					>
                         <ul class="contrast-indicator__ul">
@@ -98,7 +98,7 @@
 <script>
 import { filter, each, get, find, matchesProperty } from "lodash"
 import tinycolor from "tinycolor2"
-import designTokens from "@/assets/tokens/tokens.raw.json"
+import designTokens from "#assets/tokens/tokens.raw.json"
 
 export default {
     name: "Color",

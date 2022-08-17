@@ -56,7 +56,7 @@ const commonConfig = {
     },
 };
 
-const hippo = merge({   
+const hippo = merge({
 }, commonConfig, {
     requestOptions: {
         transform: trHippo.transformRawResponse,

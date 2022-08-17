@@ -19,15 +19,15 @@ let sectionsContentTitle = 'content';
 function transformRawResponse(raw) {
     const instance = raw;
 
-    _setup();
+  setup();
 
     return {
-        title: _getFieldValue(instance, 'title'),
-        sections: _extractEntrySections(instance),
+    title: getFieldValue(instance, 'title'),
+    sections: extractEntrySections(instance),
     };
 }
 
-function _setup() {
+function setup() {
     projectName = process.env.VS_DS_REMOTE_CONFIG_HIPPO_PROJECT_NAME || projectName;
     sectionsFieldTitle = (
         process.env.VS_DS_REMOTE_CONFIG_HIPPO_SECTIONS_FIELD_TITLE || sectionsFieldTitle
@@ -37,16 +37,16 @@ function _setup() {
     );
 }
 
-function _getFieldValue(entry, fieldPath) {
+function getFieldValue(entry, fieldPath) {
     return _.get(entry, `items.${ projectName }:${ fieldPath}`);
 }
 
-function _extractEntrySections(entry) {
-    return _.filter(_.map(_getFieldValue(entry, sectionsFieldTitle), _.partial(_parseSection)));
+function extractEntrySections(entry) {
+  return _.filter(_.map(getFieldValue(entry, sectionsFieldTitle), _.partial(parseSection)));
 }
 
-function _extractSectionContent(section) {
-    const contentObject = _getFieldValue(section, sectionsContentTitle);
+function extractSectionContent(section) {
+  const contentObject = getFieldValue(section, sectionsContentTitle);
     const raw = _.get(contentObject, 'content');
     let cons = false;
 
@@ -56,11 +56,11 @@ function _extractSectionContent(section) {
 
     return raw.replace(
         /data-hippo-link="([^"]*)"/gm,
-        _.partial(_replaceHippoLink, _, _, _.get(contentObject, 'links'), cons)
+    _.partial(replaceHippoLink, _, _, _.get(contentObject, 'links'), cons),
     );
 }
 
-function _replaceHippoLink(match, linkId, contentLinks) {
+function replaceHippoLink(match, linkId, contentLinks) {
     let srcAttribute = 'src="';
 
     /**
@@ -74,15 +74,15 @@ function _replaceHippoLink(match, linkId, contentLinks) {
     return srcAttribute;
 }
 
-function _parseSection(section) {
+function parseSection(section) {
     const fields = _.mapKeys(_.get(section, 'items'), (value, key) => _.last(_.split(key, ':')));
 
     if (fields[sectionsContentTitle]) {
-        fields.content = _extractSectionContent(section);
+    fields.content = extractSectionContent(section);
     }
 
     if (fields[sectionsFieldTitle]) {
-        fields.sections = _extractEntrySections(section);
+    fields.sections = extractEntrySections(section);
     }
 
     return fields;

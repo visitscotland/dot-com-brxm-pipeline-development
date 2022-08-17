@@ -1,8 +1,8 @@
-import { get } from "lodash"
+import { get } from "lodash-es"
 
 /** PLACEHOLDER: COMPONENT IMPORTS */
 
-import { initApp } from "@/main"
+import { initApp } from "#main"
 
 const defaultVueOptions = {
     components: {
@@ -16,6 +16,6 @@ export default (context) => {
         ...get(context, "vueOptions", {}),
         ...defaultVueOptions,
     }
-    
+
     return initApp(vueOptions, true)
 }

@@ -14,13 +14,14 @@
 import path from 'path';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import { cloneDeep, find } from 'lodash-es';
+import sass from 'sass';
 import { fileURLToPath } from 'url';
 import buildMode from './base.build-mode.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-export const cssLoaders = function(options) {
+const cssLoaders = function (options) {
     options = options || {
     };
 
@@ -45,7 +46,9 @@ export const cssLoaders = function(options) {
     };
 
     const baseSassLoaderOptions = {
-        style: 'compressed',
+        sassOptions: {
+            style: 'compressed',
+        },
         implementation: 'sass',
         sourceMap: options.sourceMap,
     };
@@ -133,7 +136,7 @@ export const cssLoaders = function(options) {
 };
 
 // Generate loaders for standalone style files
-export const styleLoaders = function(options) {
+const styleLoaders = function (options) {
     const output = [];
     const loaders = cssLoaders(options);
 
@@ -153,4 +156,6 @@ const packageName = 'vs-dotcom-frontend';
 
 export default {
     packageName,
+  styleLoaders,
+  cssLoaders,
 };

@@ -1,13 +1,14 @@
 /* eslint-disable import/no-extraneous-dependencies */
 
-const webpack = require("webpack");
-const MFS = require("memory-fs");
-const path = require("path");
-const webpackHotMiddleware = require("webpack-hot-middleware");
-const webpackDevMiddleware = require("webpack-dev-middleware");
+import webpack from 'webpack';
+import { MemoryFileSystem } from 'memory-fs';
+import path from 'path';
+import { fileURLToPath } from 'url';
+import webpackHotMiddleware from 'webpack-hot-middleware';
+import webpackDevMiddleware from 'webpack-dev-middleware';
 
-const clientConfig = require("../../build/ssr.client.webpack.conf");
-const serverConfig = require("../../build/ssr.server.webpack.conf");
+import * as clientConfig from './build/ssr.client.webpack.conf.js';
+import * as serverConfig from './build/ssr.server.webpack.conf.js';
 
 /**
  * Setup webpack-dev-middleware and webpack-hot-middleware.

@@ -26,7 +26,7 @@ import { VsRow, VsCol } from '@components/elements/grid';
 import { trimStart, map } from 'lodash';
 
 const getAllIcons = () => {
-    const all = require.context('@/assets/svg/icons', false, /^\.\/.*\.svg$/);
+    const all = require.context('#assets/svg/icons', false, /^\.\/.*\.svg$/);
     return map(all.keys(), (key) => trimStart(key, './').replace('.svg', ''));
 };
 

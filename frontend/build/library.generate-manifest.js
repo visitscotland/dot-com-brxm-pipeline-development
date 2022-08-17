@@ -1,4 +1,4 @@
-const {
+import {
     extend,
     reduce,
     invoke,
@@ -13,7 +13,7 @@ const {
     endsWith,
     remove,
     isEmpty,
-} = require('lodash');
+} from 'lodash-es';
 
 function extractEntriesFromOutputFile(outputFile) {
     const entries = Array.from(invoke(outputFile, 'chunk._groups.values'));
@@ -28,7 +28,7 @@ function extractAllEntriesFromFileDescriptor(FileDescriptor) {
         (acc, val) => extend({
         }, acc, extractEntriesFromOutputFile(val)),
         {
-        }
+    },
     );
 }
 
@@ -77,7 +77,7 @@ function mapComponentEntryFiles(component) {
 /**
  * Generates manifest file for system component build
  */
-module.exports = (Object, FileDescriptor) => {
+export default (Object, FileDescriptor) => {
     const componentEntries = extractAllEntriesFromFileDescriptor(FileDescriptor);
 
     return mapValues(componentEntries, mapComponentEntryFiles);

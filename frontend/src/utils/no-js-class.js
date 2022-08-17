@@ -1,4 +1,4 @@
-import getTokenValue from './get-token';
+import getTokenValue from '#utils/get-token.js';
 
 const defaultNoJsClassName = 'no-js-missing';
 

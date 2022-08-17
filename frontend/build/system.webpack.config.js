@@ -6,18 +6,18 @@ import { fileURLToPath } from 'url';
 
 import baseWebpackConfig from './base.webpack.conf.js';
 
-import { styleLoaders } from './utils.js';
+import * as utils from './utils.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-const styleRules = styleLoaders({
+const styleRules = utils.default.styleLoaders({
     sourceMap: baseWebpackConfig.mode === 'development',
     extract: baseWebpackConfig.mode !== 'development',
     usePostCSS: true,
 });
 
-const config = {
+export default {
     output: {
     // note that this folder is overriden by the `styleguideDir` vue-styleguidist option
         path: path.resolve(__dirname, '../dist/system'),
@@ -37,4 +37,3 @@ const config = {
     },
 };
 
-export default config;

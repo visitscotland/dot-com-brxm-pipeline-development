@@ -1,17 +1,25 @@
-const path = require('path');
+/* eslint-disable import/no-extraneous-dependencies */
+/* eslint-disable import/no-import-module-exports */
+/* eslint-disable import/extensions */
+import path from 'path';
+import { fileURLToPath } from 'url';
 
-const { get } = require('lodash');
-const nodeExternals = require('webpack-node-externals');
-const VueSSRServerPlugin = require('vue-server-renderer/server-plugin');
-const { merge } = require('webpack-merge');
+import { get } from 'lodash-es';
+import nodeExternals from 'webpack-node-externals';
+import VueSSRServerPlugin from 'vue-server-renderer/server-plugin.js';
+import { merge } from 'webpack-merge';
 
-const base = require('./library.webpack.conf');
+import base from './library.webpack.conf.js';
+
+import sourceImports from './ssr.generate-component-library-map.js';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const entry = {
     'main-server': path.resolve(__dirname, '../ssr/src/server-entry.js'),
 };
 
-const sourceImports = require('./ssr.generate-component-library-map')(base.entry);
 
 base.entry = {
     ...entry,
@@ -20,13 +28,13 @@ base.entry = {
 
 delete base.optimization;
 
-module.exports = merge(base, {
+const ssrServerWebpackConfig = merge(base, {
     target: 'node',
     output: {
         path: path.resolve(__dirname, '../dist/ssr/server'),
         library: {
             type: 'commonjs2',
-        },
+        }
     },
     // https://webpack.js.org/configuration/externals/#function
     // https://github.com/liady/webpack-node-externals
@@ -40,21 +48,25 @@ module.exports = merge(base, {
     }),
     module: {
         rules: [
-            {
-                test: /server-entry\.js$/,
-                use: [
-                    {
-                        loader: path.resolve(__dirname, './ssr.dynamic-component-loader'),
-                        options: {
-                            componentMap: get(sourceImports, 'components'),
-                        },
-                    },
-                ],
-            },
+            // {
+            //     test: /server-entry\.js$/,
+            //     use: [
+            //         {
+            //             loader: path.resolve(__dirname, './ssr.dynamic-component-loader.js'),
+            //             options: {
+            //                 componentMap: get(sourceImports, 'components'),
+            //             },
+            //         },
+            //     ],
+            // },
         ],
     },
 
     // This is the plugin that turns the entire output of the server build
     // into a single JSON file. The default file name is`vue-ssr-server-bundle.json`
-    plugins: [new VueSSRServerPlugin()],
+  plugins: [
+    new VueSSRServerPlugin(),
+  ],
 });
+
+export default ssrServerWebpackConfig;

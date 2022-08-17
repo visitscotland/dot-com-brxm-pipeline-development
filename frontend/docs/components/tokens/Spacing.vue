@@ -16,7 +16,7 @@
 
 <script>
 import { orderBy, filter } from "lodash"
-import designTokens from "@/assets/tokens/tokens.raw.json"
+import designTokens from "#assets/tokens/tokens.raw.json"
 
 /**
  * A framework for creating a predictable and harmonious spacing system. These

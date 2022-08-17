@@ -1,8 +1,8 @@
 import Vue from 'vue';
 import { isObject, each } from 'lodash';
 
-import '@/styles/core.styles.scss';
-import noJsClass from '@/utils/no-js-class';
+import '#styles/core.styles.scss';
+import noJsClass from '#utils/no-js-class.js';
 
 Vue.config.productionTip = false;
 

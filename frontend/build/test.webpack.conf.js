@@ -1,8 +1,10 @@
+/* eslint-disable import/extensions */
+/* eslint-disable import/no-extraneous-dependencies */
 // This is the webpack config used for unit tests.
 
-const { merge } = require('webpack-merge');
-const utils = require('./utils');
-const baseWebpackConfig = require('./base.webpack.conf');
+import merge from 'webpack-merge';
+import utils from './utils.js';
+import baseWebpackConfig from './base.webpack.conf.js';
 
 const webpackConfig = merge(baseWebpackConfig, {
     // use inline sourcemap for karma-sourcemap-loader
@@ -22,4 +24,4 @@ const webpackConfig = merge(baseWebpackConfig, {
 // no need for app entry during tests
 delete webpackConfig.entry;
 
-module.exports = webpackConfig;
+export default webpackConfig;

@@ -1,8 +1,11 @@
-const path = require('path');
-const autoprefixer = require('autoprefixer');
+import path from 'path';
+import { fileURLToPath } from 'url';
+import autoprefixer from 'autoprefixer';
 // const cssnano = require('cssnano');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 // const CopyPlugin = require('copy-webpack-plugin');
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 // Hard code this to production but can be adapted to accept args to change env.
 const mode = 'production';
@@ -64,6 +67,6 @@ module.exports = {
             filename: '[name].css',
             chunkFilename: '[id].css',
         }),
-       
+
     ],
 };
