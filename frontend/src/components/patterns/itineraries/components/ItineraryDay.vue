@@ -234,7 +234,6 @@ export default {
                         :icon="transportType.key"
                         size="lg"
                         icon-only
-                        icon-variant-override="dark"
                         class="p-0"
                         variant="transparent"
                     >

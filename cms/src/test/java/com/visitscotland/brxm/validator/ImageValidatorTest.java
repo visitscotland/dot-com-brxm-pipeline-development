@@ -53,26 +53,6 @@ class ImageValidatorTest {
     }
 
     @Test
-    @DisplayName("Validates that alt-text field is not empty")
-    void noEmptyAltext() throws RepositoryException {
-        ImageValidator validator = new ImageValidator(mockSessionFactory);
-
-        Node node = Mockito.mock(Node.class, RETURNS_DEEP_STUBS);
-        Node childNode = Mockito.mock(Node.class,  withSettings().lenient());
-        Property altText = Mockito.mock(Property.class,  withSettings().lenient());
-
-        when(node.getProperty(HIPPO_DOCBASE).getValue().getString()).thenReturn("imageName");
-        when(mockSessionFactory.getHippoNodeByIdentifier("imageName")).thenReturn(childNode);
-        when(childNode.hasProperty("hippogallery:description")).thenReturn(true);
-        when(childNode.hasProperty(Image.ALT_TEXT)).thenReturn(true);
-        when(childNode.getProperty(Image.ALT_TEXT)).thenReturn(altText);
-        when(childNode.getProperty(Image.ALT_TEXT).getString()).thenReturn("");
-
-        when(context.createViolation()).thenReturn(mock(Violation.class));
-        assertTrue(validator.validate(context, node).isPresent());
-    }
-
-    @Test
     @DisplayName("Validates that credit field is not empty")
     void noEmptyCredit() throws RepositoryException {
         ImageValidator validator = new ImageValidator(mockSessionFactory);
@@ -112,23 +92,7 @@ class ImageValidatorTest {
     }
 
 
-    @Test
-    @DisplayName("Validates that the image throws an Error when there is no alternative text")
-    void noAltText() throws RepositoryException {
-        //Validates that the alternative text is not present
-        ImageValidator validator = new ImageValidator(mockSessionFactory);
-
-        Node node = Mockito.mock(Node.class, RETURNS_DEEP_STUBS);
-        Node noCredit = mockImage("credit", null);
-
-        when(node.getProperty(HIPPO_DOCBASE).getValue().getString()).thenReturn("imageName");
-
-        when(mockSessionFactory.getHippoNodeByIdentifier("imageName")).thenReturn(noCredit);
-        when(context.createViolation()).thenReturn(mock(Violation.class));
-        assertTrue(validator.validate(context, node).isPresent());
-    }
-
-    private Node mockImage(String credit, String altText) {
+       private Node mockImage(String credit, String altText) {
         Node node = Mockito.mock(Node.class, withSettings().lenient());
         try {
             when(node.hasProperty("hippogallery:description")).thenReturn(credit != null);

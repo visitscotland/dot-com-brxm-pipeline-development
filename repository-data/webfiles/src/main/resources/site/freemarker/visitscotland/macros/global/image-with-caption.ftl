@@ -1,4 +1,3 @@
-<#include "../../../frontend/components/vs-svg.ftl">
 <#include "../../../frontend/components/vs-social-credit-link.ftl">
 <#include "../../../frontend/components/vs-image-with-caption.ftl">
 <#include "../../../frontend/components/vs-caption.ftl">
@@ -52,7 +51,11 @@
             </template>
 
             <#if imageDetails.source?has_content>
-                <vs-svg slot="toggle-icon" path="${imageDetails.source + '-bg'}" height="24" width="24"></vs-svg>
+                <vs-icon
+                    slot="toggle-icon"
+                    name="${imageDetails.source + '-filled'}"
+                    size="md"
+                ></vs-icon>
 
                 <vs-social-credit-link
                     slot="credit"

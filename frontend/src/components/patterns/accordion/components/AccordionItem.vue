@@ -174,14 +174,15 @@ export default {
         background-color: transparent;
     }
 
-    .btn.vs-accordion-toggle {
+    .vs-accordion-toggle {
         text-align: left;
         font-weight: $font-weight-bold;
         font-size: $font-size-6;
         letter-spacing: normal;
         padding: $spacer-3;
+        border: 0;
 
-        &.vs-button.btn:focus{
+        &:focus{
             box-shadow: $shadow-button-focus inset;
         }
     }

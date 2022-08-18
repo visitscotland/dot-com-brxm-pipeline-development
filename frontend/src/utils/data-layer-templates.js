@@ -1,10 +1,15 @@
 const pageViewTemplate = [
     'event',
-    'language',
+    'site_language',
+    'content_language',
     'page_category_1',
     'page_category_2',
     'page_category_3',
     'page_category_4',
+    'page_category_5',
+    'page_category_6',
+    'content_region',
+    'content_city',
     'provider_search_region',
     'provider_search_category',
     'provider_search_facilities',
@@ -13,7 +18,6 @@ const pageViewTemplate = [
     'provider_search_rooms',
     'provider_search_min_price',
     'provider_search_max_price',
-    'user_country_setting',
     'provider_category',
     'provider_category_level_1',
     'provider_category_level_2',
@@ -39,7 +43,7 @@ const pageViewTemplate = [
 
 const menuNavigationTemplate = [
     'event',
-    'language',
+    'site_language',
     'user_country_setting',
     'hit_timestamp',
     'tag_name',
@@ -50,11 +54,13 @@ const menuNavigationTemplate = [
 
 const newsletterTemplate = [
     'event',
-    'language',
+    'site_language',
     'page_category_1',
     'page_category_2',
     'page_category_3',
     'page_category_4',
+    'page_category_5',
+    'page_category_6',
     'user_country_setting',
     'hit_timestamp',
     'tag_name',
@@ -67,11 +73,13 @@ const newsletterTemplate = [
 
 const shareTemplate = [
     'event',
-    'language',
+    'site_language',
     'page_category_1',
     'page_category_2',
     'page_category_3',
     'page_category_4',
+    'page_category_5',
+    'page_category_6',
     'user_country_setting',
     'hit_timestamp',
     'tag_name',
@@ -82,11 +90,13 @@ const shareTemplate = [
 
 const socialMediaExternalLinkTemplate = [
     'event',
-    'language',
+    'site_language',
     'page_category_1',
     'page_category_2',
     'page_category_3',
     'page_category_4',
+    'page_category_5',
+    'page_category_6',
     'user_country_setting',
     'hit_timestamp',
     'tag_name',
@@ -97,11 +107,13 @@ const socialMediaExternalLinkTemplate = [
 
 const homePageLogoClickTemplate = [
     'event',
-    'language',
+    'site_language',
     'page_category_1',
     'page_category_2',
     'page_category_3',
     'page_category_4',
+    'page_category_5',
+    'page_category_6',
     'user_country_setting',
     'hit_timestamp',
     'tag_name',
@@ -111,11 +123,13 @@ const homePageLogoClickTemplate = [
 
 const videoTrackingTemplate = [
     'event',
-    'language',
+    'site_language',
     'page_category_1',
     'page_category_2',
     'page_category_3',
     'page_category_4',
+    'page_category_5',
+    'page_category_6',
     'user_country_setting',
     'hit_timestamp',
     'tag_name',
@@ -127,11 +141,13 @@ const videoTrackingTemplate = [
 
 const externalLinkTemplate = [
     'event',
-    'language',
+    'site_language',
     'page_category_1',
     'page_category_2',
     'page_category_3',
     'page_category_4',
+    'page_category_5',
+    'page_category_6',
     'user_country_setting',
     'hit_timestamp',
     'tag_name',
@@ -142,11 +158,13 @@ const externalLinkTemplate = [
 
 const internalLinkTemplate = [
     'event',
-    'language',
+    'site_language',
     'page_category_1',
     'page_category_2',
     'page_category_3',
     'page_category_4',
+    'page_category_5',
+    'page_category_6',
     'user_country_setting',
     'hit_timestamp',
     'tag_name',
@@ -157,11 +175,13 @@ const internalLinkTemplate = [
 
 const internalNavigationTemplate = [
     'event',
-    'language',
+    'site_language',
     'page_category_1',
     'page_category_2',
     'page_category_3',
     'page_category_4',
+    'page_category_5',
+    'page_category_6',
     'user_country_setting',
     'hit_timestamp',
     'tag_name',
@@ -172,11 +192,13 @@ const internalNavigationTemplate = [
 
 const errorTemplate = [
     'event',
-    'language',
+    'site_language',
     'page_category_1',
     'page_category_2',
     'page_category_3',
     'page_category_4',
+    'page_category_5',
+    'page_category_6',
     'user_country_setting',
     'hit_timestamp',
     'tag_name',
@@ -188,11 +210,13 @@ const errorTemplate = [
 
 const mapInteractionTemplate = [
     'event',
-    'language',
+    'site_language',
     'page_category_1',
     'page_category_2',
     'page_category_3',
     'page_category_4',
+    'page_category_5',
+    'page_category_6',
     'user_country_setting',
     'hit_timestamp',
     'tag_name',
@@ -202,11 +226,13 @@ const mapInteractionTemplate = [
 
 const cannedSearchTemplate = [
     'event',
-    'language',
+    'site_language',
     'page_category_1',
     'page_category_2',
     'page_category_3',
     'page_category_4',
+    'page_category_5',
+    'page_category_6',
     'user_country_setting',
     'hit_timestamp',
     'tag_name',
@@ -218,11 +244,13 @@ const cannedSearchTemplate = [
 
 const formsTemplate = [
     'event',
-    'language',
+    'site_language',
     'page_category_1',
     'page_category_2',
     'page_category_3',
     'page_category_4',
+    'page_category_5',
+    'page_category_6',
     'user_country_setting',
     'hit_timestamp',
     'tag_name',

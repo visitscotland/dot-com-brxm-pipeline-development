@@ -42,6 +42,7 @@ export default {
     background: $color-gray-shade-7;
 
     &__title{
+        font-size: $font-size-4;
         background: $color-gray-shade-7;
         color: $color-white;
         line-height: $line-height-xs;

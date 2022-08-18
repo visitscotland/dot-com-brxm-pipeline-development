@@ -31,17 +31,17 @@
             :name="fieldName"
             :placeholder="placeholder"
             :required="isRequired"
+            :autocomplete="autoComplete ? 'on' : 'off'"
             :v="inputVal"
             :aria-invalid="$v.inputVal.$anyError || invalid"
             :aria-describedby="$v.inputVal.$anyError || invalid ? `error-${fieldName}` : ''"
             @blur="manualValidate"
         />
         <VsButton
-            data-test="input-clear-button"
             v-if="showClearButton"
             class="vs-input__clear-button d-none d-lg-block"
+            data-test="input-clear-button"
             variant="transparent"
-            icon-variant-override="secondary"
             icon="close"
             size="md"
             icon-only
@@ -101,6 +101,10 @@ export default {
         type: {
             type: String,
             default: 'text',
+        },
+        autoComplete: {
+            type: Boolean,
+            default: true,
         },
         /**
          * Rules for Vuelidate plugin
@@ -269,12 +273,11 @@ export default {
         @include form-error-state;
     }
 
-    &__clear-button.vs-button.btn {
+    &__clear-button {
         position: absolute;
         right: $spacer-5;
         top: 50%;
         transform: translate(0, -50%);
-        padding: $spacer-1;
     }
 }
 </style>

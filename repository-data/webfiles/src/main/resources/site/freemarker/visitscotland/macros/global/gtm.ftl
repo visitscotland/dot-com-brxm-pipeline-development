@@ -1,4 +1,4 @@
-<#include "../../../include/helpers.ftl">
+<#include "../../functions/helpers.ftl">
 <#--
     Both versions (script and noscript) are supposed to be included in every page. The implementation
     has been done in the same macro so all future ammends will be done in on single point.

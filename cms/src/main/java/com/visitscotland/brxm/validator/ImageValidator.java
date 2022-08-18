@@ -39,12 +39,9 @@ public class ImageValidator implements Validator<Node> {
             String nodeId = document.getProperty(HIPPO_DOCBASE).getValue().getString();
             if(!nodeId.equals(EMPTY_IMAGE)) {
                 Node childNode = sessionFactory.getHippoNodeByIdentifier(nodeId);
-                if (!childNode.hasProperty("hippogallery:description") || !childNode.hasProperty(Image.ALT_TEXT)) {
+                if (!childNode.hasProperty("hippogallery:description")) {
                     return Optional.of(context.createViolation());
                 } else {
-                    if (childNode.hasProperty(Image.ALT_TEXT) && Contract.isEmpty(childNode.getProperty(Image.ALT_TEXT).getString())) {
-                        return Optional.of(context.createViolation());
-                    }
                     if (childNode.hasProperty("hippogallery:description") && Contract.isEmpty(childNode.getProperty("hippogallery:description").getString())) {
                         return Optional.of(context.createViolation());
                     }

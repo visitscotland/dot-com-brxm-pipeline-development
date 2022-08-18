@@ -21,25 +21,6 @@
     <dependency>
       <groupId>com.visitscotland</groupId>
       <artifactId>data-service-api</artifactId>
-      <version>1.2.1</version>
-      <exclusions>
-        <exclusion>
-          <groupId>org.jboss.resteasy</groupId>
-          <artifactId>resteasy-jaxrs</artifactId>
-        </exclusion>
-        <exclusion>
-          <groupId>javax.ws.rs</groupId>
-          <artifactId>javax.ws.rs-api</artifactId>
-        </exclusion>
-        <exclusion>
-          <groupId>jakarta.ws.rs</groupId>
-          <artifactId>jakarta.ws.rs-api</artifactId>
-        </exclusion>
-        <exclusion>
-          <groupId>org.slf4j</groupId>
-          <artifactId>slf4j-log4j12</artifactId>
-        </exclusion>
-      </exclusions>
     </dependency>
     <dependency>
       <groupId>com.visitscotland</groupId>
@@ -63,6 +44,8 @@
       <artifactId>mockito-junit-jupiter</artifactId>
     </dependency>
 
+    <!-- This library is not currently in use and it is adding some vulnerabilities
+      so it has been removed for the time being -->
     <dependency>
       <groupId>org.bloomreach.forge.ipfilter</groupId>
       <artifactId>bloomreach-ipfilter-hst</artifactId>

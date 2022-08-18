@@ -106,28 +106,30 @@ export default {
                 }
             }
 
-            &:hover {
-                text-decoration: underline;
-            }
-
             &:focus {
-                box-shadow: $shadow-button-focus;
+                box-shadow: $shadow-button-focus-dark;
                 background-color: $color-white;
                 color: $color-gray-shade-1;
                 outline: none;
 
                 .vs-icon {
-                    fill: $color-gray-shade-1 !important;
+                    fill: $color-gray-shade-1;
                 }
-        }
+            }
+
+            &:hover {
+                text-decoration: underline;
+
+                .vs-icon {
+                    fill: $color-white;
+                }
+            }
 
             .vs-icon {
-                &.vs-icon--size-md {
-                    height: 100%;
-                    margin: 0 auto;
-                    fill: $color-white;
-                    display: block;
-                }
+                height: 100%;
+                margin: 0 auto;
+                fill: $color-white;
+                display: block;
 
                 &.vs-icon--external-link {
                     display: none;

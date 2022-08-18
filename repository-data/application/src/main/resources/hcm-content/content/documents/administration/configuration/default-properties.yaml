@@ -3,7 +3,7 @@
   jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
   jcr:uuid: a8a8926f-e625-4162-98b4-29f3c3b819b8
   hippo:name: Default Properties
-  hippo:versionHistory: 434abeb7-4f39-42f8-915a-4bddb55cebc7
+  hippo:versionHistory: 4102f916-5d60-4ece-9583-1776d1e1e268
   /default-properties[1]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:versionable']
@@ -13,7 +13,7 @@
     hippostd:state: unpublished
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2021-02-05T15:37:26.056Z
-    hippostdpubwf:lastModificationDate: 2022-05-31T18:14:17.686+01:00
+    hippostdpubwf:lastModificationDate: 2022-07-26T15:58:12.204+01:00
     hippostdpubwf:lastModifiedBy: admin
     resourcebundle:descriptions: [URL prefix for Instagram endpoints, '', Client Token
         for Instagram request, '', Encoding for requests made to dms data endpoints,
@@ -43,7 +43,7 @@
         \ URLs able to process the override locale parameter (vs-locale-ctx)\r\n\r\
         \nOverriding the locale parameter allows to use a different language for the\
         \ labels\r\n\r\nTHE VALUE OF THIS PROPERTY DOES NOT CHANGE THE PATH OF THE\
-        \ ENDPOINTS"]
+        \ ENDPOINTS", '', '', '', '', '', '']
     resourcebundle:id: default.config
     resourcebundle:keys: [instagram.api, helpdesk-email, instagram.accesstoken, instagram.post-url,
       dms-data.encoding, dms-data.api-key, dms-data.timeout, dms-data.tries, dms-data.sleep-time,
@@ -53,7 +53,8 @@
       og.site-name, og.twitter.site, seo.alternate-link-locale-order, seo.title-suffix,
       seo.og.site-name, seo.og.twitter.site, gtm.is-production, gtm.container-id,
       gtm.preview-query-string, search.path, data-internal.serve-legacy-css, form.is-production,
-      data-internal.path]
+      data-internal.path, cludo.engine.de, cludo.engine.es, cludo.engine.nl, cludo.engine.fr,
+      cludo.engine.it, cludo.engine.en]
     resourcebundle:messages: ['https://graph.facebook.com/v9.0/instagram_oembed?url=http://instagr.am/p/',
       helpdesk@visitscotland.com, 0d41c47eaf42b43fe20de05201c798ec, 'https://www.instagram.com/p/',
       UTF-8, $VS_API_KEY, '2000', '3', '60000', 'https://community.visitscotland.com/',
@@ -61,7 +62,8 @@
       'true', '', 'http://172.28.81.65:8089', /data, 'http://172.28.81.65:8089/data',
       www.visitscotland.com, $YOUTUBE_API_KEY, VisitScotland, '@VisitScotland', 'en,fr,de,nl,it,es',
       '| VisitScotland', VisitScotland, '@VisitScotland', 'false', GTM-WWKWV5K, '&gtm_auth=YWMt6gew5Au1PAnzyzMADQ&gtm_preview=env-3&gtm_cookies_win=x',
-      site-search-results, 'true', 'false', /site/data/internal]
+      site-search-results, 'true', 'false', /site/data/internal, '12812', '12814',
+      '12810', '12811', '12813', '12809']
   /default-properties[2]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:referenceable']
@@ -71,7 +73,7 @@
     hippostd:state: draft
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2021-02-05T15:37:26.056Z
-    hippostdpubwf:lastModificationDate: 2022-06-17T09:34:08.209+01:00
+    hippostdpubwf:lastModificationDate: 2022-07-26T15:54:48.870+01:00
     hippostdpubwf:lastModifiedBy: admin
     resourcebundle:descriptions: [URL prefix for Instagram endpoints, '', Client Token
         for Instagram request, '', Encoding for requests made to dms data endpoints,
@@ -101,7 +103,7 @@
         \ URLs able to process the override locale parameter (vs-locale-ctx)\r\n\r\
         \nOverriding the locale parameter allows to use a different language for the\
         \ labels\r\n\r\nTHE VALUE OF THIS PROPERTY DOES NOT CHANGE THE PATH OF THE\
-        \ ENDPOINTS"]
+        \ ENDPOINTS", '', '', '', '', '', '']
     resourcebundle:id: default.config
     resourcebundle:keys: [instagram.api, helpdesk-email, instagram.accesstoken, instagram.post-url,
       dms-data.encoding, dms-data.api-key, dms-data.timeout, dms-data.tries, dms-data.sleep-time,
@@ -111,7 +113,8 @@
       og.site-name, og.twitter.site, seo.alternate-link-locale-order, seo.title-suffix,
       seo.og.site-name, seo.og.twitter.site, gtm.is-production, gtm.container-id,
       gtm.preview-query-string, search.path, data-internal.serve-legacy-css, form.is-production,
-      data-internal.path]
+      data-internal.path, cludo.engine.de, cludo.engine.es, cludo.engine.nl, cludo.engine.fr,
+      cludo.engine.it, cludo.engine.en]
     resourcebundle:messages: ['https://graph.facebook.com/v9.0/instagram_oembed?url=http://instagr.am/p/',
       helpdesk@visitscotland.com, 0d41c47eaf42b43fe20de05201c798ec, 'https://www.instagram.com/p/',
       UTF-8, $VS_API_KEY, '2000', '3', '60000', 'https://community.visitscotland.com/',
@@ -119,7 +122,8 @@
       'true', '', 'http://172.28.81.65:8089', /data, 'http://172.28.81.65:8089/data',
       www.visitscotland.com, $YOUTUBE_API_KEY, VisitScotland, '@VisitScotland', 'en,fr,de,nl,it,es',
       '| VisitScotland', VisitScotland, '@VisitScotland', 'false', GTM-WWKWV5K, '&gtm_auth=YWMt6gew5Au1PAnzyzMADQ&gtm_preview=env-3&gtm_cookies_win=x',
-      site-search-results, 'true', 'false', /site/data/internal]
+      site-search-results, 'true', 'false', /site/data/internal, '12812', '12814',
+      '12810', '12811', '12813', '12809']
   /default-properties[3]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:referenceable']
@@ -129,9 +133,9 @@
     hippostd:state: published
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2021-02-05T15:37:26.056Z
-    hippostdpubwf:lastModificationDate: 2022-05-31T18:14:17.686+01:00
+    hippostdpubwf:lastModificationDate: 2022-07-26T15:58:12.204+01:00
     hippostdpubwf:lastModifiedBy: admin
-    hippostdpubwf:publicationDate: 2022-05-31T18:14:20.159+01:00
+    hippostdpubwf:publicationDate: 2022-07-26T15:58:15.256+01:00
     resourcebundle:descriptions: [URL prefix for Instagram endpoints, '', Client Token
         for Instagram request, '', Encoding for requests made to dms data endpoints,
       "Token that identifies calls made to vs-dms-products as internal calls giving\
@@ -160,7 +164,7 @@
         \ URLs able to process the override locale parameter (vs-locale-ctx)\r\n\r\
         \nOverriding the locale parameter allows to use a different language for the\
         \ labels\r\n\r\nTHE VALUE OF THIS PROPERTY DOES NOT CHANGE THE PATH OF THE\
-        \ ENDPOINTS"]
+        \ ENDPOINTS", '', '', '', '', '', '']
     resourcebundle:id: default.config
     resourcebundle:keys: [instagram.api, helpdesk-email, instagram.accesstoken, instagram.post-url,
       dms-data.encoding, dms-data.api-key, dms-data.timeout, dms-data.tries, dms-data.sleep-time,
@@ -170,7 +174,8 @@
       og.site-name, og.twitter.site, seo.alternate-link-locale-order, seo.title-suffix,
       seo.og.site-name, seo.og.twitter.site, gtm.is-production, gtm.container-id,
       gtm.preview-query-string, search.path, data-internal.serve-legacy-css, form.is-production,
-      data-internal.path]
+      data-internal.path, cludo.engine.de, cludo.engine.es, cludo.engine.nl, cludo.engine.fr,
+      cludo.engine.it, cludo.engine.en]
     resourcebundle:messages: ['https://graph.facebook.com/v9.0/instagram_oembed?url=http://instagr.am/p/',
       helpdesk@visitscotland.com, 0d41c47eaf42b43fe20de05201c798ec, 'https://www.instagram.com/p/',
       UTF-8, $VS_API_KEY, '2000', '3', '60000', 'https://community.visitscotland.com/',
@@ -178,4 +183,5 @@
       'true', '', 'http://172.28.81.65:8089', /data, 'http://172.28.81.65:8089/data',
       www.visitscotland.com, $YOUTUBE_API_KEY, VisitScotland, '@VisitScotland', 'en,fr,de,nl,it,es',
       '| VisitScotland', VisitScotland, '@VisitScotland', 'false', GTM-WWKWV5K, '&gtm_auth=YWMt6gew5Au1PAnzyzMADQ&gtm_preview=env-3&gtm_cookies_win=x',
-      site-search-results, 'true', 'false', /site/data/internal]
+      site-search-results, 'true', 'false', /site/data/internal, '12812', '12814',
+      '12810', '12811', '12813', '12809']

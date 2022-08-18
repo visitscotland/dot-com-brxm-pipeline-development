@@ -11,7 +11,10 @@ import java.util.*;
 
 /**
  * This custom workflow is enabled in /hippo:configuration/hippo:workflows/threepane/folder-permissions
- * Used to dynamically specify the new document/folder menus and the types of documents that can be created from them
+ * Used to dynamically specify the new document/folder menus and the types of documents that can be created from them for admin users
+ *
+ * Note: /hippo:configuration/hippo:workflows/threepane/folder-extended and /hippo:configuration/hippo:workflows/threepane/folder nodes
+ * allow the documents to be created by other roles and no just admin users
  */
 public class CustomFolderWorkflowImpl extends FolderWorkflowImpl {
 

@@ -23,7 +23,7 @@ definitions:
             hipposysedit:path: visitscotland:link
             hipposysedit:primary: false
             hipposysedit:type: hippo:mirror
-            hipposysedit:validators: [required]
+            hipposysedit:validators: [required, 'visitscotland:link-validator']
           /coordinates:
             jcr:primaryType: hipposysedit:field
             hipposysedit:mandatory: false

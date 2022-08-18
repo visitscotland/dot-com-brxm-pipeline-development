@@ -116,7 +116,7 @@
             <#if stop.opening??>
                 <template slot="stop-info">
                     <vs-itinerary-stop-info
-                        opening-hours="${escapeJSON(stop.opening)}"
+                        opening-hours="${escapeJSON(stop.opening, true)}"
                         opening-times-link='${stop.openLink.link}'
                         closed-text='${label("itinerary", "stop.closed")}'
                         closing-soon-text='${label("itinerary", "stop.close.soon")}'
@@ -154,16 +154,14 @@
                 <vs-itinerary-border-overlap-wrapper slot="stop-buttons">
                     <vs-button
                         class="mb-3"
-                        background="white"
-                        variant="outline-primary"
+                        variant="secondary"
                         icon="food"
                         href="${nearbyEatsUrl}"
                     >
                         ${label("itinerary", "stop.nearby-eat")}
                     </vs-button>
                     <vs-button
-                        background="white"
-                        variant="outline-primary"
+                        variant="secondary"
                         icon="product-accommodation"
                         href="${nearbyStayUrl}"
                     >

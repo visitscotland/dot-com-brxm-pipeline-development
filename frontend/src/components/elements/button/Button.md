@@ -19,38 +19,38 @@ be passed for this to display.
 The secondary button has less emphasis and should be used alongside a 
 primary button for secondary actions on the page. 
 ```jsx
-    <VsButton variant="outline-primary">
+    <VsButton variant="secondary">
         Nearby places to eat
     </VsButton>
 ```
 
 ### Dark Theme
 When displaying a button on a dark themed background, the colour variant 
-should change so the button is more accessible. 
+should change so the button is more accessible. Use the `onDark` prop to update.
 ```jsx
     <BsWrapper class="bg-dark px-4 pb-2 pt-4">
-        <VsButton variant="secondary" class="mr-2 mb-2">
+        <VsButton variant="primary" on-dark class="mr-3 mb-2">
             Nearby places to eat
         </VsButton>
-        <VsButton variant="outline-secondary" class="mr-2 mb-2">
+        <VsButton variant="secondary" on-dark class="mb-2">
             Nearby places to eat
         </VsButton>
     </BsWrapper>
 ```
 
 ### Other Variants
-Other variants available include `Transparent`, `Dark` and `Light`. 
+Other variants available include `Dark` and `Light`. 
 These can be used to help improve contrast between different backgrounds and
 for lower priority call to actions. 
 ```jsx
-    <BsWrapper class="d-flex flex-wrap">
-        <VsButton variant="transparent" class="mr-2 mb-2">
+    <BsWrapper class="p-4 mb-6 w-50 d-flex justify-content-center" style="border: 1px solid #E0E0E0;">
+        <VsButton variant="light">
             Nearby places to eat
         </VsButton>
-        <VsButton variant="dark" class="mr-2 mb-2">
-            Nearby places to eat
-        </VsButton>
-        <VsButton variant="light" class="mr-2 mb-2">
+    </BsWrapper>
+
+    <BsWrapper class="p-4 mb-6 w-50 d-flex justify-content-center" style="background: #fcca1b;">
+        <VsButton variant="dark">
             Nearby places to eat
         </VsButton>
     </BsWrapper>
@@ -60,22 +60,29 @@ for lower priority call to actions.
 Buttons are medium size by default but you can use small, large or block buttons depending 
 on copy size and space in your component.
 ```jsx
-    <VsButton size="sm" class="mr-2 mb-2" >
+    <h5>sm</h5>
+    <VsButton size="sm" class="mb-6" >
         Nearby places to eat
     </VsButton>
-    <VsButton size="md" class="mr-2 mb-2">
+
+    <h5>md</h5>
+    <VsButton size="md" class="mb-6">
         Nearby places to eat
     </VsButton>
-    <VsButton size="lg" class="mr-2 mb-3">
+
+    <h5>lg</h5>
+    <VsButton size="lg" class="mb-6">
         Nearby places to eat
     </VsButton>
-    <VsButton block class="mr-2 mb-2">
+
+    <h5>Block</h5>
+    <VsButton block class="mb-6">
         Nearby places to eat
     </VsButton>
 ```
 
 ### Button with Icon
-You can use any icon on a button to help the user understand the meaning and what it does. 
+You can use any icon on a button to help the user understand the meaning and what the button does. 
 ```jsx
     <VsButton icon="food">
         Nearby places to eat
@@ -84,22 +91,22 @@ You can use any icon on a button to help the user understand the meaning and wha
 Icons can be right or left aligned and the icon orientation can also be changed.
 ```jsx
     <BsWrapper class="d-flex flex-wrap">
-        <VsButton icon="chevron" icon-position="left" icon-orientation="left" class="mr-2 mb-2">
+        <VsButton icon="chevron" icon-position="left" icon-orientation="left" class="mr-4 mb-2">
             Previous
         </VsButton>
-        <VsButton icon="chevron" icon-position="right" icon-orientation="right" class="mr-2 mb-2">
+        <VsButton icon="chevron" icon-position="right" icon-orientation="right" class="mb-2">
             Next
         </VsButton>
     </BsWrapper>
 ```
 
 Icons can be used with any button variant and the size and colour of the icon are automatically 
-calculated to match. These can be overridden if needed for an edge case (see Props chart below).
+calculated to match. 
 ```jsx
-    <VsButton icon="food" variant="dark" class="mr-2 mb-2">
+    <VsButton icon="food" size="sm" variant="light" class="mr-2 mb-4">
         Nearby places to eat
     </VsButton>
-    <VsButton icon="food" size="lg" variant="outline-primary" class="mr-2 mb-2">
+    <VsButton icon="food" size="lg" variant="secondary" class="mr-2 mb-2">
         Nearby places to eat
     </VsButton>
     
@@ -108,14 +115,36 @@ calculated to match. These can be overridden if needed for an edge case (see Pro
 ### Icon Only 
 Icon buttons without text should only be used when the context is totally clear to the user as 
 to what the button does. When using an icon only button, you must provide screen 
-reader text that will be hidden for accessibility.
+reader only text for accessibility. 
 ```jsx
-    <VsButton icon-only icon="search" size="lg" class="mr-2 mb-2">
+    <VsButton icon-only icon="search" size="md" class="mr-6">
         <span class="sr-only">
             Search
         </span>
     </VsButton>
 
+    <VsButton icon-only icon="close" size="lg" variant="transparent">
+        <span class="sr-only">
+            Close
+        </span>
+    </VsButton>
+```
+### Icon with Text 
+If the context of the button and its functionality is not totally clear with an icon on its own, 
+meaningful text should be provided with the icon. 
+
+```jsx
+    <BsWrapper class="p-4 mb-6 w-25 d-flex justify-content-center" style="border: 1px solid #E0E0E0;">
+        <VsButton icon-with-text variant="transparent" icon="share">
+            Share
+        </VsButton>
+    </BsWrapper>
+
+     <BsWrapper class="bg-dark px-4 pb-2 pt-4 w-25 d-flex justify-content-center">
+        <VsButton icon-with-text on-dark variant="transparent" icon="close-circle">
+            Close
+        </VsButton>
+    </BsWrapper>
 ```
 
 ### Disabled States

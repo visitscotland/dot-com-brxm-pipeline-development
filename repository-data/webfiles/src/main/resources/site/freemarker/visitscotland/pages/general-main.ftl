@@ -52,7 +52,7 @@
 
     <@socialShare nojs=true/>
 
-	<#if !standardTemplate && !document.theme=="Top-Level">
+	<#if !standardTemplate && document.theme!="Top-Level">
 		<@productSearchWidget psrWidget />
 	</#if>
 
