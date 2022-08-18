@@ -22,7 +22,7 @@ const baseWebpackConfig = {
     mode: buildMode,
     context: path.resolve(__dirname, '../'),
     entry: {
-        app: 'src/main.js',
+        app: './src/main.js',
     },
     devtool: process.env.NODE_ENV === 'development' ? 'source-map' : false,
     output: {
@@ -32,7 +32,10 @@ const baseWebpackConfig = {
             buildMode === 'development' ? '/' : '../',
     },
     resolve: {
-        extensions: ['.js', '.vue', '.json'],
+        extensions: ['.cjs','.js', '.vue', '.json'],
+        modules: [
+            path.join(__dirname, 'node_modules')
+        ],
         alias: {
             vue$: 'vue/dist/vue.esm.js',
             'bootstrap-vue$': 'bootstrap-vue/src/index.js',
@@ -42,6 +45,11 @@ const baseWebpackConfig = {
             '@images': resolve('docs/images'),
             '@cypress': resolve('cypress'),
         },
+    },
+    resolveLoader: {
+        modules: [
+            path.join(__dirname, 'node_modules')
+        ]
     },
     module: {
         rules: [

@@ -23,7 +23,7 @@ baseWebpackConfig.entry = components.entry;
 
 // Remove the CSS extract from the base config to prevent duplicate CSS file
 baseWebpackConfig.plugins = baseWebpackConfig.plugins.filter(
-  (plugin) => !(plugin instanceof MiniCssExtractPlugin),
+    (plugin) => !(plugin instanceof MiniCssExtractPlugin),
 );
 
 const webpackConfig = {
@@ -37,10 +37,10 @@ const webpackConfig = {
     devtool: false,
     output: {
         path: path.resolve(__dirname, '../dist', 'library'),
-    filename: baseWebpackConfig.mode === 'development' ? 'scripts/[name].js' : 'scripts/[chunkhash].js',
+        filename: baseWebpackConfig.mode === 'development' ? 'scripts/[name].js' : 'scripts/[chunkhash].js',
         publicPath: '../',
         library: '[name]',
-        libraryTarget: 'umd',
+        libraryTarget: 'commonjs2',
     },
     optimization: {
         splitChunks: {
@@ -54,7 +54,7 @@ const webpackConfig = {
     plugins: [
         // extract css into its own file
         new MiniCssExtractPlugin({
-      filename: baseWebpackConfig.mode === 'development' ? 'styles/[name].css' : 'styles/[chunkhash].css',
+            filename: baseWebpackConfig.mode === 'development' ? 'styles/[name].css' : 'styles/[chunkhash].css',
         }),
 
         // Compress and dedupe extracted CSS
@@ -68,7 +68,7 @@ const webpackConfig = {
         new webpack.ids.HashedModuleIdsPlugin(),
 
         // Generate custom manifest.json
-    new WebpackManifestPlugin({
+        new WebpackManifestPlugin({
             generate: generateManifest,
             fileName: 'manifest.json',
         }),

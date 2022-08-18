@@ -17,7 +17,7 @@
   "scripts": {
     "build": "npm-run-all build:frontend build:integrate",
     "build:dev": "npm-run-all build:frontend:dev build:integrate",
-    "build:ssr": "npm-run-all build:frontend:ssr \"build:integrate --env src-path=../frontend/dist/ssr/client\"",
+    "build:ssr": "npm-run-all build:frontend build:frontend:ssr \"build:integrate --env src-path=../frontend/dist/ssr/client\"",
     "build:ssr:dev": "npm-run-all build:frontend:ssr:dev \"build:integrate --env src-path=../frontend/dist/ssr/client\"",
     "build:integrate": "npx webpack --config webpack.config.cjs",
     "build:frontend": "yarn --cwd ../frontend/ library",
