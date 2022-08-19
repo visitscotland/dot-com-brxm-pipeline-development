@@ -1,47 +1,107 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
-  
+
   <parent>
-    <groupId>com.visitscotland</groupId>
-    <artifactId>hippo-defaults</artifactId>
-    <version>4.0.0</version>
+    <groupId>com.onehippo.cms7</groupId>
+    <artifactId>hippo-cms7-enterprise-release</artifactId>
+    <version>14.7.8</version>
+    <!--Remember to upgrade essentials when this versions is updated -->
   </parent>
-  
+
   <name>www.visitscotland.com CMS Pages</name>
   <description>www.visitscotland.com CMS Pages</description>
   <groupId>com.visitscotland</groupId>
   <artifactId>dot-com-brxm</artifactId>
-  <version>1.0.7.1</version>
+  <version>1.0.8</version>
   <packaging>pom</packaging>
-  
+
   <properties>
-    
-    <!--***START temporary override of versions*** -->
-    <!-- ***END temporary override of versions*** -->
-    <!--TODO define this in parent pom -->
+    <!-- Project properties -->
+    <nexus.repo>https://repo.visitscotland.com/nexus2/</nexus.repo>
+    <dist.descriptor>distribution.xml</dist.descriptor>
+    <development-module-deploy-dir>shared/lib</development-module-deploy-dir>
+    <hippo.cms.locales>nl,de,fr,es,zh</hippo.cms.locales>
+    <cliOptions></cliOptions>
+
+    <!-- Bloom Dependencies -->
+
+    <essentials.version>14.7.8</essentials.version>
+    <forge.exdocpickerbase.version>6.0.0</forge.exdocpickerbase.version>
+    <forge.breadcrumb.version>3.0.0</forge.breadcrumb.version>
+    <bloomreach.forge.ipfilter.version>3.1.0</bloomreach.forge.ipfilter.version>
+
+
+    <!-- Other dependencies -->
     <commons-lan3.version>3.8.1</commons-lan3.version>
-    
+    <jsp-api.version>2.2</jsp-api.version>
+    <taglibs.version>1.2.5</taglibs.version>
+    <h2.database.version>2.1.210</h2.database.version>
+    <jackson-core.version>2.13.3</jackson-core.version>
+
+    <!-- Test dependencies -->
     <junit.jupiter.version>5.7.1</junit.jupiter.version>
     <easymock.version>4.2</easymock.version>
     <mockito.version>3.3.3</mockito.version>
-    
-    <forge.exdocpickerbase.version>6.0.0</forge.exdocpickerbase.version>
-    <forge.breadcrumb.version>3.0.0</forge.breadcrumb.version>
-
-    <bloomreach.forge.ipfilter.version>3.1.0</bloomreach.forge.ipfilter.version>
-
-    <cliOptions></cliOptions>
   </properties>
-  
+
+  <organization>
+    <name>VisitScotland</name>
+    <url>https://www.visitscotland.org/</url>
+  </organization>
   <inceptionYear>2019</inceptionYear>
-  
+  <mailingLists>
+    <mailingList/>
+  </mailingLists>
+  <contributors>
+    <contributor/>
+  </contributors>
+  <issueManagement/>
   <developers>
     <developer/>
   </developers>
 
+  <licenses>
+    <license>
+      <name>All Rights Reserved</name>
+      <distribution>none</distribution>
+    </license>
+  </licenses>
+
+  <!-- This configuration might be used by SonarQube or Continuum -->
+  <ciManagement>
+    <system>Jenkins</system>
+    <url>https://jenkins.visitscotland.com/</url>
+  </ciManagement>
+
+  <!-- vs.repo and vs.snapshot are defined in settings.xml in the developer machine -->
+  <!-- This configuration is provided by VisitScotland to each developer -->
+  <distributionManagement>
+    <repository>
+      <id>vs</id>
+      <url>${vs.repo}</url>
+    </repository>
+    <snapshotRepository>
+      <id>snapshots</id>
+      <url>${vs.snapshots}</url>
+    </snapshotRepository>
+  </distributionManagement>
+
   <dependencyManagement>
     <dependencies>
+      <!-- VisitScotland Dependencies -->
+      <dependency>
+        <groupId>com.visitscotland</groupId>
+        <artifactId>data-service-api</artifactId>
+        <version>1.3.2</version>
+      </dependency>
+
+      <dependency>
+        <groupId>com.visitscotland</groupId>
+        <artifactId>utils</artifactId>
+        <version>3.0.1</version>
+      </dependency>
+
       <dependency>
         <groupId>javax.servlet.jsp</groupId>
         <artifactId>jsp-api</artifactId>
@@ -88,36 +148,16 @@
         <version>${bloomreach.forge.ipfilter.version}</version>
       </dependency>
 
-      <!-- VisitScotland Dependencies -->
-
-<!--      <dependency>-->
-<!--        <groupId>com.visitscotland</groupId>-->
-<!--        <artifactId>data-service-api</artifactId>-->
-<!--        <version>1.3.1</version>-->
-<!--        <exclusions>-->
-<!--          <exclusion>-->
-<!--            <groupId>org.jboss.resteasy</groupId>-->
-<!--            <artifactId>resteasy-jaxrs</artifactId>-->
-<!--          </exclusion>-->
-<!--          <exclusion>-->
-<!--            <groupId>javax.ws.rs</groupId>-->
-<!--            <artifactId>javax.ws.rs-api</artifactId>-->
-<!--          </exclusion>-->
-<!--          <exclusion>-->
-<!--            <groupId>jakarta.ws.rs</groupId>-->
-<!--            <artifactId>jakarta.ws.rs-api</artifactId>-->
-<!--          </exclusion>-->
-<!--          <exclusion>-->
-<!--            <groupId>org.slf4j</groupId>-->
-<!--            <artifactId>slf4j-log4j12</artifactId>-->
-<!--          </exclusion>-->
-<!--        </exclusions>-->
-<!--      </dependency>-->
 
       <dependency>
-        <groupId>com.visitscotland</groupId>
-        <artifactId>utils</artifactId>
-        <version>3.0.0</version>
+        <groupId>com.fasterxml.jackson.core</groupId>
+        <artifactId>jackson-core</artifactId>
+        <version>${jackson-core.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.fasterxml.jackson.module</groupId>
+        <artifactId>jackson-module-jaxb-annotations</artifactId>
+        <version>${jackson-core.version}</version>
       </dependency>
 
       <!-- Test Dependencies -->
@@ -151,7 +191,7 @@
 
   <build>
     <defaultGoal>package</defaultGoal>
-    
+
     <pluginManagement>
       <plugins>
         <!--
@@ -181,9 +221,164 @@
             </lifecycleMappingMetadata>
           </configuration>
         </plugin>
+
+        <!-- Generates the buildnumber -->
+        <plugin>
+          <groupId>org.codehaus.mojo</groupId>
+          <artifactId>buildnumber-maven-plugin</artifactId>
+          <version>${maven.plugin.buildnumber.version}</version>
+
+          <configuration>
+            <shortRevisionLength>8</shortRevisionLength>
+            <getRevisionOnlyOnce>true</getRevisionOnlyOnce>
+          </configuration>
+
+          <executions>
+            <!-- This execution has been replicated from hippo-cms7-project-31.1.0 -->
+            <execution>
+              <id>default</id>
+              <phase>validate</phase>
+              <goals>
+                <goal>create</goal>
+              </goals>
+              <configuration>
+                <skip>true</skip>
+              </configuration>
+            </execution>
+            <!-- This is the standard VS execution -->
+            <execution>
+              <id>buildNumberCreation</id>
+              <phase>validate</phase>
+              <goals>
+                <goal>create-timestamp</goal>
+              </goals>
+              <configuration>
+                <timestampFormat>yyMMddHHmmss</timestampFormat>
+                <timestampPropertyName>project.buildNo</timestampPropertyName>
+                <timezone>UTC</timezone>
+              </configuration>
+            </execution>
+          </executions>
+        </plugin>
+
+        <!-- Prints the build number in the console, so the release manager can ensure that the application deployed is correct -->
+        <plugin>
+          <artifactId>maven-antrun-plugin</artifactId>
+          <version>${maven.plugin.antrun.version}</version>
+          <executions>
+            <execution>
+              <phase>deploy</phase>
+              <goals>
+                <goal>run</goal>
+              </goals>
+              <configuration>
+                <target>
+                  <echo>BUILD NUMBER: ${project.buildNo}</echo>
+                </target>
+              </configuration>
+            </execution>
+          </executions>
+        </plugin>
+
+        <!-- Deployment plugin for Nexus -->
+        <!-- Documentation https://github.com/sonatype/nexus-maven-plugins -->
+        <plugin>
+          <groupId>org.sonatype.plugins</groupId>
+          <artifactId>nexus-staging-maven-plugin</artifactId>
+          <version>1.6.8</version>
+          <extensions>true</extensions>
+          <configuration>
+            <serverId>vs</serverId>
+            <nexusUrl>${nexus.repo}</nexusUrl>
+          </configuration>
+        </plugin>
+
+        <!-- Ensures the proper Gitflow Use for releases -->
+        <!-- Documentation: https://github.com/aleksandr-m/gitflow-maven-plugin -->
+        <plugin>
+          <groupId>com.amashchenko.maven.plugin</groupId>
+          <artifactId>gitflow-maven-plugin</artifactId>
+          <version>1.14.0</version>
+          <executions>
+            <execution>
+              <id>default-cli</id>
+              <goals>
+                <goal>release-start</goal>
+                <goal>hotfix-start</goal>
+              </goals>
+              <configuration>
+                <pushRemote>true</pushRemote>
+                <allowSnapshots>true</allowSnapshots>
+                <commitMessages>
+                  <releaseStartMessage>Created release branch @{version}</releaseStartMessage>
+                  <releaseFinishMessage>Merged release branch and updated to next development version.</releaseFinishMessage>
+                  <tagReleaseMessage>Tag release @{version}</tagReleaseMessage>
+
+                  <hotfixStartMessage>Created emergency release branch @{version}</hotfixStartMessage>
+                  <hotfixFinishMessage>Merged emergency release branch and updated to next development version.</hotfixFinishMessage>
+                  <tagHotfixMessage>Tag emergency release @{version}</tagHotfixMessage>
+                </commitMessages>
+              </configuration>
+            </execution>
+          </executions>
+        </plugin>
+
+        <!-- Allows the Gitflow plugin to make commits to the SCM -->
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-scm-plugin</artifactId>
+          <executions>
+            <execution>
+              <id>default-cli</id>
+              <goals>
+                <goal>checkin</goal>
+              </goals>
+              <configuration>
+                <connectionType>connection</connectionType>
+              </configuration>
+            </execution>
+          </executions>
+        </plugin>
+
+        <!-- Searches the pom for all -SNAPSHOT versions which have been released and replaces them with the corresponding release version -->
+        <plugin>
+          <groupId>org.codehaus.mojo</groupId>
+          <artifactId>versions-maven-plugin</artifactId>
+          <executions>
+            <execution>
+              <id>default-cli</id>
+              <goals>
+                <goal>use-releases</goal>
+              </goals>
+              <configuration>
+                <generateBackupPoms>false</generateBackupPoms>
+                <failIfNotReplaced>true</failIfNotReplaced>
+              </configuration>
+            </execution>
+          </executions>
+        </plugin>
+
+        <!-- Adds the entries to the Manifest Files -->
+        <plugin>
+          <artifactId>maven-war-plugin</artifactId>
+          <version>${maven.plugin.war.version}</version>
+          <configuration>
+            <archive>
+              <manifest>
+                <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
+              </manifest>
+              <manifestEntries>
+                <Build-Number>${project.buildNo}</Build-Number>
+                <Build-Date>${maven.build.timestamp}</Build-Date>
+                <Hippo-Release-Version>${hippo.release.version}</Hippo-Release-Version>
+              </manifestEntries>
+            </archive>
+          </configuration>
+        </plugin>
+
       </plugins>
     </pluginManagement>
-    
+
     <plugins>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
@@ -197,6 +392,19 @@
               <Implementation-Build>${buildNumber}</Implementation-Build>
             </manifestEntries>
           </archive>
+        </configuration>
+      </plugin>
+
+      <!-- Deployment plugin for Nexus -->
+      <!-- Documentation https://github.com/sonatype/nexus-maven-plugins -->
+      <plugin>
+        <groupId>org.sonatype.plugins</groupId>
+        <artifactId>nexus-staging-maven-plugin</artifactId>
+        <version>1.6.8</version>
+        <extensions>true</extensions>
+        <configuration>
+          <serverId>vs</serverId>
+          <nexusUrl>${nexus.repo}</nexusUrl>
         </configuration>
       </plugin>
     </plugins>
@@ -481,7 +689,7 @@
     </profile>
 
   </profiles>
-  
+
   <scm>
     <connection>scm:git:https://bitbucket.visitscotland.com/scm/com/visitscotland-2019.git</connection>
     <developerConnection/>

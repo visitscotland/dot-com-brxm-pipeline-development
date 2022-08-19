@@ -156,6 +156,7 @@ export default {
 
             &__no-js {
                 display: block;
+                text-align: center;
             }
         }
     }

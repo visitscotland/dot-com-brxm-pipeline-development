@@ -31,6 +31,7 @@
             :name="fieldName"
             :placeholder="placeholder"
             :required="isRequired"
+            :autocomplete="autoComplete ? 'on' : 'off'"
             :v="inputVal"
             :aria-invalid="$v.inputVal.$anyError || invalid"
             :aria-describedby="$v.inputVal.$anyError || invalid ? `error-${fieldName}` : ''"
@@ -101,6 +102,10 @@ export default {
         type: {
             type: String,
             default: 'text',
+        },
+        autoComplete: {
+            type: Boolean,
+            default: true,
         },
         /**
          * Rules for Vuelidate plugin

@@ -51,12 +51,12 @@ describe('VsMegaNav', () => {
             expect(dropdownToggle.html()).toContain('Open Menu');
         });
 
-        // it('should display `Search` text within the search button', () => {
-        //     const wrapper = factoryShallowMount();
-        //     const siteSearchStub = wrapper.find('vssitesearch-stub');
+        it('should display `Search` text within the search button', () => {
+            const wrapper = factoryShallowMount();
+            const siteSearchStub = wrapper.find('vssitesearch-stub');
 
-        //     expect(siteSearchStub.text()).toContain('Search');
-        // });
+            expect(siteSearchStub.text()).toContain('Search');
+        });
 
         it('should pass `searchLabelText` prop to search form', () => {
             const wrapper = factoryShallowMount();
@@ -94,20 +94,20 @@ describe('VsMegaNav', () => {
         });
     });
 
-    // describe(':methods', () => {
-    //     it('toggles the search form when search button is clicked', async() => {
-    //         const wrapper = factoryMount();
-    //         const siteSearchBtn = wrapper.find('[data-test=vs-site-search]');
+    describe(':methods', () => {
+        it('toggles the search form when search button is clicked', async() => {
+            const wrapper = factoryMount();
+            const siteSearchBtn = wrapper.find('[data-test=vs-site-search]');
 
-    //         const siteSearchForm = wrapper.find('[data-test=vs-site-search-form]');
-    //         expect(siteSearchForm.attributes('style')).toBe('display: none;');
+            const siteSearchForm = wrapper.find('[data-test=vs-site-search-form]');
+            expect(siteSearchForm.attributes('style')).toBe('display: none;');
 
-    //         siteSearchBtn.trigger('click');
-    //         await wrapper.vm.$nextTick();
+            siteSearchBtn.trigger('click');
+            await wrapper.vm.$nextTick();
 
-    //         setTimeout(() => {
-    //             expect(siteSearchForm.attributes('style')).toBe('');
-    //         }, 100);
-    //     });
-    // });
+            setTimeout(() => {
+                expect(siteSearchForm.attributes('style')).toBe('');
+            }, 100);
+        });
+    });
 });

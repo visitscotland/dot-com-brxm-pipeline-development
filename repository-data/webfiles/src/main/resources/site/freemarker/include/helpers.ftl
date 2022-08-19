@@ -75,7 +75,7 @@
 <#--  Usage: ${escapeJSON(stop.opening)} -->
 <#function escapeJSON original>
     <#assign escaped = original?replace("'", "\\'")>
-    <#assign escaped = escaped?replace("\"", "'")>
+    <#assign escaped = escaped?replace("\"", "&quot;")>
     <#return escaped>
 </#function>
 

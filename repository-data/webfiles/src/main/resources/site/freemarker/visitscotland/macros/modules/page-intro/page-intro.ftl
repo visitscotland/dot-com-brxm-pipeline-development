@@ -8,6 +8,7 @@
 <#include "../../global/preview-warning.ftl">
 <#include "../../../macros/modules/video/video.ftl">
 <#include "../../../macros/modules/modal/modal.ftl">
+<#include "../../../functions/data-layer.ftl">
 
 <#include "../../../../frontend/components/vs-page-intro.ftl">
 <#include "../../../../frontend/components/vs-container.ftl">
@@ -17,6 +18,7 @@
 <#include "../../../../frontend/components/vs-description-list.ftl">
 <#include "../../../../frontend/components/vs-description-list-item.ftl">
 <#include "../../../../frontend/components/vs-alert.ftl">
+<#include "../../../../frontend/components/vs-tag-manager-wrapper.ftl">
 
 <#-- @ftlvariable name="content" type="com.visitscotland.brxm.hippobeans.Page" -->
 <#-- @ftlvariable name="heroDetails" type="com.visitscotland.brxm.model.FlatImage" -->
@@ -34,6 +36,12 @@
     <#if content.heroImage??>
         <@hst.link var="hero" hippobean=content.heroImage.original/>
     </#if>
+
+    <!-- payload prop to be updated by back end -->
+    <#--    ${pageViewDLEvent()}-->
+            <vs-tag-manager-wrapper
+                :payload="${pageViewDLEvent(content)}"
+            ></vs-tag-manager-wrapper>
 
     <div class="has-edit-button">
         <vs-page-intro 
@@ -108,9 +116,11 @@
                 <@socialShare nojs=false />
             </template>
 
-            <template slot="vsIntroContent">
-                <@hst.html hippohtml=content.introduction/>
-            </template>
+            <#if !searchResultsPage??>
+                <template slot="vsIntroContent">
+                    <@hst.html hippohtml=content.introduction/>
+                </template>
+            </#if>
 
             <#if itinerary?has_content>
                 <#if itinerary.firstStopLocation?has_content && itinerary.lastStopLocation?has_content>

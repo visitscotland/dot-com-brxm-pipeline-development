@@ -1,71 +1,189 @@
-#cludo-search-results, 
+.cludo-input-form{
+    .search_autocomplete {
+        position: absolute;
+        width: 85%;
+        list-style: none;
+        background: $color-white;
+        box-shadow: $shadow-popover;
+        padding: $spacer-2 0;
+        left: 0;
+        right: 0;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: $spacer-3;
+
+        @include media-breakpoint-up(lg) {
+            margin-top: $spacer-5;
+            padding: $spacer-3 0;
+        }
+
+        li{
+            color: $color-gray-shade-3;
+            font-size: $font-size-4;
+            line-height: $line-height-standard;
+            transition: all .1s;
+            padding: $spacer-2 $spacer-4;
+
+            @include media-breakpoint-up(lg) {
+                font-size: $font-size-9;
+                padding: $spacer-2 $spacer-8;
+            }
+
+            @include media-breakpoint-up(xl) {
+                font-size: $font-size-10;
+            }
+
+            &:hover, &.active{
+                cursor: pointer;
+                background: $color-pink;
+                color: $color-white;
+            }
+        }
+    }
+}
+
+ 
 .cludo-search-results {
-    .cludo-c-3, .cludo-c-9{
-        flex: 0 0 100%;
-        max-width: 100%;
+    &__search-result-count{
+        font-size: $font-size-5;
 
-        ul{
-            margin:0; 
-            padding: 0;
-        }
-    }
-
-    .cludo-c-3{
-        margin-bottom: $spacer-6;
-
-        .search-result-count,
-        .search-filters{
-            background: $color-gray-tint-7;
-        }
-
-        .search-result-count{
-            padding: $spacer-7 $spacer-7 0;
+        @include media-breakpoint-up(md) {
             font-size: $font-size-7;
+        }
 
-            b{
-                color: $color-pink;
+        b{
+            color: $color-pink;
+        }
+    }
+
+    &__did-you-mean{
+        padding-top: $spacer-2;
+    }
+
+    &__facets{
+        padding: $spacer-5 0 0;
+
+        ul.search-filter-container{
+            padding: 0;
+            margin: 0;
+        }
+
+        .cludo-facet__header-mobile{
+            display: inline-block;
+            width: 100%;
+            color: $color-white;
+            background-color: $color-pink;
+            border-color: $color-pink;
+            font-family: $font-family-base;
+            font-weight: $font-weight-light;
+            transition: $transition-base;
+            text-decoration: none;
+            letter-spacing: $letter-spacing-m;
+            border: 1px solid transparent;
+            padding: $spacer-3 $spacer-8;
+            font-size: $font-size-4;
+            line-height: $line-height-m;
+            position: relative;
+            overflow: hidden;
+            text-transform: uppercase;
+
+            &::after {
+                display: inline-block;
+                margin: 0.1rem 0 0 0.4rem;
+                vertical-align: 0.155em;
+                content: "";
+                border: solid $color-white;
+                border-width: 0 1px 1px 0;
+                padding: $spacer-1;
+                transform: rotate(45deg);
+            }
+
+            &:focus {
+                @extend %primary-button-focus;
             }
         }
 
-        .search-filters{
-            padding: $spacer-5 $spacer-7 $spacer-5;
+        @include media-breakpoint-up(sm) {
+            .cludo-facet__header-mobile{
+                display: none;
+            }
         }
-    
-        ul{
-            .facet-list-item{
+    }
+
+    ul.search-filter-container{
+        padding: $spacer-2 0;
+        margin: 0.125rem 0 0;
+        list-style: none;
+        background-color: $color-white;
+        border: 1px solid rgba(0, 0, 0, 0.15);
+        display: none;
+
+        @include media-breakpoint-up(sm) {
+            background: transparent;
+            border: 0;
+            padding: 0;
+            margin: 0;
+            display: block;
+        }
+
+        .facet-list-item{
+            @include media-breakpoint-up(sm) {
                 display: inline-block;
-                margin: 0 $spacer-1 $spacer-2 0;
-    
-                a{
-                    background: $color-white;
+                margin: 0 $spacer-3 $spacer-4 0;
+            }
+
+            a{
+                background: $color-white;
+                display: block;
+                font-size: $font-size-4;
+                text-decoration: none;
+                color: $color-base-text;
+                transition: all .2s;                
+                line-height: $line-height-standard;
+                padding: $spacer-3 $spacer-3;
+
+                @include media-breakpoint-up(sm) {
+                    border: 2px solid $color-pink;
+                    border-radius: $border-radius-pill;
+                    min-width: 80px;
+                    text-align: center;
                     padding: $spacer-2 $spacer-3;
-                    display: block;
-                    border-radius: $border-radius-lg;
-                    font-size: $font-size-6;
-                    text-decoration: none;
-                    color: $color-base-text;
-                    transition: all .2s;
-    
-                    &:hover {
-                        background: $color-pink;
-                        color: $color-white;
-                    }
+                    color: $color-pink;
+                    font-weight: 600;
                 }
-    
-                &.active{
-                    a{
-                        background: $color-pink;
-                        color: $color-white;
-                    }
+
+                &:hover {
+                    background: $color-purple;
+                    border-color: $color-purple;
+                    color: $color-white;
+                }
+
+                &:focus, &:focus-visible{
+                    box-shadow: $shadow-button-focus;
+                    outline: 0;
+                }
+            }
+
+            &.active{
+                a{
+                    background: $color-pink;
+                    color: $color-white;
                 }
             }
         }
     }
 
-    .cludo-c-9{
-        ul{
+    &__results{
+        ul{ 
+            margin: 0 0 $spacer-8;
+            padding: 0;
+            list-style: none;
+
+            @include media-breakpoint-up(md) {
+                margin-bottom: $spacer-9;
+            }
+
             .search-results-item{
-                list-style: none;
                 position: relative;
                 padding: $spacer-3 0;
 
@@ -78,7 +196,7 @@
                     flex-direction: row;
                     height: 100%;
                     background: transparent;
-                    transition: box-shadow .5s;
+                    transition: box-shadow .2s;
                     padding: $spacer-2;
 
                     &:after{
@@ -100,7 +218,7 @@
                         align-self: flex-start;
                         margin-right: $spacer-8;
 
-                        @include media-breakpoint-up(sm) {
+                        @include media-breakpoint-up(md) {
                             display: block;
                         }
 
@@ -119,8 +237,33 @@
                         align-self: flex-start;
                         width: 100%;
 
-                        @include media-breakpoint-up(sm) {
+                        @include media-breakpoint-up(md) {
                             width: 70%;
+                        }
+
+                        h2{
+                            font-size: $font-size-h2;
+                            letter-spacing: .15rem;
+                            margin-top: 0;
+                            margin-bottom: $spacer-3;
+
+                            @include media-breakpoint-up(md) {
+                                font-size: $font-size-h2-md;
+                            }
+
+                            @include media-breakpoint-up(xl) {
+                                margin-top: $spacer-6;
+                                margin-bottom: $spacer-6;
+                            }
+
+                            &:after {
+                                content: '';
+                                background-image: url(../assets/images/icons/internal-link.svg);
+                                background-size: contain;
+                                width: 16px;
+                                height: 16px;
+                                display: inline-block;
+                            }
                         }
 
                         p{
@@ -130,6 +273,14 @@
                         a{
                             text-decoration: none;
                             color: $color-base-text;
+
+                            &:hover{
+                                text-decoration: underline;
+                            }
+
+                            &:focus{
+                                outline: 2px solid $color-pink;
+                            }
     
                             &:after{
                                 position: absolute;
@@ -147,6 +298,128 @@
                 }
             }
         }
-    }
 
+        // Pagination
+        nav{
+            text-align: center;
+            font-size: $font-size-4;
+            padding-top: $spacer-4;
+
+            .Page-counter{
+                margin-bottom: $spacer-2;
+
+                span{
+                    margin-right: $spacer-2;
+                }
+
+                @include media-breakpoint-up(sm) {
+                    display: none;
+                }
+            }
+    
+            ul.search_page_list{
+                margin: 0;
+
+                li{
+                    display: none;
+
+                    @include media-breakpoint-up(sm) {
+                        display: inline-block;
+                        margin-right: $spacer-2;
+                    }
+
+                    &.active{
+                        background-color: $color-pink;
+                        color: $color-white;
+                        border-radius: $border-radius-pill;
+                        line-height: 1;
+                        padding: 0.3125rem 0.56rem;
+                    }
+
+                    a{
+                        color: $color-pink;
+                        text-decoration: none;
+                        display: block;
+                        padding: $spacer-1 $spacer-3;
+
+                        &:hover{
+                            text-decoration: underline;
+                        }
+
+                        &:focus{
+                            outline: 2px solid $color-pink;
+                        }
+                    }
+
+                    &.next-mobile a:after, 
+                    &.previous a:before{
+                        content: '';
+                        background-image: url(../assets/images/icons/internal-link.svg);
+                        background-size: contain;
+                        width: 12px;
+                        height: 12px;
+                        display: inline-block;
+                        margin-top: -3px;
+                        vertical-align: middle;
+                    }
+
+                    &.next-mobile{
+                        float: right;
+
+                        a:after{
+                            margin-left: $spacer-2;
+                        }
+                    }
+
+                    &.previous{
+                        float: left;
+
+                        a:before{
+                            margin-right: $spacer-2;
+                            transform: rotate(180deg);
+                        }
+                    }
+
+                    &.next-mobile, &.previous{
+                        text-transform: uppercase;
+                        color: $color-pink;
+                        font-size: $font-size-3;
+                        font-weight: $font-weight-semi-bold;
+                        display: inline-block;
+
+                        @include media-breakpoint-up(sm) {
+                            float: none;
+                        }
+                    }
+                }
+            }
+        } 
+        
+        .cludo-loader{
+            width: 3rem;
+            height: 3rem;
+            border-top-color: $color-pink;
+            border-left-color: $color-pink;
+            border-bottom-color: transparent;
+            border-right-color: transparent;
+            border-style: solid;
+            border-width: 4px;
+            border-radius: 50%;  
+            box-sizing: border-box;
+            display: block;
+            margin: $spacer-4 auto;
+            animation: spinner 1s linear infinite;
+                
+        }
+        
+        @keyframes spinner {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }        
+    }
 }
+
+.cludo-sr-only{
+    @extend .sr-only;
+}
+

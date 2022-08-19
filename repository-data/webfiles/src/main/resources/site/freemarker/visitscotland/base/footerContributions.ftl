@@ -11,6 +11,10 @@
     <@hst.headContributions categoryIncludes="htmlBodyEndAppInit" xhtml=true/>
     <!-- END HEAD CONTRIBUTIONS: htmlBodyEndAppInit -->
 
+    <!-- BEGIN HEAD CONTRIBUTIONS: htmlBodyEndScriptsLast -->
+    <@hst.headContributions categoryIncludes="htmlBodyEndScriptsLast" xhtml=true/>
+    <!-- END HEAD CONTRIBUTIONS: htmlBodyEndScriptsLast -->
+
     <style>
         body {
             visibility: visible;

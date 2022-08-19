@@ -7,17 +7,14 @@
         <VsContainer fluid="lg">
             <VsRow>
                 <VsCol cols="12">
-                    <BForm
+                    <div
+                        class="cludo-input-form d-flex align-items-start"
                         role="search"
-                        id="cludo-search-form"
-                        class="d-flex align-items-start"
-                        action
-                        method="get"
-                        :novalidate="true"
-                        @submit="onSubmit"
-                        tabindex="-1"
+                        id="cludo-search-input"
                     >
-                        <div class="d-flex flex-column flex-grow-1 position-relative">
+                        <div
+                            class="d-flex flex-column flex-grow-1 position-relative"
+                        >
                             <label
                                 for="search-input"
                                 class="vs-site-search-form__label"
@@ -31,31 +28,30 @@
                                     variant="secondary"
                                 />
                             </label>
-
                             <VsInput
-                                type="search"
-                                aria-label="Search"
-                                :placeholder="labelText"
-                                autocomplete="off"
+                                class="vs-site-search-form__input cludo-input-form__input"
+                                id="cludo-search-input"
                                 ref="searchInput"
-                                id="search-input"
-                                @updated="updateVal"
-                                :clear-button-text="clearButtonText"
-                                required="true"
+                                name="searchrequest"
+                                type="search"
                                 field-name="site-search"
+                                :placeholder="labelText"
+                                :clear-button-text="clearButtonText"
+                                :auto-complete="false"
+                                @updated="updateVal"
                             />
                         </div>
-
                         <VsButton
                             type="submit"
-                            class="vs-site-search-form__search-button search-button"
+                            class="vs-site-search-form__search-button
+                            cludo-input-form__search-button"
                             variant="primary"
                             size="lg"
-                            id="search-button"
+                            @click.native="closeSearchForm"
                         >
                             {{ submitButtonText }}
                         </VsButton>
-                    </BForm>
+                    </div>
                 </VsCol>
             </VsRow>
         </VsContainer>
@@ -84,8 +80,6 @@ import {
     VsCol, VsRow, VsContainer,
 } from '@components/elements/grid';
 
-import { BForm } from 'bootstrap-vue';
-
 /**
  * Search form used for the global site search.
  *
@@ -97,7 +91,6 @@ export default {
     release: '0.0.1',
     components: {
         VsIcon,
-        BForm,
         VsInput,
         VsButton,
         VsCol,
@@ -106,32 +99,39 @@ export default {
     },
     props: {
         /**
+         * Used to know if the search form is currently showing
+         */
+        isShowing: {
+            type: Boolean,
+            default: false,
+        },
+        /**
          * Text that renders in form label (sr-only) and input placeholder
          */
         labelText: {
             type: String,
-            default: 'What are you looking for?',
+            default: '',
         },
         /**
          * Text that renders inside the submit button
          */
         submitButtonText: {
             type: String,
-            default: 'Search',
+            default: '',
         },
         /**
          * Text that renders inside the clear button (sr-only)
          */
         clearButtonText: {
             type: String,
-            default: 'Clear form',
+            default: '',
         },
         /**
          * Text that renders inside the close button (sr-only)
          */
         closeButtonText: {
             type: String,
-            default: 'Close search form',
+            default: '',
         },
     },
     data() {
@@ -140,7 +140,23 @@ export default {
             showSearchForm: true,
         };
     },
+    watch: {
+        /**
+         * Watches for search form opening
+         */
+        isShowing(formOpen) {
+            if (formOpen) {
+                this.focusOnInput();
+            }
+        },
+    },
     methods: {
+        /**
+         * Puts focus on input when form is opened
+         */
+        focusOnInput() {
+            this.$refs.searchInput.$refs.input.focus();
+        },
         /**
          * Update searchTerm value with returned data
          */
@@ -159,7 +175,6 @@ export default {
          * Closes the search form popover
          */
         closeSearchForm() {
-            this.showSearchForm = !this.showSearchForm;
             this.$emit('toggleAction', this.showSearchForm);
         },
     },
@@ -171,12 +186,23 @@ export default {
 .vs-site-search-form {
     background-color: rgba(239, 239, 239, 0.5);
     backdrop-filter: blur(30px);
-    padding: $spacer-7 0;
+    padding: $spacer-5 0;
     position: absolute;
     width: 100%;
 
-    @include media-breakpoint-up(xl) {
-        padding: $spacer-9 0;
+    @include media-breakpoint-up(lg) {
+        padding: $spacer-8 0;
+    }
+
+    .cludo-input-form{
+        margin: 0;
+
+        @include media-breakpoint-up(lg) {
+            margin: $spacer-2 0;
+        }
+        @include media-breakpoint-up(xl) {
+            margin: $spacer-4 0;
+        }
     }
 
     &__label {
@@ -200,7 +226,7 @@ export default {
         &.vs-form-input.form-control {
             font-size: $font-size-4;
             height: auto;
-            padding: $spacer-3 $spacer-7 $spacer-3 $spacer-6;
+            padding: $spacer-3 $spacer-3 $spacer-3 $spacer-7;
             border-color: $color-white;
 
             &:focus{
@@ -209,7 +235,7 @@ export default {
             }
 
             @include media-breakpoint-up(lg) {
-                padding: $spacer-4 $spacer-10 $spacer-4 $spacer-12;
+                padding: $spacer-4 $spacer-10 $spacer-4 $spacer-11;
                 font-size: $font-size-9;
             }
 
@@ -229,7 +255,7 @@ export default {
 
         @include media-breakpoint-up(lg) {
             padding: $spacer-4 $spacer-10 $spacer-4 $spacer-12;
-            font-size: $display1-size;
+            font-size: $font-size-9;
             height: 79px;
         }
 
@@ -257,12 +283,12 @@ export default {
 
     &__close-button.vs-button.btn {
         position: absolute;
-        right: $spacer-2;
-        top: $spacer-2;
+        right: 8px;
+        top: 6px;
 
         @include media-breakpoint-up(xl) {
             right: $spacer-4;
-            top: $spacer-4;
+            top: $spacer-2;
         }
     }
 }

@@ -89,10 +89,20 @@
         height: auto; 
     }
 
-    .card.vs-mega-nav-featured-item {
+    .card.vs-mega-nav-featured-item,
+    .card.vs-mega-nav-featured-event {
         width: 100%;
         height: auto;
         text-align: left;
+    }
+
+    .vs-mega-nav-top-menu-item__featured-event {
+        font-size: 1.6rem !important;
+
+        .vs-stretched-link-card__content {
+            font-size: 1.6rem !important;
+            border-left-width: 4px !important;
+        }
     }
 
     @media (max-width: 499px) {

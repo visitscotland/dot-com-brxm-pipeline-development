@@ -48,12 +48,12 @@
                         lg="2"
                         class="justify-content-end position-static d-flex h-100"
                     >
-                        <!-- <VsSiteSearch
+                        <VsSiteSearch
                             @toggleAction="toggleSearch"
                             :is-showing="showSearch"
                         >
                             {{ searchButtonText }}
-                        </VsSiteSearch> -->
+                        </VsSiteSearch>
 
                         <VsMegaNavDropdown
                             @menuToggled="menuToggle"
@@ -92,6 +92,7 @@
         <VsSiteSearchForm
             v-show="showSearch"
             @toggleAction="toggleSearch"
+            :is-showing="showSearch"
             :label-text="searchLabelText"
             :submit-button-text="searchButtonText"
             :clear-button-text="searchClearButtonText"
@@ -108,7 +109,7 @@ import VsSvgLink from '@components/elements/svg-link/SvgLink';
 import VsMegaNavDropdown from '@components/patterns/mega-nav/components/MegaNavDropdown';
 import VsMegaNavTopMenu from '@components/patterns/mega-nav/components/MegaNavTopMenu';
 import VsIcon from '@components/elements/icon/Icon';
-// import VsSiteSearch from '@components/patterns/site-search/SiteSearch';
+import VsSiteSearch from '@components/patterns/site-search/SiteSearch';
 import VsSiteSearchForm from '@components/patterns/site-search/components/SiteSearchForm';
 
 /**
@@ -129,7 +130,7 @@ export default {
         VsMegaNavDropdown,
         VsMegaNavTopMenu,
         VsIcon,
-        // VsSiteSearch,
+        VsSiteSearch,
         VsSiteSearchForm,
     },
     props: {

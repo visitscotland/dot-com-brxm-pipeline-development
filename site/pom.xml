@@ -5,7 +5,7 @@
   <parent>
     <groupId>com.visitscotland</groupId>
     <artifactId>dot-com-brxm</artifactId>
-    <version>1.0.7</version>
+    <version>1.0.8</version>
   </parent>
   <artifactId>dot-com-brxm-site</artifactId>
   <packaging>pom</packaging>
@@ -44,6 +44,8 @@
       <artifactId>mockito-junit-jupiter</artifactId>
     </dependency>
 
+    <!-- This library is not currently in use and it is adding some vulnerabilities
+      so it has been removed for the time being -->
     <dependency>
       <groupId>org.bloomreach.forge.ipfilter</groupId>
       <artifactId>bloomreach-ipfilter-hst</artifactId>

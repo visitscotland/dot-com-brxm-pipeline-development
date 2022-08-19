@@ -27,3 +27,13 @@
     display: none;
   }
 }
+
+%primary-button-focus {
+    box-shadow: $shadow-button-focus;
+    background-color: $color-white;
+    color: $color-theme-primary;
+
+    .vs-icon {
+        fill: $color-theme-primary;
+    }
+}
