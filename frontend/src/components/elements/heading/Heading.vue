@@ -2,10 +2,7 @@
     <Component
         :is="type"
         class="vs-heading"
-        :class="{
-            'vs-heading--thin': thin,
-            'vs-heading--alternative': alternative,
-        }"
+        :class="headingClasses"
     >
         <!-- @slot The main heading content goes here -->
         <slot />
@@ -56,13 +53,31 @@ export default {
             type: Boolean,
             default: false,
         },
+        /**
+         * Heading override style
+         * `1|2|3|4|5|6`
+         */
+        overrideStyleLevel: {
+            type: [String, Number],
+            default: null,
+            validator: (value) => (isNumber(value) ? value > 0 && value < 7 : value.match(/(1|2|3|4|5|6)/)),
+        },
     },
     computed: {
-        type() {
-            return `h${this.level}`;
-        },
         hasSubtitle() {
             return !!this.$slots['sub-heading'];
+        },
+        headingClasses() {
+            return [
+                this.overrideStyleLevel ? `vs-heading--style-level-${this.overrideStyleLevel}` : '',
+                {
+                    'vs-heading--thin': this.thin,
+                    'vs-heading--alternative': this.alternative,
+                },
+            ];
+        },
+        type() {
+            return `h${this.level}`;
         },
     },
 };
@@ -99,16 +114,13 @@ $sub-font-sizes: (
     font-family: $headings-font-family;
 
     @each $level, $size in $font-sizes {
-        @at-root h#{$level}#{&} {
+        @at-root h#{$level}#{&},
+        &.vs-heading--style-level-#{$level} {
             letter-spacing: $size * 0.1;
             margin-bottom: $size;
             margin-top: $size;
             font-size: $size;
-        }
-    }
 
-    @each $level, $size in $md-font-sizes {
-        @at-root h#{$level}#{&} {
             @include media-breakpoint-up(md) {
                 letter-spacing: $size * 0.1;
                 margin-bottom: $size;
@@ -116,6 +128,14 @@ $sub-font-sizes: (
                 font-size: $size;
             }
         }
+    }
+
+    @at-root h#{5}#{&}, h#{6}#{&},
+    &.vs-heading--style-level-#{5},
+    &.vs-heading--style-level-#{6}{
+        font-family: $font-family-sans-serif;
+        letter-spacing: normal;
+        font-weight: $font-weight-bold;
     }
 
     &.vs-heading--thin {
@@ -141,11 +161,4 @@ $sub-font-sizes: (
         letter-spacing: normal;
     }
 }
-
-h6.vs-heading, h5.vs-heading{
-    font-family: $font-family-sans-serif;
-    letter-spacing: normal;
-    font-weight: $font-weight-bold;
-}
-
 </style>

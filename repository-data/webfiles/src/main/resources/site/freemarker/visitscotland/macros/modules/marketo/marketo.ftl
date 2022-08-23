@@ -38,6 +38,7 @@
                     munchkin-id="${munchkinId}"
                     language="${language}"
                     :is-prod="${property('form.is-production')}"
+                    recaptcha-textarea-label="${label('forms', 'form.recaptcha-textarea-label')}"
                 >
 
                     <template slot="no-js">

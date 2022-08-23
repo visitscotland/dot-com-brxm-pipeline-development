@@ -6,6 +6,7 @@
         :img-alt="imgAlt"
         class="vs-mega-nav-featured-item"
         data-test="vs-mega-nav-featured-item"
+        heading-level="2"
     >
         <template slot="stretchedCardHeader">
             <!-- @slot Featured Item header text  -->

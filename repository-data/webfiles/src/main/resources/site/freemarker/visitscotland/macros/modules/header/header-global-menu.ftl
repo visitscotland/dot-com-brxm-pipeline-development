@@ -11,7 +11,7 @@
     <#if localizedURLs?size == 0 && hstRequestContext.getModel("placeholderLocalizedURLs")??>
         <#assign localizedURLs=hstRequestContext.getModel("placeholderLocalizedURLs")>
     </#if>
-
+    
     <vs-global-menu
         dropdown-label="${label('navigation.static', 'uninav.our-sites')}"
         active-site="https://www.visitscotland.com/"

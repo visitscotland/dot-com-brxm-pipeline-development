@@ -78,7 +78,8 @@
                 <slot name="stretchedCardCategory" />
             </span>
             <VsHeading
-                level="3"
+                v-if="!!this.$slots['stretchedCardHeader']"
+                :level="headingLevel"
                 class="card-title vs-stretched-link-card__title"
                 data-test="vs-stretched-link-card__title"
             >
@@ -167,6 +168,16 @@ export default {
             type: String,
             required: true,
             default: '#',
+        },
+        /**
+        * The correct heading level for page hierarchy, the
+        * heading will be styled the same regardless of level provided
+        * `1|2|3|4|5|6`
+        */
+        headingLevel: {
+            type: [String, Number],
+            default: '3',
+            validator: (value) => value.match(/(1|2|3|4|5|6)/),
         },
         /**
         * The type of link. This will set the icon.
@@ -660,6 +671,30 @@ export default {
                             transportName="Car"
                             daysLabel="days"
                         />
+                    </template>
+
+                    <template slot="stretchedCardHeader">
+                        A Title Would Go Here
+                    </template>
+
+                    <VsRichTextWrapper slot="stretchedCardContent">
+                        <p>The content for the card goes here</p>
+
+                        <p>A second line of content</p>
+                    </VsRichTextWrapper>
+                </VsStretchedLinkCard>
+            </VsCol>
+
+            <VsCol cols="12" md="6">
+                <VsStretchedLinkCard
+                    link="https://visitscotland.com"
+                    type="external"
+                    imgSrc="https://cimg.visitscotland.com/cms-images/attractions/outlander/claire-standing-stones-craigh-na-dun-outlander?size=sm"
+                    imgAlt="This is the alt text"
+                    headingLevel="2"
+                >
+                    <template slot="stretchedCardCategory">
+                        A category header
                     </template>
 
                     <template slot="stretchedCardHeader">

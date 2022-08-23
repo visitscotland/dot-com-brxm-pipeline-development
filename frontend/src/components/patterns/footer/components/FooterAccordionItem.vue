@@ -103,13 +103,10 @@ export default {
         background-color: $color-gray-shade-7;
     }
 
-    .vs-accordion-item__title {
+    .vs-accordion-item__title.vs-heading {
         margin: $spacer-3 0;
         background-color: $color-gray-shade-7;
         color: $color-white;
-        font-weight: $font-weight-semi-bold;
-        font-size: $font-size-4;
-        line-height: $line-height-xs;
         padding: 0;
     }
 

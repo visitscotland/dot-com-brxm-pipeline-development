@@ -2,6 +2,7 @@
 <#include "../../include/imports.ftl">
 <#include "../macros/modules/header/mega-nav/header-mega-nav.ftl">
 <#include "../macros/modules/header/header-global-menu.ftl">
+<#include "../macros/modules/header/skip-to.ftl">
 <#include "../macros/modules/header/banner.ftl">
 <#include "../macros/global/dev-env-menu.ftl">
 
@@ -19,6 +20,7 @@
     </#if>
 
     <div class="has-edit-button">
+        <@headerSkipTo />
         <header class="position-relative zindex-fixed">
             <@headerGlobalMenu />
             <@headerMegaNav menu=menu/>

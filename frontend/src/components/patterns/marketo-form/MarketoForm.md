@@ -21,6 +21,7 @@ For the form to work, there are several required props that must be included mor
     munchkin-id="munchkin-id-code"
     language="it"
     :is-prod="false"
+    recaptcha-textarea-label="Does not need any text"
 >
     <template slot="submitError">
         We're sorry there's been a problem, please try again later. You can also ask to subscribe by sending an email to <vs-link href='mailto:info@visitscotland.com'>info@visitscotland.com</vs-link>.

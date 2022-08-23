@@ -7,6 +7,7 @@
         :animate="false"
         :variant="isShowing ? 'light' : 'primary'"
         @click.native="toggleAction"
+        id="site-search-btn"
     >
         <!-- Default slot for Search button text -->
         <span class="sr-only-lg-down">

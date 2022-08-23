@@ -66,3 +66,19 @@ which can be used with the `alternative` prop.
     <VsHeading level="3" alternative>Scotland is calling (H3)</VsHeading>
     <VsHeading level="4" alternative>Scotland is calling (H4)</VsHeading>
 ```
+
+### Override Styles
+In order to keep the correct heading hierarchy on the page, it may be necessary to change the style of a heading to match the design. 
+The design system provides the `overrideStyleLevel` prop to achieve this and allow any heading to look like any other heading level. 
+```jsx
+    <VsHeading level="1" override-style-level="2">Scotland is calling</VsHeading>
+
+    <VsHeading level="1" override-style-level="3">Scotland is calling</VsHeading>
+
+    <VsHeading level="1" override-style-level="4">Scotland is calling</VsHeading>
+
+    <VsHeading level="1" override-style-level="5">Scotland is calling</VsHeading>
+
+    <VsHeading level="1" override-style-level="6">Scotland is calling</VsHeading>
+
+```
