@@ -7,17 +7,19 @@
   "devDependencies": {
     "clean-webpack-plugin": "^4.0.0",
     "copy-webpack-plugin": "^11.0.0",
+    "loader-utils": "^3.2.0",
     "lodash": "^4.17.21",
     "npm-run-all": "^4.1.5",
     "rimraf": "^3.0.2",
     "schema-utils": "^4.0.0",
+    "webpack": "^5.74.0",
     "webpack-cli": "^4.10.0",
     "yargs": "^17.5.1"
   },
   "scripts": {
     "build": "npm-run-all build:frontend build:integrate",
     "build:dev": "npm-run-all build:frontend:dev build:integrate",
-    "build:ssr": "npm-run-all build:frontend build:frontend:ssr \"build:integrate --env src-path=../frontend/dist/ssr/client\"",
+    "build:ssr": "npm-run-all build:frontend:ssr \"build:integrate --env src-path=../frontend/dist/ssr/client\"",
     "build:ssr:dev": "npm-run-all build:frontend:ssr:dev \"build:integrate --env src-path=../frontend/dist/ssr/client\"",
     "build:integrate": "npx webpack --config webpack.config.cjs",
     "build:frontend": "yarn --cwd ../frontend/ library",
@@ -27,16 +29,6 @@
     "install:frontend": "yarn --cwd ../frontend/",
     "preinstall": "yarn install:frontend",
     "third-party": "npx webpack --config ./build/thirdparty.webpack.conf.cjs"
-  },
-  "dependencies": {
-    "autoprefixer": "^10.4.2",
-    "css-loader": "^6.7.1",
-    "loader-utils": "1.4.0",
-    "mini-css-extract-plugin": "0.9.0",
-    "postcss-loader": "7.0.1",
-    "sass": "^1.49.9",
-    "sass-loader": "10.1.1",
-    "webpack": "^5.73.0"
   },
   "peerDependencies": {
     "postcss": "^8.4.14"

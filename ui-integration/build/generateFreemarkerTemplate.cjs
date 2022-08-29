@@ -2,7 +2,7 @@ const fs = require("fs")
 const path = require("path")
 
 const rf = require("rimraf")
-const { 
+const {
   each,
   kebabCase,
   partial,
@@ -10,7 +10,6 @@ const {
   startsWith,
   isEmpty,
 } = require("lodash")
-const { getOptions } = require("loader-utils")
 const {  validate } = require("schema-utils");
 
 
@@ -20,7 +19,7 @@ const {  validate } = require("schema-utils");
 const optionsSchema = {
   type: "object",
   properties: {
-    
+
     // {String} Path to webfiles relative to the project root
     webfilesPath: {
       type: "string",
@@ -86,7 +85,7 @@ function generateTemplateContent(moduleName, mod, configPaths, appMountTarget) {
   if(!isEmpty(mod.bodyFonts)) {
     content += generateTemplateContentFontAssets(mod.bodyFonts, isApp, configPaths.webfiles)
   }
-  
+
   if (isStore) {
     content += generateTemplateContentStoreScript(moduleName)
   } else if(isApp) {
@@ -103,7 +102,7 @@ function generateTemplateContent(moduleName, mod, configPaths, appMountTarget) {
 // - Adds the `initApp` method exported from the main VsApp module to the `vs` global
 // - Globalises the Vue library exported from the main App module so it can be used to
 //   register whichever components are needed
-// - Call the `initApp` function to bootstrap the app 
+// - Call the `initApp` function to bootstrap the app
 function generateTemplateContentApp(appMountTarget) {
   const setupScriptContent = `
         // initialise global vs object
@@ -111,7 +110,7 @@ function generateTemplateContentApp(appMountTarget) {
             stores: {},
             initApp: ${appModuleName}.initApp
         }
-        
+
         Vue = ${appModuleName}.Vue
   `
   const initScriptContent = `
@@ -161,7 +160,7 @@ function generateTemplateContentFontAssets(fonts, isApp, webfilesPath) {
       fonts,
       function(content, assetPath) {
         const href = generateTemplateContentWebfileTag(`fonts/${assetPath}`, webfilesPath)
-        
+
         return content + generateTemplateContentPreload(href, "font");
         },
       "",
@@ -278,37 +277,37 @@ function prepTargetDir(freemarkerTargetPath) {
 
 /**
  * Outputs a freemarker template for each module listed in the provided manifest
- * 
+ *
  * manifest is a JSON string encoding an object with module names as keys and asset
- * maps as values. Each asset map has `scripts`, `styles` and `other` keys, which are 
+ * maps as values. Each asset map has `scripts`, `styles` and `other` keys, which are
  * arrays of paths to the asset chunks that encode the module and all its dependencies.
- * 
+ *
  * This module generates:
  * - A freemarker for each module consisting of a Vue component or Vuex store that contains:
  *    - htmlBodyEndScripts headContributions for each script asset chunk
  *    - htmlHeadStyle headContributions for each style asset chunk
  *    - htmlHeadPreload headContributions containing resource hints for each cript and style chunk
  *    - Includes for the main VsApp module and imports.ftl freemarker templates
- *    - htmlBodyEndScripts headContributions containing a script tag with either the component 
+ *    - htmlBodyEndScripts headContributions containing a script tag with either the component
  *      registraion or global reference setup for each Vue component or Vuex store, respectively
  * - A freemarker for the main VsApp module with all of the above with the followig differences:
  *    - Each script asset chunk is contained in a htmlBodyEndScriptsFirst headContribution
  *    - Does not contain a reference to itself
- *    - Contains an additional script contained in a htmlBodyEndScriptsFirst headContribution that 
+ *    - Contains an additional script contained in a htmlBodyEndScriptsFirst headContribution that
  *      globalises the Vue dependency exported from the VsApp module and sets up the `vs` global object
  *    - Contains an additional script contained in a htmlBodyEndAppInit headContribution tag that
  *      calls the initApp method exported from the VsApp module
- * 
+ *
  * For webpack loader options see the schema at the top of this file.
- * 
+ *
  * @param {String} manifest
- * 
+ *
  */
 module.exports = function(manifest) {
-  const modules = JSON.parse(manifest)
-  const options = getOptions(this)
+  const modules = JSON.parse(manifest);
+  const options = this._module.loaders[0].options;
 
-  validate(optionsSchema, options, "Generate Freemarker Template")
+  validate(optionsSchema, options, { name: "Generate Freemarker Template"})
 
   prepTargetDir(options.freemarkerTargetPath)
 
