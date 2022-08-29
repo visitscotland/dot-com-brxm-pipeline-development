@@ -17,7 +17,5 @@ export default async (context) => {
         ...get(context, "vueOptions", {}),
     }
 
-    const app = new Vue(vueOptions)
-
-    return app
+    return new Vue(vueOptions)
 }

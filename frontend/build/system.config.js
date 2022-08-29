@@ -81,7 +81,6 @@ const config = {
   webpackConfig,
   compilerConfig: {
     target: {
-      ie: '11',
       chrome: '71',
       firefox: '64',
       safari: '11',
@@ -89,8 +88,6 @@ const config = {
     },
   },
   styleguideDir: 'dist/system',
-  printServerInstructions() {
-  },
   printBuildInstructions(passedConfig) {
     console.log(chalk.cyan('\n  Design System Docs build finished succesfully!\n'));
     console.log(

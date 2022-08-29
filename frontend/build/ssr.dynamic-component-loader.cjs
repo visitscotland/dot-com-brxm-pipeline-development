@@ -2,15 +2,11 @@
 /* eslint-disable func-names */
 /* eslint-disable import/no-extraneous-dependencies */
 
-import os from 'os';
-import path from 'path';
-import { fileURLToPath } from 'url';
+const os = require('os');
+const path = require('path');
 
-import { getOptions } from 'loader-utils';
-import { get, map, keys } from 'lodash-es';
-
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+const { getOptions } = require('loader-utils');
+const { get, map, keys } = require('lodash');
 
 const importsPlaceholder = '/** PLACEHOLDER: COMPONENT IMPORTS */';
 const registrationsPlaceholder = '/** PLACEHOLDER: COMPONENT REGISTRATION */';
@@ -29,8 +25,9 @@ const ssrAppPath = './ssr/src/';
 
 const generateComponentImportStatement = (modulePath, componentName) => {
     const relativePath = path.posix.relative(ssrAppPath, modulePath);
+    console.log(relativePath);
 
-    return `const ${componentName} = () => await import("${relativePath}")`;
+    return `import ${componentName} from "${relativePath}"`;
 };
 
 const insertComponentImports = (subject, componentsMap) => subject.replace(
@@ -46,14 +43,12 @@ const insertComponentRegistrations = (subject, componentsMap) => subject.replace
 const transformSource = (subject, componentsMap) => {
     const transformedSource = insertComponentImports(subject, componentsMap);
 
-    console.log(transformSource);
-
     return insertComponentRegistrations(transformedSource, componentsMap);
 };
 
-export default function(source) {
-    const options = getOptions(this);
-    const componentsMap = get(options, 'componentMap');
+module.exports = function (source) {
+    const options = this._module.loaders[0].options;
+    const componentsMap = options.componentMap;
 
     if (componentsMap) {
         return transformSource(source, componentsMap);

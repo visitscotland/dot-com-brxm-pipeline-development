@@ -26,7 +26,7 @@ module.exports = {
         "<rootDir>/src/**/*.{js,vue}",
         "!<rootDir>/cypress/**/*.{js,vue}",
         "!<rootDir>/**/*.spec.js",
-        "!<rootDir>/src/main.js",
+        "!<rootDir>/src/index.js",
         "!<rootDir>/node_modules/**",
         "!<rootDir>/src/system.js",
         "!<rootDir>/src/system-components.js",

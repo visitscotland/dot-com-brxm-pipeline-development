@@ -1,15 +1,15 @@
-const vueServerRenderer = require("vue-server-renderer");
-const vueTemplateCompiler = require("vue-template-compiler");
+import vueServerRenderer from "vue-server-renderer";
+import vueTemplateCompiler from "vue-template-compiler";
 
-const cheerio = require("cheerio");
-const { html: beautifyHtml } = require("js-beautify");
+import cheerio from "cheerio";
+import { beautifyHtml } from "js-beautify";
 
-const buildMode = require("../../build/base.build-mode")
+import buildMode from "../../build/base.build-mode";
 
-const serverBundle = require("../../dist/ssr/server/vue-ssr-server-bundle.json");
-const clientManifest = require("../../dist/ssr/client/vue-ssr-client-manifest.json");
+import serverBundle from "../../dist/ssr/server/vue-ssr-server-bundle.json";
+import clientManifest from "../../dist/ssr/client/vue-ssr-client-manifest.json";
 
-// const transformHtml = require("./transform-html");
+// const transformHtml from "./transform-html";
 
 const appAttributeName = "data-vue-app-init";
 const templatePlaceholderAttrName = "vue-ssr-outlet";
@@ -32,9 +32,7 @@ const completeSsrTemplate = (appHtml) => {
     $template(`[${templatePlaceholderAttrName}]`).replaceWith(appHtml);
 
     // const pageHtml = transformHtml($template.html());
-    const pageHtml = $template.html();
-
-    return pageHtml;
+    return $template.html();
 
     // Formatting the HTML here breaks hydration due to node tree mismatch
     // TODO: Enable formatting without breaking hydration

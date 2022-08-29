@@ -26,16 +26,13 @@ const baseWebpackConfig = {
     },
     devtool: process.env.NODE_ENV === 'development' ? 'source-map' : false,
     output: {
-        path: path.resolve(__dirname, '../dist/base'),
         filename: '[name].js',
+        path: path.resolve(__dirname, '../dist/base'),
         publicPath:
-            buildMode === 'development' ? '/' : '../',
+            buildMode === 'development' ? '/' : '../'
     },
     resolve: {
-        extensions: ['.cjs','.js', '.vue', '.json'],
-        modules: [
-            path.join(__dirname, 'node_modules')
-        ],
+        extensions: ['.cjs','.js', '.vue', '.json', '.scss', '.css'],
         alias: {
             vue$: 'vue/dist/vue.esm.js',
             'bootstrap-vue$': 'bootstrap-vue/src/index.js',
@@ -46,23 +43,19 @@ const baseWebpackConfig = {
             '@cypress': resolve('cypress'),
         },
     },
-    resolveLoader: {
-        modules: [
-            path.join(__dirname, 'node_modules')
-        ]
-    },
     module: {
         rules: [
-            {
-                enforce: 'pre',
-                test: /src.*\.(js|vue)$/,
-                exclude: ['/ssr/', '/src/components/patterns/header/components/Chart/'],
-                options: {
-                    fix: true,
-                    emitError: true,
-                    emitWarning: true,
-                },
-            },
+            // {
+            //     enforce: 'pre',
+            //     test: /src.*\.(js|vue)$/,
+            //     exclude: ['/ssr/', '/src/components/patterns/header/components/Chart/'],
+            //     loader: 'eslint-loader',
+            //     options: {
+            //         fix: true,
+            //         emitError: true,
+            //         emitWarning: true,
+            //     },
+            // },
             {
                 test: /\.vue$/,
                 loader: 'vue-loader',
@@ -87,25 +80,31 @@ const baseWebpackConfig = {
                 ],
             },
             {
+                test: /\.scss$/,
+                use: [
+                    'vue-style-loader',
+                    'css-loader',
+                    'sass-loader'
+                ]
+            },
+            {
                 test: /\.(png|jpe?g|gif)(\?.*)?$/,
-                loader: 'file-loader',
-                options: {
-                    name: 'img/[name].[hash:7].[ext]',
+                type: 'asset',
+                generator: {
+                    filename: 'img/[name].[contenthash:7].[ext]',
                 },
             },
+            // media
             {
                 test: /\.(mp4|webm|ogg|mp3|wav|flac|aac)(\?.*)?$/,
-                loader: 'file-loader',
-                options: {
-                    name: 'media/[name].[hash:7].[ext]',
-                },
+                type: 'asset',
+                generator: { filename: 'media/[contenthash:7][ext][query]' },
             },
+            // fonts
             {
-                test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,
-                loader: 'file-loader',
-                options: {
-                    name: 'fonts/[name].[ext]',
-                },
+                test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/i,
+                type: 'asset',
+                generator: { filename: 'fonts/[contenthash:7][ext][query]' },
             },
             {
                 test: /\.svg$/,
@@ -152,7 +151,10 @@ const baseWebpackConfig = {
     },
     plugins: [
         new VueLoaderPlugin(),
-        new MiniCssExtractPlugin(),
+        new MiniCssExtractPlugin({
+            filename: '[name].css',
+            chunkFilename: '[id].css',
+        }),
         new ESLintPlugin(),
     ],
     node: false,

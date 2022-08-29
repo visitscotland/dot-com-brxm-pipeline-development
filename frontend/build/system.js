@@ -88,9 +88,8 @@ function serverCallback(err, inpConfig, stats) {
 }
 
 function run(inpCommand, returnedConfig) {
-//   config = config;
+    config = returnedConfig;
     spinner.start();
-    config = {}
 
   const styleguide = styleguidist(config);
 

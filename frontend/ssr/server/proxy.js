@@ -1,6 +1,6 @@
-const httpProxy = require("http-proxy");
+import httpProxy from "http-proxy";
 const webO = Object.values(require("http-proxy/lib/http-proxy/passes/web-outgoing"));
-const { isFunction } = require("lodash");
+import { isFunction } from "lodash-es";
 
 let proxy;
 

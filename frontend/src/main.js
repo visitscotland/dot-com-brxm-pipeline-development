@@ -1,8 +1,8 @@
 import Vue from 'vue';
-import { isObject, each } from 'lodash';
+import { isObject, each } from 'lodash-es';
 
-import '#styles/core.styles.scss';
-import noJsClass from '#utils/no-js-class.js';
+import './styles/core.styles.scss';
+import noJsClass from './utils/no-js-class.js';
 
 Vue.config.productionTip = false;
 
@@ -24,13 +24,11 @@ export const initApp = (options, skipRemoveNoJsClass) => {
         removeNoJSClass();
     }
 
-    const app = new Vue({
+    return new Vue({
         ...defaultVueOptions,
         ...isObject(options) ? options : {
         },
     });
-
-    return app;
 };
 
 export { Vue };

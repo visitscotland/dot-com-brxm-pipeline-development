@@ -11,7 +11,9 @@ import { merge } from 'webpack-merge';
 
 import base from './library.webpack.conf.js';
 
-import sourceImports from './ssr.generate-component-library-map.js';
+import * as sourceImports from './ssr.generate-component-library-map.js';
+
+const sourceImportsMap = sourceImports.default(base.entry);
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -19,6 +21,8 @@ const __dirname = path.dirname(__filename);
 const entry = {
     'main-server': path.resolve(__dirname, '../ssr/src/server-entry.js'),
 };
+
+console.log('sourceImportsMap', sourceImportsMap);
 
 
 base.entry = {
@@ -48,24 +52,24 @@ const ssrServerWebpackConfig = merge(base, {
     }),
     module: {
         rules: [
-            // {
-            //     test: /server-entry\.js$/,
-            //     use: [
-            //         {
-            //             loader: path.resolve(__dirname, './ssr.dynamic-component-loader.js'),
-            //             options: {
-            //                 componentMap: get(sourceImports, 'components'),
-            //             },
-            //         },
-            //     ],
-            // },
+            {
+                test: /server-entry\.js$/,
+                use: [
+                    {
+                        loader: path.resolve('build/ssr.dynamic-component-loader.cjs'),
+                        options: {
+                            componentMap: get(sourceImportsMap, 'components'),
+                        },
+                    },
+                ],
+            },
         ],
     },
 
     // This is the plugin that turns the entire output of the server build
     // into a single JSON file. The default file name is`vue-ssr-server-bundle.json`
   plugins: [
-    new VueSSRServerPlugin(),
+      new VueSSRServerPlugin(),
   ],
 });
 

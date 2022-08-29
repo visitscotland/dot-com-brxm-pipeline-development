@@ -6,7 +6,7 @@ import path from 'path';
 import webpack from 'webpack';
 import merge from 'webpack-merge';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
-import OptimizeCSSPlugin from 'optimize-css-assets-webpack-plugin';
+// import OptimizeCSSPlugin from 'optimize-css-assets-webpack-plugin';
 import { CleanWebpackPlugin } from 'clean-webpack-plugin';
 import SafeParser from 'postcss-safe-parser';
 import { WebpackManifestPlugin } from 'webpack-manifest-plugin';
@@ -37,10 +37,13 @@ const webpackConfig = {
     devtool: false,
     output: {
         path: path.resolve(__dirname, '../dist', 'library'),
+        chunkFilename: '[name].js',
         filename: baseWebpackConfig.mode === 'development' ? 'scripts/[name].js' : 'scripts/[chunkhash].js',
         publicPath: '../',
-        library: '[name]',
-        libraryTarget: 'commonjs2',
+        library: {
+            name: '[name]',
+            type: 'commonjs2',
+        }
     },
     optimization: {
         splitChunks: {
@@ -58,11 +61,11 @@ const webpackConfig = {
         }),
 
         // Compress and dedupe extracted CSS
-        new OptimizeCSSPlugin({
-            cssProcessorOptions: {
-                parser: SafeParser,
-            },
-        }),
+        // new OptimizeCSSPlugin({
+        //     cssProcessorOptions: {
+        //         parser: SafeParser,
+        //     },
+        // }),
 
         // Keep module.id stable when vendor modules does not change
         new webpack.ids.HashedModuleIdsPlugin(),

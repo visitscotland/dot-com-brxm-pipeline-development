@@ -194,7 +194,7 @@ import {
     VsContainer, VsRow, VsCol,
 } from '@components/elements/grid';
 
-const axios = require('axios');
+import axios from 'axios';
 
 /**
 * The canned search component displays a selection of

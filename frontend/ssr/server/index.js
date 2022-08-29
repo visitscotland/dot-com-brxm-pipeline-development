@@ -1,10 +1,10 @@
-const querystring = require("querystring");
-const express = require("express");
-const { some, startsWith, get } = require("lodash");
-const getPort = require("get-port");
-const proxy = require("express-http-proxy");
+import querystring from "querystring";
+import express from "express";
+import { some, startsWith, get } from "lodash-es";
+import getPort from "get-port";
+import proxy from "express-http-proxy";
 
-const { renderPage, initRenderer } = require("./ssr");
+import { renderPage, initRenderer } from "./ssr";
 
 if (!process.env.VS_SSR_PROXY_TARGET_HOST) {
     require("dotenv").config();

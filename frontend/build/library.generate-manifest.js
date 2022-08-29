@@ -3,11 +3,8 @@ import {
     reduce,
     invoke,
     mapKeys,
-    flatMap,
     mapValues,
     filter,
-    get,
-    uniq,
     partial,
     ary,
     endsWith,
@@ -33,7 +30,7 @@ function extractAllEntriesFromFileDescriptor(FileDescriptor) {
 }
 
 function mapComponentEntryFiles(component) {
-    const files = uniq(flatMap(get(component, 'chunks'), 'files'));
+    const files = new Set(component.chunks[0].files); //lodash uniq filemap functions don't work with webpack 5 chunk sets
     const scripts = remove(files, ary(partial(endsWith, partial.placeholder, '.js'), 1));
     const styles = remove(files, ary(partial(endsWith, partial.placeholder, '.css'), 1));
     const headingFonts = [
@@ -77,8 +74,7 @@ function mapComponentEntryFiles(component) {
 /**
  * Generates manifest file for system component build
  */
-export default (Object, FileDescriptor) => {
+export default (FileDescriptor) => {
     const componentEntries = extractAllEntriesFromFileDescriptor(FileDescriptor);
-
     return mapValues(componentEntries, mapComponentEntryFiles);
 };

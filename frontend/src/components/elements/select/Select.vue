@@ -46,7 +46,7 @@ import validateFormElementMixin from '../../../mixins/validateFormElementMixin';
 
 Vue.use(Vuelidate);
 
-const axios = require('axios');
+import axios from 'axios';
 
 /**
  * A select element allows a user to choose a value from a list of options.

@@ -1,8 +1,7 @@
 import { get } from "lodash-es"
-
 /** PLACEHOLDER: COMPONENT IMPORTS */
 
-import { initApp } from "#main"
+import { initApp } from "../../src/main.js"
 
 const defaultVueOptions = {
     components: {

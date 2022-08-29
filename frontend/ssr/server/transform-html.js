@@ -1,4 +1,4 @@
-const { flow } = require("lodash");
+import { flow } from "lodash";
 
 if (!process.env.VS_SSR_PROXY_TARGET_HOST) {
     require("dotenv").config();

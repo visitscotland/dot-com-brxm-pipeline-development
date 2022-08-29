@@ -1,4 +1,4 @@
-import VsAddress from './Address';
+import VsAddress from './Address.vue';
 
 export default {
     VsAddress,

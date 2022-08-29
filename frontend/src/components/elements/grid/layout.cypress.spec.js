@@ -1,5 +1,5 @@
-const { vueHelper, getToken } = require('@cypress/helpers/index').default;
-const VsContainer = require('./Container').default;
+import { vueHelper, getToken } from '@cypress/helpers/index';
+import VsContainer from './Container';
 
 const mockContents = 'test contents';
 
