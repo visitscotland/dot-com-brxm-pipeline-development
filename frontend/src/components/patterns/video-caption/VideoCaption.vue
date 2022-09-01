@@ -199,12 +199,6 @@ export default {
                 right: $spacer-2;
                 top: calc(-24px - #{$spacer-3});
             }
-
-            .vs-toggle-btn.vs-button.btn {
-                .vs-icon {
-                    margin: 0;
-                }
-            }
         }
 
         &__title {

@@ -17,18 +17,14 @@
                     class="d-flex justify-content-end align-items-start order-lg-1"
                 >
                     <VsButton
+                        icon-with-text
+                        on-dark
                         class="vs-modal__close-btn mb-5 mb-lg-0"
                         data-test="vs-modal__close-btn"
                         variant="transparent"
-                        :uppercase="false"
+                        icon="close-circle"
                         @click.native="hideModal"
                     >
-                        <VsIcon
-                            name="close-circle"
-                            variant="light"
-                            size="md"
-                        />
-
                         {{ closeBtnText }}
                     </VsButton>
                 </VsCol>
@@ -49,7 +45,6 @@ import {
 } from '@components/elements/grid';
 import { BModal } from 'bootstrap-vue';
 import VsButton from '@components/elements/button';
-import VsIcon from '@components/elements/icon';
 
 /**
  * The modal is used as a dialog prompt for users
@@ -65,7 +60,6 @@ export default {
         VsRow,
         VsContainer,
         VsButton,
-        VsIcon,
         BModal,
     },
     props: {
@@ -147,25 +141,6 @@ export default {
 
         p{
             color: $color-white;
-        }
-    }
-
-    &__close-btn.vs-button.btn{
-        padding: 0 $spacer-1;
-        letter-spacing: initial;
-        text-decoration: underline;
-        font-weight: $font-weight-normal;
-        font-size: $font-size-3;
-        line-height: $line_height_l;
-        color: $color-white;
-
-        svg {
-            display: block;
-            margin: 0 auto;
-        }
-
-        &:hover{
-            color: $color-yellow;
         }
     }
 

@@ -674,7 +674,11 @@ export default {
                 data-sizes="auto">
             </VsImg>
 
-            <VsSvg slot="toggle-icon" path="instagram-bg" height="24" width="24" />
+            <VsIcon
+                slot="toggle-icon"
+                name="instagram-filled"
+                size="md"
+            />
 
             <VsCaption
                 slot="img-caption"

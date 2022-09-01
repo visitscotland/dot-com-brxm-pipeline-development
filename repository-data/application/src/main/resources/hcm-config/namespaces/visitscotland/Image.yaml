@@ -36,13 +36,13 @@ definitions:
             hipposysedit:type: hippogallery:image
           /altText:
             jcr:primaryType: hipposysedit:field
-            hipposysedit:mandatory: true
+            hipposysedit:mandatory: false
             hipposysedit:multiple: false
             hipposysedit:ordered: false
             hipposysedit:path: visitscotland:altText
             hipposysedit:primary: false
             hipposysedit:type: String
-            hipposysedit:validators: [required, 'visitscotland:long-string-validator']
+            hipposysedit:validators: ['visitscotland:long-string-validator']
           /credit:
             jcr:primaryType: hipposysedit:field
             hipposysedit:mandatory: false
@@ -105,7 +105,7 @@ definitions:
         /hipposysedit:prototype:
           jcr:primaryType: visitscotland:Image
           jcr:mixinTypes: ['mix:referenceable']
-          jcr:uuid: 53a1edb8-025d-45f1-bc4b-54afee0a392b
+          jcr:uuid: ef4450ff-3cb8-4c5b-bb35-b5f147f778a2
           hippogallery:description: ''
           visitscotland:altText: ''
           visitscotland:credit: ''

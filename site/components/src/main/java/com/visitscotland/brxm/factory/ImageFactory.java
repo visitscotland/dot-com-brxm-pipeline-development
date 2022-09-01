@@ -121,11 +121,6 @@ public class ImageFactory {
 
         image.setCredit(cmsImage.getCredit());
         if (Contract.isEmpty(image.getAltText())) {
-            String message = "The image "+ image.getCmsImage().getFileName() + " does not have an Alternative Text for the language " + locale.getLanguage().toUpperCase();
-            if (module != null){
-                module.addErrorMessage(message);
-            }
-            contentLogger.warn(message);
             image.setAltText(cmsImage.getAltText());
         }
 

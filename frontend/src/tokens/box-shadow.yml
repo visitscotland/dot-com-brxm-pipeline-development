@@ -11,7 +11,9 @@ props:
   shadow_popover:
     value: "0 0px 20px rgba(0, 0, 0, 0.3)"
   shadow_button_focus:
-    value: "0 0 0 1px $color-white, 0 0 0 0.3125rem $color-theme-secondary-teal"
+    value: "0 0 0 4px $color-pink"
+  shadow_button_focus_dark:
+    value: "0 0 0 4px $color-yellow"
   shadow_form_input:
     value: "0 0 0 0.2rem rgba(187, 38, 132, 0.5)"
 global:

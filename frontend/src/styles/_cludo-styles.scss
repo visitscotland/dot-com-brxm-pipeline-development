@@ -46,6 +46,7 @@
 .cludo-search-results {
     &__search-result-count{
         font-size: $font-size-5;
+        margin-bottom: $spacer-2;
 
         @include media-breakpoint-up(md) {
             font-size: $font-size-7;
@@ -54,10 +55,6 @@
         b{
             color: $color-pink;
         }
-    }
-
-    &__did-you-mean{
-        padding-top: $spacer-2;
     }
 
     &__facets{
@@ -69,31 +66,25 @@
         }
 
         .cludo-facet__header-mobile{
-            display: inline-block;
+            @extend %button-default-styles;
             width: 100%;
-            color: $color-white;
-            background-color: $color-pink;
-            border-color: $color-pink;
-            font-family: $font-family-base;
-            font-weight: $font-weight-light;
-            transition: $transition-base;
-            text-decoration: none;
-            letter-spacing: $letter-spacing-m;
+            text-transform: uppercase;
             border: 1px solid transparent;
             padding: $spacer-3 $spacer-8;
-            font-size: $font-size-4;
-            line-height: $line-height-m;
-            position: relative;
-            overflow: hidden;
-            text-transform: uppercase;
+
+            @include vs-button-variant(
+                $color-white, $color-pink, $color-pink,
+                $color-white, $color-pink-shade-2, $color-pink-shade-2,
+                $color-pink, $color-white, $color-pink,
+            );
 
             &::after {
                 display: inline-block;
-                margin: 0.1rem 0 0 0.4rem;
+                margin: 0 0 0 $spacer-2;
                 vertical-align: 0.155em;
                 content: "";
                 border: solid $color-white;
-                border-width: 0 1px 1px 0;
+                border-width: 0 2px 2px 0;
                 padding: $spacer-1;
                 transform: rotate(45deg);
             }
@@ -101,6 +92,8 @@
             &:focus {
                 @extend %primary-button-focus;
             }
+
+            
         }
 
         @include media-breakpoint-up(sm) {
@@ -153,8 +146,8 @@
                 }
 
                 &:hover {
-                    background: $color-purple;
-                    border-color: $color-purple;
+                    background: $color-pink;
+                    border-color: $color-pink;
                     color: $color-white;
                 }
 

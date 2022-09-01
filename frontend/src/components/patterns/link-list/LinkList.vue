@@ -1,8 +1,10 @@
 <template>
-    <ul class="link-list">
-        <!-- @slot Slot for link list items -->
-        <slot />
-    </ul>
+    <nav>
+        <ul class="link-list">
+            <!-- @slot Slot for link list items -->
+            <slot />
+        </ul>
+    </nav>
 </template>
 
 <script>

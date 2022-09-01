@@ -32,7 +32,6 @@
                                 d-none d-lg-block position-absolute"
                                 icon="close"
                                 icon-only
-                                icon-variant-override="dark"
                                 size="sm"
                                 variant="transparent"
                                 @click.native="closeMenu"
@@ -238,6 +237,10 @@ export default {
             > .vs-accordion-item__card-header{
                 > .vs-accordion-toggle.btn-primary{
                     box-shadow: inset 0px 10px 6px -8px rgba(0, 0, 0, 0.16);
+
+                    &:focus{
+                        box-shadow: $shadow-button-focus inset;
+                    }
                 }
             }
         }

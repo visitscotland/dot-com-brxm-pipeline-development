@@ -103,13 +103,10 @@ export default {
         background-color: $color-gray-shade-7;
     }
 
-    .vs-accordion-item__title {
+    .vs-accordion-item__title.vs-heading {
         margin: $spacer-3 0;
         background-color: $color-gray-shade-7;
         color: $color-white;
-        font-weight: $font-weight-semi-bold;
-        font-size: $font-size-4;
-        line-height: $line-height-xs;
         padding: 0;
     }
 
@@ -119,7 +116,7 @@ export default {
         border-top: 1px solid $color-gray-shade-2;
     }
 
-    .btn.vs-accordion-toggle {
+    .vs-accordion-toggle {
         text-transform: none !important;
         letter-spacing: initial;
         padding: $spacer-3;
@@ -128,14 +125,18 @@ export default {
         font-weight: $font-weight-semi-bold;
         text-align: left;
 
-        &:hover {
-            background: $color-theme-dark;
-            border-color: $color-theme-dark;
+        @include vs-button-variant(
+            $color-white, $color-theme-dark, $color-theme-dark,
+            $color-white, $color-theme-dark, $color-theme-dark,
+            $color-white, $color-theme-dark, $color-theme-dark,
+        );
+
+        &:hover{
             text-decoration: underline;
         }
 
         &:focus {
-            box-shadow: 0 0 0 1px $color-yellow;
+            box-shadow: $shadow-button-focus-dark inset;
         }
 
          .icon.icon-xs {

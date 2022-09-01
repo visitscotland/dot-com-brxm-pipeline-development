@@ -385,6 +385,39 @@
     }
 }
 
+.c-results__sort .c-results__label {
+    display: flex !important;
+
+    .c-results__sort__label {
+        float: none !important;
+        flex-shrink: 0 !important;
+    }
+
+    .c-results__sort-dropdown {
+        border: none !important;
+        font-size: 1.4rem !important;
+    }
+}
+
+.c-search__in, .c-search__on {
+    left: -1.5rem;
+}
+
+.datepicker-dropdown.dropdown-menu {
+    width: 30rem !important;
+}
+
+#loading-content .col-lg-12 > .row {
+    justify-content: center;
+}
+
+.c-results__map__refresh.btn {
+    background: #fff !important;
+    font-size: 1.4rem !important;
+    display: flex !important;
+    align-items: center !important;
+}
+
 @media (min-width: 500px) {
     .c-results__filters__list-title,
     .c-results__pagination__li {
@@ -401,6 +434,15 @@
 @media (min-width: 992px) {
     .c-search__button--submit {
         padding: 5px 30px 6px !important;
+    }
+
+    .c-search-type .form-group,
+    .c-search__date-summary {
+        max-width: 95%;
+    }
+
+    .c-search__for {
+        left: -1.9rem;
     }
 }
 

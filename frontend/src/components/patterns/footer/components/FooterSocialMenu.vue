@@ -3,10 +3,14 @@
         class="vs-footer-social-menu px-0 py-6 py-md-8 py-lg-0 px-lg-3"
         data-test="vs-footer-social-menu"
     >
-        <h4 class="vs-footer-social-menu__title mx-3 mx-sm-6 m-md-0 mb-lg-6">
+        <VsHeading
+            level="2"
+            override-style-level="6"
+            class="vs-footer-social-menu__title"
+        >
             <!-- @slot Put the menu title here  -->
             <slot name="title" />
-        </h4>
+        </VsHeading>
 
         <VsList
             unstyled
@@ -20,6 +24,7 @@
 
 <script>
 import VsList from '@components/elements/list/List';
+import VsHeading from '@components/elements/heading/Heading';
 
 /**
  * The FooterSocialMenu is used inside the FooterNavList.
@@ -32,6 +37,7 @@ export default {
     name: 'VsFooterSocialMenu',
     components: {
         VsList,
+        VsHeading,
     },
 };
 </script>
@@ -41,12 +47,19 @@ export default {
     border-left: 1px solid $color-gray-shade-2;
     background: $color-gray-shade-7;
 
-    &__title{
+    &__title.vs-heading{
         background: $color-gray-shade-7;
         color: $color-white;
-        line-height: $line-height-xs;
-        font-weight: $font-weight-semi-bold;
-        font-family: $font-family-sans-serif;
+        margin: 0 $spacer-3;
+
+        @include media-breakpoint-up(sm) {
+            margin: 0 $spacer-6;
+        }
+
+        @include media-breakpoint-up(md) {
+            margin: 0;
+            padding-top: $spacer-3;
+        }
     }
 
     @include media-breakpoint-down(md) {

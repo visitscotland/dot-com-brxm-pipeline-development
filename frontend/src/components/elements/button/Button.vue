@@ -8,20 +8,16 @@
         :size="size"
         v-bind="$attrs"
         @click="animateHandler"
-        @mouseover="hovered = true"
-        @focusin="hovered = true"
         @keyup.tab="tabbedIn"
-        @mouseleave="hovered = false"
-        @focusout="hovered = false"
     >
         <VsIcon
             v-if="icon"
             class="align-self-center"
             :name="icon"
-            :size="iconSizeOverride || calcIconSize"
+            :class="iconClasses"
+            :size="calcIconSize"
             :padding="0"
             :orientation="iconOrientation"
-            :variant="iconVariantOverride || calcIconVariant"
         />
         <!-- @slot The button content goes here -->
         <slot />
@@ -70,17 +66,8 @@ export default {
             type: String,
             default: 'primary',
             validator: (value) => value.match(
-                /(primary|secondary|transparent|dark|light)/,
+                /(primary|primary-on-dark|secondary|secondary-on-dark|transparent|dark|light)/,
             ),
-        },
-        /**
-         * Background property used primarily for overrides on transparent variant
-         * `white`.
-         */
-        background: {
-            type: String,
-            default: null,
-            validator: (value) => value.match(/(white)/),
         },
         /**
          * Size of the button
@@ -107,6 +94,13 @@ export default {
             default: true,
         },
         /**
+         * Set this for a button on a dark background for better colour contrast
+         */
+        onDark: {
+            type: Boolean,
+            default: false,
+        },
+        /**
          * Pass the name of the icon to add it to the button.
          */
         icon: {
@@ -130,26 +124,11 @@ export default {
             default: false,
         },
         /**
-         * Icon color is automatically set by the Button component, however if
-         * needed for an edge case, this can be overriden here.
-         * `primary|secondary|light|dark|color-white|secondary-teal`
+         * If the button contains an icon with accessible text.
          */
-        iconVariantOverride: {
-            type: String,
-            default: null,
-            validator: (value) => value.match(
-                /(primary|secondary|light|dark|color-white|secondary-teal)/,
-            ),
-        },
-        /**
-         * Icon size is automatically set by the Button component, however if
-         * needed for an edge case, this can be overriden here.
-         * `xxs|xs|sm|md|lg|xl`
-         */
-        iconSizeOverride: {
-            type: String,
-            default: null,
-            validator: (value) => value.match(/(xxs|xs|sm|md|lg|xl)/),
+        iconWithText: {
+            type: Boolean,
+            default: false,
         },
         /**
          * The position of the icon
@@ -164,21 +143,29 @@ export default {
     data() {
         return {
             isAnimating: false,
-            hovered: false,
         };
     },
     computed: {
         buttonClasses() {
             return [
                 {
-                    'vs-button--animated': this.animate,
+                    'vs-button--animated': this.animate && !this.iconOnly && !this.iconWithText,
                     'vs-button--is-animating': this.isAnimating,
+                    'vs-button--on-dark': this.onDark,
                     'vs-button--icon-only': this.iconOnly,
-                    'd-flex': this.icon && !this.iconOnly,
+                    'vs-button--icon-with-text': this.iconWithText,
+                    'd-flex': this.icon && !this.iconOnly && !this.iconWithText,
                     'flex-row-reverse': this.iconPosition === 'right',
+                    'text-uppercase': this.uppercase && !this.iconWithText,
                 },
-                this.background ? [`btn-bg-${this.background}`] : '',
-                this.uppercase ? 'text-uppercase' : '',
+            ];
+        },
+        iconClasses() {
+            return [
+                {
+                    'vs-icon--right': this.iconPosition === 'right',
+                    'vs-icon--left': this.iconPosition === 'left',
+                },
             ];
         },
         calcIconSize() {
@@ -192,35 +179,6 @@ export default {
             default:
                 return 'md';
             }
-        },
-        calcIconVariant() {
-            if (this.isOutline) {
-                if (this.hovered) {
-                    return 'light';
-                }
-
-                return this.outlineColour;
-            }
-
-            if (this.variant === 'secondary' || this.variant === 'light') {
-                return 'dark';
-            }
-
-            if (this.variant === 'transparent') {
-                return 'primary';
-            }
-
-            if (this.variant === 'light') {
-                return 'dark';
-            }
-
-            return 'light';
-        },
-        isOutline() {
-            return this.variant.match(/outline/) !== null;
-        },
-        outlineColour() {
-            return this.variant.replace('outline-', '');
         },
     },
     methods: {
@@ -240,127 +198,173 @@ export default {
 </script>
 
 <style lang="scss">
-    .vs-button.btn {
-        font-family: $font-family-base;
-        font-weight: $font-weight-light;
-        transition: $transition-base;
-        text-decoration: none;
-        letter-spacing: $letter-spacing-m;
-        position: relative;
-        overflow: hidden;
+    .vs-button{
+        @extend %button-default-styles;
 
         .vs-icon {
-            margin-top: -.05em;
-            margin-right: $spacer-2;
+            margin-top: -.05rem;
+
+            &--right{
+                margin-left: $spacer-2;
+            }
+
+            &--left{
+                margin-right: $spacer-2;
+            }
         }
 
         &:focus {
-            box-shadow: $shadow-button-focus;
-            background-color: $color-white;
-            color: $color-theme-primary;
+            @extend %primary-button-focus;
+        }
 
-            .vs-icon {
-                fill: $color-theme-primary;
+        &.vs-button--on-dark{
+            &:focus{
+                box-shadow: 0 0 0 4px $color-theme-dark, 0 0 0 8px $color-yellow;
             }
         }
 
-        &.btn-outline-primary {
-            &:focus {
-                background-color: $color-theme-primary;
-                color: $color-white;
-
-                .vs-icon {
-                    fill: $color-white;
-                }
-            }
-        }
-
-        &.btn-secondary {
-            color: $color-black;
-            background-color: $color-yellow;
-            border-color: $color-yellow;
-
-            &:not(:disabled) {
-                &:hover {
-                    background-color: darken($color-yellow, 10%);
-                    border-color: darken($color-yellow, 12%);
-                }
-
-                &:active {
-                    color: $color-black;
-                }
-
-                &:focus {
-                    color: $color-yellow;
-                    border-color: $color-yellow;
-                    background-color: transparent;
-
-                    .vs-icon {
-                        fill: $color-yellow;
-                    }
-                }
-            }
-        }
-
-        &.btn-outline-secondary {
-            color: $color-yellow;
-            border-color: $color-yellow;
-
-            .vs-icon {
-                fill: $color-yellow;
-            }
-
-            &:hover, &:focus {
-                color: $color-black;
-                background-color: $color-yellow;
-                border-color: $color-yellow;
-
-                .vs-icon {
-                    fill: $color-black;
-                }
-            }
-        }
-
-        &.btn-dark {
-            &:hover {
-                background-color: $color-gray-shade-5;
-            }
-        }
-
-        &.btn-light,
-        &.btn-transparent {
-            &::after {
-                background: rgba(187, 38, 132, 0.3);
-            }
-        }
-
-        &.btn-bg-white:not(:hover) {
-            background-color: $color-white;
-        }
-
-        // This is to match bootstrap specificity, otherwise it forces
-        // a pink shadow on primary buttons when active + focussing where we want
-        // no shadow
         &:not(:disabled):not(.disabled):active:focus {
             box-shadow: none;
         }
 
-        &:disabled {
-            background-color: $color-secondary-gray-tint-4;
-            color: $color-white;
-            opacity: $opacity-100;
-            border-width: 0;
-        }
+        &.btn-primary, &.btn-secondary,
+        &.btn-dark, &.btn-light{
+            &:disabled {
+                background-color: $color-secondary-gray-tint-4;
+                color: $color-white;
+                opacity: $opacity-100;
+                border-width: 0;
 
-        &.vs-button--icon-only {
-            padding: $spacer-1;
-            line-height: 1;
-
-            .vs-icon{
-                margin-right: 0;
+                &:hover{
+                    background-color: $color-secondary-gray-tint-4;
+                    border-color: $color-secondary-gray-tint-4;
+                }
             }
         }
 
+        /* Button Variants
+        ------------------------------------------ */
+        &.btn-primary{
+            @include vs-button-variant(
+                $color-white, $color-pink, $color-pink,
+                $color-white, $color-pink-shade-2, $color-pink-shade-2,
+                $color-pink, $color-white, $color-pink,
+            );
+
+            &.vs-button--on-dark{
+                @include vs-button-variant(
+                    $color-theme-dark, $color-yellow, $color-yellow,
+                    $color-theme-dark, $color-yellow-tint-2, $color-yellow-tint-2,
+                    $color-yellow, $color-theme-dark, $color-yellow,
+                );
+            }
+        }
+
+        &.btn-secondary {
+            @include vs-button-variant(
+                $color-pink, $color-white, $color-pink,
+                $color-white, $color-pink, $color-pink,
+                $color-white, $color-pink, $color-pink,
+            );
+
+            &.vs-button--on-dark{
+                @include vs-button-variant(
+                    $color-yellow, $color-theme-dark, $color-yellow,
+                    $color-theme-dark, $color-yellow, $color-yellow,
+                    $color-theme-dark, $color-yellow, $color-yellow,
+                );
+            }
+        }
+
+        &.btn-dark{
+            @include vs-button-variant(
+                $color-white, $color-theme-dark, $color-theme-dark,
+                $color-white, $color-secondary-gray-shade-1, $color-secondary-gray-shade-1,
+                $color-theme-dark, $color-white, $color-secondary-gray-shade-1,
+            );
+
+            &:focus{
+                box-shadow: $shadow-button-focus-dark, 0 0 0 8px $color-theme-dark;
+            }
+        }
+
+        &.btn-light{
+            @include vs-button-variant(
+                $color-gray-shade-7, $color-gray-tint-7, $color-gray-tint-7,
+                $color-gray-shade-7, $color-gray-tint-6, $color-gray-tint-6,
+                $color-white, $color-gray-shade-7, $color-gray-shade-7,
+            );
+        }
+
+        &.btn-transparent{
+            @include vs-button-variant(
+                $color-gray-shade-7, transparent, transparent,
+                $color-pink, transparent, transparent,
+                $color-pink, transparent, transparent,
+            );
+
+            &:focus{
+                box-shadow: $shadow-button-focus;
+            }
+
+            &.vs-button--on-dark{
+                @include vs-button-variant(
+                    $color-white, transparent, transparent,
+                    $color-gray-tint-6, transparent, transparent,
+                    $color-white, transparent, transparent,
+                );
+
+                &:focus{
+                    box-shadow: $shadow-button-focus-dark;
+                }
+            }
+        }
+
+        &.vs-button--icon-with-text{
+            letter-spacing: initial;
+            text-decoration: underline;
+            font-weight: $font-weight-normal;
+            font-size: $font-size-3;
+            transition: none;
+
+            &.btn-sm, &.btn-md, &.btn-lg{
+                padding: $spacer-1;
+            }
+
+            .vs-icon{
+                display: block;
+                margin: 0 auto $spacer-1;
+            }
+        }
+
+        &.vs-button--icon-only {
+            line-height: 1;
+
+            &.btn-sm, &.btn-md, &.btn-lg{
+                padding: $spacer-1;
+            }
+
+            .vs-icon{
+                margin: 0;
+            }
+        }
+
+        /* Button Sizes
+        ------------------------------------------ */
+        &.btn-sm{
+            padding: $spacer-1 $spacer-4;
+        }
+
+        &.btn-md{
+            padding: $spacer-3 $spacer-8;
+        }
+
+        &.btn-lg{
+            padding: $spacer-4 $spacer-9;
+        }
+
+        /* Button Animation
+        ------------------------------------------ */
         &.vs-button--animated {
             @keyframes bubble {
                 0% {

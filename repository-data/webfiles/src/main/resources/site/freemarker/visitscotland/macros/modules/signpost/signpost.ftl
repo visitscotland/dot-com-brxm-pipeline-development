@@ -31,7 +31,6 @@
                     </vs-rich-text-wrapper>
                     <vs-button
                         href="${module.cta.link}"
-                        class="px-4"
                     >
                         ${module.cta.label}
                     </vs-button>

@@ -43,6 +43,14 @@ describe('VsHeading', () => {
 
             expect(wrapper.classes('vs-heading--thin')).toBe(false);
         });
+
+        it(':overrideStyleLevel - should render correct override class', () => {
+            const wrapper = factoryShallowMount({
+                overrideStyleLevel: 2,
+            });
+
+            expect(wrapper.classes('vs-heading--style-level-2')).toBe(true);
+        });
     });
 
     describe('slots:', () => {

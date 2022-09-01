@@ -103,7 +103,7 @@ const dataLayerMixin = {
             const templateValues = {
                 event: eventName,
                 tag_name: tagName,
-                click_text: event.target.text.trim(),
+                click_text: event.target.text.trim() || undefined,
                 click_URL: event.target.href,
             };
 
@@ -127,7 +127,7 @@ const dataLayerMixin = {
             const templateValues = {
                 event: eventName,
                 tag_name: tagName,
-                click_text: event.target.text.trim(),
+                click_text: event.target.text.trim() || undefined,
                 click_URL: event.target.href,
             };
 

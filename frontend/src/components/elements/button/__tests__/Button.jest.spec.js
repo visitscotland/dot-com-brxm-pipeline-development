@@ -57,15 +57,6 @@ describe('VsButton', () => {
             expect(wrapper.classes(`btn-${testVariant}`)).toBe(true);
         });
 
-        it(':background - should accept and render a `background` property', () => {
-            const testBgColor = 'white';
-            const wrapper = factoryMount({
-                background: testBgColor,
-            });
-
-            expect(wrapper.classes(`btn-bg-${testBgColor}`)).toBe(true);
-        });
-
         it(':size - should accept and render a `size` property', () => {
             const testSize = 'sm';
             const wrapper = factoryShallowMount({
@@ -73,6 +64,20 @@ describe('VsButton', () => {
             });
 
             expect(wrapper.attributes('size')).toBe(testSize);
+        });
+
+        it(':onDark - should render the button with an `vs-button--on-dark` class', () => {
+            const wrapper = factoryMount({
+                onDark: true,
+            });
+            expect(wrapper.classes('vs-button--on-dark')).toBe(true);
+        });
+
+        it(':iconWithText - should render the button with an `vs-button--icon-with-text` class', () => {
+            const wrapper = factoryMount({
+                iconWithText: true,
+            });
+            expect(wrapper.classes('vs-button--icon-with-text')).toBe(true);
         });
 
         describe(':icon', () => {

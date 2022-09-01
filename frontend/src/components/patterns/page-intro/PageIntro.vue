@@ -35,7 +35,10 @@
                         :xl="heroIntro ? '8' : '10'"
                         :offset-lg="heroIntro ? '1' : '0'"
                     >
-                        <VsHeading level="1">
+                        <VsHeading
+                            level="1"
+                            id="main-heading"
+                        >
                             <!-- @slot Intro section heading -->
                             <slot name="vsIntroHeading" />
                         </VsHeading>

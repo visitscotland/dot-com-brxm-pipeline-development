@@ -9,8 +9,6 @@
                     class="vs-itinerary__map-toggle-button"
                     @click.native="toggleShowMap()"
                     :icon="showMap ? 'list' : 'map'"
-                    icon-variant-override="color-white"
-                    icon-size-override="md"
                 >
                     {{ showMap ? 'List View' : 'Map View' }}
                 </VsButton>
@@ -259,7 +257,6 @@ export default {
                     :icon="transportType.key"
                     size="lg"
                     icon-only
-                    icon-variant-override="dark"
                     class="p-0"
                     variant="transparent"
                 >
@@ -385,16 +382,14 @@ export default {
                 <VsButton
                     class="mb-3"
                     button-size="md"
-                    background="white"
-                    variant="outline-primary"
+                    variant="secondary"
                     href="#"
                     icon="food"
                 >
                     Nearby places to eat
                 </VsButton>
                 <VsButton
-                    background="white"
-                    variant="outline-primary"
+                    variant="secondary"
                     href="#"
                     icon="product-accommodation"
                 >

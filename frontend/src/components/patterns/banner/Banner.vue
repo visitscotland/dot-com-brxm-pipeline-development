@@ -50,7 +50,6 @@
                         variant="transparent"
                         icon="close-circle"
                         size="md"
-                        icon-variant-override="dark"
                         icon-only
                         @click.native="hideBanner"
                     >

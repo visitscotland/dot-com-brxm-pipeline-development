@@ -4,6 +4,7 @@
             class="vs-mega-nav bg-white"
             aria-label="main nav"
             data-test="vs-mega-nav"
+            id="main-nav"
         >
             <VsContainer
                 fluid="lg"

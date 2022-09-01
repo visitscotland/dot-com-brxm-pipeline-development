@@ -27,7 +27,7 @@ public class ArticleFactory {
         ArticleModule module = new ArticleModule();
         List<ArticleModuleSection> sections = new ArrayList<>();
         if (doc.getImage() != null) {
-            module.setImage(imageFactory.createImage(doc.getImage(), module, Locale.UK));
+            module.setImage(imageFactory.createImage(doc.getImage(), module, request.getLocale()));
         }
         module.setTitle(doc.getTitle());
         module.setIntroduction(doc.getCopy());

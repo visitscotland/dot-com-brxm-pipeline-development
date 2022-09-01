@@ -99,7 +99,11 @@ export default {
             } else {
                 this.internalLinkDataEvent(event);
             }
-            window.location.replace(this.href);
+
+            // don't navigate if it's an empty or anchor link
+            if (this.href !== '#' && this.href !== null) {
+                window.location.href = this.href;
+            }
         },
     },
 };

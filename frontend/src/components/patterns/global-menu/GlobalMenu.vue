@@ -1,5 +1,5 @@
 <template>
-    <div class="vs-global-menu">
+    <nav class="vs-global-menu">
         <VsContainer
             fluid="lg"
             class="px-1 px-sm-3"
@@ -36,7 +36,7 @@
                 </VsCol>
             </VsRow>
         </VsContainer>
-    </div>
+    </nav>
 </template>
 
 <script>

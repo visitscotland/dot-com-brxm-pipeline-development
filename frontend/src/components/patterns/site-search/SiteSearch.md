@@ -9,6 +9,8 @@ button within the form will hide the form again.
 
   ```jsx
     <VsMegaNav
+        href="/"
+        menu-toggle-alt-text="Toggle Menu"
         search-button-text="Search"
         href="/"
         menu-toggle-alt-text="Toggle Menu"
