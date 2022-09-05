@@ -194,7 +194,7 @@ export default {
             }
 
             &:focus {
-                outline: 2px solid $color-theme-primary;
+                @extend %outline-link-focus;
             }
         }
 

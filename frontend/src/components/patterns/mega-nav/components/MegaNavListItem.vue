@@ -97,8 +97,8 @@ export default {
         }
 
         &:focus{
-            outline: 0;
-            border: 2px solid $color-pink;
+            @extend %outline-link-focus;
+            outline-offset: -2px;
         }
     }
 
@@ -201,11 +201,6 @@ export default {
             border: 2px solid $color-white;
             line-height: $line-height-s;
             padding: $spacer-1 $spacer-5;
-
-            &:focus{
-                outline: 0;
-                border: 2px solid $color-pink;
-            }
         }
 
         &__link{

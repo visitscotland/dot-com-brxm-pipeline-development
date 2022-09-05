@@ -8,12 +8,14 @@ const summaryCentreSlotContent = 'This is a duration';
 const linkHref = 'https://google.com';
 const linkType = 'external';
 const linkLabel = 'Visit Website';
+const linkTitle = 'Hilton Hotel';
 
 const factoryMount = () => mount(VsCannedSearchSummaryBox, {
     propsData: {
         linkHref,
         linkType,
         linkLabel,
+        linkTitle,
     },
     slots: {
         vsCannedSearchSummaryLeft: summaryLeftSlotContent,
@@ -60,6 +62,10 @@ describe('VsCannedSearchSummaryBox', () => {
 
         it('should render the content of the `linkLabel` property', () => {
             expect(wrapper.html()).toContain(linkLabel);
+        });
+
+        it('should render the content of the `linkTitle` property', () => {
+            expect(wrapper.html()).toContain(linkTitle);
         });
     });
 });

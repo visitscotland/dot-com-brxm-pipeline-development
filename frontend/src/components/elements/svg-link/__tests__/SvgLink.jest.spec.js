@@ -37,5 +37,12 @@ describe('VsSvgLink', () => {
             const wrapper = factoryShallowMount();
             expect(wrapper.find('[data-test="vs-svg-link__svg"]').attributes().path).toBe('visitscotland');
         });
+
+        it('should render variant `on-dark` when passed as `linkVariant` prop', () => {
+            const wrapper = factoryShallowMount({
+                variant: 'on-dark',
+            });
+            expect(wrapper.find('[data-test="vs-svg-link"]').attributes().variant).toBe('on-dark');
+        });
     });
 });

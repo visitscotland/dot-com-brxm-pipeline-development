@@ -21,16 +21,14 @@
         </template>
     </vs-mega-nav>
 
-    <#assign language = locale?keep_before("-")>
-
-    <@hst.headContribution category="htmlBodyEndScriptsLast"> 
+    <@hst.headContribution category="htmlBodyEndScriptsLast">
         <script type="text/javascript" src="https://customer.cludo.com/scripts/bundles/search-script.js"></script>
     </@hst.headContribution>
     <@hst.headContribution category="htmlBodyEndScriptsLast"> 
         <script>
-            var cludo_engineId = ${property("cludo.engine." + language)}; //Engine ID
+            var cludo_engineId = ${property("global-search.engine-id", locale)}; //Engine ID
             var cludo_language = '${language}'; //Language
-            var cludo_searchUrl = '${property("search.path")}'; //Search URL
+            var cludo_searchUrl = '${property("global-search.path", locale)}'; //Search URL
         </script>
     </@hst.headContribution>
     <@hst.headContribution category="htmlBodyEndScriptsLast"> 

@@ -128,7 +128,7 @@
                         and-text='${label("itinerary", "stop.and")}'
                     >
                         <template slot="stop-link-text">
-                            ${label("itinerary", "stop.opening")}
+                            <span class="sr-only">${stop.title}: </span>${label("itinerary", "stop.opening")}
                         </template>
 
                         <#if stop.price??>

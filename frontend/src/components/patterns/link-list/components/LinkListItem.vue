@@ -54,12 +54,12 @@ export default {
         },
         /**
          * Option to choose a pre-defined style variant
-         * `primary, dark`
+         * `primary, on-dark`
          */
         variant: {
             type: String,
             default: 'primary',
-            validator: (value) => value.match(/(primary|dark)/),
+            validator: (value) => value.match(/(primary|on-dark)/),
         },
         /**
          * The video id that a video type link should open

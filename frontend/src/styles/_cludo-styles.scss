@@ -152,8 +152,7 @@
                 }
 
                 &:focus, &:focus-visible{
-                    box-shadow: $shadow-button-focus;
-                    outline: 0;
+                    @extend %outline-link-focus;
                 }
             }
 
@@ -272,7 +271,7 @@
                             }
 
                             &:focus{
-                                outline: 2px solid $color-pink;
+                                @extend %outline-link-focus;
                             }
     
                             &:after{
@@ -340,7 +339,7 @@
                         }
 
                         &:focus{
-                            outline: 2px solid $color-pink;
+                            @extend %outline-link-focus;
                         }
                     }
 

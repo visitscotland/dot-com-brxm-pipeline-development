@@ -63,16 +63,16 @@ this can help a user understand and navigate the site better.
 
 
 ### Dark Theme
-When using links on a dark theme background, use the `dark` link variant for better colour contrast. 
+When using links on a dark theme background, use the `on-dark` link variant for better colour contrast. 
 ```jsx
     <BsWrapper class="d-flex flex-wrap bg-dark p-4 mb-4">
-        <VsLink variant="dark" class="mb-6" href="#">
+        <VsLink variant="on-dark" class="mb-6" href="#">
             See all accommodation
         </VsLink>
 
         <VsRichTextWrapper>
             <p style="color: #fff;">
-                From <VsLink variant="dark" type="external" href="#">budget-friendly campsites</VsLink> and hostels to exclusive self-catering for 
+                From <VsLink variant="on-dark" type="external" href="#">budget-friendly campsites</VsLink> and hostels to exclusive self-catering for 
                 large groups, or stylish city centre hotels, you'll be spoilt 
                 for choice with Scottish accommodation!
             </p>

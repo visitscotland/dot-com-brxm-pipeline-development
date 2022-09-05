@@ -16,7 +16,7 @@
                             class="d-flex flex-column flex-grow-1 position-relative"
                         >
                             <label
-                                for="search-input"
+                                for="site-search"
                                 class="vs-site-search-form__label"
                             >
                                 <span class="sr-only">
