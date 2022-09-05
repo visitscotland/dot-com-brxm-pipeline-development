@@ -18,14 +18,15 @@ export default class OneTrustVS {
      * The config object sent to each listener is slightly different hence the different
      * eventlistener functions
      */
-    init = () => {
+    // eslint-disable-next-line
+    init(){
         // foreach polyfill
         if (window.NodeList && !NodeList.prototype.forEach) {
             NodeList.prototype.forEach = Array.prototype.forEach;
         }
     }
 
-    instaOT = (otCategory, module, fallback, container, position = null) => {
+    instaOT(otCategory, module, fallback, container, position = null){
         console.log('insta')
         let that = this;
         //wait until OneTrust library is available
@@ -42,7 +43,7 @@ export default class OneTrustVS {
                         let fallbackClass = Array.from(fallback.classList)[0];
                         let fallbackExists;
                         if (container.length > 1) {
-                            container.forEach((item, index) => {
+                            container.forEach((index) => {
                                 fallbackExists = container[index].querySelector(`.${fallbackClass}`);
                                 if (!fallbackExists) {
                                     that.showOneTrustFallback(otCategory, module, fallback, container[index], position);
@@ -71,9 +72,9 @@ export default class OneTrustVS {
                 });
             });
         });
-    };
+    }
 
-    showOneTrustFallback = (otCategory, module, fallback, container, position = null) => {
+    showOneTrustFallback(otCategory, module, fallback, container, position = null){
         console.log('showfallback')
         let fallbackState = {
             visible: false,
@@ -130,22 +131,22 @@ export default class OneTrustVS {
 
             this.setFBButtonListener(node);
         }
-    };
+    }
 
     /*
      * Return true or false to a match of consented cookie category
      * @param category {string} the category to look for e.g. C0003
      * @param callback {function} - callback function to run
      */
-    onetrustCookieCheck = (category, callback) => {
+    onetrustCookieCheck(category, callback){
         return callback(window.OnetrustActiveGroups.includes(category));
-    };
+    }
 
     /*
      * Hide specified fallback category
      * @param otCategory {string} the class a fallback is within
      */
-    hideOneTrustFallback = otCategory => {
+    hideOneTrustFallback(otCategory){
         this.fallbacks.map(item => {
             if (item.cat === otCategory) {
                 const cookieElement = document.getElementById(item.id);
@@ -163,14 +164,14 @@ export default class OneTrustVS {
                 item.style.display = 'none';
             });
         }
-    };
+    }
 
     /*
      * Check for the availability of the specified library
      * @param name {string} name - library to wait for
      * @param callback {function} - function to call if the library is loaded
      */
-    checkThirdPartyLibrary = (name, callback) => {
+    checkThirdPartyLibrary(name, callback){
         let interval = 500;
         let that = this;
         window.setTimeout(function () {
@@ -180,15 +181,15 @@ export default class OneTrustVS {
                 that.checkThirdPartyLibrary(name, callback);
             }
         }, interval);
-    };
+    }
 
-    setFBButtonListener = fbElement => {
+    setFBButtonListener(fbElement){
         fbElement.querySelector('#ot-sdk-btn').addEventListener('click', function () {
             window.OneTrust.ToggleInfoDisplay();
         });
-    };
+    }
 
-    setIframeSrc = () => {
+    setIframeSrc(){
         let iframe = document.querySelectorAll('iframe[data-src]:not([data-src=""])');
 
         if (iframe) {
@@ -197,5 +198,5 @@ export default class OneTrustVS {
                 item.removeAttribute('data-src');
             });
         }
-    };
+    }
 }

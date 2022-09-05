@@ -4,11 +4,10 @@
 import path from 'path';
 
 import webpack from 'webpack';
-import merge from 'webpack-merge';
+import { merge } from 'webpack-merge';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
-// import OptimizeCSSPlugin from 'optimize-css-assets-webpack-plugin';
+import CssMinimizerPlugin from 'css-minimizer-webpack-plugin';
 import { CleanWebpackPlugin } from 'clean-webpack-plugin';
-import SafeParser from 'postcss-safe-parser';
 import { WebpackManifestPlugin } from 'webpack-manifest-plugin';
 import { fileURLToPath } from 'url';
 import baseWebpackConfig from './base.webpack.conf.js';
@@ -19,14 +18,15 @@ import generateManifest from './library.generate-manifest.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
-baseWebpackConfig.entry = components.entry;
+
+baseWebpackConfig.entry = components;
 
 // Remove the CSS extract from the base config to prevent duplicate CSS file
 baseWebpackConfig.plugins = baseWebpackConfig.plugins.filter(
     (plugin) => !(plugin instanceof MiniCssExtractPlugin),
 );
 
-const webpackConfig = {
+const webpackConfig = merge(baseWebpackConfig, {
     module: {
         rules: utils.styleLoaders({
             sourceMap: baseWebpackConfig.mode === 'development',
@@ -37,13 +37,12 @@ const webpackConfig = {
     devtool: false,
     output: {
         path: path.resolve(__dirname, '../dist', 'library'),
-        chunkFilename: '[name].js',
         filename: baseWebpackConfig.mode === 'development' ? 'scripts/[name].js' : 'scripts/[chunkhash].js',
         publicPath: '../',
         library: {
             name: '[name]',
             type: 'commonjs2',
-        }
+        },
     },
     optimization: {
         splitChunks: {
@@ -61,11 +60,7 @@ const webpackConfig = {
         }),
 
         // Compress and dedupe extracted CSS
-        // new OptimizeCSSPlugin({
-        //     cssProcessorOptions: {
-        //         parser: SafeParser,
-        //     },
-        // }),
+        new CssMinimizerPlugin(),
 
         // Keep module.id stable when vendor modules does not change
         new webpack.ids.HashedModuleIdsPlugin(),
@@ -78,6 +73,6 @@ const webpackConfig = {
 
         new CleanWebpackPlugin(),
     ],
-};
+});
 
 export default webpackConfig;
