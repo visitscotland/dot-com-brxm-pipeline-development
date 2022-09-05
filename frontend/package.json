@@ -16,7 +16,7 @@
         "system": "cross-env NODE_ENV=development node ./build/system server --remote-profile hippo",
         "system:build": "cross-env NODE_ENV=production node ./build/system build",
         "library": "cross-env NODE_ENV=production webpack --config ./build/library.webpack.conf.js",
-        "library:dev": "cross-env NODE_ENV=development webpack --config ./build/library.webpack.conf.js",
+        "library:dev": "cross-env NODE_ENV=development npx webpack --config ./build/library.webpack.conf.js",
         "ssr": "npm-run-all ssr:build ssr:serve",
         "ssr:build": "npm-run-all ssr:build:client ssr:build:server",
         "ssr:build:dev": "cross-env NODE_ENV=development yarn ssr:build",
@@ -79,6 +79,7 @@
         "codemirror": "^6.0.1",
         "core-js": "^3.25.0",
         "dotenv": "^16.0.1",
+        "eslint-import-resolver-alias": "^1.1.2",
         "eslint-watch": "^8.0.0",
         "express": "^4.18.1",
         "express-http-proxy": "^1.6.2",
@@ -141,6 +142,7 @@
         "copy-webpack-plugin": "^11.0.0",
         "cross-env": "^7.0.2",
         "css-loader": "^6.7.1",
+        "css-minimizer-webpack-plugin": "^4.0.0",
         "cypress": "^10.6.0",
         "cypress-vue-unit-test": "^3.5.1",
         "eslint": "^8.23.0",
@@ -194,7 +196,7 @@
         "turndown-plugin-gfm": "^1.0.2",
         "url-loader": "^4.1.1",
         "vue-jest": "^3.0.6",
-        "vue-loader": "^17.0.0",
+        "vue-loader": "^15.9.8",
         "vue-ssr-webpack-plugin": "^3.0.0",
         "vue-style-loader": "^4.1.2",
         "vue-styleguidist": "^4.53.0",
@@ -207,13 +209,6 @@
         "webpack-manifest-plugin": "^5.0.0",
         "webpack-merge": "^5.8.0",
         "webpack-node-externals": "^3.0.0"
-    },
-    "imports": {
-        "#main": "./src/main.js",
-        "#utils/*": "./src/utils/*",
-        "#components/*": "./src/components/*",
-        "#assets/*": "./src/assets/*",
-        "#styles/*": "./src/styles/*"
     },
     "resolutions": {
         "async": "^2.6.4",
