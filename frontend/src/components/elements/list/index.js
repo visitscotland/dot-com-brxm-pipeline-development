@@ -1,3 +1,3 @@
-import VsList from './List';
+import VsList from './List.vue';
 
 export default VsList;

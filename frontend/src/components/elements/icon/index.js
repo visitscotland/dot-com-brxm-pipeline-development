@@ -1,3 +1,3 @@
-import VSIcon from './Icon';
+import VSIcon from './Icon.vue';
 
 export default VSIcon;
