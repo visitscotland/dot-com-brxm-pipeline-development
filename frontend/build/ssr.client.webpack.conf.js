@@ -6,8 +6,8 @@ import path from 'path';
 import VueSSRClientPlugin from 'vue-server-renderer/client-plugin.js';
 import { fileURLToPath } from 'url';
 
-import base from './library.webpack.conf.js';
 import { merge } from 'webpack-merge';
+import base from './library.webpack.conf.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -24,7 +24,7 @@ export default merge(base, {
     output: {
         path: path.resolve(__dirname, '../dist/ssr/client'),
     },
-  plugins: [
-    new VueSSRClientPlugin(),
-  ],
+    plugins: [
+        new VueSSRClientPlugin(),
+    ],
 });

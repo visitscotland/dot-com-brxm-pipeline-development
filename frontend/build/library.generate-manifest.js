@@ -25,12 +25,13 @@ function extractAllEntriesFromFileDescriptor(FileDescriptor) {
         (acc, val) => extend({
         }, acc, extractEntriesFromOutputFile(val)),
         {
-    },
+        },
     );
 }
 
 function mapComponentEntryFiles(component) {
-    const files = new Set(component.chunks[0].files); //lodash uniq filemap functions don't work with webpack 5 chunk sets
+    // lodash uniq filemap functions don't work with webpack 5 chunk sets
+    const files = new Set(component.chunks[0].files);
     const scripts = remove(files, ary(partial(endsWith, partial.placeholder, '.js'), 1));
     const styles = remove(files, ary(partial(endsWith, partial.placeholder, '.css'), 1));
     const headingFonts = [

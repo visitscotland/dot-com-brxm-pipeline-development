@@ -1,4 +1,4 @@
-import cookieStore from '../stores/cookies.store';
+import cookieStore from '../stores/cookies.store.js';
 
 const cookieCheckerMixin = {
     computed: {

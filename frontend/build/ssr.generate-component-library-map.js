@@ -33,7 +33,6 @@ const getType = (moduleName) => {
 };
 
 const prepareModule = (moduleValue, moduleName) => {
-    console.log(moduleValue, moduleName);
     const type = getType(moduleName);
 
     return {
@@ -48,7 +47,7 @@ const getIncludedModules = (moduleMap, exclude) => {
         includes,
         castArray(exclude),
         partial.placeholder,
-    0,
+        0,
     );
 
     if (exclude) {
@@ -59,14 +58,11 @@ const getIncludedModules = (moduleMap, exclude) => {
 };
 
 export default (moduleMap, exclude) => {
-    console.log(moduleMap);
     const includedModules = getIncludedModules(moduleMap, exclude);
-
-    console.log("****************************", includedModules);
 
     const groupedModules = groupBy(
         map(includedModules, prepareModule),
-    'type',
+        'type',
     );
 
     return mapValues(groupedModules, (items, groupName) => {

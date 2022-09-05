@@ -22,9 +22,6 @@ const entry = {
     'main-server': path.resolve(__dirname, '../ssr/src/server-entry.js'),
 };
 
-console.log('sourceImportsMap', sourceImportsMap);
-
-
 base.entry = {
     ...entry,
     ...base.entry,
@@ -38,7 +35,7 @@ const ssrServerWebpackConfig = merge(base, {
         path: path.resolve(__dirname, '../dist/ssr/server'),
         library: {
             type: 'commonjs2',
-        }
+        },
     },
     // https://webpack.js.org/configuration/externals/#function
     // https://github.com/liady/webpack-node-externals
@@ -68,9 +65,9 @@ const ssrServerWebpackConfig = merge(base, {
 
     // This is the plugin that turns the entire output of the server build
     // into a single JSON file. The default file name is`vue-ssr-server-bundle.json`
-  plugins: [
-      new VueSSRServerPlugin(),
-  ],
+    plugins: [
+        new VueSSRServerPlugin(),
+    ],
 });
 
 export default ssrServerWebpackConfig;

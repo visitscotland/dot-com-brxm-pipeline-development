@@ -2,21 +2,23 @@
     <div class="spacing">
         <div
             v-for="(prop, index) in spacingTokens"
-            :key="index"
-        >
-            <div class="spacing-label">${{ prop.name.replace(/_/g, "-") }} <span>({{ prop.value }}) ({{ prop.pixelHeight }}px*)</span></div>
+            :key="index">
+            <div class="spacing-label">
+                ${{ prop.name.replace(/_/g, "-") }}
+              <span>({{ prop.value }}) ({{ prop.pixelHeight }}px*)</span>
+            </div>
             <div
                 class="space"
-                :style="{height: prop.calcHeight }">
-            </div>
+                :style="{height: prop.calcHeight }"
+            />
         </div>
         <p>*Pixel values calculated at 1rem = 16px</p>
     </div>
 </template>
 
 <script>
-import { orderBy, filter } from "lodash"
-import designTokens from "#assets/tokens/tokens.raw.json"
+import { orderBy, filter } from 'lodash';
+import designTokens from '@assets/tokens/tokens.raw.json';
 
 /**
  * A framework for creating a predictable and harmonious spacing system. These
@@ -26,43 +28,42 @@ import designTokens from "#assets/tokens/tokens.raw.json"
  * [/src/tokens/spacing.yml](https://github.com/viljamis/vue-design-system/blob/master/src/tokens/spacing.yml).
  */
 export default {
-    name: "Spacing",
+    name: 'Spacing',
     data() {
         return {
             tokens: designTokens.props,
-        }
+        };
     },
     computed: {
         spacingTokens() {
-            let filteredTokens = filter(this.tokens, ["category", "space"])
+            const filteredTokens = filter(this.tokens, ['category', 'space']);
 
-            filteredTokens.forEach(element => {
+            filteredTokens.forEach((element) => {
                 try {
-                    element.arrayIndex = parseInt(element.name.split("_")[1])
-                    element.calcHeight = "calc(" + element.value + ")"
-                    element.pixelHeight = this.calculatePixelHeight(element.value)
+                    element.arrayIndex = parseInt(element.name.split('_')[1]);
+                    element.calcHeight = `calc(${ element.value })`;
+                    element.pixelHeight = this.calculatePixelHeight(element.value);
                 } catch (error) {
                     // Spacer element named incorrectly
-                    element.calcHeight = "-"
-                    element.pixelHeight = "-"
-
+                    element.calcHeight = '-';
+                    element.pixelHeight = '-';
                 }
-            })
+            });
 
-            return this.orderData(filteredTokens)
+            return this.orderData(filteredTokens);
         },
     },
     methods: {
         orderData(data) {
-            const order = orderBy(data, "arrayIndex", "asc")
-            return order
+            const order = orderBy(data, 'arrayIndex', 'asc');
+            return order;
         },
         calculatePixelHeight(remInput) {
-            let input = remInput.replace(/rem/g, " * 16")
-            return eval(input)
-        }
+            const input = remInput.replace(/rem/g, ' * 16');
+            return eval(input);
+        },
     },
-}
+};
 </script>
 
 <style lang="scss" scoped>

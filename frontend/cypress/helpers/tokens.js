@@ -2,7 +2,7 @@
 import {
     get, map, zipObject,
 } from 'lodash';
-import designTokens from '#assets/tokens/tokens.raw.json';
+import designTokens from '@assets/tokens/tokens.raw.json';
 
 const themeColours = [
     'primary',
