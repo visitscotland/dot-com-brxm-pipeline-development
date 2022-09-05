@@ -4,9 +4,7 @@
 
 const os = require('os');
 const path = require('path');
-
-const { getOptions } = require('loader-utils');
-const { get, map, keys } = require('lodash');
+const { map, keys } = require('lodash');
 
 const importsPlaceholder = '/** PLACEHOLDER: COMPONENT IMPORTS */';
 const registrationsPlaceholder = '/** PLACEHOLDER: COMPONENT REGISTRATION */';
@@ -25,19 +23,18 @@ const ssrAppPath = './ssr/src/';
 
 const generateComponentImportStatement = (modulePath, componentName) => {
     const relativePath = path.posix.relative(ssrAppPath, modulePath);
-    console.log(relativePath);
 
     return `import ${componentName} from "${relativePath}"`;
 };
 
 const insertComponentImports = (subject, componentsMap) => subject.replace(
     importsPlaceholder,
-  map(componentsMap, generateComponentImportStatement).join(os.EOL),
+    map(componentsMap, generateComponentImportStatement).join(os.EOL),
 );
 
 const insertComponentRegistrations = (subject, componentsMap) => subject.replace(
     registrationsPlaceholder,
-  keys(componentsMap).join(`,${os.EOL}`),
+    keys(componentsMap).join(`,${os.EOL}`),
 );
 
 const transformSource = (subject, componentsMap) => {
@@ -46,8 +43,8 @@ const transformSource = (subject, componentsMap) => {
     return insertComponentRegistrations(transformedSource, componentsMap);
 };
 
-module.exports = function (source) {
-    const options = this._module.loaders[0].options;
+module.exports = function(source) {
+    const { options } = this._module.loaders[0];
     const componentsMap = options.componentMap;
 
     if (componentsMap) {
@@ -55,4 +52,4 @@ module.exports = function (source) {
     }
 
     return source;
-}
+};

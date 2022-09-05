@@ -1,10 +1,10 @@
-import dataLayerStore from '../stores/dataLayer.store';
-import checkVendorLibrary from '../utils/check-vendor-library';
+import dataLayerStore from '../stores/dataLayer.store.js';
+import checkVendorLibrary from '../utils/check-vendor-library.js';
 import {
     pageViewTemplate,
     externalLinkTemplate,
     internalLinkTemplate,
-} from '../utils/data-layer-templates';
+} from '../utils/data-layer-templates.js';
 
 /**
  * There is a general function to retrieve any value from the store:

@@ -29,15 +29,17 @@ const baseWebpackConfig = {
         filename: '[name].js',
         path: path.resolve(__dirname, '../dist/base'),
         publicPath:
-            buildMode === 'development' ? '/' : '../'
+            buildMode === 'development' ? '/' : '../',
     },
     resolve: {
-        extensions: ['.cjs','.js', '.vue', '.json', '.scss', '.css'],
+        extensions: ['.cjs', '.js', '.vue', '.json', '.scss', '.css'],
         alias: {
             vue$: 'vue/dist/vue.esm.js',
             'bootstrap-vue$': 'bootstrap-vue/src/index.js',
             '@': resolve('src'),
             '@components': resolve('src/components'),
+            '@assets': resolve('src/assets'),
+            '@utils': resolve('src/utils'),
             '@docs': resolve('docs'),
             '@images': resolve('docs/images'),
             '@cypress': resolve('cypress'),
@@ -59,6 +61,9 @@ const baseWebpackConfig = {
             {
                 test: /\.vue$/,
                 loader: 'vue-loader',
+                resolve: {
+                    fullySpecified: false,
+                },
                 options: {
                     cacheBusting: true,
                     transformAssetUrls: {
@@ -72,6 +77,9 @@ const baseWebpackConfig = {
             {
                 test: /\.js$/,
                 loader: 'babel-loader',
+                resolve: {
+                    fullySpecified: false,
+                },
                 include: [
                     resolve('docs'),
                     resolve('src'),
@@ -84,8 +92,8 @@ const baseWebpackConfig = {
                 use: [
                     'vue-style-loader',
                     'css-loader',
-                    'sass-loader'
-                ]
+                    'sass-loader',
+                ],
             },
             {
                 test: /\.(png|jpe?g|gif)(\?.*)?$/,
@@ -98,13 +106,17 @@ const baseWebpackConfig = {
             {
                 test: /\.(mp4|webm|ogg|mp3|wav|flac|aac)(\?.*)?$/,
                 type: 'asset',
-                generator: { filename: 'media/[contenthash:7][ext][query]' },
+                generator: {
+                    filename: 'media/[contenthash:7][ext][query]',
+                },
             },
             // fonts
             {
                 test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/i,
                 type: 'asset',
-                generator: { filename: 'fonts/[contenthash:7][ext][query]' },
+                generator: {
+                    filename: 'fonts/[contenthash:7][ext][query]',
+                },
             },
             {
                 test: /\.svg$/,

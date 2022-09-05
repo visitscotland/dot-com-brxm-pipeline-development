@@ -9,7 +9,7 @@ import {
     zipObject,
 } from 'lodash';
 
-import designTokens from '#assets/tokens/tokens.raw.json';
+import designTokens from '@assets/tokens/tokens.raw.json';
 
 const breakpointTokens = pickBy(get(designTokens, 'props'), (value, name) => startsWith(name, 'breakpoint_'));
 

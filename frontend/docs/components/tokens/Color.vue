@@ -10,16 +10,19 @@
 
             <ul class="colors">
                 <li
-					v-for="(prop, index) in category.colors"
-					:key="index"
-					class="color"
-				>
+                    v-for="(prop, index) in category.colors"
+                    :key="index"
+                    class="color"
+                >
                     <div
-						class="swatch"
-						:style="{ backgroundColor: prop.value }"
-					>
+                        class="swatch"
+                        :style="{ backgroundColor: prop.value }"
+                    >
                         <ul class="contrast-indicator__ul">
-                            <li v-for="(item, index2) in prop.readability" :key="index2">
+                            <li
+                                v-for="(item, index2) in prop.readability"
+                                :key="index2"
+                            >
                                 <p :class="index2">
                                     A
                                 </p>
@@ -60,16 +63,35 @@
                 </li>
             </ul>
 
-            <div class="subgroup" v-if="subgroup.length > 0 && currentSubgroup === category.name">
+            <div
+                class="subgroup"
+                v-if="subgroup.length > 0 && currentSubgroup === category.name"
+            >
                 <h2>{{ subgroup[0].category }}</h2>
-                <button class="subgroup__close" @click="removeSubgroup()">
-                    <vs-icon name="close" size="xs" />
+                <button
+                    class="subgroup__close"
+                    @click="removeSubgroup()"
+                >
+                    <VsIcon
+                        name="close"
+                        size="xs"
+                    />
                 </button>
                 <ul class="colors">
-                    <li v-for="(prop, index) in subgroup" :key="index" class="color">
-                        <div class="swatch" :style="{ backgroundColor: prop.value }">
+                    <li
+                        v-for="(prop, index) in subgroup"
+                        :key="index"
+                        class="color"
+                    >
+                        <div
+                            class="swatch"
+                            :style="{ backgroundColor: prop.value }"
+                        >
                             <ul class="contrast-indicator__ul">
-                                <li v-for="(item, index2) in prop.readability" :key="index2">
+                                <li
+                                    v-for="(item, index2) in prop.readability"
+                                    :key="index2"
+                                >
                                     <p :class="index2">
                                         A
                                     </p>
@@ -96,12 +118,14 @@
 </template>
 
 <script>
-import { filter, each, get, find, matchesProperty } from "lodash"
-import tinycolor from "tinycolor2"
-import designTokens from "#assets/tokens/tokens.raw.json"
+import {
+    filter, each, get, find, matchesProperty,
+} from 'lodash';
+import tinycolor from 'tinycolor2';
+import designTokens from '@assets/tokens/tokens.raw.json';
 
 export default {
-    name: "Color",
+    name: 'Color',
     props: {
         filterCategory: {
             type: String,
@@ -109,83 +133,84 @@ export default {
         },
     },
     data() {
-        const groups = []
-        const colours = filter(designTokens.props, ["type", "color"])
+        const groups = [];
+        const colours = filter(designTokens.props, ['type', 'color']);
 
-        each(colours, colour => {
-            const categoryName = get(colour, "category")
-            let category = find(groups, matchesProperty("name", categoryName))
+        each(colours, (colour) => {
+            const categoryName = get(colour, 'category');
+            let category = find(groups, matchesProperty('name', categoryName));
             /* eslint-disable no-param-reassign */
-            colour.readability = this.checkContrast(colour.originalValue)
+            colour.readability = this.checkContrast(colour.originalValue);
             /* eslint-enable no-param-reassign */
 
             if (!category) {
                 category = {
                     name: categoryName,
                     colors: [],
-                }
-                groups.push(category)
+                };
+                groups.push(category);
             }
 
-            category.colors.push(colour)
-        })
+            category.colors.push(colour);
+        });
 
         return {
             tokenGroups: groups,
             subgroup: [],
-            currentSubgroup: "",
-        }
+            currentSubgroup: '',
+        };
     },
     methods: {
         checkContrast(originalValue) {
-            const readability = {}
-            readability.blackLG = tinycolor.isReadable("#000000", originalValue, {
-                level: "AA",
-                size: "large",
+            const readability = {
+            };
+            readability.blackLG = tinycolor.isReadable('#000000', originalValue, {
+                level: 'AA',
+                size: 'large',
             })
-                ? "Pass"
-                : "Fail"
-            readability.blackSM = tinycolor.isReadable("#000000", originalValue, {
-                level: "AA",
-                size: "small",
+                ? 'Pass'
+                : 'Fail';
+            readability.blackSM = tinycolor.isReadable('#000000', originalValue, {
+                level: 'AA',
+                size: 'small',
             })
-                ? "Pass"
-                : "Fail"
-            readability.whiteLG = tinycolor.isReadable("#ffffff", originalValue, {
-                level: "AA",
-                size: "large",
+                ? 'Pass'
+                : 'Fail';
+            readability.whiteLG = tinycolor.isReadable('#ffffff', originalValue, {
+                level: 'AA',
+                size: 'large',
             })
-                ? "Pass"
-                : "Fail"
-            readability.whiteSM = tinycolor.isReadable("#ffffff", originalValue, {
-                level: "AA",
-                size: "small",
+                ? 'Pass'
+                : 'Fail';
+            readability.whiteSM = tinycolor.isReadable('#ffffff', originalValue, {
+                level: 'AA',
+                size: 'small',
             })
-                ? "Pass"
-                : "Fail"
-            return readability
+                ? 'Pass'
+                : 'Fail';
+            return readability;
         },
         populateSubgroup(color, type, level) {
-            this.subgroup = []
-            this.subgroup = this.getSubgroup(color, type, level)
-            this.currentSubgroup = level
+            this.subgroup = [];
+            this.subgroup = this.getSubgroup(color, type, level);
+            this.currentSubgroup = level;
         },
         getSubgroup(color, type, level) {
-            const colours = filter(designTokens.props, ["type", "color"])
-            let arr = []
+            const colours = filter(designTokens.props, ['type', 'color']);
+            const arr = [];
 
-            each(colours, colour => {
-                const name = colour.name
+            each(colours, (colour) => {
+                const { name } = colour;
                 if (name.includes(color) && name.includes(type) && name !== color) {
-                    arr.push(colour)
+                    arr.push(colour);
                 }
-            })
+            });
 
-            return arr
+            return arr;
         },
         removeSubgroup() {
-            this.currentSubgroup = ""
-            this.subgroup = []
+            this.currentSubgroup = '';
+            this.subgroup = [];
         },
         filterGroups(term) {
             if (!term) {
@@ -195,7 +220,7 @@ export default {
             return filter(this.tokenGroups, ['name', term]);
         },
     },
-}
+};
 </script>
 
 <style lang="scss" scoped>

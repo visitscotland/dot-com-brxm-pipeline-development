@@ -1,6 +1,6 @@
 import { get, isObject } from "lodash"
 
-import { Vue, initApp as initAppMain } from "#main"
+import { Vue, initApp as initAppMain } from "@/main"
 
 const isServerRendered = (appMountTargetSelector) => {
     const appContainer = document.querySelector(appMountTargetSelector)

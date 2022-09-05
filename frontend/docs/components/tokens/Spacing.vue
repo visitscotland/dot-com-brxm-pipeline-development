@@ -2,10 +2,11 @@
     <div class="spacing">
         <div
             v-for="(prop, index) in spacingTokens"
-            :key="index">
+            :key="index"
+        >
             <div class="spacing-label">
                 ${{ prop.name.replace(/_/g, "-") }}
-              <span>({{ prop.value }}) ({{ prop.pixelHeight }}px*)</span>
+                <span>({{ prop.value }}) ({{ prop.pixelHeight }}px*)</span>
             </div>
             <div
                 class="space"
@@ -28,7 +29,7 @@ import designTokens from '@assets/tokens/tokens.raw.json';
  * [/src/tokens/spacing.yml](https://github.com/viljamis/vue-design-system/blob/master/src/tokens/spacing.yml).
  */
 export default {
-    name: 'Spacing',
+    name: 'VSSpacing',
     data() {
         return {
             tokens: designTokens.props,
@@ -40,7 +41,7 @@ export default {
 
             filteredTokens.forEach((element) => {
                 try {
-                    element.arrayIndex = parseInt(element.name.split('_')[1]);
+                    element.arrayIndex = parseInt(element.name.split('_')[1], 10);
                     element.calcHeight = `calc(${ element.value })`;
                     element.pixelHeight = this.calculatePixelHeight(element.value);
                 } catch (error) {

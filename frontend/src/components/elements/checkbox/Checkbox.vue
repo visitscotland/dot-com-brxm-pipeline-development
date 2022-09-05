@@ -231,7 +231,7 @@ export default {
 
             &:checked {
                 &:before {
-                    background-image: url('~#assets/svg/checkbox-check.svg');
+                    background-image: url('~@assets/svg/checkbox-check.svg');
                     background-size: 60% 60%;
                     background-position: center center;
                     background-repeat: no-repeat;
