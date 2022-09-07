@@ -17,6 +17,7 @@
                         :href="href"
                         svg-fill="#ffffff"
                         svg-path="vs-logo"
+                        link-variant="on-dark"
                     />
 
                     <p class="vs-footer-copyright__text">

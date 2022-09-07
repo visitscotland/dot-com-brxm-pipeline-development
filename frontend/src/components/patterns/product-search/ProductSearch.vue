@@ -239,7 +239,7 @@ export default {
                     font-size: $font-size-5;
 
                     &:focus {
-                        outline: 2px solid $color-secondary-teal-shade-2;
+                        @extend %outline-link-focus;
                     }
 
                     &:hover {

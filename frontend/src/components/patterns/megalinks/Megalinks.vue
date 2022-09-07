@@ -993,21 +993,21 @@ export default {
                 <template slot="vsSingleImageLinks">
                     <VsLinkListItem
                         href="www.visitscotland.com"
-                        variant="dark"
+                        variant="on-dark"
                     >
                         This is a link here
                     </VsLinkListItem>
                     <VsLinkListItem
                         href="www.visitscotland.com"
                         type="external"
-                        variant="dark"
+                        variant="on-dark"
                     >
                         This is an external link here
                     </VsLinkListItem>
                     <VsLinkListItem
                         href="www.visitscotland.com"
                         type="download"
-                        variant="dark"
+                        variant="on-dark"
                     >
                         This is a download link here
                     </VsLinkListItem>

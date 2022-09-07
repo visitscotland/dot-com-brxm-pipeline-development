@@ -7,15 +7,11 @@
         <form class="d-none" />
 
         <template v-if="!submitted">
-            <VsHeading
-                v-if="showFormHeading"
-                level="2"
-            >
-                {{ getTranslatedContent('heading') }}
-            </VsHeading>
-
             <form @submit.prevent="preSubmit">
                 <fieldset>
+                    <legend class="vs-form__main-heading vs-heading--style-level-2">
+                        {{ getTranslatedContent('heading') }}
+                    </legend>
                     <BFormGroup
                         v-for="(field, index) in formData.fields"
                         :key="field.name"
@@ -23,10 +19,16 @@
                         :label-for="needsLabel(field) ? field.name : ''"
                         :class="conditionalElementClass(field.name)"
                     >
-                        <legend v-if="!isUndefined(field.descriptor)">
+                        <legend
+                            v-if="!isUndefined(field.descriptor)
+                                && field.element === 'checkbox'"
+                        >
                             {{ getTranslatedLegend(field.name, index) }}
                         </legend>
-                        <div :class="conditionalElementClass(field.name)">
+                        <div
+                            :class="conditionalElementClass(field.name)"
+                            aria-live="assertive"
+                        >
                             <template v-if="field.element === 'input'">
                                 <VsInput
                                     :ref="field.name"
@@ -94,7 +96,7 @@
                     :language="language"
                     :error-msg="getMessagingData('recaptchaError', language)"
                     class="mt-9"
-                    :textareaLabel="recaptchaTextareaLabel"
+                    :textarea-label="recaptchaTextareaLabel"
                 />
 
                 <VsButton
@@ -123,29 +125,31 @@
             </div>
         </div>
 
-        <p v-if="submitting">
-            <slot name="submitting" />
-        </p>
+        <div aria-live="assertive">
+            <p v-if="submitting">
+                <slot name="submitting" />
+            </p>
 
-        <template v-if="submitted">
-            <VsHeading
-                v-if="getTranslatedContent('successHeading')"
-                level="2"
-            >
-                {{ getTranslatedContent('successHeading') }}
-            </VsHeading>
+            <template v-if="submitted">
+                <VsHeading
+                    v-if="getTranslatedContent('successHeading')"
+                    level="2"
+                >
+                    {{ getTranslatedContent('successHeading') }}
+                </VsHeading>
 
-            <!-- eslint-disable vue/no-v-html -->
-            <p
-                class="vs-form__content"
-                v-html="getTranslatedContent('successContent')"
-            />
-            <!-- eslint-enable vue/no-v-html -->
-        </template>
+                <!-- eslint-disable vue/no-v-html -->
+                <p
+                    class="vs-form__content"
+                    v-html="getTranslatedContent('successContent')"
+                />
+                <!-- eslint-enable vue/no-v-html -->
+            </template>
 
-        <p v-if="submitError">
-            <slot name="submitError" />
-        </p>
+            <p v-if="submitError">
+                <slot name="submitError" />
+            </p>
+        </div>
     </div>
 </template>
 
@@ -584,6 +588,10 @@ export default {
                 }
             });
 
+            if (this.errorFields.length > 0) {
+                this.formIsInvalid = true;
+            }
+
             if (!this.formIsInvalid && this.recaptchaVerified) {
                 this.marketoSubmit();
             } else {
@@ -668,6 +676,10 @@ export default {
 
 <style lang='scss'>
     .vs-form {
+        &__main-heading {
+            @extend %heading-default-styles;
+        }
+
         &__content {
             font-size: $font-size-6;
         }

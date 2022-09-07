@@ -143,13 +143,16 @@ export default {
     // place it half way up the image
     mounted() {
         const imgWithCaption = this.$el.querySelector('.vs-image-with-caption');
-        const img = imgWithCaption.querySelector('img');
 
-        img.addEventListener('load', () => {
-            const offsetPercentToMiddle = img.clientHeight / 2 / img.clientWidth;
-            this.negativeMargin = `${offsetPercentToMiddle * 100}%`;
-            this.imageHeight = `${img.clientHeight}px`;
-        });
+        if (imgWithCaption) {
+            const img = imgWithCaption.querySelector('img');
+
+            img.addEventListener('load', () => {
+                const offsetPercentToMiddle = img.clientHeight / 2 / img.clientWidth;
+                this.negativeMargin = `${offsetPercentToMiddle * 100}%`;
+                this.imageHeight = `${img.clientHeight}px`;
+            });
+        }
     },
 };
 </script>

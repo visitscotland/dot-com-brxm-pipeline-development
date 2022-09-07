@@ -30,9 +30,9 @@ describe('VsMegaNav', () => {
         expect(wrapper.find('[data-test=vs-mega-nav]').exists()).toBe(true);
     });
 
-    it('should render a button with an `vs-icon--bars-mobile-menu` icon', () => {
+    it('should render a button with an `vs-mega-nav__mobile-menu-toggle` class', () => {
         const wrapper = factoryMount();
-        const dropdownToggle = wrapper.find('[data-test="vs-mega-nav-dropdown"]').find('.dropdown-toggle');
+        const dropdownToggle = wrapper.find('[data-test="vs-mega-nav-mobile-container"]').find('.vs-mega-nav__mobile-menu-toggle');
 
         expect(dropdownToggle.exists()).toBe(true);
         expect(dropdownToggle.html()).toContain('vs-icon--bars-mobile-menu');
@@ -46,7 +46,7 @@ describe('VsMegaNav', () => {
 
         it('should display sr-only `Open Menu` text within toggle button', () => {
             const wrapper = factoryMount();
-            const dropdownToggle = wrapper.find('[data-test="vs-mega-nav-dropdown"]').find('.dropdown-toggle');
+            const dropdownToggle = wrapper.find('[data-test="vs-mega-nav-mobile-container"]').find('.vs-mega-nav__mobile-menu-toggle');
 
             expect(dropdownToggle.html()).toContain('Open Menu');
         });

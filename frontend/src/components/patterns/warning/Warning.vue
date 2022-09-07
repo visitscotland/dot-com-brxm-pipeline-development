@@ -138,7 +138,7 @@ export default {
             box-shadow: none;
 
             &:focus {
-                outline: 2px solid $color_yellow;
+                @extend %outline-link-focus-dark;
             }
         }
 

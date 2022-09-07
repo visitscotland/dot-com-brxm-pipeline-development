@@ -3,6 +3,7 @@
         class="vs-svg-link"
         data-test="vs-svg-link"
         :href="href"
+        :variant="linkVariant"
     >
         <span
             class="sr-only"
@@ -81,6 +82,15 @@ export default {
         svgWidth: {
             type: [Number, String],
             default: '',
+        },
+        /**
+         * Option to choose a pre-defined link variant
+         * `primary|on-dark`
+         */
+        linkVariant: {
+            type: String,
+            default: 'primary',
+            validator: (value) => value.match(/(primary|on-dark)/),
         },
     },
 };

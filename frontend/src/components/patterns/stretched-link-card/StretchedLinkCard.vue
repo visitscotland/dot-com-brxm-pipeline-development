@@ -97,10 +97,10 @@
                     :type="type"
                     class="stretched-link"
                     :class="disabled ? 'stretched-link--disabled' : ''"
-                    :variant="theme === 'dark' ? 'dark' : 'primary'"
+                    :variant="theme === 'dark' ? 'on-dark' : 'primary'"
                     data-test="vs-stretched-link"
                     :disabled="disabled"
-                    :tabindex="videoId ? '-1' : '0'"
+                    :tabindex="(videoId || disabled) ? '-1' : '0'"
                 >
                     <!-- @slot Contains header content for the card  -->
                     <slot name="stretchedCardHeader" />
@@ -390,7 +390,7 @@ export default {
             }
 
             &:focus {
-                outline: 2px solid $color-pink;
+                @extend %outline-link-focus;
             }
         }
 

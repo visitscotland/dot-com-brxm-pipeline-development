@@ -45,7 +45,9 @@
                             <vs-link
                                 href="${cta.link}"
                                 <#if cta.type != "internal">type="${cta.type}"</#if>
-                            >${cta.label}</vs-link>
+                            >
+                                ${cta.label}<span class="sr-only">: ${item.title}</span>
+                            </vs-link>
                         </div>
 					</#if>
 				</#list>

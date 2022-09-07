@@ -81,7 +81,7 @@ export default {
         }
 
         &:focus {
-            outline: 3px solid $color-purple-tint-5;
+            outline: 3px solid $color-yellow;
             outline-offset: -3px;
             background: $color-purple;
         }

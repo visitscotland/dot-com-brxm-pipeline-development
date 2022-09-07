@@ -101,7 +101,7 @@ export default {
         }
 
         &:focus {
-            box-shadow: $shadow-button-focus inset;
+            box-shadow: $shadow-button-focus-dark inset;
         }
     }
 
@@ -113,13 +113,8 @@ export default {
         }
 
         .btn-primary.dropdown-toggle:focus {
-            box-shadow: $shadow-button-focus inset;
+            box-shadow: $shadow-button-focus-dark inset;
         }
-    }
-
-    ul:focus {
-        outline: 3px solid $color-pink-tint-5;
-        outline-offset: -3px;
     }
 
     .dropdown-menu {
@@ -150,7 +145,7 @@ export default {
                 }
 
                 &:focus {
-                    outline: 3px solid $color-pink-tint-5;
+                    outline: 3px solid $color-yellow;
                     outline-offset: -3px;
                 }
             }

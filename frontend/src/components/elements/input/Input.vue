@@ -35,6 +35,8 @@
             :v="inputVal"
             :aria-invalid="$v.inputVal.$anyError || invalid"
             :aria-describedby="$v.inputVal.$anyError || invalid ? `error-${fieldName}` : ''"
+            :maxlength="validationRules.maxLength ? validationRules.maxLength : ''"
+            :minlength="validationRules.minLength ? validationRules.minLength : ''"
             @blur="manualValidate"
         />
         <VsButton

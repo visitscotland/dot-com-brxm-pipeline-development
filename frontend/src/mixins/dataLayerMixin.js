@@ -103,7 +103,7 @@ const dataLayerMixin = {
             const templateValues = {
                 event: eventName,
                 tag_name: tagName,
-                click_text: event.target.text.trim() || undefined,
+                click_text: this.targetText(event),
                 click_URL: event.target.href,
             };
 
@@ -127,7 +127,7 @@ const dataLayerMixin = {
             const templateValues = {
                 event: eventName,
                 tag_name: tagName,
-                click_text: event.target.text.trim() || undefined,
+                click_text: this.targetText(event),
                 click_URL: event.target.href,
             };
 
@@ -176,6 +176,17 @@ const dataLayerMixin = {
             fullTemplate.hit_timestamp = this.returnIsoDate();
 
             return fullTemplate;
+        },
+        targetText(event) {
+            let text;
+
+            if (event.target.text) {
+                text = event.target.text.trim();
+            } else {
+                text = '';
+            }
+
+            return text;
         },
     },
 };

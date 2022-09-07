@@ -122,6 +122,7 @@
                         :link-href="prod.website.link"
                         :link-type="prod.website.type"
                         :link-label="prod.website.label"
+                        :link-title="prod.name"
                     >
                         <VsCannedSearchDates
                             v-if="prod.opening && searchType !== 'tour'"

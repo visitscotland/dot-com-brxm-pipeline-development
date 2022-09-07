@@ -253,6 +253,7 @@ $variants: (
 .vs-icon {
     fill: $color-black;
     overflow: visible;
+    pointer-events: none;
 
     @each $size in map-keys($sizes) {
         $this-size: map-get($sizes, $size);

@@ -27,9 +27,13 @@
 
 <#--  More reliable method for including labels from resource bundles  -->
 <#--  Usage: ${property("helpdesk")} -->
-<#function property key>
+<#function property key locale="">
     <#if Properties??>
-        <#return Properties.getProperty(key)>
+        <#if locale??>
+            <#return Properties.getProperty(key, locale)>
+        <#else>
+            <#return Properties.getProperty(key)>
+        </#if>
     <#else>
         <#return labelFallback("default.config", key)>
     </#if>

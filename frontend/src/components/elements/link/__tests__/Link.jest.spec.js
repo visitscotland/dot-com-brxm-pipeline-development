@@ -34,12 +34,12 @@ describe('VsLink', () => {
             expect(wrapper.classes()).toContain('vs-link--variant-primary');
         });
 
-        it(':variant - should render the dark variant', () => {
+        it(':variant - should render the on-dark variant', () => {
             const wrapper = factoryShallowMount({
-                variant: 'dark',
+                variant: 'on-dark',
             });
 
-            expect(wrapper.classes()).toContain('vs-link--variant-dark');
+            expect(wrapper.classes()).toContain('vs-link--variant-on-dark');
             expect(wrapper.classes()).not.toContain('vs-link--variant-primary');
         });
 
