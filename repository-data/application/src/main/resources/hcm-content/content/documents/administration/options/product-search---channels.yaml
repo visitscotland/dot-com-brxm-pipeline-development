@@ -1,0 +1,16 @@
+/content/documents/administration/options/product-search---channels:
+  jcr:primaryType: hippo:handle
+  jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+  jcr:uuid: a77bae26-b229-4d89-b753-1eaf90eea7b6
+  hippo:name: Product Search - Channels
+  /product-search---channels:
+    jcr:primaryType: selection:valuelist
+    jcr:mixinTypes: ['hippotranslation:translated', 'mix:referenceable']
+    jcr:uuid: 71238230-d715-4e0e-a78c-b510b357c60b
+    hippo:availability: [live, preview]
+    hippotranslation:id: 3b94510e-c413-4fc4-add0-19380c11ab48
+    hippotranslation:locale: inherited - from query
+    /selection:listitem:
+      jcr:primaryType: selection:listitem
+      selection:key: weddings
+      selection:label: Weddings

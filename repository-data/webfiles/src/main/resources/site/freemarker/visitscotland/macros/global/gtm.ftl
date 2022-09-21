@@ -10,7 +10,7 @@
     <!-- Google Tag Manager -->
     <#if noscript >
         <noscript>
-            <iframe src=https://www.googletagmanager.com/ns.html?id=${id}${queryString} height="0" width="0" style="display:none;visibility:hidden"></iframe>
+            <iframe src="https://www.googletagmanager.com/ns.html?id=${id}${queryString}" height="0" width="0" style="display:none;visibility:hidden"></iframe>
         </noscript>
     <#else>
         <script>

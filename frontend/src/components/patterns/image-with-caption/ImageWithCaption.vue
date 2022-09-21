@@ -44,6 +44,7 @@
                     @toggleAction="toggleCaption"
                     :video-id="videoId"
                     :cookie-link-text="cookieLinkText"
+                    :error-message="errorMessage"
                 >
                     <!-- @slot Slot for the video title text -->
                     <template slot="video-title">
@@ -198,6 +199,13 @@ export default {
             type: Boolean,
             default: true,
         },
+        /**
+         * Message to show when there's an error with a third party
+        */
+        errorMessage: {
+            type: String,
+            required: true,
+        },
     },
     data() {
         return {
@@ -210,7 +218,7 @@ export default {
             return {
                 'vs-image-with-caption--closed-default': this.closedDefaultCaption,
                 'vs-image-with-caption--hero': this.isHeroImage,
-                'vs-image-with-caption--show-caption': !this.requiredCookiesExist && this.cookiesSetStatus,
+                'vs-image-with-caption--show-caption': !this.requiredCookiesExist && this.setCookieStatus === true,
                 'vs-image-with-caption--video': this.isVideo,
             };
         },
@@ -429,7 +437,7 @@ export default {
                 &.vs-image-with-caption--hero {
                      .vs-image-with-caption__captions {
                         position: absolute;
-                        bottom: 200px;
+                        bottom: 210px;
                         width: 100%;
                         right: 0;
                         z-index: 3;
@@ -459,6 +467,10 @@ export default {
                         @include media-breakpoint-between(sm, md) {
                             display: block;
                         }
+                    }
+
+                    @include media-breakpoint-up(lg) {
+                        height: 100vh;
                     }
                 }
 

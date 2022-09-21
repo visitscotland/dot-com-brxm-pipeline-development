@@ -80,7 +80,7 @@
                                 </vs-col>
                         </@modal>
 
-                        <@imageWithCaption 
+                        <@imageWithCaption
                             imageSrc=heroSrc
                             imageDetails=heroDetails
                             variant="large"

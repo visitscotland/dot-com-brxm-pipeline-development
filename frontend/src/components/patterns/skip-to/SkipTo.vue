@@ -1,14 +1,14 @@
 <template>
-    <section
+    <nav
         class="vs-skip-to d-flex"
         data-test="vs-skip-to"
+        :aria-label="skipToText"
     >
         <p
             class="vs-skip-to__label"
             id="skip-to-label"
         >
-            <!-- @slot text for 'skip to' label -->
-            <slot name="skipToText" />:
+            {{ skipToText }}:
         </p>
         <VsLink
             href="#main-nav"
@@ -42,7 +42,7 @@
             <!-- @slot text for 'Footer' -->
             <slot name="footerText" />
         </VsLink>
-    </section>
+    </nav>
 </template>
 
 <script>
@@ -61,6 +61,15 @@ export default {
     release: '0.0.1',
     components: {
         VsLink,
+    },
+    props: {
+        /**
+         * The skip to label for the menu
+         */
+        skipToText: {
+            type: String,
+            required: true,
+        },
     },
     methods: {
         /**

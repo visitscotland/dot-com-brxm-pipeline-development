@@ -6,10 +6,10 @@
     <vs-carousel
         next-text="${label('essentials.pagination', 'page.next')}"
         prev-text="${label('essentials.pagination', 'page.previous')}"
-        slides-xs="1"
-        slides-sm="2"
-        slides-md="3"
-        slides-lg="4"
+        :slides-xs="1"
+        :slides-sm="2"
+        :slides-md="3"
+        :slides-lg="4"
     >
         <#list item.links as carouselItem>
             <#if carouselItem.image.cmsImage??>

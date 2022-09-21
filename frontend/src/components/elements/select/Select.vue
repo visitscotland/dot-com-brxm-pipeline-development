@@ -32,6 +32,7 @@
                 :aria-invalid="$v.inputVal.$anyError || invalid"
                 :aria-describedby="`hint-${fieldName}`"
                 :class="errorClass"
+                :autocomplete="autocompleteValue(fieldName)"
             />
             <span class="vs-select__focus" />
         </div>
@@ -202,6 +203,24 @@ export default {
                     this.countryList = response.data.countries;
                 });
         }
+    },
+    methods: {
+        autocompleteValue(fieldName) {
+            // https://html.spec.whatwg.org/multipage/forms.html#enabling-client-side-automatic-filling-of-form-controls
+            let autocomplete;
+
+            switch (fieldName) {
+            case 'Country':
+                autocomplete = 'country-name';
+                break;
+
+            default:
+                autocomplete = 'on';
+                break;
+            }
+
+            return autocomplete;
+        },
     },
     validations() {
         return this.rules;

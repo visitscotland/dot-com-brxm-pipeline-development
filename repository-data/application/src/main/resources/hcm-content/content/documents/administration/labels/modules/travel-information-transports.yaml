@@ -1,21 +1,22 @@
 /content/documents/administration/labels/modules/travel-information-transports:
-  .meta:order-before: forms
+  .meta:order-before: product-search-widget
   jcr:primaryType: hippo:handle
   jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
-  jcr:uuid: dd0f784e-e773-4dd1-bbc0-d9fa27ea49fe
+  jcr:uuid: 06d5a758-fe0a-44ef-b1fb-efec4b20e1b5
   hippo:name: Travel Information Transports
   hippo:versionHistory: b8e8d5c0-7adc-4941-a501-928ffa7a111c
   /travel-information-transports[1]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:referenceable']
-    jcr:uuid: 87881890-7b85-41b3-b850-24de05be1265
+    jcr:uuid: 4707115d-168b-48db-a997-b0a3e58c4b5d
     hippo:availability: []
     hippostd:retainable: false
     hippostd:state: draft
+    hippostd:transferable: false
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2021-10-20T14:03:42.816+01:00
-    hippostdpubwf:lastModificationDate: 2022-07-08T10:40:55.436+02:00
-    hippostdpubwf:lastModifiedBy: nikki.sherret
+    hippostdpubwf:lastModificationDate: 2022-09-07T11:19:15.544+02:00
+    hippostdpubwf:lastModifiedBy: juanluis.hurtado
     resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '', '', '', '',
       '', '', '']
     resourcebundle:id: travel-information-transports
@@ -41,7 +42,7 @@
   /travel-information-transports[2]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:versionable']
-    jcr:uuid: a21af8e3-17e7-43cd-9b4b-4187f22a7165
+    jcr:uuid: 2829f4e6-dd32-491f-9e46-46ec615a19c0
     hippo:availability: [preview]
     hippostd:retainable: false
     hippostd:state: unpublished
@@ -74,7 +75,7 @@
   /travel-information-transports[3]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:referenceable']
-    jcr:uuid: 8e9bba6d-1b93-4194-97b5-7c3e36ce51a8
+    jcr:uuid: 75294644-8882-46e0-97b1-3918041b7b98
     hippo:availability: [live]
     hippostd:retainable: false
     hippostd:state: published

@@ -61,4 +61,9 @@ public class ProductsSearch extends HippoCompound {
     public String getKeywords() {
         return getSingleProperty("visitscotland:keywords");
     }
+
+    @HippoEssentialsGenerated(internalName = "visitscotland:channel")
+    public String getChannel() {
+        return getSingleProperty("visitscotland:channel");
+    }
 }

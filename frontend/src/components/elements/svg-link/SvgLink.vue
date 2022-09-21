@@ -3,6 +3,7 @@
         class="vs-svg-link"
         data-test="vs-svg-link"
         :href="href"
+        :data-layer-value="dataLayerValue"
         :variant="linkVariant"
     >
         <span
@@ -82,6 +83,13 @@ export default {
         svgWidth: {
             type: [Number, String],
             default: '',
+        },
+        /**
+        * If the click should trigger a dataLayerPush
+        */
+        dataLayerValue: {
+            type: String,
+            default: null,
         },
         /**
          * Option to choose a pre-defined link variant

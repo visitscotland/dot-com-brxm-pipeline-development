@@ -2,8 +2,10 @@ import { shallowMount } from '@vue/test-utils';
 import VsSkipTo from '../SkipTo';
 
 const factoryShallowMount = () => shallowMount(VsSkipTo, {
-    slots: {
+    propsData: {
         skipToText: 'Skip to',
+    },
+    slots: {
         mainMenuText: 'Main menu',
         mainContentText: 'Main content',
         searchText: 'Search',
@@ -21,11 +23,13 @@ describe('VsSiteSearch', () => {
         expect(wrapper.find('[data-test="vs-skip-to"]').exists()).toBe(true);
     });
 
-    describe(':slots', () => {
-        it('should render the content of the `Skip to` slot', () => {
-            expect(wrapper.text()).toContain('Skip to');
+    describe(':props', () => {
+        it('should render the `skipToText` label', () => {
+            expect(wrapper.attributes('aria-label')).toBe('Skip to');
+            expect(wrapper.find('[data-test="vs-skip-to"]').find('.vs-skip-to__label').text()).toContain('Skip to');
         });
-
+    });
+    describe(':slots', () => {
         it('should render the content of the `mainMenuText` slot', () => {
             expect(wrapper.text()).toContain('Main menu');
         });

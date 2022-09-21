@@ -1,10 +1,9 @@
 <#include "../../../../frontend/components/vs-skip-to.ftl">
 
 <#macro headerSkipTo>
-    <vs-skip-to>
-        <template slot="skipToText">
-            ${label('skip-to', 'skip-to.label')}
-        </template>
+    <vs-skip-to
+        skip-to-text="${label('skip-to', 'skip-to.label')}"
+    >
         <template slot="mainMenuText">
             ${label('skip-to', 'skip-to.main-menu')}
         </template>

@@ -31,7 +31,7 @@
             :name="fieldName"
             :placeholder="placeholder"
             :required="isRequired"
-            :autocomplete="autoComplete ? 'on' : 'off'"
+            :autocomplete="autocompleteValue(fieldName)"
             :v="inputVal"
             :aria-invalid="$v.inputVal.$anyError || invalid"
             :aria-describedby="$v.inputVal.$anyError || invalid ? `error-${fieldName}` : ''"
@@ -248,6 +248,37 @@ export default {
         clearInputAndFocus() {
             this.clearInput();
             this.focusOnInput();
+        },
+        /**
+         *  return autocomplete value in appropriate places
+         */
+        autocompleteValue(fieldName) {
+            // https://html.spec.whatwg.org/multipage/forms.html#enabling-client-side-automatic-filling-of-form-controls
+            let autocomplete;
+
+            switch (fieldName) {
+            case 'firstName':
+                autocomplete = 'given-name';
+                break;
+
+            case 'lastName':
+                autocomplete = 'family-name';
+                break;
+
+            case 'Email':
+                autocomplete = 'email';
+                break;
+
+            case 'PostalCode':
+                autocomplete = 'postal-code';
+                break;
+
+            default:
+                autocomplete = this.autoComplete ? 'on' : 'off';
+                break;
+            }
+
+            return autocomplete;
         },
     },
     validations() {

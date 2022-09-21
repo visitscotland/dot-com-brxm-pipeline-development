@@ -152,7 +152,7 @@ export default {
 
         @include media-breakpoint-up(lg) {
             right: $spacer-1;
-            top: -10px;
+            top: -4px;
         }
     }
 

@@ -19,14 +19,20 @@
                         md="4"
                         lg="3"
                     >
-                        <VsSvgLink
-                            class="vs-mega-nav__logo"
-                            data-test="vs-mega-nav__logo"
-                            link-alt-text="VisitScotland Home"
-                            :href="href"
-                            svg-fill="#700e57"
-                            svg-path="visitscotland"
-                        />
+                        <div
+                            @click="dataLayerHandler($event)"
+                            @keydown="dataLayerHandler($event)"
+                        >
+                            <VsSvgLink
+                                class="vs-mega-nav__logo"
+                                data-test="vs-mega-nav__logo"
+                                link-alt-text="VisitScotland Home"
+                                :href="href"
+                                svg-fill="#700e57"
+                                svg-path="visitscotland"
+                                data-layer-value="homePageLogoClickDataEvent"
+                            />
+                        </div>
                     </VsCol>
 
                     <!-- Desktop Top Menu Toggles -->
@@ -111,6 +117,7 @@ import VsButton from '@components/elements/button/Button';
 import VsSiteSearch from '@components/patterns/site-search/SiteSearch';
 import VsSiteSearchForm from '@components/patterns/site-search/components/SiteSearchForm';
 import Vue from 'vue';
+import dataLayerMixin from '../../../mixins/dataLayerMixin';
 
 Vue.directive('click-outside', {
     bind(el, binding, vnode) {
@@ -148,6 +155,7 @@ export default {
         VsSiteSearchForm,
         VsButton,
     },
+    mixins: [dataLayerMixin],
     props: {
         /**
          * The URL for the VS logo link

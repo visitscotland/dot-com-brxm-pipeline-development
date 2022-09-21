@@ -42,7 +42,7 @@
                 >
 
                     <template slot="no-js">
-                        ${form.noJavaScriptMessage}
+                        ${label('forms', 'form.no-js')}
                     </template>
 
                     <template slot="submitError">

@@ -1,13 +1,14 @@
 /content/documents/administration/labels/modules/product-search-widget:
+  .meta:order-before: forms
   jcr:primaryType: hippo:handle
   jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
-  jcr:uuid: 4d483cba-6475-4ec4-a3ce-cb5be91ca831
+  jcr:uuid: a9e82d7f-66c3-4b89-b4bf-f793fb843bb6
   hippo:name: PSR Widget
   hippo:versionHistory: 002a8e68-33fb-4249-bc2a-74d0939ce0c0
   /product-search-widget[1]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:referenceable']
-    jcr:uuid: 10557b01-edcd-4a08-82ce-7a7ddfc16cda
+    jcr:uuid: 7650d8d2-8a8b-4f04-a7bf-a79c15a11c35
     hippo:availability: []
     hippostd:retainable: false
     hippostd:state: draft
@@ -74,7 +75,7 @@
   /product-search-widget[2]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
-    jcr:uuid: 6d93e656-6bd0-49d1-a5f3-3fde9364f8b1
+    jcr:uuid: 52c7942d-328f-417a-a173-a6d1a027a748
     hippo:availability: [preview]
     hippostd:retainable: false
     hippostd:state: unpublished
@@ -141,7 +142,7 @@
   /product-search-widget[3]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:referenceable']
-    jcr:uuid: 39fe8963-5d05-4571-8fe8-8603748d13f7
+    jcr:uuid: 63542c53-95ee-460d-81e8-43ff07393a0c
     hippo:availability: [live]
     hippostd:retainable: false
     hippostd:state: published

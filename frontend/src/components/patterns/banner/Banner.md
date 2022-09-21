@@ -1,20 +1,19 @@
 ## Usage
 The banner component sits below the main navigation at the top of a page across its full width highlighting important information for all users to see. It pushes content down rather than sitting on top of other elements.   
 
-The banner must contain a title and call to action link to more information. It may also include extra text content for a better description.  
+The banner must contain some text with a call to action link to more information.
 
 Only one banner should ever be displayed at one time.
 
 ```jsx
     <VsBanner
         close-btn-text="Close"
-        title="Covid-19 Travel Advice"
         :dont-show-again="false"
     >
         <template slot="bannerText">
             <p>
                 Find the latest information on travel, and Good to Go (Covid-safe)
-                businesses. 
+                businesses.
             </p>
         </template>
 

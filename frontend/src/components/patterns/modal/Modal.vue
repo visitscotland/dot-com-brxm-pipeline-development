@@ -90,7 +90,7 @@ export default {
     mounted() {
         if (this.isVideoModal) {
             this.$root.$on('bv::modal::shown', (bvEvent, modalId) => {
-                this.$root.$emit('video-controls', 'play', modalId, 'modal');
+                this.$root.$emit('video-controls', 'modal-opened', modalId);
             });
         }
     },
@@ -163,12 +163,14 @@ export default {
 
     <VsModal
         modalId="c05sg3G4oA4"
+        :isVideoModal="true"
         closeBtnText="Close"
     >
         <VsRow>
             <VsCol cols="12">
                 <VsVideo
                     video-id="c05sg3G4oA4"
+                    video-title="Test Video"
                     class="mb-8"
                 />
             </VsCol>

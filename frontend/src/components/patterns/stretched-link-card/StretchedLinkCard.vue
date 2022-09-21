@@ -1,10 +1,17 @@
 <template>
     <div
         class="card vs-stretched-link-card"
+        data-test="vs-stretched-link-card"
         :class="stretchedLinkCardClasses"
         @click="emitShowModal"
         @keypress="emitShowModal"
     >
+        <VsWarning
+            v-if="showWarning === 'full'"
+            v-bind="warningProps"
+            variant="xs"
+            data-test="vs-stretched-link-card__full-warning"
+        />
         <div
             class="vs-stretched-link-card__img-container"
             :class="warningClass"
@@ -27,15 +34,9 @@
             </template>
 
             <VsWarning
-                v-if="videoId && jsDisabled"
-                :warning-message="noJsMessage"
-            />
-
-            <VsWarning
-                v-if="showCookieWarning"
-                :warning-message="noCookiesMessage"
-                :show-cookie-link="true"
-                :cookie-link-text="cookieLinkText"
+                v-if="showWarning === 'image'"
+                v-bind="warningProps"
+                data-test="vs-stretched-link-card__image-warning"
             />
         </div>
 
@@ -49,6 +50,7 @@
         <div
             class="card-body"
             :class="videoId ? 'position-relative' : ''"
+            v-if="showWarning !== 'full'"
         >
             <VsButton
                 class="vs-stretched-link-card__video-button"
@@ -232,6 +234,21 @@ export default {
             type: String,
             default: '',
         },
+        /**
+         * Message to show when there's an error with a third party
+        */
+        errorMessage: {
+            type: String,
+            default: '',
+        },
+        /**
+         * Message to show when there's an error with a third party
+        */
+        errorType: {
+            type: String,
+            default: 'image',
+            validator: (value) => value.match(/(image|full)/),
+        },
     },
     inject: {
         noJsMessage: {
@@ -288,19 +305,61 @@ export default {
         },
         // Calculates if warning is showing and gives class for appropriate styles
         warningClass() {
+            let className = '';
+
             if (this.videoId && (this.jsDisabled || !this.requiredCookiesExist)) {
-                return 'vs-stretched-link-card__img-container--warning';
+                className = 'vs-stretched-link-card__img-container--warning ';
+
+                if (this.errorType === 'full' && this.cookiesInitStatus !== null) {
+                    className += 'vs-stretched-link-card__img-container--warning-full';
+                }
             }
 
-            return '';
+            return className;
         },
         showCookieWarning() {
             if (this.videoId && !this.jsDisabled
-                && !this.requiredCookiesExist && this.cookiesSetStatus) {
+                && !this.requiredCookiesExist
+                && this.cookiesInitStatus === true) {
                 return true;
             }
 
             return false;
+        },
+        showError() {
+            if (this.videoId
+                && this.errorMessage !== ''
+                && this.cookiesInitStatus === 'error') {
+                return true;
+            }
+
+            return false;
+        },
+        showWarning() {
+            if (this.showError || this.showCookieWarning) {
+                return this.errorType;
+            }
+
+            return false;
+        },
+        warningProps() {
+            if (this.jsDisabled) {
+                return {
+                    warningMessage: this.noJsMessage,
+                };
+            }
+
+            if (this.showCookieWarning) {
+                return {
+                    warningMessage: this.noCookiesMessage,
+                    showCookieLink: true,
+                    cookieLinkText: this.cookieLinkText,
+                };
+            }
+
+            return {
+                warningMessage: this.errorMessage,
+            };
         },
     },
     mounted() {

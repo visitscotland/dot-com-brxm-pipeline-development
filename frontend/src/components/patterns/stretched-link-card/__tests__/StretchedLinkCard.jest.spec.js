@@ -10,18 +10,30 @@ const factoryShallowMount = (slotsData) => shallowMount(VsStretchedLinkCard, {
         imgSrc: imgUrl,
         imgAlt: 'Image alt',
     },
+    slots: {
+        stretchedCardHeader: 'Stretched link header',
+    },
     ...slotsData,
 });
 
 describe('VsStretchedLinkCard', () => {
     it('should render an element with class stretched-link', () => {
-        const wrapper = factoryShallowMount();
+        const wrapper = factoryShallowMount({
+            slots: {
+                stretchedCardHeader: 'Header slot content',
+            },
+        });
         expect(wrapper.find('[data-test="vs-stretched-link"]').exists()).toBe(true);
     });
 
     describe(':props', () => {
-        it('should render the component with the link prop passed as the stretched link href', () => {
-            const wrapper = factoryShallowMount();
+        it('should render the component with the link prop passed as the stretched link href', async() => {
+            const wrapper = factoryShallowMount({
+                slots: {
+                    stretchedCardHeader: 'Header slot content',
+                },
+            });
+
             expect(wrapper.find('[data-test="vs-stretched-link"]').attributes().href).toBe('https://www.visitscotland.com/');
         });
 
@@ -104,6 +116,52 @@ describe('VsStretchedLinkCard', () => {
 
             expect(wrapper.html()).toContain(videoBtnText);
         });
+
+        it('should render a full warning component if `errorType` is `full`', async() => {
+            const wrapper = shallowMount(VsStretchedLinkCard, {
+                propsData: {
+                    link: 'https://www.visitscotland.com/',
+                    type: 'external',
+                    imgSrc: imgUrl,
+                    imgAlt: 'Image alt',
+                    videoId: '12345',
+                    videoBtnText: 'Play',
+                    errorType: 'full',
+                },
+                computed: {
+                    showError() {
+                        return true;
+                    },
+                },
+            });
+
+            await wrapper.vm.$nextTick();
+
+            expect(wrapper.find('[data-test="vs-stretched-link-card__full-warning"]').exists()).toBe(true);
+        });
+
+        it('should render a image warning component if `errorType` is `image`', async() => {
+            const wrapper = shallowMount(VsStretchedLinkCard, {
+                propsData: {
+                    link: 'https://www.visitscotland.com/',
+                    type: 'external',
+                    imgSrc: imgUrl,
+                    imgAlt: 'Image alt',
+                    videoId: '12345',
+                    videoBtnText: 'Play',
+                    errorType: 'image',
+                },
+                computed: {
+                    showError() {
+                        return true;
+                    },
+                },
+            });
+
+            await wrapper.vm.$nextTick();
+
+            expect(wrapper.find('[data-test="vs-stretched-link-card__image-warning"]').exists()).toBe(true);
+        });
     });
 
     describe(':slots', () => {
@@ -144,17 +202,22 @@ describe('VsStretchedLinkCard', () => {
             expect(wrapper.find('[data-test="vs-stretched-link-card__link"]').text()).toBe('Stretched link link text');
         });
         it('renders a link in the header if no stretchedCardLink is supplied', () => {
-            const wrapper = factoryShallowMount();
+            const wrapper = factoryShallowMount({
+                slots: {
+                    stretchedCardHeader: 'Stretched link header',
+                },
+            });
 
             expect(wrapper.find('[data-test="vs-stretched-link-card__title"]').find('[data-test="vs-stretched-link"]').exists()).toBe(true);
         });
         it('does not render a link in the header if a stretchedCardLink slot content is supplied', () => {
             const wrapper = factoryShallowMount({
                 slots: {
+                    stretchedCardHeader: 'Stretched link header',
                     stretchedCardLink: 'Stretched link link text',
                 },
             });
-            expect(wrapper.find('[data-test="vs-stretched-link-card__title"]').find('[data-test="vs-stretched-link"]').exists()).toBe(false);
+            expect(wrapper.find('[data-test="vs-stretched-link-card__title"]').exists()).toBe(false);
         });
     });
 });

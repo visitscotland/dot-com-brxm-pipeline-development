@@ -16,7 +16,7 @@
                 <@multiImageFeatured lastFeatured='false' feature=item.featuredLinks[0] theme=theme />
                 
                 <#if item.featuredLinks[0].youtubeId??>
-                    <@videoModal videoId=item.featuredLinks[0].youtubeId />
+                    <@videoModal videoId=item.featuredLinks[0].youtubeId videoTitle=item.featuredLinks[0].label/>
                 </#if>              
             </#if>
 
@@ -39,7 +39,7 @@
                 </#if>
                 
                 <#if megalink.youtubeId??>
-                    <@videoModal videoId=megalink.youtubeId />
+                    <@videoModal videoId=megalink.youtubeId videoTitle=megalink.label />
                 </#if>
             </#list>
 
@@ -48,7 +48,7 @@
                 <@multiImageFeatured  lastFeatured='true' feature=item.featuredLinks[1] theme=theme />
                 
                 <#if item.featuredLinks[1].youtubeId??>
-                    <@videoModal videoId=item.featuredLinks[1].youtubeId />
+                    <@videoModal videoId=item.featuredLinks[1].youtubeId videoTitle=item.featuredLinks[1].label />
                 </#if>
             </#if>
         </vs-row>

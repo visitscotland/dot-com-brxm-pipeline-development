@@ -10,6 +10,7 @@
         :theme="theme"
         :video-id="videoId"
         :video-btn-text="videoBtnText"
+        :error-message="errorMessage"
     >
         <VsStretchedLinkPanels
             v-if="days && transport"
@@ -158,6 +159,13 @@ export default {
         videoBtnText: {
             type: String,
             default: 'Play Video',
+        },
+        /**
+         * Message to show when there's an error with a third party
+        */
+        errorMessage: {
+            type: String,
+            required: true,
         },
     },
     computed: {

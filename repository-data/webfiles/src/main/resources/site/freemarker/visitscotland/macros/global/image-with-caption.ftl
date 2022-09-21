@@ -16,6 +16,7 @@
         no-js-message="${label('video', 'video.no-js')}"
         cookie-link-text="${label('essentials.global', 'cookie.link-message')}"
         :use-lazy-loading="${useLazyLoading}"
+        error-message="${label('essentials.global', 'third-party-error')}"
         <#if videoBtn?? && videoBtn != "">
             play-button-text="${videoBtn}"
         <#else>

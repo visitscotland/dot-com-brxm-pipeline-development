@@ -17,7 +17,6 @@
     <body>
         <@gtm noscript=true />
         <div class="no-js" data-vue-app-init>
-
             <@hst.include ref="top"/>
 
             <@hst.include ref="menu"/>

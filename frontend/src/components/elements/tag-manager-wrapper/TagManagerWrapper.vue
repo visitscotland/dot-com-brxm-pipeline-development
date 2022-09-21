@@ -40,8 +40,9 @@ export default {
         document.addEventListener('DOMContentLoaded', () => {
             dataLayerStore.dispatch('setTestRun', true);
             dataLayerStore.dispatch('setPageUrl', window.location.href);
-            this.pageViewTemplateDataEvent();
         });
+
+        this.createDataLayerObject('pageViewTemplateDataEvent');
     },
     methods: {
         /**
@@ -56,7 +57,7 @@ export default {
 
             // Convert all the keys from kebab-case to snake_case
             Object.keys(payload).forEach((key) => {
-                const newKey = key.replaceAll('-', '_');
+                const newKey = key.replace(/-/g, '_');
 
                 // Pushing the new payload with processed key names to the store
                 dataLayerStore.dispatch('processPayload', {

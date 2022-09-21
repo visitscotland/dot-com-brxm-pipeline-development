@@ -4,6 +4,12 @@ import {
     pageViewTemplate,
     externalLinkTemplate,
     internalLinkTemplate,
+    videoTrackingTemplate,
+    errorTemplate,
+    menuNavigationTemplate,
+    homePageLogoClickTemplate,
+    formsTemplate,
+    socialMediaExternalLinkTemplate,
 } from '../utils/data-layer-templates';
 
 /**
@@ -48,115 +54,293 @@ const dataLayerMixin = {
             // Return an object ready to be pushed to the data-layer
             return obj;
         },
-        pageViewTemplateDataEvent() {
-            const eventName = 'page_view';
-            const tagName = 'VS - GA - Pageview';
+        createDataLayerObject(type, event, href) {
+            let eventName;
+            let tagName;
+            let templateValues;
+            let fullTemplate;
+            let dataLayerData;
 
-            const storeValues = dataLayerStore.getters.getAllGTMValues;
+            switch (type) {
+            case 'pageViewTemplateDataEvent':
+                eventName = 'page_view';
 
-            const templateValues = {
-                event: eventName,
-                tag_name: tagName,
-            };
+                templateValues = {
+                    event: eventName,
+                };
 
-            const fullTemplate = this.compileFullTemplate(storeValues, templateValues);
+                fullTemplate = this.compileFullTemplate(templateValues);
 
-            // Running the values and the template trough the templateFiller() function
-            // This will make sure that the values are added on the right place
-            // And if any value was not found then it will return as undefined
-            // (as per iProspect request)
-            const pageView = this.templateFiller(pageViewTemplate, fullTemplate);
+                // Running the values and the template trough the templateFiller() function
+                // This will make sure that the values are added on the right place
+                // And if any value was not found then it will return as undefined
+                // (as per iProspect request)
+                dataLayerData = this.templateFiller(pageViewTemplate, fullTemplate);
+                break;
 
-            this.pushToDataLayer(pageView);
+            case 'menuNavigationDataEvent':
+                eventName = 'menu_navigation';
+
+                templateValues = {
+                    event: eventName,
+                    click_text: event.target.text.trim(),
+                    click_URL: href,
+                };
+
+                fullTemplate = this.compileFullTemplate(templateValues);
+                dataLayerData = this.templateFiller(menuNavigationTemplate, fullTemplate);
+                break;
+
+            case 'socialMediaExternalLinkDataEvent':
+                eventName = 'social_media_external_link';
+                tagName = 'VS - GA - Social Media External Link';
+
+                templateValues = {
+                    event: eventName,
+                    tag_name: tagName,
+                    click_URL: href,
+                };
+
+                fullTemplate = this.compileFullTemplate(templateValues);
+                dataLayerData = this.templateFiller(socialMediaExternalLinkTemplate, fullTemplate);
+                break;
+
+            case 'homePageLogoClickDataEvent':
+                eventName = 'homepage_logo_click';
+                tagName = 'VS - GA - Homepage Logo Click';
+
+                templateValues = {
+                    event: eventName,
+                    tag_name: tagName,
+                };
+
+                fullTemplate = this.compileFullTemplate(templateValues);
+                dataLayerData = this.templateFiller(homePageLogoClickTemplate, fullTemplate);
+                break;
+
+            case 'externalLinkDataEvent':
+                eventName = 'external_link';
+                tagName = 'VS - GA - External Link';
+
+                templateValues = {
+                    event: eventName,
+                    tag_name: tagName,
+                    click_text: this.targetText(event),
+                    click_URL: event.target.href,
+                };
+
+                fullTemplate = this.compileFullTemplate(templateValues);
+                dataLayerData = this.templateFiller(externalLinkTemplate, fullTemplate);
+                break;
+
+            case 'internalLinkDataEvent':
+                eventName = 'internal_link';
+                tagName = 'VS - GA - Internal Link';
+
+                templateValues = {
+                    event: eventName,
+                    tag_name: tagName,
+                    click_text: event.target.text.trim(),
+                    click_URL: href,
+                };
+
+                fullTemplate = this.compileFullTemplate(templateValues);
+                dataLayerData = this.templateFiller(internalLinkTemplate, fullTemplate);
+                break;
+
+            case 'formsDataEvent':
+                eventName = 'forms';
+                tagName = 'VS - GA - Forms';
+
+                templateValues = {
+                    event: eventName,
+                    tag_name: tagName,
+                    form_status: 'form_submitted',
+                };
+
+                fullTemplate = this.compileFullTemplate(templateValues);
+                dataLayerData = this.templateFiller(formsTemplate, fullTemplate);
+                break;
+
+            case 'errorDataEvent':
+                eventName = 'errors';
+                tagName = 'VS - GA - Errors';
+
+                templateValues = {
+                    event: eventName,
+                    tag_name: tagName,
+                    error_type: event.error_type,
+                    error_details: event.error_details,
+                };
+
+                fullTemplate = this.compileFullTemplate(templateValues);
+                dataLayerData = this.templateFiller(errorTemplate, fullTemplate);
+                break;
+
+            case 'videoTrackingDataEvent':
+                eventName = 'video_tracking';
+                tagName = 'VS - GA - Video Tracking';
+
+                templateValues = {
+                    event: eventName,
+                    tag_name: tagName,
+                    video_status: event.status,
+                    video_title: event.title || '',
+                    video_percent: event.percent || 0,
+                };
+
+                fullTemplate = this.compileFullTemplate(templateValues);
+                dataLayerData = this.templateFiller(videoTrackingTemplate, fullTemplate);
+
+                break;
+
+            default:
+            }
+
+            this.pushToDataLayer(dataLayerData);
         },
+
+        // pageViewTemplateDataEvent() {
+        //     const eventName = 'page_view';
+
+        //     const templateValues = {
+        //         event: eventName,
+        //     };
+
+        //     const fullTemplate = this.compileFullTemplate(templateValues);
+
+        //     // Running the values and the template trough the templateFiller() function
+        //     // This will make sure that the values are added on the right place
+        //     // And if any value was not found then it will return as undefined
+        //     // (as per iProspect request)
+        //     const pageView = this.templateFiller(pageViewTemplate, fullTemplate);
+
+        //     this.pushToDataLayer(pageView);
+        // },
         // menuNavigationDataEvent(event) {
-        //     const eventName = "menu_navigation"
-        //     const tagName = "VS - GA - Mega Menu"
+        //     const eventName = 'menu_navigation';
+
+        //     const templateValues = {
+        //         event: eventName,
+        //         click_text: event.target.text.trim(),
+        //         click_URL: href,
+        //     };
+
+        //     const fullTemplate = this.compileFullTemplate(templateValues);
+        //     const menuNavigation = this.templateFiller(menuNavigationTemplate, fullTemplate);
+        //     this.pushToDataLayer(menuNavigation);
         // },
         // newsletterDataEvent(event) {
         //     const eventName = "newsletter"
-        //     const tagName = "VS - GA - Newsletter"
         // },
         // shareDataEvent(event) {
         //     const eventName = "share"
-        //     const tagName = "VS - GA - Share"
         // },
-        // socialMediaExternalLinkDataEvent(event) {
-        //     const eventName = "social_media_external_link"
-        //     const tagName = "VS - GA - Social Media External Link"
+        // socialMediaExternalLinkDataEvent(href) {
+        //     const eventName = 'social_media_external_link';
+
+        //     const templateValues = {
+        //         event: eventName,
+        //         click_URL: href,
+        //     };
+
+        //     const fullTemplate =
+        //          this.compileFullTemplate(templateValues);
+        //     const socialClick =
+        // this.templateFiller(socialMediaExternalLinkTemplate, fullTemplate);
+        //     this.pushToDataLayer(socialClick);
         // },
-        // homePageLogoClickDataEvent(event) {
-        //     const eventName = "homepage_logo_click"
-        //     const tagName = "VS - GA - Homepage Logo Click"
+        // homePageLogoClickDataEvent() {
+        //     const eventName = 'homepage_logo_click';
+
+        //     const templateValues = {
+        //         event: eventName,
+        //     };
+
+        //     const fullTemplate = this.compileFullTemplate(templateValues);
+        //     const homePageLogoClick =
+        //          this.templateFiller(homePageLogoClickTemplate, fullTemplate);
+        //     this.pushToDataLayer(homePageLogoClick);
         // },
-        // videoTrackingDataEvent(event) {
-        //     const eventName = "video_tracking"
-        //     const tagName = "VS - GA - Video Tracking"
+        // // videoTrackingDataEvent(event) {
+        // //     const eventName = "video_tracking"
+        // // },
+        // externalLinkDataEvent(event) {
+        //     // Fixed values
+        //     const eventName = 'external_link';
+
+        //     const templateValues = {
+        //         event: eventName,
+        //         click_text: event.target.text.trim(),
+        //         click_URL: href,
+        //     };
+
+        //     const fullTemplate = this.compileFullTemplate(templateValues);
+
+        //     // Running the values and the template trough the templateFiller() function
+        //     // This will make sure that the values are added on the right place
+        //     // And if any value was not found then it will return as undefined
+        //     // (as per iProspect request)
+        //     const externalLink = this.templateFiller(externalLinkTemplate, fullTemplate);
+
+        //     // After that we just need to push the object returned to the data layer
+        //     this.pushToDataLayer(externalLink);
         // },
-        externalLinkDataEvent(event) {
-            // Fixed values
-            const eventName = 'external_link';
-            const tagName = 'VS - GA - External Link';
+        // internalLinkDataEvent(event) {
+        //     const eventName = 'internal_link';
 
-            const storeValues = dataLayerStore.getters.getAllGTMValues;
+        //     const templateValues = {
+        //         event: eventName,
+        //         click_text: event.target.text.trim(),
+        //         click_URL: href,
+        //     };
 
-            const templateValues = {
-                event: eventName,
-                tag_name: tagName,
-                click_text: this.targetText(event),
-                click_URL: event.target.href,
-            };
+        //     const fullTemplate = this.compileFullTemplate(templateValues);
 
-            const fullTemplate = this.compileFullTemplate(storeValues, templateValues);
+        //     const internalLink = this.templateFiller(internalLinkTemplate, fullTemplate);
 
-            // Running the values and the template trough the templateFiller() function
-            // This will make sure that the values are added on the right place
-            // And if any value was not found then it will return as undefined
-            // (as per iProspect request)
-            const externalLink = this.templateFiller(externalLinkTemplate, fullTemplate);
-
-            // After that we just need to push the object returned to the data layer
-            this.pushToDataLayer(externalLink);
-        },
-        internalLinkDataEvent(event) {
-            const eventName = 'internal_link';
-            const tagName = 'VS - GA - Internal Link';
-
-            const storeValues = dataLayerStore.getters.getAllGTMValues;
-
-            const templateValues = {
-                event: eventName,
-                tag_name: tagName,
-                click_text: this.targetText(event),
-                click_URL: event.target.href,
-            };
-
-            const fullTemplate = this.compileFullTemplate(storeValues, templateValues);
-
-            const internalLink = this.templateFiller(internalLinkTemplate, fullTemplate);
-
-            this.pushToDataLayer(internalLink);
-        },
+        //     this.pushToDataLayer(internalLink);
+        // },
         // internalNavigation(event) {
         //     const eventName = 'internal_navigation'
-        //     const tagName = 'VS - GA - Internal Navigation'
         // },
-        // errorDataTemplate(event) {
-        //     const eventName = 'errors'
-        //     const tagName = 'VS - GA - Errors'
+        // errorDataEvent(event) {
+        //     const eventName = 'errors';
+        //     const tagName = 'VS - GA - Errors';
+
+        //     const templateValues = {
+        //         event: eventName,
+        //         tag_name: tagName,
+        //         error_type: event.error_type,
+        //         error_details: event.error_details,
+        //         click_text: this.targetText(event),
+        //         click_URL: event.target.href,
+        //     };
+
+        //     const fullTemplate = this.compileFullTemplate(templateValues);
+        //     const errorData = this.templateFiller(errorTemplate, fullTemplate);
+
+        //     this.pushToDataLayer(errorData);
         // },
         // mapInteractionDataTemplate(event) {
         //     const eventName = 'map_interaction'
-        //     const tagName = 'VS - GA - Map Interaction'
         // },
         // cannedSearchDataTemplate(event) {
         //     const eventName = 'canned_search'
-        //     const tagName = 'VS - GA - Canned Search'
         // },
-        // formsDataTemplate(event) {
-        //     const eventName = 'forms'
-        //     const tagName = 'VS - GA - Forms'
+        // formsDataEvent() {
+        //     const eventName = 'forms';
+
+        //     const templateValues = {
+        //         event: eventName,
+        //         form_status: 'form_viewed',
+        //     };
+
+        //     const fullTemplate = this.compileFullTemplate(templateValues);
+        //     const formEvent = this.templateFiller(formsTemplate, fullTemplate);
+        //     this.pushToDataLayer(formEvent);
         // },
+
         returnIsoDate() {
             const date = new Date(Date.now());
             return date.toISOString();
@@ -167,7 +351,8 @@ const dataLayerMixin = {
                 dataLayer.push(object);
             });
         },
-        compileFullTemplate(storeValues, templateValues) {
+        compileFullTemplate(templateValues) {
+            const storeValues = dataLayerStore.getters.getAllGTMValues;
             const fullTemplate = {
                 ...storeValues,
                 ...templateValues,

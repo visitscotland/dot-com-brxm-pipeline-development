@@ -16,9 +16,8 @@
                         <VsButton
                             v-if="!prevDisabled"
                             class="vs-carousel__control vs-carousel__control--prev"
-                            @click.native="sliderNavigate('prev')"
-                            @keypress.native="sliderNavigate('prev', true)"
-                            @btnFocus="controlFocus($event, 'prev')"
+                            @click.native="sliderNavigate($event, 'prev')"
+                            @keypress.native="sliderNavigate($event, 'prev', true)"
                             icon="internal-link"
                             icon-orientation="down"
                             ref="prevButton"
@@ -42,9 +41,8 @@
                         <VsButton
                             v-if="!nextDisabled"
                             class="vs-carousel__control vs-carousel__control--next"
-                            @keypress.native="sliderNavigate('next', true)"
-                            @click.native="sliderNavigate('next')"
-                            @btnFocus="controlFocus($event, 'next')"
+                            @keypress.native="sliderNavigate($event, 'next', true)"
+                            @click.native="sliderNavigate($event, 'next')"
                             icon="internal-link"
                             icon-position="right"
                             ref="nextButton"
@@ -71,8 +69,8 @@
                                     class="vs-carousel__navigation-item"
                                     :class="index === currentPage + 1 ?
                                         'vs-carousel__navigation-item--active' : ''"
-                                    @click.prevent="sliderNavigate(index - 1)"
-                                    @keypress.prevent="sliderNavigate(index - 1, true)"
+                                    @click.prevent="sliderNavigate($event, index - 1)"
+                                    @keypress.prevent="sliderNavigate($event, index - 1, true)"
                                     tabindex="0"
                                     :data-test="`vs-carousel__nav-${index}`"
                                 >
@@ -152,32 +150,32 @@ export default {
         *  at 'xs' screen size
         */
         slidesXs: {
-            type: String,
-            default: '1',
+            type: Number,
+            default: 1,
         },
         /**
         *  Number of slides to appear
         *  at 'sm' screen size
         */
         slidesSm: {
-            type: String,
-            default: '2',
+            type: Number,
+            default: 2,
         },
         /**
         *  Number of slides to appear
         *  at 'md' screen size
         */
         slidesMd: {
-            type: String,
-            default: '3',
+            type: Number,
+            default: 3,
         },
         /**
         *  Number of slides to appear
         *  at 'lg' screen size
         */
         slidesLg: {
-            type: String,
-            default: '4',
+            type: Number,
+            default: 4,
         },
     },
     data() {
@@ -235,19 +233,12 @@ export default {
         window.addEventListener('resize', () => {
             this.setActivePage();
 
-            this.sliderNavigate(this.currentPage);
+            this.sliderNavigate(null, this.currentPage);
         });
         this.defineActiveSlides();
         this.initNavigation();
     },
     methods: {
-        controlFocus(event, direction) {
-            if (direction === 'next' && !event.shiftKey) {
-                this.sliderNavigate('next', true, this.activeSlides[this.activeSlides.length - 1]);
-            } else if (direction === 'prev' && event.shiftKey) {
-                this.sliderNavigate('prev', true, this.activeSlides[0]);
-            }
-        },
         defineActiveSlides(remainder) {
             this.calcViewport();
             this.activeSlides.length = 0;
@@ -326,9 +317,13 @@ export default {
 
             // navigate to the correct page to keep the user at
             // the same position they were at before the resize
-            this.sliderNavigate(this.currentPage);
+            this.sliderNavigate(null, this.currentPage);
         },
-        sliderNavigate(direction, keypressNavigation, oldSlide) {
+        sliderNavigate(event, direction, keypressNavigation) {
+            if (event) {
+                event.preventDefault();
+            }
+
             if (this.navigating) {
                 return;
             }
@@ -369,10 +364,10 @@ export default {
             this.navigating = false;
 
             if (keypressNavigation) {
-                if (direction === 'next' && this.totalSlides - 1 > oldSlide) {
+                if (direction === 'next') {
                     // if 'next' movement has happened via keypress automatically focus
                     // on the next slide link
-                    const firstActiveSlide = this.$refs.carousel.querySelectorAll('.card')[oldSlide + 1];
+                    const firstActiveSlide = this.getFirstActiveSlide();
                     const firstLink = firstActiveSlide.querySelectorAll('a')[0];
                     setTimeout(() => {
                         firstLink.focus();
@@ -380,13 +375,22 @@ export default {
                 } else if (direction === 'prev' && this.currentPage >= 0) {
                     // if 'previous' movement has happened via keypress automatically focus
                     // on the previous slide link
-                    const lastActiveSlide = this.$refs.carousel.querySelectorAll('.card')[oldSlide - 1];
+                    const lastActiveSlide = this.getLastActiveSlide();
                     const lastLink = lastActiveSlide.querySelectorAll('a')[0];
                     setTimeout(() => {
                         lastLink.focus();
                     }, 250);
                 }
             }
+        },
+        getFirstActiveSlide() {
+            return this.$refs.carousel
+                .querySelectorAll('.card')[this.currentPage * this.slidesPerPage[this.currentWidth]];
+        },
+        getLastActiveSlide() {
+            return this.$refs.carousel
+                .querySelectorAll('.card')[this.currentPage * this.slidesPerPage[this.currentWidth]
+                    + this.slidesPerPage[this.currentWidth] - 1];
         },
         initNavigation() {
             // method to enable/disable arrow controls for carousel
@@ -627,10 +631,10 @@ export default {
     <VsCarousel
         next-text="next page"
         prev-text="previous page"
-        slides-xs="1"
-        slides-sm="2"
-        slides-md="3"
-        slides-lg="4"
+        :slides-xs="1"
+        :slides-sm="2"
+        :slides-md="3"
+        :slides-lg="4"
     >
         <VsCarouselSlide
             link-url="www.visitscotland.com"

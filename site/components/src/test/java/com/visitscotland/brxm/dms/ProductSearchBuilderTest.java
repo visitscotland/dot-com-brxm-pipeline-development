@@ -380,7 +380,7 @@ class ProductSearchBuilderTest {
     }
 
     @Test
-    @DisplayName("Rating - A single parameters is included")
+    @DisplayName("Proximity - A single parameters is included")
     void proximity() {
         mockLocationDistrictLoader("Leith");
         String url = createBuilder().productTypes(DEFAULT_TYPE)
@@ -390,7 +390,7 @@ class ProductSearchBuilderTest {
 
         validateUrl(url);
         assertTrue(url.contains("areaproxdist=6.5"),
-                String.format("The Generated URL is expected to have no order (%s) ", url)
+                String.format("The Generated URL is expected to have the parameter areaproxdist (%s) ", url)
                 );
         assertTrue(url.contains("locprox=1"));
     }
@@ -407,7 +407,7 @@ class ProductSearchBuilderTest {
 
         validateUrl(url);
         assertTrue(url.contains("areaproxdist=10.1"),
-                String.format("The Generated URL is expected to have no order (%s) ", url)
+                String.format("The Generated URL is expected to have the parameter areaproxdist and locprox (%s) ", url)
                 );
         assertTrue(url.contains("locprox=1"));
     }
@@ -425,7 +425,7 @@ class ProductSearchBuilderTest {
         validateUrl(url);
         assertTrue(
                 url.contains("areaproxdist=10.1"),
-                String.format("The Generated URL is expected to have no order (%s) ", url)
+                String.format("The Generated URL is expected to have the parameter areaproxdist and locprox (%s) ", url)
                 );
         assertTrue(url.contains("locprox=1"));
     }
@@ -441,7 +441,7 @@ class ProductSearchBuilderTest {
 
         validateUrl(url);
         assertTrue(url.contains("offers=" + true),
-                String.format("The Generated URL is expected to have no order (%s) ", url)
+                String.format("The Generated URL is expected to have the parameter offers (%s) ", url)
         );
     }
 
@@ -456,7 +456,22 @@ class ProductSearchBuilderTest {
 
         validateUrl(url);
         assertTrue(url.contains("name=castle"),
-                String.format("The Generated URL is expected to have no order (%s) ", url)
+                String.format("The Generated URL is expected to have the parameter keywords (%s) ", url)
+        );
+    }
+
+    @Test
+    @DisplayName("Channel - Show results within a channel")
+    void channel() {
+        mockLocationLoader("Edinburgh");
+        String url = createBuilder().productTypes(DEFAULT_TYPE)
+                .location("Edinburgh").channel("weddings")
+                .proximity(null)
+                .build();
+
+        validateUrl(url);
+        assertTrue(url.contains("channel=weddings"),
+                String.format("The Generated URL is expected to have the parameter channel (%s) ", url)
         );
     }
 
@@ -471,7 +486,7 @@ class ProductSearchBuilderTest {
 
         validateUrl(url);
         assertTrue(url.contains("fac_id=safetrav"),
-                String.format("The Generated URL is expected to have no order (%s) ", url)
+                String.format("The Generated URL is expected to have the parameter safe travels (%s) ", url)
         );
     }
 
@@ -486,7 +501,7 @@ class ProductSearchBuilderTest {
 
         validateUrl(url);
         assertTrue(url.contains("maxprice=" + 0),
-                String.format("The Generated URL is expected to have no order (%s) ", url)
+                String.format("The Generated URL is expected to have the parameter maxprice to 0 (%s) ", url)
         );
     }
 

@@ -9,7 +9,7 @@
 
     <@footerContributions />
 
-    <script type="text/javascript">
+    <script>
         (function() {
             const footerSrc = document.querySelector('[data-js-footer-source]');
             const footerDest = document.querySelector('[data-js-footer-dest]');

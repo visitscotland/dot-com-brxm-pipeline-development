@@ -12,6 +12,7 @@
 <script>
 import { VBTooltip } from 'bootstrap-vue';
 import VsButton from '@components/elements/button/Button';
+
 /**
  * A tooltip is a short, informative message that appears
  * when a user interacts with an element.

@@ -273,6 +273,10 @@ export default {
             }
         }
 
+        #inline-search-container .form-control::-webkit-input-placeholder {
+            color: $color-theme-secondary-light;
+        }
+
         @include media-breakpoint-up(sm) {
             padding-left: $spacer-3;
             padding-right: $spacer-3;

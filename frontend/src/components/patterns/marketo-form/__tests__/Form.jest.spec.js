@@ -146,11 +146,11 @@ describe('VsMarketoForm', () => {
         expect(wrapper.find('[data-test="vs-form"]').exists()).toBe(true);
     });
 
-    it('should render a header from the data supplied', () => {
+    it('should render a legend from the data supplied', () => {
         const wrapper = factoryShallowMount();
-        const conditionalField = wrapper.find('vsheading-stub');
+        const formLegend = wrapper.find('[data-test="vs-form__main-heading"]');
 
-        expect(conditionalField.exists()).toBe(true);
+        expect(formLegend.exists()).toBe(true);
     });
 
     it('should render three input fields', async() => {

@@ -39,7 +39,7 @@
                 {{ sharePopoverTitle }}
             </VsHeading>
 
-            <VsRow>
+            <VsRow ref="popoverShareRow">
                 <!-- @slot Default slot for SocialShareItems -->
                 <slot :on-copy-link="onCopyLink" />
             </VsRow>
@@ -177,10 +177,10 @@ export default {
             this.$refs.popover.$emit('close');
         },
         /**
-         * When popover is shown, focuses on hidden anchor
+         * When popover is shown, focuses on the first share button
          */
         onShown() {
-            this.focusRef(this.$refs.shareHeader);
+            this.focusFirst();
         },
         /**
          * When popover is hidden, focuses back on share button
@@ -191,7 +191,7 @@ export default {
         onHide(bvEvent) {
             if (this.copyLink) {
                 bvEvent.preventDefault();
-                this.focusRef(this.$refs.shareHeader);
+                this.focusFirst();
                 this.copyLink = false;
             }
         },
@@ -199,12 +199,23 @@ export default {
             this.copyLink = true;
         },
         /**
-         * Check before focusing after popover has been positioned
+         * Wait for the popover to be rendered then focus on a given element by ref
          */
         focusRef(ref) {
             this.$nextTick(() => {
                 this.$nextTick(() => {
                     ;(ref.$el || ref).focus();
+                });
+            });
+        },
+        /**
+         * Wait for the popover to be rendered then focus on the first share button
+         */
+        focusFirst() {
+            this.$nextTick(() => {
+                this.$nextTick(() => {
+                    const shareButtonRow = this.$refs.popoverShareRow.$el;
+                    shareButtonRow.querySelector('.vs-social-share-item a ').focus();
                 });
             });
         },
@@ -216,7 +227,7 @@ export default {
             // Only loop round if tabbing forwards
             if (!event.shiftKey) {
                 event.preventDefault();
-                this.focusRef(this.$refs.shareHeader);
+                this.focusFirst();
             }
         },
         /**

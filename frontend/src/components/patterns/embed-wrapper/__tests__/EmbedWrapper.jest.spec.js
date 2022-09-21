@@ -5,20 +5,15 @@ const introContent = 'Intro text';
 const noJsContent = 'Js is off';
 const noCookiesContent = 'Cookies are off';
 const widgetcontent = 'A script tag';
+const errorContent = 'Error content';
 
 const factoryShallowMount = () => shallowMount(VsEmbedWrapper, {
     slots: {
         embedIntroCopy: introContent,
         embedIntroCopyNoJs: noJsContent,
         embedIntroCopyNoCookies: noCookiesContent,
+        embedIntroCopyError: errorContent,
         embedWidget: widgetcontent,
-    },
-    computed: {
-        cookiesSetStatus: {
-            get() {
-                return true;
-            },
-        },
     },
 });
 
@@ -33,7 +28,12 @@ describe('VsEmbedWrapper', () => {
     });
 
     describe(':slots', () => {
-        it('renders content inserted into the `embedIntroCopy` slot', () => {
+        it('renders content inserted into the `embedIntroCopy` slot', async() => {
+            wrapper.setData({
+                cookiesInitStatus: true,
+            });
+            await wrapper.vm.$nextTick();
+
             expect(wrapper.text()).toContain(introContent);
         });
 
@@ -41,7 +41,12 @@ describe('VsEmbedWrapper', () => {
             expect(wrapper.text()).toContain(noJsContent);
         });
 
-        it('renders content inserted into the `embedIntroCopyNoCookies` slot', () => {
+        it('renders content inserted into the `embedIntroCopyNoCookies` slot', async() => {
+            wrapper.setData({
+                cookiesInitStatus: true,
+            });
+            await wrapper.vm.$nextTick();
+
             expect(wrapper.text()).toContain(noCookiesContent);
         });
 

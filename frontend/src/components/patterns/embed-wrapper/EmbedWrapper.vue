@@ -14,7 +14,8 @@
                 >
                     <VsRichTextWrapper
                         class="vs-module-wrapper__intro vs-embed-wrapper__intro"
-                        v-if="!!this.$slots['embedIntroCopy']"
+                        v-if="!!this.$slots['embedIntroCopy']
+                            && cookiesInitStatus !== 'error'"
                         data-test="vs-module-wrapper__intro"
                     >
                         <!-- @slot Slot to contain intro text -->
@@ -30,13 +31,21 @@
                     </VsRichTextWrapper>
                     <VsRichTextWrapper
                         class="vs-module-wrapper__intro"
-                        v-if="!!this.$slots['embedIntroCopyNoCookies']
-                            && !requiredCookiesExist && cookiesSetStatus"
+                        v-if="showNoCookieText"
                         data-test="vs-module-wrapper__intro"
                     >
                         <!-- @slot Slot to contain intro text if cookies aren't enabled -->
                         <slot name="embedIntroCopyNoCookies" />
                     </VsRichTextWrapper>
+
+                    <div
+                        v-else-if="cookiesInitStatus === 'error'"
+                        class="mb-4"
+                    >
+                        <!-- @slot Slot to contain intro text if there's
+                        an error with a third party -->
+                        <slot name="embedIntroCopyError" />
+                    </div>
                 </VsCol>
                 <VsCol
                     cols="12"
@@ -60,12 +69,12 @@
                         />
                     </div>
                     <div
-                        v-if="!requiredCookiesExist && cookiesSetStatus"
+                        v-if="showErrorIcon"
                         key="fallback"
                     >
                         <VsSvg
                             class="vs-embed-wrapper__error-image"
-                            path="cookie-coo"
+                            :path="cookiesInitStatus === true ? 'cookie-coo' : 'no-js-coo'"
                         />
                     </div>
                 </VsCol>
@@ -109,6 +118,26 @@ export default {
         return {
             requiredCookies: cookieValues,
         };
+    },
+    computed: {
+        showNoCookieText() {
+            if (!!this.$slots.embedIntroCopyNoCookies
+                && !this.requiredCookiesExist
+                && this.cookiesInitStatus === true) {
+                return true;
+            }
+
+            return false;
+        },
+        showErrorIcon() {
+            if ((!this.requiredCookiesExist
+                && this.cookiesInitStatus === true)
+                || this.cookiesInitStatus === 'error') {
+                return true;
+            }
+
+            return false;
+        },
     },
 };
 </script>
@@ -182,6 +211,10 @@ You can turn this on in your browser settings.</p>
             <template slot="embedIntroCopyNoCookies">
                 <p>Cookies are needed to see social media images from this place.</p>
                 <p><a target="_blank" href="#">Update my cookie settings</a></p>
+            </template>
+
+            <template slot="embedIntroCopyError">
+                <p>Sorry, somethings gone wrong. We can't display this content at the moment.</p>
             </template>
 
             <template slot="embedWidget">

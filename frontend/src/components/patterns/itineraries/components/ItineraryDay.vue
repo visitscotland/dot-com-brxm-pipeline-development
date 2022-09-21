@@ -157,7 +157,7 @@ export default {
 
 .vs-itinerary-day__title  {
     border-bottom: 1px solid $color-base-text;
-    color: $color-theme-secondary-teal;
+    color: $color-secondary-teal-shade-3;
     padding: 0 $spacer-6 $spacer-3;
 }
 

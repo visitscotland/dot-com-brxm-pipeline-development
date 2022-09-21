@@ -4,10 +4,9 @@ The skip to component allows users who navigate via keyboard to quickly focus on
 ```jsx
     <p>Tab into the element below to see the Skip To component appear:</p>
     <div class="border" style="overflow: hidden; position: relative;">
-        <VsSkipTo>
-            <template slot="skipToText">
-                Skip to
-            </template>
+        <VsSkipTo
+            skip-to-text="Skip to"
+        >
             <template slot="mainMenuText">
                 Main menu
             </template>

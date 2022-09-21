@@ -9,6 +9,7 @@
             type="external"
             :class="icon"
             :aria-label="icon"
+            data-layer-value="socialMediaExternalLinkDataEvent"
         >
             <VsIcon
                 :name="icon"
@@ -23,6 +24,7 @@
 
 import VsLink from '@components/elements/link/Link';
 import VsIcon from '@components/elements/icon/Icon';
+import dataLayerMixin from '../../../../mixins/dataLayerMixin';
 
 /**
  * The FooterSocialItem is used inside the FooterSocialMenu to
@@ -39,6 +41,7 @@ export default {
         VsLink,
         VsIcon,
     },
+    mixins: [dataLayerMixin],
     props: {
         /**
          * The URL the link will point to

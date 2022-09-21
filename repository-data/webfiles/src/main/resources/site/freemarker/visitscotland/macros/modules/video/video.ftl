@@ -5,6 +5,7 @@
 <#macro video video>
     <@videoSchema video />
     <vs-video
+        video-title="${video.cta}"
         video-id="${video.youtubeId}"
         language="${locale}"
         single-minute-descriptor="${label('video', 'video.minute-text')}"

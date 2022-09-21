@@ -54,7 +54,7 @@ export default {
     h4.vs-canned-search-sub-heading {
         font-family: $font-family-base;
         font-size: $font-size-4;
-        color: $color-secondary-teal-shade-2;
+        color: $color-secondary-teal-shade-3;
         letter-spacing: normal;
         margin: $spacer-0;
         margin-bottom: $spacer-3;

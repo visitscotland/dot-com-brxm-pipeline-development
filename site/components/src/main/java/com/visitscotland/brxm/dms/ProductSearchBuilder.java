@@ -60,6 +60,7 @@ public class ProductSearchBuilder {
     private String keywords;
     private Order order;
     private Integer size;
+    private String channel;
 
     private final Set<String> categories = new TreeSet<>();
     private final Set<String> awards = new TreeSet<>();
@@ -98,6 +99,7 @@ public class ProductSearchBuilder {
             free(ps.getFree());
             keywords(ps.getKeywords());
             safeTravels(ps.getSafeTravels());
+            channel(ps.getChannel());
         }
         return this;
     }
@@ -236,6 +238,12 @@ public class ProductSearchBuilder {
         return this;
     }
 
+    public ProductSearchBuilder channel(String channel){
+        this.channel = channel;
+
+        return this;
+    }
+
     public ProductSearchBuilder keywords(String keywords){
         this.keywords = keywords;
 
@@ -359,6 +367,9 @@ public class ProductSearchBuilder {
         }
         if (keywords != null){
             compose = addParams(compose, KEYWORDS, keywords);
+        }
+        if (!Contract.isEmpty(channel)){
+            compose = addParams(compose, CHANNEL, channel);
         }
         if (Boolean.TRUE.equals(offers)){
             compose = addParams(compose, OFFERS, "true");

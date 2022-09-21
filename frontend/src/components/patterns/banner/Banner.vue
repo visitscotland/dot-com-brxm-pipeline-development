@@ -9,40 +9,42 @@
             <VsRow>
                 <VsCol
                     cols="11"
-                    lg="10"
                 >
-                    <VsHeading
-                        level="4"
-                        class="vs-banner__title"
-                    >
-                        <VsIcon
-                            size="sm"
-                            name="review"
-                            custom-colour="#700E57"
-                        />
-
-                        {{ title }}
-                    </VsHeading>
-
-                    <VsRichTextWrapper
-                        class="vs-banner__text"
-                        v-if="!!this.$slots['bannerText'] || !!this.$slots['bannerCta']"
-                    >
-                        <!-- @slot Slot to contain banner text -->
-                        <slot name="bannerText" />
-
-                        <span
-                            class="vs-banner__cta-link"
-                            v-if="!!this.$slots['bannerCta']"
+                    <VsRow>
+                        <VsCol
+                            cols="1"
+                            class="vs-banner__icon-wrapper"
                         >
-                            <!-- @slot Slot to contain CTA link -->
-                            <slot name="bannerCta" />
-                        </span>
-                    </VsRichTextWrapper>
+                            <VsIcon
+                                size="sm"
+                                name="review"
+                                custom-colour="#700E57"
+                                class="vs-banner__icon"
+                            />
+                        </VsCol>
+                        <VsCol
+                            cols="11"
+                        >
+                            <VsRichTextWrapper
+                                class="vs-banner__text"
+                                v-if="!!this.$slots['bannerText'] || !!this.$slots['bannerCta']"
+                            >
+                                <!-- @slot Slot to contain banner text -->
+                                <slot name="bannerText" />
+
+                                <span
+                                    class="vs-banner__cta-link"
+                                    v-if="!!this.$slots['bannerCta']"
+                                >
+                                    <!-- @slot Slot to contain CTA link -->
+                                    <slot name="bannerCta" />
+                                </span>
+                            </VsRichTextWrapper>
+                        </VsCol>
+                    </VsRow>
                 </VsCol>
                 <VsCol
                     cols="1"
-                    lg="2"
                 >
                     <VsButton
                         class="vs-banner__close-btn"
@@ -65,7 +67,6 @@
 
 <script>
 import VsButton from '@components/elements/button/Button';
-import VsHeading from '@components/elements/heading/Heading';
 import VsRichTextWrapper from '@components/elements/rich-text-wrapper/RichTextWrapper';
 import VsIcon from '@components/elements/icon/';
 import {
@@ -89,7 +90,6 @@ export default {
         VsContainer,
         VsRow,
         VsCol,
-        VsHeading,
         VsRichTextWrapper,
         VsIcon,
     },
@@ -101,13 +101,6 @@ export default {
          * Accessible text for close button
          */
         closeBtnText: {
-            type: String,
-            required: true,
-        },
-        /**
-         * Title for the banner
-         */
-        title: {
             type: String,
             required: true,
         },
@@ -154,7 +147,39 @@ export default {
 <style lang="scss">
 .vs-banner{
     background: $color-secondary-indigo-tint-6;
-    padding: $spacer-2 0 $spacer-5;
+    padding: $spacer-3 0;
+
+    &__icon-wrapper{
+        @include media-breakpoint-up(md) {
+            padding-right: 0;
+            flex: 0 0 6%;
+            max-width: 6%;
+        }
+
+        @include media-breakpoint-up(lg) {
+            flex: 0 0 5%;
+            max-width: 5%;
+        }
+
+        @include media-breakpoint-up(xl) {
+            flex: 0 0 4%;
+            max-width: 4%;
+        }
+    }
+
+    &__icon{
+        display: inline-block;
+
+        @include media-breakpoint-up(sm) {
+            margin-right: $spacer-3;
+
+            &.vs-icon.vs-icon--size-sm{
+                height: 30px;
+                width: 30px;
+                font-size: 30px;
+            }
+        }
+    }
 
     &__title.vs-heading{
         color: $color-purple;
@@ -167,6 +192,13 @@ export default {
     }
 
     &__text.vs-rich-text-wrapper--normal{
+        display: inline-block;
+        padding-left: $spacer-1;
+
+        @include media-breakpoint-up(sm) {
+            padding-left: 0;
+        }
+
         p{
             display: inline;
 
@@ -178,15 +210,20 @@ export default {
 
     &__text.vs-rich-text-wrapper--normal,
     &__cta-link{
-        font-size: $font-size-4;
+        font-size: $font-size-3;
         line-height: $line-height-s;
+
+        @include media-breakpoint-up(sm) {
+            font-size: $font-size-4;
+        }
     }
 
-    &__close-btn{
-        margin-top: $spacer-3;
+    &__close-btn.vs-button.vs-button--icon-only.btn-md{
+        float: right;
+        padding: 0;
 
         @include media-breakpoint-up(lg) {
-            float: right;
+            padding: $spacer-1;
         }
     }
 }

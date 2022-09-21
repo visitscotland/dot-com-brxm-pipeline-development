@@ -7,6 +7,7 @@
 
 <script>
 import { BRow } from 'bootstrap-vue';
+
 /**
  * Rows are used to wrap column elements to ensure consistent alignment.
  *

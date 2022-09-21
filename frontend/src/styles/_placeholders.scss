@@ -89,39 +89,44 @@ $sub-font-sizes: (
         &.vs-heading--style-level-#{$level} {
             letter-spacing: $size * 0.1;
             margin-bottom: $size;
-            margin-top: $size;
+            margin-top: $size * 0.2;
             font-size: $size;
+        }
+    }
 
+    @each $level, $size in $md-font-sizes {
+        @at-root h#{$level}#{&},
+        &.vs-heading--style-level-#{$level} {
             @include media-breakpoint-up(md) {
                 letter-spacing: $size * 0.1;
                 margin-bottom: $size;
-                margin-top: $size;
+                margin-top: $size * 0.6;
                 font-size: $size;
             }
         }
+    }
 
-        @at-root h#{5}#{&}, h#{6}#{&},
-        &.vs-heading--style-level-#{5},
-        &.vs-heading--style-level-#{6}{
-            font-family: $font-family-sans-serif;
-            letter-spacing: normal;
-            font-weight: $font-weight-bold;
-        }
+    @at-root h#{5}#{&}, h#{6}#{&},
+    &.vs-heading--style-level-#{5},
+    &.vs-heading--style-level-#{6}{
+        font-family: $font-family-sans-serif;
+        letter-spacing: normal;
+        font-weight: $font-weight-bold;
+    }
 
-        &.vs-heading--thin {
-            font-family: $headings-font-family-thin;
-        }
+    &.vs-heading--thin {
+        font-family: $headings-font-family-thin;
+    }
 
-        .vs-heading__sub-heading {
-            font-family: $headings-font-family-thin;
-            display: block;
+    .vs-heading__sub-heading {
+        font-family: $headings-font-family-thin;
+        display: block;
 
-            @each $level, $size in $sub-font-sizes {
-                @at-root h#{$level}#{&} {
-                    letter-spacing: $size * 0.1;
-                    font-size: $size;
-                    margin-top: $size * 0.5;
-                }
+        @each $level, $size in $sub-font-sizes {
+            @at-root h#{$level}#{&} {
+                letter-spacing: $size * 0.1;
+                font-size: $size;
+                margin-top: $size * 0.5;
             }
         }
     }

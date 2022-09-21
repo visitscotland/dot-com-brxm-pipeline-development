@@ -90,7 +90,7 @@ export default {
         }
 
         &:nth-last-child(2) {
-            padding: 0;
+            padding-left: 0;
 
             &::before {
                 content: "";

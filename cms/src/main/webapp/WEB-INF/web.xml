@@ -36,16 +36,18 @@
     </param-value>
   </context-param>
 
-  <filter>
-    <filter-name>HippoCmsIpFilter</filter-name>
-    <filter-class>org.onehippo.forge.ipfilter.cms.CmsIpFilter</filter-class>
-  </filter>
+<!-- Note: The ip-filter has been deactivated for the time being due to vulnerabilities in the transitive dependencies -->
+<!-- Before enable it, update the version of the plugin,  review transitive dependencies  and create a case with BR if any Critical vulnerability is present -->
 
-  <!-- first mapping! -->
-  <filter-mapping>
-    <filter-name>HippoCmsIpFilter</filter-name>
-    <url-pattern>/*</url-pattern>
-  </filter-mapping>
+<!--  <filter>-->
+<!--    <filter-name>HippoCmsIpFilter</filter-name>-->
+<!--    <filter-class>org.onehippo.forge.ipfilter.cms.CmsIpFilter</filter-class>-->
+<!--  </filter>-->
+<!--&lt;!&ndash; first mapping! &ndash;&gt;-->
+<!--  <filter-mapping>-->
+<!--    <filter-name>HippoCmsIpFilter</filter-name>-->
+<!--    <url-pattern>/*</url-pattern>-->
+<!--  </filter-mapping>-->
 
   <filter>
     <filter-name>HstFilter</filter-name>

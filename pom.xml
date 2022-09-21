@@ -13,7 +13,7 @@
   <description>www.visitscotland.com CMS Pages</description>
   <groupId>com.visitscotland</groupId>
   <artifactId>dot-com-brxm</artifactId>
-  <version>1.0.10</version>
+  <version>1.0.11</version>
   <packaging>pom</packaging>
 
   <properties>
@@ -29,7 +29,7 @@
     <essentials.version>14.7.8</essentials.version>
     <forge.exdocpickerbase.version>6.0.0</forge.exdocpickerbase.version>
     <forge.breadcrumb.version>3.0.0</forge.breadcrumb.version>
-    <bloomreach.forge.ipfilter.version>3.1.0</bloomreach.forge.ipfilter.version>
+<!--    <bloomreach.forge.ipfilter.version>3.1.0</bloomreach.forge.ipfilter.version>-->
 
 
     <!-- Other dependencies -->
@@ -136,17 +136,17 @@
         <version>${freemarker.version}</version>
       </dependency>
 
-      <dependency>
-        <groupId>org.bloomreach.forge.ipfilter</groupId>
-        <artifactId>bloomreach-ipfilter-hst</artifactId>
-        <version>${bloomreach.forge.ipfilter.version}</version>
-      </dependency>
+<!--      <dependency>-->
+<!--        <groupId>org.bloomreach.forge.ipfilter</groupId>-->
+<!--        <artifactId>bloomreach-ipfilter-hst</artifactId>-->
+<!--        <version>${bloomreach.forge.ipfilter.version}</version>-->
+<!--      </dependency>-->
 
-      <dependency>
-        <groupId>org.bloomreach.forge.ipfilter</groupId>
-        <artifactId>bloomreach-ipfilter-cms</artifactId>
-        <version>${bloomreach.forge.ipfilter.version}</version>
-      </dependency>
+<!--      <dependency>-->
+<!--        <groupId>org.bloomreach.forge.ipfilter</groupId>-->
+<!--        <artifactId>bloomreach-ipfilter-cms</artifactId>-->
+<!--        <version>${bloomreach.forge.ipfilter.version}</version>-->
+<!--      </dependency>-->
 
 
       <dependency>

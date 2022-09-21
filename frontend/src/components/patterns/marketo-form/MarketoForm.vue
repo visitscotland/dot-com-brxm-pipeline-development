@@ -9,7 +9,10 @@
         <template v-if="!submitted">
             <form @submit.prevent="preSubmit">
                 <fieldset>
-                    <legend class="vs-form__main-heading vs-heading--style-level-2">
+                    <legend
+                        class="vs-form__main-heading vs-heading--style-level-2"
+                        data-test="vs-form__main-heading"
+                    >
                         {{ getTranslatedContent('heading') }}
                     </legend>
                     <BFormGroup
@@ -163,6 +166,7 @@ import VsIcon from '../../elements/icon/Icon';
 import VsRecaptcha from '../../elements/recaptcha/Recaptcha';
 import VsButton from '../../elements/button/Button';
 import VsHeading from '../../elements/heading/Heading';
+import dataLayerMixin from '../../../mixins/dataLayerMixin';
 
 const axios = require('axios');
 
@@ -186,6 +190,7 @@ export default {
         VsIcon,
         VsHeading,
     },
+    mixins: [dataLayerMixin],
     props: {
         /**
          * The URL for the form data file
@@ -602,6 +607,7 @@ export default {
          * submits form data to Marketo payload and sets submitted status
          */
         marketoSubmit() {
+            this.createDataLayerObject('formsDataEvent');
             const myForm = window.MktoForms2.allForms()[0];
             myForm.addHiddenFields(this.form);
             myForm.addHiddenFields({

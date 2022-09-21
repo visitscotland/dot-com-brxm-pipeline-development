@@ -2,6 +2,7 @@
     <div
         class="vs-video"
         data-test="vs-video"
+        v-if="!reRendering"
     >
         <div
             class="vs-video__iframe-wrapper"
@@ -12,13 +13,16 @@
                     :video-id="videoId"
                     :player-vars="playerVars"
                     @ready="ready"
+                    @playing="youtubePlaying"
+                    @paused="youtubePaused"
+                    @ended="youtubeEnded"
                     ref="youtube"
                 />
             </div>
 
             <div
                 class="vs-video__fallback-wrapper"
-                v-if="!requiredCookiesExist && cookiesSetStatus"
+                v-if="!requiredCookiesExist && cookiesInitStatus"
                 key="fallback"
             >
                 <VsWarning
@@ -59,6 +63,7 @@ import VsWarning from '@components/patterns/warning/Warning';
 import videoStore from '../../../stores/video.store';
 import verifyCookiesMixin from '../../../mixins/verifyCookiesMixin';
 import requiredCookiesData from '../../../utils/required-cookies-data';
+import dataLayerMixin from '../../../mixins/dataLayerMixin';
 
 const cookieValues = requiredCookiesData.youtube;
 
@@ -82,6 +87,7 @@ export default {
     },
     mixins: [
         verifyCookiesMixin,
+        dataLayerMixin,
     ],
     props: {
         /**
@@ -97,6 +103,13 @@ export default {
         videoId: {
             type: String,
             required: true,
+        },
+        /**
+        * The title of the video, set in the CMS
+        */
+        videoTitle: {
+            type: String,
+            default: '',
         },
         /**
          * A string to be shown with the rounded time, when the rounded
@@ -155,57 +168,80 @@ export default {
                 hl: this.language,
             },
             requiredCookies: cookieValues,
-            playerRef: null,
+            player: null,
+            reRendering: false,
+            shouldAutoPlay: false,
         };
     },
-    computed: {
-        /**
-         * Return the player instance
-         */
-        player() {
-            if (typeof this.$refs.youtube !== 'undefined') {
-                return this.$refs.youtube.player;
-            }
-
-            return null;
-        },
-    },
     mounted() {
-        /**
-         * Sets up listener for play/pause events
-         * from $root
-         */
-        this.$root.$on('video-controls', (action, id, type) => {
-            if (id === this.videoId) {
-                if (action === 'play' && type === 'modal') {
-                    // timeout allows for video in modal to appear
-                    setTimeout(() => {
-                        this.playVideo();
-                    }, 1000);
-                } else if (action === 'play') {
-                    this.playVideo();
-                } else if (action === 'pause') {
-                    this.pauseVideo();
-                }
-            }
-        });
+        this.setEventListeners();
     },
     methods: {
         ready() {
-            this.playerRef = this.$refs.youtube.player;
+            this.player = this.$refs.youtube.player;
             this.getPlayerDetails();
+
+            if (this.shouldAutoPlay) {
+                this.shouldAutoPlay = false;
+                this.playVideo();
+            }
         },
         /**
          * Plays the video
          */
         playVideo() {
-            this.playerRef.playVideo();
+            if (this.player) {
+                this.player.playVideo();
+            }
         },
         /**
          * Pauses the video
          */
         pauseVideo() {
-            this.playerRef.pauseVideo();
+            if (this.player) {
+                this.player.pauseVideo();
+            }
+        },
+        /**
+         * Triggered by video status events from the vue-youtube component. When any of these
+         * occur an appropriate analytics event is dispatched to the datalayer.
+         */
+        youtubePlaying() {
+            this.analyticsEvent('play');
+        },
+        youtubePaused() {
+            this.analyticsEvent('pause');
+        },
+        youtubeEnded() {
+            this.analyticsEvent('ended');
+        },
+        /**
+         * Submits an event to the datalayer mixin when the video is played or paused
+         */
+        analyticsEvent(videoStatus) {
+            let currentTime = 0;
+            let duration = 0;
+
+            this.player.getCurrentTime()
+                .then((time) => {
+                    currentTime = time;
+                    return this.player.getDuration();
+                })
+                .then((length) => {
+                    duration = length;
+                })
+                .then(() => {
+                    const videoPercent = (currentTime / duration) * 100;
+
+                    this.createDataLayerObject(
+                        'videoTrackingDataEvent',
+                        {
+                            title: this.videoTitle,
+                            status: videoStatus,
+                            percent: Math.round(videoPercent),
+                        },
+                    );
+                });
         },
         getPlayerDetails() {
             /**
@@ -276,6 +312,39 @@ export default {
                 durationMsg: this.duration.roundedMinutes,
                 duration: (this.duration.minutes * 60) + this.duration.seconds,
                 fullDuration: this.duration,
+            });
+        },
+        /**
+         * Attaches event listeners upon mounting video. These include play and pause functions,
+         * for external play buttons and re-render + autoplay functionality for a video inside
+         * a modal.
+         */
+        setEventListeners() {
+            this.$root.$on('video-controls', (action, id) => {
+                if (id === this.videoId) {
+                    if (action === 'modal-opened') {
+                        this.reRenderVideo();
+                    }
+
+                    if (action === 'play') {
+                        this.playVideo();
+                    } else if (action === 'pause') {
+                        this.pauseVideo();
+                    }
+                }
+            });
+        },
+        /**
+         * Upon opening a vs-modal with a video, the video must be briefly removed and re-rendered
+         * to ensure that all event triggers in the video fire properly.
+         */
+        reRenderVideo() {
+            this.reRendering = true;
+            this.$nextTick(() => {
+                this.reRendering = false;
+                this.$nextTick(() => {
+                    this.shouldAutoPlay = true;
+                });
             });
         },
     },

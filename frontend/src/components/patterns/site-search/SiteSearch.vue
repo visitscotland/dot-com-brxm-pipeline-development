@@ -10,7 +10,10 @@
         id="site-search-btn"
     >
         <!-- Default slot for Search button text -->
-        <span class="sr-only-lg-down">
+        <span
+            class="sr-only-lg-down"
+            tabindex="-1"
+        >
             <slot />
         </span>
     </VsButton>

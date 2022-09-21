@@ -59,6 +59,7 @@ public class DMSConstants {
         public static final String LOCALE = "locale";
         public static final String KEYWORDS = "name";
         public static final String SIZE = "size";
+        public static final String CHANNEL  = "channel";
     }
 
     public static final class DMSProduct {

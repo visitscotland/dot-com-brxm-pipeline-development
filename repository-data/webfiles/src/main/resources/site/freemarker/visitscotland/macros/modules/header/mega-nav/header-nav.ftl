@@ -19,11 +19,9 @@
                 <template slot="dropdownContent">
                     <#list item.childMenuItems as childItem>
                         <#if childItem.title??>
-                            <vs-mega-nav-list>
-                                <vs-mega-nav-list-item slot="navListHeading">
-                                    ${childItem.title}
-                                </vs-mega-nav-list-item>
-
+                            <vs-mega-nav-list 
+                                list-heading="${childItem.title}"
+                            >
                                 <#list childItem.childMenuItems as thirdChildItem>
                                     <#if thirdChildItem.title??>
                                         <vs-mega-nav-list-item

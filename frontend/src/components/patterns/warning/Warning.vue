@@ -13,7 +13,10 @@
             :size="iconSize"
         />
         <div>
-            <p class="vs-warning__message">
+            <p
+                class="vs-warning__message"
+                :class="variant !== 'row' ? 'mt-4' : ''"
+            >
                 {{ warningMessage }}
             </p>
             <button
@@ -63,13 +66,13 @@ export default {
         */
         cookieLinkText: {
             type: String,
-            required: true,
+            default: 'Manage cookies',
         },
         variant: {
             type: String,
             default: 'normal',
             validator: (value) => value.match(
-                /(small|normal|row)/,
+                /(xs|small|normal|row)/,
             ),
         },
     },
@@ -95,6 +98,7 @@ export default {
         text-align: center;
         justify-content: center;
         color: $color-white;
+        z-index: 2;
 
         &--normal {
             .vs-warning__icon {
@@ -108,6 +112,14 @@ export default {
             .vs-warning__icon {
                 width: 3rem !important;
                 height: 3rem !important;
+                margin-bottom: 1rem;
+            }
+        }
+
+        &--xs {
+            .vs-warning__icon {
+                width: 2rem !important;
+                height: 2rem !important;
                 margin-bottom: 1rem;
             }
         }

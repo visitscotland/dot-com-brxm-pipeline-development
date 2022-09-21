@@ -2,13 +2,13 @@
   .meta:order-before: meganav-links
   jcr:primaryType: hippo:handle
   jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
-  jcr:uuid: 9accfeb2-4abc-4db6-ac5c-74e69b7f39b7
+  jcr:uuid: 9427bf34-b140-43d8-9cb6-72a8c533189c
   hippo:name: Static Texts
   hippo:versionHistory: f9a6a072-bc3e-43bf-a6b8-4c38e2983c07
   /static[1]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:referenceable']
-    jcr:uuid: d97f1418-422a-413e-9243-5b192268979f
+    jcr:uuid: 742fee9c-eeb4-4279-a13c-2d424a62c661
     hippo:availability: []
     hippostd:retainable: false
     hippostd:state: draft
@@ -42,7 +42,7 @@
   /static[2]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:versionable']
-    jcr:uuid: 09f7ee99-cb29-4a77-a63f-5bece7356d75
+    jcr:uuid: 0f6c6983-4f1d-4998-8c64-d5bc8007c681
     hippo:availability: [preview]
     hippostd:retainable: false
     hippostd:state: unpublished
@@ -76,7 +76,7 @@
   /static[3]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:referenceable']
-    jcr:uuid: 4c6a1883-d25b-44b8-9f71-058d903e0676
+    jcr:uuid: 7bb497b0-a7a5-44f6-8b92-9578c3b47a5b
     hippo:availability: [live]
     hippostd:retainable: false
     hippostd:state: published

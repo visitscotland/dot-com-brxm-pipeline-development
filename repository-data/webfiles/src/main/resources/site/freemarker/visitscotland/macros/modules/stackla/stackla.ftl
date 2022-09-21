@@ -48,6 +48,9 @@
                     data-id="${module.dataId}" data-title="social_vs.org_IGfeed" data-ttl="60"
                     style="width: 100%; overflow: hidden;"></div>
             </template>
+            <template slot="embedIntroCopyError">
+                ${label('essentials.global', 'third-party-error')}
+            </template>
         </vs-embed-wrapper>
     </vs-module-wrapper>
 </#macro>

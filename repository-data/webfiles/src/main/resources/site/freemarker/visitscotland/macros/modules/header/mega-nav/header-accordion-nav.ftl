@@ -13,19 +13,9 @@
                     title="${item.title}"
                     level="1"
                     control-id="${item?index}"
+                    cta-link="${getUrl(item)}"
+                    cta-text="${item.cta}"
                 >
-                    <#if item.cta?? && item.hstLink??>
-                        <vs-mega-nav-list>
-                            <vs-mega-nav-list-item
-                                slot="navListHeading"
-                                href="${getUrl(item)}"
-                                cta-link
-                            >
-                                ${item.cta}
-                            </vs-mega-nav-list-item>
-                        </vs-mega-nav-list>
-                    </#if>
-
                     <#list item.childMenuItems as childItem>
                         <#if childItem.title??>
                             <vs-mega-nav-accordion-item

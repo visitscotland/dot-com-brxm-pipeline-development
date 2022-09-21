@@ -1,127 +1,145 @@
 /content/documents/administration/labels/global/common-label:
   jcr:primaryType: hippo:handle
   jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
-  jcr:uuid: 52574281-f484-44ba-abbf-74fecbbb5a95
+  jcr:uuid: ffa7b86c-fc0c-42ec-81a6-adedf369e401
   hippo:name: Global
-  hippo:versionHistory: 517f7655-2edf-45ad-8ecf-caf138357b7d
+  hippo:versionHistory: 50351054-28aa-494a-a436-afbf9b07b009
   /common-label[1]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:referenceable']
-    jcr:uuid: c651f510-eecf-4468-bbb3-1564a04c7038
+    jcr:uuid: 7232f12b-136a-4843-9df3-bdc9aaaad390
     hippo:availability: [live]
     hippostd:retainable: false
     hippostd:state: published
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2014-08-21T22:10:13.443+02:00
-    hippostdpubwf:lastModificationDate: 2022-07-12T14:28:33.055+02:00
-    hippostdpubwf:lastModifiedBy: juanluis.hurtado
-    hippostdpubwf:publicationDate: 2022-07-13T17:54:44.705+02:00
+    hippostdpubwf:lastModificationDate: 2022-09-13T11:23:36.954+01:00
+    hippostdpubwf:lastModifiedBy: admin
+    hippostdpubwf:publicationDate: 2022-09-13T11:23:40.658+01:00
     resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '', '', '', '',
-      '']
+      '', '']
     resourcebundle:id: essentials.global
     resourcebundle:keys: [button.find-out-more, default.alt-text, label.download,
       keyfacilities.title, home, image.toggle.text, image.no.credit, image.title,
-      close, view-article, placeholder-image, find-out-more-about, cookie.link-message]
+      close, view-article, placeholder-image, find-out-more-about, cookie.link-message,
+      third-party-error]
     resourcebundle:messages: [Find out more, No image title, Download, Key facilities,
       Home, Toggle caption information, No credit available, Image, Close, View article,
       /content/gallery/visitscotland/static/placeholder_highlandcow.jpg, Find out
-        more about, Manage cookies]
+        more about, Manage cookies, 'Sorry, something''s gone wrong. We can''t display
+        this content at the moment.']
     resourcebundle:messages_de: [Mehr erfahren, Kein Titel, Download, Ausstattung,
       Startseite, Beschreibung einblenden, Kein Urheber verfügbar, Bild, Schließen,
       Artikel ansehen, /content/gallery/visitscotland/static/placeholder_highlandcow.jpg,
-      Erfahren Sie mehr über, '']
+      Erfahren Sie mehr über, Cookies verwalten, 'Es tut uns leid, etwas ist schiefgegangen.
+        Wir können diesen Inhalt momentan nicht anzeigen']
     resourcebundle:messages_es: [Más información, Sin título, Descargar, Instalaciones
         destacadas, Inicio, Información adicional, No hay crédito disponible, Imagen,
       Cerrar, Ver el artículo, /content/gallery/visitscotland/static/placeholder_highlandcow.jpg,
-      'Descubre más sobre:', '']
+      'Descubre más sobre:', Administrar cookies, 'Lo siento, algo salió mal. No podemos
+        mostrar este contenido en este momento']
     resourcebundle:messages_fr: [En savoir plus, Aucune légende, Télécharger, Infrastructures,
       Accueil, Afficher la légende, Aucune mention disponible, Image, Fermer, Voir
         l’article, /content/gallery/visitscotland/static/placeholder_highlandcow.jpg,
-      Découvrez-en plus sur, '']
+      Découvrez-en plus sur, Gérer les cookies, 'Désolé, une erreur s’est produite.
+        Nous ne pouvons pas afficher ce contenu pour l’instant.']
     resourcebundle:messages_it: [Per saperne di più, Immagine priva di titolo, Scarica,
       Servizi chiave, Inizio, Informazioni sulla didascalia, Nessun autore disponibile,
       Immagine, Chiudi, Vedi l'articolo, /content/gallery/visitscotland/static/placeholder_highlandcow.jpg,
-      'Scopri di più su:', '']
+      'Scopri di più su:', Gestione dei cookies, 'Spiacenti, qualcosa è andato storto.
+        Al momento non possiamo mostrare questo contenuto.']
     resourcebundle:messages_nl: [Meer info, Geen beschrijving, Download, Faciliteiten,
       Startpagina, '', '', '', '', '', /content/gallery/visitscotland/static/placeholder_highlandcow.jpg,
-      Meer info over, '']
+      Meer info over, '', '']
   /common-label[2]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:versionable']
-    jcr:uuid: 3c52d090-d883-4e4e-a965-3c82117bb801
+    jcr:uuid: 49fcffec-befa-45e7-ba09-97ec52697962
     hippo:availability: [preview]
     hippostd:retainable: false
     hippostd:state: unpublished
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2014-08-21T22:10:13.443+02:00
-    hippostdpubwf:lastModificationDate: 2022-07-12T14:28:33.055+02:00
-    hippostdpubwf:lastModifiedBy: juanluis.hurtado
+    hippostdpubwf:lastModificationDate: 2022-09-13T11:23:36.954+01:00
+    hippostdpubwf:lastModifiedBy: admin
     resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '', '', '', '',
-      '']
+      '', '']
     resourcebundle:id: essentials.global
     resourcebundle:keys: [button.find-out-more, default.alt-text, label.download,
       keyfacilities.title, home, image.toggle.text, image.no.credit, image.title,
-      close, view-article, placeholder-image, find-out-more-about, cookie.link-message]
+      close, view-article, placeholder-image, find-out-more-about, cookie.link-message,
+      third-party-error]
     resourcebundle:messages: [Find out more, No image title, Download, Key facilities,
       Home, Toggle caption information, No credit available, Image, Close, View article,
       /content/gallery/visitscotland/static/placeholder_highlandcow.jpg, Find out
-        more about, Manage cookies]
+        more about, Manage cookies, 'Sorry, something''s gone wrong. We can''t display
+        this content at the moment.']
     resourcebundle:messages_de: [Mehr erfahren, Kein Titel, Download, Ausstattung,
       Startseite, Beschreibung einblenden, Kein Urheber verfügbar, Bild, Schließen,
       Artikel ansehen, /content/gallery/visitscotland/static/placeholder_highlandcow.jpg,
-      Erfahren Sie mehr über, '']
+      Erfahren Sie mehr über, Cookies verwalten, 'Es tut uns leid, etwas ist schiefgegangen.
+        Wir können diesen Inhalt momentan nicht anzeigen']
     resourcebundle:messages_es: [Más información, Sin título, Descargar, Instalaciones
         destacadas, Inicio, Información adicional, No hay crédito disponible, Imagen,
       Cerrar, Ver el artículo, /content/gallery/visitscotland/static/placeholder_highlandcow.jpg,
-      'Descubre más sobre:', '']
+      'Descubre más sobre:', Administrar cookies, 'Lo siento, algo salió mal. No podemos
+        mostrar este contenido en este momento']
     resourcebundle:messages_fr: [En savoir plus, Aucune légende, Télécharger, Infrastructures,
       Accueil, Afficher la légende, Aucune mention disponible, Image, Fermer, Voir
         l’article, /content/gallery/visitscotland/static/placeholder_highlandcow.jpg,
-      Découvrez-en plus sur, '']
+      Découvrez-en plus sur, Gérer les cookies, 'Désolé, une erreur s’est produite.
+        Nous ne pouvons pas afficher ce contenu pour l’instant.']
     resourcebundle:messages_it: [Per saperne di più, Immagine priva di titolo, Scarica,
       Servizi chiave, Inizio, Informazioni sulla didascalia, Nessun autore disponibile,
       Immagine, Chiudi, Vedi l'articolo, /content/gallery/visitscotland/static/placeholder_highlandcow.jpg,
-      'Scopri di più su:', '']
+      'Scopri di più su:', Gestione dei cookies, 'Spiacenti, qualcosa è andato storto.
+        Al momento non possiamo mostrare questo contenuto.']
     resourcebundle:messages_nl: [Meer info, Geen beschrijving, Download, Faciliteiten,
       Startpagina, '', '', '', '', '', /content/gallery/visitscotland/static/placeholder_highlandcow.jpg,
-      Meer info over, '']
+      Meer info over, '', '']
   /common-label[3]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:referenceable']
-    jcr:uuid: fa289ef4-1411-4fd2-bccd-56b093f9148a
+    jcr:uuid: f6ae492b-7620-4657-9783-c120d4cf32e4
     hippo:availability: []
     hippostd:retainable: false
     hippostd:state: draft
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2014-08-21T22:10:13.443+02:00
-    hippostdpubwf:lastModificationDate: 2022-07-12T14:28:33.132+02:00
-    hippostdpubwf:lastModifiedBy: juanluis.hurtado
+    hippostdpubwf:lastModificationDate: 2022-09-13T11:23:02.989+01:00
+    hippostdpubwf:lastModifiedBy: admin
     resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '', '', '', '',
-      '']
+      '', '']
     resourcebundle:id: essentials.global
     resourcebundle:keys: [button.find-out-more, default.alt-text, label.download,
       keyfacilities.title, home, image.toggle.text, image.no.credit, image.title,
-      close, view-article, placeholder-image, find-out-more-about, cookie.link-message]
+      close, view-article, placeholder-image, find-out-more-about, cookie.link-message,
+      third-party-error]
     resourcebundle:messages: [Find out more, No image title, Download, Key facilities,
       Home, Toggle caption information, No credit available, Image, Close, View article,
       /content/gallery/visitscotland/static/placeholder_highlandcow.jpg, Find out
-        more about, Manage cookies]
+        more about, Manage cookies, 'Sorry, something''s gone wrong. We can''t display
+        this content at the moment.']
     resourcebundle:messages_de: [Mehr erfahren, Kein Titel, Download, Ausstattung,
       Startseite, Beschreibung einblenden, Kein Urheber verfügbar, Bild, Schließen,
       Artikel ansehen, /content/gallery/visitscotland/static/placeholder_highlandcow.jpg,
-      Erfahren Sie mehr über, '']
+      Erfahren Sie mehr über, Cookies verwalten, 'Es tut uns leid, etwas ist schiefgegangen.
+        Wir können diesen Inhalt momentan nicht anzeigen']
     resourcebundle:messages_es: [Más información, Sin título, Descargar, Instalaciones
         destacadas, Inicio, Información adicional, No hay crédito disponible, Imagen,
       Cerrar, Ver el artículo, /content/gallery/visitscotland/static/placeholder_highlandcow.jpg,
-      'Descubre más sobre:', '']
+      'Descubre más sobre:', Administrar cookies, 'Lo siento, algo salió mal. No podemos
+        mostrar este contenido en este momento']
     resourcebundle:messages_fr: [En savoir plus, Aucune légende, Télécharger, Infrastructures,
       Accueil, Afficher la légende, Aucune mention disponible, Image, Fermer, Voir
         l’article, /content/gallery/visitscotland/static/placeholder_highlandcow.jpg,
-      Découvrez-en plus sur, '']
+      Découvrez-en plus sur, Gérer les cookies, 'Désolé, une erreur s’est produite.
+        Nous ne pouvons pas afficher ce contenu pour l’instant.']
     resourcebundle:messages_it: [Per saperne di più, Immagine priva di titolo, Scarica,
       Servizi chiave, Inizio, Informazioni sulla didascalia, Nessun autore disponibile,
       Immagine, Chiudi, Vedi l'articolo, /content/gallery/visitscotland/static/placeholder_highlandcow.jpg,
-      'Scopri di più su:', '']
+      'Scopri di più su:', Gestione dei cookies, 'Spiacenti, qualcosa è andato storto.
+        Al momento non possiamo mostrare questo contenuto.']
     resourcebundle:messages_nl: [Meer info, Geen beschrijving, Download, Faciliteiten,
       Startpagina, '', '', '', '', '', /content/gallery/visitscotland/static/placeholder_highlandcow.jpg,
-      Meer info over, '']
+      Meer info over, '', '']

@@ -42,7 +42,9 @@ export default {
         BLink,
         VsIcon,
     },
-    mixins: [dataLayerMixin],
+    mixins: [
+        dataLayerMixin,
+    ],
     props: {
         /**
          * The URL the link will point to
@@ -85,6 +87,13 @@ export default {
             type: Boolean,
             default: false,
         },
+        /**
+        * If the click should trigger a dataLayerPush
+        */
+        dataLayerValue: {
+            type: String,
+            default: null,
+        },
     },
     computed: {
         variantClass() {
@@ -94,12 +103,14 @@ export default {
     methods: {
         clickHandler(event) {
             event.preventDefault();
-            if (this.type === 'external') {
-                this.externalLinkDataEvent(event);
-            } else {
-                this.internalLinkDataEvent(event);
-            }
 
+            if (this.dataLayerValue) {
+                this.createDataLayerObject(this.dataLayerValue, event, this.href);
+            } else if (this.type === 'external') {
+                this.createDataLayerObject('externalLinkDataEvent', event, this.href);
+            } else {
+                this.createDataLayerObject('internalLinkDataEvent', event, this.href);
+            }
             // don't navigate if it's an empty or anchor link
             if (this.href !== '#' && this.href !== null) {
                 window.location.href = this.href;
