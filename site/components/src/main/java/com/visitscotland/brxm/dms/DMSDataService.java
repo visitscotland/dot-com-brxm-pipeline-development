@@ -105,6 +105,7 @@ public class DMSDataService {
      *
      * @return boolean to indicate if the search returns products
      */
+    @Deprecated
     @Cacheable (value="dmsProductSearch")
     public boolean cannedSearchHasResults(String toursUrl){
 
