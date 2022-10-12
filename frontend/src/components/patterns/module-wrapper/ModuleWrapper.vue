@@ -36,7 +36,7 @@
                         class="vs-module-wrapper__intro"
                         v-if="!!this.$slots['vsModuleWrapperIntro']"
                         data-test="vs-module-wrapper__intro"
-                        lead
+                        variant="lead"
                     >
                         <!-- @slot Slot to contain intro text -->
                         <slot name="vsModuleWrapperIntro" />

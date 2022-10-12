@@ -92,7 +92,7 @@ const dataLayerMixin = {
                 break;
 
             case 'socialMediaExternalLinkDataEvent':
-                eventName = 'social_media_external_link';
+                eventName = 'social_media_footer';
                 tagName = 'VS - GA - Social Media External Link';
 
                 templateValues = {

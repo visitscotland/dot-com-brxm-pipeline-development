@@ -20,7 +20,7 @@
                     <div class="vs-product-card__image-inner-container">
                         <VsImg
                             :src="imgSrc"
-                            :alt="imgAlt"
+                            alt=""
                             :srcset="`${imgSrc}?size=xs 300w,
                             ${imgSrc}?size=sm 600w,
                             ${imgSrc}?size=md 1200w,
@@ -163,13 +163,6 @@ export default {
         imgSrc: {
             required: true,
             type: String,
-        },
-        /**
-        * The image alt text to use in the component
-        */
-        imgAlt: {
-            type: String,
-            default: '',
         },
         /**
         * The title of the product in the card

@@ -101,7 +101,7 @@ export default {
         }
 
         &:focus {
-            box-shadow: $shadow-button-focus-dark inset;
+            box-shadow: $shadow-button-focus-on-dark inset;
         }
     }
 
@@ -113,7 +113,7 @@ export default {
         }
 
         .btn-primary.dropdown-toggle:focus {
-            box-shadow: $shadow-button-focus-dark inset;
+            box-shadow: $shadow-button-focus-on-dark inset;
         }
     }
 

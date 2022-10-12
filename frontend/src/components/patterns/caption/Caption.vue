@@ -1,6 +1,5 @@
 <template>
-    <figcaption
-        ref="figcaption"
+    <div
         data-test="vs-caption"
         class="vs-caption"
         :class="captionClasses"
@@ -44,7 +43,7 @@
                 </div>
             </VsCol>
         </VsRow>
-    </figcaption>
+    </div>
 </template>
 
 <script>

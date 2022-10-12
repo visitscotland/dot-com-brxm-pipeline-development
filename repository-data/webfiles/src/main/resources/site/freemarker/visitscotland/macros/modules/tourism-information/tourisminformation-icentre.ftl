@@ -26,7 +26,7 @@
         <vs-container>
             <vs-icentre>
                 <template slot="icentreImageWithCaption">
-                    <@imageWithCaption imageSrc=image imageDetails=module.image />
+                    <@imageWithCaption imageSrc=image imageDetails=module.image noAltText="true" />
                 </template>
 
                 <template slot="icentreLinks">

@@ -56,7 +56,7 @@ public class DMSFacilityPicker extends AbstractDMSPicker {
         ExternalDocumentCollection<JSONObject> docCollection =  new SimpleExternalDocumentCollection<JSONObject>();
         for (int i = 0; i < getDocArray().size(); i++) {
             JSONObject doc = getDocArray().getJSONObject(i);
-            if (StringUtils.contains(doc.getString("name").toLowerCase(), queryString.toLowerCase())) {
+            if (StringUtils.contains(doc.getString("name").toLowerCase(), Objects.toString(queryString, "").toLowerCase())) {
                 docCollection.add(doc);
             }
         }

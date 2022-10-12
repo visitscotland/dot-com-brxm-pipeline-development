@@ -48,13 +48,6 @@
     <#return message>
 </#function>
 
-<#--  Logs an error in the FreeMarker Console  -->
-<#--  It is a hacky way of logging an error and It is achieved by invoking a method that does not exist -->
-<#--  Usage: ${log("Oh no! Something is not all right")} -->
-<#function log message>
-    console.error(message)
-</#function>
-
 <#function productSearch locale productType lat lon proximity>
 <#--TODO: proximity as optional-->
     <#return ProductSearchBuilder.newInstance().locale(locale).productTypes(productType).proximity(proximity).coordinates(lat, lon).build()>

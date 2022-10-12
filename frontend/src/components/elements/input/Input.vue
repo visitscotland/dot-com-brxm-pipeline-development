@@ -34,9 +34,9 @@
             :autocomplete="autocompleteValue(fieldName)"
             :v="inputVal"
             :aria-invalid="$v.inputVal.$anyError || invalid"
-            :aria-describedby="$v.inputVal.$anyError || invalid ? `error-${fieldName}` : ''"
-            :maxlength="validationRules.maxLength ? validationRules.maxLength : ''"
-            :minlength="validationRules.minLength ? validationRules.minLength : ''"
+            :aria-describedby="$v.inputVal.$anyError || invalid ? `error-${fieldName}` : null"
+            :maxlength="validationRules.maxLength ? validationRules.maxLength : null"
+            :minlength="validationRules.minLength ? validationRules.minLength : null"
             @blur="manualValidate"
         />
         <VsButton

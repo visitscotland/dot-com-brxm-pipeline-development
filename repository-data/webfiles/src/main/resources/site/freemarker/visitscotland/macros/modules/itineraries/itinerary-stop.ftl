@@ -39,7 +39,7 @@
         <@hst.manageContent hippobean=stop.hippoBean />
 
         <#if image?? && image?has_content> 
-            <@imageWithCaption imageSrc=image imageDetails=stop.image />
+            <@imageWithCaption imageSrc=image imageDetails=stop.image noAltText="true" />
         </#if>
 
         <#if stop?? && stop.description?? && stop.description?has_content>

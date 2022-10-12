@@ -134,7 +134,7 @@ export default {
         }
 
         &:focus {
-            box-shadow: $shadow-button-focus-dark inset;
+            box-shadow: $shadow-button-focus-on-dark inset;
         }
 
         &:hover {

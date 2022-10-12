@@ -120,6 +120,7 @@
                     :cta-text="item.cta"
                     v-for="(item, mobileItemIndex) in header.mainNav"
                     :key="mobileItemIndex"
+                    @click.stop.native="$root.$emit('navAccordionClick', item.title)"
                 >
                     <VsMegaNavAccordionItem
                         :title="subHeading.title"
@@ -127,6 +128,7 @@
                         :control-id="subHeadingIndex.toString()"
                         v-for="(subHeading, subHeadingIndex) in item.dropdownNav"
                         :key="subHeadingIndex"
+                        @click.stop.native="$root.$emit('navAccordionClick', subHeading.title)"
                     >
                         <VsMegaNavList>
                             <VsMegaNavListItem

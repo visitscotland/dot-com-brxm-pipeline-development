@@ -52,7 +52,6 @@
                     :key="index"
                     :slide-index="'' + index"
                     :img-src="prod.images ? prod.images[0].mediaUrl : ''"
-                    :img-alt="prod.name"
                     :title="prod.name"
                     :detail-link="{
                         link: prod.productLink.link,

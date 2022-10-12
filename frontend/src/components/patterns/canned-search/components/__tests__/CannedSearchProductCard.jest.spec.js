@@ -2,7 +2,6 @@ import { mount } from '@vue/test-utils';
 import VsCannedSearchProductCard from '../CannedSearchProductCard';
 
 const imgSrc = 'https://cimg.visitscotland.com/cms-images/attractions/outlander/claire-standing-stones-craigh-na-dun-outlander?size=sm';
-const imgAlt = 'Arden House';
 const title = 'Arden House';
 const description = 'Test product description';
 const detailLink = {
@@ -28,7 +27,6 @@ const badgeSlotContent = 'Tese are some badges';
 const factoryMount = (propsData) => mount(VsCannedSearchProductCard, {
     propsData: {
         imgSrc,
-        imgAlt,
         title,
         description,
         detailLink,
@@ -71,12 +69,6 @@ describe('VsCannedSearchProductCard', () => {
                 const mainProdImg = wrapper.find('[data-test="vs-product-card__img"]');
 
                 expect(mainProdImg.props().src).toBe(imgSrc);
-            });
-
-            it('should render a `vs-img` with the `alt` provided in `imgAlt`', () => {
-                const mainProdImg = wrapper.find('[data-test="vs-product-card__img"]');
-
-                expect(mainProdImg.props().alt).toBe(imgAlt);
             });
         });
 

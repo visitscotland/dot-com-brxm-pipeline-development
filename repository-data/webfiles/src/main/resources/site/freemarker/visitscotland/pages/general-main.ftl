@@ -1,6 +1,7 @@
 <#ftl output_format="XML">
 <#include "../../include/imports.ftl">
 <#include "../macros/modules/page-intro/social-share.ftl">
+<#include "../macros/modules/page-intro/intro-image.ftl">
 <#include "../macros/modules/product-search/psr-module.ftl">
 <#include "../macros/modules/signpost/signpost.ftl">
 <#include "../macros/shared/module-builder.ftl">
@@ -21,15 +22,19 @@
 
 <#-- @ftlvariable name="heroImage" type="com.visitscotland.brxm.model.FlatImage" -->
 
+<#assign topLevelTemplate = (document.theme == "Top-Level") />
 <#assign standardTemplate = (document.theme == "Standard") />
+<#assign simpleTemplate = (document.theme == "Simple") />
 
 <div class="has-edit-button">
 	<@hst.manageContent hippobean=document/>
 
-<#--TODO current Standard template will become Top-level and the Starndard Template will be the same with the hero image displayed as an article
-for now both options are in the CMS so the content team can keep working and both will display the same format -->
-	<#if standardTemplate || document.theme=="Top-Level">
+	<#if topLevelTemplate>
 		<@pageIntro content=document heroDetails=heroImage lightBackground=psrWidget?has_content />
+		<@productSearchWidget psrWidget "top"/>
+	<#elseif standardTemplate>
+        <@pageIntro content=document lightBackground=psrWidget?has_content />
+		<@introImage mainImage=heroImage />
 		<@productSearchWidget psrWidget "top"/>
 	<#else>
         <@pageIntro content=document lightBackground=true />
@@ -43,7 +48,7 @@ for now both options are in the CMS so the content team can keep working and bot
 	<#list pageItems as module>
 
 		<#--TODO Colour should be only added to Megalinks, add this code to macros or create a common macro to control it-->
-		<#if standardTemplate || document.theme=="Top-Level" >
+		<#if standardTemplate || topLevelTemplate >
 			<@moduleBuilder module />
 		<#else>
 			<@moduleBuilder module=module colourScheme=["light", "light", "light"] />
@@ -57,7 +62,7 @@ for now both options are in the CMS so the content team can keep working and bot
 
     <@socialShare nojs=true/>
 
-	<#if !standardTemplate && document.theme!="Top-Level">
+	<#if simpleTemplate>
 		<@productSearchWidget psrWidget />
 	</#if>
 

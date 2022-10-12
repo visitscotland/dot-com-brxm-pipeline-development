@@ -28,7 +28,7 @@
                 >
                     <vs-img 
                         src="<@hst.webfile path='assets/images/iknow-scotland-logo.svg'/>" 
-                        width="130px"
+                        width="130"
                         class="mb-8 d-inline">
                     </vs-img>
 

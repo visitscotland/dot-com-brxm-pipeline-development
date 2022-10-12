@@ -33,7 +33,7 @@
         </#list>
     </#if>
 <#elseif integration??>
-    ${log("The main navigation menu is not available")}
+    <@log "The main navigation menu is not available" />
 </#if>
 
 <#if banner??>

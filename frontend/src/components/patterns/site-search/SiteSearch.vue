@@ -12,7 +12,6 @@
         <!-- Default slot for Search button text -->
         <span
             class="sr-only-lg-down"
-            tabindex="-1"
         >
             <slot />
         </span>
@@ -89,6 +88,10 @@ export default {
 
         &.vs-button.btn-md{
             padding: $spacer-3;
+        }
+
+        span.sr-only-lg-down {
+            overflow: visible;
         }
     }
 }

@@ -1,5 +1,5 @@
 <template>
-    <section
+    <div
         class="vs-megalink-single-image"
         :class="singleImageClasses"
         data-test="megalink-single-image"
@@ -47,6 +47,8 @@
                     <div class="vs-megalink-single-image__button">
                         <VsButton
                             :href="buttonLink"
+                            variant="secondary"
+                            :on-dark="theme === 'dark'"
                             v-if="buttonLink"
                         >
                             <!-- @slot Slot for button text -->
@@ -56,7 +58,7 @@
                 </div>
             </VsCol>
         </VsRow>
-    </section>
+    </div>
 </template>
 
 <script>

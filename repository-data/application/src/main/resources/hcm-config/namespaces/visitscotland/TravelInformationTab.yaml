@@ -31,7 +31,7 @@ definitions:
             hipposysedit:ordered: true
             hipposysedit:path: visitscotland:accordion
             hipposysedit:type: hippo:compound
-            hipposysedit:validators: [contentblocks-validator, required]
+            hipposysedit:validators: [contentblocks-validator, required, 'visitscotland:travel-tab-transport-validator']
       /hipposysedit:prototypes:
         jcr:primaryType: hipposysedit:prototypeset
         /hipposysedit:prototype:
