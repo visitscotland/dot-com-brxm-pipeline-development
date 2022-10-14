@@ -36,14 +36,13 @@ class ArticleFactoryTest {
     void getModule() {
         HstRequest request = new MockHstRequest();
         Article article = mock(Article.class);
-        when(article.getImage()).thenReturn(mock(Image.class));
+        when(article.getMediaItem()).thenReturn(mock(Image.class));
         when(article.getTitle()).thenReturn("Title");
         when(article.getAnchor()).thenReturn("Anchor");
         when(article.getCopy()).thenReturn(mock(HippoHtml.class));
 
         ArticleModule module = factory.getModule(request, article);
 
-        verify(imageFactory, only()).createImage(any(Image.class), any(), any());
         assertEquals("Title", module.getTitle());
         assertEquals("Anchor", module.getAnchor());
         assertEquals(HippoHtml.class, module.getIntroduction().getClass());
