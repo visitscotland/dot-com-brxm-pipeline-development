@@ -11,7 +11,7 @@ definitions:
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:uuid: 5975eccb-dd6e-4839-9567-3074e6510dbc
+          jcr:uuid: 5ddb0f39-9893-4ee4-beb5-d0630251cef9
           hipposysedit:node: true
           hipposysedit:supertype: ['visitscotland:basedocument', 'hippostd:relaxed',
             'hippotranslation:translated']
@@ -77,7 +77,7 @@ definitions:
           jcr:mixinTypes: ['mix:referenceable']
           visitscotland:title: ''
           visitscotland:anchor: ''
-          jcr:uuid: c92cf867-efcd-4dbe-81f1-09954e1a3b4e
+          jcr:uuid: 4736e8fe-c9c6-4774-81e0-e7dbc7978990
           hippostdpubwf:lastModificationDate: 2020-12-11T10:07:47.311Z
           hippostdpubwf:creationDate: 2020-12-11T10:07:47.312Z
           visitscotland:translation: ''
@@ -104,7 +104,7 @@ definitions:
           /media:
             jcr:primaryType: frontend:plugin
             caption: Media
-            compoundList: hippogallerypicker:imagelink
+            compoundList: hippogallerypicker:imagelink,visitscotland:VideoLink
             contentPickerType: links
             field: media
             plugin.class: org.onehippo.forge.contentblocks.ContentBlocksFieldPlugin
