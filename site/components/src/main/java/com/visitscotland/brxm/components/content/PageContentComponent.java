@@ -27,6 +27,7 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
 
     private static final Logger logger = LoggerFactory.getLogger(PageContentComponent.class);
     private static final Logger contentLogger = LoggerFactory.getLogger("content");
+    private static final Logger freemarkerLogger = LoggerFactory.getLogger("freemarker");
 
     public static final String DOCUMENT = "document";
     public static final String OTYML = "otyml";
@@ -61,6 +62,7 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
         addOTYML(request);
         addNewsletterSignup(request);
         addProductSearchWidget(request);
+        addLogging(request);
     }
 
     /**
@@ -124,6 +126,10 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
      */
     private void addProductSearchWidget(HstRequest request){
         request.setAttribute(PSR_WIDGET, psrFactory.getWidget(request));
+    }
+
+    public void addLogging(HstRequest request){
+        request.setAttribute("Logger", freemarkerLogger);
     }
 
     /**

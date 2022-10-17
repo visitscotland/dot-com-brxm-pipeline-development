@@ -24,7 +24,10 @@
     <@hst.headContributions categoryExcludes="htmlHeadPreload,htmlHeadStyles,htmlBodyEndScriptsFirst,htmlBodyEndScripts,htmlBodyEndAppInit,htmlBodyEndScriptsLast,seo,opengraph" xhtml=true/>
     <!-- END HEAD CONTRIBUTIONS: general -->
 
-    <link rel="icon" type="image/png" href="<@hst.webfile path="/assets/images/32x32.png"/>" sizes="32x32">
+    <link rel="icon" href="<@hst.webfile path="/assets/favicons/favicon.ico"/>" sizes="any">
+    <link rel="icon" href="<@hst.webfile path="/assets/favicons/favicon.svg"/>" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="<@hst.webfile path="/assets/favicons/apple-touch-icon-180-180.svg"/>">
+    <link rel="manifest" href="<@hst.link path="manifest.webmanifest"/>">
 
     <style>
         body {

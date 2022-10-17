@@ -12,11 +12,6 @@ import java.util.Calendar;
 @HippoEssentialsGenerated(internalName = "visitscotland:Banner")
 @Node(jcrType = "visitscotland:Banner")
 public class Banner extends BaseDocument {
-    @HippoEssentialsGenerated(internalName = "visitscotland:title")
-    public String getTitle() {
-        return getSingleProperty("visitscotland:title");
-    }
-
     @HippoEssentialsGenerated(internalName = "visitscotland:copy")
     public HippoHtml getCopy() {
         return getHippoHtml("visitscotland:copy");

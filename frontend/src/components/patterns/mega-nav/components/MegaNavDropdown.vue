@@ -6,6 +6,7 @@
         <BDropdown
             variant="transparent"
             ref="dropdown"
+            @show="dataLayerSubmit($event)"
         >
             <template #button-content>
                 <!-- @slot For dropdown toggle button content  -->
@@ -56,6 +57,7 @@ import {
 } from '@components/elements/grid';
 import { BDropdown } from 'bootstrap-vue';
 import VsButton from '@components/elements/button/Button';
+import dataLayerMixin from '../../../../mixins/dataLayerMixin';
 
 /**
  *  This component includes a slot for toggle button content
@@ -74,6 +76,9 @@ export default {
         VsRow,
         VsButton,
     },
+    mixins: [
+        dataLayerMixin,
+    ],
     props: {
         /**
          * Accessiblity alt text for the menu button
@@ -106,8 +111,28 @@ export default {
         window.removeEventListener('resize', this.closeMenu);
     },
     methods: {
+        /**
+         * Close the menu
+         */
         closeMenu() {
             this.$refs.dropdown.hide(true);
+        },
+        /**
+         * Submit event to dataLayer for tracking
+         */
+        dataLayerSubmit(event) {
+            const btnText = event.vueTarget.$slots['button-content'][0].text.trim();
+
+            const clickEvent = {
+                target: {
+                    text: btnText,
+                },
+            };
+
+            this.createDataLayerObject(
+                'menuNavigationDataEvent',
+                clickEvent, null
+            );
         },
     },
 };

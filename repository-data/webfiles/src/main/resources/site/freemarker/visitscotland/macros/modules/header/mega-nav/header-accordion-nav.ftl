@@ -9,12 +9,18 @@
     <vs-accordion>
         <#list menu.siteMenuItems as item>
             <#if item.title?has_content>
+                <#if !(item.cta??)>
+                    NOO ITEM CTA
+                    <@log "The Top Navigation element "+ item.title +
+                        " has not defined a link  " />
+                </#if>
                 <vs-mega-nav-accordion-item
                     title="${item.title}"
                     level="1"
                     control-id="${item?index}"
                     cta-link="${getUrl(item)}"
-                    cta-text="${item.cta}"
+                    cta-text="${item.cta!''}"
+                    @click.native="$root.$emit('navAccordionClick', '${item.title}')"
                 >
                     <#list item.childMenuItems as childItem>
                         <#if childItem.title??>
@@ -22,6 +28,7 @@
                                 title="${childItem.title}"
                                 level="2"
                                 control-id="${childItem?index}"
+                                @click.native="$root.$emit('navAccordionClick', '${item.title}')"
                             >
                                 <vs-mega-nav-list>
                                     <#list childItem.childMenuItems as thirdChildItem>

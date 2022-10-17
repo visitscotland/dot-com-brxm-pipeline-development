@@ -9,10 +9,37 @@
 </template>
 
 <script>
+import dataLayerMixin from '../../../../mixins/dataLayerMixin';
+
 export default {
     name: 'VsMegaNavMobileMenu',
     status: 'prototype',
     release: '0.1.0',
+    mixins: [
+        dataLayerMixin,
+    ],
+    mounted() {
+        this.$root.$on('navAccordionClick', (text) => {
+            this.dataLayerSubmit(text);
+        });
+    },
+    methods: {
+        /**
+         * Submit event to dataLayer for tracking
+         */
+        dataLayerSubmit(text) {
+            const clickEvent = {
+                target: {
+                    text,
+                },
+            };
+
+            this.createDataLayerObject(
+                'menuNavigationDataEvent',
+                clickEvent, null
+            );
+        },
+    },
 };
 </script>
 

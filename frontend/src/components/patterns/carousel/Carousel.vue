@@ -47,14 +47,14 @@
                             icon-position="right"
                             ref="nextButton"
                         >
-                            <div class="vs-carousel__control-label-container">
+                            <span class="vs-carousel__control-label-container">
                                 <span
                                     class="vs-carousel__control-label
                                            vs-carousel__control-label--next"
                                 >
                                     {{ nextText }}
                                 </span>
-                            </div>
+                            </span>
                         </VsButton>
 
                         <ul

@@ -190,19 +190,11 @@ export default {
         margin-bottom: $spacer-8;
         transition: box-shadow $duration-slowly;
 
-        .vs-stretched-link {
-            color: $color-base-text;
-            text-decoration: none;
-            letter-spacing: 0;
+        &:hover {
+            box-shadow: $shadow_popover;
 
-            &:hover {
-                .vs-megalink-multi-image__title {
-                    text-decoration: underline;
-                }
-            }
-
-            &:focus {
-                @extend %outline-link-focus;
+            .vs-megalink-multi-image__title {
+                text-decoration: underline;
             }
         }
 
@@ -213,10 +205,6 @@ export default {
 
         .vs-megalink-multi-image__img {
             max-width: 100%;
-        }
-
-        &:hover {
-            box-shadow: $shadow_card;
         }
 
         .vs-megalink-multi-image__title {
@@ -255,11 +243,25 @@ export default {
         }
 
         &:hover {
-            box-shadow: 10px 10px 20px $color-theme-dark;
+            box-shadow: $shadow_popover_dark;
+
+            &:not(.vs-megalink-multi-image--featured) {
+                background-color: $color-secondary-gray-shade-5;
+            }
         }
     }
 
     @include media-breakpoint-up(xl) {
+        .vs-megalinks--multi-image .vs-megalinks__links-wrapper .row {
+            width: calc(100% + #{$spacer-10} + #{$spacer-3});
+            margin-left: -#{$spacer-8};
+
+            [class*=col-] {
+                padding-left: $spacer-8;
+                padding-right: $spacer-8;
+            }
+        }
+
         .vs-megalink-multi-image.card {
             margin-bottom: $spacer-11;
 
@@ -277,6 +279,8 @@ export default {
             display: flex;
             flex-direction: row;
             justify-content: flex-start;
+            width: 100%;
+            transform: rotate(0deg);
 
             .vs-megalink-multi-image__title {
                 font-size: $font-size-5;
@@ -289,7 +293,7 @@ export default {
             }
 
             .vs-stretched-link-card__img-container {
-                width: calc(50% - 20px);
+                width: 75%
             }
 
             .megalink-multi-image__content {
@@ -299,29 +303,72 @@ export default {
             }
 
             .card-body {
-                max-width: calc(50% + 20px);
-                padding: $spacer-6 5% $spacer-5;
+                position: absolute !important;
+                background-color: $color-white;
+                width: 40%;
+                right: 0;
+                top: $spacer-10;
+                padding: $spacer-8;
+                transition: box-shadow $duration-slowly;
+            }
+
+            .vs-stretched-link-card__video-button {
+                position: fixed;
+            }
+
+            .stretched-link:after {
+                position: fixed;
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 100%;
+            }
+
+            .vs-stretched-link-panels {
+                left: $spacer-5;
+                top: $spacer-5;
+            }
+
+            .vs-stretched-link-panels__panel:first-of-type {
+                margin-left: 0;
             }
 
             &.vs-megalink-multi-image--featured-last {
                 flex-direction: row-reverse;
 
                 .vs-stretched-link-panels {
-                    left: calc(50% + 20px);
+                    left: auto;
+                    right: $spacer-5;
+                }
+
+                .card-body {
+                    left: $spacer-0;;
                     right: auto;
                 }
-            }
 
-            .vs-stretched-link-panels {
-                right: calc(50% + 30px);
-            }
-
-            .megalink-multi-image--featured.card {
-                .card-body {
-                    padding: $spacer-9 5% $spacer-5;
+                .vs-stretched-link-card__video-button {
+                    left: auto;
+                    right: $spacer-2;
                 }
-                .megalink-multi-image__content {
-                    margin-top: $spacer-8;
+            }
+
+            &:hover {
+                box-shadow: none !important;
+
+                .card-body {
+                    box-shadow: $shadow_popover;
+                }
+            }
+
+            &.vs-megalink-multi-image--dark {
+                .card-body {
+                    background-color: $color-secondary-gray-shade-5;
+                }
+
+                &:hover {
+                    .card-body {
+                        box-shadow: $shadow_popover_dark;
+                    }
                 }
             }
         }

@@ -629,9 +629,6 @@ export default {
 
         @include media-breakpoint-up(xl) {
             &.vs-megalink-multi-image--featured {
-                .card-body {
-                    position: initial !important;
-                }
 
                 .vs-stretched-link-card__video-button {
                     bottom: $spacer-2;

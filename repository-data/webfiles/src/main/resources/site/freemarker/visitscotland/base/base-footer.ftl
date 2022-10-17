@@ -33,5 +33,5 @@
     </vs-footer>
     <vs-cookie-checker></vs-cookie-checker>
 <#elseif integration??>
-    ${log("The footer menu is not available")}
+    <@log "The footer menu is not available" />
 </#if>

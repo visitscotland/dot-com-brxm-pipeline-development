@@ -26,7 +26,7 @@
         <@hst.cmseditmenu menu=menu/>
     </div>
 <#elseif integration??>
-    ${log("The utility footer menu is not available")}
+    <@log "The utility footer menu is not available" />
 </#if>
 
 

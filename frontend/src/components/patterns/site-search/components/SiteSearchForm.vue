@@ -30,7 +30,6 @@
                             </label>
                             <VsInput
                                 class="vs-site-search-form__input cludo-input-form__input"
-                                id="cludo-search-input"
                                 ref="searchInput"
                                 name="searchrequest"
                                 type="search"

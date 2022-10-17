@@ -7,7 +7,7 @@
         <!-- @slot Slot for hero ImageWithCaption component  -->
         <slot name="vsIntroHero" />
 
-        <section class="vs-page-intro__wrapper">
+        <div class="vs-page-intro__wrapper">
             <VsContainer>
                 <VsRow>
                     <VsCol
@@ -78,7 +78,7 @@
                 <!-- @slot Lower intro section content -->
                 <slot name="VsIntroLower" />
             </div>
-        </section>
+        </div>
     </div>
 </template>
 
@@ -231,7 +231,7 @@ export default {
         .vs-hero {
             margin-bottom: $spacer-0;
 
-            figcaption {
+            .vs-caption {
                 @include media-breakpoint-up(lg) {
                     bottom: 200px;
                 }

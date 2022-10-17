@@ -2,7 +2,7 @@
 <#include "../../../frontend/components/vs-image-with-caption.ftl">
 <#include "../../../frontend/components/vs-caption.ftl">
 
-<#macro imageWithCaption imageSrc imageDetails variant="fullwidth" isHero="false" mobileOverlap="false" alignment="left" isVideo="false" videoId="" videoTitle="" videoBtn="" useLazyLoading="true">
+<#macro imageWithCaption imageSrc imageDetails variant="fullwidth" isHero="false" mobileOverlap="false" alignment="left" isVideo="false" videoId="" videoTitle="" videoBtn="" useLazyLoading="true" noAltText="false">
     <vs-image-with-caption
         latitude="<#if variant != 'fullwidth'>${(imageDetails.coordinates.latitude)!''}</#if>"
         longitude="<#if variant != 'fullwidth'>${(imageDetails.coordinates.longitude)!''}</#if>"
@@ -29,7 +29,11 @@
 
         <vs-img
             src="${imageSrc}"
-            alt="${(imageDetails.altText)!'${label("essentials.global", "default.alt-text")}'}"
+            <#if noAltText?? && noAltText == "true">
+                alt=""
+            <#else>
+                alt="${(imageDetails.altText)!'${label("essentials.global", "default.alt-text")}'}"
+            </#if>
             srcset="${imageSrc}?size=xs 300w, 
                     ${imageSrc}?size=sm 600w,
                     ${imageSrc}?size=md 1200w, 

@@ -110,7 +110,7 @@ export default {
             }
 
             &:focus {
-                box-shadow: $shadow-button-focus-dark;
+                box-shadow: $shadow-button-focus-on-dark;
                 background-color: $color-white;
                 color: $color-gray-shade-1;
                 outline: none;

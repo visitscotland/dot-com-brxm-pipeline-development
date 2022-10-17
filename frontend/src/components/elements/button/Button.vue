@@ -284,7 +284,7 @@ export default {
             );
 
             &:focus{
-                box-shadow: $shadow-button-focus-dark, 0 0 0 8px $color-theme-dark;
+                box-shadow: $shadow-button-focus-on-dark, 0 0 0 8px $color-theme-dark;
             }
         }
 
@@ -315,7 +315,7 @@ export default {
                 );
 
                 &:focus{
-                    box-shadow: $shadow-button-focus-dark;
+                    box-shadow: $shadow-button-focus-on-dark;
                 }
             }
         }

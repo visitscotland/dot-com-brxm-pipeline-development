@@ -3,7 +3,7 @@
   jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
   jcr:uuid: c84352c2-c31c-4acb-a5b8-1178fafa709a
   hippo:name: Forms
-  hippo:versionHistory: 79e495ae-6c35-4fcb-b37b-3b81795cda78
+  hippo:versionHistory: a77f352c-6cce-4a09-bcea-a808b8ebf400
   /forms[1]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:referenceable']
@@ -13,7 +13,7 @@
     hippostd:state: draft
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2022-04-14T11:08:53.925+01:00
-    hippostdpubwf:lastModificationDate: 2022-09-13T15:12:03.377+01:00
+    hippostdpubwf:lastModificationDate: 2022-09-22T08:59:33.978+01:00
     hippostdpubwf:lastModifiedBy: admin
     resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '', '', '', '']
     resourcebundle:id: forms
@@ -28,18 +28,23 @@
       //e.visitscotland.com/js/forms2/js/forms2.min.js, Does not need any text, You
         need Javascript enabled to be able to display this form.  You can enable this
         in your browser settings.]
-    resourcebundle:messages_de: ['', '', '', '', '', '', '', '', '', '', '', 'JavaScript
-        muss aktiviert sein, um dieses Formular anzuzeigen. Sie können es in Ihren
-        Browser-Einstellungen aktivieren.']
-    resourcebundle:messages_es: ['', '', '', '', '', '', '', '', '', '', '', El Javascript
-        debe estar habilitado para mostrar este formulario. Puedes activarlo en la
-        configuración de tu navegador.]
-    resourcebundle:messages_fr: ['', '', '', '', '', '', '', '', '', '', '', JavaScript
-        doit être activé pour afficher ce formulaire. Vous pouvez l’activer dans les
-        paramètres de votre navigateur.]
-    resourcebundle:messages_it: ['', '', '', '', '', '', '', '', '', '', '', Per visualizzare
-        questo modulo è necessario abilitare Javascript.  Puoi attivarlo nelle impostazioni
-        del tuo browser.]
+    resourcebundle:messages_de: ['', '', '', '', '', Wir übermitteln gerade Ihre Informationen,
+      'Es tut uns leid, dass ein Problem aufgetreten ist. Bitte versuchen Sie es später
+        erneut.', '', '', '', Benötigt keinen Text, 'JavaScript muss aktiviert sein,
+        um dieses Formular anzuzeigen. Sie können es in Ihren Browser-Einstellungen
+        aktivieren.']
+    resourcebundle:messages_es: ['', '', '', '', '', Estamos enviando tu información,
+      'Lamentamos que haya habido un problema, inténtalo de nuevo más tarde.', '',
+      '', '', No necesitas agregar ningún texto, El Javascript debe estar habilitado
+        para mostrar este formulario. Puedes activarlo en la configuración de tu navegador.]
+    resourcebundle:messages_fr: ['', '', '', '', '', Nous transmettons vos informations,
+      'Désolé, une erreur est survenue. Veuillez réessayer plus tard.', '', '', '',
+      Ne nécessite aucun texte, JavaScript doit être activé pour afficher ce formulaire.
+        Vous pouvez l’activer dans les paramètres de votre navigateur.]
+    resourcebundle:messages_it: ['', '', '', '', '', Stiamo inviando le tue informazioni,
+      'Siamo spiacenti che si sia verificato un problema, per favore riprova più tardi.',
+      '', '', '', Non ha bisogno di testo, Per visualizzare questo modulo è necessario
+        abilitare Javascript.  Puoi attivarlo nelle impostazioni del tuo browser.]
     resourcebundle:messages_nl: ['', '', '', '', '', '', '', '', '', '', '', '']
   /forms[2]:
     jcr:primaryType: resourcebundle:resourcebundle
@@ -50,7 +55,7 @@
     hippostd:state: unpublished
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2022-04-14T11:08:53.925+01:00
-    hippostdpubwf:lastModificationDate: 2022-09-13T15:12:31.623+01:00
+    hippostdpubwf:lastModificationDate: 2022-09-22T08:59:53.228+01:00
     hippostdpubwf:lastModifiedBy: admin
     resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '', '', '', '']
     resourcebundle:id: forms
@@ -65,18 +70,23 @@
       //e.visitscotland.com/js/forms2/js/forms2.min.js, Does not need any text, You
         need Javascript enabled to be able to display this form.  You can enable this
         in your browser settings.]
-    resourcebundle:messages_de: ['', '', '', '', '', '', '', '', '', '', '', 'JavaScript
-        muss aktiviert sein, um dieses Formular anzuzeigen. Sie können es in Ihren
-        Browser-Einstellungen aktivieren.']
-    resourcebundle:messages_es: ['', '', '', '', '', '', '', '', '', '', '', El Javascript
-        debe estar habilitado para mostrar este formulario. Puedes activarlo en la
-        configuración de tu navegador.]
-    resourcebundle:messages_fr: ['', '', '', '', '', '', '', '', '', '', '', JavaScript
-        doit être activé pour afficher ce formulaire. Vous pouvez l’activer dans les
-        paramètres de votre navigateur.]
-    resourcebundle:messages_it: ['', '', '', '', '', '', '', '', '', '', '', Per visualizzare
-        questo modulo è necessario abilitare Javascript.  Puoi attivarlo nelle impostazioni
-        del tuo browser.]
+    resourcebundle:messages_de: ['', '', '', '', '', Wir übermitteln gerade Ihre Informationen,
+      'Es tut uns leid, dass ein Problem aufgetreten ist. Bitte versuchen Sie es später
+        erneut.', '', '', '', Benötigt keinen Text, 'JavaScript muss aktiviert sein,
+        um dieses Formular anzuzeigen. Sie können es in Ihren Browser-Einstellungen
+        aktivieren.']
+    resourcebundle:messages_es: ['', '', '', '', '', Estamos enviando tu información,
+      'Lamentamos que haya habido un problema, inténtalo de nuevo más tarde.', '',
+      '', '', No necesitas agregar ningún texto, El Javascript debe estar habilitado
+        para mostrar este formulario. Puedes activarlo en la configuración de tu navegador.]
+    resourcebundle:messages_fr: ['', '', '', '', '', Nous transmettons vos informations,
+      'Désolé, une erreur est survenue. Veuillez réessayer plus tard.', '', '', '',
+      Ne nécessite aucun texte, JavaScript doit être activé pour afficher ce formulaire.
+        Vous pouvez l’activer dans les paramètres de votre navigateur.]
+    resourcebundle:messages_it: ['', '', '', '', '', Stiamo inviando le tue informazioni,
+      'Siamo spiacenti che si sia verificato un problema, per favore riprova più tardi.',
+      '', '', '', Non ha bisogno di testo, Per visualizzare questo modulo è necessario
+        abilitare Javascript.  Puoi attivarlo nelle impostazioni del tuo browser.]
     resourcebundle:messages_nl: ['', '', '', '', '', '', '', '', '', '', '', '']
   /forms[3]:
     jcr:primaryType: resourcebundle:resourcebundle
@@ -87,9 +97,9 @@
     hippostd:state: published
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2022-04-14T11:08:53.925+01:00
-    hippostdpubwf:lastModificationDate: 2022-09-13T15:12:31.623+01:00
+    hippostdpubwf:lastModificationDate: 2022-09-22T08:59:53.228+01:00
     hippostdpubwf:lastModifiedBy: admin
-    hippostdpubwf:publicationDate: 2022-09-13T15:12:35.329+01:00
+    hippostdpubwf:publicationDate: 2022-09-22T08:59:56.254+01:00
     resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '', '', '', '']
     resourcebundle:id: forms
     resourcebundle:keys: [form.messaging-url, form.country-url, form.recaptcha-key,
@@ -103,16 +113,21 @@
       //e.visitscotland.com/js/forms2/js/forms2.min.js, Does not need any text, You
         need Javascript enabled to be able to display this form.  You can enable this
         in your browser settings.]
-    resourcebundle:messages_de: ['', '', '', '', '', '', '', '', '', '', '', 'JavaScript
-        muss aktiviert sein, um dieses Formular anzuzeigen. Sie können es in Ihren
-        Browser-Einstellungen aktivieren.']
-    resourcebundle:messages_es: ['', '', '', '', '', '', '', '', '', '', '', El Javascript
-        debe estar habilitado para mostrar este formulario. Puedes activarlo en la
-        configuración de tu navegador.]
-    resourcebundle:messages_fr: ['', '', '', '', '', '', '', '', '', '', '', JavaScript
-        doit être activé pour afficher ce formulaire. Vous pouvez l’activer dans les
-        paramètres de votre navigateur.]
-    resourcebundle:messages_it: ['', '', '', '', '', '', '', '', '', '', '', Per visualizzare
-        questo modulo è necessario abilitare Javascript.  Puoi attivarlo nelle impostazioni
-        del tuo browser.]
+    resourcebundle:messages_de: ['', '', '', '', '', Wir übermitteln gerade Ihre Informationen,
+      'Es tut uns leid, dass ein Problem aufgetreten ist. Bitte versuchen Sie es später
+        erneut.', '', '', '', Benötigt keinen Text, 'JavaScript muss aktiviert sein,
+        um dieses Formular anzuzeigen. Sie können es in Ihren Browser-Einstellungen
+        aktivieren.']
+    resourcebundle:messages_es: ['', '', '', '', '', Estamos enviando tu información,
+      'Lamentamos que haya habido un problema, inténtalo de nuevo más tarde.', '',
+      '', '', No necesitas agregar ningún texto, El Javascript debe estar habilitado
+        para mostrar este formulario. Puedes activarlo en la configuración de tu navegador.]
+    resourcebundle:messages_fr: ['', '', '', '', '', Nous transmettons vos informations,
+      'Désolé, une erreur est survenue. Veuillez réessayer plus tard.', '', '', '',
+      Ne nécessite aucun texte, JavaScript doit être activé pour afficher ce formulaire.
+        Vous pouvez l’activer dans les paramètres de votre navigateur.]
+    resourcebundle:messages_it: ['', '', '', '', '', Stiamo inviando le tue informazioni,
+      'Siamo spiacenti che si sia verificato un problema, per favore riprova più tardi.',
+      '', '', '', Non ha bisogno di testo, Per visualizzare questo modulo è necessario
+        abilitare Javascript.  Puoi attivarlo nelle impostazioni del tuo browser.]
     resourcebundle:messages_nl: ['', '', '', '', '', '', '', '', '', '', '', '']
