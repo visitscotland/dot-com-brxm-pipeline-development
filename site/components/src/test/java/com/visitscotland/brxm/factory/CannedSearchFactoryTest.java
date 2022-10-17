@@ -70,30 +70,12 @@ class CannedSearchFactoryTest {
         CannedSearch cannedSearch =  new CannedSearchMockBuilder().criteria(ProductTypes.ACCOMMODATION.getId()).build();
 
         when(linkService.createFindOutMoreLink(any(), any(), any())).thenReturn(flatLink);
-        when(dmsData.cannedSearchHasResults(any())).thenReturn(true);
 
         CannedSearchModule module = factory.getCannedSearchModule(cannedSearch, Locale.UK);
 
         Assertions.assertEquals("default cta", module.getViewAllLink().getLabel());
         Assertions.assertNull(module.getCredit());
         Assertions.assertEquals(PSR_URL, module.getCannedSearchEndpoint());
-    }
-
-    @DisplayName("When no results, add CMS error")
-    @Test
-    void noResults() {
-        when(bundle.getResourceBundle(BUNDLE_ID, "canned-search.listview", Locale.UK))
-                .thenReturn("default cta");
-
-        FlatLink flatLink = new FlatLink();
-        CannedSearch cannedSearch =  new CannedSearchMockBuilder().criteria(ProductTypes.ACCOMMODATION.getId()).build();
-
-        when(linkService.createFindOutMoreLink(any(), any(), any())).thenReturn(flatLink);
-        when(dmsData.cannedSearchHasResults(any())).thenReturn(false);
-
-        CannedSearchModule module = factory.getCannedSearchModule(cannedSearch, Locale.UK);
-
-        Assertions.assertTrue(module.getErrorMessages().size()>0);
     }
 
     @DisplayName("VS-2715 - When cta for list view is provided then default cta should be used")
