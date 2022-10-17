@@ -48,7 +48,7 @@ public enum Language {
         if (this == ENGLISH) {
             return "";
         } else {
-            return "/" + locale.getLanguage();
+            return "/" + locale.toLanguageTag().toLowerCase();
         }
     }
 
