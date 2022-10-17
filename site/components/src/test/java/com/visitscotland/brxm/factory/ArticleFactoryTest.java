@@ -43,6 +43,7 @@ class ArticleFactoryTest {
 
         ArticleModule module = factory.getModule(request, article);
 
+        verify(imageFactory, only()).getImage(any(Image.class), any(), any());
         assertEquals("Title", module.getTitle());
         assertEquals("Anchor", module.getAnchor());
         assertEquals(HippoHtml.class, module.getIntroduction().getClass());
