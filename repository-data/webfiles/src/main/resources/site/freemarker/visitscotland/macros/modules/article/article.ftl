@@ -14,6 +14,9 @@
     <@hst.manageContent hippobean=module.hippoBean />
     <@previewWarning editMode module module.errorMessages />
 
+     <#if module.video??>
+     <#-- TODO video in article -->
+     </#if>
     <#if module.image??>
         <#if module.image.cmsImage??>
             <#assign image>
@@ -44,6 +47,9 @@
         <#assign alignSidebar = ""/>
 
         <#list module.sections as section>
+            <#if section.video??>
+            <#-- TODO video in section -->
+            </#if>
             <#if section.quote?? || section.image??>
                 <#assign i++ />
                 <#if i % 2 != 0 >
