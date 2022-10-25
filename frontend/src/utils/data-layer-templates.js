@@ -2,6 +2,7 @@ const pageViewTemplate = [
     'event',
     'site_language',
     'content_language',
+    'content_category',
     'page_category_1',
     'page_category_2',
     'page_category_3',

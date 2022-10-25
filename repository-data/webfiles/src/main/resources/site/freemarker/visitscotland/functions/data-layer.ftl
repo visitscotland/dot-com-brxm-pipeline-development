@@ -19,6 +19,9 @@ to be included or excluded. The front-end specification can be found in:
     </#if>
     <#list url?split("/") as x>
         <#if x?index gt 0>
+            <#if x?index = 1>
+                <#assign event = event + "'content_category':  '${x}',">
+            </#if>
             <#assign event = event + "'page_category_${x?index}':  '${x}',">
         </#if>
     </#list>
