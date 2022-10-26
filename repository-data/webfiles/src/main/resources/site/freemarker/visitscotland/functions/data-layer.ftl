@@ -6,16 +6,13 @@ to be included or excluded. The front-end specification can be found in:
 -->
 <#function pageViewDLEvent document>
     <#assign searchType = (psrWidget.category.name())!'none'>
-    <#assign searchLocation = (psrWidget.location.name)!''>
 
     <#assign url = hstRequest.request.pathInfo >
     <#assign event = "{
         'site_language': '${language}',
         'content_language' : '${document.locale.language}',"
     >
-    <#if searchLocation != ''>
-        <#assign event = event + "'content_region': '${searchLocation}',">
-    <#elseif location??>
+    <#if location??>
         <#if location.isRegion() >
             <#assign event = event + "'content_region': '${location.name}',">
         <#else >
