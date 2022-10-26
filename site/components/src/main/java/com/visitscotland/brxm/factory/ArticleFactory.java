@@ -2,32 +2,38 @@ package com.visitscotland.brxm.factory;
 
 import com.visitscotland.brxm.hippobeans.Article;
 import com.visitscotland.brxm.hippobeans.ArticleSection;
+import com.visitscotland.brxm.hippobeans.VideoLink;
 import com.visitscotland.brxm.model.ArticleModule;
 import com.visitscotland.brxm.model.ArticleModuleSection;
+import com.visitscotland.brxm.services.LinkService;
 import org.hippoecm.hst.core.component.HstRequest;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Locale;
 
 @Component
 public class ArticleFactory {
 
-    private ImageFactory imageFactory;
+    private final ImageFactory imageFactory;
+    private final LinkService linkService;
+    private final QuoteFactory quoteEmbedder;
 
-    private QuoteFactory quoteEmbedder;
-
-    public ArticleFactory(ImageFactory imageFactory, QuoteFactory quoteEmbedder){
+    public ArticleFactory(ImageFactory imageFactory, QuoteFactory quoteEmbedder, LinkService linkService){
         this.imageFactory = imageFactory;
         this.quoteEmbedder = quoteEmbedder;
+        this.linkService = linkService;
     }
 
     public ArticleModule getModule(HstRequest request, Article doc){
         ArticleModule module = new ArticleModule();
         List<ArticleModuleSection> sections = new ArrayList<>();
-        if (doc.getImage() != null) {
-            module.setImage(imageFactory.createImage(doc.getImage(), module, request.getLocale()));
+          if (doc.getMediaItem() != null) {
+            if (doc.getMediaItem() instanceof VideoLink){
+                module.setVideo(linkService.createVideo(((VideoLink)doc.getMediaItem()).getVideoLink(), module, request.getLocale()));
+            }else {
+                module.setImage(imageFactory.getImage(doc.getMediaItem(), module, request.getLocale()));
+            }
         }
         module.setTitle(doc.getTitle());
         module.setIntroduction(doc.getCopy());
@@ -39,7 +45,11 @@ public class ArticleFactory {
             section.setCopy(paragraph.getCopy());
 
             if (paragraph.getMediaItem() != null) {
-                section.setImage(imageFactory.getImage(paragraph.getMediaItem(), module, request.getLocale()));
+                if (paragraph.getMediaItem() instanceof VideoLink){
+                    section.setVideo(linkService.createVideo(((VideoLink)paragraph.getMediaItem()).getVideoLink(), module, request.getLocale()));
+                }else {
+                    section.setImage(imageFactory.getImage(paragraph.getMediaItem(), module, request.getLocale()));
+                }
             }
 
             if (paragraph.getQuote() != null) {
