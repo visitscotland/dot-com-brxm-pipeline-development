@@ -3,6 +3,8 @@ const pageViewTemplate = [
     'site_language',
     'content_language',
     'content_category',
+    'content_page_type',
+    'search_category',
     'page_category_1',
     'page_category_2',
     'page_category_3',
