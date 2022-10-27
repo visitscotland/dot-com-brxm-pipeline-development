@@ -11,7 +11,7 @@ definitions:
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:uuid: 07c7cf3a-2d23-40bf-8c04-f3bab762c4e9
+          jcr:uuid: 4066e217-4655-43b5-b247-98b93860d51a
           hipposysedit:node: true
           hipposysedit:supertype: ['hippotranslation:translated', 'hippotaxonomy:classifiable',
             'visitscotland:basedocument', 'hippostd:relaxed']
@@ -63,7 +63,7 @@ definitions:
           jcr:mixinTypes: ['mix:referenceable', 'hippotaxonomy:classifiable']
           visitscotland:title: ''
           visitscotland:tabTitle: ''
-          jcr:uuid: 25990a96-bb98-4497-a8d9-124eb574fe1c
+          jcr:uuid: 61f36ba0-0ce5-46c3-9e39-6a04dea168fb
           hippostdpubwf:lastModificationDate: 2022-06-10T13:36:38.111+01:00
           hippostdpubwf:creationDate: 2022-06-10T13:36:38.111+01:00
       /editor:templates:
@@ -115,7 +115,7 @@ definitions:
                 , removeButtons: ''PickImage,Youtube,Table,Bold,Underline,Strike,Subscript,Superscript''}'
           /tabTitle:
             jcr:primaryType: frontend:plugin
-            caption: Tab Title (H4)
+            caption: Map Main Tab Title
             field: tabTitle
             hint: ''
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
@@ -136,11 +136,11 @@ definitions:
               maxitems: 1
           /classifiable:
             jcr:primaryType: frontend:plugin
-            essentials-taxonomy-name: Visitsctoland-categories
+            essentials-taxonomy-name: Visitscotland-categories
             mixin: hippotaxonomy:classifiable
             plugin.class: org.hippoecm.frontend.editor.plugins.mixin.MixinLoaderPlugin
             wicket.id: ${cluster.id}.right.item
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-              taxonomy.name: Visitsctoland-categories
+              taxonomy.name: Visitscotland-categories
               caption: Map Categories
