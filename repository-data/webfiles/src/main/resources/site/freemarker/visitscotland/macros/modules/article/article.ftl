@@ -58,9 +58,6 @@
         <#assign alignSidebar = ""/>
 
         <#list module.sections as section>
-            <#if section.video??>
-            <#-- TODO video in section -->
-            </#if>
             <#if section.quote?? || section.image??>
                 <#assign i++ />
                 <#if i % 2 != 0 >

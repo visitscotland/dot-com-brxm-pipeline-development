@@ -2,7 +2,18 @@
 
 <#macro articleSidebar section alignSidebar>
     <vs-article-sidebar sidebar-align="${alignSidebar}">
-        <#if section.image??>
+        <#if section.video??>
+            <template slot="vsArticleSidebarImg">
+                <@video video=section.video />
+                <vs-video-caption
+                    video-id="${section.video.youtubeId}"
+                >
+                    <template slot="video-title">
+                        ${section.video.cta}
+                    </template>?
+                </vs-video-caption>
+            </template>
+        <#elseif section.image??>
             <#if section.image.cmsImage??>
                 <#assign media>
                     <@hst.link hippobean=section.image.cmsImage.original/>
