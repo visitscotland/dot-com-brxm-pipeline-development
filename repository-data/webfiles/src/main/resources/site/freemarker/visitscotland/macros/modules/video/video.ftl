@@ -14,5 +14,6 @@
         no-js-message="${label('video', 'video.no-js')}"
         cookie-link-text="${label('essentials.global', 'cookie.link-message')}"
         error-message="${label('essentials.global', 'third-party-error')}"
-    />
+    >
+    </vs-video>
 </#macro>

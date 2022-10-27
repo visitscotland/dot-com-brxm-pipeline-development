@@ -1,5 +1,8 @@
 <#include "../../../../include/imports.ftl">
 <#include "../../../../frontend/components/vs-article.ftl">
+<#include "../../../../frontend/components/vs-video-caption.ftl">
+
+<#include "../../../macros/modules/video/video.ftl">
 
 <#include "../../global/image-with-caption.ftl">
 <#include "../../global/preview-warning.ftl">
@@ -14,9 +17,6 @@
     <@hst.manageContent hippobean=module.hippoBean />
     <@previewWarning editMode module module.errorMessages />
 
-     <#if module.video??>
-     <#-- TODO video in article -->
-     </#if>
     <#if module.image??>
         <#if module.image.cmsImage??>
             <#assign image>
@@ -33,7 +33,18 @@
         title="${module.title}"
         anchor-link="<#if module.anchor?has_content>${module.anchor}</#if>"
     >
-        <#if image?? && image?has_content>
+        <#if module.video?? >
+            <template slot="vsArticleImg">
+                <@video video=module.video />
+                <vs-video-caption
+                    video-id="${module.video.youtubeId}"
+                >
+                    <template slot="video-title">
+                        ${module.video.cta}
+                    </template>?
+                </vs-video-caption>
+            </template>
+        <#elseif image?? && image?has_content>
             <template slot="vsArticleImg">
                 <@imageWithCaption imageSrc=image imageDetails=module.image />
             </template>
