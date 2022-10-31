@@ -10,7 +10,7 @@
             {{ hintText }}
         </p>
         <template
-            v-if="$v.inputVal.$anyError || invalid"
+            v-if="($v.inputVal.$anyError || invalid) && !reAlertErrors"
         >
             <span
                 v-for="error in errorsList"
@@ -180,6 +180,11 @@ export default {
         placeholder: {
             type: String,
             default: '',
+        },
+    },
+    inject: {
+        reAlertErrors: {
+            default: false,
         },
     },
     computed: {

@@ -14,18 +14,18 @@
         />
         <!-- eslint-enable-vue/no-v-html -->
 
-        <span
-            v-for="error in errorsList"
-            :key="error"
-            class="error"
-            aria-live="assertive"
+        <template
+            v-if="($v.inputVal.$anyError || invalid) && !reAlertErrors"
         >
-            <template
-                v-if="$v.inputVal.$anyError || invalid"
+            <span
+                v-for="error in errorsList"
+                :key="error"
+                class="error"
+                aria-live="assertive"
             >
                 {{ validationMessages[error] || genericValidation[error] }}
-            </template>
-        </span>
+            </span>
+        </template>
         <BFormCheckbox
             v-if="fieldName"
             v-model="inputVal"
@@ -162,6 +162,11 @@ export default {
             inputVal: '',
             errors: [],
         };
+    },
+    inject: {
+        reAlertErrors: {
+            default: false,
+        },
     },
     computed: {
         errorClass() {

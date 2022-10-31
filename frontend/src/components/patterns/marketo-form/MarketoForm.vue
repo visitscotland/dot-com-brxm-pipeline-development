@@ -276,6 +276,12 @@ export default {
             conditionalFields: {
             },
             inputVal: '',
+            reAlertErrors: false,
+        };
+    },
+    provide() {
+        return {
+            reAlertErrors: this.reAlertErrors,
         };
     },
     computed: {
@@ -600,6 +606,10 @@ export default {
                 this.marketoSubmit();
             } else {
                 this.showErrorMessage = true;
+                this.reAlertErrors = true;
+                this.$nextTick(() => {
+                    this.reAlertErrors = false;
+                });
             }
         },
         /**
