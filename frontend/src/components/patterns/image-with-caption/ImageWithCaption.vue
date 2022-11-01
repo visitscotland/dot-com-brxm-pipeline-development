@@ -45,6 +45,7 @@
                     :video-id="videoId"
                     :cookie-link-text="cookieLinkText"
                     :error-message="errorMessage"
+                    :variant="narrowVideo ? 'narrow' : 'fullwidth'"
                 >
                     <!-- @slot Slot for the video title text -->
                     <template slot="video-title">
@@ -170,6 +171,14 @@ export default {
             default: '',
         },
         /**
+         * Set to true if conmponent displays a video and is in a narrow container, adjusts
+         * the layout of the play button
+        */
+        narrowVideo: {
+            type: Boolean,
+            default: false,
+        },
+        /**
         * A message explaining why the component has been disabled with disabled cookies, is
         * provided for descendent components to inject
         */
@@ -222,6 +231,8 @@ export default {
                 'vs-image-with-caption--hero': this.isHeroImage,
                 'vs-image-with-caption--show-caption': !this.requiredCookiesExist && this.setCookieStatus === true,
                 'vs-image-with-caption--video': this.isVideo,
+                'vs-image-with-caption--video-fullwidth': this.isVideo && !this.narrowVideo,
+                'vs-image-with-caption--video-narrow': this.isVideo && this.narrowVideo,
             };
         },
         captionWrapperClasses() {
@@ -403,6 +414,12 @@ export default {
                 }
             }
 
+            &.vs-image-with-caption--video-narrow {
+                .vs-image-with-caption__video-caption-wrapper {
+                    padding: 0;
+                }
+            }
+
             @include media-breakpoint-up(sm) {
                 .vs-image-with-caption__video-caption-wrapper {
                     .vs-video-caption {
@@ -421,9 +438,11 @@ export default {
                     justify-content: flex-end;
                     padding: 0;
 
-                    .vs-video-caption {
+                    .vs-video-caption--fullwidth {
                         width: 400px;
+                    }
 
+                    .vs-video-caption {
                         .vs-toggle-btn {
                             display: block;
                         }
@@ -435,10 +454,12 @@ export default {
                     padding: 0;
                 }
 
-                .vs-caption {
-                    position: absolute;
-                    bottom: auto;
-                    width: 400px;
+                .vs-video-caption--fullwidth {
+                    .vs-caption {
+                        position: absolute;
+                        bottom: auto;
+                        width: 400px;
+                    }
                 }
 
                 .vs-toggle-btn {

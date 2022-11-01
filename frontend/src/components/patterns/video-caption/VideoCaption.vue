@@ -1,5 +1,8 @@
 <template>
-    <div data-test="video-caption">
+    <div
+        data-test="video-caption"
+        class="w-100"
+    >
         <div
             data-test="video-caption-variants"
             class="vs-video-caption"
@@ -290,36 +293,16 @@ export default {
             &__buttons-container {
                 & > .container {
                     padding: 0;
-               }
-
-                &__button {
-                    max-width: 400px;
                 }
-
                 .vs-toggle-btn {
                     top: calc(50% - 12px);
                 }
             }
         }
-
-        @include media-breakpoint-up(lg) {
-            &__details {
-                display: block;
-                padding: $spacer-4 $spacer-6 $spacer-5;
-            }
-
-            &__title {
-                margin-bottom: $spacer-1;
-            }
-
-            &__button {
-                max-width: 360px;
-            }
-        }
     }
 
-    @include media-breakpoint-up(sm) {
-        .vs-video-caption--fullwidth {
+    .vs-video-caption--fullwidth {
+        @include media-breakpoint-up(sm) {
             .vs-video-caption__details {
                 display: flex;
                 align-items: baseline;
@@ -330,6 +313,67 @@ export default {
                 font-size: $font-size-lead;
                 margin-right: $spacer-4;
                 margin-bottom: 0;
+            }
+
+            .vs-video-caption__buttons-container {
+                &__button {
+                    max-width: 400px;
+                }
+            }
+        }
+
+        @include media-breakpoint-up(lg) {
+            .vs-video-caption__details {
+                display: block;
+                padding: $spacer-4 $spacer-6 $spacer-5;
+            }
+
+            .vs-video-caption__title {
+                margin-bottom: $spacer-1;
+            }
+
+            .vs-video-caption__button {
+                max-width: 360px;
+            }
+        }
+    }
+
+    .vs-video-caption--narrow {
+        .vs-video-caption__buttons-container {
+            .container {
+                padding: $spacer-0;
+            }
+
+            .vs-video-caption__button {
+                width: $spacer-10;
+                height: $spacer-10;
+                position: relative;
+                padding: $spacer-0;
+                font-size: 0;
+            }
+
+            .vs-icon {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                height: $spacer-8;
+                width: $spacer-8;
+            }
+        }
+
+        @include media-breakpoint-up(sm) {
+            .vs-video-caption__details {
+                display: flex;
+                align-items: baseline;
+                padding: $spacer-4 $spacer-5 $spacer-5;
+            }
+        }
+
+        @include media-breakpoint-up(lg) {
+            .vs-video-caption__details {
+                display: block;
+                padding: $spacer-4 $spacer-2 $spacer-3;
             }
         }
     }

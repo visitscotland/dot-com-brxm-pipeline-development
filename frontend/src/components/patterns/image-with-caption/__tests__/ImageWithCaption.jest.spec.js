@@ -72,6 +72,15 @@ describe('VsImageWithCaption', () => {
             expect(imageWrapper.classes('vs-image-with-caption--overlapped')).toBe(true);
         });
 
+        it('should set correct classes if `isVideo` and `fullWidthVideo` are true', () => {
+            const wrapper = factoryShallowMount({
+                isVideo: true,
+                narrowVideo: false,
+            });
+
+            expect(wrapper.classes('vs-image-with-caption--video-fullwidth')).toBe(true);
+        });
+
         it('should render correct `toggleButtonText` on the toggle button', () => {
             const wrapper = factoryShallowMount({
                 toggleButtonText: 'Toggle caption',
