@@ -183,7 +183,7 @@ public class DocumentUtilsService {
         String languagePath = "";
 
         if (locale != null) {
-            languagePath += "/" + locale.getLanguage();
+            languagePath += Language.getLanguageForLocale(locale).getPathVariable();
         }
 
         return properties.getCmsBasePath() +
