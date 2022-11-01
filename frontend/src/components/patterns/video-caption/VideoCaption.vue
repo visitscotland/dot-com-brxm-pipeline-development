@@ -1,7 +1,12 @@
 <template>
     <div data-test="video-caption">
         <div
+            data-test="video-caption-variants"
             class="vs-video-caption"
+            :class="{
+                'vs-video-caption--fullwidth': variant == 'fullwidth',
+                'vs-video-caption--narrow': variant == 'narrow',
+            }"
             v-if="videoLoaded && requiredCookiesExist"
             key="video-caption"
         >
@@ -132,6 +137,17 @@ export default {
         videoId: {
             type: String,
             required: true,
+        },
+        /**
+         * Style variant based on caption container width
+         * `fullwidth|narrow`.
+         */
+        variant: {
+            type: String,
+            default: 'fullwidth',
+            validator: (value) => value.match(
+                /(fullwidth|narrow)/,
+            ),
         },
     },
     inject: {
@@ -271,18 +287,6 @@ export default {
         }
 
         @include media-breakpoint-up(sm) {
-            &__details {
-                display: flex;
-                align-items: baseline;
-                padding: $spacer-4 $spacer-5 $spacer-5;
-            }
-
-            &__title {
-                font-size: $font-size-lead;
-                margin-right: $spacer-4;
-                margin-bottom: 0;
-            }
-
             &__buttons-container {
                 & > .container {
                     padding: 0;
@@ -310,6 +314,22 @@ export default {
 
             &__button {
                 max-width: 360px;
+            }
+        }
+    }
+
+    @include media-breakpoint-up(sm) {
+        .vs-video-caption--fullwidth {
+            .vs-video-caption__details {
+                display: flex;
+                align-items: baseline;
+                padding: $spacer-4 $spacer-5 $spacer-5;
+            }
+
+            .vs-video-caption__title {
+                font-size: $font-size-lead;
+                margin-right: $spacer-4;
+                margin-bottom: 0;
             }
         }
     }
