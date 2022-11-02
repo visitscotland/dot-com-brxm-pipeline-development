@@ -73,7 +73,7 @@ A standard article with a cover image, title, introduction text and one section 
             Experiencing Ben Nevis
         </VsHeading>
 
-        <VsHeading level="6">
+        <VsHeading level="4" overrideStyleLevel="6">
             Scotland's landscape is scattered with Munros and mist-shrouded hills...
         </VsHeading>
 
@@ -125,7 +125,7 @@ The cover image and introduction are optional for an article item.
             The Mountain Track
         </VsHeading>
 
-        <VsHeading level="6">
+        <VsHeading level="4" overrideStyleLevel="6">
             Best route for: Beginners
         </VsHeading>
 
@@ -197,7 +197,7 @@ On smaller devices, the sidebar is displayed above the related content in its se
             Plan your Ben Nevis adventure
         </VsHeading>
 
-        <VsHeading level="6">
+        <VsHeading level="4" overrideStyleLevel="6">
             How long does it take to climb Ben Nevis?
         </VsHeading>
 
@@ -205,28 +205,28 @@ On smaller devices, the sidebar is displayed above the related content in its se
             It really depends on your level of fitness, the weather conditions and how many breaks you take to admire the views. It will usually take between 7 - 9 hours to complete following the Mountain Track, with an approximate ascent of 3.5 - 4.5 hours to the summit.
         </p>
 
-        <VsHeading level="6">
+        <VsHeading level="4" overrideStyleLevel="6">
             How tough is it to climb?
         </VsHeading>
         <p>
             It's a long and arduous climb and you might have stiff legs the following day, but the feeling of accomplishment when you scale the tallest mountain in the United Kingdom is pretty tough to beat.
         </p>
 
-        <VsHeading level="6">
+        <VsHeading level="4" overrideStyleLevel="6">
             How high is it?
         </VsHeading>
         <p>
             A lofty 1,345 m. To put it into perspective, the London Eye stands at 135 m and Big Ben at 96 m high.
         </p>
 
-        <VsHeading level="6">
+        <VsHeading level="4" overrideStyleLevel="6">
             Do I need a map and a compass?
         </VsHeading>
         <p>
             Although the Mountain Track is reasonably easy to follow on a clear day, it's essential to have both a map and a compass and know how to use them especially if there is poor visibility during the climb.
         </p>
 
-        <VsHeading level="6">
+        <VsHeading level="4" overrideStyleLevel="6">
             Can I camp at Ben Nevis?
         </VsHeading>
         <p>
@@ -256,7 +256,7 @@ On smaller devices, the sidebar is displayed above the related content in its se
             </VsArticleSidebar>
         </template>
 
-        <VsHeading level="6">
+        <VsHeading level="4" overrideStyleLevel="6">
             What will the weather be like?
         </VsHeading>
         <p>
@@ -266,7 +266,7 @@ On smaller devices, the sidebar is displayed above the related content in its se
             Watch the live conditions and weather from Ben Nevis with the HD webcam, which is situated at Tomacharich, Fort William.
         </p>
 
-        <VsHeading level="6">
+        <VsHeading level="4" overrideStyleLevel="6">
             What should I bring?
         </VsHeading>
         <p>
@@ -281,7 +281,7 @@ On smaller devices, the sidebar is displayed above the related content in its se
     </VsArticleSection>
 
     <VsArticleSection sidebar-align="right">
-        <VsHeading level="6">
+        <VsHeading level="4" overrideStyleLevel="6">
             How do I climb Ben Nevis safely?
         </VsHeading>
         <VsList>

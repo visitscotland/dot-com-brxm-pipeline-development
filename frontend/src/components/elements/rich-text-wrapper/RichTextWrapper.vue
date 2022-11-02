@@ -54,6 +54,20 @@ export default {
             font-size: $font-size-lead-md;
         }
     }
+
+    h3.vs-heading {
+        margin-top: $spacer-4;
+        margin-bottom: $spacer-4;
+    }
+
+    .vs-heading--style-level-6 {
+        margin-top: $spacer-4;
+        margin-bottom: $spacer-8;
+    }
+
+    *:not(.vs-heading) + .vs-heading--style-level-6 {
+        margin-top: $spacer-10;
+    }
 }
 
 </style>
