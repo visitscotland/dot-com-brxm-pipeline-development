@@ -205,7 +205,7 @@ export default {
         */
         errorMessage: {
             type: String,
-            required: true,
+            default: '',
         },
     },
     data() {
@@ -249,6 +249,8 @@ export default {
         return {
             noJsMessage: this.noJsMessage,
             noCookiesMessage: this.noCookiesMessage,
+            cookieLinkText: this.cookieLinkText,
+            errorMessage: this.errorMessage,
         };
     },
 };
@@ -260,10 +262,18 @@ export default {
 
         &__image-wrapper {
             position: relative;
+            aspect-ratio: 3/2;
+
+            @supports not (aspect-ratio: 3/2) {
+                padding-bottom: 66.6%;
+            }
 
             img {
                 width: 100%;
-                height: auto;
+                height: 100%;
+                object-fit: cover;
+                align-self: flex-start;
+                flex-shrink: 0; // IE11 fix, prevents image vertical stretching
             }
 
             .vs-toggle-btn {
@@ -471,6 +481,11 @@ export default {
                 &__image-wrapper {
                     max-height: 100vh;
                     overflow: hidden;
+                    aspect-ratio: auto;
+
+                    @supports not (aspect-ratio: 3/2) {
+                        padding-bottom: $spacer-0;
+                    }
 
                     .vs-toggle-btn {
                         @include media-breakpoint-between(sm, md) {

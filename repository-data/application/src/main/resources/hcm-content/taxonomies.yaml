@@ -1,10 +1,10 @@
 /content/taxonomies:
   jcr:primaryType: hippotaxonomy:container
-  /Visitsctoland-categories:
+  /Visitscotland-categories:
     jcr:primaryType: hippo:handle
     jcr:mixinTypes: ['hippo:versionInfo']
-    hippo:versionHistory: ed92f3e3-5f0e-49f6-ad40-8d2179c3fe57
-    /Visitsctoland-categories[1]:
+    hippo:versionHistory: 82dd606e-6a14-4716-ae64-14851ffab3ce
+    /Visitscotland-categories[1]:
       jcr:primaryType: hippotaxonomy:taxonomy
       jcr:mixinTypes: ['hippostd:publishableSummary', 'mix:versionable']
       jcr:uuid: cab42352-ce45-4925-93c8-e8507374f506
@@ -14,9 +14,9 @@
       hippostd:state: published
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2022-06-10T13:52:12.043+01:00
-      hippostdpubwf:lastModificationDate: 2022-06-16T16:51:54.452+01:00
+      hippostdpubwf:lastModificationDate: 2022-10-07T15:44:58.922+01:00
       hippostdpubwf:lastModifiedBy: admin
-      hippostdpubwf:publicationDate: 2022-06-16T16:52:01.718+01:00
+      hippostdpubwf:publicationDate: 2022-10-07T15:45:02.956+01:00
       hippotaxonomy:locales: [en, fr, de, es, it, nl]
       /destinations:
         jcr:primaryType: hippotaxonomy:category
@@ -54,10 +54,10 @@
               hippotaxonomy:name: Ciudades
             /fr:
               jcr:primaryType: hippotaxonomy:categoryinfo
-              hippotaxonomy:name: Cities
+              hippotaxonomy:name: Ville
             /de:
               jcr:primaryType: hippotaxonomy:categoryinfo
-              hippotaxonomy:name: Cities
+              hippotaxonomy:name: Stadt
             /it:
               jcr:primaryType: hippotaxonomy:categoryinfo
               hippotaxonomy:name: Cities
@@ -115,7 +115,70 @@
             /en:
               jcr:primaryType: hippotaxonomy:categoryinfo
               hippotaxonomy:name: Regions
-    /Visitsctoland-categories[2]:
+            /de:
+              jcr:primaryType: hippotaxonomy:categoryinfo
+              hippotaxonomy:name: Regionen
+            /es:
+              jcr:primaryType: hippotaxonomy:categoryinfo
+              hippotaxonomy:name: Regiones
+            /it:
+              jcr:primaryType: hippotaxonomy:categoryinfo
+              hippotaxonomy:name: Regioni
+            /nl:
+              jcr:primaryType: hippotaxonomy:categoryinfo
+              hippotaxonomy:name: Regio's
+            /fr:
+              jcr:primaryType: hippotaxonomy:categoryinfo
+              hippotaxonomy:name: Régions
+      /outlander:
+        jcr:primaryType: hippotaxonomy:category
+        hippotaxonomy:key: outlander
+        /hippotaxonomy:categoryinfos:
+          jcr:primaryType: hippotaxonomy:categoryinfos
+          /en:
+            jcr:primaryType: hippotaxonomy:categoryinfo
+            hippotaxonomy:name: Outlander
+        /seasons:
+          jcr:primaryType: hippotaxonomy:category
+          hippotaxonomy:key: seasons
+          /hippotaxonomy:categoryinfos:
+            jcr:primaryType: hippotaxonomy:categoryinfos
+            /en:
+              jcr:primaryType: hippotaxonomy:categoryinfo
+              hippotaxonomy:name: Seasons
+          /season1:
+            jcr:primaryType: hippotaxonomy:category
+            hippotaxonomy:key: season1
+            /hippotaxonomy:categoryinfos:
+              jcr:primaryType: hippotaxonomy:categoryinfos
+              /en:
+                jcr:primaryType: hippotaxonomy:categoryinfo
+                hippotaxonomy:name: Season1
+          /season-2:
+            jcr:primaryType: hippotaxonomy:category
+            hippotaxonomy:key: season-2
+            /hippotaxonomy:categoryinfos:
+              jcr:primaryType: hippotaxonomy:categoryinfos
+              /en:
+                jcr:primaryType: hippotaxonomy:categoryinfo
+                hippotaxonomy:name: Season 2
+        /categories:
+          jcr:primaryType: hippotaxonomy:category
+          hippotaxonomy:key: categories
+          /hippotaxonomy:categoryinfos:
+            jcr:primaryType: hippotaxonomy:categoryinfos
+            /en:
+              jcr:primaryType: hippotaxonomy:categoryinfo
+              hippotaxonomy:name: Categories
+          /church:
+            jcr:primaryType: hippotaxonomy:category
+            hippotaxonomy:key: church
+            /hippotaxonomy:categoryinfos:
+              jcr:primaryType: hippotaxonomy:categoryinfos
+              /en:
+                jcr:primaryType: hippotaxonomy:categoryinfo
+                hippotaxonomy:name: church
+    /Visitscotland-categories[2]:
       jcr:primaryType: hippotaxonomy:taxonomy
       jcr:mixinTypes: ['hippostd:publishableSummary', 'mix:referenceable', 'mix:versionable']
       jcr:uuid: 0149d1ec-eee8-445d-83cb-e22a48a26a30
@@ -124,7 +187,7 @@
       hippostd:state: unpublished
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2022-06-10T13:52:12.043+01:00
-      hippostdpubwf:lastModificationDate: 2022-06-16T16:51:54.452+01:00
+      hippostdpubwf:lastModificationDate: 2022-10-07T15:44:58.922+01:00
       hippostdpubwf:lastModifiedBy: admin
       hippotaxonomy:locales: [en, fr, de, es, it, nl]
       /destinations:
@@ -163,10 +226,10 @@
               hippotaxonomy:name: Ciudades
             /fr:
               jcr:primaryType: hippotaxonomy:categoryinfo
-              hippotaxonomy:name: Cities
+              hippotaxonomy:name: Ville
             /de:
               jcr:primaryType: hippotaxonomy:categoryinfo
-              hippotaxonomy:name: Cities
+              hippotaxonomy:name: Stadt
             /it:
               jcr:primaryType: hippotaxonomy:categoryinfo
               hippotaxonomy:name: Cities
@@ -224,7 +287,70 @@
             /en:
               jcr:primaryType: hippotaxonomy:categoryinfo
               hippotaxonomy:name: Regions
-    /Visitsctoland-categories[3]:
+            /de:
+              jcr:primaryType: hippotaxonomy:categoryinfo
+              hippotaxonomy:name: Regionen
+            /es:
+              jcr:primaryType: hippotaxonomy:categoryinfo
+              hippotaxonomy:name: Regiones
+            /it:
+              jcr:primaryType: hippotaxonomy:categoryinfo
+              hippotaxonomy:name: Regioni
+            /nl:
+              jcr:primaryType: hippotaxonomy:categoryinfo
+              hippotaxonomy:name: Regio's
+            /fr:
+              jcr:primaryType: hippotaxonomy:categoryinfo
+              hippotaxonomy:name: Régions
+      /outlander:
+        jcr:primaryType: hippotaxonomy:category
+        hippotaxonomy:key: outlander
+        /hippotaxonomy:categoryinfos:
+          jcr:primaryType: hippotaxonomy:categoryinfos
+          /en:
+            jcr:primaryType: hippotaxonomy:categoryinfo
+            hippotaxonomy:name: Outlander
+        /seasons:
+          jcr:primaryType: hippotaxonomy:category
+          hippotaxonomy:key: seasons
+          /hippotaxonomy:categoryinfos:
+            jcr:primaryType: hippotaxonomy:categoryinfos
+            /en:
+              jcr:primaryType: hippotaxonomy:categoryinfo
+              hippotaxonomy:name: Seasons
+          /season1:
+            jcr:primaryType: hippotaxonomy:category
+            hippotaxonomy:key: season1
+            /hippotaxonomy:categoryinfos:
+              jcr:primaryType: hippotaxonomy:categoryinfos
+              /en:
+                jcr:primaryType: hippotaxonomy:categoryinfo
+                hippotaxonomy:name: Season1
+          /season-2:
+            jcr:primaryType: hippotaxonomy:category
+            hippotaxonomy:key: season-2
+            /hippotaxonomy:categoryinfos:
+              jcr:primaryType: hippotaxonomy:categoryinfos
+              /en:
+                jcr:primaryType: hippotaxonomy:categoryinfo
+                hippotaxonomy:name: Season 2
+        /categories:
+          jcr:primaryType: hippotaxonomy:category
+          hippotaxonomy:key: categories
+          /hippotaxonomy:categoryinfos:
+            jcr:primaryType: hippotaxonomy:categoryinfos
+            /en:
+              jcr:primaryType: hippotaxonomy:categoryinfo
+              hippotaxonomy:name: Categories
+          /church:
+            jcr:primaryType: hippotaxonomy:category
+            hippotaxonomy:key: church
+            /hippotaxonomy:categoryinfos:
+              jcr:primaryType: hippotaxonomy:categoryinfos
+              /en:
+                jcr:primaryType: hippotaxonomy:categoryinfo
+                hippotaxonomy:name: church
+    /Visitscotland-categories[3]:
       jcr:primaryType: hippotaxonomy:taxonomy
       jcr:mixinTypes: ['hippostd:publishableSummary', 'mix:referenceable']
       jcr:uuid: 6270c674-cc98-4416-843b-31ebcee006c3
@@ -233,7 +359,7 @@
       hippostd:state: draft
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2022-06-10T13:52:12.043+01:00
-      hippostdpubwf:lastModificationDate: 2022-06-16T16:45:14.162+01:00
+      hippostdpubwf:lastModificationDate: 2022-10-07T15:44:48.530+01:00
       hippostdpubwf:lastModifiedBy: admin
       hippotaxonomy:locales: [en, fr, de, es, it, nl]
       /destinations:
@@ -272,10 +398,10 @@
               hippotaxonomy:name: Ciudades
             /fr:
               jcr:primaryType: hippotaxonomy:categoryinfo
-              hippotaxonomy:name: Cities
+              hippotaxonomy:name: Ville
             /de:
               jcr:primaryType: hippotaxonomy:categoryinfo
-              hippotaxonomy:name: Cities
+              hippotaxonomy:name: Stadt
             /it:
               jcr:primaryType: hippotaxonomy:categoryinfo
               hippotaxonomy:name: Cities
@@ -333,3 +459,66 @@
             /en:
               jcr:primaryType: hippotaxonomy:categoryinfo
               hippotaxonomy:name: Regions
+            /de:
+              jcr:primaryType: hippotaxonomy:categoryinfo
+              hippotaxonomy:name: Regionen
+            /es:
+              jcr:primaryType: hippotaxonomy:categoryinfo
+              hippotaxonomy:name: Regiones
+            /it:
+              jcr:primaryType: hippotaxonomy:categoryinfo
+              hippotaxonomy:name: Regioni
+            /nl:
+              jcr:primaryType: hippotaxonomy:categoryinfo
+              hippotaxonomy:name: Regio's
+            /fr:
+              jcr:primaryType: hippotaxonomy:categoryinfo
+              hippotaxonomy:name: Régions
+      /outlander:
+        jcr:primaryType: hippotaxonomy:category
+        hippotaxonomy:key: outlander
+        /hippotaxonomy:categoryinfos:
+          jcr:primaryType: hippotaxonomy:categoryinfos
+          /en:
+            jcr:primaryType: hippotaxonomy:categoryinfo
+            hippotaxonomy:name: Outlander
+        /seasons:
+          jcr:primaryType: hippotaxonomy:category
+          hippotaxonomy:key: seasons
+          /hippotaxonomy:categoryinfos:
+            jcr:primaryType: hippotaxonomy:categoryinfos
+            /en:
+              jcr:primaryType: hippotaxonomy:categoryinfo
+              hippotaxonomy:name: Seasons
+          /season1:
+            jcr:primaryType: hippotaxonomy:category
+            hippotaxonomy:key: season1
+            /hippotaxonomy:categoryinfos:
+              jcr:primaryType: hippotaxonomy:categoryinfos
+              /en:
+                jcr:primaryType: hippotaxonomy:categoryinfo
+                hippotaxonomy:name: Season1
+          /season-2:
+            jcr:primaryType: hippotaxonomy:category
+            hippotaxonomy:key: season2
+            /hippotaxonomy:categoryinfos:
+              jcr:primaryType: hippotaxonomy:categoryinfos
+              /en:
+                jcr:primaryType: hippotaxonomy:categoryinfo
+                hippotaxonomy:name: Season 2
+        /categories:
+          jcr:primaryType: hippotaxonomy:category
+          hippotaxonomy:key: categories
+          /hippotaxonomy:categoryinfos:
+            jcr:primaryType: hippotaxonomy:categoryinfos
+            /en:
+              jcr:primaryType: hippotaxonomy:categoryinfo
+              hippotaxonomy:name: Categories
+          /church:
+            jcr:primaryType: hippotaxonomy:category
+            hippotaxonomy:key: church
+            /hippotaxonomy:categoryinfos:
+              jcr:primaryType: hippotaxonomy:categoryinfos
+              /en:
+                jcr:primaryType: hippotaxonomy:categoryinfo
+                hippotaxonomy:name: church

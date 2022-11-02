@@ -155,7 +155,7 @@ export default {
         */
         errorMessage: {
             type: String,
-            required: true,
+            default: '',
         },
     },
 };

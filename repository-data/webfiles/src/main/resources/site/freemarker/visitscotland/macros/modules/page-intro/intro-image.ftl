@@ -1,6 +1,6 @@
-<#include "../../frontend/components/vs-container.ftl">
-<#include "../../frontend/components/vs-row.ftl">
-<#include "../../frontend/components/vs-col.ftl">
+<#include "../../../../frontend/components/vs-container.ftl">
+<#include "../../../../frontend/components/vs-row.ftl">
+<#include "../../../../frontend/components/vs-col.ftl">
 
 <#macro introImage mainImage="" >
     <@hst.link var="imageSrc" hippobean=mainImage.cmsImage.original/>

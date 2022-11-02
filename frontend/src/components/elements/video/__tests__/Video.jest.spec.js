@@ -1,4 +1,4 @@
-import { shallowMount } from '@vue/test-utils';
+import { shallowMount, mount } from '@vue/test-utils';
 import VsVideo from '../Video';
 
 const videoId = 'C0DPdy98e4c';
@@ -6,14 +6,47 @@ const singleMinuteDescriptor = '%s minute';
 const pluralMinuteDescriptor = '%s minutos';
 const language = 'de';
 
-const factoryShallowMount = (propsData, compData) => shallowMount(VsVideo, {
+const noJsContent = 'Js is off';
+const noCookiesContent = 'Cookies are off';
+const errorContent = 'Error content';
+const cookieBtnText = 'Cookie link text';
+
+const factoryShallowMount = (compData) => shallowMount(VsVideo, {
     propsData: {
         videoId,
         showDuration: true,
         singleMinuteDescriptor,
         pluralMinuteDescriptor,
         language,
-        ...propsData,
+        cookieBtnText,
+        noCookiesMessage: noCookiesContent,
+        errorMessage: errorContent,
+        noJsMessage: noJsContent,
+    },
+    computed: {
+        player() {
+            return {
+                getDuration() {
+                    // return fake video lenth of 3 mins 30 secs
+                    return Promise.resolve(210);
+                },
+            };
+        },
+        ...compData,
+    },
+});
+
+const factoryMount = (compData) => mount(VsVideo, {
+    propsData: {
+        videoId,
+        showDuration: true,
+        singleMinuteDescriptor,
+        pluralMinuteDescriptor,
+        language,
+        cookieBtnText,
+        noCookiesMessage: noCookiesContent,
+        errorMessage: errorContent,
+        noJsMessage: noJsContent,
     },
     computed: {
         player() {
@@ -56,7 +89,7 @@ describe('VsVideo', () => {
 
     describe(':data', () => {
         it('should show a roundedDuration that rounds up, if the duration is 0 minutes and < 30 seconds', async() => {
-            const wrapper = factoryShallowMount();
+            const wrapper = factoryMount();
 
             // a 25 second video, which should round to 1 minute
             wrapper.vm.formatTime(25);
@@ -124,6 +157,57 @@ describe('VsVideo', () => {
             });
 
             expect(wrapper.vm.duration.roundedMinutes).toBe(pluralMinuteDescriptor.replace('%s', '4'));
+        });
+
+        it('renders content inserted into the `embedIntroCopyNoJs` slot', () => {
+            const wrapper = factoryShallowMount();
+            expect(wrapper.text()).toContain(noJsContent);
+        });
+
+        it('should render the `noCookiesMessage` prop content if cookies are not enabled', async() => {
+            const wrapper = factoryMount({
+                requiredCookiesExist: {
+                    get() {
+                        return false;
+                    },
+                },
+                showError: {
+                    get() {
+                        return true;
+                    },
+                },
+            });
+
+            wrapper.setData({
+                cookiesInitStatus: true,
+            });
+
+            await wrapper.vm.$nextTick();
+
+            expect(wrapper.text()).toContain(noCookiesContent);
+        });
+
+        it('should render the `cookieBtnText` prop content if cookies are not enabled', async() => {
+            const wrapper = factoryMount({
+                requiredCookiesExist: {
+                    get() {
+                        return false;
+                    },
+                },
+                showError: {
+                    get() {
+                        return true;
+                    },
+                },
+            });
+
+            wrapper.setData({
+                cookiesInitStatus: true,
+            });
+
+            await wrapper.vm.$nextTick();
+
+            expect(wrapper.text()).toContain(cookieBtnText);
         });
     });
 

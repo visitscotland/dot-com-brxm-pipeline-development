@@ -1,7 +1,7 @@
 package com.visitscotland.brxm.utils;
 
+import com.visitscotland.brxm.hippobeans.Image;
 import com.visitscotland.brxm.hippobeans.Page;
-import org.hippoecm.hst.component.support.bean.BaseHstComponent;
 import org.hippoecm.hst.configuration.hosting.Mount;
 import org.hippoecm.hst.container.RequestContextProvider;
 import org.hippoecm.hst.content.beans.ObjectBeanManagerException;
@@ -71,6 +71,27 @@ public class HippoUtilsService {
         }
     }
 
+    /**
+     * Convert Image into a URL String
+     *
+     * @param image CMS image
+     *
+     * @return URL for the image that renders the document's image or null when it cannot be rendered the image.
+     *
+     *
+     */
+    public static String createUrl(Image image) {
+        if (image == null) {
+            logger.info("The linked image does not exist.");
+            return null;
+        } else {
+            final boolean FULLY_QUALIFIED = false;
+            HstRequestContext requestContext = RequestContextProvider.get();
+            HstLink link = requestContext.getHstLinkCreator().create(image, requestContext);
+            return link.toUrlForm(requestContext, FULLY_QUALIFIED);
+        }
+    }
+
     private HippoBean getLocalizedDocument(@NotNull Page document) {
         HippoBean localizedDocument = document;
 
@@ -113,7 +134,7 @@ public class HippoUtilsService {
 
     /**
      * Return a (possibly unavailable) hippo bean from a node
-     * @param jcrNode
+     * @param jcrNode CMS node
      * @param includeUnavailable If true, then the bean will be found even if hippo:availability is not set to 'live'
      */
     @NonTestable(NonTestable.Cause.BRIDGE)
@@ -139,8 +160,8 @@ public class HippoUtilsService {
     /**
      * TODO: To be reused by getContentBeanWithTranslationFallback()
      *
-     * @param request
-     * @param resolvedSiteMapItem
+     * @param request the HstRequest request
+     * @param resolvedSiteMapItem item from the cms sitemap
      * @param resolvedMount
      * @return
      *
@@ -167,7 +188,7 @@ public class HippoUtilsService {
 
     /**
      * TODO Comment
-     * @param request
+     * @param request the HstRequest request
      * @param mount
      * @return
      */

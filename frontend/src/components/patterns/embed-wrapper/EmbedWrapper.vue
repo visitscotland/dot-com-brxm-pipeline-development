@@ -21,31 +21,6 @@
                         <!-- @slot Slot to contain intro text -->
                         <slot name="embedIntroCopy" />
                     </VsRichTextWrapper>
-                    <VsRichTextWrapper
-                        class="vs-module-wrapper__intro vs-embed-wrapper__no-js"
-                        v-if="!!this.$slots['embedIntroCopyNoJs']"
-                        data-test="vs-module-wrapper__intro"
-                    >
-                        <!-- @slot Slot to contain intro text if js is disabled -->
-                        <slot name="embedIntroCopyNoJs" />
-                    </VsRichTextWrapper>
-                    <VsRichTextWrapper
-                        class="vs-module-wrapper__intro"
-                        v-if="showNoCookieText"
-                        data-test="vs-module-wrapper__intro"
-                    >
-                        <!-- @slot Slot to contain intro text if cookies aren't enabled -->
-                        <slot name="embedIntroCopyNoCookies" />
-                    </VsRichTextWrapper>
-
-                    <div
-                        v-else-if="cookiesInitStatus === 'error'"
-                        class="mb-4"
-                    >
-                        <!-- @slot Slot to contain intro text if there's
-                        an error with a third party -->
-                        <slot name="embedIntroCopyError" />
-                    </div>
                 </VsCol>
                 <VsCol
                     cols="12"
@@ -62,21 +37,36 @@
                         -->
                         <slot name="embedWidget" />
                     </div>
-                    <div class="vs-embed-wrapper__no-js">
-                        <VsSvg
-                            class="vs-embed-wrapper__error-image"
-                            path="no-js-coo"
-                        />
-                    </div>
                     <div
-                        v-if="showErrorIcon"
+                        v-if="showError"
                         key="fallback"
                     >
-                        <VsSvg
-                            class="vs-embed-wrapper__error-image"
-                            :path="cookiesInitStatus === true ? 'cookie-coo' : 'no-js-coo'"
-                        />
+                        <VsWarning
+                            :type="cookiesInitStatus === true ? 'cookie' : 'normal'"
+                            theme="light"
+                            data-test="vs-embed-wrapper__error"
+                            class="vs-embed-wrapper__error"
+                        >
+                            {{ warningText }}
+
+                            <template
+                                v-if="!requiredCookiesExist
+                                    && cookiesInitStatus === true"
+                                slot="button-text"
+                            >
+                                <slot name="embedButtonText" />
+                            </template>
+                        </VsWarning>
                     </div>
+
+                    <VsWarning
+                        type="normal"
+                        theme="light"
+                        data-test="vs-embed-wrapper__error--no-js"
+                        class="vs-embed-wrapper__error vs-embed-wrapper__error--no-js"
+                    >
+                        {{ noJsText }}
+                    </VsWarning>
                 </VsCol>
             </VsRow>
         </VsContainer>
@@ -87,8 +77,8 @@
 import {
     VsContainer, VsRow, VsCol,
 } from '@components/elements/grid';
-import VsSvg from '@components/elements/svg/Svg';
 import VsRichTextWrapper from '@components/elements/rich-text-wrapper/RichTextWrapper';
+import VsWarning from '@components/patterns/warning/Warning';
 import verifyCookiesMixin from '../../../mixins/verifyCookiesMixin';
 import requiredCookiesData from '../../../utils/required-cookies-data';
 
@@ -108,28 +98,33 @@ export default {
         VsContainer,
         VsRow,
         VsCol,
-        VsSvg,
         VsRichTextWrapper,
+        VsWarning,
     },
     mixins: [
         verifyCookiesMixin,
     ],
+    props: {
+        noCookieText: {
+            type: String,
+            required: true,
+        },
+        errorText: {
+            type: String,
+            required: true,
+        },
+        noJsText: {
+            type: String,
+            required: true,
+        },
+    },
     data() {
         return {
             requiredCookies: cookieValues,
         };
     },
     computed: {
-        showNoCookieText() {
-            if (!!this.$slots.embedIntroCopyNoCookies
-                && !this.requiredCookiesExist
-                && this.cookiesInitStatus === true) {
-                return true;
-            }
-
-            return false;
-        },
-        showErrorIcon() {
+        showError() {
             if ((!this.requiredCookiesExist
                 && this.cookiesInitStatus === true)
                 || this.cookiesInitStatus === 'error') {
@@ -137,6 +132,20 @@ export default {
             }
 
             return false;
+        },
+        warningText() {
+            let text = '';
+
+            if (this.cookiesInitStatus === 'error') {
+                text = this.errorText;
+            }
+
+            if (!this.requiredCookiesExist
+                && this.cookiesInitStatus === true) {
+                text = this.noCookieText;
+            }
+
+            return text;
         },
     },
 };
@@ -151,21 +160,9 @@ export default {
         .vs-embed-wrapper__no-js, .vs-embed-wrapper__no-cookies {
             display: none;
         }
-    }
 
-    .no-cookies {
-        .vs-embed-wrapper {
-            &__container {
-                display: none;
-            }
-
-            &__intro {
-                display: none;
-            }
-
-            &__no-cookies {
-                display: block;
-            }
+        &__error--no-js {
+            display: none;
         }
     }
 
@@ -179,13 +176,12 @@ export default {
                 display: none;
             }
 
-            &__no-cookies {
+            &__error {
                 display: none;
-            }
 
-            &__no-js {
-                display: block;
-                text-align: center;
+                &--no-js {
+                    display: block;
+                }
             }
         }
     }
@@ -198,25 +194,14 @@ export default {
             Your Pictures Of Scottish Castles
         </template>
 
-        <VsEmbedWrapper>
+        <VsEmbedWrapper
+            noCookieText="You need cookies enabled to view this content"
+            errorText="Sorry, there's been an error, please try again later"
+            noJsText="You need Javascript enabled to see this content"
+        >
             <template slot="embedIntroCopy">
                 Share your snaps with us by using #ScottishCastle or #VisitScotland
             </template>
-
-            <template slot="embedIntroCopyNoJs">
-                <p>JavaScript needs to be enabled to see social media images for this place.
-You can turn this on in your browser settings.</p>
-            </template>
-
-            <template slot="embedIntroCopyNoCookies">
-                <p>Cookies are needed to see social media images from this place.</p>
-                <p><a target="_blank" href="#">Update my cookie settings</a></p>
-            </template>
-
-            <template slot="embedIntroCopyError">
-                <p>Sorry, somethings gone wrong. We can't display this content at the moment.</p>
-            </template>
-
             <template slot="embedWidget">
                 Embed Tag Goes Here
             </template>

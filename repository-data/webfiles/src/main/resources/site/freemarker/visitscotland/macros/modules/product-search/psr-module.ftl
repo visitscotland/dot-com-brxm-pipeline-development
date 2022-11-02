@@ -17,6 +17,8 @@
                 {'domain' : '${module.domain}'},
                 {'lang':'${locale[0..1]}'},
             ]"
+            no-js-message="${label('product-search-widget', 'no-js-message')}"
+
             <#if position=="top" && themeCalculator(introTheme) != "light">
                 class="mb-9 mb-lg-12"
             <#elseif position=="bottom">

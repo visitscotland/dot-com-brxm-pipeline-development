@@ -48,31 +48,37 @@
             class="vs-video-caption vs-video-caption--warning"
         >
             <VsWarning
-                :warning-message="noCookiesMessage"
-                :show-cookie-link="true"
-                :cookie-link-text="cookieLinkText"
-                variant="row"
-            />
+                size="small"
+                type="cookie"
+                :transparent="false"
+            >
+                {{ noCookiesMessage }}
+                <template slot="button-text">
+                    {{ cookieLinkText }}
+                </template>
+            </VsWarning>
         </div>
         <div
             v-else-if="cookiesInitStatus === 'error'"
             class="vs-video-caption vs-video-caption--warning"
         >
             <VsWarning
-                :warning-message="errorMessage"
-                variant="row"
-            />
+                size="small"
+                :transparent="false"
+            >
+                {{ errorMessage }}
+            </VsWarning>
         </div>
         <div
             class="vs-video-caption vs-video-caption--no-js vs-video-caption--warning"
             data-test="video-caption-nojs"
         >
             <VsWarning
-                :warning-message="noJsMessage"
-                :show-cookie-link="false"
-                :cookie-link-text="cookieLinkText"
-                variant="row"
-            />
+                size="small"
+                :transparent="false"
+            >
+                {{ noJsMessage }}
+            </VsWarning>
         </div>
     </div>
 </template>
@@ -127,26 +133,18 @@ export default {
             type: String,
             required: true,
         },
-        /**
-        * Text used for the link which opens the cookie preference centre.
-        */
-        cookieLinkText: {
-            type: String,
-            default: '',
-        },
-        /**
-         * Message to show when there's an error with a third party
-        */
-        errorMessage: {
-            type: String,
-            required: true,
-        },
     },
     inject: {
         noJsMessage: {
             default: '',
         },
         noCookiesMessage: {
+            default: '',
+        },
+        cookieLinkText: {
+            default: '',
+        },
+        errorMessage: {
             default: '',
         },
     },
@@ -195,10 +193,6 @@ export default {
 
         &--no-js {
             display: none;
-        }
-
-        &--warning {
-            background-color: $color-gray-shade-6;
         }
 
         &__details {
@@ -356,64 +350,83 @@ export default {
 
 <docs>
     ``` jsx
-    <VsVideoCaption
-        class="mt-5 mb-5"
-        videoBtnText="Play video this is a longer caption"
-        videoId="c05sg3G4oA4"
-        error-message="Something's gone wrong"
+    <VsImageWithCaption
+        noJsMessage="You need Javascript enabled to see this content"
+        noCookiesMessage="You need cookies enabled to see this content"
+        cookieLinkText="Manage your cookies"
+        errorMessage="Something's gone wrong. Please try again later"
     >
-        <template slot="video-title">
-            This is the video title
-        </template>
-        <template slot="video-no-js-alert">
-            JavaScript needs to be enabled to watch this video.
-            You can turn this on in your browser settings.
-        </template>
-
-        <template slot="video-no-cookies-alert">
-            You need cookies enabled to watch this video.
-            <span id="ot-sdk-btn" class="ot-sdk-show-settings">Manage Cookie Settings</span>.
-        </template>
-
-        <button id="ot-sdk-btn" class="ot-sdk-show-settings">
-            Cookie Settings
-        </button>
-    </VsVideoCaption>
-
-    <VsVideoCaption
-        withToggleBtn
-        class="mb-5 mt-12"
-        videoBtnText="Play video"
-        videoId="FlG6tbYaA88"
-        error-message="Something's gone wrong"
-    >
-        <template slot="video-title">
-            This video caption has a toggle button
-        </template>
-        <template slot="video-no-js-alert">
-            JavaScript needs to be enabled to watch this video.
-            You can turn this on in your browser settings.
-        </template>
-    </VsVideoCaption>
-
-    <div class="no-js">
         <VsVideoCaption
-            withToggleBtn
-            videoBtnText="Play video"
-            videoId="FlG6tbYaA88"
-            class="mt-12"
-            error-message="Something's gone wrong"
-            noJs-message="You don't have JS enabled"
+            class="mt-5 mb-5"
+            videoBtnText="Play video this is a longer caption"
+            videoId="c05sg3G4oA4"
         >
             <template slot="video-title">
                 This is the video title
             </template>
             <template slot="video-no-js-alert">
-                This is display when JS is turned off.<br />
+                JavaScript needs to be enabled to watch this video.
+                You can turn this on in your browser settings.
+            </template>
+
+            <template slot="video-no-cookies-alert">
+                You need cookies enabled to watch this video.
+            </template>
+
+            <button id="ot-sdk-btn" class="ot-sdk-show-settings">
+                Cookie Settings
+            </button>
+        </VsVideoCaption>
+    </VsImageWithCaption>
+
+    <VsImageWithCaption
+        noJsMessage="You need Javascript enabled to see this content"
+        noCookiesMessage="You need cookies enabled to see this content"
+        cookieLinkText="Manage your cookies"
+        errorMessage="Something's gone wrong. Please try again later"
+    >
+        <VsVideoCaption
+            withToggleBtn
+            class="mb-5 mt-12"
+            videoBtnText="Play video"
+            videoId="FlG6tbYaA88"
+            error-message="Something's gone wrong"
+        >
+            <template slot="video-title">
+                This video caption has a toggle button
+            </template>
+            <template slot="video-no-js-alert">
                 JavaScript needs to be enabled to watch this video.
                 You can turn this on in your browser settings.
             </template>
         </VsVideoCaption>
+    </VsImageWithCaption>
+
+    <div class="no-js">
+        <VsImageWithCaption
+            noJsMessage="You need Javascript enabled to see this content"
+            noCookiesMessage="You need cookies enabled to see this content"
+            cookieLinkText="Manage your cookies"
+            errorMessage="Something's gone wrong. Please try again later"
+        >
+            <VsVideoCaption
+                withToggleBtn
+                videoBtnText="Play video"
+                videoId="FlG6tbYaA88"
+                class="mt-12"
+                error-message="Something's gone wrong"
+                noJs-message="You don't have JS enabled"
+            >
+                <template slot="video-title">
+                    This is the video title
+                </template>
+                <template slot="video-no-js-alert">
+                    This is display when JS is turned off.<br />
+                    JavaScript needs to be enabled to watch this video.
+                    You can turn this on in your browser settings.
+                </template>
+            </VsVideoCaption>
+        </VsImageWithCaption>
     </div>
 
     <VsModal
