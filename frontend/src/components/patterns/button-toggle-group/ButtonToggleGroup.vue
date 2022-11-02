@@ -1,6 +1,6 @@
 <template>
     <BFormGroup
-        label="Button style radios"
+        :label="buttonsLabel"
         v-slot="{ ariaDescribedby }"
         class="vs-button-toggle-group"
         data-test="vs-button-toggle-group"
@@ -13,6 +13,7 @@
             :aria-describedby="ariaDescribedby"
             name="radios-btn-default"
             buttons
+            @change="toggleChange"
         />
     </BFormGroup>
 </template>
@@ -46,9 +47,35 @@ export default {
         /**
          * Initially selected options
          */
-        selected: {
+        initialSelected: {
+            type: String,
+            default: '',
+        },
+        /**
+         * Initially selected options
+         */
+        buttonsLabel: {
             type: String,
             required: true,
+        },
+    },
+    data() {
+        return {
+            selected: this.initialSelected,
+        };
+    },
+    mounted() {
+        if (this.initialSelected === '') {
+            this.selected = this.options[0].value;
+        }
+    },
+    methods: {
+        /**
+         * Emit checked value when the selected
+         * item changes
+         */
+        toggleChange(checked) {
+            this.$emit('toggleChanged', checked);
         },
     },
 };
@@ -56,6 +83,21 @@ export default {
 
 <style lang="scss">
     .vs-button-toggle-group {
+        width: 100%;
+        text-align: center;
+
+        legend {
+            // sr-only styles
+            border: 0;
+            clip: rect(0, 0, 0, 0);
+            overflow: hidden;
+            position: absolute;
+            height: 1px;
+            margin: -1px;
+            padding: 0;
+            width: 1px;
+        }
+
         &--radios {
             background-color: $color-purple;
             display: inline-block;
@@ -63,7 +105,9 @@ export default {
             overflow: hidden;
 
             input[type="radio"] {
-                display: none;
+                position: absolute;
+                clip: rect(0,0,0,0);
+                pointer-events: none;
             }
 
             label.btn-secondary {

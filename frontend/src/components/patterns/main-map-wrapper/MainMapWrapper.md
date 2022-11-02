@@ -9,6 +9,18 @@ user to filter and search for data contained on the map.
     :places-data="maps.placesData.features"
     discover-text="discover"
     map-id="vs-map"
+    initialSelected="places"
+    :toggleData="[
+        {
+            text: 'Regions',
+            value: 'regions',
+        },
+        {
+            text: 'Places',
+            value: 'places',
+        },
+    ]"
+    buttonsLabel="Select map type"
 >
     <template slot="closeSidePanelText">
         <span class="sr-only">

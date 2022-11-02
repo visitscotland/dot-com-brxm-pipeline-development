@@ -7,14 +7,15 @@ the initially selected item.
 
 ```jsx
     <VsButtonToggleGroup
-        selected="places"
+        buttonsLabel="select map type"
+        initialSelected="places"
         :options="[
             {
                 text: 'Regions',
                 value: 'regions',
             },
             {
-                text: 'Radio 2',
+                text: 'Places',
                 value: 'places',
             },
         ]"
