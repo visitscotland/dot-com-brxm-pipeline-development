@@ -12,6 +12,7 @@ const factoryShallowMount = () => shallowMount(VsMainMapWrapper, {
         filters: filtersJson,
         selectedItem: 'a4260a0c-9d66-425b-835a-eec833c30a92',
         mapId: 'vs-map',
+        currentStage: 0,
     },
 });
 

@@ -9,7 +9,8 @@ const factoryShallowMount = () => shallowMount(VsMap, {
     propsData: {
         mapId: 'vs-map',
         isVisible: true,
-        places: '',
+        places: [
+        ],
     },
 });
 

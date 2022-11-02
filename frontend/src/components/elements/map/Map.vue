@@ -87,13 +87,6 @@ export default {
             type: Boolean,
             default: false,
         },
-        /**
-         * The ID of the currently selected item
-         */
-        selectedItem: {
-            type: String,
-            default: '',
-        },
     },
     data() {
         return {
