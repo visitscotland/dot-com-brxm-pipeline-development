@@ -125,12 +125,6 @@ export default {
             max-width: 100%;
         }
 
-        @include media-breakpoint-down(xs) {
-            max-width: initial;
-            width: calc(100% + #{$spacer-6});
-            margin-left: -#{$spacer-3};
-        }
-
         @include media-breakpoint-up(lg) {
             > .row {
                 margin-left: 0;

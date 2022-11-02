@@ -21,7 +21,7 @@
                 >
                     <vs-row>
                         <vs-col cols="12">
-                            <@video video=section.video.Video />
+                            <@video video=section.video />
                         </vs-col>
                     </vs-row>
 

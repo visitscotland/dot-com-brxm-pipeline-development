@@ -525,13 +525,20 @@ export default {
         .vs-stretched-link-card__img-container {
             width: 100%;
             max-width: 100%;
-            align-self: flex-start;
-            flex-shrink: 0; // IE11 fix, prevents image vertical stretching
             position: relative;
+            aspect-ratio: 3/2;
+
+            @supports not (aspect-ratio: 3/2) {
+                padding-bottom: 66.6%;
+            }
         }
 
         .vs-stretched-link-card__img {
             width: 100%;
+            height: 100%;
+            object-fit: cover;
+            align-self: flex-start;
+            flex-shrink: 0; // IE11 fix, prevents image vertical stretching
         }
 
         .vs-stretched-link-card__title {

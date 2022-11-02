@@ -53,13 +53,14 @@ public class PageTemplateBuilder {
     private final CannedSearchFactory cannedSearchFactory;
     private final PreviewModeFactory previewFactory;
     private final MarketoFormFactory marketoFormFactory;
+    private final MapFactory mapFactory;
 
 
     @Autowired
     public PageTemplateBuilder(DocumentUtilsService documentUtils, MegalinkFactory linksFactory, ICentreFactory iCentre,
                IKnowFactory iKnow, ArticleFactory article, LongCopyFactory longcopy, IKnowCommunityFactory iKnowCommunityFactory,
                StacklaFactory stacklaFactory, TravelInformationFactory travelInformationFactory, CannedSearchFactory cannedSearchFactory,
-               PreviewModeFactory previewFactory, MarketoFormFactory marketoFormFactory) {
+               PreviewModeFactory previewFactory, MarketoFormFactory marketoFormFactory, MapFactory mapFactory) {
         this.linksFactory = linksFactory;
         this.iCentreFactory = iCentre;
         this.iKnowFactory = iKnow;
@@ -72,6 +73,7 @@ public class PageTemplateBuilder {
         this.cannedSearchFactory = cannedSearchFactory;
         this.previewFactory = previewFactory;
         this.marketoFormFactory = marketoFormFactory;
+        this.mapFactory = mapFactory;
     }
 
     private Page getDocument(HstRequest request) {
@@ -96,8 +98,8 @@ public class PageTemplateBuilder {
                     page.modules.add(articleFactory.getModule(request, (Article) item));
                 } else if (item instanceof LongCopy){
                     processLongCopy(request, page, (LongCopy) item);
-                } else if (item instanceof IknowCommunity) {
-                    page.modules.add(iKnowCommunityFactory.getIKnowCommunityModule((IknowCommunity) item, request.getLocale()));
+                } else if (item instanceof MapModule) {
+                    page.modules.add(mapFactory.getModule(request, (MapModule) item, getDocument(request)));
                 } else if (item instanceof Stackla) {
                     page.modules.add(stacklaFactory.getStacklaModule((Stackla) item, request.getLocale()));
                 }  else if (item instanceof TravelInformation) {

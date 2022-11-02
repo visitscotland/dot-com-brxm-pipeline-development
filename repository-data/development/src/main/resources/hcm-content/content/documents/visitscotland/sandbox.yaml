@@ -14249,7 +14249,7 @@
       jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
       jcr:uuid: 8422f473-6a53-4d9e-bd22-a3efa115d1f8
       hippo:name: Main map
-      hippo:versionHistory: f55f491c-87c7-4c45-af6f-10c0d29430cf
+      hippo:versionHistory: 10351320-0f28-492d-92c4-14fdae1aec39
       /main-map[1]:
         jcr:primaryType: visitscotland:MapModule
         jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
@@ -14259,13 +14259,13 @@
         hippostd:state: draft
         hippostdpubwf:createdBy: admin
         hippostdpubwf:creationDate: 2022-06-16T09:40:19.973+01:00
-        hippostdpubwf:lastModificationDate: 2022-10-13T08:18:24.427+01:00
+        hippostdpubwf:lastModificationDate: 2022-10-25T10:35:28.744+01:00
         hippostdpubwf:lastModifiedBy: admin
         hippotaxonomy:keys: [destinations]
         hippotranslation:id: 5c1c7d42-9e51-44f3-8c7e-8c78fe05ca34
         hippotranslation:locale: en
         visitscotland:tabTitle: Explore places to go
-        visitscotland:title: ''
+        visitscotland:title: Map of Scotland
         /visitscotland:categories:
           jcr:primaryType: visitscotland:MapCategory
           visitscotland:title: ''
@@ -14284,6 +14284,12 @@
               jcr:primaryType: visitscotland:Coordinates
               visitscotland:latitude: 56.797394
               visitscotland:longitude: -5.003361
+        /visitscotland:copy:
+          jcr:primaryType: hippostd:html
+          hippostd:content: <p>This is an example of a map.&nbsp;&nbsp;Suspendisse
+            nec bibendum mauris. Maecenas nulla nibh, gravida non risus quis, sollicitudin
+            pulvinar purus. Pellentesque lacus massa, rhoncus et mollis semper, tempus
+            a diam.&nbsp;</p>
       /main-map[2]:
         jcr:primaryType: visitscotland:MapModule
         jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable', 'mix:versionable']
@@ -14293,13 +14299,13 @@
         hippostd:state: unpublished
         hippostdpubwf:createdBy: admin
         hippostdpubwf:creationDate: 2022-06-16T09:40:19.973+01:00
-        hippostdpubwf:lastModificationDate: 2022-10-13T08:18:35.466+01:00
+        hippostdpubwf:lastModificationDate: 2022-10-25T10:36:13.225+01:00
         hippostdpubwf:lastModifiedBy: admin
         hippotaxonomy:keys: [destinations]
         hippotranslation:id: 5c1c7d42-9e51-44f3-8c7e-8c78fe05ca34
         hippotranslation:locale: en
         visitscotland:tabTitle: Explore places to go
-        visitscotland:title: ''
+        visitscotland:title: Map of Scotland
         /visitscotland:categories:
           jcr:primaryType: visitscotland:MapCategory
           visitscotland:title: ''
@@ -14318,6 +14324,12 @@
               jcr:primaryType: visitscotland:Coordinates
               visitscotland:latitude: 56.797394
               visitscotland:longitude: -5.003361
+        /visitscotland:copy:
+          jcr:primaryType: hippostd:html
+          hippostd:content: <p>This is an example of a map.&nbsp;&nbsp;Suspendisse
+            nec bibendum mauris. Maecenas nulla nibh, gravida non risus quis, sollicitudin
+            pulvinar purus. Pellentesque lacus massa, rhoncus et mollis semper, tempus
+            a diam.&nbsp;</p>
       /main-map[3]:
         jcr:primaryType: visitscotland:MapModule
         jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
@@ -14327,14 +14339,14 @@
         hippostd:state: published
         hippostdpubwf:createdBy: admin
         hippostdpubwf:creationDate: 2022-06-16T09:40:19.973+01:00
-        hippostdpubwf:lastModificationDate: 2022-10-13T08:18:35.466+01:00
+        hippostdpubwf:lastModificationDate: 2022-10-25T10:36:13.225+01:00
         hippostdpubwf:lastModifiedBy: admin
-        hippostdpubwf:publicationDate: 2022-10-13T08:18:37.617+01:00
+        hippostdpubwf:publicationDate: 2022-10-25T10:36:16.966+01:00
         hippotaxonomy:keys: [destinations]
         hippotranslation:id: 5c1c7d42-9e51-44f3-8c7e-8c78fe05ca34
         hippotranslation:locale: en
         visitscotland:tabTitle: Explore places to go
-        visitscotland:title: ''
+        visitscotland:title: Map of Scotland
         /visitscotland:categories:
           jcr:primaryType: visitscotland:MapCategory
           visitscotland:title: ''
@@ -14353,6 +14365,12 @@
               jcr:primaryType: visitscotland:Coordinates
               visitscotland:latitude: 56.797394
               visitscotland:longitude: -5.003361
+        /visitscotland:copy:
+          jcr:primaryType: hippostd:html
+          hippostd:content: <p>This is an example of a map.&nbsp;&nbsp;Suspendisse
+            nec bibendum mauris. Maecenas nulla nibh, gravida non risus quis, sollicitudin
+            pulvinar purus. Pellentesque lacus massa, rhoncus et mollis semper, tempus
+            a diam.&nbsp;</p>
   /general-pages:
     jcr:primaryType: hippostd:folder
     jcr:mixinTypes: ['hippo:named', 'hippotranslation:translated', 'mix:versionable']

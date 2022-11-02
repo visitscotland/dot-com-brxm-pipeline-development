@@ -65,7 +65,7 @@ public class ResourceBundleService {
      * @param locale locale
      * @param optional when {@code false} if the value does not exist in the language it would fallback to English
      *
-     * @return
+     * @return string for the given key
      */
     public String getResourceBundle(String bundleName, String key, String locale, boolean optional){
         return getResourceBundle(bundleName, key, toLocale(locale), optional);
@@ -95,7 +95,7 @@ public class ResourceBundleService {
      * @param key key
      * @param locale locale
      * @param optional when {@code false} if the value does not exist in the language it would fallback to English
-     * @return
+     * @return string for the given key
      */
     public String getResourceBundle(String bundleName, String key, Locale locale, boolean optional){
 
@@ -129,7 +129,7 @@ public class ResourceBundleService {
      * @param bundleName id of the Resource Bundle defined in Hippo
      * @param locale locale
      *
-     * @return
+     * @return resource bundle for a specific locale
      */
     private ResourceBundle getResourceBundle(String bundleName, Locale locale){
         if (locale == null) {

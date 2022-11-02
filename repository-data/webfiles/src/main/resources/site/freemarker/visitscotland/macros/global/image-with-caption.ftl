@@ -12,7 +12,7 @@
         :mobile-overlap="${mobileOverlap}"
         :is-video="${isVideo}"
         video-id="${videoId}"
-        narrow-video="${narrowVideo}"
+        :narrow-video="${narrowVideo}"
         no-cookies-message="${label('video', 'video.no-cookies')}"
         no-js-message="${label('video', 'video.no-js')}"
         cookie-link-text="${label('essentials.global', 'cookie.link-message')}"

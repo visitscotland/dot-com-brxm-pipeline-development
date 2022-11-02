@@ -11,6 +11,7 @@
 <#include "../modules/horizontal-list/horizontal-list.ftl">
 <#include "../modules/stackla/stackla.ftl">
 <#include "../modules/canned-search/canned-search.ftl">
+<#include "../modules/map/map.ftl">
 <#include "theme-calculator.ftl">
 
 <#-- Implicit Request Objects -->
@@ -60,19 +61,23 @@
         <#elseif module.getType()== "LongCopyModule">
             <@longCopy module/>
 
-        <#elseif module.getType()== "IKnowCommunityModule">
-            <@iknowCommunity module/>
-
         <#elseif module.getType()== "StacklaModule">
             <@stackla module/>
 
         <#elseif module.getType()== "TravelInformationModule">
             <@travelInformation module/>
 
+        <#elseif module.getType()== "MapsModule">
+            <@map module/>
+
         <#elseif module.getType()== "CannedSearchModule">
             <@cannedSearch module themeName/>
+
         <#elseif module.getType()== "MarketoFormModule">
             <@marketo module/>
+
+        <#elseif module.getType()== "IKnowCommunityModule">
+            <@iknowCommunity module/>
         <#else >
             <@previewWarning editMode module module.errorMessages true />
         </#if>

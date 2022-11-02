@@ -273,10 +273,18 @@ export default {
 
         &__image-wrapper {
             position: relative;
+            aspect-ratio: 3/2;
+
+            @supports not (aspect-ratio: 3/2) {
+                padding-bottom: 66.6%;
+            }
 
             img {
                 width: 100%;
-                height: auto;
+                height: 100%;
+                object-fit: cover;
+                align-self: flex-start;
+                flex-shrink: 0; // IE11 fix, prevents image vertical stretching
             }
 
             .vs-toggle-btn {
@@ -355,15 +363,19 @@ export default {
                 }
             }
 
+            &.vs-image-with-caption--narrow {
+                .vs-image-with-caption__image-wrapper {
+                    .vs-toggle-btn {
+                        display: none;
+                    }
+                }
+            }
+
             .vs-image-with-caption {
                 &__caption-wrapper {
                     display: none;
                     justify-content: flex-end;
                 }
-            }
-
-            .vs-image-with-caption__video-caption-wrapper {
-                margin-top: -50px;
             }
 
             .vs-image-with-caption__captions {
@@ -417,6 +429,33 @@ export default {
             &.vs-image-with-caption--video-narrow {
                 .vs-image-with-caption__video-caption-wrapper {
                     padding: 0;
+                }
+
+                .vs-image-with-caption {
+                    &__image-wrapper {
+
+                        .vs-toggle-btn {
+                            @include media-breakpoint-between(sm, md) {
+                                display: block;
+                            }
+                        }
+                    }
+                }
+
+                .vs-caption .vs-caption__caption-info {
+                    padding: $spacer-4 $spacer-2 $spacer-3;
+                }
+
+                @include media-breakpoint-up(sm) {
+                    .vs-caption .vs-caption__caption-info {
+                        padding: $spacer-4 $spacer-5 $spacer-5;
+                    }
+                }
+
+                @include media-breakpoint-up(lg) {
+                    .vs-caption .vs-caption__caption-info {
+                        padding: $spacer-4 $spacer-2 $spacer-3;
+                    }
                 }
             }
 
@@ -494,6 +533,11 @@ export default {
                 &__image-wrapper {
                     max-height: 100vh;
                     overflow: hidden;
+                    aspect-ratio: auto;
+
+                    @supports not (aspect-ratio: 3/2) {
+                        padding-bottom: $spacer-0;
+                    }
 
                     .vs-toggle-btn {
                         @include media-breakpoint-between(sm, md) {
