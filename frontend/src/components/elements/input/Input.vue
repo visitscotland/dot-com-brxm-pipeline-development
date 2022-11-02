@@ -10,17 +10,20 @@
             {{ hintText }}
         </p>
         <template
-            v-if="($v.inputVal.$anyError || invalid) && !reAlertErrors"
+            v-if="$v.inputVal.$anyError || invalid"
         >
-            <span
-                v-for="error in errorsList"
-                :key="error"
-                class="error"
-                :id="`error-${fieldName}`"
+            <div
                 aria-live="assertive"
             >
-                {{ validationMessages[error] || genericValidation[error] }}
-            </span>
+                <span
+                    v-for="error in errorsList"
+                    :key="error"
+                    class="error"
+                    :id="`error-${fieldName}`"
+                >
+                    {{ validationMessages[error] || genericValidation[error] }}
+                </span>
+            </div>
         </template>
         <BFormInput
             ref="input"
@@ -181,9 +184,8 @@ export default {
             type: String,
             default: '',
         },
-    },
-    inject: {
         reAlertErrors: {
+            type: Boolean,
             default: false,
         },
     },

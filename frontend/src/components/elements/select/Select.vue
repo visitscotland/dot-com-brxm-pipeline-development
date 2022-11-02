@@ -7,16 +7,20 @@
             {{ hintText }}
         </p>
         <template
-            v-if="($v.inputVal.$anyError || invalid) && !reAlertErrors"
+            v-if="$v.inputVal.$anyError || invalid"
         >
-            <span
-                v-for="error in errorsList"
-                :key="error"
-                class="error"
+            <div
                 aria-live="assertive"
             >
-                {{ validationMessages[error] || genericValidation[error] }}
-            </span>
+                <span
+                    v-for="error in errorsList"
+                    v-show="!reAlertErrors"
+                    :key="error"
+                    class="error"
+                >
+                    {{ validationMessages[error] || genericValidation[error] }}
+                </span>
+            </div>
         </template>
         <div class="vs-select__container  mt-2">
             <BFormSelect
@@ -154,6 +158,10 @@ export default {
                 };
             },
         },
+        reAlertErrors: {
+            type: Boolean,
+            default: false,
+        },
     },
     data() {
         return {
@@ -161,11 +169,6 @@ export default {
             touched: false,
             countryList: [],
         };
-    },
-    inject: {
-        reAlertErrors: {
-            default: false,
-        },
     },
     computed: {
         errorClass() {
