@@ -129,6 +129,10 @@ export default {
                         $color-white, $color-purple, $color-purple,
                     );
                 }
+
+                &.active {
+                    z-index: 2;
+                }
             }
         }
     }
