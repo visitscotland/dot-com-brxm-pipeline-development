@@ -7,11 +7,11 @@ import java.util.stream.Collectors;
 
 public enum Language {
     ENGLISH(Locale.UK, "/"),
-    SPANISH(Locale.forLanguageTag("es-es"), "/es"),
-    ITALIAN(Locale.forLanguageTag("it-it"), "/it"),
-    GERMAN(Locale.forLanguageTag("de-de"), "/de"),
-    DUTCH(Locale.forLanguageTag("nl-nl"), "/nl"),
-    FRENCH(Locale.forLanguageTag("fr-fr"), "/fr");
+    SPANISH(Locale.forLanguageTag("es-es"), "/es-es"),
+    ITALIAN(Locale.forLanguageTag("it-it"), "/it-it"),
+    GERMAN(Locale.forLanguageTag("de-de"), "/de-de"),
+    DUTCH(Locale.forLanguageTag("nl-nl"), "/nl-nl"),
+    FRENCH(Locale.forLanguageTag("fr-fr"), "/fr-fr");
 
     private final Locale locale;
     private final String cmsMount;
