@@ -251,6 +251,8 @@ public class LinkService {
             return null;
         } else if (url.toLowerCase().endsWith(".pdf")) {
             return LinkType.DOWNLOAD;
+        } else if (url.toLowerCase().startsWith("mailto:")){
+            return LinkType.MAIL;
         } else if (url.startsWith("/") || url.startsWith("#")) {
             return LinkType.INTERNAL;
         } else if (isInternalDomain(url)) {

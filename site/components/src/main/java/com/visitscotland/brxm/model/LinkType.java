@@ -2,6 +2,7 @@ package com.visitscotland.brxm.model;
 
 public enum LinkType {
     INTERNAL("default"),
+    MAIL("default"),
     EXTERNAL("external"),
     DOWNLOAD("download"),
     VIDEO("video");
