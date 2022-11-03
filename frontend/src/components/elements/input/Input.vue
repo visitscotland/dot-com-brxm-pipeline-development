@@ -9,23 +9,20 @@
         >
             {{ hintText }}
         </p>
-        <template
+        <div
             v-if="$v.inputVal.$anyError || invalid"
+            aria-live="assertive"
         >
-            <div
-                aria-live="assertive"
+            <span
+                v-for="error in errorsList"
+                v-show="!reAlertErrors"
+                :key="error"
+                class="error"
+                :id="`error-${fieldName}`"
             >
-                <span
-                    v-for="error in errorsList"
-                    v-show="!reAlertErrors"
-                    :key="error"
-                    class="error"
-                    :id="`error-${fieldName}`"
-                >
-                    {{ validationMessages[error] || genericValidation[error] }}
-                </span>
-            </div>
-        </template>
+                {{ validationMessages[error] || genericValidation[error] }}
+            </span>
+        </div>
         <BFormInput
             ref="input"
             :type="type"

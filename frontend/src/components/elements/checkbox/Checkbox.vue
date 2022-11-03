@@ -13,23 +13,19 @@
             v-html="infoText"
         />
         <!-- eslint-enable-vue/no-v-html -->
-
-        <template
+        <div
+            aria-live="assertive"
             v-if="$v.inputVal.$anyError || invalid"
         >
-            <div
-                aria-live="assertive"
+            <span
+                v-for="error in errorsList"
+                v-show="!reAlertErrors"
+                :key="error"
+                class="error"
             >
-                <span
-                    v-for="error in errorsList"
-                    v-show="!reAlertErrors"
-                    :key="error"
-                    class="error"
-                >
-                    {{ validationMessages[error] || genericValidation[error] }}
-                </span>
-            </div>
-        </template>
+                {{ validationMessages[error] || genericValidation[error] }}
+            </span>
+        </div>
         <BFormCheckbox
             v-if="fieldName"
             v-model="inputVal"
