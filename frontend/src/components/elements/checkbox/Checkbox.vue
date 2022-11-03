@@ -22,6 +22,7 @@
             >
                 <span
                     v-for="error in errorsList"
+                    v-show="!reAlertErrors"
                     :key="error"
                     class="error"
                 >
