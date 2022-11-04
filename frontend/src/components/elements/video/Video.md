@@ -9,6 +9,10 @@ Include a YouTube `video-id` so the component knows which video to load.
  ```jsx
     <VsVideo 
         video-id="c05sg3G4oA4" 
+        error-message="Sorry, something's gone wrong. Please try again later"
+        cookie-link-text="Manage cookies"
+        no-js-message="You need Javascript enabled to see this video"
+        no-cookies-message="You need cookies enabled to see this video"
     />
   ```
 
@@ -20,6 +24,10 @@ event which can be used to play or pause the video.
     <VsVideo
         video-id="c05sg3G4oA4"
         class="mb-6"
+        error-message="Sorry, something's gone wrong. Please try again later"
+        cookie-link-text="Manage cookies"
+        no-js-message="You need Javascript enabled to see this video"
+        no-cookies-message="You need cookies enabled to see this video"
     />
 
     <VsButton
@@ -48,14 +56,11 @@ the time is automatically added using these video prop values.
         single-minute-descriptor="%s minute video"
         plural-minute-descriptor="%s minutes video"
         language="nl-nl"
+        error-message="Sorry, something's gone wrong. Please try again later"
+        cookie-link-text="Manage cookies"
+        no-js-message="You need Javascript enabled to see this video"
+        no-cookies-message="You need cookies enabled to see this video"
     />
-    <VsVideoCaption
-        video-id="dKI8IEnqvbU"
-    >
-        <template slot="video-title">
-            Scotch Whisky: Explained
-        </template>
-    </VsVideoCaption>    
   ```
 
   ### No cookies and no JavaScript messaging
@@ -66,16 +71,11 @@ the time is automatically added using these video prop values.
         video-id="dKI8IEnqvbU"
         single-minute-descriptor="%s minute video"
         plural-minute-descriptor="%s minutes video"
-        noCookiesMessage="Cookies are needed to play this video"
-        noJsMessage="You need JavaScript enabled to play this video"
+        error-message="Sorry, something's gone wrong. Please try again later"
+        cookie-link-text="Manage cookies"
+        no-js-message="You need Javascript enabled to see this video"
+        no-cookies-message="You need cookies enabled to see this video"
     />
-    <VsVideoCaption
-        video-id="dKI8IEnqvbU"
-    >
-        <template slot="video-title">
-            Scotch Whisky: Explained
-        </template>
-    </VsVideoCaption>    
   ```
 
   ## Accessibility

@@ -10,7 +10,6 @@
     <#if module.ctaLink??>
     <vs-banner
         close-btn-text="${label('essentials.global', 'close')}"
-        title="${module.title}"
     >
         <template slot="bannerText">
             <@hst.html hippohtml=module.copy />

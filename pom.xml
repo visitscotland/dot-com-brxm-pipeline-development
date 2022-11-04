@@ -5,7 +5,7 @@
   <parent>
     <groupId>com.onehippo.cms7</groupId>
     <artifactId>hippo-cms7-enterprise-release</artifactId>
-    <version>14.7.8</version>
+    <version>14.7.9</version>
     <!--Remember to upgrade essentials when this versions is updated -->
   </parent>
 
@@ -26,7 +26,7 @@
 
     <!-- Bloom Dependencies -->
 
-    <essentials.version>14.7.8</essentials.version>
+    <essentials.version>14.7.9</essentials.version>
     <forge.exdocpickerbase.version>7.0.0</forge.exdocpickerbase.version>
     <forge.breadcrumb.version>3.0.0</forge.breadcrumb.version>
 <!--    <bloomreach.forge.ipfilter.version>3.1.0</bloomreach.forge.ipfilter.version>-->
@@ -36,7 +36,6 @@
     <commons-lan3.version>3.8.1</commons-lan3.version>
     <jsp-api.version>2.2</jsp-api.version>
     <taglibs.version>1.2.5</taglibs.version>
-    <h2.database.version>2.1.210</h2.database.version>
     <jackson-core.version>2.13.3</jackson-core.version>
 
     <!-- Test dependencies -->
@@ -648,6 +647,12 @@
     <profile>
       <id>dist-with-development-data</id>
       <dependencies>
+        <dependency>
+          <groupId>com.h2database</groupId>
+          <artifactId>h2</artifactId>
+          <version>${h2.database.version}</version>
+          <scope>provided</scope>
+        </dependency>
         <dependency>
           <groupId>org.apache.logging.log4j</groupId>
           <artifactId>log4j-slf4j-impl</artifactId>

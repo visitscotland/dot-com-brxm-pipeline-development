@@ -25,8 +25,13 @@
                     xl="5"
                 >
                     <VsProductSearchEmbed
+                        class="vs-product-search__widget"
                         :config="configArr"
                     />
+
+                    <VsWarning class="vs-product-search__no-js">
+                        {{ noJsMessage }}
+                    </VsWarning>
                 </VsCol>
             </VsRow>
         </VsContainer>
@@ -40,6 +45,7 @@ import {
     VsCol,
 } from '@components/elements/grid';
 import VsHeading from '@components/elements/heading/Heading';
+import VsWarning from '@components/patterns/warning/Warning';
 import VsProductSearchEmbed from './components/ProductSearchEmbed';
 
 /**
@@ -58,6 +64,7 @@ export default {
         VsCol,
         VsProductSearchEmbed,
         VsHeading,
+        VsWarning,
     },
     props: {
         /**
@@ -69,6 +76,13 @@ export default {
                 return [];
             },
         },
+        /**
+         * Message to show when Javascript is disabled
+         */
+        noJsMessage: {
+            type: String,
+            required: true,
+        },
     },
 };
 </script>
@@ -79,6 +93,10 @@ export default {
         background: $color-gray-shade-5;
         padding: 0 6px $spacer-9;
         font-family: $font-family-sans-serif;
+
+        &__no-js {
+            display: none;
+        }
 
         &__heading,
         &__intro {
@@ -311,6 +329,22 @@ export default {
             }
         }
     }
+
+    @include no-js {
+        .vs-product-search {
+            &__col--right {
+                padding: 0;
+            }
+
+            &__no-js {
+                display: flex;
+            }
+
+            &__widget {
+                display: none;
+            }
+        }
+    }
 </style>
 
 <docs>
@@ -324,6 +358,7 @@ export default {
                     {'lang':'en'},
                     {'domain':'http://172.28.81.65:8089'},
                 ]"
+                noJsMessage="You need Javascript to see this content"
             >
                 <template slot="vsModuleHeading">
                     Find places to stay & things to do

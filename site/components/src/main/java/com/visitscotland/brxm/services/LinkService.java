@@ -94,7 +94,6 @@ public class LinkService {
         } else if (item instanceof CMSLink) {
             return createCMSLink(module, locale, (CMSLink) item);
         }
-
         logger.warn("The document {} could not be turned into a link", item.getPath());
         module.addErrorMessage("The link was not correctly processed");
         return null;

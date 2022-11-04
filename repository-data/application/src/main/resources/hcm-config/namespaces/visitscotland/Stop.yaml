@@ -126,13 +126,13 @@ definitions:
               jcr:primaryType: frontend:pluginconfig
           /classifiable:
             jcr:primaryType: frontend:plugin
-            essentials-taxonomy-name: Visitsctoland-categories
+            essentials-taxonomy-name: Visitscotland-categories
             mixin: hippotaxonomy:classifiable
             plugin.class: org.hippoecm.frontend.editor.plugins.mixin.MixinLoaderPlugin
             wicket.id: ${cluster.id}.field
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-              taxonomy.name: Visitsctoland-categories
+              taxonomy.name: Visitscotland-categories
               caption: Category
           /description:
             jcr:primaryType: frontend:plugin
