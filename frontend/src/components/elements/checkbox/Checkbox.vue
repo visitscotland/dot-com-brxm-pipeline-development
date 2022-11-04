@@ -156,6 +156,11 @@ export default {
             type: String,
             default: '',
         },
+        /**
+         * Whether the parent form has just been submitted, if so all errors
+         * need to be wiped from then re-added to the DOM to inform screen
+         * readers that they should be re-declared
+         */
         reAlertErrors: {
             type: Boolean,
             default: false,

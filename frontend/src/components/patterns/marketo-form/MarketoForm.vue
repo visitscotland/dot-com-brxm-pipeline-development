@@ -102,6 +102,7 @@
                     :error-msg="getMessagingData('recaptchaError', language)"
                     class="mt-9"
                     :textarea-label="recaptchaTextareaLabel"
+                    :re-alert-errors="reAlertErrors"
                 />
 
                 <VsButton
