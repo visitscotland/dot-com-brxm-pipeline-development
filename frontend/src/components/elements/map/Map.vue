@@ -19,6 +19,7 @@ import Vue from 'vue';
 import VsWarning from '@components/patterns/warning/Warning';
 import osBranding from '@/utils/os-branding';
 import VsMapMarker from './components/MapMarker';
+import mapStore from '../../../stores/map.store';
 
 let mapboxgl = null;
 let geojsonExtent = null;
@@ -87,11 +88,22 @@ export default {
             type: Boolean,
             default: false,
         },
+        /**
+         * Whether the map should show regions polygons
+         */
+        showPolygons: {
+            type: Boolean,
+            default: false,
+        },
     },
     data() {
         return {
             isDesktop: false,
             geojsonData: {
+                type: 'FeatureCollection',
+                features: [],
+            },
+            polygons: {
                 type: 'FeatureCollection',
                 features: [],
             },
@@ -108,7 +120,17 @@ export default {
             },
             markers: [],
             popup: null,
+            hoveredStateId: '',
         };
+    },
+    computed: {
+        highlightedPlace() {
+            if (this.mapbox.map) {
+                return mapStore.getters.getHoveredStop(this.mapId);
+            }
+
+            return '';
+        },
     },
     watch: {
         isVisible(newVal) {
@@ -121,6 +143,16 @@ export default {
             this.addMapFeatures();
             this.addMapMarkers();
         },
+        showPolygons(val) {
+            if (val === true) {
+                this.showMapPolygons();
+            } else {
+                this.hideMapPolygons();
+            }
+        },
+        // highlightedPlace(newVal) {
+        //     this.highlightPolygon(newVal);
+        // },
     },
     mounted() {
         this.lazyloadMapComponent();
@@ -156,6 +188,10 @@ export default {
             });
 
             this.mapbox.map.resize();
+
+            this.mapbox.map.on('load', () => {
+                this.addMapPolygons();
+            });
         },
         /**
          * Adds map to controls
@@ -171,14 +207,22 @@ export default {
         addMapFeatures() {
             this.places.map((place) => {
                 if (typeof place.geometry !== 'undefined') {
+                    let coordinateArray = [
+                        place.geometry.coordinates[0],
+                        place.geometry.coordinates[1],
+                    ];
+
+                    if (place.geometry.type === 'Polygon') {
+                        coordinateArray = [
+                            place.geometry.coordinates[0],
+                        ];
+                    }
+
                     return this.geojsonData.features.push({
                         type: 'Feature',
                         geometry: {
-                            type: 'Point',
-                            coordinates: [
-                                place.geometry.coordinates[0],
-                                place.geometry.coordinates[1],
-                            ],
+                            type: place.geometry.type,
+                            coordinates: coordinateArray,
                         },
                         properties: {
                             title: place.properties.title,
@@ -186,6 +230,7 @@ export default {
                             type: place.properties.category.id,
                             id: place.properties.id,
                         },
+                        id: place.properties.id,
                     });
                 }
 
@@ -203,24 +248,176 @@ export default {
             }
 
             this.geojsonData.features.forEach((feature) => {
-                const markerComponent = new Vue({
-                    ...VsMapMarker,
-                    parent: this,
-                    propsData: {
-                        feature,
-                        mapId: this.mapId,
-                    },
-                });
+                if (feature.geometry.type === 'Point') {
+                    const markerComponent = new Vue({
+                        ...VsMapMarker,
+                        parent: this,
+                        propsData: {
+                            feature,
+                            mapId: this.mapId,
+                        },
+                    });
 
-                markerComponent.$mount();
+                    markerComponent.$mount();
 
-                const mapboxMarker = new mapboxgl.Marker(markerComponent.$el)
-                    .setLngLat(feature.geometry.coordinates)
-                    .addTo(this.mapbox.map);
+                    const mapboxMarker = new mapboxgl.Marker(markerComponent.$el)
+                        .setLngLat(feature.geometry.coordinates)
+                        .addTo(this.mapbox.map);
 
-                this.markers.push(mapboxMarker);
+                    this.markers.push(mapboxMarker);
+                }
             });
         },
+        hideMapPolygons() {
+            this.mapbox.map.setLayoutProperty('regions-fills', 'visibility', 'none');
+            this.mapbox.map.setLayoutProperty('regions-borders', 'visibility', 'none');
+        },
+        showMapPolygons() {
+            this.mapbox.map.setLayoutProperty('regions-fills', 'visibility', 'visible');
+            this.mapbox.map.setLayoutProperty('regions-borders', 'visibility', 'visible');
+        },
+        addMapPolygons() {
+            this.geojsonData.features.forEach((feature) => {
+                if (feature.geometry.type === 'Polygon') {
+                    if (!this.polygons.features.includes(feature.properties.id)) {
+                        this.polygons.features.push(feature);
+                    }
+                }
+            });
+
+            this.mapbox.map.addSource('regions', {
+                type: 'geojson',
+                data: this.polygons,
+                generateId: true,
+            });
+
+            this.mapbox.map.addLayer({
+                id: 'regions-borders',
+                type: 'line',
+                source: 'regions',
+                layout: {
+                },
+                paint: {
+                    'line-color': '#fff',
+                    'line-width': 2,
+                },
+            });
+
+            this.mapbox.map.addLayer({
+                id: 'regions-fills',
+                type: 'fill',
+                source: 'regions',
+                layout: {
+                },
+                paint: {
+                    'fill-color': [
+                        'case',
+                        [
+                            'boolean',
+                            ['feature-state', 'hover'],
+                            false,
+                        ],
+                        '#AD0E6E',
+                        '#A5A5A5',
+                    ],
+                    'fill-opacity': 0.8,
+                },
+            });
+
+            this.hideMapPolygons();
+
+            // When the user moves their mouse over the state-fill layer,
+            // we'll update the feature state for the feature under the mouse.
+            this.mapbox.map.on('mousemove', 'regions-fills', (e) => {
+                if (e.features.length > 0) {
+                    if (this.hoveredStateId !== null) {
+                        this.mapbox.map.setFeatureState(
+                            {
+                                source: 'regions',
+                                id: this.hoveredStateId,
+                            },
+                            {
+                                hover: false,
+                            },
+                        );
+                    }
+                    this.hoveredStateId = e.features[0].id;
+                    this.mapbox.map.setFeatureState(
+                        {
+                            source: 'regions',
+                            id: this.hoveredStateId,
+                        },
+                        {
+                            hover: true,
+                        },
+                    );
+
+                    mapStore.dispatch('setHoveredPlace', {
+                        mapId: this.mapId,
+                        hoveredId: e.features[0].properties.id,
+                    });
+                }
+            });
+
+            // When the mouse leaves the state-fill layer, update the
+            // feature state of the previously hovered feature.
+            this.mapbox.map.on('mouseleave', 'regions-fills', () => {
+                if (this.hoveredStateId !== null) {
+                    this.mapbox.map.setFeatureState(
+                        {
+                            source: 'regions',
+                            id: this.hoveredStateId,
+                        },
+                        {
+                            hover: false,
+                        }
+                    );
+                }
+
+                mapStore.dispatch('setHoveredPlace', {
+                    mapId: this.mapId,
+                    hoveredId: '',
+                });
+
+                this.hoveredStateId = null;
+            });
+
+            this.mapbox.map.on('click', 'regions-fills', (e) => {
+                console.log(e.features[0].properties.id);
+                mapStore.dispatch('setActivePlace', {
+                    mapId: this.mapId,
+                    placeId: e.features[0].properties.id,
+                });
+                this.$emit('show-detail', e.features[0].properties.id);
+                this.$emit('set-category', 'regions');
+            });
+        },
+        // highlightPolygon(polygonId) {
+        //     console.log(polygonId);
+        //     if (this.hoveredStateId !== null) {
+        //         this.mapbox.map.setFeatureState(
+        //             {
+        //                 source: 'regions',
+        //                 id: this.hoveredStateId,
+        //             },
+        //             {
+        //                 hover: false,
+        //             }
+        //         );
+        //     }
+
+        //     this.mapbox.map.setFeatureState(
+        //         {
+        //             source: 'regions',
+        //             id: polygonId,
+        //         },
+        //         {
+        //             hover: true,
+        //         }
+        //     );
+
+        //     this.hoveredStateId = polygonId;
+        // },
         /**
          * Adds map pop ups
          */
@@ -313,9 +510,9 @@ export default {
             });
             this.observer.observe(this.$el);
 
-            if (this.places.length) {
-                this.addMapFeatures();
-            }
+            // if (this.places.length) {
+            //     this.addMapFeatures();
+            // }
         },
         /**
          * Removes a map pop up

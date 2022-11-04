@@ -90,7 +90,7 @@
         </template>
         <template v-if="currentStage === 1">
             <div
-                v-for="place in placesData"
+                v-for="place in currentData"
                 :key="place.id"
             >
                 <VsMainMapWrapperListItem
@@ -188,6 +188,7 @@ export default {
     inject: [
         'filters',
         'placesData',
+        'regions',
     ],
     computed: {
         currentHeading() {
@@ -208,6 +209,13 @@ export default {
             }
 
             return headingText;
+        },
+        currentData() {
+            if (this.selectedCategory === 'regions') {
+                return this.regions;
+            }
+
+            return this.placesData;
         },
         headerClasses() {
             if (this.currentStage === 1) {
@@ -231,7 +239,13 @@ export default {
             return currentFilter;
         },
         currentPlaceData() {
-            return this.placesData.filter((obj) => {
+            let data = this.placesData;
+
+            if (this.selectedCategory === 'regions') {
+                data = this.regions;
+            }
+
+            return data.filter((obj) => {
                 if (typeof obj.properties !== 'undefined') {
                     return obj.properties.id === this.selectedItem;
                 }
