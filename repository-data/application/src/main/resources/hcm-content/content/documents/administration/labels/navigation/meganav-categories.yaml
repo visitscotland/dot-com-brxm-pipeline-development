@@ -1,92 +1,91 @@
 /content/documents/administration/labels/navigation/meganav-categories:
-  .meta:order-before: meganav
   jcr:primaryType: hippo:handle
   jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
-  jcr:uuid: 7000c349-ab0c-4cc9-8e46-804ab0f13e23
+  jcr:uuid: 68eb3d50-855b-46ab-89d2-11f90162cb7c
   hippo:name: Meganav Categories
-  hippo:versionHistory: ba68f71e-d456-4316-83ec-0a6e0044decd
+  hippo:versionHistory: 6b833b1d-95c2-43c6-b604-191aaf21bdd7
   /meganav-categories[1]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:referenceable']
-    jcr:uuid: 97b55253-70e2-4202-8347-c30c26cffcf5
+    jcr:uuid: 24d67d81-f2e8-492a-a969-1bcd9722cf55
     hippo:availability: []
     hippostd:retainable: false
     hippostd:state: draft
     hippostdpubwf:createdBy: juanluis.hurtado
     hippostdpubwf:creationDate: 2021-08-27T09:24:28.606Z
-    hippostdpubwf:lastModificationDate: 2022-03-02T17:54:26.834Z
-    hippostdpubwf:lastModifiedBy: admin
+    hippostdpubwf:lastModificationDate: 2022-07-08T10:26:23.261+02:00
+    hippostdpubwf:lastModifiedBy: nikki.sherret
     resourcebundle:descriptions: ['', '', '', '', '', '', '', '']
     resourcebundle:id: navigation.categories
     resourcebundle:keys: [travel-blog, see-do, accommodation, destinations-map, inspiration,
-      travel-planning, footer.visitor-information, ebooks]
+      travel-planning, ebooks, footer.visitor-information]
     resourcebundle:messages: [Travel blog, Things to do, Accommodation, Places to
-        go, Inspiration, Travel & planning, Visitor information, eBooks]
-    resourcebundle:messages_de: [Reise-Blog, Aktivitäten, Unterkünfte, Reiseziele,
-      Inspiration, Reisen & Planen, Besucherinformationen, eBooks]
-    resourcebundle:messages_es: [Blog de viajes, Actividades, Alojamiento, Destinos,
-      Inspiración, Viajes y planificación, Información para visitantes, eBooks]
+        go, Inspiration, Travel & planning, eBooks, Visitor information]
+    resourcebundle:messages_de: [Reiseblog, Aktivitäten, Unterkünfte, Reiseziele,
+      Inspiration, Reisen & Planen, eBooks, Besucherinformationen]
+    resourcebundle:messages_es: [Blog de viajes, Cosas para ver y hacer, Alojamientos,
+      Destinos, Inspiración, Viajes y planificación, eBooks, Información para visitantes]
     resourcebundle:messages_fr: [Blog de voyage, Activités, Hébergements, Destinations,
-      Inspiration, Voyage et préparatifs, Infos visiteurs, eBooks]
+      Inspiration, Voyage et préparatifs, eBooks, Infos visiteurs]
     resourcebundle:messages_it: [Blog di viaggio, Cose da fare, Alloggio, Luoghi da
-        visitare, Ispirazione, Viaggi & pianificazione, Informazioni per I visitatori,
-      eBooks]
+        visitare, Ispirazione, Viaggi & pianificazione, eBooks, Informazioni per I
+        visitatori]
     resourcebundle:messages_nl: [Reisblog, Activiteiten, Accommodatie, Bestemmingen,
-      Inspiratie, Reizen & planning, Bezoekersinfo, eBooks]
+      Inspiratie, Reizen & planning, eBooks, Bezoekersinfo]
   /meganav-categories[2]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:versionable']
-    jcr:uuid: 800ce8d4-8df0-4281-bb4d-4db93e0671c3
+    jcr:uuid: 6a36d052-dc76-4a70-ab16-7afa8f65ee6b
     hippo:availability: [preview]
     hippostd:retainable: false
     hippostd:state: unpublished
     hippostdpubwf:createdBy: juanluis.hurtado
     hippostdpubwf:creationDate: 2021-08-27T09:24:28.606Z
-    hippostdpubwf:lastModificationDate: 2022-03-02T17:54:57.531Z
-    hippostdpubwf:lastModifiedBy: admin
+    hippostdpubwf:lastModificationDate: 2022-07-08T10:26:39.781+02:00
+    hippostdpubwf:lastModifiedBy: nikki.sherret
     resourcebundle:descriptions: ['', '', '', '', '', '', '', '']
     resourcebundle:id: navigation.categories
     resourcebundle:keys: [travel-blog, see-do, accommodation, destinations-map, inspiration,
-      travel-planning, footer.visitor-information, ebooks]
+      travel-planning, ebooks, footer.visitor-information]
     resourcebundle:messages: [Travel blog, Things to do, Accommodation, Places to
-        go, Inspiration, Travel & planning, Visitor information, eBooks]
-    resourcebundle:messages_de: [Reise-Blog, Aktivitäten, Unterkünfte, Reiseziele,
-      Inspiration, Reisen & Planen, Besucherinformationen, eBooks]
-    resourcebundle:messages_es: [Blog de viajes, Actividades, Alojamiento, Destinos,
-      Inspiración, Viajes y planificación, Información para visitantes, eBooks]
+        go, Inspiration, Travel & planning, eBooks, Visitor information]
+    resourcebundle:messages_de: [Reiseblog, Aktivitäten, Unterkünfte, Reiseziele,
+      Inspiration, Reisen & Planen, eBooks, Besucherinformationen]
+    resourcebundle:messages_es: [Blog de viajes, Cosas para ver y hacer, Alojamientos,
+      Destinos, Inspiración, Viajes y planificación, eBooks, Información para visitantes]
     resourcebundle:messages_fr: [Blog de voyage, Activités, Hébergements, Destinations,
-      Inspiration, Voyage et préparatifs, Infos visiteurs, eBooks]
+      Inspiration, Voyage et préparatifs, eBooks, Infos visiteurs]
     resourcebundle:messages_it: [Blog di viaggio, Cose da fare, Alloggio, Luoghi da
-        visitare, Ispirazione, Viaggi & pianificazione, Informazioni per I visitatori,
-      eBooks]
+        visitare, Ispirazione, Viaggi & pianificazione, eBooks, Informazioni per I
+        visitatori]
     resourcebundle:messages_nl: [Reisblog, Activiteiten, Accommodatie, Bestemmingen,
-      Inspiratie, Reizen & planning, Bezoekersinfo, eBooks]
+      Inspiratie, Reizen & planning, eBooks, Bezoekersinfo]
   /meganav-categories[3]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:referenceable']
-    jcr:uuid: abe56063-f1fa-41b8-8c2d-69014eb85682
+    jcr:uuid: 714a32dc-ed4d-4e70-92b4-31abd1e8922d
     hippo:availability: [live]
     hippostd:retainable: false
     hippostd:state: published
     hippostdpubwf:createdBy: juanluis.hurtado
     hippostdpubwf:creationDate: 2021-08-27T09:24:28.606Z
-    hippostdpubwf:lastModificationDate: 2022-03-02T17:54:57.531Z
-    hippostdpubwf:lastModifiedBy: admin
-    hippostdpubwf:publicationDate: 2022-03-02T17:54:59.442Z
+    hippostdpubwf:lastModificationDate: 2022-07-08T10:26:39.781+02:00
+    hippostdpubwf:lastModifiedBy: nikki.sherret
+    hippostdpubwf:publicationDate: 2022-07-13T17:54:23.870+02:00
     resourcebundle:descriptions: ['', '', '', '', '', '', '', '']
     resourcebundle:id: navigation.categories
     resourcebundle:keys: [travel-blog, see-do, accommodation, destinations-map, inspiration,
-      travel-planning, footer.visitor-information, ebooks]
+      travel-planning, ebooks, footer.visitor-information]
     resourcebundle:messages: [Travel blog, Things to do, Accommodation, Places to
-        go, Inspiration, Travel & planning, Visitor information, eBooks]
-    resourcebundle:messages_de: [Reise-Blog, Aktivitäten, Unterkünfte, Reiseziele,
-      Inspiration, Reisen & Planen, Besucherinformationen, eBooks]
-    resourcebundle:messages_es: [Blog de viajes, Actividades, Alojamiento, Destinos,
-      Inspiración, Viajes y planificación, Información para visitantes, eBooks]
+        go, Inspiration, Travel & planning, eBooks, Visitor information]
+    resourcebundle:messages_de: [Reiseblog, Aktivitäten, Unterkünfte, Reiseziele,
+      Inspiration, Reisen & Planen, eBooks, Besucherinformationen]
+    resourcebundle:messages_es: [Blog de viajes, Cosas para ver y hacer, Alojamientos,
+      Destinos, Inspiración, Viajes y planificación, eBooks, Información para visitantes]
     resourcebundle:messages_fr: [Blog de voyage, Activités, Hébergements, Destinations,
-      Inspiration, Voyage et préparatifs, Infos visiteurs, eBooks]
+      Inspiration, Voyage et préparatifs, eBooks, Infos visiteurs]
     resourcebundle:messages_it: [Blog di viaggio, Cose da fare, Alloggio, Luoghi da
-        visitare, Ispirazione, Viaggi & pianificazione, Informazioni per I visitatori,
-      eBooks]
+        visitare, Ispirazione, Viaggi & pianificazione, eBooks, Informazioni per I
+        visitatori]
     resourcebundle:messages_nl: [Reisblog, Activiteiten, Accommodatie, Bestemmingen,
-      Inspiratie, Reizen & planning, Bezoekersinfo, eBooks]
+      Inspiratie, Reizen & planning, eBooks, Bezoekersinfo]

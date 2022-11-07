@@ -1,11 +1,43 @@
 <template>
     <div
         class="card vs-stretched-link-card"
+        data-test="vs-stretched-link-card"
         :class="stretchedLinkCardClasses"
         @click="emitShowModal"
         @keypress="emitShowModal"
     >
-        <div class="vs-stretched-link-card__img-container">
+        <VsWarning
+            v-if="showWarning === 'full'"
+            :size="warningSize"
+            :theme="theme"
+            :type="showCookieWarning ? 'cookie' : 'normal'"
+            data-test="vs-stretched-link-card__full-warning"
+            class="vs-stretched-link-card__full-warning"
+        >
+            {{ warningMessage }}
+
+            <template
+                slot="button-text"
+                v-if="cookieLinkText !== '' && showCookieWarning"
+            >
+                {{ cookieLinkText }}
+            </template>
+        </VsWarning>
+
+        <VsWarning
+            v-if="errorType === 'full' && videoId !== ''"
+            :size="warningSize"
+            data-test="vs-stretched-link-card__full-warning"
+            class="vs-stretched-link-card__full-warning
+                vs-stretched-link-card__full-warning--no-js"
+            :theme="theme"
+        >
+            {{ noJsMessage }}
+        </VsWarning>
+        <div
+            class="vs-stretched-link-card__img-container"
+            :class="warningClass"
+        >
             <template
                 v-if="imgSrc"
             >
@@ -24,15 +56,33 @@
             </template>
 
             <VsWarning
-                v-if="videoId && jsDisabled"
-                :warning-message="noJsMessage"
-            />
+                v-if="showWarning === 'image'"
+                :size="warningSize"
+                :type="showCookieWarning ? 'cookie' : 'normal'"
+                data-test="vs-stretched-link-card__image-warning"
+                class="vs-stretched-link-card__image-warning"
+                :theme="theme"
+            >
+                {{ warningMessage }}
+
+                <template
+                    slot="button-text"
+                    v-if="cookieLinkText !== '' && showCookieWarning"
+                >
+                    {{ cookieLinkText }}
+                </template>
+            </VsWarning>
 
             <VsWarning
-                v-if="videoId && !jsDisabled && cookiesMissing"
-                :warning-message="noCookiesMessage"
-                :warning-link="noCookiesLink"
-            />
+                v-if="videoId !== '' && errorType === 'image'"
+                :size="warningSize"
+                data-test="vs-stretched-link-card__warning"
+                class="vs-stretched-link-card__image-warning
+                    vs-stretched-link-card__image-warning--no-js"
+                :theme="theme"
+            >
+                {{ noJsMessage }}
+            </VsWarning>
         </div>
 
         <template
@@ -45,6 +95,7 @@
         <div
             class="card-body"
             :class="videoId ? 'position-relative' : ''"
+            v-if="showWarning !== 'full'"
         >
             <VsButton
                 class="vs-stretched-link-card__video-button"
@@ -54,7 +105,7 @@
                 size="md"
                 ref="videoShow"
                 @click.native="emitShowModal"
-                v-if="videoId && videoLoaded && !disableVideo"
+                v-if="videoId && videoLoaded && requiredCookiesExist && !jsDisabled"
             >
                 <span
                     class="vs-stretched-link-card__video-btn-text"
@@ -74,7 +125,8 @@
                 <slot name="stretchedCardCategory" />
             </span>
             <VsHeading
-                level="3"
+                v-if="!!this.$slots['stretchedCardHeader']"
+                :level="headingLevel"
                 class="card-title vs-stretched-link-card__title"
                 data-test="vs-stretched-link-card__title"
             >
@@ -92,10 +144,10 @@
                     :type="type"
                     class="stretched-link"
                     :class="disabled ? 'stretched-link--disabled' : ''"
-                    :variant="theme === 'dark' ? 'dark' : 'primary'"
+                    :variant="theme === 'dark' ? 'on-dark' : 'primary'"
                     data-test="vs-stretched-link"
                     :disabled="disabled"
-                    :tabindex="videoId ? '-1' : '0'"
+                    :tabindex="(videoId || disabled) ? '-1' : '0'"
                 >
                     <!-- @slot Contains header content for the card  -->
                     <slot name="stretchedCardHeader" />
@@ -130,6 +182,10 @@ import VsButton from '@components/elements/button/Button';
 import VsWarning from '@components/patterns/warning/Warning';
 import jsIsDisabled from '@/utils/js-is-disabled';
 import videoStore from '../../../stores/video.store';
+import verifyCookiesMixin from '../../../mixins/verifyCookiesMixin';
+import requiredCookiesData from '../../../utils/required-cookies-data';
+
+const cookieValues = requiredCookiesData.youtube;
 
 /**
  * A card that can contain images, text, video and info panels, which serves as a link. Generally
@@ -148,6 +204,9 @@ export default {
         VsButton,
         VsWarning,
     },
+    mixins: [
+        verifyCookiesMixin,
+    ],
     props: {
         /**
         * The link that the component will use
@@ -158,6 +217,16 @@ export default {
             default: '#',
         },
         /**
+        * The correct heading level for page hierarchy, the
+        * heading will be styled the same regardless of level provided
+        * `1|2|3|4|5|6`
+        */
+        headingLevel: {
+            type: [String, Number],
+            default: '3',
+            validator: (value) => value.match(/(1|2|3|4|5|6)/),
+        },
+        /**
         * The type of link. This will set the icon.
         * `external, internal, download, video`
         */
@@ -165,14 +234,6 @@ export default {
             type: String,
             required: true,
             validator: (value) => value.match(/(default|external|internal|download|video)/),
-        },
-        /**
-        * The component color theme
-        */
-        theme: {
-            type: String,
-            default: 'light',
-            validator: (value) => value.match(/(light|dark)/),
         },
         /**
         * The image to use in the component
@@ -210,6 +271,29 @@ export default {
             type: String,
             default: '',
         },
+        /**
+         * Message to show when there's an error with a third party
+        */
+        errorMessage: {
+            type: String,
+            default: '',
+        },
+        /**
+         * Where the error message should appear
+        */
+        errorType: {
+            type: String,
+            default: 'image',
+            validator: (value) => value.match(/(image|full)/),
+        },
+        /**
+         * Size of warning message to show
+        */
+        warningSize: {
+            type: String,
+            default: 'small',
+            validator: (value) => value.match(/(normal|small)/),
+        },
     },
     inject: {
         noJsMessage: {
@@ -218,13 +302,17 @@ export default {
         noCookiesMessage: {
             default: '',
         },
-        noCookiesLink: {
-            default: null,
+        cookieLinkText: {
+            default: '',
+        },
+        theme: {
+            default: '',
         },
     },
     data() {
         return {
             jsDisabled: true,
+            requiredCookies: cookieValues,
         };
     },
     computed: {
@@ -248,7 +336,11 @@ export default {
             }
 
             if (this.type === 'video') {
-                outputClasses += 'vs-stretched-link-card--video';
+                outputClasses += ' vs-stretched-link-card--video';
+            }
+
+            if (this.showWarning && this.type === 'video') {
+                outputClasses += ' vs-stretched-link-card--warning';
             }
 
             return outputClasses;
@@ -263,17 +355,75 @@ export default {
 
             return false;
         },
-        // Checks whether appropriate cookies have been rejected for the video on this megalink,
-        // to display an appropriate warning to the user
-        cookiesMissing() {
-            // TODO: Add cookie functionality once checker integrated
-            // See VS-3606
+        // Calculates if warning is showing and gives class for appropriate styles
+        warningClass() {
+            let className = '';
+
+            if (this.videoId && (this.jsDisabled || !this.requiredCookiesExist)) {
+                className = 'vs-stretched-link-card__img-container--warning ';
+
+                if (this.errorType === 'full' && (this.cookiesInitStatus !== null
+                    || this.jsDisabled)) {
+                    className += 'vs-stretched-link-card__img-container--warning-full';
+                }
+            }
+
+            return className;
+        },
+        showCookieWarning() {
+            if (this.videoId && !this.jsDisabled
+                && !this.requiredCookiesExist
+                && this.cookiesInitStatus === true) {
+                return true;
+            }
+
             return false;
         },
-        // Checks both cookiesMissing and jsDisabled to determine whether the video should be
-        // prevented from initialising
-        disableVideo() {
-            return (this.cookiesMissing || this.jsDisabled);
+        showError() {
+            if (this.videoId
+                && this.errorMessage !== ''
+                && this.cookiesInitStatus === 'error') {
+                return true;
+            }
+
+            return false;
+        },
+        showWarning() {
+            if (this.showError || this.showCookieWarning) {
+                return this.errorType;
+            }
+
+            if (this.jsDisabled) {
+                return true;
+            }
+
+            return false;
+        },
+        warningMessage() {
+            let message = '';
+
+            if (this.showCookieWarning) {
+                message = this.noCookiesMessage;
+            } else {
+                message = this.errorMessage;
+            }
+
+            return message;
+        },
+        warningAttrs() {
+            const attrsObj = {
+            };
+            if (this.type === 'cookie') {
+                attrsObj.class = 'ot-sdk-show-settings vs-warning__cookie-trigger';
+            }
+            if (this.theme === 'dark') {
+                attrsObj.onDark = '';
+            }
+            if (this.size === 'small') {
+                attrsObj.size = 'sm';
+            }
+
+            return attrsObj;
         },
     },
     mounted() {
@@ -282,7 +432,7 @@ export default {
     },
     methods: {
         emitShowModal() {
-            if (!this.videoId) {
+            if (!this.videoId || !this.requiredCookiesExist) {
                 return;
             }
 
@@ -363,7 +513,7 @@ export default {
             }
 
             &:focus {
-                outline: 2px solid $color-pink;
+                @extend %outline-link-focus;
             }
         }
 
@@ -375,13 +525,20 @@ export default {
         .vs-stretched-link-card__img-container {
             width: 100%;
             max-width: 100%;
-            align-self: flex-start;
-            flex-shrink: 0; // IE11 fix, prevents image vertical stretching
             position: relative;
+            aspect-ratio: 3/2;
+
+            @supports not (aspect-ratio: 3/2) {
+                padding-bottom: 66.6%;
+            }
         }
 
         .vs-stretched-link-card__img {
             width: 100%;
+            height: 100%;
+            object-fit: cover;
+            align-self: flex-start;
+            flex-shrink: 0; // IE11 fix, prevents image vertical stretching
         }
 
         .vs-stretched-link-card__title {
@@ -437,6 +594,26 @@ export default {
 
         .vs-stretched-link-card__video-btn-text {
             padding-right: $spacer-1;
+        }
+
+        .vs-stretched-link-card__full-warning {
+            position: absolute;
+            height: 127px;
+            width: calc(100% - 1rem);
+            z-index: 1;
+        }
+
+        .vs-stretched-link-card__image-warning {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            top: 0;
+        }
+
+        .vs-stretched-link-card__full-warning--no-js,
+        .vs-stretched-link-card__image-warning--no-js {
+            display: none;
         }
 
         @include media-breakpoint-up(sm) {
@@ -531,9 +708,6 @@ export default {
 
         @include media-breakpoint-up(xl) {
             &.vs-megalink-multi-image--featured {
-                .card-body {
-                    position: initial !important;
-                }
 
                 .vs-stretched-link-card__video-button {
                     bottom: $spacer-2;
@@ -556,5 +730,39 @@ export default {
         }
 
         @include small-rectangle-video-button();
+    }
+
+    @include no-js {
+        .card.vs-stretched-link-card {
+            .vs-stretched-link-card__image-warning,
+            .vs-stretched-link-card__full-warning {
+                display: none;
+            }
+
+            .vs-stretched-link-card__full-warning--no-js,
+            .vs-stretched-link-card__image-warning--no-js {
+                display: flex;
+            }
+        }
+
+        .vs-megalink-link-list {
+            .vs-stretched-link-card--warning {
+                overflow: hidden;
+                padding: 0;
+
+                &__img-container {
+                    width: 100%;
+                    max-width: 100%;
+                    position: absolute;
+                    left: 0;
+                    top: 50%;
+                    transform: translateY(-50%);
+                }
+
+                .card-body {
+                    display: none;
+                }
+            }
+        }
     }
 </style>

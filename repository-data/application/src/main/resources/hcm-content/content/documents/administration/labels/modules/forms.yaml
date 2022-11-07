@@ -1,70 +1,133 @@
 /content/documents/administration/labels/modules/forms:
   jcr:primaryType: hippo:handle
   jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
-  jcr:uuid: ac908ed6-3c2d-47f0-962e-3dccc5cc7d60
+  jcr:uuid: c84352c2-c31c-4acb-a5b8-1178fafa709a
   hippo:name: Forms
-  hippo:versionHistory: 1b4bf2a5-c87a-4218-9dd8-9d6202e2520b
+  hippo:versionHistory: a77f352c-6cce-4a09-bcea-a808b8ebf400
   /forms[1]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:referenceable']
-    jcr:uuid: c4471aa2-f807-445d-b1bb-98c30a02bcdc
+    jcr:uuid: b0e5a577-cc15-4551-987d-2459f1df58bd
     hippo:availability: []
     hippostd:retainable: false
     hippostd:state: draft
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2022-04-14T11:08:53.925+01:00
-    hippostdpubwf:lastModificationDate: 2022-04-22T15:29:17.662+01:00
+    hippostdpubwf:lastModificationDate: 2022-09-22T08:59:33.978+01:00
     hippostdpubwf:lastModifiedBy: admin
-    resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '', '']
+    resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '', '', '', '']
     resourcebundle:id: forms
     resourcebundle:keys: [form.messaging-url, form.country-url, form.recaptcha-key,
       form.munchkin-sandbox, form.munchkin-prod, form.submitting, form.error, form.marketo-instance-sandbox,
-      form.marketo-instance-prod, form.script-url]
+      form.marketo-instance-prod, form.script-url, form.recaptcha-textarea-label,
+      form.no-js]
     resourcebundle:messages: ['https://static.visitscotland.com/forms/common/messaging.json',
       'https://static.visitscotland.com/forms/common/countries.json', 6LfqqfcZAAAAACbkbPaHRZTIFpKZGAPZBDkwBKhe,
       830-QYE-256, 638-HHZ-510, We're just submitting your form, 'We''re sorry there''s
         been a problem, please try again later.', //830-QYE-256.mktoweb.com, //e.visitscotland.com,
-      //e.visitscotland.com/js/forms2/js/forms2.min.js]
+      //e.visitscotland.com/js/forms2/js/forms2.min.js, Does not need any text, You
+        need Javascript enabled to be able to display this form.  You can enable this
+        in your browser settings.]
+    resourcebundle:messages_de: ['', '', '', '', '', Wir übermitteln gerade Ihre Informationen,
+      'Es tut uns leid, dass ein Problem aufgetreten ist. Bitte versuchen Sie es später
+        erneut.', '', '', '', Benötigt keinen Text, 'JavaScript muss aktiviert sein,
+        um dieses Formular anzuzeigen. Sie können es in Ihren Browser-Einstellungen
+        aktivieren.']
+    resourcebundle:messages_es: ['', '', '', '', '', Estamos enviando tu información,
+      'Lamentamos que haya habido un problema, inténtalo de nuevo más tarde.', '',
+      '', '', No necesitas agregar ningún texto, El Javascript debe estar habilitado
+        para mostrar este formulario. Puedes activarlo en la configuración de tu navegador.]
+    resourcebundle:messages_fr: ['', '', '', '', '', Nous transmettons vos informations,
+      'Désolé, une erreur est survenue. Veuillez réessayer plus tard.', '', '', '',
+      Ne nécessite aucun texte, JavaScript doit être activé pour afficher ce formulaire.
+        Vous pouvez l’activer dans les paramètres de votre navigateur.]
+    resourcebundle:messages_it: ['', '', '', '', '', Stiamo inviando le tue informazioni,
+      'Siamo spiacenti che si sia verificato un problema, per favore riprova più tardi.',
+      '', '', '', Non ha bisogno di testo, Per visualizzare questo modulo è necessario
+        abilitare Javascript.  Puoi attivarlo nelle impostazioni del tuo browser.]
+    resourcebundle:messages_nl: ['', '', '', '', '', '', '', '', '', '', '', '']
   /forms[2]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
-    jcr:uuid: 8ccdcdf8-d85e-4a7c-bf94-b7f1a7f7d0f4
+    jcr:uuid: c714f71d-6e23-425c-baf6-9759dc6f12ca
     hippo:availability: [preview]
     hippostd:retainable: false
     hippostd:state: unpublished
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2022-04-14T11:08:53.925+01:00
-    hippostdpubwf:lastModificationDate: 2022-05-04T11:40:03.904+01:00
+    hippostdpubwf:lastModificationDate: 2022-09-22T08:59:53.228+01:00
     hippostdpubwf:lastModifiedBy: admin
-    resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '', '']
+    resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '', '', '', '']
     resourcebundle:id: forms
     resourcebundle:keys: [form.messaging-url, form.country-url, form.recaptcha-key,
       form.munchkin-sandbox, form.munchkin-prod, form.submitting, form.error, form.marketo-instance-sandbox,
-      form.marketo-instance-prod, form.script-url]
+      form.marketo-instance-prod, form.script-url, form.recaptcha-textarea-label,
+      form.no-js]
     resourcebundle:messages: ['https://static.visitscotland.com/forms/common/messaging.json',
       'https://static.visitscotland.com/forms/common/countries.json', 6LfqqfcZAAAAACbkbPaHRZTIFpKZGAPZBDkwBKhe,
       830-QYE-256, 638-HHZ-510, We're just submitting your form, 'We''re sorry there''s
         been a problem, please try again later.', //830-QYE-256.mktoweb.com, //e.visitscotland.com,
-      //e.visitscotland.com/js/forms2/js/forms2.min.js]
+      //e.visitscotland.com/js/forms2/js/forms2.min.js, Does not need any text, You
+        need Javascript enabled to be able to display this form.  You can enable this
+        in your browser settings.]
+    resourcebundle:messages_de: ['', '', '', '', '', Wir übermitteln gerade Ihre Informationen,
+      'Es tut uns leid, dass ein Problem aufgetreten ist. Bitte versuchen Sie es später
+        erneut.', '', '', '', Benötigt keinen Text, 'JavaScript muss aktiviert sein,
+        um dieses Formular anzuzeigen. Sie können es in Ihren Browser-Einstellungen
+        aktivieren.']
+    resourcebundle:messages_es: ['', '', '', '', '', Estamos enviando tu información,
+      'Lamentamos que haya habido un problema, inténtalo de nuevo más tarde.', '',
+      '', '', No necesitas agregar ningún texto, El Javascript debe estar habilitado
+        para mostrar este formulario. Puedes activarlo en la configuración de tu navegador.]
+    resourcebundle:messages_fr: ['', '', '', '', '', Nous transmettons vos informations,
+      'Désolé, une erreur est survenue. Veuillez réessayer plus tard.', '', '', '',
+      Ne nécessite aucun texte, JavaScript doit être activé pour afficher ce formulaire.
+        Vous pouvez l’activer dans les paramètres de votre navigateur.]
+    resourcebundle:messages_it: ['', '', '', '', '', Stiamo inviando le tue informazioni,
+      'Siamo spiacenti che si sia verificato un problema, per favore riprova più tardi.',
+      '', '', '', Non ha bisogno di testo, Per visualizzare questo modulo è necessario
+        abilitare Javascript.  Puoi attivarlo nelle impostazioni del tuo browser.]
+    resourcebundle:messages_nl: ['', '', '', '', '', '', '', '', '', '', '', '']
   /forms[3]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:referenceable']
-    jcr:uuid: 8c37551e-f83b-4cdc-a6f5-ad7d31dd6c4d
+    jcr:uuid: 565f970c-6357-417c-afad-0767889da241
     hippo:availability: [live]
     hippostd:retainable: false
     hippostd:state: published
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2022-04-14T11:08:53.925+01:00
-    hippostdpubwf:lastModificationDate: 2022-05-04T11:40:03.904+01:00
+    hippostdpubwf:lastModificationDate: 2022-09-22T08:59:53.228+01:00
     hippostdpubwf:lastModifiedBy: admin
-    hippostdpubwf:publicationDate: 2022-05-04T11:40:06.438+01:00
-    resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '', '']
+    hippostdpubwf:publicationDate: 2022-09-22T08:59:56.254+01:00
+    resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '', '', '', '']
     resourcebundle:id: forms
     resourcebundle:keys: [form.messaging-url, form.country-url, form.recaptcha-key,
       form.munchkin-sandbox, form.munchkin-prod, form.submitting, form.error, form.marketo-instance-sandbox,
-      form.marketo-instance-prod, form.script-url]
+      form.marketo-instance-prod, form.script-url, form.recaptcha-textarea-label,
+      form.no-js]
     resourcebundle:messages: ['https://static.visitscotland.com/forms/common/messaging.json',
       'https://static.visitscotland.com/forms/common/countries.json', 6LfqqfcZAAAAACbkbPaHRZTIFpKZGAPZBDkwBKhe,
       830-QYE-256, 638-HHZ-510, We're just submitting your form, 'We''re sorry there''s
         been a problem, please try again later.', //830-QYE-256.mktoweb.com, //e.visitscotland.com,
-      //e.visitscotland.com/js/forms2/js/forms2.min.js]
+      //e.visitscotland.com/js/forms2/js/forms2.min.js, Does not need any text, You
+        need Javascript enabled to be able to display this form.  You can enable this
+        in your browser settings.]
+    resourcebundle:messages_de: ['', '', '', '', '', Wir übermitteln gerade Ihre Informationen,
+      'Es tut uns leid, dass ein Problem aufgetreten ist. Bitte versuchen Sie es später
+        erneut.', '', '', '', Benötigt keinen Text, 'JavaScript muss aktiviert sein,
+        um dieses Formular anzuzeigen. Sie können es in Ihren Browser-Einstellungen
+        aktivieren.']
+    resourcebundle:messages_es: ['', '', '', '', '', Estamos enviando tu información,
+      'Lamentamos que haya habido un problema, inténtalo de nuevo más tarde.', '',
+      '', '', No necesitas agregar ningún texto, El Javascript debe estar habilitado
+        para mostrar este formulario. Puedes activarlo en la configuración de tu navegador.]
+    resourcebundle:messages_fr: ['', '', '', '', '', Nous transmettons vos informations,
+      'Désolé, une erreur est survenue. Veuillez réessayer plus tard.', '', '', '',
+      Ne nécessite aucun texte, JavaScript doit être activé pour afficher ce formulaire.
+        Vous pouvez l’activer dans les paramètres de votre navigateur.]
+    resourcebundle:messages_it: ['', '', '', '', '', Stiamo inviando le tue informazioni,
+      'Siamo spiacenti che si sia verificato un problema, per favore riprova più tardi.',
+      '', '', '', Non ha bisogno di testo, Per visualizzare questo modulo è necessario
+        abilitare Javascript.  Puoi attivarlo nelle impostazioni del tuo browser.]
+    resourcebundle:messages_nl: ['', '', '', '', '', '', '', '', '', '', '', '']

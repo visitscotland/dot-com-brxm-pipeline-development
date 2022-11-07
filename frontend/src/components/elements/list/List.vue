@@ -15,6 +15,7 @@
 </template>
 
 <script>
+
 /**
  * The list component groups related content together
  * to help break text up into chunks.

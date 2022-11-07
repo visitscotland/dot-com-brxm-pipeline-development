@@ -28,8 +28,8 @@
                 >
                     <vs-img 
                         src="<@hst.webfile path='assets/images/iknow-scotland-logo.svg'/>" 
-                        width="130px"
-                        class="mb-8">
+                        width="130"
+                        class="mb-8 d-inline">
                     </vs-img>
 
                     <vs-rich-text-wrapper variant="lead">

@@ -1,13 +1,12 @@
 <template>
     <VsButton
-        variant="outline-transparent"
         class="vs-toggle-btn"
-        aria-label="Expand caption"
-        :animate="false"
+        data-test="vs-toggle-btn"
+        variant="transparent"
+        icon-only
         :aria-controls="toggleId"
         :aria-expanded="show ? 'true' : 'false'"
         @click.native="toggleAction"
-        data-test="vs-toggle-btn"
     >
         <!-- @slot Default slot for screenreader text -->
         <span class="sr-only">
@@ -25,10 +24,9 @@
             v-else
             name="toggle-icon"
         >
-            <VsSvg
-                path="info-toggle"
-                height="24"
-                width="24"
+            <VsIcon
+                name="information-filled"
+                size="md"
             />
         </slot>
     </VsButton>
@@ -36,26 +34,13 @@
 
 <style lang="scss">
     .vs-toggle-btn {
-        padding: 0;
-        line-height: $line_height_xs;
         z-index: 3;
         display: block;
-
-        .vs-icon, svg {
-            margin-top: 0;
-        }
-
-        &:hover {
-            .vs-icon, svg {
-                fill: $color-theme-primary;
-            }
-        }
     }
 </style>
 
 <script>
 import VsButton from '@components/elements/button/Button';
-import VsSvg from '@components/elements/svg/Svg';
 import VsIcon from '@components/elements/icon/Icon';
 
 /**
@@ -69,7 +54,6 @@ export default {
     release: '0.0.1',
     components: {
         VsButton,
-        VsSvg,
         VsIcon,
     },
     props: {

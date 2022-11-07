@@ -2,20 +2,20 @@
   .meta:order-before: facilities
   jcr:primaryType: hippo:handle
   jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
-  jcr:uuid: cd116302-9230-471d-a39f-f8c18e331bca
+  jcr:uuid: 0cf434db-15a9-4188-afb9-0cbc424c2177
   hippo:name: Social Share
-  hippo:versionHistory: e38a3ac5-8de5-4f50-adee-9b40d98be211
+  hippo:versionHistory: 82a68b45-93ac-4427-adcd-e63a8287f845
   /social-share[1]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:referenceable']
-    jcr:uuid: 4df558fe-2d9b-4cb0-8f0e-f5693ad03e2a
+    jcr:uuid: bd50d9d2-0b4c-4936-9a6f-e4f10d59a24e
     hippo:availability: []
     hippostd:retainable: false
     hippostd:state: draft
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2021-07-15T15:32:42.290+01:00
-    hippostdpubwf:lastModificationDate: 2021-10-14T10:24:21.860Z
-    hippostdpubwf:lastModifiedBy: admin
+    hippostdpubwf:lastModificationDate: 2022-07-08T10:18:15.616+02:00
+    hippostdpubwf:lastModifiedBy: nikki.sherret
     resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '', '']
     resourcebundle:id: social.share
     resourcebundle:keys: [share.on, facebook.link.text, pinterest.link.text, whatsapp.link.text,
@@ -28,7 +28,7 @@
     resourcebundle:messages_es: [Compartir en, Facebook, Pinterest, WhatsApp, Twitter,
       Correo electrónico, Copiar enlace, Cerrar, Compartir, ¡Enlace copiado!]
     resourcebundle:messages_fr: [Partager sur, Facebook, Pinterest, WhatsApp, Twitter,
-      E-mail, Copier le lien, Fermer le partage, Partager, Lien copié!]
+      E-mail, Copier le lien, Fermer le partage, Partager, Lien copié !]
     resourcebundle:messages_it: [Condividi su, Facebook, Pinterest, WhatsApp, Twitter,
       Email, Copia il link, Chiudi condivisione social, Condividi, Link copiato!]
     resourcebundle:messages_nl: [Deel op, Facebook, Pinterest, WhatsApp, Twitter,
@@ -36,14 +36,14 @@
   /social-share[2]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:versionable']
-    jcr:uuid: f4b0146c-b036-45d2-9618-e40240e69148
+    jcr:uuid: 5d02308a-e37f-454a-9c91-d9b3231426fa
     hippo:availability: [preview]
     hippostd:retainable: false
     hippostd:state: unpublished
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2021-07-15T15:32:42.290+01:00
-    hippostdpubwf:lastModificationDate: 2021-10-14T10:27:46.551Z
-    hippostdpubwf:lastModifiedBy: admin
+    hippostdpubwf:lastModificationDate: 2022-07-08T10:18:42.440+02:00
+    hippostdpubwf:lastModifiedBy: nikki.sherret
     resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '', '']
     resourcebundle:id: social.share
     resourcebundle:keys: [share.on, facebook.link.text, pinterest.link.text, whatsapp.link.text,
@@ -56,7 +56,7 @@
     resourcebundle:messages_es: [Compartir en, Facebook, Pinterest, WhatsApp, Twitter,
       Correo electrónico, Copiar enlace, Cerrar, Compartir, ¡Enlace copiado!]
     resourcebundle:messages_fr: [Partager sur, Facebook, Pinterest, WhatsApp, Twitter,
-      E-mail, Copier le lien, Fermer le partage, Partager, Lien copié!]
+      E-mail, Copier le lien, Fermer le partage, Partager, Lien copié !]
     resourcebundle:messages_it: [Condividi su, Facebook, Pinterest, WhatsApp, Twitter,
       Email, Copia il link, Chiudi condivisione social, Condividi, Link copiato!]
     resourcebundle:messages_nl: [Deel op, Facebook, Pinterest, WhatsApp, Twitter,
@@ -64,15 +64,15 @@
   /social-share[3]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:referenceable']
-    jcr:uuid: a8d3ceb2-4ad7-4a5c-ad71-464a54829aef
+    jcr:uuid: 870555dd-7cdb-48b5-99cb-5a96ea80ff4e
     hippo:availability: [live]
     hippostd:retainable: false
     hippostd:state: published
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2021-07-15T15:32:42.290+01:00
-    hippostdpubwf:lastModificationDate: 2021-10-14T10:27:46.551Z
-    hippostdpubwf:lastModifiedBy: admin
-    hippostdpubwf:publicationDate: 2021-10-14T10:27:50.202Z
+    hippostdpubwf:lastModificationDate: 2022-07-08T10:18:42.440+02:00
+    hippostdpubwf:lastModifiedBy: nikki.sherret
+    hippostdpubwf:publicationDate: 2022-07-13T17:54:51.929+02:00
     resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '', '']
     resourcebundle:id: social.share
     resourcebundle:keys: [share.on, facebook.link.text, pinterest.link.text, whatsapp.link.text,
@@ -85,7 +85,7 @@
     resourcebundle:messages_es: [Compartir en, Facebook, Pinterest, WhatsApp, Twitter,
       Correo electrónico, Copiar enlace, Cerrar, Compartir, ¡Enlace copiado!]
     resourcebundle:messages_fr: [Partager sur, Facebook, Pinterest, WhatsApp, Twitter,
-      E-mail, Copier le lien, Fermer le partage, Partager, Lien copié!]
+      E-mail, Copier le lien, Fermer le partage, Partager, Lien copié !]
     resourcebundle:messages_it: [Condividi su, Facebook, Pinterest, WhatsApp, Twitter,
       Email, Copia il link, Chiudi condivisione social, Condividi, Link copiato!]
     resourcebundle:messages_nl: [Deel op, Facebook, Pinterest, WhatsApp, Twitter,

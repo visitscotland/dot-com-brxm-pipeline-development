@@ -13,7 +13,6 @@ The default tooltip is displayed at the top of the button.
         icon="bus"
         size="lg"
         icon-only
-        icon-variant-override="dark"
         variant="transparent"
     />
   ```

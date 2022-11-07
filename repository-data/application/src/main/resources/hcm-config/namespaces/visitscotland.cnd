@@ -11,9 +11,9 @@
 [visitscotland:translatable]
   mixin
   - visitscotland:translationFlag (boolean)
+  - visitscotland:translationDeadline (date)
   - visitscotland:diff (string)
   - visitscotland:translationPriority (string)
-  - visitscotland:translationDeadline (date)
 
 [visitscotland:Article] > hippostd:relaxed, hippotranslation:translated, visitscotland:basedocument, visitscotland:translatable
   orderable
@@ -98,6 +98,12 @@
 [visitscotland:LongCopy] > hippostd:relaxed, hippotranslation:translated, visitscotland:basedocument, visitscotland:translatable
   orderable
 
+[visitscotland:MapCategory] > hippo:compound, hippostd:relaxed
+  orderable
+
+[visitscotland:MapModule] > hippostd:relaxed, hippotranslation:translated, visitscotland:basedocument, visitscotland:translatable
+  orderable
+
 [visitscotland:MarketoForm] > hippostd:relaxed, hippotranslation:translated, visitscotland:basedocument, visitscotland:translatable
   orderable
 
@@ -123,6 +129,9 @@
   orderable
 
 [visitscotland:SingleImageModule] > hippo:compound, hippostd:relaxed
+  orderable
+
+[visitscotland:SpecialLinkCoordinates] > hippo:compound, hippostd:relaxed
   orderable
 
 [visitscotland:Stackla] > hippostd:relaxed, hippotranslation:translated, visitscotland:basedocument, visitscotland:translatable

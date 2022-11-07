@@ -11,9 +11,9 @@
     <@hst.headContributions categoryIncludes="htmlBodyEndAppInit" xhtml=true/>
     <!-- END HEAD CONTRIBUTIONS: htmlBodyEndAppInit -->
 
-    <style>
-        body {
-            visibility: visible;
-        }
-    </style>
+    <!-- BEGIN HEAD CONTRIBUTIONS: htmlBodyEndScriptsLast -->
+    <@hst.headContributions categoryIncludes="htmlBodyEndScriptsLast" xhtml=true/>
+    <!-- END HEAD CONTRIBUTIONS: htmlBodyEndScriptsLast -->
+
+    <link rel="stylesheet" href="<@hst.webfile path='/assets/css/fouc.css'/>" type="text/css"/>
 </#macro>

@@ -1,7 +1,10 @@
 <template>
-    <div class="vs-recaptcha">
+    <div
+        class="vs-recaptcha"
+        aria-live="assertive"
+    >
         <span
-            v-if="invalid"
+            v-if="invalid && !reAlertErrors"
             class="error"
         >
             {{ errorMsg }}
@@ -9,6 +12,7 @@
         <VueRecaptcha
             :sitekey="siteKey"
             @verify="verified"
+            @render="render"
             class="vs-recaptcha__embed"
             :class="invalid ? 'vs-recaptcha__embed--error' :''"
             :language="language"
@@ -64,6 +68,23 @@ export default {
             type: String,
             default: '',
         },
+        /**
+         * Text for invisible recaptcha textarea - tells
+         * screenreader users it's not needed
+         */
+        textareaLabel: {
+            type: String,
+            default: 'Does not need any text',
+        },
+        /**
+         * Whether the parent form has just been submitted, if so all errors
+         * need to be wiped from then re-added to the DOM to inform screen
+         * readers that they should be re-declared
+         */
+        reAlertErrors: {
+            type: Boolean,
+            default: false,
+        },
     },
     methods: {
         verified(response) {
@@ -74,6 +95,21 @@ export default {
              * in response to the recaptcha being submitted
              */
             this.$emit('verified', response);
+        },
+        render() {
+            // when recaptcha is rendered add a label to the invisible textarea
+            // to show screenreader users it doesn't need filling
+            const recaptchaTextarea = document.getElementById('g-recaptcha-response');
+            const recaptchaParent = recaptchaTextarea.parentNode;
+            const existingRecaptchaLabel = document.querySelector('label[for="g-recaptcha-response"]');
+            const recaptchaLabel = document.createElement('label');
+            recaptchaLabel.setAttribute('for', 'g-recaptcha-response');
+            recaptchaLabel.setAttribute('class', 'sr-only');
+            recaptchaLabel.textContent = this.textareaLabel;
+
+            if (!existingRecaptchaLabel) {
+                recaptchaParent.insertBefore(recaptchaLabel, recaptchaTextarea);
+            }
         },
     },
 };

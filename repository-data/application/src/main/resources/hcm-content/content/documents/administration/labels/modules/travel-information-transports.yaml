@@ -1,20 +1,22 @@
 /content/documents/administration/labels/modules/travel-information-transports:
+  .meta:order-before: product-search-widget
   jcr:primaryType: hippo:handle
   jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
-  jcr:uuid: 81cf90d3-a427-4a6d-85f6-0de65794d5a9
+  jcr:uuid: 06d5a758-fe0a-44ef-b1fb-efec4b20e1b5
   hippo:name: Travel Information Transports
-  hippo:versionHistory: 8b1a075d-bc56-4f4c-8ee0-f7b6ce1774ef
+  hippo:versionHistory: b8e8d5c0-7adc-4941-a501-928ffa7a111c
   /travel-information-transports[1]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:referenceable']
-    jcr:uuid: ec890da6-f230-4bce-bea2-34c1e568d5b5
+    jcr:uuid: 4707115d-168b-48db-a997-b0a3e58c4b5d
     hippo:availability: []
     hippostd:retainable: false
     hippostd:state: draft
+    hippostd:transferable: false
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2021-10-20T14:03:42.816+01:00
-    hippostdpubwf:lastModificationDate: 2021-10-20T16:54:33.932+01:00
-    hippostdpubwf:lastModifiedBy: admin
+    hippostdpubwf:lastModificationDate: 2022-09-07T11:19:15.544+02:00
+    hippostdpubwf:lastModifiedBy: juanluis.hurtado
     resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '', '', '', '',
       '', '', '']
     resourcebundle:id: travel-information-transports
@@ -23,27 +25,31 @@
     resourcebundle:messages: [Accessible travel, Bus and coach, Cycling, Driving,
       Ferry, Flying, Key destinations, Subway, Taxi, Tours, Train, Tram, Travel passes,
       Vehicle hire, Walking]
-    resourcebundle:messages_de: ['', '', '', '', '', '', '', '', '', '', '', '', '',
-      '', '']
-    resourcebundle:messages_es: ['', '', '', '', '', '', '', '', '', '', '', '', '',
-      '', '']
-    resourcebundle:messages_fr: ['', '', '', '', '', '', '', '', '', '', '', '', '',
-      '', '']
-    resourcebundle:messages_it: ['', '', '', '', '', '', '', '', '', '', '', '', '',
-      '', '']
+    resourcebundle:messages_de: [Barrierefreies Reisen, Bus & Reisebus, Fahrrad, Auto,
+      Fähre, Flugzeug, Wichtige Ziele, U-Bahn, Taxi, Touren, Zug, Straßenbahn, Tickets,
+      Fahrzeugvermietung, Zu Fuß]
+    resourcebundle:messages_es: [Viaje accesible, Bus y autocar, Bicicleta, Coche,
+      Ferry, Avión, Destinos principales, Metro, Taxi, Excursiones, Tren, Tranvía,
+      Billetes, Alquiler de vehículo, A pie]
+    resourcebundle:messages_fr: [Voyage accessible, Bus & car, Vélo, Voiture, Ferry,
+      Avion, Destinations phares, Métro, Taxi, Excursions, Train, Tram, Billets, Location
+        de véhicule, À pied]
+    resourcebundle:messages_it: [Viaggio accessibile, Autobus e pullman, Bicicletta,
+      Auto, Traghetto, Aereo, Destinazioni principali, Metropolitana, Taxi, Tour,
+      Treno, Tram, Biglietti, Noleggio di veicoli, A piedi]
     resourcebundle:messages_nl: ['', '', '', '', '', '', '', '', '', '', '', '', '',
       '', '']
   /travel-information-transports[2]:
     jcr:primaryType: resourcebundle:resourcebundle
-    jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
-    jcr:uuid: f669856b-5fc2-41ac-a9ed-c3059b292b58
+    jcr:mixinTypes: ['mix:versionable']
+    jcr:uuid: 2829f4e6-dd32-491f-9e46-46ec615a19c0
     hippo:availability: [preview]
     hippostd:retainable: false
     hippostd:state: unpublished
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2021-10-20T14:03:42.816+01:00
-    hippostdpubwf:lastModificationDate: 2021-10-20T16:55:10.923+01:00
-    hippostdpubwf:lastModifiedBy: admin
+    hippostdpubwf:lastModificationDate: 2022-07-08T10:46:07.591+02:00
+    hippostdpubwf:lastModifiedBy: nikki.sherret
     resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '', '', '', '',
       '', '', '']
     resourcebundle:id: travel-information-transports
@@ -52,28 +58,32 @@
     resourcebundle:messages: [Accessible travel, Bus and coach, Cycling, Driving,
       Ferry, Flying, Key destinations, Subway, Taxi, Tours, Train, Tram, Travel passes,
       Vehicle hire, Walking]
-    resourcebundle:messages_de: ['', '', '', '', '', '', '', '', '', '', '', '', '',
-      '', '']
-    resourcebundle:messages_es: ['', '', '', '', '', '', '', '', '', '', '', '', '',
-      '', '']
-    resourcebundle:messages_fr: ['', '', '', '', '', '', '', '', '', '', '', '', '',
-      '', '']
-    resourcebundle:messages_it: ['', '', '', '', '', '', '', '', '', '', '', '', '',
-      '', '']
+    resourcebundle:messages_de: [Barrierefreies Reisen, Bus & Reisebus, Fahrrad, Auto,
+      Fähre, Flugzeug, Wichtige Ziele, U-Bahn, Taxi, Touren, Zug, Straßenbahn, Tickets,
+      Fahrzeugvermietung, Zu Fuß]
+    resourcebundle:messages_es: [Viaje accesible, Bus y autocar, Bicicleta, Coche,
+      Ferry, Avión, Destinos principales, Metro, Taxi, Excursiones, Tren, Tranvía,
+      Billetes, Alquiler de vehículo, A pie]
+    resourcebundle:messages_fr: [Voyage accessible, Bus & car, Vélo, Voiture, Ferry,
+      Avion, Destinations phares, Métro, Taxi, Excursions, Train, Tram, Billets, Location
+        de véhicule, À pied]
+    resourcebundle:messages_it: [Viaggio accessibile, Autobus e pullman, Bicicletta,
+      Auto, Traghetto, Aereo, Destinazioni principali, Metropolitana, Taxi, Tour,
+      Treno, Tram, Biglietti, Noleggio di veicoli, A piedi]
     resourcebundle:messages_nl: ['', '', '', '', '', '', '', '', '', '', '', '', '',
       '', '']
   /travel-information-transports[3]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:referenceable']
-    jcr:uuid: 9cdb0752-f921-47c6-986e-70ded926d39d
+    jcr:uuid: 75294644-8882-46e0-97b1-3918041b7b98
     hippo:availability: [live]
     hippostd:retainable: false
     hippostd:state: published
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2021-10-20T14:03:42.816+01:00
-    hippostdpubwf:lastModificationDate: 2021-10-20T16:55:10.923+01:00
-    hippostdpubwf:lastModifiedBy: admin
-    hippostdpubwf:publicationDate: 2021-10-20T16:55:13.654+01:00
+    hippostdpubwf:lastModificationDate: 2022-07-08T10:46:07.591+02:00
+    hippostdpubwf:lastModifiedBy: nikki.sherret
+    hippostdpubwf:publicationDate: 2022-07-13T17:54:13.716+02:00
     resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '', '', '', '',
       '', '', '']
     resourcebundle:id: travel-information-transports
@@ -82,13 +92,17 @@
     resourcebundle:messages: [Accessible travel, Bus and coach, Cycling, Driving,
       Ferry, Flying, Key destinations, Subway, Taxi, Tours, Train, Tram, Travel passes,
       Vehicle hire, Walking]
-    resourcebundle:messages_de: ['', '', '', '', '', '', '', '', '', '', '', '', '',
-      '', '']
-    resourcebundle:messages_es: ['', '', '', '', '', '', '', '', '', '', '', '', '',
-      '', '']
-    resourcebundle:messages_fr: ['', '', '', '', '', '', '', '', '', '', '', '', '',
-      '', '']
-    resourcebundle:messages_it: ['', '', '', '', '', '', '', '', '', '', '', '', '',
-      '', '']
+    resourcebundle:messages_de: [Barrierefreies Reisen, Bus & Reisebus, Fahrrad, Auto,
+      Fähre, Flugzeug, Wichtige Ziele, U-Bahn, Taxi, Touren, Zug, Straßenbahn, Tickets,
+      Fahrzeugvermietung, Zu Fuß]
+    resourcebundle:messages_es: [Viaje accesible, Bus y autocar, Bicicleta, Coche,
+      Ferry, Avión, Destinos principales, Metro, Taxi, Excursiones, Tren, Tranvía,
+      Billetes, Alquiler de vehículo, A pie]
+    resourcebundle:messages_fr: [Voyage accessible, Bus & car, Vélo, Voiture, Ferry,
+      Avion, Destinations phares, Métro, Taxi, Excursions, Train, Tram, Billets, Location
+        de véhicule, À pied]
+    resourcebundle:messages_it: [Viaggio accessibile, Autobus e pullman, Bicicletta,
+      Auto, Traghetto, Aereo, Destinazioni principali, Metropolitana, Taxi, Tour,
+      Treno, Tram, Biglietti, Noleggio di veicoli, A piedi]
     resourcebundle:messages_nl: ['', '', '', '', '', '', '', '', '', '', '', '', '',
       '', '']

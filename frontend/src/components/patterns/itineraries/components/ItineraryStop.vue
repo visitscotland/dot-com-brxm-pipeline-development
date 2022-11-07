@@ -299,16 +299,14 @@ export default {
                             <VsButton
                                 class="mb-3"
                                 button-size="md"
-                                background="white"
-                                variant="outline-primary"
+                                variant="secondary"
                                 href="#"
                                 icon="food"
                             >
                                 Nearby places to eat
                             </VsButton>
                             <VsButton
-                                background="white"
-                                variant="outline-primary"
+                                variant="secondary"
                                 href="#"
                                 icon="product-accommodation"
                             >

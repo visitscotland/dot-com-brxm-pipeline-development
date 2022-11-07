@@ -3,21 +3,17 @@
         class="vs-social-share"
         data-test="vs-social-share"
         :class="noJs ? 'vs-module-wrapper__outer--hidden' : 'vs-module-wrapper__outer--light'"
+        ref="socialShareContainer"
     >
         <VsButton
+            icon-with-text
             class="vs-social-share__share-btn"
             variant="transparent"
-            :uppercase="false"
+            icon="share"
             :id="`vs-social-share-popover--${id}`"
             v-if="!noJs"
             ref="shareButton"
         >
-            <VsIcon
-                name="share"
-                variant="dark"
-                size="md"
-            />
-
             {{ shareBtnText }}
         </VsButton>
 
@@ -35,44 +31,32 @@
             <VsHeading
                 thin
                 level="3"
+                tabindex="0"
+                ref="shareHeader"
+                class="vs-social-share__header"
+                @keydown.tab.native="tabBackFromHidden($event)"
             >
                 {{ sharePopoverTitle }}
             </VsHeading>
 
-            <VsRow>
-                <label for="hiddenAnchor">
-                    <input
-                        type="text"
-                        class="hidden-anchor"
-                        id="hiddenAnchor"
-                        tabindex="0"
-                        readonly
-                        ref="hiddenAnchor"
-                        @keydown.tab="tabBackFromHidden($event)"
-                    >
-                </label>
-
+            <VsRow ref="popoverShareRow">
                 <!-- @slot Default slot for SocialShareItems -->
                 <slot :on-copy-link="onCopyLink" />
             </VsRow>
 
             <VsButton
+                icon-only
                 class="vs-social-share__close-btn"
+                icon="close"
+                size="lg"
                 variant="transparent"
-                @click.native="onClose"
-                aria-label="Close"
-                @keydown.tab.native="tabFromClose($event)"
                 ref="closeButton"
+                @click.native="onClose"
+                @keydown.tab.native="tabFromClose($event)"
             >
                 <span class="sr-only">
                     {{ closeAltText }}
                 </span>
-                <VsIcon
-                    name="close"
-                    variant="dark"
-                    size="md"
-                    aria-hidden="true"
-                />
             </VsButton>
         </BPopover>
 
@@ -102,7 +86,6 @@
 </template>
 
 <script>
-import VsIcon from '@components/elements/icon/Icon';
 import VsButton from '@components/elements/button/Button';
 import VsHeading from '@components/elements/heading/Heading';
 import VsModuleWrapper from '@components/patterns/module-wrapper/ModuleWrapper';
@@ -122,7 +105,6 @@ export default {
     status: 'prototype',
     release: '0.0.1',
     components: {
-        VsIcon,
         VsButton,
         VsHeading,
         VsModuleWrapper,
@@ -195,10 +177,10 @@ export default {
             this.$refs.popover.$emit('close');
         },
         /**
-         * When popover is shown, focuses on hidden anchor
+         * When popover is shown, focuses on the first share button
          */
         onShown() {
-            this.focusRef(this.$refs.hiddenAnchor);
+            this.focusFirst();
         },
         /**
          * When popover is hidden, focuses back on share button
@@ -209,7 +191,7 @@ export default {
         onHide(bvEvent) {
             if (this.copyLink) {
                 bvEvent.preventDefault();
-                this.focusRef(this.$refs.hiddenAnchor);
+                this.focusFirst();
                 this.copyLink = false;
             }
         },
@@ -217,12 +199,23 @@ export default {
             this.copyLink = true;
         },
         /**
-         * Check before focusing after popover has been positioned
+         * Wait for the popover to be rendered then focus on a given element by ref
          */
         focusRef(ref) {
             this.$nextTick(() => {
                 this.$nextTick(() => {
                     ;(ref.$el || ref).focus();
+                });
+            });
+        },
+        /**
+         * Wait for the popover to be rendered then focus on the first share button
+         */
+        focusFirst() {
+            this.$nextTick(() => {
+                this.$nextTick(() => {
+                    const shareButtonRow = this.$refs.popoverShareRow.$el;
+                    shareButtonRow.querySelector('.vs-social-share-item a ').focus();
                 });
             });
         },
@@ -234,11 +227,11 @@ export default {
             // Only loop round if tabbing forwards
             if (!event.shiftKey) {
                 event.preventDefault();
-                this.focusRef(this.$refs.hiddenAnchor);
+                this.focusFirst();
             }
         },
         /**
-         * When tabbing backwards from the hidden anchor, trap focus within the modal
+         * When tabbing backwards from the header element, trap focus within the modal
          * and loop back to the close button
          */
         tabBackFromHidden(event) {
@@ -266,24 +259,6 @@ export default {
     .vs-social-share{
         &--module-list{
             display: none;
-        }
-
-        &__share-btn.vs-button.btn{
-            padding: 0 $spacer-1;
-            letter-spacing: initial;
-            text-decoration: underline;
-            font-weight: $font-weight-normal;
-            font-size: $font-size-3;
-            line-height: $line_height_l;
-
-            svg {
-                display: block;
-                margin: 0 auto;
-            }
-
-            &:hover{
-                color: $color-pink;
-            }
         }
 
         &__popover{
@@ -372,18 +347,16 @@ export default {
             }
         }
 
-        &__close-btn.vs-button.btn{
+        &__header {
+            &:focus {
+                outline: none;
+            }
+        }
+
+        &__close-btn{
             position: absolute;
             right: $spacer-4;
             top: $spacer-4;
-            border: 0;
-            padding: $spacer-1;
-
-            &:hover{
-                .vs-icon.vs-icon--variant-dark{
-                    fill: $color-pink;
-                }
-            }
         }
     }
 
@@ -393,7 +366,7 @@ export default {
                 display: block;
             }
 
-            &__share-btn.vs-button.btn{
+            &__share-btn{
                display: none;
             }
 

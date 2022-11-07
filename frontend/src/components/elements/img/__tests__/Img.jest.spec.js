@@ -54,6 +54,14 @@ describe('VsImg', () => {
             expect(wrapper.attributes('style')).toContain(`${imgUrl}?size=xxs`);
         });
 
+        it('should set a `generic-lqip` class if `useGenericLqip` is set to true', () => {
+            const wrapper = factoryMount({
+                useGenericLqip: true,
+            });
+
+            expect(wrapper.classes('generic-lqip')).toBe(true);
+        });
+
         it('should set an `img-fluid` class if the `fluid` property is truthy', () => {
             const wrapper = factoryMount({
                 fluid: true,

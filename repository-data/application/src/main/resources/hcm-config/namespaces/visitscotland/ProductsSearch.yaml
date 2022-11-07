@@ -11,7 +11,7 @@ definitions:
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:uuid: 0e0564c8-7721-4253-ae8c-155aee8c7c5e
+          jcr:uuid: fa93c2db-d851-4147-93d3-212d6f8e2b5a
           hipposysedit:node: true
           hipposysedit:supertype: ['hippo:compound', 'hippostd:relaxed']
           hipposysedit:uri: http://www.visitscotland.com/visitscotland/nt/1.0
@@ -82,11 +82,19 @@ definitions:
             hipposysedit:path: visitscotland:keywords
             hipposysedit:primary: false
             hipposysedit:type: String
+          /channel:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: visitscotland:channel
+            hipposysedit:primary: false
+            hipposysedit:type: DynamicDropdown
       /hipposysedit:prototypes:
         jcr:primaryType: hipposysedit:prototypeset
         /hipposysedit:prototype:
           jcr:primaryType: visitscotland:ProductsSearch
-          visitscotland:location: Scotland
+          visitscotland:location: ''
           visitscotland:dmsCategories: []
           visitscotland:dmsAwards: []
           visitscotland:dmsFacilities: []
@@ -97,6 +105,7 @@ definitions:
           visitscotland:offers: false
           visitscotland:safeTravels: false
           visitscotland:keywords: ''
+          visitscotland:channel: ''
       /editor:templates:
         jcr:primaryType: editor:templateset
         /_default_:
@@ -250,3 +259,13 @@ definitions:
             wicket.id: ${cluster.id}.right.item
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
+          /channel:
+            jcr:primaryType: frontend:plugin
+            caption: Channel
+            field: channel
+            hint: ''
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.right.item
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+              source: /content/documents/administration/options/product-search---channels

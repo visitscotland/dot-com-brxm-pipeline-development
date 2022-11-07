@@ -18,6 +18,7 @@ public class GeneralContentComponent extends PageContentComponent<Destination> {
 
     public static final String SIMPLE = "Simple";
     public static final String STANDARD = "Standard";
+    static final String ERROR_CODE = "errorCode";
 
     private PageTemplateBuilder builder;
 
@@ -30,7 +31,11 @@ public class GeneralContentComponent extends PageContentComponent<Destination> {
     public void doBeforeRender(HstRequest request, HstResponse response) {
         super.doBeforeRender(request, response);
         GeneralPageComponentInfo pageInfo = getComponentParametersInfo(request);
-        response.setStatus(Integer.parseInt(pageInfo.getStatus()));
+        int pageStatus = Integer.parseInt(pageInfo.getStatus());
+        response.setStatus(pageStatus);
+        if (pageStatus >= 400){
+            request.setAttribute(ERROR_CODE,pageStatus);
+        }
         builder.addModules(request);
 
 

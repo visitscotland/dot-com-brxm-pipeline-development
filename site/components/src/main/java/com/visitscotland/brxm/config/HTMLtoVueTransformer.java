@@ -47,8 +47,18 @@ public class HTMLtoVueTransformer {
 
         while (matcher.find()) {
             String id = toKebabCase(matcher.group(3));
-            String vsHeading = String.format("<vs-heading level=\"%s\" id=\"%s\"%s>%s</vs-heading>",
-                    matcher.group(1), id, matcher.group(2), matcher.group(3));
+            String level = matcher.group(1);
+            String vsHeading;
+            if (level.equals("6")){
+                /* TODO: This is a workaround for VS-3489 and needs to be removed when that ticket is completed
+                 * Since this a temporarily fix no unit tests have been written
+                 */
+                vsHeading = String.format("<vs-heading level=\"4\" override-style-level=\"6\" id=\"%s\"%s>%s</vs-heading>",
+                        id, matcher.group(2), matcher.group(3));
+            } else {
+                vsHeading = String.format("<vs-heading level=\"%s\" id=\"%s\"%s>%s</vs-heading>",
+                        level, id, matcher.group(2), matcher.group(3));
+            }
             output = output.replace(matcher.group(), vsHeading);
         }
 

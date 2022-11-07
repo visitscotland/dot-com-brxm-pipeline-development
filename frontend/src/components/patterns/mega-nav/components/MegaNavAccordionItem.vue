@@ -27,6 +27,15 @@
             />
         </template>
 
+        <VsLink
+            v-if="ctaLink && ctaText"
+            class="vs-mega-nav-accordion-item__cta-link"
+            data-test="vs-mega-nav-accordion-item__cta-link"
+            :href="ctaLink"
+        >
+            {{ ctaText }}
+        </VsLink>
+
         <!-- @slot The default slot is the content for the accordion  -->
         <slot />
     </VsAccordionItem>
@@ -35,6 +44,7 @@
 <script>
 import VsAccordionItem from '@components/patterns/accordion/components/AccordionItem';
 import VsIcon from '@components/elements/icon/Icon';
+import VsLink from '@components/elements/link/Link';
 
 /**
  *  This component is used in the mobile menu for groups of links
@@ -48,6 +58,7 @@ export default {
     components: {
         VsAccordionItem,
         VsIcon,
+        VsLink,
     },
     props: {
         /**
@@ -73,6 +84,20 @@ export default {
             required: true,
             validator: (value) => value.match(/(1|2)/),
         },
+        /**
+         * The CTA link used at the top of the accordion dropdown
+         */
+        ctaLink: {
+            type: String,
+            default: '',
+        },
+        /**
+         * The CTA text used for the CTA link at the top of the accordion dropdown
+         */
+        ctaText: {
+            type: String,
+            default: '',
+        },
     },
     computed: {
         getUniqueId() {
@@ -92,6 +117,24 @@ export default {
 
 <style lang="scss">
 .vs-mega-nav-accordion-item {
+
+    &__cta-link{
+        text-decoration: none;
+        transition: $duration-base color;
+        font-size: $font-size-5;
+        line-height: $line-height-s;
+        display: block;
+        padding: $spacer-3 $spacer-8;
+        border-top: 1px solid $color-gray-tint-6;
+
+        &:hover{
+            color: $color-secondary-gray-shade-3;
+        }
+
+        &:focus{
+            outline-offset: -2px;
+        }
+    }
 
     &.vs-accordion-item.card {
         border-top: 0;
@@ -124,6 +167,16 @@ export default {
                     transition: none;
                     border: 0;
                     border-top: 1px solid $color-gray-tint-6;
+
+                    .vs-icon{
+                        fill: $color-secondary-gray-shade-3;
+                    }
+
+                    &:focus, &:active, &:active:focus{
+                        .vs-icon{
+                            fill: $color-pink;
+                        }
+                    }
                 }
             }
         }
@@ -171,79 +224,3 @@ export default {
 }
 
 </style>
-
-<docs>
-  ```jsx
-    <VsAccordion>
-        <VsMegaNavAccordionItem
-            :title="item.title"
-            level="1"
-            :control-id="mobileItemIndex.toString()"
-            v-for="(item, mobileItemIndex) in header.mainNav"
-            :key="mobileItemIndex"
-        >
-            <VsMegaNavAccordionItem
-                :title="subHeading.title"
-                level="2"
-                :control-id="subHeadingIndex.toString()"
-                v-for="(subHeading, subHeadingIndex) in item.dropdownNav"
-                :key="subHeadingIndex"
-            >
-                <VsMegaNavList>
-                    <VsMegaNavListItem
-                        slot="navListItems"
-                        v-for="(navLink, navLinkIndex)
-                            in subHeading.dropdownNav"
-                        :key="navLinkIndex"
-                        :href="navLink.href"
-                    >
-                        {{ navLink.title }}
-                    </VsMegaNavListItem>
-
-                    <VsMegaNavListItem
-                        v-if="subHeading.href"
-                        :href="subHeading.href"
-                        subheading-link
-                        slot="navHeadingCtaLink"
-                    >
-                        {{ subHeading.cta }}
-                    </VsMegaNavListItem>
-                </VsMegaNavList>
-            </VsMegaNavAccordionItem>
-            <div class="featured-items">
-                <template
-                    v-if="item.title === 'Things to do'"
-                >
-                    <MegaNavFeaturedEvent
-                        source-url="http://172.28.81.65:8089/data/component/cannedsearch?prodtypes=even&locplace=&locprox=&loc=Scotland&size=1"
-                    />
-                </template>
-                <template
-                    v-if="item.title === 'Accommodation' || item.title === 'Inspiration'"
-                >
-                    <VsMegaNavFeaturedItem
-                        link="www.visitscotland.com"
-                        img-url="https://cimg.visitscotland.com/cms-images/attractions/outlander/claire-standing-stones-craigh-na-dun-outlander?size=sm"
-                        img-alt="Alt text"
-                    >
-                        <template slot="vsFeaturedItemHeader">
-                            From our home to yours – see Scotland virtually
-                        </template>
-
-                        <template slot="vsFeaturedItemContent">
-                            <p>
-                                Although it’s not possible to come to
-                                Scotland at the moment.
-                            </p>
-                        </template>
-
-                        <template slot="vsFeaturedItemLink">
-                            A link to a page
-                        </template>
-                    </VsMegaNavFeaturedItem>
-                </template>
-            </div>
-        </VsMegaNavAccordionItem>
-    </VsAccordion>
-  ```
-</docs>

@@ -32,14 +32,16 @@ public class Properties {
     static final String IKNOW_COMMUNITY_TAGGED_DISCUSSION = "iknow-community.tagged-discussion";
     static final String YOUTUBE_API_KEY = "youtube.api-key";
     static final String CHANNEL_ORDER = "seo.alternate-link-locale-order";
-    static final String GLOBAL_SEARCH_PATH = "search.path";
+    static final String GLOBAL_SEARCH_PATH = "global-search.path";
+    static final String ENGINE_ID = "global-search.engine-id";
 
     //Environment
     static final String USE_RELATIVE_URLS = "links.use-relative-urls";
     static final String INTERNAL_SITES = "links.internal-sites";
     static final String CMS_BASE_PATH = "links.cms-base-path.url";
     static final String CONVERT_TO_RELATIVE = "links.convert-to-relative";
-    static final String DEFAULT_CSS_VERSION = "data-internal.default-css-version";
+    static final String SERVE_LECAGY_CSS = "data-internal.serve-legacy-css";
+    static final String DMS_INTERNAL_PATH = "data-internal.path";
 
     // DMS Properties
     public static final String DMS_DATA_HOST = "dms-data.private-url";
@@ -158,6 +160,10 @@ public class Properties {
         return readString(YOUTUBE_API_KEY);
     }
 
+    public String getDmsInternalPath() {
+        return readString(DMS_INTERNAL_PATH);
+    }
+
     /**
      * Default DMS version served by Hippo.
      * <p>
@@ -169,11 +175,9 @@ public class Properties {
      * <p>
      * Values that are not in this list are going to be interpreted as standard version.
      * <p>
-     * @deprecated This property should be removed once all legacy applications are sending the query parameter {@<code>version="legacy"</code>}
      */
-    @Deprecated
-    public String getDefaultCssVersion() {
-        return readString(DEFAULT_CSS_VERSION);
+    public Boolean isServeLegacyCss() {
+        return readBoolean(SERVE_LECAGY_CSS);
     }
 
     public List<String> getInternalSites() {
@@ -264,11 +268,31 @@ public class Properties {
     }
 
     public String getProperty(String key){
+        return getProperty(key, Locale.UK);
+    }
+
+    public String getProperty(String key, String locale){
+        return getProperty(key, Locale.forLanguageTag(locale));
+    }
+
+    public String getProperty(String key, Locale locale){
         String bundleId = getEnvironmentProperties();
-        String value = bundle.getResourceBundle(bundleId, key, Locale.UK);
+        boolean defaultConfig = bundleId.equals(DEFAULT_CONFIG);
+        boolean englishLocale = Locale.UK.equals(locale);
+
+        String value = bundle.getResourceBundle(bundleId, key, locale, !defaultConfig || !englishLocale);
 
         if (Contract.isEmpty(value)) {
-            value = bundle.getResourceBundle(DEFAULT_CONFIG, key, Locale.UK);
+
+            if (!englishLocale) {
+                value = bundle.getResourceBundle(bundleId, key, Locale.UK, !defaultConfig );
+            }
+            if (Contract.isEmpty(value) && !defaultConfig) {
+                value = bundle.getResourceBundle(DEFAULT_CONFIG, key,locale, !englishLocale);
+                if (Contract.isEmpty(value) && !englishLocale){
+                    value = bundle.getResourceBundle(DEFAULT_CONFIG, key,Locale.UK, false);
+                }
+            }
         }
 
         if (Contract.isEmpty(value)) {

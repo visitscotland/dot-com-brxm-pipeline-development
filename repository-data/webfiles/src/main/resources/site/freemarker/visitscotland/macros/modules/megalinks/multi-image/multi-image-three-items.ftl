@@ -21,6 +21,7 @@
             theme="${theme}"
             link-type="${megalink.type}"
             link-url="${megalink.link}"
+            error-message="${label('essentials.global', 'third-party-error')}"
             <#if megalink.itineraryTransport??>
                 transport="${megalink.itineraryTransport}"
                 transport-name="${label('transports', megalink.itineraryTransport)}"

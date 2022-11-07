@@ -1,55 +1,82 @@
 /content/documents/administration/labels/global/search:
   jcr:primaryType: hippo:handle
   jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
-  jcr:uuid: 0a886699-fc28-41d0-91ac-697bf39a1807
+  jcr:uuid: 5ee33cdb-b3ba-4179-b86b-807d2c305b03
   hippo:name: Search
-  hippo:versionHistory: 3d1139e7-56f9-4a59-909e-26cb102c40a9
+  hippo:versionHistory: 8fef4b3b-66e5-4626-a532-4d9608a37c63
   /search[1]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:referenceable']
-    jcr:uuid: 73236c8a-58c0-4096-becc-b56bfe03f8ae
+    jcr:uuid: cae657d0-e104-45f2-aceb-8ac8d1e99178
     hippo:availability: []
     hippostd:retainable: false
     hippostd:state: draft
-    hippostdpubwf:createdBy: admin
-    hippostdpubwf:creationDate: 2022-05-09T16:45:04.958+01:00
-    hippostdpubwf:lastModificationDate: 2022-05-10T10:47:24.561+01:00
-    hippostdpubwf:lastModifiedBy: admin
+    hippostdpubwf:createdBy: juanluis.hurtado
+    hippostdpubwf:creationDate: 2022-07-12T14:24:26.429+02:00
+    hippostdpubwf:lastModificationDate: 2022-07-12T14:30:21.976+02:00
+    hippostdpubwf:lastModifiedBy: nikki.sherret
     resourcebundle:descriptions: ['', '', '', '']
     resourcebundle:id: search
-    resourcebundle:keys: [search, search-label, clear-form, close-form]
-    resourcebundle:messages: [Search, 'What are you looking for?', Clear form, Close
-        search form]
+    resourcebundle:keys: [clear-form, close-form, search, search-label]
+    resourcebundle:messages: [Clear form, Close search form, Search, 'What are you
+        looking for?']
+    resourcebundle:messages_de: [Suche löschen, Suche schließen, Suchen, 'Wonach suchen
+        Sie?']
+    resourcebundle:messages_es: [Borrar formulario, Cerrar formulario de búsqueda,
+      Buscar, '¿Qué estás buscando?']
+    resourcebundle:messages_fr: [Effacer la recherche, Fermer la barre de recherche,
+      Rechercher, 'Que recherchez-vous ?']
+    resourcebundle:messages_it: [Campo di ricerca vuoto, Chiudere il campo di ricerca,
+      Cerca, 'Cosa stai cercando?']
+    resourcebundle:messages_nl: ['', '', '', '']
   /search[2]:
     jcr:primaryType: resourcebundle:resourcebundle
-    jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
-    jcr:uuid: a499318d-8358-499a-b29c-73d8af2a7a92
+    jcr:mixinTypes: ['mix:versionable']
+    jcr:uuid: a3e4662f-1fb8-4f9b-9820-a597fcbffe15
     hippo:availability: [preview]
     hippostd:retainable: false
     hippostd:state: unpublished
-    hippostdpubwf:createdBy: admin
-    hippostdpubwf:creationDate: 2022-05-09T16:45:04.958+01:00
-    hippostdpubwf:lastModificationDate: 2022-05-10T10:47:29.965+01:00
-    hippostdpubwf:lastModifiedBy: admin
+    hippostdpubwf:createdBy: juanluis.hurtado
+    hippostdpubwf:creationDate: 2022-07-12T14:24:26.429+02:00
+    hippostdpubwf:lastModificationDate: 2022-07-12T14:31:48.380+02:00
+    hippostdpubwf:lastModifiedBy: nikki.sherret
     resourcebundle:descriptions: ['', '', '', '']
     resourcebundle:id: search
-    resourcebundle:keys: [search, search-label, clear-form, close-form]
-    resourcebundle:messages: [Search, 'What are you looking for?', Clear form, Close
-        search form]
+    resourcebundle:keys: [clear-form, close-form, search, search-label]
+    resourcebundle:messages: [Clear form, Close search form, Search, 'What are you
+        looking for?']
+    resourcebundle:messages_de: [Suche löschen, Suche schließen, Suchen, 'Wonach suchen
+        Sie?']
+    resourcebundle:messages_es: [Borrar formulario, Cerrar formulario de búsqueda,
+      Buscar, '¿Qué estás buscando?']
+    resourcebundle:messages_fr: [Effacer la recherche, Fermer la barre de recherche,
+      Rechercher, 'Que recherchez-vous ?']
+    resourcebundle:messages_it: [Campo di ricerca vuoto, Chiudere il campo di ricerca,
+      Cerca, 'Cosa stai cercando?']
+    resourcebundle:messages_nl: ['', '', '', '']
   /search[3]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:referenceable']
-    jcr:uuid: e1839f36-cf47-492c-af0d-8e4ce17cb8c4
+    jcr:uuid: ca1579c4-e2fb-4d50-b9a0-a2d1a4553596
     hippo:availability: [live]
     hippostd:retainable: false
     hippostd:state: published
-    hippostdpubwf:createdBy: admin
-    hippostdpubwf:creationDate: 2022-05-09T16:45:04.958+01:00
-    hippostdpubwf:lastModificationDate: 2022-05-10T10:47:29.965+01:00
-    hippostdpubwf:lastModifiedBy: admin
-    hippostdpubwf:publicationDate: 2022-05-10T10:47:32.071+01:00
+    hippostdpubwf:createdBy: juanluis.hurtado
+    hippostdpubwf:creationDate: 2022-07-12T14:24:26.429+02:00
+    hippostdpubwf:lastModificationDate: 2022-07-12T14:31:48.380+02:00
+    hippostdpubwf:lastModifiedBy: nikki.sherret
+    hippostdpubwf:publicationDate: 2022-07-13T17:54:55.148+02:00
     resourcebundle:descriptions: ['', '', '', '']
     resourcebundle:id: search
-    resourcebundle:keys: [search, search-label, clear-form, close-form]
-    resourcebundle:messages: [Search, 'What are you looking for?', Clear form, Close
-        search form]
+    resourcebundle:keys: [clear-form, close-form, search, search-label]
+    resourcebundle:messages: [Clear form, Close search form, Search, 'What are you
+        looking for?']
+    resourcebundle:messages_de: [Suche löschen, Suche schließen, Suchen, 'Wonach suchen
+        Sie?']
+    resourcebundle:messages_es: [Borrar formulario, Cerrar formulario de búsqueda,
+      Buscar, '¿Qué estás buscando?']
+    resourcebundle:messages_fr: [Effacer la recherche, Fermer la barre de recherche,
+      Rechercher, 'Que recherchez-vous ?']
+    resourcebundle:messages_it: [Campo di ricerca vuoto, Chiudere il campo di ricerca,
+      Cerca, 'Cosa stai cercando?']
+    resourcebundle:messages_nl: ['', '', '', '']

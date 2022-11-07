@@ -6,7 +6,7 @@
 
 <#macro stackla module>
     <@hst.headContribution category="htmlBodyEnd">
-        <script type="text/javascript">
+        <script type="text/plain" class="optanon-category-C0001-C0003-C0004">
             (function (d, id) {
                 var t, el = d.scripts[d.scripts.length - 1].previousElementSibling;
                 if (el) el.dataset.initTimestamp = (new Date()).getTime();
@@ -25,20 +25,23 @@
         <template slot="vsModuleWrapperHeading">
             ${module.title}
         </template>
-        <vs-embed-wrapper>
+        <vs-embed-wrapper
+            no-cookie-text="${module.noCookiesMessage}"
+            error-text = "${label('essentials.global', 'third-party-error')}"
+            no-js-text="${module.noJsMessage}"
+        >
             <template slot="embedIntroCopy">
                 <@hst.html hippohtml=module.copy/>
             </template>
-            <template slot="embedIntroCopyNoJs">
-                ${module.noJsMessage}
-            </template>
-            <template slot="embedIntroCopyNoCookies">
-                ${module.noCookiesMessage}
-            </template>
+
             <template slot="embedWidget">
                 <div class="stackla-widget" data-ct="" data-hash="${module.dataHash}"
                     data-id="${module.dataId}" data-title="social_vs.org_IGfeed" data-ttl="60"
                     style="width: 100%; overflow: hidden;"></div>
+            </template>
+
+            <template slot="embedButtonText">
+                ${label('essentials.global', 'cookie.link-message')}
             </template>
         </vs-embed-wrapper>
     </vs-module-wrapper>

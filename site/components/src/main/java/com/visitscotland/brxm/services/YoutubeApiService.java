@@ -1,10 +1,11 @@
 package com.visitscotland.brxm.services;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.visitscotland.brxm.model.YoutubeVideo;
 import com.visitscotland.brxm.utils.Properties;
 import com.visitscotland.utils.Contract;
-import org.codehaus.jackson.annotate.JsonIgnoreProperties;
-import org.codehaus.jackson.map.ObjectMapper;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.cache.annotation.Cacheable;
@@ -22,7 +23,7 @@ public class YoutubeApiService {
     private final CommonUtilsService commonUtilsService;
     private final Properties properties;
 
-    private static final Logger logger = LoggerFactory.getLogger(CommonUtilsService.class);
+    private static final Logger logger = LoggerFactory.getLogger(YoutubeApiService.class);
     private static final String YOUTUBE_API_BASE = "https://www.googleapis.com/youtube/v3/";
 
     public YoutubeApiService(Properties properties, CommonUtilsService commonUtilsService) {

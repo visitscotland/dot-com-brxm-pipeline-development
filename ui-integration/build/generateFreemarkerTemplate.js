@@ -189,7 +189,7 @@ function generateTemplateContentLinkTag(rel, href, type) {
 }
 
 function generateTemplateContentScript(scriptContent, href, headContributionName) {
-  let nodeString = '\t<script type="text/javascript"'
+  let nodeString = '\t<script'
 
   if (href) {
     nodeString += ' src="' + href + '"'
@@ -323,7 +323,7 @@ module.exports = function(manifest) {
     partial.placeholder,
     partial.placeholder,
     configPaths,
-    options.appMountTarget,
+    options.appMountTarget
   ))
 
   return manifest

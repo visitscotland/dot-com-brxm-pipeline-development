@@ -21,7 +21,6 @@
             link="${item.link}"
             img-url="${imageSrc}"
             alt="${item.image.altText}"
-            align=""
         >
             <template slot="vsFeaturedItemHeader">
                 ${item.label}

@@ -17,7 +17,7 @@
     <#if theme == 'light'>
         <#assign linkVariant>primary</#assign>
     <#else>
-        <#assign linkVariant>dark</#assign>
+        <#assign linkVariant>on-dark</#assign>
     </#if>
 
     <vs-col cols="12">
@@ -47,7 +47,7 @@
                             video-descriptor="${label('video', 'video.video-descriptor')}"
                         <#else>
                             href="${listItem.link}"
-                            link-type="${feature.type}"
+                            link-type="${listItem.type}"
 
                             <#if listItem.type != "internal">type="${listItem.type}"</#if>
                         </#if>
@@ -56,7 +56,7 @@
                     </vs-link-list-item>
 
                     <#if listItem.youtubeId??>
-                        <@videoModal videoId=listItem.youtubeId />
+                        <@videoModal videoId=listItem.youtubeId videoTitle=listItem.label />
                     </#if>
                 </#list>
             </template>

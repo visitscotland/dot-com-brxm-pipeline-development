@@ -6,17 +6,19 @@
         >
             {{ hintText }}
         </p>
-        <span
-            v-for="error in errorsList"
-            :key="error"
-            class="error"
+        <div
+            aria-live="assertive"
+            v-if="$v.inputVal.$anyError || invalid"
         >
-            <template
-                v-if="$v.inputVal.$anyError || invalid"
+            <span
+                v-for="error in errorsList"
+                v-show="!reAlertErrors"
+                :key="error"
+                class="error"
             >
                 {{ validationMessages[error] || genericValidation[error] }}
-            </template>
-        </span>
+            </span>
+        </div>
         <div class="vs-select__container  mt-2">
             <BFormSelect
                 v-model="inputVal"
@@ -32,6 +34,7 @@
                 :aria-invalid="$v.inputVal.$anyError || invalid"
                 :aria-describedby="`hint-${fieldName}`"
                 :class="errorClass"
+                :autocomplete="autocompleteValue(fieldName)"
             />
             <span class="vs-select__focus" />
         </div>
@@ -152,6 +155,15 @@ export default {
                 };
             },
         },
+        /**
+         * Whether the parent form has just been submitted, if so all errors
+         * need to be wiped from then re-added to the DOM to inform screen
+         * readers that they should be re-declared
+         */
+        reAlertErrors: {
+            type: Boolean,
+            default: false,
+        },
     },
     data() {
         return {
@@ -202,6 +214,24 @@ export default {
                     this.countryList = response.data.countries;
                 });
         }
+    },
+    methods: {
+        autocompleteValue(fieldName) {
+            // https://html.spec.whatwg.org/multipage/forms.html#enabling-client-side-automatic-filling-of-form-controls
+            let autocomplete;
+
+            switch (fieldName) {
+            case 'Country':
+                autocomplete = 'country-name';
+                break;
+
+            default:
+                autocomplete = 'on';
+                break;
+            }
+
+            return autocomplete;
+        },
     },
     validations() {
         return this.rules;

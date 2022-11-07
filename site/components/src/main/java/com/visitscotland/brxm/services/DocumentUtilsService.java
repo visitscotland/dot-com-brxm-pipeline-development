@@ -1,6 +1,5 @@
 package com.visitscotland.brxm.services;
 
-import com.google.common.base.Strings;
 import com.visitscotland.brxm.hippobeans.BaseDocument;
 import com.visitscotland.brxm.hippobeans.Page;
 import com.visitscotland.brxm.model.LocalizedURL;
@@ -32,9 +31,9 @@ public class DocumentUtilsService {
 
     public static final String DOCUMENT_TYPE = "jcr:primaryType";
 
-    private HippoUtilsService utils;
-    private ResourceBundleService bundle;
-    private Properties properties;
+    private final HippoUtilsService utils;
+    private final ResourceBundleService bundle;
+    private final Properties properties;
 
     public DocumentUtilsService(HippoUtilsService utils, ResourceBundleService bundle, Properties properties) {
         this.utils = utils;

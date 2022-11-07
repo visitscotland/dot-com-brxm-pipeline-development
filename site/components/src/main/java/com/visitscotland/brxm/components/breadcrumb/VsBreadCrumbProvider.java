@@ -40,16 +40,24 @@ public class VsBreadCrumbProvider extends BreadcrumbProvider {
 
     @Override
     public Breadcrumb getBreadcrumb(HstRequest request) {
-        Breadcrumb breadcrumb = super.getBreadcrumb(request);
-        if (breadcrumb.getItems().isEmpty() && request.getRequestContext().getContentBean() != null) {
-            return new Breadcrumb(Collections.singletonList(getBreadcrumbItem(request, request.getRequestContext().getContentBean())), breadcrumb.getSeparator(), null);
+        Breadcrumb breadcrumb;
+        try {
+            breadcrumb = super.getBreadcrumb(request);
+
+            if (breadcrumb.getItems().isEmpty() && request.getRequestContext().getContentBean() != null) {
+                breadcrumb = new Breadcrumb(Collections.singletonList(getBreadcrumbItem(request, request.getRequestContext().getContentBean())), breadcrumb.getSeparator(), null);
+            }
+        } catch (NullPointerException e){
+            breadcrumb = new Breadcrumb(Collections.singletonList(getBreadcrumbItem(request, request.getRequestContext().getContentBean())), "|", null);
         }
+
         return breadcrumb;
     }
 
     /**
      * Create a Breadcrumb item from a Navigation Item (MenuItem).
      */
+    @Override
     protected BreadcrumbItem getBreadcrumbItem(HstRequest request, HstSiteMenuItem menuItem) {
         if (menuItem.resolveToSiteMapItem() != null) {
             HippoBean bean = getComponent().getBeanForResolvedSiteMapItem(request, menuItem.resolveToSiteMapItem());
@@ -71,6 +79,7 @@ public class VsBreadCrumbProvider extends BreadcrumbProvider {
     /**
      * Creates a breadcrumb item from a Content driven page (Hippo bean)
      */
+    @Override
     protected BreadcrumbItem getBreadcrumbItem(final HstRequest request, final HippoBean bean,
                                                final boolean navigationStateful) {
         final HstRequestContext context = request.getRequestContext();

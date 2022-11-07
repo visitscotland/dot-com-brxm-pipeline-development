@@ -35,6 +35,7 @@ describe(':props', () => {
             },
         });
 
-        expect(wrapper.attributes('href')).toBe('/site/es');
+        const languageLink = wrapper.find('.dropdown-item');
+        expect(languageLink.attributes('href')).toBe('/site/es');
     });
 });

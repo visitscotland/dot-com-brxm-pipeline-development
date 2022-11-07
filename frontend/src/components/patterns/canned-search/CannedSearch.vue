@@ -52,7 +52,6 @@
                     :key="index"
                     :slide-index="'' + index"
                     :img-src="prod.images ? prod.images[0].mediaUrl : ''"
-                    :img-alt="prod.name"
                     :title="prod.name"
                     :detail-link="{
                         link: prod.productLink.link,
@@ -122,6 +121,7 @@
                         :link-href="prod.website.link"
                         :link-type="prod.website.type"
                         :link-label="prod.website.label"
+                        :link-title="prod.name"
                     >
                         <VsCannedSearchDates
                             v-if="prod.opening && searchType !== 'tour'"

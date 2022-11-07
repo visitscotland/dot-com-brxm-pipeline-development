@@ -7,7 +7,7 @@
 
 
 <@hst.headContribution category="htmlBodyEndScripts">
-	<script type="text/javascript">
+	<script>
 		vs.stores.VsStoreExampleStore.subscribe((mutation, state) => {
             const trackerElement = document.getElementById("vue-x-example-tracker");
 

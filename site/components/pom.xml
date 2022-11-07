@@ -4,7 +4,7 @@
   <parent>
     <groupId>com.visitscotland</groupId>
     <artifactId>dot-com-brxm-site</artifactId>
-    <version>1.0.5-SNAPSHOT</version>
+    <version>1.0.13-SNAPSHOT</version>
   </parent>
   <artifactId>dot-com-brxm-components</artifactId>
   <packaging>jar</packaging>
@@ -54,6 +54,21 @@
       <artifactId>easymock</artifactId>
       <version>${easymock.version}</version>
       <scope>test</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>org.onehippo.cms7</groupId>
+      <artifactId>hippo-plugin-taxonomy-api</artifactId>
+    </dependency>
+
+    <dependency>
+      <groupId>org.onehippo.cms7</groupId>
+      <artifactId>hippo-plugin-taxonomy-hst-api</artifactId>
+    </dependency>
+
+    <dependency>
+      <groupId>org.onehippo.cms7</groupId>
+      <artifactId>hippo-plugin-taxonomy-hstclient</artifactId>
     </dependency>
 
   </dependencies>

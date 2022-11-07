@@ -8,17 +8,17 @@
 
 <#macro headerGlobalMenu>
     <#assign currentLocale=hstRequestContext.resolvedMount.mount.locale>
-    <#if localizedURLs?size == 0 && hstRequestContext.getModel("placeholerLocalizedURLs")??>
-        <#assign localizedURLs=hstRequestContext.getModel("placeholerLocalizedURLs")>
+    <#if localizedURLs?size == 0 && hstRequestContext.getModel("placeholderLocalizedURLs")??>
+        <#assign localizedURLs=hstRequestContext.getModel("placeholderLocalizedURLs")>
     </#if>
-
+    
     <vs-global-menu
         dropdown-label="${label('navigation.static', 'uninav.our-sites')}"
         active-site="https://www.visitscotland.com/"
     >
         <template slot="third-menu-item">
             <vs-global-menu-language 
-                language="${currentLocale}"
+                language="${locale}"
                 language-label="${label('navigation.static', 'universal.language')}"
             >
                 <#list localizedURLs as language>

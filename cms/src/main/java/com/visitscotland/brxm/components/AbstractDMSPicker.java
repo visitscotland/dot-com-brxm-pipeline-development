@@ -163,6 +163,7 @@ public abstract class AbstractDMSPicker implements ExternalDocumentServiceFacade
         searchTypes.add(ProductTypes.EVENT.getId());
         searchTypes.add(ProductTypes.SHOPPING.getId());
         searchTypes.add(ProductTypes.FOOD_DRINK.getId());
+        searchTypes.add(ProductTypes.TRANSPORT.getId());
         return searchTypes;
     }
 

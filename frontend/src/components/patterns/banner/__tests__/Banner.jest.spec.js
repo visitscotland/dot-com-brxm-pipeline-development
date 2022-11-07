@@ -10,7 +10,6 @@ const factoryShallowMount = (propsData) => shallowMount(VsBanner, {
     propsData: {
         ...propsData,
         closeBtnText: 'close',
-        title: 'Covid-19 Travel Advice',
         dontShowAgain: true,
     },
     slots: {
@@ -33,11 +32,6 @@ describe('VsBanner', () => {
         it('should render sr-only text `close` when passed `closeBtnText` prop', () => {
             const closeBtn = wrapper.find('[data-test=vs-banner__close-btn]');
             expect(closeBtn.text()).toContain('close');
-        });
-
-        it('should render title `Covid-19 Travel Advice` when passed `title` prop', () => {
-            const banner = wrapper.find('div[data-test=vs-banner');
-            expect(banner.text()).toContain('Covid-19 Travel Advice');
         });
 
         it('does not set a cookie if `dontShowAgain` is false', async() => {

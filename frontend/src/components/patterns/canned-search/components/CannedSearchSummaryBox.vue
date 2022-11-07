@@ -65,7 +65,7 @@
                         :type="linkType.toLowerCase()"
                         :disabled="!slideVisible()"
                     >
-                        {{ linkLabel }}
+                        {{ linkLabel }} <span class="sr-only">: {{ linkTitle }}</span>
                     </VsLink>
                 </VsCol>
             </VsRow>
@@ -106,16 +106,23 @@ export default {
             default: '',
         },
         /**
-        * The label of the product link, usually "View Details"
+        * The label of the product link
         */
         linkLabel: {
             type: String,
             default: '',
         },
         /**
-        * The link type for the product link, usually "external"
+        * The link type for the product link
         */
         linkType: {
+            type: String,
+            default: '',
+        },
+        /**
+        * The title for the product link
+        */
+        linkTitle: {
             type: String,
             default: '',
         },

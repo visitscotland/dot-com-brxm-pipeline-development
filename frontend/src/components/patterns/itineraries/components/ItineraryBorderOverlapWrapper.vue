@@ -54,17 +54,15 @@ export default {
     <VsItineraryBorderOverlapWrapper>
         <VsButton
             class="mb-3"
-            background="white"
             button-size="md"
-            variant="outline-primary"
+            variant="secondary"
             href="#"
             icon="food"
         >
             Nearby places to eat
         </VsButton>
         <VsButton
-            background="white"
-            variant="outline-primary"
+            variant="secondary"
             href="#"
             icon="product-accommodation"
         >

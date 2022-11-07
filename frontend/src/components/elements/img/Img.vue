@@ -5,9 +5,10 @@
         :alt="alt"
         :fluid="fluid"
         :fluid-grow="fluidGrow"
-        loading="lazy"
+        :loading="useLazyLoading ? 'lazy' : 'eager'"
         :style="imgStyle"
         class="low-res-img"
+        :class="useGenericLqip ? 'generic-lqip' : ''"
     >
         <!-- @slot Default slot for image content -->
         <slot />
@@ -70,16 +71,38 @@ export default {
         fluidGrow: {
             type: Boolean,
         },
+        /**
+         * If true a generic LQIP is used for lazyloading, rather than the
+         * provided xxs path to the image scaler. Used when the image scaler
+         * is not functioning as desired for certain images.
+         */
+        useGenericLqip: {
+            type: Boolean,
+            default: false,
+        },
+        /**
+         * If true switches on lazy loading for the image
+        */
+        useLazyLoading: {
+            type: Boolean,
+            default: true,
+        },
     },
     computed: {
         imgStyle() {
             if (this.lowResImage) {
-                return {
-                    backgroundImage: `url(${this.lowResImage})`,
-                };
+                if (!this.useGenericLqip) {
+                    return {
+                        backgroundImage: `url(${this.lowResImage})`,
+                    };
+                }
+
+                return null;
             }
 
-            return null;
+            return {
+                backgroundImage: 'none',
+            };
         },
     },
 };
@@ -90,5 +113,9 @@ export default {
         background-repeat: no-repeat;
         background-size: cover;
         display: block;
+
+        &.generic-lqip {
+            background-image: url('~@/assets/images/placeholders/generic-lqip.png'),
+        }
     }
 </style>

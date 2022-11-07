@@ -7,9 +7,12 @@
         :animate="false"
         :variant="isShowing ? 'light' : 'primary'"
         @click.native="toggleAction"
+        id="site-search-btn"
     >
         <!-- Default slot for Search button text -->
-        <span class="sr-only-lg-down">
+        <span
+            class="sr-only-lg-down"
+        >
             <slot />
         </span>
     </VsButton>
@@ -31,8 +34,7 @@ export default {
     },
     props: {
         /**
-         * Used to know if the search form has been closed
-         * via close button within search form
+         * Used to know if the search form is currently showing
          */
         isShowing: {
             type: Boolean,
@@ -65,23 +67,38 @@ export default {
 
 <style lang="scss">
 .vs-site-search {
-    &.vs-button.btn{
-        z-index: 1;
+    z-index: 1;
+    height: 45px;
+    align-items: center;
+
+    .vs-icon{
+        margin-right: 0;
+    }
+
+    &.vs-button.btn-md{
         padding: $spacer-2;
-        height: 45px;
+    }
+
+    @include media-breakpoint-up(lg) {
+        height: 55px;
 
         .vs-icon{
-            margin-right: 0;
+            margin-right: $spacer-2;
         }
 
-        @include media-breakpoint-up(lg) {
+        &.vs-button.btn-md{
             padding: $spacer-3;
-            height: 55px;
-
-            .vs-icon{
-                margin-right: $spacer-2;
-            }
         }
+
+        span.sr-only-lg-down {
+            overflow: visible;
+        }
+    }
+}
+
+@include no-js {
+    .vs-site-search {
+        display: none!important;
     }
 }
 </style>

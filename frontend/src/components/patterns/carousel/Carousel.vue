@@ -16,11 +16,10 @@
                         <VsButton
                             v-if="!prevDisabled"
                             class="vs-carousel__control vs-carousel__control--prev"
-                            @click.native="sliderNavigate('prev')"
-                            @keypress.native="sliderNavigate('prev', true)"
+                            @click.native="sliderNavigate($event, 'prev')"
+                            @keypress.native="sliderNavigate($event, 'prev', true)"
                             icon="internal-link"
                             icon-orientation="down"
-                            icon-size-override="xs"
                             ref="prevButton"
                         >
                             <div class="vs-carousel__control-label-container">
@@ -31,7 +30,6 @@
                                     {{ prevText }}
                                 </span>
                             </div>
-                            <span class="sr-only">{{ prevText }}</span>
                         </VsButton>
                         <VsRow
                             class="vs-carousel__track"
@@ -43,22 +41,20 @@
                         <VsButton
                             v-if="!nextDisabled"
                             class="vs-carousel__control vs-carousel__control--next"
-                            @keypress.native="sliderNavigate('next', true)"
-                            @click.native="sliderNavigate('next')"
+                            @keypress.native="sliderNavigate($event, 'next', true)"
+                            @click.native="sliderNavigate($event, 'next')"
                             icon="internal-link"
                             icon-position="right"
-                            icon-size-override="xs"
                             ref="nextButton"
                         >
-                            <div class="vs-carousel__control-label-container">
+                            <span class="vs-carousel__control-label-container">
                                 <span
                                     class="vs-carousel__control-label
                                            vs-carousel__control-label--next"
                                 >
                                     {{ nextText }}
                                 </span>
-                            </div>
-                            <span class="sr-only">{{ nextText }}</span>
+                            </span>
                         </VsButton>
 
                         <ul
@@ -73,8 +69,8 @@
                                     class="vs-carousel__navigation-item"
                                     :class="index === currentPage + 1 ?
                                         'vs-carousel__navigation-item--active' : ''"
-                                    @click.prevent="sliderNavigate(index - 1)"
-                                    @keypress.prevent="sliderNavigate(index - 1, true)"
+                                    @click.prevent="sliderNavigate($event, index - 1)"
+                                    @keypress.prevent="sliderNavigate($event, index - 1, true)"
                                     tabindex="0"
                                     :data-test="`vs-carousel__nav-${index}`"
                                 >
@@ -154,32 +150,32 @@ export default {
         *  at 'xs' screen size
         */
         slidesXs: {
-            type: String,
-            default: '1',
+            type: Number,
+            default: 1,
         },
         /**
         *  Number of slides to appear
         *  at 'sm' screen size
         */
         slidesSm: {
-            type: String,
-            default: '2',
+            type: Number,
+            default: 2,
         },
         /**
         *  Number of slides to appear
         *  at 'md' screen size
         */
         slidesMd: {
-            type: String,
-            default: '3',
+            type: Number,
+            default: 3,
         },
         /**
         *  Number of slides to appear
         *  at 'lg' screen size
         */
         slidesLg: {
-            type: String,
-            default: '4',
+            type: Number,
+            default: 4,
         },
     },
     data() {
@@ -237,7 +233,7 @@ export default {
         window.addEventListener('resize', () => {
             this.setActivePage();
 
-            this.sliderNavigate(this.currentPage);
+            this.sliderNavigate(null, this.currentPage);
         });
         this.defineActiveSlides();
         this.initNavigation();
@@ -321,9 +317,13 @@ export default {
 
             // navigate to the correct page to keep the user at
             // the same position they were at before the resize
-            this.sliderNavigate(this.currentPage);
+            this.sliderNavigate(null, this.currentPage);
         },
-        sliderNavigate(direction, keypressNavigation) {
+        sliderNavigate(event, direction, keypressNavigation) {
+            if (event) {
+                event.preventDefault();
+            }
+
             if (this.navigating) {
                 return;
             }
@@ -331,9 +331,15 @@ export default {
             this.navigating = true;
 
             if (direction === 'next') {
-                this.currentPage += 1;
+                // increase the current page if not already at the max pages amount
+                if (this.currentPage + 1 < this.maxPages) {
+                    this.currentPage += 1;
+                }
             } else if (direction === 'prev') {
-                this.currentPage -= 1;
+                // decrease the current page if not already at zero
+                if (this.currentPage > 0) {
+                    this.currentPage -= 1;
+                }
             } else {
                 this.currentPage = direction;
             }
@@ -355,17 +361,36 @@ export default {
 
             this.defineActiveSlides(finalSlideRemainder);
 
-            setTimeout(() => {
-                this.navigating = false;
+            this.navigating = false;
 
-                if (keypressNavigation) {
-                    if (direction === 'next') {
-                        this.$refs.prevButton.$el.focus();
-                    } else if (direction === 'prev') {
-                        this.$refs.nextButton.$el.focus();
-                    }
+            if (keypressNavigation) {
+                if (direction === 'next') {
+                    // if 'next' movement has happened via keypress automatically focus
+                    // on the next slide link
+                    const firstActiveSlide = this.getFirstActiveSlide();
+                    const firstLink = firstActiveSlide.querySelectorAll('a')[0];
+                    setTimeout(() => {
+                        firstLink.focus();
+                    }, 250);
+                } else if (direction === 'prev' && this.currentPage >= 0) {
+                    // if 'previous' movement has happened via keypress automatically focus
+                    // on the previous slide link
+                    const lastActiveSlide = this.getLastActiveSlide();
+                    const lastLink = lastActiveSlide.querySelectorAll('a')[0];
+                    setTimeout(() => {
+                        lastLink.focus();
+                    }, 250);
                 }
-            }, 250);
+            }
+        },
+        getFirstActiveSlide() {
+            return this.$refs.carousel
+                .querySelectorAll('.card')[this.currentPage * this.slidesPerPage[this.currentWidth]];
+        },
+        getLastActiveSlide() {
+            return this.$refs.carousel
+                .querySelectorAll('.card')[this.currentPage * this.slidesPerPage[this.currentWidth]
+                    + this.slidesPerPage[this.currentWidth] - 1];
         },
         initNavigation() {
             // method to enable/disable arrow controls for carousel
@@ -411,6 +436,10 @@ export default {
             }
         }
 
+        .vs-button.vs-carousel__control {
+            padding: $spacer-3;
+        }
+
         &__control {
             position: absolute !important;
             top: 25%;
@@ -418,16 +447,14 @@ export default {
             min-width: 35px;
             height: 35px;
             border-radius: 0;
-            display: flex;
             align-items: center;
             justify-content: center;
-            padding: $spacer-3;
 
             &--next {
                 right: 0;
 
                 &:focus {
-                    right: .3125rem;
+                    right: $spacer-2;
                 }
             }
 
@@ -435,7 +462,7 @@ export default {
                 left: 0;
 
                 &:focus {
-                    left: .3125rem;
+                    left: $spacer-2;
                 }
             }
 
@@ -443,7 +470,7 @@ export default {
                 color: $color-white;
                 white-space: nowrap;
                 text-transform: uppercase;
-                font-weight: $font-weight-light;
+                font-weight: $font-weight-semi-bold;
 
                 &--next {
                     padding-right: $spacer-2;
@@ -480,6 +507,7 @@ export default {
             &:hover, &:focus {
                 outline: none;
                 background-color: $color-theme-primary;
+                border-color: $color-theme-primary;
 
                 .vs-carousel__control-label-container {
                     max-width: 15rem;
@@ -603,10 +631,10 @@ export default {
     <VsCarousel
         next-text="next page"
         prev-text="previous page"
-        slides-xs="1"
-        slides-sm="2"
-        slides-md="3"
-        slides-lg="4"
+        :slides-xs="1"
+        :slides-sm="2"
+        :slides-md="3"
+        :slides-lg="4"
     >
         <VsCarouselSlide
             link-url="www.visitscotland.com"
@@ -689,7 +717,7 @@ export default {
             slide-index="3"
         >
             <template slot="vsCarouselSlideHeading">
-                3 Count 7,000 shining stars in the iconic
+                4 Count 7,000 shining stars in the iconic
                 galloway forest
             </template>
             <template slot="vsCarouselSlideContent">
@@ -712,7 +740,7 @@ export default {
             slide-index="4"
         >
             <template slot="vsCarouselSlideHeading">
-                3 Count 7,000 shining stars in the iconic
+                5 Count 7,000 shining stars in the iconic
                 galloway forest
             </template>
             <template slot="vsCarouselSlideContent">
@@ -735,7 +763,7 @@ export default {
             slide-index="5"
         >
             <template slot="vsCarouselSlideHeading">
-                3 Count 7,000 shining stars in the iconic
+                6 Count 7,000 shining stars in the iconic
                 galloway forest
             </template>
             <template slot="vsCarouselSlideContent">
@@ -758,7 +786,7 @@ export default {
             slide-index="6"
         >
             <template slot="vsCarouselSlideHeading">
-                3 Count 7,000 shining stars in the iconic
+                7 Count 7,000 shining stars in the iconic
                 galloway forest
             </template>
             <template slot="vsCarouselSlideContent">
@@ -781,7 +809,7 @@ export default {
             slide-index="7"
         >
             <template slot="vsCarouselSlideHeading">
-                3 Count 7,000 shining stars in the iconic
+                8 Count 7,000 shining stars in the iconic
                 galloway forest
             </template>
             <template slot="vsCarouselSlideContent">
@@ -804,7 +832,7 @@ export default {
             slide-index="8"
         >
             <template slot="vsCarouselSlideHeading">
-                3 Count 7,000 shining stars in the iconic
+                9 Count 7,000 shining stars in the iconic
                 galloway forest
             </template>
             <template slot="vsCarouselSlideContent">
@@ -827,7 +855,7 @@ export default {
             slide-index="9"
         >
             <template slot="vsCarouselSlideHeading">
-                3 Count 7,000 shining stars in the iconic
+                10 Count 7,000 shining stars in the iconic
                 galloway forest
             </template>
             <template slot="vsCarouselSlideContent">
@@ -850,7 +878,7 @@ export default {
             slide-index="10"
         >
             <template slot="vsCarouselSlideHeading">
-                3 Count 7,000 shining stars in the iconic
+                11 Count 7,000 shining stars in the iconic
                 galloway forest
             </template>
             <template slot="vsCarouselSlideContent">
@@ -873,7 +901,7 @@ export default {
             slide-index="11"
         >
             <template slot="vsCarouselSlideHeading">
-                3 Count 7,000 shining stars in the iconic
+                12Count 7,000 shining stars in the iconic
                 galloway forest
             </template>
             <template slot="vsCarouselSlideContent">
@@ -896,7 +924,7 @@ export default {
             slide-index="12"
         >
             <template slot="vsCarouselSlideHeading">
-                3 Count 7,000 shining stars in the iconic
+                13 Count 7,000 shining stars in the iconic
                 galloway forest
             </template>
             <template slot="vsCarouselSlideContent">

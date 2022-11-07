@@ -4,6 +4,7 @@
             class="vs-mega-nav bg-white"
             aria-label="main nav"
             data-test="vs-mega-nav"
+            id="main-nav"
         >
             <VsContainer
                 fluid="lg"
@@ -18,14 +19,20 @@
                         md="4"
                         lg="3"
                     >
-                        <VsSvgLink
-                            class="vs-mega-nav__logo"
-                            data-test="vs-mega-nav__logo"
-                            link-alt-text="VisitScotland Home"
-                            :href="href"
-                            svg-fill="#700e57"
-                            svg-path="visitscotland"
-                        />
+                        <div
+                            @click="dataLayerHandler($event)"
+                            @keydown="dataLayerHandler($event)"
+                        >
+                            <VsSvgLink
+                                class="vs-mega-nav__logo"
+                                data-test="vs-mega-nav__logo"
+                                link-alt-text="VisitScotland Home"
+                                :href="href"
+                                svg-fill="#700e57"
+                                svg-path="visitscotland"
+                                data-layer-value="homePageLogoClickDataEvent"
+                            />
+                        </div>
                     </VsCol>
 
                     <!-- Desktop Top Menu Toggles -->
@@ -46,44 +53,42 @@
                         cols="4"
                         md="8"
                         lg="2"
-                        class="justify-content-end position-static d-flex h-100"
+                        class="justify-content-end align-items-center position-static d-flex h-100"
                     >
-                        <!-- <VsSiteSearch
+                        <VsSiteSearch
                             @toggleAction="toggleSearch"
                             :is-showing="showSearch"
                         >
                             {{ searchButtonText }}
-                        </VsSiteSearch> -->
+                        </VsSiteSearch>
 
-                        <VsMegaNavDropdown
-                            @menuToggled="menuToggle"
-                            :menu-toggle-alt-text="menuToggleAltText"
-                            class="vs-mega-nav__menu__mobile d-lg-none"
+                        <div
+                            class="vs-mega-nav__menu-mobile d-lg-none"
+                            id="vs-mega-nav__menu-mobile"
+                            data-test="vs-mega-nav-mobile-container"
                         >
-                            <template #buttonContent>
+                            <VsButton
+                                class="vs-mega-nav__mobile-menu-toggle p-0"
+                                :size="isOpen ? 'sm' : 'lg'"
+                                icon-only
+                                :icon="isOpen ? 'close' : 'bars-mobile-menu'"
+                                variant="transparent"
+                                @click.native="menuToggle()"
+                                ref="toggleButton"
+                                aria-haspopup="true"
+                            >
                                 <span class="sr-only">
                                     {{ menuToggleAltText }}
                                 </span>
-                                <VsIcon
-                                    v-if="isOpen"
-                                    name="close"
-                                    size="xs"
-                                    variant="dark"
-                                />
+                            </VsButton>
 
-                                <VsIcon
-                                    v-else
-                                    name="bars-mobile-menu"
-                                    size="md"
-                                    variant="dark"
-                                />
-                            </template>
-
-                            <template #dropdownContent>
-                                <!-- @slot For mobile list items  -->
+                            <VsMegaNavMobileMenu
+                                v-if="isOpen"
+                                v-click-outside="closeMenu"
+                            >
                                 <slot name="megaNavAccordionItems" />
-                            </template>
-                        </VsMegaNavDropdown>
+                            </VsMegaNavMobileMenu>
+                        </div>
                     </VsCol>
                 </VsRow>
             </VsContainer>
@@ -92,6 +97,7 @@
         <VsSiteSearchForm
             v-show="showSearch"
             @toggleAction="toggleSearch"
+            :is-showing="showSearch"
             :label-text="searchLabelText"
             :submit-button-text="searchButtonText"
             :clear-button-text="searchClearButtonText"
@@ -105,11 +111,28 @@ import {
     VsCol, VsRow, VsContainer,
 } from '@components/elements/grid';
 import VsSvgLink from '@components/elements/svg-link/SvgLink';
-import VsMegaNavDropdown from '@components/patterns/mega-nav/components/MegaNavDropdown';
 import VsMegaNavTopMenu from '@components/patterns/mega-nav/components/MegaNavTopMenu';
-import VsIcon from '@components/elements/icon/Icon';
-// import VsSiteSearch from '@components/patterns/site-search/SiteSearch';
+import VsMegaNavMobileMenu from '@components/patterns/mega-nav/components/MegaNavMobileMenu';
+import VsButton from '@components/elements/button/Button';
+import VsSiteSearch from '@components/patterns/site-search/SiteSearch';
 import VsSiteSearchForm from '@components/patterns/site-search/components/SiteSearchForm';
+import Vue from 'vue';
+import dataLayerMixin from '../../../mixins/dataLayerMixin';
+
+Vue.directive('click-outside', {
+    bind(el, binding, vnode) {
+        /* eslint-disable-next-line */
+        el.clickOutsideEvent = (event) => {
+            if (!(el === event.target || el.contains(event.target))) {
+                vnode.context[binding.expression](event);
+            }
+        };
+        document.body.addEventListener('click', el.clickOutsideEvent);
+    },
+    unbind(el) {
+        document.body.removeEventListener('click', el.clickOutsideEvent);
+    },
+});
 
 /**
  *  The Mega Nav bar component includes main VS logo and slots for
@@ -126,12 +149,13 @@ export default {
         VsRow,
         VsContainer,
         VsSvgLink,
-        VsMegaNavDropdown,
         VsMegaNavTopMenu,
-        VsIcon,
-        // VsSiteSearch,
+        VsMegaNavMobileMenu,
+        VsSiteSearch,
         VsSiteSearchForm,
+        VsButton,
     },
+    mixins: [dataLayerMixin],
     props: {
         /**
          * The URL for the VS logo link
@@ -185,6 +209,9 @@ export default {
             showSearch: false,
         };
     },
+    mounted() {
+        this.addTabClose();
+    },
     methods: {
         /**
          * Toggles dropdown menu property
@@ -198,6 +225,29 @@ export default {
         */
         toggleSearch() {
             this.showSearch = !this.showSearch;
+        },
+        /**
+         * Closes the menu as long as the open button hasn't just been clicked
+         */
+        closeMenu(event) {
+            const mobileNavContainer = document.getElementsByClassName('vs-mega-nav__menu-mobile')[0];
+
+            if (this.isOpen && !mobileNavContainer.contains(event.target)) {
+                this.isOpen = false;
+            }
+        },
+        /**
+         * adds event listener for tabbing out of mobile menu
+        */
+        addTabClose() {
+            document.body.addEventListener('focusin', (event) => {
+                if (this.isOpen) {
+                    const theTarget = event.target;
+                    if (!theTarget.closest('#vs-mega-nav__menu-mobile')) {
+                        this.isOpen = false;
+                    }
+                }
+            });
         },
     },
 };
@@ -231,6 +281,27 @@ export default {
     .vs-mega-nav__menu {
         position: static;
     }
+
+    .vs-mega-nav__menu-mobile {
+        margin-left: .5rem;
+    }
+
+    &__mobile-menu-toggle {
+        position: relative;
+        letter-spacing: 0;
+        font-weight: $font-weight-normal;
+        line-height: $line-height-standard;
+        border-radius: 0;
+        border: 0;
+        height: $spacer-7;
+        width: $spacer-7;
+        font-size: 0;
+        padding: 0;
+    }
+
+    &__mobile-menu {
+        display: none
+    }
 }
 
 @include no-js {
@@ -239,7 +310,7 @@ export default {
         height: auto;
     }
 
-    .vs-mega-nav__menu__mobile {
+    .vs-mega-nav__menu-mobile {
         display: none!important;
     }
 

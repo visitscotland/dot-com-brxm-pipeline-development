@@ -1,0 +1,49 @@
+definitions:
+  config:
+    /hippo:configuration/hippo:update/hippo:registry/v1.0.9 - VS-3830 - Remove alt-texts from images:
+      jcr:primaryType: hipposys:updaterinfo
+      hipposys:batchsize: 10
+      hipposys:description: ''
+      hipposys:dryrun: false
+      hipposys:loglevel: DEBUG
+      hipposys:logtarget: REPOSITORY
+      hipposys:parameters: ''
+      hipposys:query: /jcr:root
+      hipposys:script: "package com.visitscotland.brxm\r\n\r\nimport org.hippoecm.repository.api.HippoWorkspace\r\
+        \nimport org.onehippo.repository.update.BaseNodeUpdateVisitor\r\n\r\nimport\
+        \ javax.jcr.Node\r\nimport javax.jcr.NodeIterator\r\nimport javax.jcr.RepositoryException\r\
+        \nimport javax.jcr.Session\r\nimport javax.jcr.query.Query\r\nimport javax.jcr.query.QueryResult\r\
+        \n\r\n/**\r\n * Groovy Script created for removing the value of alt-Text from\
+        \ image as all current images have been tagged as decorative.\r\n *\r\n *\
+        \ See VS-3830 For more information\r\n *\r\n * Use the following XPATH /jcr:root\r\
+        \n *\r\n * @author jcalcines\r\n * @since August 2022\r\n * @version 1.0.9\r\
+        \n */\r\nclass RemoveAltText extends BaseNodeUpdateVisitor {\r\n\r\n    void\
+        \ removeAltText(Session session){\r\n        NodeIterator it = query(session,\"\
+        //content/gallery/visitscotland//element(*, visitscotland:Image)\")\r\n\r\n\
+        \        while (it.hasNext()){\r\n            Node n = it.next()\r\n     \
+        \       log.debug n.getPath()\r\n            n.setProperty(\"visitscotland:altText\"\
+        , \"\")\r\n            if (n.hasNode(\"visitscotland:nl\"))\r\n          \
+        \      n.getNode(\"visitscotland:nl\").setProperty(\"visitscotland:altText\"\
+        , \"\")\r\n            if (n.hasNode(\"visitscotland:fr\"))\r\n          \
+        \      n.getNode(\"visitscotland:fr\").setProperty(\"visitscotland:altText\"\
+        , \"\")\r\n            if (n.hasNode(\"visitscotland:de\"))\r\n          \
+        \      n.getNode(\"visitscotland:de\").setProperty(\"visitscotland:altText\"\
+        , \"\")\r\n            if (n.hasNode(\"visitscotland:es\"))\r\n          \
+        \      n.getNode(\"visitscotland:es\").setProperty(\"visitscotland:altText\"\
+        , \"\")\r\n            if (n.hasNode(\"visitscotland:it\"))\r\n          \
+        \      n.getNode(\"visitscotland:it\").setProperty(\"visitscotland:altText\"\
+        , \"\")\r\n        }\r\n    }\r\n\r\n\r\n\r\n    @Override\r\n    boolean\
+        \ doUpdate(Node node) {\r\n        removeAltText(node.session)\r\n       \
+        \ return true\r\n    }\r\n\r\n    /**\r\n     * Executes a query and log when\
+        \ no results are returned\r\n     * @param session\r\n     * @param query\r\
+        \n     * @return\r\n     */\r\n    NodeIterator query(def session, def query){\r\
+        \n        QueryResult results = ((HippoWorkspace) session.getWorkspace()).getQueryManager().createQuery(query,\
+        \ Query.XPATH).execute();\r\n        if (!results.getNodes().hasNext()){\r\
+        \n            log.warn \"No query results for ${query}\"\r\n        } else\
+        \ {\r\n            // Note that the method size. Moves the pointer for the\
+        \ iterator at the end. That is why we need to\r\n            // invoke .getNodes()\
+        \ for getting the size\r\n            log.info \"Matches = ${results.getNodes().size()}\"\
+        \r\n        }\r\n        return results.getNodes()\r\n    }\r\n\r\n    @Override\r\
+        \n    boolean undoUpdate(Node node) throws RepositoryException, UnsupportedOperationException\
+        \ {\r\n        return false\r\n    }\r\n}"
+      hipposys:throttle: 1000

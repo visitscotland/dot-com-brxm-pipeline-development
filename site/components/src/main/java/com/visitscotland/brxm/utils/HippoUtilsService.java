@@ -1,7 +1,7 @@
 package com.visitscotland.brxm.utils;
 
+import com.visitscotland.brxm.hippobeans.Image;
 import com.visitscotland.brxm.hippobeans.Page;
-import org.hippoecm.hst.component.support.bean.BaseHstComponent;
 import org.hippoecm.hst.configuration.hosting.Mount;
 import org.hippoecm.hst.container.RequestContextProvider;
 import org.hippoecm.hst.content.beans.ObjectBeanManagerException;
@@ -35,15 +35,7 @@ import java.util.Optional;
 @Component
 public class HippoUtilsService {
 
-    /**
-     * Dummy HstCompoment used to access stateless methods on the ComponentClass
-     */
-    final BaseHstComponent hstComponent;
     private static final Logger logger = LoggerFactory.getLogger(HippoUtilsService.class);
-
-    public HippoUtilsService(){
-        hstComponent = new BaseHstComponent();
-    }
 
     /**
      * Convert and HstLink or a HippoBean into a URL String
@@ -75,6 +67,27 @@ public class HippoUtilsService {
             if (localize && link.getMount().getLocale().equals(Locale.UK.toString()) && !requestMount.getLocale().equals(Locale.UK.toString())) {
                 link.setPath(String.format("%s/%s", requestMount.getMountPath(), link.getPath()));
             }
+            return link.toUrlForm(requestContext, FULLY_QUALIFIED);
+        }
+    }
+
+    /**
+     * Convert Image into a URL String
+     *
+     * @param image CMS image
+     *
+     * @return URL for the image that renders the document's image or null when it cannot be rendered the image.
+     *
+     *
+     */
+    public static String createUrl(Image image) {
+        if (image == null) {
+            logger.info("The linked image does not exist.");
+            return null;
+        } else {
+            final boolean FULLY_QUALIFIED = false;
+            HstRequestContext requestContext = RequestContextProvider.get();
+            HstLink link = requestContext.getHstLinkCreator().create(image, requestContext);
             return link.toUrlForm(requestContext, FULLY_QUALIFIED);
         }
     }
@@ -121,7 +134,7 @@ public class HippoUtilsService {
 
     /**
      * Return a (possibly unavailable) hippo bean from a node
-     * @param jcrNode
+     * @param jcrNode CMS node
      * @param includeUnavailable If true, then the bean will be found even if hippo:availability is not set to 'live'
      */
     @NonTestable(NonTestable.Cause.BRIDGE)
@@ -140,7 +153,56 @@ public class HippoUtilsService {
 
     @NonTestable(NonTestable.Cause.BRIDGE)
     public HippoBean getBeanForResolvedSiteMapItem(HstRequest request, ResolvedSiteMapItem sitemapItem) {
-        return hstComponent.getBeanForResolvedSiteMapItem(request, sitemapItem);
+        Optional<HippoBean> bean = getBeanForSiteMapItem(request, sitemapItem, request.getRequestContext().getResolvedMount());
+        return bean.orElse(null);
+    }
+
+    /**
+     * TODO: To be reused by getContentBeanWithTranslationFallback()
+     *
+     * @param request the HstRequest request
+     * @param resolvedSiteMapItem item from the cms sitemap
+     * @param resolvedMount
+     * @return
+     *
+     * @see org.hippoecm.hst.component.support.bean.BaseHstComponent#getBeanForResolvedSiteMapItem(HstRequest, ResolvedSiteMapItem)
+     */
+    @NonTestable(NonTestable.Cause.BRIDGE)
+    private Optional<HippoBean> getBeanForSiteMapItem(HstRequest request, ResolvedSiteMapItem resolvedSiteMapItem, ResolvedMount resolvedMount){
+        HstRequestContext requestContext = request.getRequestContext();
+
+        if (resolvedMount != null && resolvedSiteMapItem != null && requestContext.getObjectBeanManager() != null && resolvedMount.getMount() != null) {
+            String contentPath = resolvedMount.getMount().getContentPath();
+            String content = "/" + PathUtils.normalizePath(contentPath) + "/" +
+                    PathUtils.normalizePath(resolvedSiteMapItem.getRelativeContentPath());
+            try {
+                Object bean = requestContext.getObjectBeanManager().getObject(content);
+                return (bean instanceof HippoBean) ? Optional.of((HippoBean) bean) : Optional.empty();
+            } catch (ObjectBeanManagerException e) {
+                logger.info("Failed to get hippo bean at {}", content, e);
+            }
+        }
+
+        return Optional.empty();
+    }
+
+    /**
+     * TODO Comment
+     * @param request the HstRequest request
+     * @param mount
+     * @return
+     */
+    public ResolvedMount getMount(HstRequest request, String mount) {
+        ResolvedVirtualHost resolvedVirtualHost = (ResolvedVirtualHost) request.getAttribute(ContainerConstants.VIRTUALHOSTS_REQUEST_ATTR);
+        if (resolvedVirtualHost != null) {
+            ResolvedMount resolvedMount = resolvedVirtualHost.matchMount(mount);
+            if (resolvedMount != null){
+                return resolvedMount;
+            }
+        }
+
+        logger.warn("The mount {} could not be resolver for the following request", mount, request.getRequestURI());
+        return request.getRequestContext().getResolvedMount();
     }
 
     /**

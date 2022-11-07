@@ -17,7 +17,7 @@
         </template>
 
         <!-- No JS Version -->
-        <span
+        <li
             class="vs-global-menu__languages__label"
             role="menuitem"
         >
@@ -28,7 +28,7 @@
                 focusable="false"
             />
             {{ languageLabel }}
-        </span>
+        </li>
 
         <!-- @slot Default slot for Global Menu Language Items  -->
         <slot />
@@ -134,7 +134,7 @@ export default {
         }
 
         &:focus {
-            box-shadow: $shadow-button-focus inset;
+            box-shadow: $shadow-button-focus-on-dark inset;
         }
 
         &:hover {

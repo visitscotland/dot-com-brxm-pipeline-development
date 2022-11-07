@@ -9,18 +9,20 @@
         >
             {{ hintText }}
         </p>
-        <template
+        <div
             v-if="$v.inputVal.$anyError || invalid"
+            aria-live="assertive"
         >
             <span
                 v-for="error in errorsList"
+                v-show="!reAlertErrors"
                 :key="error"
                 class="error"
                 :id="`error-${fieldName}`"
             >
                 {{ validationMessages[error] || genericValidation[error] }}
             </span>
-        </template>
+        </div>
         <BFormInput
             ref="input"
             :type="type"
@@ -31,17 +33,19 @@
             :name="fieldName"
             :placeholder="placeholder"
             :required="isRequired"
+            :autocomplete="autocompleteValue(fieldName)"
             :v="inputVal"
             :aria-invalid="$v.inputVal.$anyError || invalid"
-            :aria-describedby="$v.inputVal.$anyError || invalid ? `error-${fieldName}` : ''"
+            :aria-describedby="$v.inputVal.$anyError || invalid ? `error-${fieldName}` : null"
+            :maxlength="validationRules.maxLength ? validationRules.maxLength : null"
+            :minlength="validationRules.minLength ? validationRules.minLength : null"
             @blur="manualValidate"
         />
         <VsButton
-            data-test="input-clear-button"
             v-if="showClearButton"
             class="vs-input__clear-button d-none d-lg-block"
+            data-test="input-clear-button"
             variant="transparent"
-            icon-variant-override="secondary"
             icon="close"
             size="md"
             icon-only
@@ -101,6 +105,10 @@ export default {
         type: {
             type: String,
             default: 'text',
+        },
+        autoComplete: {
+            type: Boolean,
+            default: true,
         },
         /**
          * Rules for Vuelidate plugin
@@ -174,6 +182,15 @@ export default {
             type: String,
             default: '',
         },
+        /**
+         * Whether the parent form has just been submitted, if so all errors
+         * need to be wiped from then re-added to the DOM to inform screen
+         * readers that they should be re-declared
+         */
+        reAlertErrors: {
+            type: Boolean,
+            default: false,
+        },
     },
     computed: {
         /**
@@ -243,6 +260,37 @@ export default {
             this.clearInput();
             this.focusOnInput();
         },
+        /**
+         *  return autocomplete value in appropriate places
+         */
+        autocompleteValue(fieldName) {
+            // https://html.spec.whatwg.org/multipage/forms.html#enabling-client-side-automatic-filling-of-form-controls
+            let autocomplete;
+
+            switch (fieldName) {
+            case 'firstName':
+                autocomplete = 'given-name';
+                break;
+
+            case 'lastName':
+                autocomplete = 'family-name';
+                break;
+
+            case 'Email':
+                autocomplete = 'email';
+                break;
+
+            case 'PostalCode':
+                autocomplete = 'postal-code';
+                break;
+
+            default:
+                autocomplete = this.autoComplete ? 'on' : 'off';
+                break;
+            }
+
+            return autocomplete;
+        },
     },
     validations() {
         return this.rules;
@@ -269,12 +317,11 @@ export default {
         @include form-error-state;
     }
 
-    &__clear-button.vs-button.btn {
+    &__clear-button {
         position: absolute;
         right: $spacer-5;
         top: 50%;
         transform: translate(0, -50%);
-        padding: $spacer-1;
     }
 }
 </style>

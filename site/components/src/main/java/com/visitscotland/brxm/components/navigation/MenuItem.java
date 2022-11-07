@@ -1,5 +1,6 @@
 package com.visitscotland.brxm.components.navigation;
 
+import com.visitscotland.brxm.hippobeans.Page;
 import com.visitscotland.brxm.model.navigation.NavigationWidget;
 import org.hippoecm.hst.content.annotations.PageModelIgnore;
 import org.hippoecm.hst.core.linking.HstLink;
@@ -20,6 +21,7 @@ public class MenuItem implements HstSiteMenuItem {
     private MenuItem parent;
 
     private String title;
+    private Page page;
     private NavigationWidget widget;
     private String cta;
 
@@ -153,5 +155,13 @@ public class MenuItem implements HstSiteMenuItem {
     @Override
     public boolean isSelected() {
         return hstMenuItem.isSelected();
+    }
+
+    public Page getPage() {
+        return page;
+    }
+
+    public void setPage(Page page) {
+        this.page = page;
     }
 }

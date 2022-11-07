@@ -3,7 +3,7 @@
   jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
   jcr:uuid: 45278688-f372-4427-8e15-6b177cf51cc1
   hippo:name: Properties (Local Environment)
-  hippo:versionHistory: 5ddf30a2-e478-4584-9423-c059ed63ce4a
+  hippo:versionHistory: ed51920e-3709-4b69-911c-b5993e58b512
   /local-environment[1]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:referenceable']
@@ -13,7 +13,7 @@
     hippostd:state: draft
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2021-02-05T15:37:26.056Z
-    hippostdpubwf:lastModificationDate: 2022-05-18T09:35:25.933+01:00
+    hippostdpubwf:lastModificationDate: 2022-09-01T18:35:07.607+01:00
     hippostdpubwf:lastModifiedBy: admin
     resourcebundle:descriptions: [Client Token for Instagram request, "Token that\
         \ identifies calls made to vs-dms-products as internal calls giving access\
@@ -27,14 +27,25 @@
         \ URL needs to be composed.\r\n\r\nCan be nullified by links.use-relative-urls\r\
         \n\r\nlinks.use-relative-urls", "UI for vs-dms-products.\r\n\r\nThis value\
         \ will be used to compose urls to vs-dms-products and Canned Search", '',
+      '', '', "Path of the Header & Footer endpoints which is used for identify URLs\
+        \ able to process the override locale parameter (vs-locale-ctx)\r\n\r\nOverriding\
+        \ the locale parameter allows to use a different language for the labels\r\
+        \n\r\nTHE VALUE OF THIS PROPERTY DOES NOT CHANGE THE PATH OF THE ENDPOINTS",
       '', '']
     resourcebundle:id: environment.local
     resourcebundle:keys: [instagram.accesstoken, dms-data.api-key, instagram.app-id,
       links.use-relative-urls, links.cms-base-path.url, links.vs-dms-products.url,
-      dms-data.public-url, dms-data.private-url, youtube.api-key]
+      dms-data.public-url, dms-data.private-url, youtube.api-key, data-internal.path,
+      search.path, global-search.path]
     resourcebundle:messages: [0d41c47eaf42b43fe20de05201c798ec, $VS_DMS_PRODUCT_KEY,
       '1293271387429443', 'false', 'http://localhost:8080/site', 'http://172.28.81.65:8089',
-      'http://172.28.81.65:8089/data', 'http://172.28.81.65:8089/data', $YOUTUBE_API_KEY]
+      'http://172.28.81.65:8089/data', 'http://172.28.81.65:8089/data', $YOUTUBE_API_KEY,
+      /site/data/internal, /site/site-search-results, /site/site-search-results]
+    resourcebundle:messages_de: ['', '', '', '', '', '', '', '', '', '', '', /site/de/site-search-results]
+    resourcebundle:messages_es: ['', '', '', '', '', '', '', '', '', '', '', /site/es/site-search-results]
+    resourcebundle:messages_fr: ['', '', '', '', '', '', '', '', '', '', '', /site/fr/site-search-results]
+    resourcebundle:messages_it: ['', '', '', '', '', '', '', '', '', '', '', /site/it/site-search-results]
+    resourcebundle:messages_nl: ['', '', '', '', '', '', '', '', '', '', '', /site/nl/site-search-results]
   /local-environment[2]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:versionable']
@@ -44,7 +55,7 @@
     hippostd:state: unpublished
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2021-02-05T15:37:26.056Z
-    hippostdpubwf:lastModificationDate: 2022-05-18T09:35:35.588+01:00
+    hippostdpubwf:lastModificationDate: 2022-09-01T18:36:35.363+01:00
     hippostdpubwf:lastModifiedBy: admin
     resourcebundle:descriptions: [Client Token for Instagram request, "Token that\
         \ identifies calls made to vs-dms-products as internal calls giving access\
@@ -58,14 +69,25 @@
         \ URL needs to be composed.\r\n\r\nCan be nullified by links.use-relative-urls\r\
         \n\r\nlinks.use-relative-urls", "UI for vs-dms-products.\r\n\r\nThis value\
         \ will be used to compose urls to vs-dms-products and Canned Search", '',
+      '', '', "Path of the Header & Footer endpoints which is used for identify URLs\
+        \ able to process the override locale parameter (vs-locale-ctx)\r\n\r\nOverriding\
+        \ the locale parameter allows to use a different language for the labels\r\
+        \n\r\nTHE VALUE OF THIS PROPERTY DOES NOT CHANGE THE PATH OF THE ENDPOINTS",
       '', '']
     resourcebundle:id: environment.local
     resourcebundle:keys: [instagram.accesstoken, dms-data.api-key, instagram.app-id,
       links.use-relative-urls, links.cms-base-path.url, links.vs-dms-products.url,
-      dms-data.public-url, dms-data.private-url, youtube.api-key]
+      dms-data.public-url, dms-data.private-url, youtube.api-key, data-internal.path,
+      search.path, global-search.path]
     resourcebundle:messages: [0d41c47eaf42b43fe20de05201c798ec, $VS_DMS_PRODUCT_KEY,
       '1293271387429443', 'false', 'http://localhost:8080/site', 'http://172.28.81.65:8089',
-      'http://172.28.81.65:8089/data', 'http://172.28.81.65:8089/data', $YOUTUBE_API_KEY]
+      'http://172.28.81.65:8089/data', 'http://172.28.81.65:8089/data', $YOUTUBE_API_KEY,
+      /site/data/internal, /site/site-search-results, /site/site-search-results]
+    resourcebundle:messages_de: ['', '', '', '', '', '', '', '', '', '', '', /site/de/site-search-results]
+    resourcebundle:messages_es: ['', '', '', '', '', '', '', '', '', '', '', /site/es/site-search-results]
+    resourcebundle:messages_fr: ['', '', '', '', '', '', '', '', '', '', '', /site/fr/site-search-results]
+    resourcebundle:messages_it: ['', '', '', '', '', '', '', '', '', '', '', /site/it/site-search-results]
+    resourcebundle:messages_nl: ['', '', '', '', '', '', '', '', '', '', '', /site/nl/site-search-results]
   /local-environment[3]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:referenceable']
@@ -75,9 +97,9 @@
     hippostd:state: published
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2021-02-05T15:37:26.056Z
-    hippostdpubwf:lastModificationDate: 2022-05-18T09:35:35.588+01:00
+    hippostdpubwf:lastModificationDate: 2022-09-01T18:36:35.363+01:00
     hippostdpubwf:lastModifiedBy: admin
-    hippostdpubwf:publicationDate: 2022-05-18T09:35:39.663+01:00
+    hippostdpubwf:publicationDate: 2022-09-01T18:36:38.227+01:00
     resourcebundle:descriptions: [Client Token for Instagram request, "Token that\
         \ identifies calls made to vs-dms-products as internal calls giving access\
         \ to wider data\r\n\r\nThis token is configured by the environment variable\
@@ -90,11 +112,22 @@
         \ URL needs to be composed.\r\n\r\nCan be nullified by links.use-relative-urls\r\
         \n\r\nlinks.use-relative-urls", "UI for vs-dms-products.\r\n\r\nThis value\
         \ will be used to compose urls to vs-dms-products and Canned Search", '',
+      '', '', "Path of the Header & Footer endpoints which is used for identify URLs\
+        \ able to process the override locale parameter (vs-locale-ctx)\r\n\r\nOverriding\
+        \ the locale parameter allows to use a different language for the labels\r\
+        \n\r\nTHE VALUE OF THIS PROPERTY DOES NOT CHANGE THE PATH OF THE ENDPOINTS",
       '', '']
     resourcebundle:id: environment.local
     resourcebundle:keys: [instagram.accesstoken, dms-data.api-key, instagram.app-id,
       links.use-relative-urls, links.cms-base-path.url, links.vs-dms-products.url,
-      dms-data.public-url, dms-data.private-url, youtube.api-key]
+      dms-data.public-url, dms-data.private-url, youtube.api-key, data-internal.path,
+      search.path, global-search.path]
     resourcebundle:messages: [0d41c47eaf42b43fe20de05201c798ec, $VS_DMS_PRODUCT_KEY,
       '1293271387429443', 'false', 'http://localhost:8080/site', 'http://172.28.81.65:8089',
-      'http://172.28.81.65:8089/data', 'http://172.28.81.65:8089/data', $YOUTUBE_API_KEY]
+      'http://172.28.81.65:8089/data', 'http://172.28.81.65:8089/data', $YOUTUBE_API_KEY,
+      /site/data/internal, /site/site-search-results, /site/site-search-results]
+    resourcebundle:messages_de: ['', '', '', '', '', '', '', '', '', '', '', /site/de/site-search-results]
+    resourcebundle:messages_es: ['', '', '', '', '', '', '', '', '', '', '', /site/es/site-search-results]
+    resourcebundle:messages_fr: ['', '', '', '', '', '', '', '', '', '', '', /site/fr/site-search-results]
+    resourcebundle:messages_it: ['', '', '', '', '', '', '', '', '', '', '', /site/it/site-search-results]
+    resourcebundle:messages_nl: ['', '', '', '', '', '', '', '', '', '', '', /site/nl/site-search-results]

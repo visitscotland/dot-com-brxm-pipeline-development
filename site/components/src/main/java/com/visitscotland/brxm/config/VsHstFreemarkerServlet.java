@@ -32,8 +32,9 @@ public class VsHstFreemarkerServlet extends HstFreemarkerServlet {
         super.init(config);
 
         try {
-            getConfiguration().setSharedVariable("ResourceBundle", VsComponentManager.get(ResourceBundleService.class));
-            getConfiguration().setSharedVariable("Properties", VsComponentManager.get(com.visitscotland.brxm.utils.Properties.class));
+            addObject("ResourceBundle", VsComponentManager.get(ResourceBundleService.class));
+            addObject("Properties", VsComponentManager.get(com.visitscotland.brxm.utils.Properties.class));
+            addObject("Logger", logger);
             includeVersionNumber();
             includeBranchInformation();
         } catch (TemplateModelException e) {
@@ -41,6 +42,12 @@ public class VsHstFreemarkerServlet extends HstFreemarkerServlet {
         }
     }
 
+    /** Adds an object to Freemarker **/
+    public void addObject(String name, Object value) throws TemplateModelException {
+        getConfiguration().setSharedVariable(name, value);
+    }
+
+    /** Adds the build number to the template */
     private void includeVersionNumber() throws TemplateModelException {
         //Sets the version number as a Freemarker shared variable so it can be inserted to all pages.
         if (About.getVersion().equals("Unknown")){
@@ -50,6 +57,7 @@ public class VsHstFreemarkerServlet extends HstFreemarkerServlet {
         }
     }
 
+    /** Includes branch information for CI pipelines */
     private void includeBranchInformation() throws TemplateModelException {
         if (System.getenv().containsKey(BRANCH_NAME)){
             addVariable("ciBranch", System.getenv(BRANCH_NAME));

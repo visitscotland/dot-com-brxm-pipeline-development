@@ -21,30 +21,33 @@ public class InternalParameterProcessor {
     private static final Logger logger = LoggerFactory.getLogger(InternalParameterProcessor.class);
 
     private ResourceBundleService bundle;
+    private Properties properties;
     private HippoUtilsService utils;
 
-    public InternalParameterProcessor(ResourceBundleService bundle, HippoUtilsService utils) {
+    public InternalParameterProcessor(ResourceBundleService bundle, HippoUtilsService utils, Properties properties) {
         this.bundle = bundle;
         this.utils = utils;
+        this.properties = properties;
     }
 
     public static final String PARAM_SSO = "sso";
     public static final String PARAM_ROOT_PATH = "root-path";
     public static final String PARAM_EXTERNAL = "external";
+    public static final String PARAM_LOCALE ="vs-locale-ctx";
 
     public static final String PATH_PLACEHOLDER = "[PATH-PLACEHOLDER]";
 
     public static final String FULLY_QUALIFIED_URLS = "fullyQualified";
     public static final String LOGINREDIRECT_PARAMETERS = "loginredirectParameters";
-    public static final String VERSION = "version";
-    public static final String GLOBAL_MENU_URLS = "placeholerLocalizedURLs";
+    public static final String LEGACY = "legacy";
+    public static final String GLOBAL_MENU_URLS = "placeholderLocalizedURLs";
 
     public void processParameters(HstRequest request) {
         final StringBuilder returnUrl = new StringBuilder("returnurl=");
         String external = utils.getParameterFromUrl(request, PARAM_EXTERNAL);
         String authority = getAuthority(request);
         String sso = utils.getParameterFromUrl(request, PARAM_SSO);
-        String version = utils.getParameterFromUrl(request, VERSION);
+        String legacy = utils.getParameterFromUrl(request, LEGACY);
 
         if (authority != null) {
             returnUrl.append(authority).append("/").append(PATH_PLACEHOLDER);
@@ -60,11 +63,7 @@ public class InternalParameterProcessor {
             returnUrl.append("&id=").append(sso);
         }
 
-        if (!Contract.isEmpty(version)) {
-            request.setModel(VERSION, version);
-            logger.debug("The '{}' version of an internal endpoint was requested ", version);
-        }
-
+        request.setModel(LEGACY, legacy == null?properties.isServeLegacyCss().toString():legacy);
         request.setModel(LOGINREDIRECT_PARAMETERS, returnUrl.toString());
     }
 

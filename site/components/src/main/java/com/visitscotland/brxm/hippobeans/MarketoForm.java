@@ -38,11 +38,6 @@ public class MarketoForm extends BaseDocument {
         return getSingleProperty("visitscotland:translationDeadline");
     }
 
-    @HippoEssentialsGenerated(internalName = "visitscotland:configuration")
-    public String getJsonUrl() {
-        return getSingleProperty("visitscotland:jsonUrl");
-    }
-
     @HippoEssentialsGenerated(internalName = "visitscotland:nonJavaScriptMessage")
     public String getNonJavaScriptMessage() {
         return getSingleProperty("visitscotland:nonJavaScriptMessage");
@@ -51,5 +46,10 @@ public class MarketoForm extends BaseDocument {
     @HippoEssentialsGenerated(internalName = "visitscotland:copy")
     public HippoHtml getCopy() {
         return getHippoHtml("visitscotland:copy");
+    }
+
+    @HippoEssentialsGenerated(internalName = "visitscotland:jsonUrl")
+    public String getJsonUrl() {
+        return getSingleProperty("visitscotland:jsonUrl");
     }
 }

@@ -10,6 +10,7 @@
 
 <script>
 import { BContainer } from 'bootstrap-vue';
+
 /**
  * Containers are the primary structural element used to
  * organise page content.

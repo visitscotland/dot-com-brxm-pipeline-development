@@ -1,97 +1,239 @@
 /content/documents/administration/labels/modules/product-search-widget:
+  .meta:order-before: forms
   jcr:primaryType: hippo:handle
   jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
-  jcr:uuid: d85b23e4-dbca-411f-a55b-eee05ce7b921
+  jcr:uuid: a9e82d7f-66c3-4b89-b4bf-f793fb843bb6
   hippo:name: PSR Widget
-  hippo:versionHistory: 152787de-74a2-4a74-a2c6-efcbc2b8756b
+  hippo:versionHistory: ad69d6e7-ed95-414b-973b-fce1924410db
   /product-search-widget[1]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:referenceable']
-    jcr:uuid: f5beb66a-f030-495e-b988-0b8842a5d143
+    jcr:uuid: 7650d8d2-8a8b-4f04-a7bf-a79c15a11c35
     hippo:availability: []
     hippostd:retainable: false
     hippostd:state: draft
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2021-12-14T08:20:04.813Z
-    hippostdpubwf:lastModificationDate: 2022-04-20T16:10:11.828+01:00
+    hippostdpubwf:lastModificationDate: 2022-09-28T10:23:51.236+01:00
     hippostdpubwf:lastModifiedBy: admin
-    resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '', '']
+    resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '', '', '']
     resourcebundle:id: product-search-widget
     resourcebundle:keys: [see-do.title, see-do.description, accommodation.title, accommodation.description,
       events.title, events.description, tours.title, tours.description, food-drink.description,
-      food-drink.title]
-    resourcebundle:messages: [Find places to stay & things to do, 'Search through
-        a fantastic range of things to do, places to stay, local events and tours.',
-      Find the perfect place to stay, 'Search a wide range of accommodation providers
-        =from hotels, B&B''s, hostels cabins, cottages and campsites.', Find world
-        renowned events and festivals, 'Search a wide range of events, including the
-        arts, music, sport, food & drink and seasonal events.', Find a tour and start
-        exploring Scotland, 'Search a wide range of organised tours, bespoke tours,
-        self guided tours and day trips.', 'Search a wide range of organised tours,
-        bespoke tours, self guided tours and day trips.', Find food & drink experiences]
-    resourcebundle:messages_de: ['', '', '', '', '', '', '', '', '', '']
-    resourcebundle:messages_es: ['', '', '', '', '', '', '', '', '', '']
-    resourcebundle:messages_fr: ['', '', '', '', '', '', '', '', '', '']
-    resourcebundle:messages_it: ['', '', '', '', '', '', '', '', '', '']
-    resourcebundle:messages_nl: ['', '', '', '', '', '', '', '', '', '']
+      food-drink.title, no-js-message]
+    resourcebundle:messages: [Find things to do, 'Search through a fantastic range
+        of things to do including indoor and outdoor attractions, activities and shops.',
+      Find the perfect place to stay, 'Search a wide range of accommodation from hotels,
+        B&Bs, hostels, cabins, cottages and campsites.', Find events and festivals,
+      'Search a wide range of events, including art, music, sport, food & drink and
+        seasonal festivals.', Find a tour, 'Search a wide range of organised tours,
+        bespoke tours, self guided tours and day trips.', 'Search through a wide range
+        of food & drink options from bars, bistros, cafés, restaurants and speciality
+        shops and suppliers.', Find food & drink experiences, JavaScript needs to
+        be enabled to see this product search form. You can turn this on in your browser
+        settings.]
+    resourcebundle:messages_de: [Finden Sie Aktivitäten, 'Durchsuchen Sie eine fantastische
+        Auswahl an Aktivitäten, darunter Indoor- und Outdoor-Attraktionen, Aktivitäten
+        und Geschäfte.', Finden Sie die perfekte Unterkunft, 'Durchsuchen Sie eine
+        große Auswahl an Unterkünften, darunter Hotels, B&Bs, Hostels, Blockhütten,
+        Ferienhäuser und Campingplätze.', Finden Sie Events und Festivals, 'Durchsuchen
+        Sie eine große Auswahl an Veranstaltungen, darunter Kunst, Musik, Sport, Essen
+        und Trinken und saisonale Feiertage.', Finden Sie eine Tour, 'Durchsuchen
+        Sie eine große Auswahl an organisierten Touren, individuellen Touren, selbstgeführten
+        Touren und Tagesausflügen.', 'Durchsuchen Sie das vielfätige kulinarische
+        Angebot, darunter Bars, Bistros, Cafés, Restaurants sowie Spezialitätengeschäften
+        und -anbietern.', Finden Sie kulinarische Erlebnisse, 'JavaScript muss aktiviert
+        sein, um dieses Formular zur Produktsuche anzuzeigen. Sie können es in Ihren
+        Browser-Einstellungen aktivieren.']
+    resourcebundle:messages_es: [Encuentra cosas para hacer, 'Explora una fantástica
+        variedad de cosas para hacer, incluidas atracciones, actividades y tiendas.',
+      Encuentra el alojamiento perfecto, 'Busca una amplia gama de alojamientos desde
+        hoteles, B&Bs, hostales, cabañas, casas rurales y campings.', Encuentra eventos
+        y festivales, 'Busca una amplia gama de eventos, que incluyen arte, música,
+        deportes, comida y bebida, y festivales de temporada.', Encuentra un tour,
+      'Busca entre una amplia gama de tours organizados, tours a medida, visitas autoguiadas
+        y excursiones de un día.', 'Busca las diferentes opciones de alimentos y bebidas,
+        incluidos bares, bistrós, cafés, restaurantes y tiendas y vendedores especializados.',
+      Encuentra experiencias gastronómicas, JavaScript debe estar habilitado para
+        ver este formulario de búsqueda de productos. Puedes activarlo en la configuración
+        de tu navegador.]
+    resourcebundle:messages_fr: [Trouvez des activités, 'Recherchez parmi différentes
+        activités, en intérieur comme en extérieur, ainsi que des attractions et autres
+        boutiques.', Trouvez l’hébergement parfait, 'Recherchez parmi différents types
+        d’hébergements : hôtels, chambres d’hôtes, auberges de jeunesse, cabines,
+        gîtes, sites de camping et plus encore.', Trouvez des événements et des festivals,
+      'Recherchez parmi différents types d’événements, notamment de l’art, de la musique,
+        du sport, de la gastronomie et des festivals saisonniers.', Trouvez des visites
+        guidées, 'Recherchez différents types de visites guidées : personnalisées,
+        autoguidées ou sorties d’une journée.', 'Recherchez parmi différents établissements
+        de restauration : bars, bistrots, cafés, restaurants, des boutiques et fournisseurs
+        spécialisés.', Trouvez des expériences gastronomiques, JavaScript doit être
+        activé pour afficher ce formulaire de recherche. Vous pouvez l’activer dans
+        les paramètres de votre navigateur.]
+    resourcebundle:messages_it: [Trova cose da fare, 'Cerca tra una fantastica gamma
+        di cose da fare, tra cui attrazioni al chiuso e all''aperto, attività e negozi.',
+      Trova l'alloggio perfetto, 'Cerca un''ampia gamma di alloggi tra hotel, B&B,
+        ostelli, baite, cottage e campeggi.', Trova eventi e festival, 'Cerca un''ampia
+        gamma di eventi, tra cui arte, musica, sport, cibo e bevande e festival stagionali.',
+      Trova un tour, 'Cerca tra un''ampia gamma di tour organizzati, tour su misura,
+        tour autoguidati e gite di un giorno.', 'Cerca le diverse opzioni di cibo
+        e bevande tra cui bar, bistrot, caffè, ristoranti e negozi e venditori di
+        specialità.', Trova esperienze culinarie, Per visualizzare questo modulo di
+        ricerca prodotti è necessario abilitare Javascript. Puoi attivarlo nelle impostazioni
+        del tuo browser.]
+    resourcebundle:messages_nl: ['', '', '', '', '', '', '', '', '', '', '']
   /product-search-widget[2]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
-    jcr:uuid: d9b52942-27cf-44c0-b135-70eb5a132d32
+    jcr:uuid: 52c7942d-328f-417a-a173-a6d1a027a748
     hippo:availability: [preview]
     hippostd:retainable: false
     hippostd:state: unpublished
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2021-12-14T08:20:04.813Z
-    hippostdpubwf:lastModificationDate: 2022-04-20T16:10:53.928+01:00
+    hippostdpubwf:lastModificationDate: 2022-09-28T10:24:20.004+01:00
     hippostdpubwf:lastModifiedBy: admin
-    resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '', '']
+    resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '', '', '']
     resourcebundle:id: product-search-widget
     resourcebundle:keys: [see-do.title, see-do.description, accommodation.title, accommodation.description,
       events.title, events.description, tours.title, tours.description, food-drink.description,
-      food-drink.title]
-    resourcebundle:messages: [Find places to stay & things to do, 'Search through
-        a fantastic range of things to do, places to stay, local events and tours.',
-      Find the perfect place to stay, 'Search a wide range of accommodation providers
-        =from hotels, B&B''s, hostels cabins, cottages and campsites.', Find world
-        renowned events and festivals, 'Search a wide range of events, including the
-        arts, music, sport, food & drink and seasonal events.', Find a tour and start
-        exploring Scotland, 'Search a wide range of organised tours, bespoke tours,
-        self guided tours and day trips.', 'Search a wide range of organised tours,
-        bespoke tours, self guided tours and day trips.', Find food & drink experiences]
-    resourcebundle:messages_de: ['', '', '', '', '', '', '', '', '', '']
-    resourcebundle:messages_es: ['', '', '', '', '', '', '', '', '', '']
-    resourcebundle:messages_fr: ['', '', '', '', '', '', '', '', '', '']
-    resourcebundle:messages_it: ['', '', '', '', '', '', '', '', '', '']
-    resourcebundle:messages_nl: ['', '', '', '', '', '', '', '', '', '']
+      food-drink.title, no-js-message]
+    resourcebundle:messages: [Find things to do, 'Search through a fantastic range
+        of things to do including indoor and outdoor attractions, activities and shops.',
+      Find the perfect place to stay, 'Search a wide range of accommodation from hotels,
+        B&Bs, hostels, cabins, cottages and campsites.', Find events and festivals,
+      'Search a wide range of events, including art, music, sport, food & drink and
+        seasonal festivals.', Find a tour, 'Search a wide range of organised tours,
+        bespoke tours, self guided tours and day trips.', 'Search through a wide range
+        of food & drink options from bars, bistros, cafés, restaurants and speciality
+        shops and suppliers.', Find food & drink experiences, JavaScript needs to
+        be enabled to see this product search form. You can turn this on in your browser
+        settings.]
+    resourcebundle:messages_de: [Finden Sie Aktivitäten, 'Durchsuchen Sie eine fantastische
+        Auswahl an Aktivitäten, darunter Indoor- und Outdoor-Attraktionen, Aktivitäten
+        und Geschäfte.', Finden Sie die perfekte Unterkunft, 'Durchsuchen Sie eine
+        große Auswahl an Unterkünften, darunter Hotels, B&Bs, Hostels, Blockhütten,
+        Ferienhäuser und Campingplätze.', Finden Sie Events und Festivals, 'Durchsuchen
+        Sie eine große Auswahl an Veranstaltungen, darunter Kunst, Musik, Sport, Essen
+        und Trinken und saisonale Feiertage.', Finden Sie eine Tour, 'Durchsuchen
+        Sie eine große Auswahl an organisierten Touren, individuellen Touren, selbstgeführten
+        Touren und Tagesausflügen.', 'Durchsuchen Sie das vielfätige kulinarische
+        Angebot, darunter Bars, Bistros, Cafés, Restaurants sowie Spezialitätengeschäften
+        und -anbietern.', Finden Sie kulinarische Erlebnisse, 'JavaScript muss aktiviert
+        sein, um dieses Formular zur Produktsuche anzuzeigen. Sie können es in Ihren
+        Browser-Einstellungen aktivieren.']
+    resourcebundle:messages_es: [Encuentra cosas para hacer, 'Explora una fantástica
+        variedad de cosas para hacer, incluidas atracciones, actividades y tiendas.',
+      Encuentra el alojamiento perfecto, 'Busca una amplia gama de alojamientos desde
+        hoteles, B&Bs, hostales, cabañas, casas rurales y campings.', Encuentra eventos
+        y festivales, 'Busca una amplia gama de eventos, que incluyen arte, música,
+        deportes, comida y bebida, y festivales de temporada.', Encuentra un tour,
+      'Busca entre una amplia gama de tours organizados, tours a medida, visitas autoguiadas
+        y excursiones de un día.', 'Busca las diferentes opciones de alimentos y bebidas,
+        incluidos bares, bistrós, cafés, restaurantes y tiendas y vendedores especializados.',
+      Encuentra experiencias gastronómicas, JavaScript debe estar habilitado para
+        ver este formulario de búsqueda de productos. Puedes activarlo en la configuración
+        de tu navegador.]
+    resourcebundle:messages_fr: [Trouvez des activités, 'Recherchez parmi différentes
+        activités, en intérieur comme en extérieur, ainsi que des attractions et autres
+        boutiques.', Trouvez l’hébergement parfait, 'Recherchez parmi différents types
+        d’hébergements : hôtels, chambres d’hôtes, auberges de jeunesse, cabines,
+        gîtes, sites de camping et plus encore.', Trouvez des événements et des festivals,
+      'Recherchez parmi différents types d’événements, notamment de l’art, de la musique,
+        du sport, de la gastronomie et des festivals saisonniers.', Trouvez des visites
+        guidées, 'Recherchez différents types de visites guidées : personnalisées,
+        autoguidées ou sorties d’une journée.', 'Recherchez parmi différents établissements
+        de restauration : bars, bistrots, cafés, restaurants, des boutiques et fournisseurs
+        spécialisés.', Trouvez des expériences gastronomiques, JavaScript doit être
+        activé pour afficher ce formulaire de recherche. Vous pouvez l’activer dans
+        les paramètres de votre navigateur.]
+    resourcebundle:messages_it: [Trova cose da fare, 'Cerca tra una fantastica gamma
+        di cose da fare, tra cui attrazioni al chiuso e all''aperto, attività e negozi.',
+      Trova l'alloggio perfetto, 'Cerca un''ampia gamma di alloggi tra hotel, B&B,
+        ostelli, baite, cottage e campeggi.', Trova eventi e festival, 'Cerca un''ampia
+        gamma di eventi, tra cui arte, musica, sport, cibo e bevande e festival stagionali.',
+      Trova un tour, 'Cerca tra un''ampia gamma di tour organizzati, tour su misura,
+        tour autoguidati e gite di un giorno.', 'Cerca le diverse opzioni di cibo
+        e bevande tra cui bar, bistrot, caffè, ristoranti e negozi e venditori di
+        specialità.', Trova esperienze culinarie, Per visualizzare questo modulo di
+        ricerca prodotti è necessario abilitare Javascript. Puoi attivarlo nelle impostazioni
+        del tuo browser.]
+    resourcebundle:messages_nl: ['', '', '', '', '', '', '', '', '', '', '']
   /product-search-widget[3]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:referenceable']
-    jcr:uuid: 153e3e65-f277-4bcd-a635-e99219455868
+    jcr:uuid: 63542c53-95ee-460d-81e8-43ff07393a0c
     hippo:availability: [live]
     hippostd:retainable: false
     hippostd:state: published
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2021-12-14T08:20:04.813Z
-    hippostdpubwf:lastModificationDate: 2022-04-20T16:10:53.928+01:00
+    hippostdpubwf:lastModificationDate: 2022-09-28T10:24:20.004+01:00
     hippostdpubwf:lastModifiedBy: admin
-    hippostdpubwf:publicationDate: 2022-04-20T16:10:55.859+01:00
-    resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '', '']
+    hippostdpubwf:publicationDate: 2022-09-28T10:24:22.361+01:00
+    resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '', '', '']
     resourcebundle:id: product-search-widget
     resourcebundle:keys: [see-do.title, see-do.description, accommodation.title, accommodation.description,
       events.title, events.description, tours.title, tours.description, food-drink.description,
-      food-drink.title]
-    resourcebundle:messages: [Find places to stay & things to do, 'Search through
-        a fantastic range of things to do, places to stay, local events and tours.',
-      Find the perfect place to stay, 'Search a wide range of accommodation providers
-        =from hotels, B&B''s, hostels cabins, cottages and campsites.', Find world
-        renowned events and festivals, 'Search a wide range of events, including the
-        arts, music, sport, food & drink and seasonal events.', Find a tour and start
-        exploring Scotland, 'Search a wide range of organised tours, bespoke tours,
-        self guided tours and day trips.', 'Search a wide range of organised tours,
-        bespoke tours, self guided tours and day trips.', Find food & drink experiences]
-    resourcebundle:messages_de: ['', '', '', '', '', '', '', '', '', '']
-    resourcebundle:messages_es: ['', '', '', '', '', '', '', '', '', '']
-    resourcebundle:messages_fr: ['', '', '', '', '', '', '', '', '', '']
-    resourcebundle:messages_it: ['', '', '', '', '', '', '', '', '', '']
-    resourcebundle:messages_nl: ['', '', '', '', '', '', '', '', '', '']
+      food-drink.title, no-js-message]
+    resourcebundle:messages: [Find things to do, 'Search through a fantastic range
+        of things to do including indoor and outdoor attractions, activities and shops.',
+      Find the perfect place to stay, 'Search a wide range of accommodation from hotels,
+        B&Bs, hostels, cabins, cottages and campsites.', Find events and festivals,
+      'Search a wide range of events, including art, music, sport, food & drink and
+        seasonal festivals.', Find a tour, 'Search a wide range of organised tours,
+        bespoke tours, self guided tours and day trips.', 'Search through a wide range
+        of food & drink options from bars, bistros, cafés, restaurants and speciality
+        shops and suppliers.', Find food & drink experiences, JavaScript needs to
+        be enabled to see this product search form. You can turn this on in your browser
+        settings.]
+    resourcebundle:messages_de: [Finden Sie Aktivitäten, 'Durchsuchen Sie eine fantastische
+        Auswahl an Aktivitäten, darunter Indoor- und Outdoor-Attraktionen, Aktivitäten
+        und Geschäfte.', Finden Sie die perfekte Unterkunft, 'Durchsuchen Sie eine
+        große Auswahl an Unterkünften, darunter Hotels, B&Bs, Hostels, Blockhütten,
+        Ferienhäuser und Campingplätze.', Finden Sie Events und Festivals, 'Durchsuchen
+        Sie eine große Auswahl an Veranstaltungen, darunter Kunst, Musik, Sport, Essen
+        und Trinken und saisonale Feiertage.', Finden Sie eine Tour, 'Durchsuchen
+        Sie eine große Auswahl an organisierten Touren, individuellen Touren, selbstgeführten
+        Touren und Tagesausflügen.', 'Durchsuchen Sie das vielfätige kulinarische
+        Angebot, darunter Bars, Bistros, Cafés, Restaurants sowie Spezialitätengeschäften
+        und -anbietern.', Finden Sie kulinarische Erlebnisse, 'JavaScript muss aktiviert
+        sein, um dieses Formular zur Produktsuche anzuzeigen. Sie können es in Ihren
+        Browser-Einstellungen aktivieren.']
+    resourcebundle:messages_es: [Encuentra cosas para hacer, 'Explora una fantástica
+        variedad de cosas para hacer, incluidas atracciones, actividades y tiendas.',
+      Encuentra el alojamiento perfecto, 'Busca una amplia gama de alojamientos desde
+        hoteles, B&Bs, hostales, cabañas, casas rurales y campings.', Encuentra eventos
+        y festivales, 'Busca una amplia gama de eventos, que incluyen arte, música,
+        deportes, comida y bebida, y festivales de temporada.', Encuentra un tour,
+      'Busca entre una amplia gama de tours organizados, tours a medida, visitas autoguiadas
+        y excursiones de un día.', 'Busca las diferentes opciones de alimentos y bebidas,
+        incluidos bares, bistrós, cafés, restaurantes y tiendas y vendedores especializados.',
+      Encuentra experiencias gastronómicas, JavaScript debe estar habilitado para
+        ver este formulario de búsqueda de productos. Puedes activarlo en la configuración
+        de tu navegador.]
+    resourcebundle:messages_fr: [Trouvez des activités, 'Recherchez parmi différentes
+        activités, en intérieur comme en extérieur, ainsi que des attractions et autres
+        boutiques.', Trouvez l’hébergement parfait, 'Recherchez parmi différents types
+        d’hébergements : hôtels, chambres d’hôtes, auberges de jeunesse, cabines,
+        gîtes, sites de camping et plus encore.', Trouvez des événements et des festivals,
+      'Recherchez parmi différents types d’événements, notamment de l’art, de la musique,
+        du sport, de la gastronomie et des festivals saisonniers.', Trouvez des visites
+        guidées, 'Recherchez différents types de visites guidées : personnalisées,
+        autoguidées ou sorties d’une journée.', 'Recherchez parmi différents établissements
+        de restauration : bars, bistrots, cafés, restaurants, des boutiques et fournisseurs
+        spécialisés.', Trouvez des expériences gastronomiques, JavaScript doit être
+        activé pour afficher ce formulaire de recherche. Vous pouvez l’activer dans
+        les paramètres de votre navigateur.]
+    resourcebundle:messages_it: [Trova cose da fare, 'Cerca tra una fantastica gamma
+        di cose da fare, tra cui attrazioni al chiuso e all''aperto, attività e negozi.',
+      Trova l'alloggio perfetto, 'Cerca un''ampia gamma di alloggi tra hotel, B&B,
+        ostelli, baite, cottage e campeggi.', Trova eventi e festival, 'Cerca un''ampia
+        gamma di eventi, tra cui arte, musica, sport, cibo e bevande e festival stagionali.',
+      Trova un tour, 'Cerca tra un''ampia gamma di tour organizzati, tour su misura,
+        tour autoguidati e gite di un giorno.', 'Cerca le diverse opzioni di cibo
+        e bevande tra cui bar, bistrot, caffè, ristoranti e negozi e venditori di
+        specialità.', Trova esperienze culinarie, Per visualizzare questo modulo di
+        ricerca prodotti è necessario abilitare Javascript. Puoi attivarlo nelle impostazioni
+        del tuo browser.]
+    resourcebundle:messages_nl: ['', '', '', '', '', '', '', '', '', '', '']

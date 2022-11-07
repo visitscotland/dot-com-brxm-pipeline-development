@@ -33,6 +33,9 @@ class InternalParameterProcessorTest {
     @Mock
     ResourceBundleService bundle;
 
+    @Mock
+    Properties properties;
+
     /**
      * Note: We usually prefer to use the out-of-the-box class MockRequest, however, in this class we need to mock
      * the request context with is not possible to do with MockRequest
@@ -42,7 +45,8 @@ class InternalParameterProcessorTest {
 
     @BeforeEach
     void init() {
-        component = new InternalParameterProcessor(bundle, utils);
+        component = new InternalParameterProcessor(bundle, utils, properties);
+//        lenient().when(properties.isServeLegacyCss()).thenReturn(Boolean.TRUE);
     }
 
     @Test
@@ -51,6 +55,7 @@ class InternalParameterProcessorTest {
         ArgumentCaptor<String> ssoUrl = ArgumentCaptor.forClass(String.class);
 
         when(request.setModel(eq(InternalParameterProcessor.LOGINREDIRECT_PARAMETERS), ssoUrl.capture())).thenReturn(null);
+        when(request.setModel(eq(InternalParameterProcessor.LEGACY),any())).thenReturn(null);
 
         component.processParameters(request);
 
@@ -69,6 +74,7 @@ class InternalParameterProcessorTest {
         when(request.getRequestContext().setModel(eq(InternalParameterProcessor.FULLY_QUALIFIED_URLS), fullyQualified.capture())).thenReturn(null);
         when(request.getLocale()).thenReturn(Locale.UK);
         when(request.setModel(eq(InternalParameterProcessor.LOGINREDIRECT_PARAMETERS), ssoUrl.capture())).thenReturn(null);
+        when(request.setModel(eq(InternalParameterProcessor.LEGACY),any())).thenReturn(null);
         when(request.getScheme()).thenReturn("https");
         when(request.getServerName()).thenReturn("www.visitscotland.com");
         when(request.getServerPort()).thenReturn(-1);
@@ -93,6 +99,7 @@ class InternalParameterProcessorTest {
         when(utils.getParameterFromUrl(request, InternalParameterProcessor.PARAM_ROOT_PATH)).thenReturn("http://visitscotlan.com/");
         when(request.getRequestContext().setModel(eq(InternalParameterProcessor.FULLY_QUALIFIED_URLS), fullyQualified.capture())).thenReturn(null);
         when(request.setModel(eq(InternalParameterProcessor.LOGINREDIRECT_PARAMETERS), ssoUrl.capture())).thenReturn(null);
+        when(request.setModel(eq(InternalParameterProcessor.LEGACY),any())).thenReturn(null);
 
         component.processParameters(request);
 
@@ -111,6 +118,7 @@ class InternalParameterProcessorTest {
         when(utils.getParameterFromUrl(request, InternalParameterProcessor.PARAM_SSO)).thenReturn("jcalcines");
 
         when(request.setModel(eq(InternalParameterProcessor.LOGINREDIRECT_PARAMETERS), ssoUrl.capture())).thenReturn(null);
+        when(request.setModel(eq(InternalParameterProcessor.LEGACY),any())).thenReturn(null);
 
         component.processParameters(request);
 
@@ -169,6 +177,7 @@ class InternalParameterProcessorTest {
 
         when(utils.getParameterFromUrl(eq(request), any())).thenReturn(null);
         when(utils.getParameterFromUrl(request, InternalParameterProcessor.PARAM_ROOT_PATH)).thenReturn(rootPath);
+        when(request.setModel(eq(InternalParameterProcessor.LEGACY),any())).thenReturn(null);
         when(request.setModel(eq(InternalParameterProcessor.LOGINREDIRECT_PARAMETERS), ssoUrl.capture())).thenReturn(null);
 
         component.processParameters(request);

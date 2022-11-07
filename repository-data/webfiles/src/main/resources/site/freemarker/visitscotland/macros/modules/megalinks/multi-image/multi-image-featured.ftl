@@ -23,6 +23,7 @@
             theme="${theme}"
             link-type="${feature.type}"
             link-url="${feature.link}"
+            error-message="${label('essentials.global', 'third-party-error')}"
             <#if feature.itineraryTransport??>
                 transport="${feature.itineraryTransport}"
                 transport-name="${label('transports', feature.itineraryTransport)}"

@@ -1,0 +1,8 @@
+/*
+ * Required to show content again after hiding it by default to avoid 
+ * flash of unstyled content (FOUC).
+ */
+
+body {
+    visibility: visible;
+}

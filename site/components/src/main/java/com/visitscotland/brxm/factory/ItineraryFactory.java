@@ -192,7 +192,8 @@ public class ItineraryFactory {
         }
 
         if (externalLink.getExternalLink() != null) {
-            FlatLink ctaLink = linkService.createExternalLink(locale, externalLink.getExternalLink().getLink(), bundle.getFindOutMoreAboutCta(module.getTitle(), locale));
+            FlatLink ctaLink = linkService.createExternalLink(locale, externalLink.getExternalLink().getLink(),
+                    !externalLink.getExternalLink().getLabel().isEmpty()? externalLink.getExternalLink().getLabel(): bundle.getFindOutMoreAboutCta(module.getTitle(), locale));
             module.setCtaLink(ctaLink);
         }
 

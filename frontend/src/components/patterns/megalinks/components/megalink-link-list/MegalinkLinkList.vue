@@ -12,6 +12,8 @@
             :theme="theme"
             :video-id="videoId"
             :video-btn-text="videoBtnText"
+            :error-message="errorMessage"
+            error-type="full"
         >
             <VsStretchedLinkPanels
                 v-if="days && transport"
@@ -148,6 +150,13 @@ export default {
             type: String,
             default: 'Play Video',
         },
+        /**
+         * Message to show when there's an error with a third party
+        */
+        errorMessage: {
+            type: String,
+            default: '',
+        },
     },
 };
 </script>
@@ -158,6 +167,7 @@ export default {
         padding: $spacer-2 0 $spacer-3;
         position: relative;
         height: 100%;
+        width: 100%;
 
         &:after {
             content: '';
@@ -213,6 +223,16 @@ export default {
 
                 @include media-breakpoint-up(xl) {
                     padding-bottom: $spacer-0;
+                }
+
+                &--warning-full {
+                    width: 100%;
+                    max-width: 100%;
+                    height: 127px;
+                    overflow: hidden;
+                    justify-content: center;
+                    display: flex;
+                    align-items: center;
                 }
             }
 

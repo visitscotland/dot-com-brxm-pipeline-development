@@ -1,35 +1,43 @@
 <template>
     <div
         class="vs-warning"
-        :class="{
-            [`vs-warning--${variant}`]: true
-        }"
+        :class="[warningClasses, transparent ? 'vs-warning--transparent' : '']"
         data-test="vs-warning"
     >
-        <VsIcon
-            class="vs-warning__icon"
-            name="review"
-            custom-colour="#FCCA1B"
-        />
-        <p
-            class="vs-warning__message"
+        <div class="vs-warning__content">
+            <VsIcon
+                class="vs-warning__icon"
+                :name="icon"
+                v-bind="iconAttrs"
+            />
+
+            <div>
+                <p>
+                    <slot />
+                </p>
+
+                <p
+                    v-if="!!this.$slots['extra-content']"
+                >
+                    <slot name="extra-content" />
+                </p>
+            </div>
+        </div>
+
+        <VsButton
+            v-bind="btnAttrs"
+            variant="secondary"
+            v-if="!!this.$slots['button-text']"
+            class="vs-warning__button"
         >
-            {{ warningMessage }}
-        </p>
-        <VsLink
-            v-if="warningLink && warningLink.url"
-            data-test="vs-warning__link"
-            :href="warningLink.url"
-            variant="dark"
-        >
-            {{ warningLink.label }}
-        </VsLink>
+            <slot name="button-text" />
+        </VsButton>
     </div>
 </template>
 <script>
 
 import VsIcon from '@components/elements/icon';
-import VsLink from '@components/elements/link';
+import VsButton from '@components/elements/button';
 
 /**
  * A generic warning component that expands to cover whatever component
@@ -43,30 +51,104 @@ export default {
     release: '0.1.0',
     components: {
         VsIcon,
-        VsLink,
+        VsButton,
     },
     props: {
         /**
         * The warning message to display to the user
         */
-        warningMessage: {
+        icon: {
             type: String,
-            required: true,
+            default: 'review',
         },
         /**
-        * An optional link to a page that the user can go to to try and
-        * correct the issue
+        * Type of warning
         */
-        warningLink: {
-            type: Object,
-            default: null,
-        },
-        variant: {
+        type: {
             type: String,
             default: 'normal',
             validator: (value) => value.match(
-                /(small|normal)/,
+                /(normal|cookie)/,
             ),
+        },
+        /**
+        * Color theme - can be `light`, `dark` or `transparent`
+        */
+        theme: {
+            type: String,
+            default: 'dark',
+            validator: (value) => value.match(
+                /(light|dark)/,
+            ),
+        },
+        /**
+        * Message size - can be `small` or `normal`
+        */
+        size: {
+            type: String,
+            default: 'normal',
+            validator: (value) => value.match(
+                /(xs|small|normal)/,
+            ),
+        },
+        /**
+        * Alignment of message - can be `left` or `right`
+        */
+        align: {
+            type: String,
+            default: 'left',
+            validator: (value) => value.match(
+                /(left|right)/,
+            ),
+        },
+        /**
+        * Whether the background should be semi-transparent
+        */
+        transparent: {
+            type: Boolean,
+            default: true,
+        },
+    },
+    computed: {
+        warningClasses() {
+            return [
+                `vs-warning--${this.theme}`,
+                `vs-warning--${this.size}`,
+                `vs-warning--${this.align}`,
+            ];
+        },
+        btnAttrs() {
+            const attrsObj = {
+            };
+            if (this.type === 'cookie') {
+                attrsObj.class = 'ot-sdk-show-settings vs-warning__cookie-trigger';
+            }
+            if (this.theme === 'dark') {
+                attrsObj.onDark = '';
+            }
+            if (this.size === 'small') {
+                attrsObj.size = 'sm';
+            }
+
+            return attrsObj;
+        },
+        iconAttrs() {
+            const iconAttrs = {
+            };
+
+            if (this.theme === 'dark') {
+                iconAttrs.customColour = '#FCCA1B';
+            } else {
+                iconAttrs.variant = 'primary';
+            }
+
+            if (this.size === 'small') {
+                iconAttrs.size = 'md';
+            } else {
+                iconAttrs.size = 'lg';
+            }
+
+            return iconAttrs;
         },
     },
 };
@@ -74,36 +156,101 @@ export default {
 
 <style lang="scss">
     .vs-warning {
-        position: absolute;
-        top: 0;
-        left: 0;
-        bottom: 0;
-        right: 0;
-        padding: $spacer-4;
+        position: relative;
         display: flex;
+        align-items: flex-end;
+        justify-content: flex-end;
         flex-direction: column;
-        align-items: center;
-        text-align: center;
-        justify-content: center;
-        background-color: rgba($color-black, 0.8);
-        color: $color-white;
-    }
+        text-align: left;
+        padding: $spacer-5;
+        background: $color-gray-tint-7;
+        height: 100%;
+        line-height: 1.1;
 
-    .vs-warning__icon {
-        width: 4rem !important;
-        height: 4rem !important;
-        margin-bottom: 2rem;
-    }
-
-    .vs-warning--small {
-        .vs-warning__icon {
-            width: 3rem !important;
-            height: 3rem !important;
-            margin-bottom: 1rem;
+        @include media-breakpoint-up(lg) {
+            padding: $spacer-9;
         }
-    }
 
-    .vs-warning__message {
-        margin-bottom: $spacer-0;
+        &--left {
+            align-items: flex-start;
+        }
+
+        &--small {
+            padding: $spacer-5;
+
+            .vs-warning__content {
+                max-width: 100%;
+
+                @include media-breakpoint-up(lg) {
+                    & > div p:first-of-type {
+                        font-size: $font-size-5;
+                    }
+                }
+            }
+
+            .vs-warning__button {
+                margin-top: $spacer-3;
+            }
+        }
+
+        &--dark {
+            color: $color-white;
+            background: $color-gray-shade-6;
+
+            &.vs-warning--transparent {
+                background: rgba(0,0,0,0.8);
+            }
+        }
+
+        &--right {
+            justify-content: flex-end;
+
+            .vs-warning__button {
+                display: flex;
+                margin-left: auto;
+            }
+        }
+
+        &__icon {
+            margin-right: $spacer-3;
+        }
+
+        &__button {
+            margin-top: $spacer-6;
+
+            @include media-breakpoint-up(lg) {
+                margin-top: $spacer-9;
+            }
+        }
+
+        &__content {
+            display: flex;
+            // flex-direction: row;
+            align-items: flex-start;
+            justify-content: flex-start;
+            max-width: 80%;
+            line-height: 1.5;
+
+            & > div p:last-of-type {
+                margin-bottom: 0;
+                font-size: $font-size-5;
+            }
+
+            & > div p:first-of-type {
+                font-size: $font-size-5;
+
+                @include media-breakpoint-up(lg) {
+                    font-size: $font-size-6;
+                }
+            }
+
+            &--xs {
+                .vs-warning__icon {
+                    width: 2rem !important;
+                    height: 2rem !important;
+                    margin-bottom: $spacer-4;
+                }
+            }
+        }
     }
 </style>

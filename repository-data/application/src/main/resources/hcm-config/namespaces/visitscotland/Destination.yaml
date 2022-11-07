@@ -11,9 +11,10 @@ definitions:
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:uuid: 08cef1f6-8587-4ab9-a31e-cb7a263d6a8f
+          jcr:uuid: 26652156-4c86-4c4f-a7fb-74cd5be016e5
           hipposysedit:node: true
-          hipposysedit:supertype: ['visitscotland:Page', 'hippostd:relaxed', 'hippotranslation:translated']
+          hipposysedit:supertype: ['hippotranslation:translated', 'hippotaxonomy:classifiable',
+            'visitscotland:Page', 'hippostd:relaxed']
           hipposysedit:uri: http://www.visitscotland.com/visitscotland/nt/1.0
           /location:
             jcr:primaryType: hipposysedit:field
@@ -36,13 +37,13 @@ definitions:
           hippotranslation:locale: document-type-locale
           visitscotland:breadcrumb: ''
           visitscotland:seoNoIndex: false
-          jcr:mixinTypes: ['mix:referenceable']
+          jcr:mixinTypes: ['mix:referenceable', 'hippotaxonomy:classifiable']
           visitscotland:title: ''
           visitscotland:location: ''
           visitscotland:seoDescription: ''
           visitscotland:teaser: ''
           visitscotland:seoTitle: ''
-          jcr:uuid: 8f35cf68-5e28-4cd3-9e5c-8607d9639170
+          jcr:uuid: 2332cc31-8d7e-44b9-ac55-f268fd851b0b
           hippostdpubwf:lastModificationDate: 2020-05-15T09:26:41.741+01:00
           hippostdpubwf:creationDate: 2020-05-15T09:26:41.742+01:00
           visitscotland:translation: ''
@@ -208,3 +209,13 @@ definitions:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
               ui.extension: translationDiff
+          /classifiable:
+            jcr:primaryType: frontend:plugin
+            essentials-taxonomy-name: Visitscotland-categories
+            mixin: hippotaxonomy:classifiable
+            plugin.class: org.hippoecm.frontend.editor.plugins.mixin.MixinLoaderPlugin
+            wicket.id: ${cluster.id}.right.item
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+              taxonomy.name: Visitscotland-categories
+              caption: Category

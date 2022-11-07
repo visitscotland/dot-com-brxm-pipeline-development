@@ -8,13 +8,15 @@
             :name="source"
             variant="light"
             size="xs"
+            class="mr-1"
             data-test="vs-social-credit-link__icon"
         />
         <VsLink
             class="social-credit__link"
             data-test="vs-social-credit-link__link"
             :href="socialPostUrl"
-            external
+            variant="on-dark"
+            type="external"
         >
             {{ credit }}
         </VsLink>
@@ -73,24 +75,13 @@ export default {
     line-height: $line_height_xs;
 
     .social-credit__link {
-        color: $color-white !important;
+        color: $color-white;
         font-weight: $font-weight-light;
         font-size: $font-size-3;
-        line-height: $line-height-standard;
-        margin-bottom: $spacer-0;
-
-        &:hover,
-        &:focus {
-            text-decoration: underline !important;
-        }
-
-        &:focus {
-            font-weight: $font-weight-semi-bold !important;
-            outline: 0 !important;
-        }
 
         svg.vs-icon {
-            fill: $color-white !important;
+            fill: $color-white;
+            vertical-align: middle;
         }
     }
 }

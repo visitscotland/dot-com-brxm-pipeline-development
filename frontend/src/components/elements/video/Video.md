@@ -9,6 +9,10 @@ Include a YouTube `video-id` so the component knows which video to load.
  ```jsx
     <VsVideo 
         video-id="c05sg3G4oA4" 
+        error-message="Sorry, something's gone wrong. Please try again later"
+        cookie-link-text="Manage cookies"
+        no-js-message="You need Javascript enabled to see this video"
+        no-cookies-message="You need cookies enabled to see this video"
     />
   ```
 
@@ -20,6 +24,10 @@ event which can be used to play or pause the video.
     <VsVideo
         video-id="c05sg3G4oA4"
         class="mb-6"
+        error-message="Sorry, something's gone wrong. Please try again later"
+        cookie-link-text="Manage cookies"
+        no-js-message="You need Javascript enabled to see this video"
+        no-cookies-message="You need cookies enabled to see this video"
     />
 
     <VsButton
@@ -48,14 +56,26 @@ the time is automatically added using these video prop values.
         single-minute-descriptor="%s minute video"
         plural-minute-descriptor="%s minutes video"
         language="nl-nl"
+        error-message="Sorry, something's gone wrong. Please try again later"
+        cookie-link-text="Manage cookies"
+        no-js-message="You need Javascript enabled to see this video"
+        no-cookies-message="You need cookies enabled to see this video"
     />
-    <VsVideoCaption
+  ```
+
+  ### No cookies and no JavaScript messaging
+  The video component uses the YouTube API which requires JavaScript and will set cookies. Use these prop values to define messaging that displays if the user doesn't have JavaScript enabled, or hasn't allowed the required cookies.
+
+  ```jsx
+    <VsVideo
         video-id="dKI8IEnqvbU"
-    >
-        <template slot="video-title">
-            Scotch Whisky: Explained
-        </template>
-    </VsVideoCaption>
+        single-minute-descriptor="%s minute video"
+        plural-minute-descriptor="%s minutes video"
+        error-message="Sorry, something's gone wrong. Please try again later"
+        cookie-link-text="Manage cookies"
+        no-js-message="You need Javascript enabled to see this video"
+        no-cookies-message="You need cookies enabled to see this video"
+    />
   ```
 
   ## Accessibility

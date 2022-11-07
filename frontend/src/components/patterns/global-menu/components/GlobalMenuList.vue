@@ -85,8 +85,8 @@ export default {
             display: inline-block;
 
             &:focus {
-                outline: 3px solid $color-pink-tint-5;
-                outline-offset: -3px;
+                outline: 4px solid  $color-yellow;
+                outline-offset: -4px;
             }
 
             &:active {

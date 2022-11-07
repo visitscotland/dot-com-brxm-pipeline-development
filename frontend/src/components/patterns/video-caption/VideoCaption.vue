@@ -1,70 +1,97 @@
 <template>
-    <div
-        class="vs-video-caption"
-        data-test="video-caption"
-        v-if="videoLoaded"
-    >
+    <div data-test="video-caption">
         <div
-            v-if="videoBtnText"
-            class="vs-video-caption__buttons-container"
+            class="vs-video-caption"
+            v-if="videoLoaded && requiredCookiesExist"
+            key="video-caption"
         >
-            <div class="container">
-                <VsButton
-                    class="vs-video-caption__button"
-                    icon="play"
-                    icon-position="left"
-                    size="md"
-                    ref="videoShow"
-                    @click.native="emitShowModal"
-                >
-                    {{ videoBtnText }}
-                </VsButton>
+            <div
+                v-if="videoBtnText"
+                class="vs-video-caption__buttons-container"
+            >
+                <div class="container">
+                    <VsButton
+                        class="vs-video-caption__button"
+                        icon="play"
+                        icon-position="left"
+                        size="md"
+                        ref="videoShow"
+                        @click.native="emitShowModal"
+                    >
+                        {{ videoBtnText }}
+                    </VsButton>
+                </div>
+
+                <VsToggleButton
+                    v-if="withToggleBtn"
+                    @toggleAction="emitToggle"
+                />
             </div>
 
-            <VsToggleButton
-                v-if="withToggleBtn"
-                @toggleAction="emitToggle"
-            />
-        </div>
+            <div
+                class="vs-video-caption__details container"
+                v-if="requiredCookiesExist"
+            >
+                <p class="vs-video-caption__title">
+                    <!-- @slot Slot for video title -->
+                    <slot name="video-title" />
+                </p>
 
-        <div class="vs-video-caption__details container">
-            <p class="vs-video-caption__title">
-                <!-- @slot Slot for video title -->
-                <slot name="video-title" />
-            </p>
-
-            <p class="vs-video-caption__duration">
-                {{ videoDetails.videoDurationMsg }}
-            </p>
-        </div>
-    </div>
-    <div
-        v-else
-        class="vs-video-caption vs-video-caption--no-js"
-        data-test="video-caption-nojs"
-    >
-        <div class="vs-video-caption__details container">
-            <div class="vs-video-caption__alert">
-                <VsIcon
-                    name="review"
-                    custom-colour="gold"
-                    size="lg"
-                />
-
-                <p>
-                    <!-- @slot Slot for no-js alert message -->
-                    <slot name="video-no-js-alert" />
+                <p class="vs-video-caption__duration">
+                    {{ videoDetails.videoDurationMsg }}
                 </p>
             </div>
+        </div>
+
+        <div
+            v-else-if="showCookieMessage"
+            class="vs-video-caption vs-video-caption--warning"
+        >
+            <VsWarning
+                size="small"
+                type="cookie"
+                :transparent="false"
+            >
+                {{ noCookiesMessage }}
+                <template slot="button-text">
+                    {{ cookieLinkText }}
+                </template>
+            </VsWarning>
+        </div>
+        <div
+            v-else-if="cookiesInitStatus === 'error'"
+            class="vs-video-caption vs-video-caption--warning"
+        >
+            <VsWarning
+                size="small"
+                :transparent="false"
+            >
+                {{ errorMessage }}
+            </VsWarning>
+        </div>
+        <div
+            class="vs-video-caption vs-video-caption--no-js vs-video-caption--warning"
+            data-test="video-caption-nojs"
+        >
+            <VsWarning
+                size="small"
+                :transparent="false"
+            >
+                {{ noJsMessage }}
+            </VsWarning>
         </div>
     </div>
 </template>
 
 <script>
 import VsButton from '@components/elements/button/Button';
-import VsIcon from '@components/elements/icon/Icon';
-import VsToggleButton from '@components/elements/toggle-button/ToggleButton';
+import VsToggleButton from '@components/patterns/toggle-button/ToggleButton';
+import VsWarning from '@components/patterns/warning/Warning';
+import verifyCookiesMixin from '../../../mixins/verifyCookiesMixin';
 import videoStore from '../../../stores/video.store';
+import requiredCookiesData from '../../../utils/required-cookies-data';
+
+const cookieValues = requiredCookiesData.youtube;
 
 /**
  * A caption element that providing information about a given video. It can be used in conjunction
@@ -78,9 +105,12 @@ export default {
     release: '0.0.1',
     components: {
         VsButton,
-        VsIcon,
         VsToggleButton,
+        VsWarning,
     },
+    mixins: [
+        verifyCookiesMixin,
+    ],
     props: {
         /**
          * Text for the play video button
@@ -105,12 +135,41 @@ export default {
             required: true,
         },
     },
+    inject: {
+        noJsMessage: {
+            default: '',
+        },
+        noCookiesMessage: {
+            default: '',
+        },
+        cookieLinkText: {
+            default: '',
+        },
+        errorMessage: {
+            default: '',
+        },
+    },
+    data() {
+        return {
+            requiredCookies: cookieValues,
+            showErrorMessage: false,
+        };
+    },
     computed: {
         videoDetails() {
             return videoStore.getters.getVideoDetails(this.videoId);
         },
         videoLoaded() {
             if (typeof this.videoDetails !== 'undefined' && this.videoDetails.videoDuration > 0) {
+                return true;
+            }
+
+            return false;
+        },
+        showCookieMessage() {
+            if (!this.requiredCookiesExist
+                && this.cookiesSet.length > 0
+                && this.noCookiesMessage) {
                 return true;
             }
 
@@ -154,12 +213,6 @@ export default {
                 right: $spacer-2;
                 top: calc(-24px - #{$spacer-3});
             }
-
-            .vs-toggle-btn.vs-button.btn {
-                .vs-icon {
-                    margin: 0;
-                }
-            }
         }
 
         &__title {
@@ -175,7 +228,8 @@ export default {
         }
 
         &__alert {
-             display: none;
+            display: flex;
+            justify-content: flex-start;
 
             .vs-icon {
                 margin-right: $spacer-7;
@@ -185,6 +239,16 @@ export default {
                 font-size: $font-size-4;
                 line-height: 2;
                 margin: -10px 0 0;
+            }
+
+            // override OneTrust styles
+            #ot-sdk-btn.ot-sdk-show-settings {
+                color: $color-white;
+                text-decoration: underline;
+
+                &:hover {
+                    color: $color-yellow;
+                }
             }
         }
 
@@ -253,6 +317,8 @@ export default {
 
     @include no-js {
         .vs-video-caption {
+            display: none;
+
             &--no-js {
                 display: block;
             }
@@ -271,11 +337,6 @@ export default {
                     margin: 0;
                     border-bottom: none;
                 }
-            }
-
-            &__alert {
-                display: flex;
-                justify-content: flex-start;
             }
 
             &__title,

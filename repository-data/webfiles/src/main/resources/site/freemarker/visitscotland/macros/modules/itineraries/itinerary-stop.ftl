@@ -39,7 +39,7 @@
         <@hst.manageContent hippobean=stop.hippoBean />
 
         <#if image?? && image?has_content> 
-            <@imageWithCaption imageSrc=image imageDetails=stop.image />
+            <@imageWithCaption imageSrc=image imageDetails=stop.image noAltText="true" />
         </#if>
 
         <#if stop?? && stop.description?? && stop.description?has_content>
@@ -74,7 +74,7 @@
         </#if>
 
         <#if stop??>
-            <#if stop.address?? && stop.address.line1?? && stop.address.line1?has_content>
+            <#if stop.address??>
                 <vs-address slot="stop-address">
                     <#assign addressArr = [
                         stop.address.line1!"",
@@ -116,7 +116,7 @@
             <#if stop.opening??>
                 <template slot="stop-info">
                     <vs-itinerary-stop-info
-                        opening-hours="${escapeJSON(stop.opening)}"
+                        opening-hours="${escapeJSON(stop.opening, true)}"
                         opening-times-link='${stop.openLink.link}'
                         closed-text='${label("itinerary", "stop.closed")}'
                         closing-soon-text='${label("itinerary", "stop.close.soon")}'
@@ -128,7 +128,7 @@
                         and-text='${label("itinerary", "stop.and")}'
                     >
                         <template slot="stop-link-text">
-                            ${label("itinerary", "stop.opening")}
+                            <span class="sr-only">${stop.title}: </span>${label("itinerary", "stop.opening")}
                         </template>
 
                         <#if stop.price??>
@@ -154,16 +154,14 @@
                 <vs-itinerary-border-overlap-wrapper slot="stop-buttons">
                     <vs-button
                         class="mb-3"
-                        background="white"
-                        variant="outline-primary"
+                        variant="secondary"
                         icon="food"
                         href="${nearbyEatsUrl}"
                     >
                         ${label("itinerary", "stop.nearby-eat")}
                     </vs-button>
                     <vs-button
-                        background="white"
-                        variant="outline-primary"
+                        variant="secondary"
                         icon="product-accommodation"
                         href="${nearbyStayUrl}"
                     >

@@ -22,11 +22,6 @@
         <link rel="canonical" href="<@hst.link hippobean=document canonical=true fullyQualified=true/>" />
     </@hst.headContribution>
 
-    <#-- Meta Language Mark-up -->
-    <@hst.headContribution category="seo">
-        <meta http-equiv="content-language" content="${document.locale.language}" />
-    </@hst.headContribution>
-
     <#-- HREFLANG TAG -->
     <#if orderedTranslations?size gt 1>
         <#list orderedTranslations as translation>

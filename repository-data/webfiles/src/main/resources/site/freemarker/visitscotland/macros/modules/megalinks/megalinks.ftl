@@ -26,12 +26,9 @@
         title="${item.title}"
         theme="${theme}"
         <#if item.cta?? && type != "SingleImageLinksModule">button-link="${item.cta.link}"</#if>
-        no-js-message="${label('video', 'video.no-js-message')}"
-        no-cookies-message="${label('video', 'video.missing-cookies-message')}"
-        :no-cookies-link="{
-            url: '${label('video', 'video.cookie-setting-link-url')}',
-            label: '${label('video', 'video.cookie-setting-link-message')}'
-        }"
+        no-cookies-message="${label('video', 'video.no-cookies')}"
+        cookie-link-text="${label('essentials.global', 'cookie.link-message')}"
+        no-js-message="${label('video', 'video.no-js')}"
     >
 
         <template slot="vsMegalinksHeading">

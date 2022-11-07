@@ -9,7 +9,7 @@
         </#if>
         <#if imageQuote?has_content>
             <vs-img
-                alt="${(imageQuote)!'${label("essentials.global", "default.alt-text")}'}"
+                alt=""
                 src="${imageQuote}"
                 sizes="25vw"
                 srcset="${imageQuote}?size=xs 300w, 

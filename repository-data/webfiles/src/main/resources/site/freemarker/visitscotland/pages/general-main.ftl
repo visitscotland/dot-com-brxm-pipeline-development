@@ -1,6 +1,7 @@
 <#ftl output_format="XML">
 <#include "../../include/imports.ftl">
 <#include "../macros/modules/page-intro/social-share.ftl">
+<#include "../macros/modules/page-intro/intro-image.ftl">
 <#include "../macros/modules/product-search/psr-module.ftl">
 <#include "../macros/modules/signpost/signpost.ftl">
 <#include "../macros/shared/module-builder.ftl">
@@ -11,6 +12,7 @@
 <#include "../../frontend/components/vs-col.ftl">
 <#include "../../frontend/components/vs-rich-text-wrapper.ftl">
 <#include "../../frontend/components/vs-heading.ftl">
+<#include "../../frontend/components/vs-html-error.ftl">
 
 <#include "../macros/modules/page-intro/page-intro.ftl">
 <#include "../macros/global/otyml.ftl">
@@ -20,23 +22,33 @@
 
 <#-- @ftlvariable name="heroImage" type="com.visitscotland.brxm.model.FlatImage" -->
 
+<#assign topLevelTemplate = (document.theme == "Top-Level") />
 <#assign standardTemplate = (document.theme == "Standard") />
+<#assign simpleTemplate = (document.theme == "Simple") />
 
 <div class="has-edit-button">
 	<@hst.manageContent hippobean=document/>
 
-    <#if standardTemplate>
-        <@pageIntro content=document heroDetails=heroImage lightBackground=psrWidget?has_content />
+	<#if topLevelTemplate>
+		<@pageIntro content=document heroDetails=heroImage lightBackground=psrWidget?has_content />
 		<@productSearchWidget psrWidget "top"/>
-    <#else>
+	<#elseif standardTemplate>
+        <@pageIntro content=document lightBackground=psrWidget?has_content />
+		<@introImage mainImage=heroImage />
+		<@productSearchWidget psrWidget "top"/>
+	<#else>
         <@pageIntro content=document lightBackground=true />
     </#if>
+
+	<#if errorCode??>
+		<vs-html-error status-code="${errorCode}"></vs-html-error>
+	</#if>
 
     <#--TODO Control abput colours, change style="background-color:${style}  -->
 	<#list pageItems as module>
 
 		<#--TODO Colour should be only added to Megalinks, add this code to macros or create a common macro to control it-->
-		<#if standardTemplate >
+		<#if standardTemplate || topLevelTemplate >
 			<@moduleBuilder module />
 		<#else>
 			<@moduleBuilder module=module colourScheme=["light", "light", "light"] />
@@ -50,7 +62,7 @@
 
     <@socialShare nojs=true/>
 
-	<#if !standardTemplate>
+	<#if simpleTemplate>
 		<@productSearchWidget psrWidget />
 	</#if>
 

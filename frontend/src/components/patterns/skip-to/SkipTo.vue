@@ -1,17 +1,52 @@
 <template>
-    <VsSkipToButton
-        @click.native.prevent="skipTo"
-        :tabindex="tabindex"
+    <nav
+        class="vs-skip-to d-flex"
+        data-test="vs-skip-to"
+        :aria-label="skipToText"
     >
-        <slot />
-    </VsSkipToButton>
+        <p
+            class="vs-skip-to__label"
+            id="skip-to-label"
+        >
+            {{ skipToText }}:
+        </p>
+        <VsLink
+            href="#main-nav"
+            data-test="vs-skip-to-main-menu"
+            @click.native="mainMenuFocus"
+            id="main-menu"
+        >
+            <!-- @slot text for 'Main menu' -->
+            <slot name="mainMenuText" />
+        </VsLink>
+        <VsLink
+            href="#site-search-btn"
+            data-test="vs-skip-to-search"
+            class="vs-skip-to__search"
+        >
+            <!-- @slot text for 'Search' -->
+            <slot name="searchText" />
+        </VsLink>
+        <VsLink
+            href="#main-heading"
+            data-test="vs-skip-to-main-content"
+        >
+            <!-- @slot text for 'Main content' -->
+            <slot name="mainContentText" />
+        </VsLink>
+        <VsLink
+            href="#site-footer"
+            @click.native="footerFocus"
+            data-test="vs-skip-to-footer"
+        >
+            <!-- @slot text for 'Footer' -->
+            <slot name="footerText" />
+        </VsLink>
+    </nav>
 </template>
 
 <script>
-import {
-    isFunction, get, isNumber,
-} from 'lodash';
-import VsSkipToButton from './components/SkipToButton';
+import VsLink from '@components/elements/link/Link';
 
 /**
  * The SkipTo component provides users of assistive
@@ -25,105 +60,114 @@ export default {
     status: 'prototype',
     release: '0.0.1',
     components: {
-        VsSkipToButton,
+        VsLink,
     },
     props: {
         /**
-         * The tabindex attribute for this element. For some reason
-         * tabindex isn't passed to the root element so we must do
-         * that manually.
+         * The skip to label for the menu
          */
-        tabindex: {
+        skipToText: {
             type: String,
-            default: '',
-        },
-        /**
-         * The target element to skip to: a Vue ref - e.g.
-         * from this.$refs - or a DOM Element.
-         */
-        target: {
-            type: Object,
-            default: null,
+            required: true,
         },
     },
     methods: {
-        skipTo() {
-            let element;
+        /**
+         * Focuses on first item in main nav
+        */
+        mainMenuFocus() {
+            const mobileMenuBtn = document.getElementsByClassName('vs-mega-nav__menu__mobile')[0];
+            const firstMenuItem = document.getElementsByClassName('vs-mega-nav-dropdown')[0];
 
-            if (isFunction(get(this.target, 'focus'))) {
-                element = this.target;
-            } else if (isFunction(get(this.target, '$el.focus'))) {
-                element = this.target.$el;
-            }
+            if (!this.isUndefined(firstMenuItem)) {
+                let firstMenuBtn = firstMenuItem.getElementsByClassName('btn')[0];
 
-            if (element) {
-                if (!isNumber(element.tabIndex)) {
-                    element.tabIndex = -1;
+                if (mobileMenuBtn.offsetParent !== null) {
+                    // if the mobile menu is visible, open it and focus
+                    // the first link
+                    mobileMenuBtn.querySelectorAll('.btn.dropdown-toggle')[0].click();
+                    const firstMobileMenuItem = document.getElementsByClassName('vs-mega-nav-accordion-item--level-1')[0];
+                    const firstMobileBtn = firstMobileMenuItem.querySelectorAll('.vs-button.vs-accordion-toggle')[0];
+                    firstMenuBtn = firstMobileBtn;
+
+                    // timeout need to ensure menu items to be accessible in DOM
+                    setTimeout(() => {
+                        firstMenuBtn.focus();
+                    }, 200);
+                } else {
+                    firstMenuBtn.focus();
                 }
-                element.focus();
             }
+        },
+        /**
+         * Focuses on first item footer nav
+        */
+        footerFocus() {
+            const footerElement = document.getElementsByClassName('vs-footer')[0];
+
+            if (!this.isUndefined(footerElement)) {
+                const firstFooterSection = footerElement.getElementsByClassName('vs-footer-accordion-item')[0];
+                const firstFooterLink = firstFooterSection.getElementsByClassName('vs-link')[0];
+                const footerMobileToggle = firstFooterSection.getElementsByClassName('vs-accordion-toggle')[0];
+
+                // if mobile footer toggle link is visible click to open
+                if (footerMobileToggle.offsetParent !== null
+                    && !this.isUndefined(footerMobileToggle)) {
+                    footerMobileToggle.click();
+                }
+
+                if (!this.isUndefined(footerElement) && !this.isUndefined(firstFooterLink)) {
+                    footerElement.scrollIntoView(true);
+
+                    // focus the first footer link - timeout allows it to be
+                    // accessible in DOM for mobile accordion
+                    setTimeout(() => {
+                        firstFooterLink.focus();
+                    }, 200);
+                }
+            }
+        },
+        isUndefined(item) {
+            if (typeof item === 'undefined') {
+                return true;
+            }
+
+            return false;
         },
     },
 };
 </script>
 
-<style lang="scss"></style>
+<style lang="scss">
+    .vs-skip-to {
+        position: absolute;
+        transform: translateY(-100%);
+        top: 0;
+        height: $spacer-9;
+        align-items: center;
+        padding: 0 $spacer-2;
 
-<docs>
-  ```js
+        &__label {
+            margin: 0;
+        }
 
-  new Vue({
-    template: `
-      <BsWrapper class="d-flex flex-row">
-        <BsWrapper class="card mr-2" style="width:10rem" tabindex="10000">
-          <BsWrapper class="card-body">
-            Click here then press tab to navigate
-          </BsWrapper>
-        </BsWrapper>
+        &:focus-within {
+            position: relative;
+            transform: translateY(0);
+        }
 
-        <VsSkipTo :target="ref" @activated="activated('ref')" tabindex="10001">
-          Skip to Vue ref target
-        </VsSkipTo>
+        .vs-link {
+            margin-left: $spacer-2;
+        }
 
-        <VsSkipTo :target="element" @activated="activated('HTML element')" tabindex="10002">
-          Skip to HTML Element target
-        </VsSkipTo>
+        @include media-breakpoint-up(lg) {
+            height: $spacer-10;
+        }
+    }
 
-        <BsWrapper class="card mr-2" style="width:10rem" tabindex="10003">
-          <BsWrapper class="card-body">
-            Thing to skip
-          </BsWrapper>
-        </BsWrapper>
-
-        <BsWrapper ref="refTarget" class="card mr-2" style="width:10rem" tabindex="10004">
-          <BsWrapper class="card-body">
-            This target was passed as a Vue ref
-          </BsWrapper>
-        </BsWrapper>
-
-        <BsWrapper id="element-target" class="card" style="width:10rem" tabindex="10005">
-          <BsWrapper class="card-body">
-            This target was passed as an HTML Element
-          </BsWrapper>
-        </BsWrapper>
-      </BsWrapper>
-    `,
-    data() {
-      return {
-        element: null,
-        ref: null
-      }
-    },
-    methods: {
-      activated(target) {
-        alert("Skip to with \"" + target + "\" target was clicked on")
-      }
-    },
-    mounted: function() {
-      this.element = document.getElementById("element-target")
-      this.ref = this.$refs.refTarget
-    },
-  })
-
-  ```
-</docs>
+    @include no-js {
+        .vs-skip-to__search {
+            display: none;
+        }
+    }
+</style>

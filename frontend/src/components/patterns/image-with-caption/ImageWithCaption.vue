@@ -14,12 +14,13 @@
                     v-if="imageSrc"
                     :src="imageSrc"
                     :alt="altText"
+                    :use-lazy-loading="useLazyLoading"
                 />
             </slot>
 
             <VsToggleButton
                 :img-src="imageSrc"
-                :toggle-id="`image_${imageSrc}`"
+                :toggle-id="uniqueCaptionId"
                 @toggleAction="toggleCaption"
             >
                 {{ toggleButtonText }}
@@ -32,7 +33,7 @@
             </VsToggleButton>
         </div>
 
-        <div class="vs-image-with-caption__captions">
+        <figcaption class="vs-image-with-caption__captions">
             <div
                 class="vs-image-with-caption__video-caption-wrapper container-lg"
                 v-if="isVideo"
@@ -42,11 +43,9 @@
                     :with-toggle-btn="true"
                     @toggleAction="toggleCaption"
                     :video-id="videoId"
+                    :cookie-link-text="cookieLinkText"
+                    :error-message="errorMessage"
                 >
-                    <!-- @slot Slot for the video alert message -->
-                    <template slot="video-no-js-alert">
-                        <slot name="video-no-js-alert" />
-                    </template>
                     <!-- @slot Slot for the video title text -->
                     <template slot="video-title">
                         <slot name="video-title" />
@@ -61,20 +60,25 @@
             <div
                 class="vs-image-with-caption__caption-wrapper"
                 :class="captionWrapperClasses"
-                :id="'image_' + imageSrc"
+                :id="uniqueCaptionId"
             >
                 <!-- @slot Slot for image caption component -->
                 <slot name="img-caption" />
             </div>
-        </div>
+        </figcaption>
     </figure>
 </template>
 
 <script>
 
+import { v4 as uuidv4 } from 'uuid';
 import VsImg from '@components/elements/img/Img';
 import VsToggleButton from '@components/elements/toggle-button/ToggleButton';
 import VsVideoCaption from '@components/patterns/video-caption/VideoCaption';
+import verifyCookiesMixin from '../../../mixins/verifyCookiesMixin';
+import requiredCookiesData from '../../../utils/required-cookies-data';
+
+const cookieValues = requiredCookiesData.youtube;
 
 /**
  * Image with toggle to open a caption and image location map
@@ -90,6 +94,9 @@ export default {
         VsToggleButton,
         VsVideoCaption,
     },
+    mixins: [
+        verifyCookiesMixin,
+    ],
     props: {
         /**
          * The image alt text for screen readers
@@ -162,10 +169,50 @@ export default {
             type: String,
             default: '',
         },
+        /**
+        * A message explaining why the component has been disabled with disabled cookies, is
+        * provided for descendent components to inject
+        */
+        noCookiesMessage: {
+            type: String,
+            default: '',
+        },
+        /**
+        * Text used for the link which opens the cookie preference centre, is
+        * provided for descendent components to inject
+        */
+        cookieLinkText: {
+            type: String,
+            default: '',
+        },
+        /**
+        * A message explaining why the component has been disabled when js is disabled,
+        * is provided for descendent components to inject
+        */
+        noJsMessage: {
+            type: String,
+            default: '',
+        },
+        /*
+         * If true switches on lazy loading for the image
+        */
+        useLazyLoading: {
+            type: Boolean,
+            default: true,
+        },
+        /**
+         * Message to show when there's an error with a third party
+        */
+        errorMessage: {
+            type: String,
+            default: '',
+        },
     },
     data() {
         return {
             showCaption: false,
+            requiredCookies: cookieValues,
+            uniqueCaptionId: '',
         };
     },
     computed: {
@@ -173,6 +220,7 @@ export default {
             return {
                 'vs-image-with-caption--closed-default': this.closedDefaultCaption,
                 'vs-image-with-caption--hero': this.isHeroImage,
+                'vs-image-with-caption--show-caption': !this.requiredCookiesExist && this.setCookieStatus === true,
                 'vs-image-with-caption--video': this.isVideo,
             };
         },
@@ -185,10 +233,25 @@ export default {
             };
         },
     },
+    created() {
+        this.generateCaptionId();
+    },
     methods: {
         toggleCaption() {
             this.showCaption = !this.showCaption;
         },
+        generateCaptionId() {
+            const randomUUID = uuidv4();
+            this.uniqueCaptionId = `vs-caption-${randomUUID}`;
+        },
+    },
+    provide() {
+        return {
+            noJsMessage: this.noJsMessage,
+            noCookiesMessage: this.noCookiesMessage,
+            cookieLinkText: this.cookieLinkText,
+            errorMessage: this.errorMessage,
+        };
     },
 };
 </script>
@@ -199,10 +262,18 @@ export default {
 
         &__image-wrapper {
             position: relative;
+            aspect-ratio: 3/2;
+
+            @supports not (aspect-ratio: 3/2) {
+                padding-bottom: 66.6%;
+            }
 
             img {
                 width: 100%;
-                height: auto;
+                height: 100%;
+                object-fit: cover;
+                align-self: flex-start;
+                flex-shrink: 0; // IE11 fix, prevents image vertical stretching
             }
 
             .vs-toggle-btn {
@@ -281,9 +352,11 @@ export default {
                 }
             }
 
-            .vs-image-with-caption__caption-wrapper {
-                display: none;
-                justify-content: flex-end;
+            .vs-image-with-caption {
+                &__caption-wrapper {
+                    display: none;
+                    justify-content: flex-end;
+                }
             }
 
             .vs-image-with-caption__video-caption-wrapper {
@@ -327,6 +400,13 @@ export default {
                         position: relative;
                         bottom: auto;
                         right: auto;
+                    }
+                }
+
+                &.vs-image-with-caption--show-caption {
+                    .vs-image-with-caption__caption-wrapper {
+                        display: flex;
+                        margin-top: $spacer-2;
                     }
                 }
             }
@@ -376,7 +456,7 @@ export default {
                 &.vs-image-with-caption--hero {
                      .vs-image-with-caption__captions {
                         position: absolute;
-                        bottom: 200px;
+                        bottom: 210px;
                         width: 100%;
                         right: 0;
                         z-index: 3;
@@ -401,11 +481,20 @@ export default {
                 &__image-wrapper {
                     max-height: 100vh;
                     overflow: hidden;
+                    aspect-ratio: auto;
+
+                    @supports not (aspect-ratio: 3/2) {
+                        padding-bottom: $spacer-0;
+                    }
 
                     .vs-toggle-btn {
                         @include media-breakpoint-between(sm, md) {
                             display: block;
                         }
+                    }
+
+                    @include media-breakpoint-up(lg) {
+                        height: 100vh;
                     }
                 }
 
@@ -474,7 +563,7 @@ export default {
     }
 
     @include no-js {
-        .vs-image-with-caption{
+        .vs-image-with-caption {
             &__image-wrapper {
                 .vs-toggle-btn {
                     display: none;
@@ -621,7 +710,11 @@ export default {
                 data-sizes="auto">
             </VsImg>
 
-            <VsSvg slot="toggle-icon" path="instagram-bg" height="24" width="24" />
+            <VsIcon
+                slot="toggle-icon"
+                name="instagram-filled"
+                size="md"
+            />
 
             <VsCaption
                 slot="img-caption"

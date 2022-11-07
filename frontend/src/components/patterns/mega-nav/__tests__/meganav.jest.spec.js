@@ -30,9 +30,9 @@ describe('VsMegaNav', () => {
         expect(wrapper.find('[data-test=vs-mega-nav]').exists()).toBe(true);
     });
 
-    it('should render a button with an `vs-icon--bars-mobile-menu` icon', () => {
+    it('should render a button with an `vs-mega-nav__mobile-menu-toggle` class', () => {
         const wrapper = factoryMount();
-        const dropdownToggle = wrapper.find('[data-test="vs-mega-nav-dropdown"]').find('.dropdown-toggle');
+        const dropdownToggle = wrapper.find('[data-test="vs-mega-nav-mobile-container"]').find('.vs-mega-nav__mobile-menu-toggle');
 
         expect(dropdownToggle.exists()).toBe(true);
         expect(dropdownToggle.html()).toContain('vs-icon--bars-mobile-menu');
@@ -46,17 +46,17 @@ describe('VsMegaNav', () => {
 
         it('should display sr-only `Open Menu` text within toggle button', () => {
             const wrapper = factoryMount();
-            const dropdownToggle = wrapper.find('[data-test="vs-mega-nav-dropdown"]').find('.dropdown-toggle');
+            const dropdownToggle = wrapper.find('[data-test="vs-mega-nav-mobile-container"]').find('.vs-mega-nav__mobile-menu-toggle');
 
             expect(dropdownToggle.html()).toContain('Open Menu');
         });
 
-        // it('should display `Search` text within the search button', () => {
-        //     const wrapper = factoryShallowMount();
-        //     const siteSearchStub = wrapper.find('vssitesearch-stub');
+        it('should display `Search` text within the search button', () => {
+            const wrapper = factoryShallowMount();
+            const siteSearchStub = wrapper.find('vssitesearch-stub');
 
-        //     expect(siteSearchStub.text()).toContain('Search');
-        // });
+            expect(siteSearchStub.text()).toContain('Search');
+        });
 
         it('should pass `searchLabelText` prop to search form', () => {
             const wrapper = factoryShallowMount();
@@ -94,20 +94,20 @@ describe('VsMegaNav', () => {
         });
     });
 
-    // describe(':methods', () => {
-    //     it('toggles the search form when search button is clicked', async() => {
-    //         const wrapper = factoryMount();
-    //         const siteSearchBtn = wrapper.find('[data-test=vs-site-search]');
+    describe(':methods', () => {
+        it('toggles the search form when search button is clicked', async() => {
+            const wrapper = factoryMount();
+            const siteSearchBtn = wrapper.find('[data-test=vs-site-search]');
 
-    //         const siteSearchForm = wrapper.find('[data-test=vs-site-search-form]');
-    //         expect(siteSearchForm.attributes('style')).toBe('display: none;');
+            const siteSearchForm = wrapper.find('[data-test=vs-site-search-form]');
+            expect(siteSearchForm.attributes('style')).toBe('display: none;');
 
-    //         siteSearchBtn.trigger('click');
-    //         await wrapper.vm.$nextTick();
+            siteSearchBtn.trigger('click');
+            await wrapper.vm.$nextTick();
 
-    //         setTimeout(() => {
-    //             expect(siteSearchForm.attributes('style')).toBe('');
-    //         }, 100);
-    //     });
-    // });
+            setTimeout(() => {
+                expect(siteSearchForm.attributes('style')).toBe('');
+            }, 100);
+        });
+    });
 });

@@ -2,20 +2,21 @@
   .meta:order-before: canned-search
   jcr:primaryType: hippo:handle
   jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
-  jcr:uuid: 13872ee0-c264-4acc-88d3-0c19918ea6f4
-  hippo:name: iKnow Community Module
-  hippo:versionHistory: 1e1b741e-d223-4556-a8fd-676642261c23
+  jcr:uuid: 50db4af7-c613-47c3-b9a3-d32d01074731
+  hippo:name: iKnow Community Module (Don't Translate)
+  hippo:versionHistory: d919b4b3-acd0-4975-8d30-f24860af1f72
   /iknow-community-module[1]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:referenceable']
-    jcr:uuid: 00503638-642c-4e92-9b32-5cc75c48a4e5
+    jcr:uuid: e04080ff-ba94-41b2-93f0-8bde599e1db0
     hippo:availability: []
     hippostd:retainable: false
     hippostd:state: draft
+    hippostd:transferable: false
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2021-04-16T10:58:38.421+01:00
-    hippostdpubwf:lastModificationDate: 2021-09-03T09:06:57.145Z
-    hippostdpubwf:lastModifiedBy: spanish
+    hippostdpubwf:lastModificationDate: 2022-06-17T10:27:07.695+02:00
+    hippostdpubwf:lastModifiedBy: juanluis.hurtado
     resourcebundle:descriptions: ['', '', '']
     resourcebundle:id: iknow-community
     resourcebundle:keys: [iknow-community.title.default, iknow-community.copy.default,
@@ -40,7 +41,7 @@
   /iknow-community-module[2]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:versionable']
-    jcr:uuid: e80a2056-4ea8-4cb7-b7dc-e6c627f93886
+    jcr:uuid: 7c32432c-e6d9-4fa8-b211-f7ed93283053
     hippo:availability: [preview]
     hippostd:retainable: false
     hippostd:state: unpublished
@@ -72,7 +73,7 @@
   /iknow-community-module[3]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:referenceable']
-    jcr:uuid: f6e10ca7-5651-40b3-81be-9bfbeb974828
+    jcr:uuid: 9a5bd072-1e9a-43a1-81c1-1c3da40b3914
     hippo:availability: [live]
     hippostd:retainable: false
     hippostd:state: published
@@ -80,7 +81,7 @@
     hippostdpubwf:creationDate: 2021-04-16T10:58:38.421+01:00
     hippostdpubwf:lastModificationDate: 2021-09-03T09:12:33.022Z
     hippostdpubwf:lastModifiedBy: spanish
-    hippostdpubwf:publicationDate: 2021-09-03T09:12:34.970Z
+    hippostdpubwf:publicationDate: 2022-06-17T10:27:31.393+02:00
     resourcebundle:descriptions: ['', '', '']
     resourcebundle:id: iknow-community
     resourcebundle:keys: [iknow-community.title.default, iknow-community.copy.default,

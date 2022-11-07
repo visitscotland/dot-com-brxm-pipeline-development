@@ -2,22 +2,57 @@
     <div
         class="vs-video"
         data-test="vs-video"
+        v-if="!reRendering"
     >
-        <div class="vs-video__iframe-wrapper">
-            <!-- eslint-disable-next-line vue/component-name-in-template-casing -->
-            <youtube
-                v-if="!cookiesMissing"
-                :video-id="videoId"
-                :player-vars="playerVars"
-                ref="youtube"
-            />
+        <div
+            class="vs-video__iframe-wrapper"
+        >
+            <div v-if="requiredCookiesExist">
+                <!-- eslint-disable-next-line vue/component-name-in-template-casing -->
+                <youtube
+                    :video-id="videoId"
+                    :player-vars="playerVars"
+                    @ready="ready"
+                    @playing="youtubePlaying"
+                    @paused="youtubePaused"
+                    @ended="youtubeEnded"
+                    ref="youtube"
+                />
+            </div>
+
+            <VsWarning
+                v-if="showError"
+                theme="light"
+                :type="cookiesInitStatus === true ? 'cookie' : 'normal'"
+                data-test="vs-video__warning"
+                class="vs-video__warning"
+            >
+                {{ warningText }}
+
+                <template
+                    v-if="!requiredCookiesExist
+                        && cookiesInitStatus === true"
+                    slot="button-text"
+                >
+                    {{ cookieBtnText }}
+                </template>
+            </VsWarning>
+
+            <VsWarning
+                theme="light"
+                data-test="vs-video__warning--no-js"
+                class="vs-video__warning--no-js"
+            >
+                {{ noJsMessage }}
+            </VsWarning>
         </div>
     </div>
 </template>
 
 <style lang="scss">
     .vs-video {
-        &__iframe-wrapper {
+        &__iframe-wrapper,
+        &__fallback-wrapper {
             position: relative;
             padding-bottom: 56.25%;
             height: 0;
@@ -31,6 +66,29 @@
                 height: 100%;
             }
         }
+
+        &__warning {
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            z-index: 1;
+
+            &--no-js {
+                display: none;
+            }
+        }
+    }
+
+    @include no-js {
+        .vs-video {
+            &__warning {
+                display: none;
+
+                &--no-js {
+                    display: flex;
+                }
+            }
+        }
     }
 </style>
 
@@ -38,7 +96,13 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
 import VueYoutube from 'vue-youtube';
 import Vue from 'vue';
+import VsWarning from '@components/patterns/warning/Warning';
 import videoStore from '../../../stores/video.store';
+import verifyCookiesMixin from '../../../mixins/verifyCookiesMixin';
+import requiredCookiesData from '../../../utils/required-cookies-data';
+import dataLayerMixin from '../../../mixins/dataLayerMixin';
+
+const cookieValues = requiredCookiesData.youtube;
 
 Vue.use(VueYoutube, {
     global: false,
@@ -55,6 +119,13 @@ export default {
     name: 'VsVideo',
     status: 'prototype',
     release: '0.0.1',
+    components: {
+        VsWarning,
+    },
+    mixins: [
+        verifyCookiesMixin,
+        dataLayerMixin,
+    ],
     props: {
         /**
         * The YouTube ID for the video
@@ -69,6 +140,13 @@ export default {
         videoId: {
             type: String,
             required: true,
+        },
+        /**
+        * The title of the video, set in the CMS
+        */
+        videoTitle: {
+            type: String,
+            default: '',
         },
         /**
          * A string to be shown with the rounded time, when the rounded
@@ -92,6 +170,36 @@ export default {
             type: String,
             default: '%s minute video',
         },
+        /**
+        * A message explaining why the component has been disabled with disabled cookies, is
+        * provided for descendent components to inject
+        */
+        noCookiesMessage: {
+            type: String,
+            required: true,
+        },
+        /**
+        * Text used for the link which opens the cookie preference centre.
+        */
+        cookieBtnText: {
+            type: String,
+            required: true,
+        },
+        /**
+        * A message explaining why the component has been disabled when js is disabled,
+        * is provided for descendent components to inject
+        */
+        noJsMessage: {
+            type: String,
+            required: true,
+        },
+        /**
+         * Message to show when there's an error with a third party
+        */
+        errorMessage: {
+            type: String,
+            default: '',
+        },
     },
     data() {
         return {
@@ -103,64 +211,122 @@ export default {
             playerVars: {
                 hl: this.language,
             },
+            requiredCookies: cookieValues,
+            player: null,
+            reRendering: false,
+            shouldAutoPlay: false,
         };
     },
     computed: {
-        /**
-         * Return the player instance
-         */
-        player() {
-            return this.$refs.youtube.player;
-        },
-        // Checks whether appropriate cookies have been rejected for the video, and prevents
-        // initialisation if so
-        cookiesMissing() {
-            // TODO: Add cookie functionality once checker integrated
-            // See VS-3606
+        showError() {
+            if ((!this.requiredCookiesExist
+                && this.cookiesInitStatus === true)
+                || this.cookiesInitStatus === 'error') {
+                return true;
+            }
+
             return false;
+        },
+        warningText() {
+            let text = '';
+
+            if (this.videoId && this.jsDisabled) {
+                text = this.noJsMessage;
+            }
+
+            if (this.cookiesInitStatus === 'error') {
+                text = this.errorMessage;
+            }
+
+            if (!this.requiredCookiesExist
+                && this.cookiesInitStatus === true) {
+                text = this.noCookiesMessage;
+            }
+
+            return text;
         },
     },
     mounted() {
-        /**
-         * Upon promise resolution, if the video ID returns
-         * a YouTube video, process the time into the desired format.
-         */
-        this.player.getDuration().then((response) => {
-            this.formatTime(response);
-            this.storeVideoDetails();
-        });
-
-        /**
-         * Sets up listener for play/pause events
-         * from $root
-         */
-        this.$root.$on('video-controls', (action, id, type) => {
-            if (id === this.videoId) {
-                if (action === 'play' && type === 'modal') {
-                    // timeout allows for video in modal to appear
-                    setTimeout(() => {
-                        this.playVideo();
-                    }, 1000);
-                } else if (action === 'play') {
-                    this.playVideo();
-                } else if (action === 'pause') {
-                    this.pauseVideo();
-                }
-            }
-        });
+        this.setEventListeners();
     },
     methods: {
+        ready() {
+            this.player = this.$refs.youtube.player;
+            this.getPlayerDetails();
+
+            if (this.shouldAutoPlay) {
+                this.shouldAutoPlay = false;
+                this.playVideo();
+            }
+        },
         /**
          * Plays the video
          */
         playVideo() {
-            this.player.playVideo();
+            if (this.player) {
+                this.player.playVideo();
+            }
         },
         /**
          * Pauses the video
          */
         pauseVideo() {
-            this.player.pauseVideo();
+            if (this.player) {
+                this.player.pauseVideo();
+            }
+        },
+        /**
+         * Triggered by video status events from the vue-youtube component. When any of these
+         * occur an appropriate analytics event is dispatched to the datalayer.
+         */
+        youtubePlaying() {
+            this.analyticsEvent('play');
+        },
+        youtubePaused() {
+            this.analyticsEvent('pause');
+        },
+        youtubeEnded() {
+            this.analyticsEvent('ended');
+        },
+        /**
+         * Submits an event to the datalayer mixin when the video is played or paused
+         */
+        analyticsEvent(videoStatus) {
+            let currentTime = 0;
+            let duration = 0;
+
+            this.player.getCurrentTime()
+                .then((time) => {
+                    currentTime = time;
+                    return this.player.getDuration();
+                })
+                .then((length) => {
+                    duration = length;
+                })
+                .then(() => {
+                    const videoPercent = (currentTime / duration) * 100;
+
+                    this.createDataLayerObject(
+                        'videoTrackingDataEvent',
+                        {
+                            title: this.videoTitle,
+                            status: videoStatus,
+                            percent: Math.round(videoPercent),
+                        },
+                    );
+                });
+        },
+        getPlayerDetails() {
+            /**
+             * Upon promise resolution, if the video ID returns
+             * a YouTube video, process the time into the desired format.
+             */
+            if (typeof this.player !== 'undefined') {
+                this.player.getDuration().then((response) => {
+                    this.formatTime(response);
+                    this.storeVideoDetails();
+                });
+            }
         },
         /**
          * Converts time in seconds to minutes and seconds,
@@ -219,6 +385,39 @@ export default {
                 durationMsg: this.duration.roundedMinutes,
                 duration: (this.duration.minutes * 60) + this.duration.seconds,
                 fullDuration: this.duration,
+            });
+        },
+        /**
+         * Attaches event listeners upon mounting video. These include play and pause functions,
+         * for external play buttons and re-render + autoplay functionality for a video inside
+         * a modal.
+         */
+        setEventListeners() {
+            this.$root.$on('video-controls', (action, id) => {
+                if (id === this.videoId) {
+                    if (action === 'modal-opened') {
+                        this.reRenderVideo();
+                    }
+
+                    if (action === 'play') {
+                        this.playVideo();
+                    } else if (action === 'pause') {
+                        this.pauseVideo();
+                    }
+                }
+            });
+        },
+        /**
+         * Upon opening a vs-modal with a video, the video must be briefly removed and re-rendered
+         * to ensure that all event triggers in the video fire properly.
+         */
+        reRenderVideo() {
+            this.reRendering = true;
+            this.$nextTick(() => {
+                this.reRendering = false;
+                this.$nextTick(() => {
+                    this.shouldAutoPlay = true;
+                });
             });
         },
     },

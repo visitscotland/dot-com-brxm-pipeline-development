@@ -247,12 +247,13 @@ $variants: (
     light: $color-theme-light,
     dark: $color-theme-dark,
     color-white: $color-white,
-    secondary-teal: $color-theme-secondary-teal,
+    secondary-teal: $color-secondary-teal-shade-3,
 );
 
 .vs-icon {
     fill: $color-black;
     overflow: visible;
+    pointer-events: none;
 
     @each $size in map-keys($sizes) {
         $this-size: map-get($sizes, $size);

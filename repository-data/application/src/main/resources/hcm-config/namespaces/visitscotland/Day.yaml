@@ -41,7 +41,8 @@ definitions:
             hipposysedit:ordered: true
             hipposysedit:path: visitscotland:stops
             hipposysedit:type: hippo:compound
-            hipposysedit:validators: [contentblocks-validator, required, 'visitscotland:link-validator']
+            hipposysedit:validators: [contentblocks-validator, required, 'visitscotland:link-validator',
+              'visitscotland:itinerary-stop-validator']
           /transports:
             jcr:primaryType: hipposysedit:field
             hipposysedit:mandatory: false

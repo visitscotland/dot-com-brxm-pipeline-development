@@ -36,7 +36,7 @@ definitions:
       jcr:primaryType: frontend:plugin
       plugin.class: com.visitscotland.brxm.components.DmsLocationListProvider
       valuelist.provider: service.locationlist.destination
-      location.levels: [REGION, DESTINATION]
+      location.levels: [REGION, DESTINATION, DISTRICT]
     /hippo:configuration/hippo:frontend/cms/cms-services/DmsProductSearchLocationListProvider:
       .meta:order-before: DmsImageLocationListProvider
       jcr:primaryType: frontend:plugin

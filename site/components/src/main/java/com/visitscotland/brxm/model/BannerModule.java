@@ -5,17 +5,8 @@ import org.hippoecm.hst.content.beans.standard.HippoHtml;
 
 public class BannerModule extends Module<Banner> {
 
-    private String title;
     private HippoHtml copy;
     private FlatLink ctaLink;
-
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
 
     public HippoHtml getCopy() {
         return copy;

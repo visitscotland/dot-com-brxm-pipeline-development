@@ -57,7 +57,10 @@ class LinkValidatorTest {
             "visitscotland:OTYML,visitscotland:SharedLink",
             "visitscotland:MadeUpDocument,visitscotland:SharedLink",
             "visitscotland:Day,visitscotland:Stop",
-            "visitscotland:VideoLink,visitscotland:Video"
+            "visitscotland:VideoLink,visitscotland:Video",
+            "visitscotland:MapCategory,visitscotland:Destination",
+            "visitscotland:MapCategory,visitscotland:Stop",
+            "visitscotland:SpecialLinkCoordinates,visitscotland:Page"
     })
     @DisplayName("VS-2905 - Validates that links are correctly validated depending on the parent")
     void correctValues(String parentType, String childType) throws RepositoryException {
@@ -72,7 +75,10 @@ class LinkValidatorTest {
             "visitscotland:Day,visitscotland:SharedLink",
             "visitscotland:Day,visitscotland:Video",
             "visitscotland:VideoLink,visitscotland:Stop",
-            "visitscotland:VideoLink,visitscotland:Page"
+            "visitscotland:VideoLink,visitscotland:Page",
+            "visitscotland:MapCategory,visitscotland:Video",
+            "visitscotland:MapCategory,visitscotland:General",
+            "visitscotland:SpecialLinkCoordinates,visitscotland:Stop"
     })
     @DisplayName("VS-2905 - Invalid documents cause a validation exception")
     void incorrectValues(String parentType, String childType) throws RepositoryException {
@@ -164,7 +170,7 @@ class LinkValidatorTest {
     private Node mockLink(String parentType, String childType, boolean expected) throws  RepositoryException{
         Node parentNode = Mockito.mock(Node.class, withSettings().lenient());
         Node childNode = Mockito.mock(Node.class, withSettings().lenient());
-        boolean isDefault = !LinkValidator.DAY.equals(parentType) && !LinkValidator.VIDEO.equals(parentType);
+        boolean isDefault = !LinkValidator.DAY.equals(parentType) && !LinkValidator.VIDEO.equals(parentType) && !LinkValidator.MAP.equals(parentType) && !LinkValidator.LINK_COORDINATES.equals(parentType);
 
         Property docbaseProp = mock(Property.class);
         when(parentNode.hasProperty(HIPPO_DOCBASE)).thenReturn(true);

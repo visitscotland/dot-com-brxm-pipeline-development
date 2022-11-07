@@ -7,83 +7,92 @@
         <form class="d-none" />
 
         <template v-if="!submitted">
-            <VsHeading
-                v-if="showFormHeading"
-                level="3"
-            >
-                {{ getTranslatedContent('heading') }}
-            </VsHeading>
-
             <form @submit.prevent="preSubmit">
-                <BFormGroup
-                    v-for="(field, index) in formData.fields"
-                    :key="field.name"
-                    :label="needsLabel(field) ? getTranslatedLabel(field.name, index) : ''"
-                    :label-for="needsLabel(field) ? field.name : ''"
-                    :class="conditionalElementClass(field.name)"
-                >
-                    <legend v-if="!isUndefined(field.descriptor)">
-                        {{ getTranslatedLegend(field.name, index) }}
+                <fieldset>
+                    <legend
+                        class="vs-form__main-heading vs-heading--style-level-2"
+                        data-test="vs-form__main-heading"
+                    >
+                        {{ getTranslatedContent('heading') }}
                     </legend>
-                    <div :class="conditionalElementClass(field.name)">
-                        <template v-if="field.element === 'input'">
-                            <VsInput
-                                :ref="field.name"
-                                @status-update="updateFieldData"
-                                :field-name="field.name"
-                                :type="field.type"
-                                :validation-rules="field.validation || {}"
-                                :validation-messages="getTranslatedValidation(field.name, index)
-                                    || {}"
-                                :generic-validation="getMessagingData('validation', language)"
-                                :invalid="errorFields.indexOf(field.name) > -1 ? true : false"
-                                :trigger-validate="triggerValidate"
-                                :hint-text="getTranslatedHint(field.name, index)"
-                                :placeholder="field.placeholder || ''"
-                            />
-                        </template>
+                    <BFormGroup
+                        v-for="(field, index) in formData.fields"
+                        :key="field.name"
+                        :label="needsLabel(field) ? getTranslatedLabel(field.name, index) : ''"
+                        :label-for="needsLabel(field) ? field.name : ''"
+                        :class="conditionalElementClass(field.name)"
+                    >
+                        <legend
+                            v-if="!isUndefined(field.descriptor)
+                                && field.element === 'checkbox'"
+                        >
+                            {{ getTranslatedLegend(field.name, index) }}
+                        </legend>
+                        <div
+                            :class="conditionalElementClass(field.name)"
+                        >
+                            <template v-if="field.element === 'input'">
+                                <VsInput
+                                    :ref="field.name"
+                                    @status-update="updateFieldData"
+                                    :field-name="field.name"
+                                    :type="field.type"
+                                    :validation-rules="field.validation || {}"
+                                    :validation-messages="getTranslatedValidation(field.name, index)
+                                        || {}"
+                                    :generic-validation="getMessagingData('validation', language)"
+                                    :invalid="errorFields.indexOf(field.name) > -1 ? true : false"
+                                    :trigger-validate="triggerValidate"
+                                    :hint-text="getTranslatedHint(field.name, index)"
+                                    :placeholder="field.placeholder || ''"
+                                    :re-alert-errors="reAlertErrors"
+                                />
+                            </template>
 
-                        <template v-if="field.element === 'select'">
-                            <VsSelect
-                                :options="getTranslatedOptions(field.name, index)"
-                                :ref="field.name"
-                                @status-update="updateFieldData"
-                                :field-name="field.name"
-                                :validation-rules="field.validation || {}"
-                                :validation-messages="getTranslatedValidation(field.name, index)
-                                    || {}"
-                                :generic-validation="getMessagingData('validation', language)"
-                                :invalid="errorFields.indexOf(field.name) > -1 ? true : false"
-                                :trigger-validate="triggerValidate"
-                                :country-list-url="countryListUrl"
-                                :countries="field.countries"
-                                :hint-text="getTranslatedHint(field.name, index)"
-                            />
-                        </template>
+                            <template v-if="field.element === 'select'">
+                                <VsSelect
+                                    :options="getTranslatedOptions(field.name, index)"
+                                    :ref="field.name"
+                                    @status-update="updateFieldData"
+                                    :field-name="field.name"
+                                    :validation-rules="field.validation || {}"
+                                    :validation-messages="getTranslatedValidation(field.name, index)
+                                        || {}"
+                                    :generic-validation="getMessagingData('validation', language)"
+                                    :invalid="errorFields.indexOf(field.name) > -1 ? true : false"
+                                    :trigger-validate="triggerValidate"
+                                    :country-list-url="countryListUrl"
+                                    :countries="field.countries"
+                                    :hint-text="getTranslatedHint(field.name, index)"
+                                    :re-alert-errors="reAlertErrors"
+                                />
+                            </template>
 
-                        <template v-if="field.element === 'checkbox'">
-                            <VsCheckbox
-                                :key="field.name"
-                                :ref="field.name"
-                                :name="field.name"
-                                :value="field.value"
-                                :id="field.name"
-                                :label="getTranslatedLabel(field.name, index)"
-                                @status-update="updateFieldData"
-                                :field-name="field.name"
-                                :validation-rules="field.validation || {}"
-                                :validation-messages="getTranslatedValidation(field.name, index)
-                                    || {}"
-                                :generic-validation="getMessagingData('validation', language)"
-                                :invalid="errorFields.indexOf(field.name) > -1 ? true : false"
-                                :trigger-validate="triggerValidate"
-                                :optional-text="getMessagingData('optional', language)"
-                                :hint-text="getTranslatedHint(field.name, index)"
-                                :info-text="getTranslatedInfo(field.name, index)"
-                            />
-                        </template>
-                    </div>
-                </BFormGroup>
+                            <template v-if="field.element === 'checkbox'">
+                                <VsCheckbox
+                                    :key="field.name"
+                                    :ref="field.name"
+                                    :name="field.name"
+                                    :value="field.value"
+                                    :id="field.name"
+                                    :label="getTranslatedLabel(field.name, index)"
+                                    @status-update="updateFieldData"
+                                    :field-name="field.name"
+                                    :validation-rules="field.validation || {}"
+                                    :validation-messages="getTranslatedValidation(field.name, index)
+                                        || {}"
+                                    :generic-validation="getMessagingData('validation', language)"
+                                    :invalid="errorFields.indexOf(field.name) > -1 ? true : false"
+                                    :trigger-validate="triggerValidate"
+                                    :optional-text="getMessagingData('optional', language)"
+                                    :hint-text="getTranslatedHint(field.name, index)"
+                                    :info-text="getTranslatedInfo(field.name, index)"
+                                    :re-alert-errors="reAlertErrors"
+                                />
+                            </template>
+                        </div>
+                    </BFormGroup>
+                </fieldset>
 
                 <VsRecaptcha
                     @verified="onRecaptchaVerify"
@@ -92,6 +101,8 @@
                     :language="language"
                     :error-msg="getMessagingData('recaptchaError', language)"
                     class="mt-9"
+                    :textarea-label="recaptchaTextareaLabel"
+                    :re-alert-errors="reAlertErrors"
                 />
 
                 <VsButton
@@ -120,29 +131,31 @@
             </div>
         </div>
 
-        <p v-if="submitting">
-            <slot name="submitting" />
-        </p>
+        <div aria-live="assertive">
+            <p v-if="submitting">
+                <slot name="submitting" />
+            </p>
 
-        <template v-if="submitted">
-            <VsHeading
-                v-if="getTranslatedContent('successHeading')"
-                level="3"
-            >
-                {{ getTranslatedContent('successHeading') }}
-            </VsHeading>
+            <template v-if="submitted">
+                <VsHeading
+                    v-if="getTranslatedContent('successHeading')"
+                    level="2"
+                >
+                    {{ getTranslatedContent('successHeading') }}
+                </VsHeading>
 
-            <!-- eslint-disable vue/no-v-html -->
-            <p
-                class="vs-form__content"
-                v-html="getTranslatedContent('successContent')"
-            />
-            <!-- eslint-enable vue/no-v-html -->
-        </template>
+                <!-- eslint-disable vue/no-v-html -->
+                <p
+                    class="vs-form__content"
+                    v-html="getTranslatedContent('successContent')"
+                />
+                <!-- eslint-enable vue/no-v-html -->
+            </template>
 
-        <p v-if="submitError">
-            <slot name="submitError" />
-        </p>
+            <p v-if="submitError">
+                <slot name="submitError" />
+            </p>
+        </div>
     </div>
 </template>
 
@@ -156,6 +169,7 @@ import VsIcon from '../../elements/icon/Icon';
 import VsRecaptcha from '../../elements/recaptcha/Recaptcha';
 import VsButton from '../../elements/button/Button';
 import VsHeading from '../../elements/heading/Heading';
+import dataLayerMixin from '../../../mixins/dataLayerMixin';
 
 const axios = require('axios');
 
@@ -179,6 +193,7 @@ export default {
         VsIcon,
         VsHeading,
     },
+    mixins: [dataLayerMixin],
     props: {
         /**
          * The URL for the form data file
@@ -193,6 +208,14 @@ export default {
         recaptchaKey: {
             type: String,
             required: true,
+        },
+        /**
+         * Text for invisible recaptcha textarea - tells
+         * screenreader users it's not needed
+         */
+        recaptchaTextareaLabel: {
+            type: String,
+            default: 'Does not need any text',
         },
         /**
          * If the form should use sandbox or live Marketo details
@@ -257,6 +280,7 @@ export default {
             conditionalFields: {
             },
             inputVal: '',
+            reAlertErrors: false,
         };
     },
     computed: {
@@ -573,16 +597,26 @@ export default {
                 }
             });
 
+            if (this.errorFields.length > 0) {
+                this.formIsInvalid = true;
+            }
+
             if (!this.formIsInvalid && this.recaptchaVerified) {
                 this.marketoSubmit();
             } else {
                 this.showErrorMessage = true;
+                this.reAlertErrors = true;
+
+                setTimeout(() => {
+                    this.reAlertErrors = false;
+                }, 100);
             }
         },
         /**
          * submits form data to Marketo payload and sets submitted status
          */
         marketoSubmit() {
+            this.createDataLayerObject('formsDataEvent');
             const myForm = window.MktoForms2.allForms()[0];
             myForm.addHiddenFields(this.form);
             myForm.addHiddenFields({
@@ -657,6 +691,10 @@ export default {
 
 <style lang='scss'>
     .vs-form {
+        &__main-heading {
+            @extend %heading-default-styles;
+        }
+
         &__content {
             font-size: $font-size-6;
         }

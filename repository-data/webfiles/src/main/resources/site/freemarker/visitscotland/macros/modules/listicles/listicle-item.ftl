@@ -31,7 +31,7 @@
 
         <#if item.image?? && item.image?has_content>
             <div slot="image-slot">
-                <@imageWithCaption imageSrc=image imageDetails=item.image variant="large"/>
+                <@imageWithCaption imageSrc=image imageDetails=item.image variant="large" noAltText="true"/>
             </div>
         </#if>
 
@@ -45,7 +45,9 @@
                             <vs-link
                                 href="${cta.link}"
                                 <#if cta.type != "internal">type="${cta.type}"</#if>
-                            >${cta.label}</vs-link>
+                            >
+                                ${cta.label}<span class="sr-only">: ${item.title}</span>
+                            </vs-link>
                         </div>
 					</#if>
 				</#list>

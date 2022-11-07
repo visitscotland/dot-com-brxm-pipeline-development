@@ -107,10 +107,13 @@ public class LocationObject implements Comparable<LocationObject> {
 
     public void addType(String type){
         if (types == null){
-            types = new HashSet<String>();
+            types = new HashSet<>();
             types.add(type);
         }
         types.add(type);
+    }
 
+    public boolean isRegion(){
+        return getTypes().contains("REGION");
     }
 }

@@ -1,18 +1,16 @@
 <#include "../macros/global/gtm.ftl">
 
 <#macro headContributions>
-    <meta charset="utf-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <@gtm />
+    <#if !integration>
+        <!-- BEGIN HEAD CONTRIBUTIONS: seo -->
+        <@hst.headContributions categoryIncludes="seo" xhtml=true/>
+        <!-- END HEAD CONTRIBUTIONS: seo -->
 
-    <!-- BEGIN HEAD CONTRIBUTIONS: seo -->
-    <@hst.headContributions categoryIncludes="seo" xhtml=true/>
-    <!-- END HEAD CONTRIBUTIONS: seo -->
-
-    <!-- BEGIN HEAD CONTRIBUTIONS: opengraph -->
-    <@hst.headContributions categoryIncludes="opengraph" xhtml=true/>
-    <!-- END HEAD CONTRIBUTIONS: opengraph -->
+        <!-- BEGIN HEAD CONTRIBUTIONS: opengraph -->
+        <@hst.headContributions categoryIncludes="opengraph" xhtml=true/>
+        <!-- END HEAD CONTRIBUTIONS: opengraph -->
+    </#if>
 
     <!-- BEGIN HEAD CONTRIBUTIONS: htmlHeadPreload -->
     <@hst.headContributions categoryIncludes="htmlHeadPreload" xhtml=true/>
@@ -23,8 +21,13 @@
     <!-- END HEAD CONTRIBUTIONS: htmlHeadStyles -->
 
     <!-- BEGIN HEAD CONTRIBUTIONS: general -->
-    <@hst.headContributions categoryExcludes="htmlHeadPreload,htmlHeadStyles,htmlBodyEndScriptsFirst,htmlBodyEndScripts,htmlBodyEndAppInit,seo,opengraph" xhtml=true/>
+    <@hst.headContributions categoryExcludes="htmlHeadPreload,htmlHeadStyles,htmlBodyEndScriptsFirst,htmlBodyEndScripts,htmlBodyEndAppInit,htmlBodyEndScriptsLast,seo,opengraph" xhtml=true/>
     <!-- END HEAD CONTRIBUTIONS: general -->
+
+    <link rel="icon" href="<@hst.webfile path="/assets/favicons/favicon.ico"/>" sizes="any">
+    <link rel="icon" href="<@hst.webfile path="/assets/favicons/favicon.svg"/>" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="<@hst.webfile path="/assets/favicons/apple-touch-icon-180-180.svg"/>">
+    <link rel="manifest" href="<@hst.link path="manifest.webmanifest"/>">
 
     <style>
         body {

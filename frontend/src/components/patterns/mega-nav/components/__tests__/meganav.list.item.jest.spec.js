@@ -26,12 +26,6 @@ describe('VsMegaNavListItem', () => {
         expect(wrapper.classes('vs-mega-nav-list-item__subheading-link')).toBe(false);
     });
 
-    it('should render link with no role by default', () => {
-        const wrapper = factoryShallowMount();
-        const link = wrapper.find('[data-test="vs-mega-nav-list-item"]').find('vslink-stub');
-        expect(link.attributes('role')).toBe('');
-    });
-
     it('should render link with href `#` by default', () => {
         const wrapper = factoryShallowMount();
         const link = wrapper.find('[data-test="vs-mega-nav-list-item"]').find('vslink-stub');
