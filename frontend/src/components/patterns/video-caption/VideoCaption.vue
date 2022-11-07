@@ -85,7 +85,7 @@
 
 <script>
 import VsButton from '@components/elements/button/Button';
-import VsToggleButton from '@components/patterns/toggle-button/ToggleButton';
+import VsToggleButton from '@components/elements/toggle-button/ToggleButton';
 import VsWarning from '@components/patterns/warning/Warning';
 import verifyCookiesMixin from '../../../mixins/verifyCookiesMixin';
 import videoStore from '../../../stores/video.store';
@@ -94,7 +94,8 @@ import requiredCookiesData from '../../../utils/required-cookies-data';
 const cookieValues = requiredCookiesData.youtube;
 
 /**
- * Caption to be used for opening a video
+ * A caption element that providing information about a given video. It can be used in conjunction
+ * with video regardless of how that video is displayed on the page.
  *
  * @displayName Video Caption
  */
@@ -342,121 +343,8 @@ export default {
             &__duration,
             &__button,
             .vs-toggle-btn {
-                display: none;
+                display: none !important;
             }
         }
     }
 </style>
-
-<docs>
-    ``` jsx
-    <VsImageWithCaption
-        noJsMessage="You need Javascript enabled to see this content"
-        noCookiesMessage="You need cookies enabled to see this content"
-        cookieLinkText="Manage your cookies"
-        errorMessage="Something's gone wrong. Please try again later"
-    >
-        <VsVideoCaption
-            class="mt-5 mb-5"
-            videoBtnText="Play video this is a longer caption"
-            videoId="c05sg3G4oA4"
-        >
-            <template slot="video-title">
-                This is the video title
-            </template>
-            <template slot="video-no-js-alert">
-                JavaScript needs to be enabled to watch this video.
-                You can turn this on in your browser settings.
-            </template>
-
-            <template slot="video-no-cookies-alert">
-                You need cookies enabled to watch this video.
-            </template>
-
-            <button id="ot-sdk-btn" class="ot-sdk-show-settings">
-                Cookie Settings
-            </button>
-        </VsVideoCaption>
-    </VsImageWithCaption>
-
-    <VsImageWithCaption
-        noJsMessage="You need Javascript enabled to see this content"
-        noCookiesMessage="You need cookies enabled to see this content"
-        cookieLinkText="Manage your cookies"
-        errorMessage="Something's gone wrong. Please try again later"
-    >
-        <VsVideoCaption
-            withToggleBtn
-            class="mb-5 mt-12"
-            videoBtnText="Play video"
-            videoId="FlG6tbYaA88"
-            error-message="Something's gone wrong"
-        >
-            <template slot="video-title">
-                This video caption has a toggle button
-            </template>
-            <template slot="video-no-js-alert">
-                JavaScript needs to be enabled to watch this video.
-                You can turn this on in your browser settings.
-            </template>
-        </VsVideoCaption>
-    </VsImageWithCaption>
-
-    <div class="no-js">
-        <VsImageWithCaption
-            noJsMessage="You need Javascript enabled to see this content"
-            noCookiesMessage="You need cookies enabled to see this content"
-            cookieLinkText="Manage your cookies"
-            errorMessage="Something's gone wrong. Please try again later"
-        >
-            <VsVideoCaption
-                withToggleBtn
-                videoBtnText="Play video"
-                videoId="FlG6tbYaA88"
-                class="mt-12"
-                error-message="Something's gone wrong"
-                noJs-message="You don't have JS enabled"
-            >
-                <template slot="video-title">
-                    This is the video title
-                </template>
-                <template slot="video-no-js-alert">
-                    This is display when JS is turned off.<br />
-                    JavaScript needs to be enabled to watch this video.
-                    You can turn this on in your browser settings.
-                </template>
-            </VsVideoCaption>
-        </VsImageWithCaption>
-    </div>
-
-    <VsModal
-        modalId="c05sg3G4oA4"
-        closeBtnText="Close"
-        :isVideoModal="true"
-    >
-        <VsRow>
-            <VsCol cols="12">
-                <VsVideo
-                    video-id="c05sg3G4oA4"
-                    class="mb-8"
-                />
-            </VsCol>
-        </VsRow>
-    </VsModal>
-
-    <VsModal
-        modalId="FlG6tbYaA88"
-        closeBtnText="Close"
-        :isVideoModal="true"
-    >
-        <VsRow>
-            <VsCol cols="12">
-                <VsVideo
-                    video-id="FlG6tbYaA88"
-                    class="mb-8"
-                />
-            </VsCol>
-        </VsRow>
-    </VsModal>
-    ```
-</docs>

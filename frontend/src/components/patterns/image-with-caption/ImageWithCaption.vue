@@ -73,7 +73,7 @@
 
 import { v4 as uuidv4 } from 'uuid';
 import VsImg from '@components/elements/img/Img';
-import VsToggleButton from '@components/patterns/toggle-button/ToggleButton';
+import VsToggleButton from '@components/elements/toggle-button/ToggleButton';
 import VsVideoCaption from '@components/patterns/video-caption/VideoCaption';
 import verifyCookiesMixin from '../../../mixins/verifyCookiesMixin';
 import requiredCookiesData from '../../../utils/required-cookies-data';

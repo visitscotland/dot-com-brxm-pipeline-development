@@ -13,7 +13,8 @@
 
 <script>
 /**
- * Summary Box - Wraps a number of VsSummaryBoxListItem and VsSummaryBoxDistanceListItem components
+ * A Summary Box provides a brief summary of factual info about the content on a page. Sub-modules
+ * allow for specific types of information like distances.
  *
  * @displayName Summary Box
  */
