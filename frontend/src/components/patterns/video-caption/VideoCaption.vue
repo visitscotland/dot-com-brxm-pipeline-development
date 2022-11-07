@@ -85,7 +85,7 @@
 
 <script>
 import VsButton from '@components/elements/button/Button';
-import VsToggleButton from '@components/patterns/toggle-button/ToggleButton';
+import VsToggleButton from '@components/elements/toggle-button/ToggleButton';
 import VsWarning from '@components/patterns/warning/Warning';
 import verifyCookiesMixin from '../../../mixins/verifyCookiesMixin';
 import videoStore from '../../../stores/video.store';
