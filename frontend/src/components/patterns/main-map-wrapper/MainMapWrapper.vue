@@ -230,7 +230,6 @@ export default {
          * Sets the currently chosen category
          */
         setCategory(cat) {
-            console.log('set cat');
             this.selectedCategory = cat;
             this.filterPlaces(cat);
         },
@@ -253,30 +252,14 @@ export default {
                     mapId: this.mapId,
                     placeId: '',
                 });
+
+                this.selectedItem = null;
             }
         },
         /**
          * Updates active pins for map
          */
         filterPlaces(id) {
-            // console.log('filter places');
-            // if (id === 'regions') {
-            //     this.showRegions = true;
-            //     this.activePins = [];
-            // } else {
-            //     this.showRegions = false;
-
-            //     const filteredPlaces = this.placesData
-            //         .filter((place) => {
-            //             if (typeof place.properties !== 'undefined') {
-            //                 return place.properties.category.id === id;
-            //             }
-
-            //             return false;
-            //         });
-            //     this.activePins = filteredPlaces;
-            // }
-
             if (id === 'regions') {
                 this.showRegions = true;
                 this.activePins = [];
@@ -298,7 +281,6 @@ export default {
          * Show all pins, remove regions
          */
         showAllPlaces() {
-            console.log('show all');
             this.activePins = this.placesData;
             this.showRegions = false;
         },

@@ -95,6 +95,13 @@ export default {
             type: Boolean,
             default: false,
         },
+        /**
+         * The current selectdd item
+         */
+        selectedItem: {
+            type: String,
+            default: null,
+        },
     },
     data() {
         return {
@@ -120,7 +127,8 @@ export default {
             },
             markers: [],
             popup: null,
-            hoveredStateId: '',
+            hoveredStateId: null,
+            activeStateId: null,
         };
     },
     computed: {
@@ -150,9 +158,23 @@ export default {
                 this.hideMapPolygons();
             }
         },
-        // highlightedPlace(newVal) {
-        //     this.highlightPolygon(newVal);
-        // },
+        highlightedPlace(newVal) {
+            if (newVal.length === 0) {
+                this.removeHoveredPolygon();
+            } else {
+                this.addHoveredPolygon(newVal);
+            }
+        },
+        selectedItem(newVal) {
+            const isPolygon = this.polygons.features
+                .filter((feature) => feature.properties.id === newVal);
+
+            if (!newVal) {
+                this.removeActivePolygon();
+            } else if (isPolygon.length > 0) {
+                this.addActivePolygon(newVal);
+            }
+        },
     },
     mounted() {
         this.lazyloadMapComponent();
@@ -268,14 +290,23 @@ export default {
                 }
             });
         },
+        /**
+         * Hide all polygons
+         */
         hideMapPolygons() {
             this.mapbox.map.setLayoutProperty('regions-fills', 'visibility', 'none');
             this.mapbox.map.setLayoutProperty('regions-borders', 'visibility', 'none');
         },
+        /**
+         * Show all polygons
+         */
         showMapPolygons() {
             this.mapbox.map.setLayoutProperty('regions-fills', 'visibility', 'visible');
             this.mapbox.map.setLayoutProperty('regions-borders', 'visibility', 'visible');
         },
+        /**
+         * Add polygons from data into map
+         */
         addMapPolygons() {
             this.geojsonData.features.forEach((feature) => {
                 if (feature.geometry.type === 'Polygon') {
@@ -288,7 +319,7 @@ export default {
             this.mapbox.map.addSource('regions', {
                 type: 'geojson',
                 data: this.polygons,
-                generateId: true,
+                promoteId: 'id',
             });
 
             this.mapbox.map.addLayer({
@@ -312,11 +343,9 @@ export default {
                 paint: {
                     'fill-color': [
                         'case',
-                        [
-                            'boolean',
-                            ['feature-state', 'hover'],
-                            false,
-                        ],
+                        ['==', ['feature-state', 'interaction-state'], 'hover'],
+                        '#AD0E6E',
+                        ['==', ['feature-state', 'interaction-state'], 'active'],
                         '#AD0E6E',
                         '#A5A5A5',
                     ],
@@ -324,131 +353,167 @@ export default {
                 },
             });
 
+            // Hide map polygons by default
             this.hideMapPolygons();
 
             // When the user moves their mouse over the state-fill layer,
             // we'll update the feature state for the feature under the mouse.
             this.mapbox.map.on('mousemove', 'regions-fills', (e) => {
                 if (e.features.length > 0) {
-                    if (this.hoveredStateId !== null) {
-                        this.mapbox.map.setFeatureState(
-                            {
-                                source: 'regions',
-                                id: this.hoveredStateId,
-                            },
-                            {
-                                hover: false,
-                            },
-                        );
-                    }
-                    this.hoveredStateId = e.features[0].id;
-                    this.mapbox.map.setFeatureState(
-                        {
-                            source: 'regions',
-                            id: this.hoveredStateId,
-                        },
-                        {
-                            hover: true,
-                        },
-                    );
-
-                    mapStore.dispatch('setHoveredPlace', {
-                        mapId: this.mapId,
-                        hoveredId: e.features[0].properties.id,
-                    });
+                    this.addMapPopup(e);
+                    this.removeHoveredPolygon();
+                    this.addHoveredPolygon(e.features[0].id);
                 }
             });
 
             // When the mouse leaves the state-fill layer, update the
             // feature state of the previously hovered feature.
             this.mapbox.map.on('mouseleave', 'regions-fills', () => {
-                if (this.hoveredStateId !== null) {
-                    this.mapbox.map.setFeatureState(
-                        {
-                            source: 'regions',
-                            id: this.hoveredStateId,
-                        },
-                        {
-                            hover: false,
-                        }
-                    );
-                }
-
-                mapStore.dispatch('setHoveredPlace', {
-                    mapId: this.mapId,
-                    hoveredId: '',
-                });
-
-                this.hoveredStateId = null;
+                this.removeMapPopup();
+                this.removeHoveredPolygon();
             });
 
+            // When the clicks the the state-fill layer, update the
+            // feature state of the active feature.
             this.mapbox.map.on('click', 'regions-fills', (e) => {
-                console.log(e.features[0].properties.id);
-                mapStore.dispatch('setActivePlace', {
-                    mapId: this.mapId,
-                    placeId: e.features[0].properties.id,
-                });
-                this.$emit('show-detail', e.features[0].properties.id);
-                this.$emit('set-category', 'regions');
+                this.removeActivePolygon();
+                this.addActivePolygon(e.features[0].id);
             });
         },
-        // highlightPolygon(polygonId) {
-        //     console.log(polygonId);
-        //     if (this.hoveredStateId !== null) {
-        //         this.mapbox.map.setFeatureState(
-        //             {
-        //                 source: 'regions',
-        //                 id: this.hoveredStateId,
-        //             },
-        //             {
-        //                 hover: false,
-        //             }
-        //         );
-        //     }
+        /**
+         * Remove the current active polygon
+         */
+        removeActivePolygon() {
+            this.mapbox.map.setFeatureState(
+                {
+                    source: 'regions',
+                    id: this.activeStateId,
+                },
+                {
+                    'interaction-state': '',
+                },
+            );
 
-        //     this.mapbox.map.setFeatureState(
-        //         {
-        //             source: 'regions',
-        //             id: polygonId,
-        //         },
-        //         {
-        //             hover: true,
-        //         }
-        //     );
+            this.activeStateId = null;
+        },
+        /**
+         * Add a new active polygon
+         */
+        addActivePolygon(polyId) {
+            this.activeStateId = polyId;
 
-        //     this.hoveredStateId = polygonId;
-        // },
+            this.mapbox.map.setFeatureState(
+                {
+                    source: 'regions',
+                    id: this.activeStateId,
+                },
+                {
+                    'interaction-state': 'active',
+                },
+            );
+
+            mapStore.dispatch('setActivePlace', {
+                mapId: this.mapId,
+                placeId: this.activeStateId,
+            });
+            this.$emit('show-detail', this.activeStateId);
+
+            this.$emit('set-category', 'regions');
+        },
+        /**
+         * Remove the current hovered polygon
+         */
+        removeHoveredPolygon() {
+            if (this.hoveredStateId) {
+                let state = '';
+                if (this.hoveredStateId === this.activeStateId) {
+                    state = 'active';
+                }
+
+                this.mapbox.map.setFeatureState(
+                    {
+                        source: 'regions',
+                        id: this.hoveredStateId,
+                    },
+                    {
+                        'interaction-state': state,
+                    },
+                );
+            }
+
+            mapStore.dispatch('setHoveredPlace', {
+                mapId: this.mapId,
+                hoveredId: '',
+            });
+
+            this.hoveredStateId = null;
+        },
+        /**
+         * Add a hovered polygon
+         */
+        addHoveredPolygon(polyId) {
+            this.hoveredStateId = polyId;
+            this.mapbox.map.setFeatureState(
+                {
+                    source: 'regions',
+                    id: this.hoveredStateId,
+                },
+                {
+                    'interaction-state': 'hover',
+                },
+            );
+
+            mapStore.dispatch('setHoveredPlace', {
+                mapId: this.mapId,
+                hoveredId: polyId,
+            });
+        },
         /**
          * Adds map pop ups
          */
-        addMapPopup() {
-            this.removeMapPopup();
+        addMapPopup(e) {
+            function findCenter(markers) {
+                const lats = [];
+                const lngs = [];
+                markers[0].forEach((m) => {
+                    lats.push(m[1]);
+                    lngs.push(m[0]);
+                });
+                return {
+                    lat: (Math.min(...lats) + Math.max(...lats)) / 2,
+                    lng: (Math.min(...lngs) + Math.max(...lngs)) / 2,
+                };
+            };
 
-            if (this.highlightedStopCoordinates !== null && this.highlightedStop !== null) {
-                this.popup = new mapboxgl.Popup({
-                    closeButton: false,
-                    offset: {
-                        top: [0, 20],
-                        'top-left': [0, 20],
-                        'top-right': [0, 20],
-                        bottom: [0, -50],
-                        'bottom-left': [0, -50],
-                        'bottom-right': [0, -50],
-                        left: [30, -20],
-                        right: [-30, -20],
-                    },
-                })
-                    .setLngLat(this.highlightedStopCoordinates)
-                    .setHTML(
-                        `
-                            <img class="vs-itinerary-map__popup-image" src="${this.highlightedStop.properties.imageSrc}" alt="${this.highlightedStop.properties.altText}" />
-                            <div>
-                            <h4 class="vs-itinerary-map__popup-stop-number mb-0">${this.labels.stopLabel} ${this.highlightedStop.properties.stopCount}</h4>
-                            <p class="vs-itinerary-map__popup-stop-name">${this.highlightedStop.properties.title}</p>
-                            </div>
-                        `,
-                    )
+            const detectEsc = (keyEvent) => {
+                if (keyEvent.key === 'Escape') {
+                    this.removeMapPopup();
+                    document.body.removeEventListener('keyup', detectEsc);
+                }
+            };
+
+            const centerPoint = findCenter(e.features[0].geometry.coordinates);
+
+            if (e.features[0].id !== this.hoveredStateId
+                && e.features[0].id !== this.activeStateId) {
+                this.removeMapPopup();
+                document.body.removeEventListener('keyup', detectEsc);
+
+                this.popup = new mapboxgl.Popup()
+                    .setLngLat(centerPoint)
+                    .setHTML(e.features[0].properties.title)
                     .addTo(this.mapbox.map);
+            }
+
+            document.body.addEventListener('keyup', detectEsc);
+        },
+        /**
+         * Remove the popup from the map
+         */
+        removeMapPopup() {
+            if (this.popup) {
+                this.popup.remove();
+                this.popup = null;
             }
         },
         /**
@@ -509,21 +574,6 @@ export default {
                 }
             });
             this.observer.observe(this.$el);
-
-            // if (this.places.length) {
-            //     this.addMapFeatures();
-            // }
-        },
-        /**
-         * Removes a map pop up
-         */
-        removeMapPopup() {
-            if (this.popup !== null) {
-                this.popup.remove();
-                this.popup = null;
-            } else {
-                this.popup = null;
-            }
         },
         /**
          * Checks for window size on resize
