@@ -392,12 +392,15 @@ public class MapFactory {
     private void buildPageNode(Locale locale, JsonObject category, MapsModule module, Page page, JsonObject feature){
         FlatLink flatLink = linkService.createSimpleLink(page, module, locale);
         flatLink.setLabel(bundle.getResourceBundle("map", DISCOVER, locale));
-        feature.add("properties", getPropertyNode(page.getTitle(), page.getTeaser(),
+        JsonObject properties = getPropertyNode(page.getTitle(), page.getTeaser(),
                 imageFactory.createImage(page.getImage(), module, locale), category,
-                flatLink, page.getCanonicalUUID()));
+                flatLink, page.getCanonicalUUID());
         if (page instanceof Destination){
             LocationObject location = locationLoader.getLocation(((Destination)page).getLocation(), Locale.UK);
+            properties.addProperty("locationId", location.getKey());
             feature.add(GEOMETRY, getGeometryNode(location.getLatitude(), location.getLongitude()));
+        }else {
+            feature.add("properties", properties);
         }
     }
 }
