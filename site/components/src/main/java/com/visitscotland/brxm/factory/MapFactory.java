@@ -398,6 +398,7 @@ public class MapFactory {
         if (page instanceof Destination){
             LocationObject location = locationLoader.getLocation(((Destination)page).getLocation(), Locale.UK);
             properties.addProperty("locationId", location.getKey());
+            feature.add("properties", properties);
             feature.add(GEOMETRY, getGeometryNode(location.getLatitude(), location.getLongitude()));
         }else {
             feature.add("properties", properties);

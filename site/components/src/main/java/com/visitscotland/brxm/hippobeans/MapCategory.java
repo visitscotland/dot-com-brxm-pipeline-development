@@ -26,8 +26,8 @@ public class MapCategory extends HippoCompound {
                 if (hippoBean instanceof HippoMirror) {
                     return ((HippoMirror) hippoBean).getReferencedBean();
                 }else if (hippoBean instanceof SpecialLinkCoordinates){
-                    SpecialLinkCoordinates link =(SpecialLinkCoordinates) hippoBean;
-                    return link.getLink()!= null ? link.getLink(): null;
+                    SpecialLinkCoordinates link = (SpecialLinkCoordinates) hippoBean;
+                    return link;
                 }
                 return hippoBean;
             }
