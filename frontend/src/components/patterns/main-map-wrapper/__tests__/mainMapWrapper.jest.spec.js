@@ -14,6 +14,10 @@ const factoryShallowMount = () => shallowMount(VsMainMapWrapper, {
         mapId: 'vs-map',
         currentStage: 0,
     },
+    provide: {
+        regions: [
+        ],
+    },
 });
 
 describe('VsMainMapWrapper', () => {
@@ -93,6 +97,13 @@ describe('VsMainMapWrapper', () => {
             wrapper.vm.filterPlaces('cities');
 
             expect(wrapper.vm.activePins.length).toBe(3);
+        });
+
+        it('should remove all pins if `id` is set to `regions`', async() => {
+            const wrapper = factoryShallowMount();
+            wrapper.vm.filterPlaces('regions');
+
+            expect(wrapper.vm.activePins.length).toBe(0);
         });
     });
 
