@@ -50,7 +50,7 @@ public class MapPageValidator implements Validator<Node> {
             }
             else{
                 if (taxonomyKeys.length > 0) {
-                    return Optional.of(validationContext.createViolation("destionatioPage"));
+                    return Optional.of(validationContext.createViolation("destinationPage"));
                 }
             }
         } catch (RepositoryException ex) {
