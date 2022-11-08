@@ -21,7 +21,6 @@ import java.util.Optional;
  */
 public class MapPageValidator implements Validator<Node> {
 
-    private static final String CMS_LINK_TYPE = "visitscotland:CMSLink";
     private static final Logger logger = LoggerFactory.getLogger(MapPageValidator.class);
 
     private HippoUtilsService utilsService;
