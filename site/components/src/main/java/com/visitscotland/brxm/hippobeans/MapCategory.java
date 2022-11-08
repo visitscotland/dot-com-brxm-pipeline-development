@@ -23,11 +23,14 @@ public class MapCategory extends HippoCompound {
     @HippoEssentialsGenerated(internalName = "visitscotland:mapPins", allowModifications = false)
     public List<HippoBean> getMapPins() {
         return getChildBeansByName("visitscotland:mapPins", HippoBean.class).stream().map(hippoBean -> {
-                    if (hippoBean instanceof HippoMirror) {
-                        return ((HippoMirror) hippoBean).getReferencedBean();
-                    }
-                    return hippoBean;
+                if (hippoBean instanceof HippoMirror) {
+                    return ((HippoMirror) hippoBean).getReferencedBean();
+                }else if (hippoBean instanceof SpecialLinkCoordinates){
+                    SpecialLinkCoordinates link =(SpecialLinkCoordinates) hippoBean;
+                    return link.getLink()!=null ? ((HippoMirror) link.getLink()).getReferencedBean() : null;
                 }
+                return hippoBean;
+            }
         ).collect(Collectors.toList());
     }
 
