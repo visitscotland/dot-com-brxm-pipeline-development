@@ -18,6 +18,7 @@
             v-for="error in errorsList"
             :key="error"
             class="error"
+            aria-live="assertive"
         >
             <template
                 v-if="$v.inputVal.$anyError || invalid"

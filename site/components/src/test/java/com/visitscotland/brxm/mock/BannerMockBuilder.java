@@ -20,11 +20,6 @@ public class BannerMockBuilder {
         return banner;
     }
 
-    public BannerMockBuilder title(String title) {
-        when(banner.getTitle()).thenReturn(title);
-        return this;
-    }
-
     public BannerMockBuilder copy(String copy) {
         HippoHtml hippoHtml = mock(HippoHtml.class);
         when(hippoHtml.getContent()).thenReturn(copy);

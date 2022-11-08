@@ -1,4 +1,5 @@
 import { shallowMount } from '@vue/test-utils';
+import { v4 as uuidv4 } from 'uuid';
 import VsImageWithCaption from '../ImageWithCaption';
 
 const defaultSlotText = 'Image';
@@ -9,6 +10,10 @@ const videoDurationSlot = 'Video duration';
 const captionSlot = 'Image caption';
 const imageSrcValue = 'visitscotland';
 const youtubeId = 'abc213';
+
+jest.mock('uuid', () => ({
+    v4: () => '00000000-0000-0000-0000-000000000000',
+}));
 
 const factoryShallowMount = (propsData) => shallowMount(VsImageWithCaption, {
     propsData: {
@@ -81,11 +86,12 @@ describe('VsImageWithCaption', () => {
             expect(toggleCaptionBtn.text()).toContain('Toggle caption');
         });
 
-        it('should set correct ID for aria controls with `imageSrc`', () => {
+        it('should set correct ID for aria controls with a uuid', () => {
             const wrapper = factoryShallowMount();
             const captionWrapper = wrapper.find('[data-test="vs-image-with-caption"]').find('.vs-image-with-caption__caption-wrapper');
+            const uuid = uuidv4();
 
-            expect(captionWrapper.attributes('id')).toBe(`image_${imageSrcValue}`);
+            expect(captionWrapper.attributes('id')).toBe(`vs-caption-${uuid}`);
         });
 
         it('should add a Video Caption component if `isVideo` is true', async() => {

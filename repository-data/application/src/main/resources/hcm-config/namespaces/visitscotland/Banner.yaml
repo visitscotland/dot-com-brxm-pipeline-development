@@ -11,20 +11,11 @@ definitions:
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:uuid: a55dfe08-1169-40aa-94b4-ecd30b266c44
+          jcr:uuid: e6397f59-9f0b-4b75-bc01-b0ecb638af76
           hipposysedit:node: true
           hipposysedit:supertype: ['visitscotland:basedocument', 'hippostd:relaxed',
             'hippotranslation:translated']
           hipposysedit:uri: http://www.visitscotland.com/visitscotland/nt/1.0
-          /title:
-            jcr:primaryType: hipposysedit:field
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: false
-            hipposysedit:ordered: false
-            hipposysedit:path: visitscotland:title
-            hipposysedit:primary: false
-            hipposysedit:type: String
-            hipposysedit:validators: [required, 'visitscotland:medium-string-validator']
           /copy:
             jcr:primaryType: hipposysedit:field
             hipposysedit:mandatory: false
@@ -33,6 +24,7 @@ definitions:
             hipposysedit:path: visitscotland:copy
             hipposysedit:primary: false
             hipposysedit:type: hippostd:html
+            hipposysedit:validators: [required]
           /ctaLink:
             jcr:primaryType: hipposysedit:field
             hipposysedit:multiple: true
@@ -59,8 +51,7 @@ definitions:
           hippotranslation:id: document-type-locale-id
           hippotranslation:locale: document-type-locale
           jcr:mixinTypes: ['mix:referenceable']
-          visitscotland:title: ''
-          jcr:uuid: 0fea027d-bd9e-463c-80c9-51c016fb6ce9
+          jcr:uuid: 69fb232d-75cd-4788-93e1-443bcf76210e
           hippostdpubwf:lastModificationDate: 2021-12-03T13:55:59.687Z
           hippostdpubwf:creationDate: 2021-12-03T13:55:59.687Z
           visitscotland:translation: ''
@@ -78,14 +69,6 @@ definitions:
             jcr:primaryType: frontend:plugin
             item: ${cluster.id}.field
             plugin.class: org.hippoecm.frontend.service.render.ListViewPlugin
-          /title:
-            jcr:primaryType: frontend:plugin
-            caption: Title
-            field: title
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
-            wicket.id: ${cluster.id}.field
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
           /copy:
             jcr:primaryType: frontend:plugin
             caption: Copy

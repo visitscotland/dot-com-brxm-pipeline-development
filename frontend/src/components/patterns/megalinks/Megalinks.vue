@@ -157,6 +157,7 @@ export default {
             noJsMessage: this.noJsMessage,
             noCookiesMessage: this.noCookiesMessage,
             cookieLinkText: this.cookieLinkText,
+            theme: this.theme,
         };
     },
 };
@@ -328,13 +329,11 @@ export default {
                             featured
                             imgSrc="https://cimg.visitscotland.com/cms-images/attractions/outlander/claire-standing-stones-craigh-na-dun-outlander?size=sm"
                             imgAlt="This is the alt text"
-                            linkType="external"
-                            linkUrl="https://www.visitscotland.com"
-                            days="6"
-                            daysLabel="days"
-                            transport="bus"
-                            transportName="bus"
-                            errorMessage="Something went wrong"
+                            linkType="video"
+                            linkUrl="#"
+                            videoId="g-Fhvj7vW-E"
+                            videoBtnText="Play Video"
+                            errorMessage="We're sorry, there's been an error"
                         >
                             <template slot="vsMultiImageHeading">
                                 The Edinburgh International Festival
@@ -380,7 +379,7 @@ export default {
                             linkUrl="#"
                             videoId="N3r5rCN9iaE"
                             videoBtnText="Play Video"
-                            errorMessage="Something went wrong"
+                            errorMessage="We're sorry, there's been an error"
                         >
                             <template slot="vsMultiImageHeading">
                                 Count 7,000 shining stars in the iconic galloway forest
@@ -569,7 +568,7 @@ export default {
                             linkUrl="https://www.visitscotland.com"
                             videoId="N3r5rCN9iaE"
                             videoBtnText="Play Video"
-                            errorMessage="Something went wrong"
+                            errorMessage="We're sorry, there's been an error"
                         >
                             <template slot="vsMultiImageHeading">
                                 Count 7,000 shining stars in the iconic galloway forest
@@ -671,7 +670,7 @@ export default {
                 linkUrl="#"
                 videoId="tfk7J6XZju4"
                 videoBtnText="Play Video"
-                errorMessage="Something went wrong"
+                errorMessage="We're sorry, there's been an error"
             >
                 <template slot="vsLinkListHeading">
                     The Edinburgh International Festival and summer festival
@@ -729,7 +728,7 @@ export default {
                 linkUrl="#"
                 videoId="zZCUFjSiWpE"
                 videoBtnText="Play Video"
-                errorMessage="Something went wrong"
+                errorMessage="We're sorry, there's been an error"
             >
                 <template slot="vsLinkListHeading">
                     Count 7,000 shining stars in the iconic galloway forest

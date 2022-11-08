@@ -20,17 +20,31 @@
                 />
             </div>
 
-            <div
-                class="vs-video__fallback-wrapper"
-                v-if="!requiredCookiesExist && cookiesInitStatus"
-                key="fallback"
+            <VsWarning
+                v-if="showError"
+                theme="light"
+                :type="cookiesInitStatus === true ? 'cookie' : 'normal'"
+                data-test="vs-video__warning"
+                class="vs-video__warning"
             >
-                <VsWarning
-                    :warning-message="noCookiesMessage"
-                    :warning-link-text="cookieLinkText"
-                    :show-cookie-link="true"
-                />
-            </div>
+                {{ warningText }}
+
+                <template
+                    v-if="!requiredCookiesExist
+                        && cookiesInitStatus === true"
+                    slot="button-text"
+                >
+                    {{ cookieBtnText }}
+                </template>
+            </VsWarning>
+
+            <VsWarning
+                theme="light"
+                data-test="vs-video__warning--no-js"
+                class="vs-video__warning--no-js"
+            >
+                {{ noJsMessage }}
+            </VsWarning>
         </div>
     </div>
 </template>
@@ -50,6 +64,29 @@
                 left: 0;
                 width: 100%;
                 height: 100%;
+            }
+        }
+
+        &__warning {
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            z-index: 1;
+
+            &--no-js {
+                display: none;
+            }
+        }
+    }
+
+    @include no-js {
+        .vs-video {
+            &__warning {
+                display: none;
+
+                &--no-js {
+                    display: flex;
+                }
             }
         }
     }
@@ -139,20 +176,27 @@ export default {
         */
         noCookiesMessage: {
             type: String,
-            default: '',
+            required: true,
         },
         /**
         * Text used for the link which opens the cookie preference centre.
         */
-        cookieLinkText: {
+        cookieBtnText: {
             type: String,
-            default: '',
+            required: true,
         },
         /**
         * A message explaining why the component has been disabled when js is disabled,
         * is provided for descendent components to inject
         */
         noJsMessage: {
+            type: String,
+            required: true,
+        },
+        /**
+         * Message to show when there's an error with a third party
+        */
+        errorMessage: {
             type: String,
             default: '',
         },
@@ -172,6 +216,35 @@ export default {
             reRendering: false,
             shouldAutoPlay: false,
         };
+    },
+    computed: {
+        showError() {
+            if ((!this.requiredCookiesExist
+                && this.cookiesInitStatus === true)
+                || this.cookiesInitStatus === 'error') {
+                return true;
+            }
+
+            return false;
+        },
+        warningText() {
+            let text = '';
+
+            if (this.videoId && this.jsDisabled) {
+                text = this.noJsMessage;
+            }
+
+            if (this.cookiesInitStatus === 'error') {
+                text = this.errorMessage;
+            }
+
+            if (!this.requiredCookiesExist
+                && this.cookiesInitStatus === true) {
+                text = this.noCookiesMessage;
+            }
+
+            return text;
+        },
     },
     mounted() {
         this.setEventListeners();

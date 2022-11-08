@@ -217,7 +217,9 @@ describe('VsStretchedLinkCard', () => {
                     stretchedCardLink: 'Stretched link link text',
                 },
             });
-            expect(wrapper.find('[data-test="vs-stretched-link-card__title"]').exists()).toBe(false);
+
+            const headerElement = wrapper.find('[data-test="vs-stretched-link-card__title"]');
+            expect(headerElement.find('vslink-stub').exists()).toBe(false);
         });
     });
 });

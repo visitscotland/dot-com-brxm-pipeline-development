@@ -4229,9 +4229,9 @@
             jcr:mixinTypes: ['mix:referenceable']
             jcr:uuid: 4cf739e4-ffd8-458e-9ec0-dc66f70795fa
             hippo:availability: []
-            hippostd:holder: admin
             hippostd:retainable: false
             hippostd:state: draft
+            hippostd:transferable: false
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2021-05-20T14:12:54.006+01:00
             hippostdpubwf:lastModificationDate: 2022-09-29T13:59:54.869+01:00
@@ -5262,7 +5262,7 @@
         jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
         jcr:uuid: 6f0cf660-158d-412e-90ef-ed974c07dca0
         hippo:name: Stackla module
-        hippo:versionHistory: 78087be3-246d-4ec2-b5be-471730610cc1
+        hippo:versionHistory: b2786902-151c-4344-a9c8-3e28df0a91a5
         /stackla-module[1]:
           jcr:primaryType: visitscotland:Stackla
           jcr:mixinTypes: ['mix:referenceable']
@@ -5270,15 +5270,14 @@
           hippo:availability: []
           hippostd:retainable: false
           hippostd:state: draft
-          hippostd:transferable: false
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2021-07-07T12:14:38.200+01:00
-          hippostdpubwf:lastModificationDate: 2022-05-23T14:27:19.593+01:00
+          hippostdpubwf:lastModificationDate: 2022-10-11T09:30:52.944+01:00
           hippostdpubwf:lastModifiedBy: admin
           hippotranslation:id: 9a5f6065-6367-4d23-a305-bc6f02b6d021
           hippotranslation:locale: en
-          visitscotland:stacklaHash: 60ddb1e64808c
-          visitscotland:stacklaId: '83137'
+          visitscotland:stacklaHash: 6324456e6fe79
+          visitscotland:stacklaId: '97279'
           visitscotland:title: Your Pictures Of Scottish Castles
           visitscotland:translation: ''
           /visitscotland:copy:
@@ -5294,12 +5293,12 @@
           hippostd:state: unpublished
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2021-07-07T12:14:38.200+01:00
-          hippostdpubwf:lastModificationDate: 2021-07-08T10:01:48.475+01:00
+          hippostdpubwf:lastModificationDate: 2022-10-11T09:31:01.414+01:00
           hippostdpubwf:lastModifiedBy: admin
           hippotranslation:id: 9a5f6065-6367-4d23-a305-bc6f02b6d021
           hippotranslation:locale: en
-          visitscotland:stacklaHash: 60ddb1e64808c
-          visitscotland:stacklaId: '83137'
+          visitscotland:stacklaHash: 6324456e6fe79
+          visitscotland:stacklaId: '97279'
           visitscotland:title: Your Pictures Of Scottish Castles
           visitscotland:translation: ''
           /visitscotland:copy:
@@ -5315,13 +5314,13 @@
           hippostd:state: published
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2021-07-07T12:14:38.200+01:00
-          hippostdpubwf:lastModificationDate: 2021-07-08T10:01:48.475+01:00
+          hippostdpubwf:lastModificationDate: 2022-10-11T09:31:01.414+01:00
           hippostdpubwf:lastModifiedBy: admin
-          hippostdpubwf:publicationDate: 2021-09-09T16:31:31.727+01:00
+          hippostdpubwf:publicationDate: 2022-10-11T09:31:11.632+01:00
           hippotranslation:id: 9a5f6065-6367-4d23-a305-bc6f02b6d021
           hippotranslation:locale: en
-          visitscotland:stacklaHash: 60ddb1e64808c
-          visitscotland:stacklaId: '83137'
+          visitscotland:stacklaHash: 6324456e6fe79
+          visitscotland:stacklaId: '97279'
           visitscotland:title: Your Pictures Of Scottish Castles
           visitscotland:translation: ''
           /visitscotland:copy:
@@ -6997,11 +6996,12 @@
           jcr:mixinTypes: ['mix:referenceable']
           jcr:uuid: ef23d867-84ef-4a0e-81c2-14338321a82f
           hippo:availability: []
+          hippostd:holder: admin
           hippostd:retainable: false
           hippostd:state: draft
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2021-01-11T14:27:02.137Z
-          hippostdpubwf:lastModificationDate: 2022-08-23T12:47:04.787+01:00
+          hippostdpubwf:lastModificationDate: 2022-10-24T11:03:13.019+01:00
           hippostdpubwf:lastModifiedBy: admin
           hippotranslation:id: c62b31d0-0841-4c20-b6f7-636e36534659
           hippotranslation:locale: en
@@ -8153,9 +8153,9 @@
           jcr:mixinTypes: ['mix:referenceable']
           jcr:uuid: 5dfd1d62-fc56-425f-8acf-e8fcdef8caee
           hippo:availability: []
-          hippostd:holder: admin
           hippostd:retainable: false
           hippostd:state: draft
+          hippostd:transferable: false
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2021-05-24T12:28:17.650+01:00
           hippostdpubwf:lastModificationDate: 2022-09-23T12:59:12.861+01:00
@@ -9029,7 +9029,7 @@
         jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
         jcr:uuid: 7746679b-6821-4a09-9173-664653dad7dd
         hippo:name: Destination page example
-        hippo:versionHistory: 6b64653e-3b96-409c-8d5d-992a18493721
+        hippo:versionHistory: 72b4eaf0-146c-4434-8310-0aadc0522d47
         /content[1]:
           jcr:primaryType: visitscotland:Destination
           jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
@@ -9039,11 +9039,13 @@
           hippostd:state: draft
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2021-05-24T13:47:56.985+01:00
-          hippostdpubwf:lastModificationDate: 2021-06-28T10:33:53.820+01:00
+          hippostdpubwf:lastModificationDate: 2022-10-13T08:20:00.901+01:00
           hippostdpubwf:lastModifiedBy: admin
+          hippotaxonomy:keys: [regions]
           hippotranslation:id: c991600c-b975-4528-b4d8-dada510a957f
           hippotranslation:locale: en
           visitscotland:breadcrumb: ''
+          visitscotland:hideNewsletter: false
           visitscotland:location: Banff and Buchan - The North East Coast
           visitscotland:newsletter: true
           visitscotland:seoDescription: Meta description
@@ -9095,11 +9097,13 @@
           hippostd:state: unpublished
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2021-05-24T13:47:56.985+01:00
-          hippostdpubwf:lastModificationDate: 2021-05-27T09:30:57.654+01:00
+          hippostdpubwf:lastModificationDate: 2022-10-13T08:20:16.022+01:00
           hippostdpubwf:lastModifiedBy: admin
+          hippotaxonomy:keys: [regions]
           hippotranslation:id: c991600c-b975-4528-b4d8-dada510a957f
           hippotranslation:locale: en
           visitscotland:breadcrumb: ''
+          visitscotland:hideNewsletter: false
           visitscotland:location: Banff and Buchan - The North East Coast
           visitscotland:newsletter: true
           visitscotland:seoDescription: Meta description
@@ -9151,12 +9155,14 @@
           hippostd:state: published
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2021-05-24T13:47:56.985+01:00
-          hippostdpubwf:lastModificationDate: 2021-05-27T09:30:57.654+01:00
+          hippostdpubwf:lastModificationDate: 2022-10-13T08:20:16.022+01:00
           hippostdpubwf:lastModifiedBy: admin
-          hippostdpubwf:publicationDate: 2021-05-27T09:31:11.777+01:00
+          hippostdpubwf:publicationDate: 2022-10-13T08:20:18.109+01:00
+          hippotaxonomy:keys: [regions]
           hippotranslation:id: c991600c-b975-4528-b4d8-dada510a957f
           hippotranslation:locale: en
           visitscotland:breadcrumb: ''
+          visitscotland:hideNewsletter: false
           visitscotland:location: Banff and Buchan - The North East Coast
           visitscotland:newsletter: true
           visitscotland:seoDescription: Meta description

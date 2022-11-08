@@ -15,8 +15,6 @@
                 t.src = '//assetscdn.stackla.com/media/js/widget/fluid-embed.js';
                 t.id = id;
                 (d.getElementsByTagName('head')[0] || d.getElementsByTagName('body')[0]).appendChild(t);
-
-                Stackla.WidgetManager.sync();
             }(document, 'stackla-widget-js'));
         </script>
     </@hst.headContribution>
@@ -27,29 +25,23 @@
         <template slot="vsModuleWrapperHeading">
             ${module.title}
         </template>
-        <vs-embed-wrapper>
+        <vs-embed-wrapper
+            no-cookie-text="${module.noCookiesMessage}"
+            error-text = "${label('essentials.global', 'third-party-error')}"
+            no-js-text="${module.noJsMessage}"
+        >
             <template slot="embedIntroCopy">
                 <@hst.html hippohtml=module.copy/>
             </template>
-            <template slot="embedIntroCopyNoJs">
-                ${module.noJsMessage}
-            </template>
-            <template slot="embedIntroCopyNoCookies">
-                ${module.noCookiesMessage}
-                <button
-                    class="ot-sdk-show-settings"
-                    id="ot-sdk-btn"
-                >
-                    ${label('stackla', 'stackla.update-cookies-link.label')}
-                </button>
-            </template>
+
             <template slot="embedWidget">
                 <div class="stackla-widget" data-ct="" data-hash="${module.dataHash}"
                     data-id="${module.dataId}" data-title="social_vs.org_IGfeed" data-ttl="60"
                     style="width: 100%; overflow: hidden;"></div>
             </template>
-            <template slot="embedIntroCopyError">
-                ${label('essentials.global', 'third-party-error')}
+
+            <template slot="embedButtonText">
+                ${label('essentials.global', 'cookie.link-message')}
             </template>
         </vs-embed-wrapper>
     </vs-module-wrapper>

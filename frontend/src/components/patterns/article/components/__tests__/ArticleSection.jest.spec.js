@@ -36,8 +36,6 @@ describe('VsArticleSection', () => {
 
             expect(section.classes()).toContain('vs-article-section--sidebar-left');
             expect(sidebar.classes()).toContain('pl-md-0');
-            expect(sidebar.attributes('order-md')).toBe('');
-            expect(sidebar.attributes('offset-xl')).toBe('');
             expect(content.attributes('offset-xl')).toBe('1');
         });
 
@@ -48,13 +46,11 @@ describe('VsArticleSection', () => {
 
             const section = wrapper.find('[data-test="vs-article-section"');
             const sidebar = wrapper.find('[data-test="vs-article-section__sidebar"');
-            const content = wrapper.find('[data-test="vs-article-section__content"');
 
             expect(section.classes()).toContain('vs-article-section--sidebar-right');
             expect(sidebar.classes()).toContain('pr-md-0');
             expect(sidebar.attributes('order-md')).toBe('2');
             expect(sidebar.attributes('offset-xl')).toBe('1');
-            expect(content.attributes('offset-xl')).toBe('');
         });
     });
 

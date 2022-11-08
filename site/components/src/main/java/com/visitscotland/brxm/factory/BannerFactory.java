@@ -65,7 +65,6 @@ public class BannerFactory {
             module.setErrorMessages(Collections.singletonList(errorMessage));
             contentLogger.error(errorMessage);
         }else{
-            module.setTitle(document.getTitle());
             module.setCopy(document.getCopy());
             module.setCtaLink(ctaLink);
         }

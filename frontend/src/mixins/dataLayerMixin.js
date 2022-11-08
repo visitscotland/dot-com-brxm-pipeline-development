@@ -27,6 +27,11 @@ const dataLayerMixin = {
             return dataLayerStore.getters.getPageUrl;
         },
     },
+    data() {
+        return {
+            dataLayerLoadConfirmed: [],
+        };
+    },
     methods: {
         // This function matches values passed as an object
         // To the template listed on data-layer-template.js
@@ -346,10 +351,16 @@ const dataLayerMixin = {
             return date.toISOString();
         },
         pushToDataLayer(object) {
-            checkVendorLibrary('dataLayer', () => {
+            if (!this.dataLayerLoadConfirmed) {
+                checkVendorLibrary('dataLayer', () => {
+                    this.dataLayerLoadConfirmed = true;
+                    // eslint-disable-next-line
+                    dataLayer.push(object);
+                });
+            } else {
                 // eslint-disable-next-line
                 dataLayer.push(object);
-            });
+            }
         },
         compileFullTemplate(templateValues) {
             const storeValues = dataLayerStore.getters.getAllGTMValues;

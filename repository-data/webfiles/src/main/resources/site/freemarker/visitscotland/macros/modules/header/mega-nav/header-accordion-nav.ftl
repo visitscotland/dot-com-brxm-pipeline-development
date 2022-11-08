@@ -10,7 +10,6 @@
         <#list menu.siteMenuItems as item>
             <#if item.title?has_content>
                 <#if !(item.cta??)>
-                    NOO ITEM CTA
                     <@log "The Top Navigation element "+ item.title +
                         " has not defined a link  " />
                 </#if>
