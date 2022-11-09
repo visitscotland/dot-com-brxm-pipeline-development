@@ -159,7 +159,7 @@ export default {
             text-align: left;
         }
         .vs-caption__caption-info{
-            padding: $spacer-3 0;
+            padding: $spacer-3 $spacer-3;
         }
     }
 
@@ -216,6 +216,7 @@ export default {
     }
 
 }
+
 @include no-js {
     .vs-image-with-caption__caption-wrapper{
         @include media-breakpoint-down(xs) {

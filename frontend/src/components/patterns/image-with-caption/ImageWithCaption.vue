@@ -45,7 +45,7 @@
                     :video-id="videoId"
                     :cookie-link-text="cookieLinkText"
                     :error-message="errorMessage"
-                    :variant="narrowVideo ? 'narrow' : 'fullwidth'"
+                    :variant="smallPlayButton ? 'narrow' : 'wide'"
                 >
                     <!-- @slot Slot for the video title text -->
                     <template slot="video-title">
@@ -171,10 +171,10 @@ export default {
             default: '',
         },
         /**
-         * Set to true if conmponent displays a video and is in a narrow container, adjusts
+         * Set to true if component displays a video and is in a narrow container, adjusts
          * the layout of the play button
         */
-        narrowVideo: {
+        smallPlayButton: {
             type: Boolean,
             default: false,
         },
@@ -231,8 +231,7 @@ export default {
                 'vs-image-with-caption--hero': this.isHeroImage,
                 'vs-image-with-caption--show-caption': !this.requiredCookiesExist && this.setCookieStatus === true,
                 'vs-image-with-caption--video': this.isVideo,
-                'vs-image-with-caption--video-fullwidth': this.isVideo && !this.narrowVideo,
-                'vs-image-with-caption--video-narrow': this.isVideo && this.narrowVideo,
+                'vs-image-with-caption--video-small-play-button': this.isVideo && this.smallPlayButton,
             };
         },
         captionWrapperClasses() {
@@ -422,39 +421,6 @@ export default {
                     .vs-image-with-caption__caption-wrapper {
                         display: flex;
                         margin-top: $spacer-2;
-                    }
-                }
-            }
-
-            &.vs-image-with-caption--video-narrow {
-                .vs-image-with-caption__video-caption-wrapper {
-                    padding: 0;
-                }
-
-                .vs-image-with-caption {
-                    &__image-wrapper {
-
-                        .vs-toggle-btn {
-                            @include media-breakpoint-between(sm, md) {
-                                display: block;
-                            }
-                        }
-                    }
-                }
-
-                .vs-caption .vs-caption__caption-info {
-                    padding: $spacer-4 $spacer-2 $spacer-3;
-                }
-
-                @include media-breakpoint-up(sm) {
-                    .vs-caption .vs-caption__caption-info {
-                        padding: $spacer-4 $spacer-5 $spacer-5;
-                    }
-                }
-
-                @include media-breakpoint-up(lg) {
-                    .vs-caption .vs-caption__caption-info {
-                        padding: $spacer-4 $spacer-2 $spacer-3;
                     }
                 }
             }

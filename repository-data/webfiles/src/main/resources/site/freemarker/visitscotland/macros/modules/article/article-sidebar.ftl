@@ -42,7 +42,7 @@
                     isVideo="true"
                     videoId="${section.video.youtubeId}"
                     videoTitle="${section.video.cta}"
-                    narrowVideo="true"
+                    smallPlayButton="true"
                 />
             </template>
         <#elseif section.image??>

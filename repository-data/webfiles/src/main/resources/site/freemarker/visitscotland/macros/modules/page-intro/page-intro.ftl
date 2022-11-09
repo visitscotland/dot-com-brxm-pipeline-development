@@ -86,7 +86,6 @@
                             variant="large"
                             isHero="true"
                             isVideo="true"
-                            narrowVideo="false"
                             videoId="${heroVideo.youtubeId}"
                             videoTitle="${heroVideo.label}"
                             videoBtn="${ctaText}"

@@ -2,18 +2,12 @@
     <div
         data-test="video-caption"
         class="vs-video-caption__wrapper"
-        :class="{
-            'vs-video-caption__wrapper--fullwidth': variant == 'fullwidth',
-            'vs-video-caption__wrapper--narrow': variant == 'narrow',
-        }"
+        :class="`vs-video-caption__wrapper--${variant}`"
     >
         <div
             data-test="video-caption-variants"
             class="vs-video-caption"
-            :class="{
-                'vs-video-caption--fullwidth': variant == 'fullwidth',
-                'vs-video-caption--narrow': variant == 'narrow',
-            }"
+            :class="`vs-video-caption--${variant}`"
             v-if="videoLoaded && requiredCookiesExist"
             key="video-caption"
         >
@@ -147,13 +141,13 @@ export default {
         },
         /**
          * Style variant based on caption container width
-         * `fullwidth|narrow`.
+         * `wide|narrow`.
          */
         variant: {
             type: String,
-            default: 'fullwidth',
+            default: 'wide',
             validator: (value) => value.match(
-                /(fullwidth|narrow)/,
+                /(wide|narrow)/,
             ),
         },
     },
@@ -305,7 +299,7 @@ export default {
         }
     }
 
-    .vs-video-caption--fullwidth {
+    .vs-video-caption--wide {
         @include media-breakpoint-up(sm) {
             .vs-video-caption__details {
                 display: flex;
