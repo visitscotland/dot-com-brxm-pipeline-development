@@ -6,7 +6,6 @@ import org.onehippo.cms.services.validation.api.Violation;
 
 import javax.jcr.Node;
 import javax.jcr.RepositoryException;
-import javax.jcr.Value;
 import java.util.Optional;
 
 /**
