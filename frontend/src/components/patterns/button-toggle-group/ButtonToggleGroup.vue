@@ -9,17 +9,39 @@
             class="vs-button-toggle-group--radios"
             id="btn-radios-1"
             v-model="selected"
-            :options="options"
             :aria-describedby="ariaDescribedby"
             name="radios-btn-default"
             buttons
             @change="toggleChange"
-        />
+        >
+            <div
+                v-for="option in options"
+                :key="option.text"
+                class="vs-button-toggle-group--button"
+            >
+                <BFormRadio
+                    :value="option.value"
+                    :key="option.text"
+                >
+                    <VsSvg
+                        :path="iconPath(option)"
+                        class="mr-2"
+                    />
+                    {{ option.text }}
+                </BFormRadio>
+            </div>
+        </BFormRadioGroup>
     </BFormGroup>
 </template>
 
 <script>
-import { BFormGroup, BFormRadioGroup } from 'bootstrap-vue';
+import {
+    BFormGroup,
+    BFormRadioGroup,
+    BFormRadio,
+} from 'bootstrap-vue';
+
+import VsSvg from '@components/elements/svg/Svg';
 
 /**
  * A group of buttons that allow only one to be selected at a time
@@ -34,6 +56,8 @@ export default {
     components: {
         BFormGroup,
         BFormRadioGroup,
+        BFormRadio,
+        VsSvg,
     },
     props: {
         /**
@@ -64,6 +88,11 @@ export default {
             selected: this.initialSelected,
         };
     },
+    watch: {
+        initialSelected(newVal) {
+            this.selected = newVal;
+        },
+    },
     mounted() {
         if (this.initialSelected === '') {
             this.selected = this.options[0].value;
@@ -77,6 +106,13 @@ export default {
         toggleChange(checked) {
             this.$emit('toggleChanged', checked);
         },
+        /**
+         * Return icon path for icon
+         */
+        iconPath(option) {
+            const color = this.selected === option.value ? 'purple' : 'white';
+            return `${option.icon}-${color}`;
+        },
     },
 };
 </script>
@@ -84,7 +120,12 @@ export default {
 <style lang="scss">
     .vs-button-toggle-group {
         width: 100%;
-        text-align: center;
+        display: flex;
+        justify-content: center;
+
+        &:focus {
+            outline: 8px solid blue;
+        }
 
         legend {
             // sr-only styles
@@ -100,7 +141,7 @@ export default {
 
         &--radios {
             background-color: $color-purple;
-            display: inline-block;
+            display: flex;
             border-radius: 1000px;
             overflow: hidden;
 
@@ -113,6 +154,10 @@ export default {
             label.btn-secondary {
                 @extend %button-default-styles;
                 text-transform: uppercase;
+                padding-top: $spacer-2;
+                padding-bottom: $spacer-2;
+                display: flex;
+                align-items: center;
 
                 @include vs-button-variant(
                     $color-white, $color-purple, $color-purple,
@@ -121,18 +166,39 @@ export default {
                 );
 
                 &:not(:disabled):not(.disabled).active {
+                    z-index: 2;
                     border-radius: 1000px;
 
                     @include vs-button-variant(
                         $color-purple, $color-white, $color-purple,
-                        $color-white, $color-purple, $color-purple,
+                        $color-purple, $color-white, $color-purple,
                         $color-white, $color-purple, $color-purple,
                     );
-                }
 
-                &.active {
-                    z-index: 2;
+                    @include media-breakpoint-up(lg) {
+                        @include vs-button-variant(
+                            $color-purple, $color-white, $color-purple,
+                            $color-white, $color-purple, $color-purple,
+                            $color-white, $color-purple, $color-purple,
+                        );
+                    }
                 }
+            }
+        }
+
+        &--button {
+            display: flex;
+            border: 1px solid $color-purple;
+
+            &:first-child {
+                margin-right: -(#{$spacer-4});
+                border-top-left-radius: 10000px;
+                border-bottom-left-radius: 10000px;
+            }
+
+            &:last-child {
+                border-top-right-radius: 10000px;
+                border-bottom-right-radius: 10000px;
             }
         }
     }

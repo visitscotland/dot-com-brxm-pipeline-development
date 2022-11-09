@@ -64,7 +64,7 @@
                             @set-category="setCategory"
                         />
                         <VsButtonToggleGroup
-                            :initial-selected="initialSelected"
+                            :initial-selected="selectedToggle"
                             :options="toggleData"
                             :buttons-label="buttonsLabel"
                             @toggleChanged="onToggleChanged"
@@ -178,6 +178,7 @@ export default {
             selectedItem: '',
             activePins: this.placesData,
             currentlyHovered: '',
+            selectedToggle: this.initialSelected,
         };
     },
     computed: {
@@ -235,6 +236,14 @@ export default {
         setCategory(cat) {
             this.selectedCategory = cat;
             this.filterPlaces(cat);
+
+            console.log(cat);
+
+            if (cat === 'regions') {
+                this.selectedToggle = 'regions';
+            } else {
+                this.selectedToggle = 'places';
+            }
         },
         /**
          * Sets the current stage
