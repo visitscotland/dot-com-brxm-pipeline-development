@@ -49,7 +49,9 @@ definitions:
         Choose a Destination Page or Stop.
       visitscotland:link-validator#mapcoordinates: You can’t link to that type of document.
         Choose a General, Listicle or Itinerary page.
-      visitscotland:map-module-validator: Title or Tab title sould be populated.
+      visitscotland:map-module-validator: Title or Map Main Tab title sould be populated.
+      visitscotland:map-page-validator#generalPage: Please select only the root node for the desired Map Category
+      visitscotland:map-page-validator#destinationPage: Please leave Map Category field empty for Destinaton pages
       visitscotland:youtube-url-validator: Enter a valid Youtube link URL
       visitscotland:featured-widget-validator: Invalid featured widget
       visitscotland:featured-widget-validator#multipleFeaturedEvent: Only 1 featured event allowed.

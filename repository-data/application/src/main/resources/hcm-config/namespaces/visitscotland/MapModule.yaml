@@ -16,7 +16,7 @@ definitions:
           hipposysedit:supertype: ['hippotranslation:translated', 'hippotaxonomy:classifiable',
             'visitscotland:basedocument', 'hippostd:relaxed']
           hipposysedit:uri: http://www.visitscotland.com/visitscotland/nt/1.0
-          hipposysedit:validators: ['visitscotland:map-module-validator']
+          hipposysedit:validators: ['visitscotland:map-module-validator', 'visitscotland:map-page-validator']
           /title:
             jcr:primaryType: hipposysedit:field
             hipposysedit:mandatory: false
@@ -51,6 +51,11 @@ definitions:
             hipposysedit:path: visitscotland:categories
             hipposysedit:type: hippo:compound
             hipposysedit:validators: [contentblocks-validator]
+          /keys:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:multiple: true
+            hipposysedit:path: hippotaxonomy:keys
+            hipposysedit:type: String
       /hipposysedit:prototypes:
         jcr:primaryType: hipposysedit:prototypeset
         /hipposysedit:prototype:
@@ -135,13 +140,15 @@ definitions:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
               maxitems: 1
-          /classifiable:
+          /keys:
             jcr:primaryType: frontend:plugin
-            essentials-taxonomy-name: Visitscotland-categories
-            mixin: hippotaxonomy:classifiable
-            plugin.class: org.hippoecm.frontend.editor.plugins.mixin.MixinLoaderPlugin
+            caption: Map Category
+            hint: ${hint}
+            mode: ${mode}
+            model.compareTo: ${model.compareTo}
+            plugin.class: org.onehippo.taxonomy.plugin.TaxonomyPickerPlugin
+            taxonomy.classification.dao: service.taxonomy.dao
+            taxonomy.id: service.taxonomy
+            taxonomy.name: Visitscotland-categories
             wicket.id: ${cluster.id}.right.item
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
-              taxonomy.name: Visitscotland-categories
-              caption: Map Categories
+            wicket.model: ${wicket.model}
