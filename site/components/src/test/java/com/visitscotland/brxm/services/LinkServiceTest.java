@@ -17,6 +17,7 @@ import com.visitscotland.brxm.dms.ProductSearchBuilder;
 import com.visitscotland.brxm.model.Module;
 import com.visitscotland.brxm.model.megalinks.EnhancedLink;
 import com.visitscotland.brxm.model.YoutubeVideo;
+import com.visitscotland.brxm.utils.ContentLogger;
 import com.visitscotland.brxm.utils.HippoUtilsService;
 import com.visitscotland.brxm.utils.Properties;
 import com.visitscotland.brxm.dms.DMSConstants;
@@ -71,6 +72,9 @@ class LinkServiceTest {
 
     @Mock
     private YoutubeApiService youtubeApiService;
+
+    @Mock
+    ContentLogger logger;
 
     @Resource
     @InjectMocks

@@ -14,6 +14,7 @@ import com.visitscotland.brxm.model.navigation.FeaturedItem;
 import com.visitscotland.brxm.model.navigation.NavigationWidget;
 import com.visitscotland.brxm.services.LinkService;
 import com.visitscotland.brxm.services.ResourceBundleService;
+import com.visitscotland.brxm.utils.ContentLogger;
 import com.visitscotland.brxm.utils.HippoUtilsService;
 import com.visitscotland.utils.Contract;
 import org.hippoecm.hst.content.beans.standard.HippoBean;
@@ -31,7 +32,7 @@ import java.util.*;
 public class NavigationFactory {
 
     private static final Logger logger = LoggerFactory.getLogger(NavigationFactory.class);
-    private static final Logger contentLogger = LoggerFactory.getLogger("content");
+
 
     static final String STATIC = "navigation.static";
     static final String CTA_SUFFIX = ".cta";
@@ -42,12 +43,15 @@ public class NavigationFactory {
     private HippoUtilsService utils;
     private LinkService linkService;
     private ProductSearchBuilder productSearchBuilder;
+    private final Logger contentLogger;
 
-    public NavigationFactory(ResourceBundleService bundle, HippoUtilsService utils, LinkService linkService, ProductSearchBuilder productSearchBuilder) {
+    public NavigationFactory(ResourceBundleService bundle, HippoUtilsService utils, LinkService linkService, ProductSearchBuilder productSearchBuilder,
+                             ContentLogger contentLogger) {
         this.bundle = bundle;
         this.utils = utils;
         this.linkService = linkService;
         this.productSearchBuilder = productSearchBuilder;
+        this.contentLogger = contentLogger;
     }
 
     /**

@@ -1,7 +1,9 @@
 package com.visitscotland.brxm.translation.plugin;
 
+import com.visitscotland.brxm.config.VsComponentManager;
 import com.visitscotland.brxm.hippobeans.capabilities.TranslationParent;
 import com.visitscotland.brxm.translation.SessionFactory;
+import com.visitscotland.brxm.utils.ContentLogger;
 import org.hippoecm.frontend.translation.ILocaleProvider;
 import org.hippoecm.hst.content.beans.ObjectBeanManagerException;
 import org.hippoecm.hst.content.beans.standard.HippoBean;
@@ -23,11 +25,14 @@ import java.util.List;
 public class DocumentTranslator {
     public static final String COULD_NOT_CREATE_FOLDERS = "could-not-create-folders";
     private static final Logger logger = LoggerFactory.getLogger(DocumentTranslator.class);
-    private static final Logger contentLog = LoggerFactory.getLogger("content");
     private HippoTranslatedNodeFactory hippoTranslatedNodeFactory;
     private SessionFactory sessionFactory;
     private JcrDocumentFactory jcrDocumentFactory;
     private ChangeSetFactory changeSetFactory;
+
+    private Logger getContentLogger(){
+        return VsComponentManager.get(ContentLogger.class);
+    }
 
     public DocumentTranslator() {
         this(new HippoTranslatedNodeFactory(),
@@ -120,7 +125,7 @@ public class DocumentTranslator {
             JcrDocument linkDocument = jcrDocumentFactory.createFromNode(linkedNode);
             if (linkDocument.isDeleted()) {
                 // Links can reference deleted documents - these should be fixed immediately
-                contentLog.error("Document {} contains reference to deleted item {}", sourceDocument.getPath(), linkDocument.getHandle().getPath());
+                getContentLogger().error("Document {} contains reference to deleted item {}", sourceDocument.getPath(), linkDocument.getHandle().getPath());
                 throw new TranslationException(String.format("Document %s contains link to deleted item", sourceDocument.getPath()));
             }
 

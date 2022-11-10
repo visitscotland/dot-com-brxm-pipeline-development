@@ -11,6 +11,7 @@ import com.visitscotland.brxm.mock.CannedSearchToursMockBuilder;
 import com.visitscotland.brxm.model.*;
 import com.visitscotland.brxm.services.LinkService;
 import com.visitscotland.brxm.services.ResourceBundleService;
+import com.visitscotland.brxm.utils.ContentLogger;
 import com.visitscotland.brxm.utils.Properties;
 import org.hippoecm.hst.core.container.ComponentManager;
 import org.junit.jupiter.api.Assertions;
@@ -42,6 +43,9 @@ class CannedSearchFactoryTest {
 
     @Mock
     Properties properties;
+
+    @Mock
+    ContentLogger logger;
 
     @InjectMocks
     CannedSearchFactory factory;

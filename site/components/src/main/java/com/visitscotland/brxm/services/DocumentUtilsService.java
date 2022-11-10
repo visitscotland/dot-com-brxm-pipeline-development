@@ -3,6 +3,7 @@ package com.visitscotland.brxm.services;
 import com.visitscotland.brxm.hippobeans.BaseDocument;
 import com.visitscotland.brxm.hippobeans.Page;
 import com.visitscotland.brxm.model.LocalizedURL;
+import com.visitscotland.brxm.utils.ContentLogger;
 import com.visitscotland.brxm.utils.HippoUtilsService;
 import com.visitscotland.brxm.utils.Language;
 import com.visitscotland.brxm.utils.Properties;
@@ -27,18 +28,21 @@ import java.util.*;
 public class DocumentUtilsService {
 
     private static final Logger logger = LoggerFactory.getLogger(DocumentUtilsService.class.getName());
-    private static final Logger contentLog = LoggerFactory.getLogger("content");
+
 
     public static final String DOCUMENT_TYPE = "jcr:primaryType";
 
     private final HippoUtilsService utils;
     private final ResourceBundleService bundle;
     private final Properties properties;
+    private final Logger contentLog;
 
-    public DocumentUtilsService(HippoUtilsService utils, ResourceBundleService bundle, Properties properties) {
+    public DocumentUtilsService(HippoUtilsService utils, ResourceBundleService bundle, Properties properties,
+                                ContentLogger contentLogger) {
         this.utils = utils;
         this.bundle = bundle;
         this.properties = properties;
+        this.contentLog = contentLogger;
     }
 
     /**

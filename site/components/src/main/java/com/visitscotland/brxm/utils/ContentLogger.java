@@ -4,12 +4,28 @@ import org.slf4j.LoggerFactory;
 
 import org.slf4j.Logger;
 import org.slf4j.Marker;
+import org.springframework.stereotype.Component;
+
+import java.io.Serializable;
+import java.util.Arrays;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
- * The purpose of this logger is to encapsulate
+ * The purpose of this logger is to encapsulate messages logged to report to the content team
  */
+@Component
 public class ContentLogger implements Logger {
-    private final Logger logger = LoggerFactory.getLogger(ContentLogger.class);
+    private final Logger logger;
+
+    public ContentLogger(){
+        logger = LoggerFactory.getLogger(ContentLogger.class);
+    }
+
+    ContentLogger(Logger logger){
+        this.logger = logger;
+    }
 
     public String getName() {
         return logger.getName();
@@ -20,23 +36,23 @@ public class ContentLogger implements Logger {
     }
 
     public void trace(String s) {
-        logger.trace(s);
+        logger.error("Content Logger is not Supported on trace mode");
     }
 
     public void trace(String s, Object o) {
-        logger.trace(s, o);
+        logger.error("Content Logger is not Supported on trace mode");
     }
 
     public void trace(String s, Object o, Object o1) {
-        logger.trace(s, o, o1);
+        logger.error("Content Logger is not Supported on trace mode");
     }
 
     public void trace(String s, Object... objects) {
-        logger.trace(s, objects);
+        logger.error("Content Logger is not Supported on trace mode");
     }
 
     public void trace(String s, Throwable throwable) {
-        logger.trace(s, throwable);
+        logger.error("Content Logger is not Supported on trace mode");
     }
 
     public boolean isTraceEnabled(Marker marker) {
@@ -44,23 +60,23 @@ public class ContentLogger implements Logger {
     }
 
     public void trace(Marker marker, String s) {
-        logger.trace(marker, s);
+        logger.error("Content Logger is not Supported on trace mode");
     }
 
     public void trace(Marker marker, String s, Object o) {
-        logger.trace(marker, s, o);
+        logger.error("Content Logger is not Supported on trace mode");
     }
 
     public void trace(Marker marker, String s, Object o, Object o1) {
-        logger.trace(marker, s, o, o1);
+        logger.error("Content Logger is not Supported on trace mode");
     }
 
     public void trace(Marker marker, String s, Object... objects) {
-        logger.trace(marker, s, objects);
+        logger.error("Content Logger is not Supported on trace mode");
     }
 
     public void trace(Marker marker, String s, Throwable throwable) {
-        logger.trace(marker, s, throwable);
+        logger.error("Content Logger is not Supported on trace mode");
     }
 
     public boolean isDebugEnabled() {
@@ -68,23 +84,33 @@ public class ContentLogger implements Logger {
     }
 
     public void debug(String s) {
-        logger.debug(s);
+        if (canLog(s)){
+            logger.debug(s);
+        }
     }
 
     public void debug(String s, Object o) {
-        logger.debug(s, o);
+        if (canLog(s, o)){
+            logger.debug(s, o);
+        }
     }
 
     public void debug(String s, Object o, Object o1) {
-        logger.debug(s, o, o1);
+        if (canLog(s, o, o1)){
+            logger.debug(s, o, o1);
+        }
     }
 
     public void debug(String s, Object... objects) {
-        logger.debug(s, objects);
+        if (canLog(s, objects)){
+            logger.debug(s, objects);
+        }
     }
 
     public void debug(String s, Throwable throwable) {
-        logger.debug(s, throwable);
+        if (canLog(s)){
+            logger.debug(s, throwable);
+        }
     }
 
     public boolean isDebugEnabled(Marker marker) {
@@ -92,23 +118,33 @@ public class ContentLogger implements Logger {
     }
 
     public void debug(Marker marker, String s) {
-        logger.debug(marker, s);
+        if (canLog(s)){
+            logger.debug(marker, s);
+        }
     }
 
     public void debug(Marker marker, String s, Object o) {
-        logger.debug(marker, s, o);
+        if (canLog(s, o)){
+            logger.debug(marker, s, o);
+        }
     }
 
     public void debug(Marker marker, String s, Object o, Object o1) {
-        logger.debug(marker, s, o, o1);
+        if (canLog(s, o, o1)){
+            logger.debug(marker, s, o, o1);
+        }
     }
 
     public void debug(Marker marker, String s, Object... objects) {
-        logger.debug(marker, s, objects);
+        if (canLog(s, objects)){
+            logger.debug(marker, s, objects);
+        }
     }
 
     public void debug(Marker marker, String s, Throwable throwable) {
-        logger.debug(marker, s, throwable);
+        if (canLog(s)){
+            logger.debug(marker, s, throwable);
+        }
     }
 
     public boolean isInfoEnabled() {
@@ -116,23 +152,33 @@ public class ContentLogger implements Logger {
     }
 
     public void info(String s) {
-        logger.info(s);
+        if (canLog(s)){
+            logger.info(s);
+        }
     }
 
     public void info(String s, Object o) {
-        logger.info(s, o);
+        if (canLog(s, o)){
+            logger.info(s, o);
+        }
     }
 
     public void info(String s, Object o, Object o1) {
-        logger.info(s, o, o1);
+        if (canLog(s, o, o1)){
+            logger.info(s, o, o1);
+        }
     }
 
     public void info(String s, Object... objects) {
-        logger.info(s, objects);
+        if (canLog(s, objects)){
+            logger.info(s, objects);
+        }
     }
 
     public void info(String s, Throwable throwable) {
-        logger.info(s, throwable);
+        if (canLog(s)){
+            logger.info(s, throwable);
+        }
     }
 
     public boolean isInfoEnabled(Marker marker) {
@@ -140,23 +186,33 @@ public class ContentLogger implements Logger {
     }
 
     public void info(Marker marker, String s) {
-        logger.info(marker, s);
+        if (canLog(s)){
+            logger.info(marker, s);
+        }
     }
 
     public void info(Marker marker, String s, Object o) {
-        logger.info(marker, s, o);
+        if (canLog(s, o)){
+            logger.info(marker, s, o);
+        }
     }
 
     public void info(Marker marker, String s, Object o, Object o1) {
-        logger.info(marker, s, o, o1);
+        if (canLog(s, o, o1)){
+            logger.info(marker, s, o, o1);
+        }
     }
 
     public void info(Marker marker, String s, Object... objects) {
-        logger.info(marker, s, objects);
+        if (canLog(s, objects)){
+            logger.info(marker, s, objects);
+        }
     }
 
     public void info(Marker marker, String s, Throwable throwable) {
-        logger.info(marker, s, throwable);
+        if (canLog(s)){
+            logger.info(marker, s, throwable);
+        }
     }
 
     public boolean isWarnEnabled() {
@@ -164,23 +220,33 @@ public class ContentLogger implements Logger {
     }
 
     public void warn(String s) {
-        logger.warn(s);
+        if (canLog(s)){
+            logger.warn(s);
+        }
     }
 
     public void warn(String s, Object o) {
-        logger.warn(s, o);
+        if (canLog(s, o)){
+            logger.warn(s, o);
+        }
     }
 
     public void warn(String s, Object... objects) {
-        logger.warn(s, objects);
+        if (canLog(s)){
+            logger.warn(s, objects);
+        }
     }
 
     public void warn(String s, Object o, Object o1) {
-        logger.warn(s, o, o1);
+        if (canLog(s, o, o1)){
+            logger.warn(s, o, o1);
+        }
     }
 
     public void warn(String s, Throwable throwable) {
-        logger.warn(s, throwable);
+        if (canLog(s)){
+            logger.warn(s, throwable);
+        }
     }
 
     public boolean isWarnEnabled(Marker marker) {
@@ -188,23 +254,33 @@ public class ContentLogger implements Logger {
     }
 
     public void warn(Marker marker, String s) {
-        logger.warn(marker, s);
+        if (canLog(s)){
+            logger.warn(marker, s);
+        }
     }
 
     public void warn(Marker marker, String s, Object o) {
-        logger.warn(marker, s, o);
+        if (canLog(s, o)){
+            logger.warn(marker, s, o);
+        }
     }
 
     public void warn(Marker marker, String s, Object o, Object o1) {
-        logger.warn(marker, s, o, o1);
+        if (canLog(s, o, o1)){
+            logger.warn(marker, s, o, o1);
+        }
     }
 
     public void warn(Marker marker, String s, Object... objects) {
-        logger.warn(marker, s, objects);
+        if (canLog(s, objects)){
+            logger.warn(marker, s, objects);
+        }
     }
 
     public void warn(Marker marker, String s, Throwable throwable) {
-        logger.warn(marker, s, throwable);
+        if (canLog(s)){
+            logger.warn(marker, s, throwable);
+        }
     }
 
     public boolean isErrorEnabled() {
@@ -212,23 +288,33 @@ public class ContentLogger implements Logger {
     }
 
     public void error(String s) {
-        logger.error(s);
+        if (canLog(s)){
+            logger.error(s);
+        }
     }
 
     public void error(String s, Object o) {
-        logger.error(s, o);
+        if (canLog(s,o)){
+            logger.error(s, o);
+        }
     }
 
     public void error(String s, Object o, Object o1) {
-        logger.error(s, o, o1);
+        if (canLog(s, o, o1)){
+            logger.error(s, o, o1);
+        }
     }
 
     public void error(String s, Object... objects) {
-        logger.error(s, objects);
+        if (canLog(s, objects)){
+            logger.error(s, objects);
+        }
     }
 
     public void error(String s, Throwable throwable) {
-        logger.error(s, throwable);
+        if (canLog(s)){
+            logger.error(s, throwable);
+        }
     }
 
     public boolean isErrorEnabled(Marker marker) {
@@ -236,22 +322,82 @@ public class ContentLogger implements Logger {
     }
 
     public void error(Marker marker, String s) {
-        logger.error(marker, s);
+        if (canLog(s)){
+            logger.error(marker, s);
+        }
     }
 
     public void error(Marker marker, String s, Object o) {
-        logger.error(marker, s, o);
+        if (canLog(s, o)){
+            logger.error(marker, s, o);
+        }
     }
 
     public void error(Marker marker, String s, Object o, Object o1) {
-        logger.error(marker, s, o, o1);
+        if (canLog(s, o, o1)){
+            logger.error(marker, s, o, o1);
+        }
     }
 
     public void error(Marker marker, String s, Object... objects) {
-        logger.error(marker, s, objects);
+        if (canLog(s, objects)){
+            logger.error(marker, s, objects);
+        }
     }
 
     public void error(Marker marker, String s, Throwable throwable) {
-        logger.error(marker, s, throwable);
+        if (canLog(s)){
+            logger.error(marker, s, throwable);
+        }
+    }
+
+    private boolean canLog(String message, Object... args){
+        Message m = new Message(message, args);
+        Date date = messages.get(m);
+        if (date == null || date.before(new Date())){
+            messages.put(m, new Date(new Date().getTime() + ONE_DAY));
+            return true;
+        }
+        return false;
+    }
+
+    private final static long ONE_DAY = 24*60*60*1000;
+
+    private Map<Message, Date> messages = new HashMap<>();
+
+    private void cleanUpIfNeeded(){
+        //TODO
+    }
+
+    private class Message implements Serializable {
+        private final String message;
+        private final Object[] args;
+
+        private Message(String message, Object... args){
+            this.message = message;
+            this.args = args;
+        }
+
+        private void getObjectSize(){
+
+            return ;
+        }
+        //Autogenerated by IntelliJ
+        @Override
+        public boolean equals(Object o) {
+            if (this == o) return true;
+            if (o == null || getClass() != o.getClass()) return false;
+            Message message1 = (Message) o;
+            if (!message.equals(message1.message)) return false;
+            return Arrays.equals(args, message1.args);
+        }
+
+        //Autogenerated by IntelliJ
+        @Override
+        public int hashCode() {
+            int result = message.hashCode();
+            result = 31 * result + Arrays.hashCode(args);
+            return result;
+        }
     }
 }
