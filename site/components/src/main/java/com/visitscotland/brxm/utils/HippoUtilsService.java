@@ -321,8 +321,7 @@ public class HippoUtilsService {
         try {
             return hstQuery.execute();
         } catch (QueryException e) {
-            //TODO print right message, this is already in develop
-            e.printStackTrace();
+            logger.warn("HstQuery failed to obtain documents by taxonomy", e);
         }
         return null;
     }

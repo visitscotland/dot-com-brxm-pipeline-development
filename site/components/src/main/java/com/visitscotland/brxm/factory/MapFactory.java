@@ -25,12 +25,14 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 import java.util.Locale;
 
 import static com.visitscotland.brxm.dms.DMSConstants.DMSProduct.*;
 
+//TODO try to use jackson instead of gson??
 @Component
 public class MapFactory {
 
@@ -38,7 +40,10 @@ public class MapFactory {
     static final String LABEL = "label";
     static final String DISCOVER = "map.discover";
     static final String PROPERTIES = "properties";
+    static final String REGIONS = "regions";
+    static final String POINT = "Point";
 
+    private final DMSDataService dmsService;
     private final LinkService linkService;
     private final LocationLoader locationLoader;
     private final DMSDataService dmsDataService;
@@ -47,8 +52,8 @@ public class MapFactory {
     private final HippoUtilsService hippoUtilsService;
     private static final Logger contentLogger = LoggerFactory.getLogger("content");
 
-    public MapFactory(LinkService linkService, LocationLoader locationLoader, DMSDataService dmsDataService, ImageFactory imageFactory , ResourceBundleService bundle, HippoUtilsService hippoUtilsService) {
-
+    public MapFactory(DMSDataService dmsService,LinkService linkService, LocationLoader locationLoader, DMSDataService dmsDataService, ImageFactory imageFactory , ResourceBundleService bundle, HippoUtilsService hippoUtilsService) {
+        this.dmsService = dmsService;
         this.linkService = linkService;
         this.locationLoader = locationLoader;
         this.dmsDataService = dmsDataService;
@@ -77,10 +82,10 @@ public class MapFactory {
         featureCollectionGeoJson.addProperty("type", "FeatureCollection");
         JsonArray features = new JsonArray();
         JsonArray keys = new JsonArray();
-        if (!(page instanceof General)) {
-            buildMapDestinationPages(request, mapModuleDocument, module, keys, features);
-        } else {
+        if (page instanceof General) {
             buildMapGeneralPages(request, mapModuleDocument, module, keys, features);
+        } else if (page instanceof Destination) {
+            buildMapDestinationPages(request,(Destination)page, mapModuleDocument, module, keys, features);
         }
         //add first Json for filters
         module.setFilters(keys);
@@ -135,7 +140,7 @@ public class MapFactory {
      * @param keys filters for maps
      * @param features features information for mapcards
      */
-    private void buildMapDestinationPages (HstRequest request, MapModule mapModuleDocument, MapsModule module, JsonArray keys , JsonArray features){
+    private void buildMapDestinationPages (HstRequest request,Destination destinationPage, MapModule mapModuleDocument, MapsModule module, JsonArray keys , JsonArray features){
         //TODO differentiate between cities and regions and bring the right filters for each of them.
         if (!Contract.isNull(mapModuleDocument.getFeaturedPlacesItem())) {
             addFeaturePlacesNode(module, mapModuleDocument.getCategories(), request.getLocale() , keys, features);
@@ -174,16 +179,13 @@ public class MapFactory {
 
     /**
      * Method to build the geometry node for the GeoJson file generated for maps
-     * @param latitude latitude value for the pin/mapcard
-     * @param longitude longitude value for the pin/mapcard
+     * @param type coordinate type
+     * @param coordinates coordinates
      * @return JsonObject with the right format to be consumed by the front end team
      */
-    private JsonObject getGeometryNode(Double latitude, Double longitude) {
+    private JsonObject getGeometryNode(JsonArray coordinates, String type) {
         JsonObject geometry = new JsonObject();
-        JsonArray coordinates = new JsonArray();
-        coordinates.add(longitude);
-        coordinates.add(latitude);
-        geometry.addProperty("type", "Point");
+        geometry.addProperty("type", type);
         geometry.add("coordinates", coordinates);
 
         return geometry;
@@ -232,7 +234,10 @@ public class MapFactory {
                     SpecialLinkCoordinates linkCoordinates = ((SpecialLinkCoordinates) link);
                     Page otherPage = (Page)(linkCoordinates).getLink();
                     buildPageNode(locale, filter, module,otherPage,feat);
-                    feat.add(GEOMETRY, getGeometryNode(((SpecialLinkCoordinates)link).getCoordinates().getLatitude(), ((SpecialLinkCoordinates)link).getCoordinates().getLongitude()));
+                    JsonArray coordinates = new JsonArray();
+                    coordinates.add(((SpecialLinkCoordinates)link).getCoordinates().getLongitude());
+                    coordinates.add(((SpecialLinkCoordinates)link).getCoordinates().getLatitude());
+                    feat.add(GEOMETRY, getGeometryNode(coordinates,POINT));
                 }
                 features.add(feat);
             }
@@ -344,7 +349,10 @@ public class MapFactory {
                 }
                 feature.add("properties", getPropertyNode(stop.getTitle(), description,
                         image, category, flatLink, stop.getCanonicalUUID()));
-                feature.add(GEOMETRY, getGeometryNode(latitude, longitude));
+                JsonArray coordinates = new JsonArray();
+                coordinates.add(longitude);
+                coordinates.add(latitude);
+                feature.add(GEOMETRY, getGeometryNode(coordinates,POINT));
             }else{
                 String errorMessage = String.format("Failed to create map card '%s', please review the document attached at: %s", item.getDisplayName(), item.getPath() );
                 module.setErrorMessages(Collections.singletonList(errorMessage));
@@ -369,10 +377,17 @@ public class MapFactory {
                 imageFactory.createImage(page.getImage(), module, locale), category,
                 flatLink, page.getCanonicalUUID());
         if (page instanceof Destination){
-            LocationObject location = locationLoader.getLocation(((Destination)page).getLocation(), Locale.UK);
-            properties.addProperty("locationId", location.getKey());
+            Destination destination = (Destination) page;
+            LocationObject location = locationLoader.getLocation(destination.getLocation(), Locale.UK);
             feature.add(PROPERTIES, properties);
-            feature.add(GEOMETRY, getGeometryNode(location.getLatitude(), location.getLongitude()));
+            if (Arrays.asList(destination.getKeys()).contains(REGIONS)){
+                feature.add(GEOMETRY, getGeometryNode(dmsService.getPolygonCoordinates(locationLoader.getLocation(destination.getLocation(), null).getId()),"Polygon"));
+            }else {
+                JsonArray coordinates = new JsonArray();
+                coordinates.add(location.getLongitude());
+                coordinates.add(location.getLatitude());
+                feature.add(GEOMETRY, getGeometryNode(coordinates,POINT));
+            }
         }else {
             feature.add(PROPERTIES, properties);
         }
