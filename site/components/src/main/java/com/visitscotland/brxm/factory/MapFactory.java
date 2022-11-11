@@ -15,18 +15,12 @@ import com.visitscotland.brxm.services.LinkService;
 import com.visitscotland.brxm.services.ResourceBundleService;
 import com.visitscotland.brxm.utils.HippoUtilsService;
 import com.visitscotland.utils.Contract;
-import org.hippoecm.hst.content.beans.query.HstQuery;
 import org.hippoecm.hst.content.beans.query.HstQueryResult;
-import org.hippoecm.hst.content.beans.query.builder.HstQueryBuilder;
-import org.hippoecm.hst.content.beans.query.exceptions.QueryException;
 import org.hippoecm.hst.content.beans.standard.HippoBean;
 import org.hippoecm.hst.content.beans.standard.HippoBeanIterator;
 import org.hippoecm.hst.core.component.HstRequest;
-import org.hippoecm.hst.core.request.HstRequestContext;
-import org.hippoecm.hst.site.HstServices;
 import org.onehippo.taxonomy.api.Category;
 import org.onehippo.taxonomy.api.Taxonomy;
-import org.onehippo.taxonomy.api.TaxonomyManager;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
@@ -36,7 +30,6 @@ import java.util.List;
 import java.util.Locale;
 
 import static com.visitscotland.brxm.dms.DMSConstants.DMSProduct.*;
-import static org.hippoecm.hst.content.beans.query.builder.ConstraintBuilder.constraint;
 
 @Component
 public class MapFactory {
@@ -44,21 +37,24 @@ public class MapFactory {
     static final String GEOMETRY = "geometry";
     static final String LABEL = "label";
     static final String DISCOVER = "map.discover";
+    static final String PROPERTIES = "properties";
 
     private final LinkService linkService;
     private final LocationLoader locationLoader;
     private final DMSDataService dmsDataService;
     private final ImageFactory imageFactory;
     private final ResourceBundleService bundle;
+    private final HippoUtilsService hippoUtilsService;
     private static final Logger contentLogger = LoggerFactory.getLogger("content");
 
-    public MapFactory(LinkService linkService, LocationLoader locationLoader, DMSDataService dmsDataService, ImageFactory imageFactory , ResourceBundleService bundle) {
+    public MapFactory(LinkService linkService, LocationLoader locationLoader, DMSDataService dmsDataService, ImageFactory imageFactory , ResourceBundleService bundle, HippoUtilsService hippoUtilsService) {
 
         this.linkService = linkService;
         this.locationLoader = locationLoader;
         this.dmsDataService = dmsDataService;
         this.imageFactory = imageFactory;
         this.bundle = bundle;
+        this.hippoUtilsService = hippoUtilsService;
     }
 
     /**
@@ -108,8 +104,7 @@ public class MapFactory {
     private void buildMapGeneralPages (HstRequest request, MapModule mapModuleDocument, MapsModule module, JsonArray keys, JsonArray features){
         for (String taxonomy : mapModuleDocument.getKeys()) {
             //get all the Taxonomy information
-            TaxonomyManager taxonomyManager = HstServices.getComponentManager().getComponent("TaxonomyManager", "org.onehippo.taxonomy.contentbean");
-            Taxonomy vsTaxonomyTree = taxonomyManager.getTaxonomies().getTaxonomy("Visitscotland-categories");
+            Taxonomy vsTaxonomyTree = hippoUtilsService.getTaxonomy();
             for (Category mainCategory : vsTaxonomyTree.getCategoryByKey(taxonomy).getChildren()) {
                 keys.add(getFilterNode(mainCategory, request.getLocale()));
                 //if the map has 2 levels, the parent wont be a category for the mapcards, so pick sons
@@ -270,7 +265,7 @@ public class MapFactory {
      * @param features Jsonarray to add the features to the mapcard
      */
     private void addMapDocumentsToJson(HstRequest request, MapsModule module, Category category, JsonArray features) {
-        HstQueryResult result = getMapDocumentsByTaxonomy(request, category);
+        HstQueryResult result = hippoUtilsService.getDocumentsByTaxonomy(request, category,"@hippotaxonomy:keys","visitscotland:title",Destination.class, Stop.class);
         if (result != null) {
             final HippoBeanIterator it = result.getHippoBeans();
             while (it.hasNext()) {
@@ -278,28 +273,6 @@ public class MapFactory {
                 features.add(getMapDocuments(request.getLocale(), category, module, feature, it));
             }
         }
-    }
-
-    /**
-     * Get all the Destinations and stops categorised with the taxonomy wanted in alphabetic order
-     *
-     * @param request the request
-     * @param category the category or taxonomy wanted
-     * @return all the destinations and stop with that category selected
-     */
-    private HstQueryResult getMapDocumentsByTaxonomy(HstRequest request,Category category) {
-        HstRequestContext requestContext = request.getRequestContext();
-        HippoBean scope = requestContext.getSiteContentBaseBean();
-        HstQuery hstQuery = HstQueryBuilder.create(scope)
-                .ofTypes(Destination.class, Stop.class)
-                .where(constraint("@hippotaxonomy:keys").contains(category.getKey())).orderByAscending("visitscotland:title").build();
-
-        try {
-            return hstQuery.execute();
-        } catch (QueryException e) {
-            e.printStackTrace();
-        }
-        return null;
     }
 
 
@@ -398,10 +371,10 @@ public class MapFactory {
         if (page instanceof Destination){
             LocationObject location = locationLoader.getLocation(((Destination)page).getLocation(), Locale.UK);
             properties.addProperty("locationId", location.getKey());
-            feature.add("properties", properties);
+            feature.add(PROPERTIES, properties);
             feature.add(GEOMETRY, getGeometryNode(location.getLatitude(), location.getLongitude()));
         }else {
-            feature.add("properties", properties);
+            feature.add(PROPERTIES, properties);
         }
     }
 }
