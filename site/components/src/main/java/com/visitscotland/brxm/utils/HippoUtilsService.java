@@ -321,6 +321,7 @@ public class HippoUtilsService {
         try {
             return hstQuery.execute();
         } catch (QueryException e) {
+            //TODO print right message, this is already in develop
             e.printStackTrace();
         }
         return null;
