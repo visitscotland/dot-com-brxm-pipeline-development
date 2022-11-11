@@ -4,10 +4,12 @@ import com.google.common.collect.Lists;
 import org.jetbrains.annotations.NotNull;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Component;
 
 import java.io.Serializable;
 import java.util.*;
+
 
 @Component
 //@Scope(ConfigurableBeanFactory.SCOPE_SINGLETON)

@@ -20,7 +20,8 @@ public class ContentLogger implements Logger {
 
     private final MessageCache messageCache;
 
-    public ContentLogger(MessageCache messageCache){
+    //TODO Use autowired setter in messagecache instead
+    public ContentLogger(@Lazy MessageCache messageCache){
         this.messageCache = messageCache;
     }
 
