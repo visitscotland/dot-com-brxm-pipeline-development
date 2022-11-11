@@ -41,7 +41,7 @@ public class DMSDataService {
             String dmsUrl = DMSConstants.VS_DMS_PRODUCT_CARD;
             dmsUrl += "id=" + productId;
             if (locale != null) {
-                dmsUrl += "&locale=" + locale.getLanguage();
+                dmsUrl += "&locale=" + locale.toLanguageTag().toLowerCase();
             }
 
             logger.info("Requesting data to the dms: {}", dmsUrl);
