@@ -344,9 +344,9 @@ export default {
                     'fill-color': [
                         'case',
                         ['==', ['feature-state', 'interaction-state'], 'hover'],
-                        '#AD0E6E',
+                        'rgba(173,14,110,0.698)',
                         ['==', ['feature-state', 'interaction-state'], 'active'],
-                        '#AD0E6E',
+                        'rgba(173,14,110,0.533)',
                         '#A5A5A5',
                     ],
                     'fill-opacity': 0.8,
