@@ -53,6 +53,8 @@ public class Properties {
     static final String DMS_DATA_SLEEP_TIME = "dms-data.sleep-time";
     static final String DMS_HOST = "links.vs-dms-products.url";
     static final String DMS_MAP_DEFAULT_DISTANCE = "dms.default-distance";
+    static final String CONTENT_CACHE_RETENTION_PERIOD = "content-cache.retention-period";
+    static final String CONTENT_CACHE_MAX_ELEMENTS = "content-cache.max-elements";
 
     private final ResourceBundleService bundle;
 
@@ -162,6 +164,16 @@ public class Properties {
 
     public String getDmsInternalPath() {
         return readString(DMS_INTERNAL_PATH);
+    }
+
+    public Integer getContentCacheRetention() { return readInteger(CONTENT_CACHE_RETENTION_PERIOD); }
+
+    /**
+     * Max number of elements cached. If the property is not defined in the CMS, there is no maximum
+     */
+    public Integer getContentCacheMaxElements() {
+        Integer size = readInteger(CONTENT_CACHE_MAX_ELEMENTS);
+        return size > 0 ? size : Integer.MAX_VALUE;
     }
 
     /**
