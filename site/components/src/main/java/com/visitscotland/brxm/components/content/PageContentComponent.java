@@ -27,7 +27,8 @@ import java.util.Collection;
 public class PageContentComponent<T extends Page> extends ContentComponent {
 
     private static final Logger logger = LoggerFactory.getLogger(PageContentComponent.class);
-    private static final Logger freemarkerLogger = LoggerFactory.getLogger("freemarker");
+    //TODO: Content Logger?
+    private final Logger freemarkerLogger = LoggerFactory.getLogger("freemarker");
 
     public static final String DOCUMENT = "document";
     public static final String OTYML = "otyml";

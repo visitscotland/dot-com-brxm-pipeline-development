@@ -34,7 +34,8 @@ public class MessageCache {
             messages.add(issue);
         } else {
             issue = messages.get(index);
-            if (issue.getLastOccurrence().before(new Date(new Date().getTime() + properties.getContentCacheRetention()))){
+            Date doNotLogUntil = new Date(new Date().getTime() + properties.getContentCacheRetention());
+            if (issue.getLastOccurrence().after(doNotLogUntil)){
                 //TODO: verify that the messages go together
                 logger.info("The next content message has been logged {} time(s) in the last {}s", issue.getCount(), 1000);
                 issue.reset();
