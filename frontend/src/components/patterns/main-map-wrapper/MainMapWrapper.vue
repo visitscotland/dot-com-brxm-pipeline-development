@@ -63,7 +63,12 @@
                             :show-polygons="showRegions"
                             @show-detail="showDetail"
                             @set-category="setCategory"
-                        />
+                        >
+                            <template slot="noJs">
+                                <!-- @slot Message to show when JS is disabled  -->
+                                <slot name="noJs" />
+                            </template>
+                        </VsMap>
                         <VsButtonToggleGroup
                             :initial-selected="initialSelected"
                             :options="toggleData"

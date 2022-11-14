@@ -54,6 +54,9 @@
             <template slot="resetSidePanelText">
                 ${label('map', 'map.reset-filters')}
             </template>
+            <template slot="noJs">
+                ${label('map', 'map.no-js')}
+            </template>
         </vs-main-map-wrapper>
     </vs-module-wrapper>
 </#macro>

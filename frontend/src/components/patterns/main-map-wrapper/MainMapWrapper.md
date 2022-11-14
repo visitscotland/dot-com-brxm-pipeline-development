@@ -38,5 +38,8 @@ user to filter and search for data contained on the map.
     <template slot="resetSidePanelText">
         Reset filters
     </template>
+    <template slot="noJs">
+        You need Javascript enabled to see this map
+    </template>
 </VsMainMapWrapper>
 ```

@@ -4,7 +4,7 @@
   jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
   jcr:uuid: ac89a8cf-a2c8-4cd6-bf14-91afb3d68e3e
   hippo:name: Map
-  hippo:versionHistory: b3d8a1a9-5326-4e80-b90d-86f90fdb91fe
+  hippo:versionHistory: 833c775f-5498-4ad4-95ea-3c25595bf757
   /map[1]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:referenceable']
@@ -14,29 +14,40 @@
     hippostd:state: draft
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2020-03-02T10:09:34.350Z
-    hippostdpubwf:lastModificationDate: 2022-10-26T17:46:37.063+01:00
+    hippostdpubwf:lastModificationDate: 2022-11-11T11:30:33.640Z
     hippostdpubwf:lastModifiedBy: admin
-    resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '', '', '']
+    resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '', '', '', '']
     resourcebundle:id: map
     resourcebundle:keys: [map.fullscreen, map.exitfullscreen, map.reset, map.zoomin,
       map.zoomout, map.feature-default-title, map.discover, map.close-panel, map.open-panel,
-      map.step-back, map.reset-filters]
+      map.step-back, map.reset-filters, map.no-js]
     resourcebundle:messages: [Show fullscreen, Exit fullscreen, Reset angle, Zoom
         in, Zoom out, Featured Places, Discover, Close search and filter panel, Open
-        search and filter panel, Go back one step, Reset filters]
+        search and filter panel, Go back one step, Reset filters, JavaScript needs
+        to be enabled to to display this map.  You can turn this on in your browser
+        settings]
     resourcebundle:messages_de: [Vollbild anzeigen, Vollbild schließen, Zurücksetzen,
-      Vergrößern, Verkleinern, Besondere Orte, 'Jetzt entdecken:', '', '', '', '']
+      Vergrößern, Verkleinern, Besondere Orte, 'Jetzt entdecken:', Suche und Filter
+        schließen , Suche und Filter öffnen , Einen Schritt zurückgehen , Filter zurücksetzen ,
+      'JavaScript muss aktiviert sein, um diese Karte anzuzeigen. Sie können es in
+        Ihren Browser-Einstellungen aktivieren.']
     resourcebundle:messages_es: [Mostrar pantalla completa, Cerrar pantalla completa,
-      Restablecer ángulo, Ampliar, Reducir, Lugares destacados, Descubre, '', '',
-      '', '']
+      Restablecer ángulo, Ampliar, Reducir, Lugares destacados, Descubre, Cerrar panel
+        de búsqueda y filtro, Abrir panel de búsqueda y filtro, Retroceder un paso,
+      Restablecer filtros, JavaScript debe estar habilitado para mostrar este mapa.
+        Puedes activar esto en la configuración de tu navegador]
     resourcebundle:messages_fr: [Afficher en mode plein écran, Fermer le mode plein
-        écran, Réinitialiser, Zoomer, Dézoomer, Lieux d’intérêt, 'Découvrez:', '',
-      '', '', '']
+        écran, Réinitialiser, Zoomer, Dézoomer, Lieux d’intérêt, 'Découvrez:', Fermer
+        l’outil de recherche et les filtres, Ouvrir l’outil de recherche et les filtres,
+      Revenir en arrière, Réinitialiser les filtres, JavaScript doit être activé pour
+        afficher cette carte. Vous pouvez l’activer dans les paramètres de votre navigateur.]
     resourcebundle:messages_it: [Mostra a schermo intero, Esci dallo schermo intero,
-      Reset, Ingrandisci, Riduci, Luoghi in primo piano, 'Scopri ora:', '', '', '',
-      '']
+      Reset, Ingrandisci, Riduci, Luoghi in primo piano, 'Scopri ora:', Chiudi il
+        pannello di ricerca e filtri, Apri il pannello di ricerca e filtri, Torna
+        indietro, Reimposta filtri, Per visualizzare questa mappa è necessario abilitare
+        JavaScript.  È possibile attivarlo nelle impostazioni del browser]
     resourcebundle:messages_nl: [Volledig scherm tonen, Volledig scherm sluiten, Heroriënteren,
-      Inzoomen, Uitzoomen, '', Ontdek, '', '', '', '']
+      Inzoomen, Uitzoomen, '', Ontdek, '', '', '', '', '']
   /map[2]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:versionable']
@@ -46,29 +57,40 @@
     hippostd:state: unpublished
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2020-03-02T10:09:34.350Z
-    hippostdpubwf:lastModificationDate: 2022-10-26T17:47:07.320+01:00
+    hippostdpubwf:lastModificationDate: 2022-11-11T11:30:33.383Z
     hippostdpubwf:lastModifiedBy: admin
-    resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '', '', '']
+    resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '', '', '', '']
     resourcebundle:id: map
     resourcebundle:keys: [map.fullscreen, map.exitfullscreen, map.reset, map.zoomin,
       map.zoomout, map.feature-default-title, map.discover, map.close-panel, map.open-panel,
-      map.step-back, map.reset-filters]
+      map.step-back, map.reset-filters, map.no-js]
     resourcebundle:messages: [Show fullscreen, Exit fullscreen, Reset angle, Zoom
         in, Zoom out, Featured Places, Discover, Close search and filter panel, Open
-        search and filter panel, Go back one step, Reset filters]
+        search and filter panel, Go back one step, Reset filters, JavaScript needs
+        to be enabled to to display this map.  You can turn this on in your browser
+        settings]
     resourcebundle:messages_de: [Vollbild anzeigen, Vollbild schließen, Zurücksetzen,
-      Vergrößern, Verkleinern, Besondere Orte, 'Jetzt entdecken:', '', '', '', '']
+      Vergrößern, Verkleinern, Besondere Orte, 'Jetzt entdecken:', Suche und Filter
+        schließen , Suche und Filter öffnen , Einen Schritt zurückgehen , Filter zurücksetzen ,
+      'JavaScript muss aktiviert sein, um diese Karte anzuzeigen. Sie können es in
+        Ihren Browser-Einstellungen aktivieren.']
     resourcebundle:messages_es: [Mostrar pantalla completa, Cerrar pantalla completa,
-      Restablecer ángulo, Ampliar, Reducir, Lugares destacados, Descubre, '', '',
-      '', '']
+      Restablecer ángulo, Ampliar, Reducir, Lugares destacados, Descubre, Cerrar panel
+        de búsqueda y filtro, Abrir panel de búsqueda y filtro, Retroceder un paso,
+      Restablecer filtros, JavaScript debe estar habilitado para mostrar este mapa.
+        Puedes activar esto en la configuración de tu navegador]
     resourcebundle:messages_fr: [Afficher en mode plein écran, Fermer le mode plein
-        écran, Réinitialiser, Zoomer, Dézoomer, Lieux d’intérêt, 'Découvrez:', '',
-      '', '', '']
+        écran, Réinitialiser, Zoomer, Dézoomer, Lieux d’intérêt, 'Découvrez:', Fermer
+        l’outil de recherche et les filtres, Ouvrir l’outil de recherche et les filtres,
+      Revenir en arrière, Réinitialiser les filtres, JavaScript doit être activé pour
+        afficher cette carte. Vous pouvez l’activer dans les paramètres de votre navigateur.]
     resourcebundle:messages_it: [Mostra a schermo intero, Esci dallo schermo intero,
-      Reset, Ingrandisci, Riduci, Luoghi in primo piano, 'Scopri ora:', '', '', '',
-      '']
+      Reset, Ingrandisci, Riduci, Luoghi in primo piano, 'Scopri ora:', Chiudi il
+        pannello di ricerca e filtri, Apri il pannello di ricerca e filtri, Torna
+        indietro, Reimposta filtri, Per visualizzare questa mappa è necessario abilitare
+        JavaScript.  È possibile attivarlo nelle impostazioni del browser]
     resourcebundle:messages_nl: [Volledig scherm tonen, Volledig scherm sluiten, Heroriënteren,
-      Inzoomen, Uitzoomen, '', Ontdek, '', '', '', '']
+      Inzoomen, Uitzoomen, '', Ontdek, '', '', '', '', '']
   /map[3]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:referenceable']
@@ -78,27 +100,38 @@
     hippostd:state: published
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2020-03-02T10:09:34.350Z
-    hippostdpubwf:lastModificationDate: 2022-10-26T17:47:07.320+01:00
+    hippostdpubwf:lastModificationDate: 2022-11-11T11:30:33.383Z
     hippostdpubwf:lastModifiedBy: admin
-    hippostdpubwf:publicationDate: 2022-10-26T17:47:11.815+01:00
-    resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '', '', '']
+    hippostdpubwf:publicationDate: 2022-11-11T11:30:37.077Z
+    resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '', '', '', '']
     resourcebundle:id: map
     resourcebundle:keys: [map.fullscreen, map.exitfullscreen, map.reset, map.zoomin,
       map.zoomout, map.feature-default-title, map.discover, map.close-panel, map.open-panel,
-      map.step-back, map.reset-filters]
+      map.step-back, map.reset-filters, map.no-js]
     resourcebundle:messages: [Show fullscreen, Exit fullscreen, Reset angle, Zoom
         in, Zoom out, Featured Places, Discover, Close search and filter panel, Open
-        search and filter panel, Go back one step, Reset filters]
+        search and filter panel, Go back one step, Reset filters, JavaScript needs
+        to be enabled to to display this map.  You can turn this on in your browser
+        settings]
     resourcebundle:messages_de: [Vollbild anzeigen, Vollbild schließen, Zurücksetzen,
-      Vergrößern, Verkleinern, Besondere Orte, 'Jetzt entdecken:', '', '', '', '']
+      Vergrößern, Verkleinern, Besondere Orte, 'Jetzt entdecken:', Suche und Filter
+        schließen , Suche und Filter öffnen , Einen Schritt zurückgehen , Filter zurücksetzen ,
+      'JavaScript muss aktiviert sein, um diese Karte anzuzeigen. Sie können es in
+        Ihren Browser-Einstellungen aktivieren.']
     resourcebundle:messages_es: [Mostrar pantalla completa, Cerrar pantalla completa,
-      Restablecer ángulo, Ampliar, Reducir, Lugares destacados, Descubre, '', '',
-      '', '']
+      Restablecer ángulo, Ampliar, Reducir, Lugares destacados, Descubre, Cerrar panel
+        de búsqueda y filtro, Abrir panel de búsqueda y filtro, Retroceder un paso,
+      Restablecer filtros, JavaScript debe estar habilitado para mostrar este mapa.
+        Puedes activar esto en la configuración de tu navegador]
     resourcebundle:messages_fr: [Afficher en mode plein écran, Fermer le mode plein
-        écran, Réinitialiser, Zoomer, Dézoomer, Lieux d’intérêt, 'Découvrez:', '',
-      '', '', '']
+        écran, Réinitialiser, Zoomer, Dézoomer, Lieux d’intérêt, 'Découvrez:', Fermer
+        l’outil de recherche et les filtres, Ouvrir l’outil de recherche et les filtres,
+      Revenir en arrière, Réinitialiser les filtres, JavaScript doit être activé pour
+        afficher cette carte. Vous pouvez l’activer dans les paramètres de votre navigateur.]
     resourcebundle:messages_it: [Mostra a schermo intero, Esci dallo schermo intero,
-      Reset, Ingrandisci, Riduci, Luoghi in primo piano, 'Scopri ora:', '', '', '',
-      '']
+      Reset, Ingrandisci, Riduci, Luoghi in primo piano, 'Scopri ora:', Chiudi il
+        pannello di ricerca e filtri, Apri il pannello di ricerca e filtri, Torna
+        indietro, Reimposta filtri, Per visualizzare questa mappa è necessario abilitare
+        JavaScript.  È possibile attivarlo nelle impostazioni del browser]
     resourcebundle:messages_nl: [Volledig scherm tonen, Volledig scherm sluiten, Heroriënteren,
-      Inzoomen, Uitzoomen, '', Ontdek, '', '', '', '']
+      Inzoomen, Uitzoomen, '', Ontdek, '', '', '', '', '']

@@ -8,9 +8,10 @@
             class="vs-map__map"
             ref="mapbox"
         />
-        <!-- TO DO: Warning to be added once the updated
-        component is available in develop -->
-        <VsWarning class="vs-map__no-js" />
+        <VsWarning class="vs-map__no-js">
+            <!-- @slot Message to show when JS is disabled  -->
+            <slot name="noJs" />
+        </VsWarning>
     </div>
 </template>
 
@@ -708,7 +709,9 @@ export default {
 
 @include no-js {
     .vs-map {
-        display: none;
+        &__map {
+            display: none;
+        }
 
         &__no-js {
             display: flex;
