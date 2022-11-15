@@ -41,9 +41,6 @@ public class VsHstFreemarkerServlet extends HstFreemarkerServlet {
             includeBranchInformation();
         } catch (TemplateModelException e) {
             logger.error("Unable to set shared variables.", e);
-        } catch (FactoryBeanNotInitializedException e) {
-            //TODO: Test that ResourceBundle, Properties and Logger are still available to Freemarker
-            logger.warn("VsHstFreemarkerServlet couldn't be initialized.");
         }
     }
 
