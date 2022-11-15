@@ -36,12 +36,17 @@
                         </vs-col>
                     </vs-row>
                 </@modal>
+                <#if section.video.label ?? && section.video.label != "">
+                    <#assign videoTitle = section.video.label />
+                <#else>
+                    <#assign videoTitle = label('video', 'video.play-btn') />
+                </#if>
                 <@imageWithCaption
                     imageSrc=media
                     imageDetails=section.video.image
                     isVideo="true"
                     videoId="${section.video.youtubeId}"
-                    videoTitle="${section.video.cta}"
+                    videoTitle="${videoTitle}"
                     smallPlayButton="true"
                 />
             </template>
