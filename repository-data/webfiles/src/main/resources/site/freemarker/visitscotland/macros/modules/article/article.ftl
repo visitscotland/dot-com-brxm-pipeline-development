@@ -39,7 +39,7 @@
                 <vs-video-caption
                     video-id="${module.video.youtubeId}"
                 >
-                    <#if module.video.label ?? && module.video.label != "">
+                    <#if module.video.label??>
                         <#assign videoTitle = module.video.label />
                     <#else>
                         <#assign videoTitle = label('video', 'video.play-btn') />

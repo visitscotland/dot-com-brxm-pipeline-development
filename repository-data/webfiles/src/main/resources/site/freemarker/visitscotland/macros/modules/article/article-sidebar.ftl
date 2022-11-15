@@ -36,7 +36,7 @@
                         </vs-col>
                     </vs-row>
                 </@modal>
-                <#if section.video.label ?? && section.video.label != "">
+                <#if section.video.label??>
                     <#assign videoTitle = section.video.label />
                 <#else>
                     <#assign videoTitle = label('video', 'video.play-btn') />
