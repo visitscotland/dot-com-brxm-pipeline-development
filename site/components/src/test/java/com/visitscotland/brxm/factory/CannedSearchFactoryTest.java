@@ -61,7 +61,7 @@ class CannedSearchFactoryTest {
         when(psBuilder.buildCannedSearch()).thenReturn(PSR_URL);
         when(context.getComponent(ProductSearchBuilder.class)).thenReturn(psBuilder);
 
-        new VsComponentManager().setComponentManager(context);
+        VsComponentManager.setComponentManager(context);
     }
 
     @DisplayName("VS-2715 - When no cta for list view is provided then default cta should be used")
