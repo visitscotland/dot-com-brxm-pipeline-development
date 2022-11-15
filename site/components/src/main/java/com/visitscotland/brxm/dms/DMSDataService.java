@@ -4,9 +4,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import com.google.gson.Gson;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonObject;
+import com.fasterxml.jackson.databind.node.ArrayNode;
 import com.visitscotland.utils.Contract;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -20,7 +18,7 @@ public class DMSDataService {
 
     private static final Logger logger = LoggerFactory.getLogger(DMSDataService.class.getName());
 
-    private DMSProxy proxy;
+    private final DMSProxy proxy;
 
     public DMSDataService(DMSProxy proxy) {
         this.proxy = proxy;
@@ -135,31 +133,57 @@ public class DMSDataService {
     }
 
     /**
-     * This method invokes the canned search endpoint to check if there are results coming
+     * This method invokes the polugon endpoint to retrieve polygons borders
      *
-     * @param location tours search url
+     * @param location DMS location
      *
-     * @return boolean to indicate if the search returns products
+     * @return ArrayNode with the data for coordinates
      */
-    public JsonArray getPolygonCoordinates(String location){
-
-        String responseString = null;
-
+    public ArrayNode getPolygonCoordinates(String location){
         logger.info("Requesting data to retrieve the coordinates for the polygon: {}", location);
         if (!Contract.isEmpty(location)) {
             String dmsUrl = DMSConstants.META_LOCATIONS_COORDINATES;
             dmsUrl += "loc=" + location;
+            return gerArrayData(dmsUrl);
 
-            responseString = proxy.request(dmsUrl);
+        }
+      return null;
+    }
 
-            if (responseString!=null) {
-                //TODO try to use jackson instead of gson??
-                JsonObject json = new Gson().fromJson(responseString, JsonObject.class);
+    /**
+     * This method invokes the category group endpoint to retrieve category groups for produc type passed
+     *
+     * @param prodType DMS product type
+     * @param locale language
+     *
+     * @return ArrayNode with the data for coordinates
+     */
+    public ArrayNode getCatGroup(String prodType, String locale){
+        logger.info("Requesting data to retrieve the category groups for produc type: {}", prodType);
+        if (!Contract.isEmpty(prodType)) {
+            String dmsUrl = DMSConstants.META_CATEGORY_GROUP;
+            dmsUrl += "prodtypes=" + prodType + "&locale=" + locale;
 
-                if (json.has("data") ) {
-                    return json.getAsJsonArray("data");
+            return gerArrayData(dmsUrl);
+        }
+        return null;
+    }
 
-                }
+    /**
+     * method to call vs-dms-project endpoint and retrieve an array to be consumed by feds
+     *
+     * @param dmsUrl endpoint url
+     *
+     * @return ArrayNode with the response
+     */
+    private ArrayNode gerArrayData(String dmsUrl) {
+        String responseString = proxy.request(dmsUrl);
+        if (responseString != null) {
+            try {
+                ObjectMapper m = new ObjectMapper();
+                return (ArrayNode) m.readTree(responseString).get("data");
+            } catch (JsonProcessingException e) {
+                logger.error("The response could not be parsed:\n {}", responseString, e);
             }
         }
         return null;
