@@ -3,6 +3,10 @@ package com.visitscotland.brxm.dms;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
+
+import com.google.gson.Gson;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonObject;
 import com.visitscotland.utils.Contract;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -115,7 +119,6 @@ public class DMSDataService {
             responseString = proxy.request(toursUrl);
 
             if (responseString!=null) {
-
                 ObjectMapper mapper = new ObjectMapper();
                 JsonNode json = mapper.readTree(responseString);
 
@@ -129,5 +132,36 @@ public class DMSDataService {
         }
 
         return false;
+    }
+
+    /**
+     * This method invokes the canned search endpoint to check if there are results coming
+     *
+     * @param location tours search url
+     *
+     * @return boolean to indicate if the search returns products
+     */
+    public JsonArray getPolygonCoordinates(String location){
+
+        String responseString = null;
+
+        logger.info("Requesting data to retrieve the coordinates for the polygon: {}", location);
+        if (!Contract.isEmpty(location)) {
+            String dmsUrl = DMSConstants.META_LOCATIONS_COORDINATES;
+            dmsUrl += "loc=" + location;
+
+            responseString = proxy.request(dmsUrl);
+
+            if (responseString!=null) {
+                //TODO try to use jackson instead of gson??
+                JsonObject json = new Gson().fromJson(responseString, JsonObject.class);
+
+                if (json.has("data") ) {
+                    return json.getAsJsonArray("data");
+
+                }
+            }
+        }
+        return null;
     }
 }
