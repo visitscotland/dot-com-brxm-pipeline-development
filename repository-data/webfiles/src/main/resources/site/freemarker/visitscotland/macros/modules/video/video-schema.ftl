@@ -6,7 +6,7 @@
             {
                 "@context": "https://schema.org",
                 "@type": "VideoObject",
-                "name": "${video.cta}",
+                "name": "${video.label}",
                 "description": "${video.teaser}",
                 "contentUrl": "https://youtube.com/watch?v=${video.youtubeId}",
                 "thumbnailUrl":  "<@hst.link hippobean=video.image.cmsImage.original fullyQualified=true/>"
