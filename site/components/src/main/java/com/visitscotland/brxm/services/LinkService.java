@@ -183,7 +183,8 @@ public class LinkService {
     private String localize(Locale locale, String site, String path) {
         String languagePath = Language.getLanguageForLocale(locale).getPathVariable();
 
-        if (path.startsWith(languagePath)) {
+        if (path.startsWith(languagePath) ||
+                (languagePath.length() == 6 && path.startsWith(languagePath.substring(0,3)))) {
             return site + path;
         } else {
             return site + languagePath + path;
