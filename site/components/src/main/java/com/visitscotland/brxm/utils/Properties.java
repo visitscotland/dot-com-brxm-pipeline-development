@@ -166,7 +166,10 @@ public class Properties {
         return readString(DMS_INTERNAL_PATH);
     }
 
-    public Integer getContentCacheRetention() { return readInteger(CONTENT_CACHE_RETENTION_PERIOD); }
+    public Integer getContentCacheRetention() {
+        //Note that the retention period is defined in seconds and java.util.Date measures the time in seconds
+        return readInteger(CONTENT_CACHE_RETENTION_PERIOD) * 1000;
+    }
 
     /**
      * Max number of elements cached. If the property is not defined in the CMS, there is no maximum

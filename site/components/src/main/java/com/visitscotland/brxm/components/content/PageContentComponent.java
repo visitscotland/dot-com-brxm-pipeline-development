@@ -103,12 +103,12 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
         if (page.getOtherThings() != null) {
             HorizontalListLinksModule otyml = megalinkFactory.horizontalListLayout(page.getOtherThings(), request.getLocale());
             if (Contract.isEmpty(otyml.getLinks())) {
-                contentLogger.error("OTYML at {} contains 0 published items. Skipping module", page.getOtherThings().getPath());
+                contentLogger.warn("OTYML at {} contains 0 published items. Skipping module", page.getOtherThings().getPath());
                 request.setAttribute(OTYML, previewFactory.createErrorModule(otyml));
                 return;
             }
             if (otyml.getLinks().size() < MegalinkFactory.MIN_ITEMS_CAROUSEL) {
-                contentLogger.error("OTYML at {} contains only {} published items. Expected a minimum of 5", page.getOtherThings().getPath(), otyml.getLinks().size());
+                contentLogger.warn("OTYML at {} contains only {} published items. Expected a minimum of 5", page.getOtherThings().getPath(), otyml.getLinks().size());
             }
             request.setAttribute(OTYML, otyml);
         }
@@ -124,8 +124,6 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
 
     /**
      * Add the configuration related to the Product Search Widget for the page
-     *
-     * TODO: Check in FreeMarker if null so it can be deactivated in the future
      */
     private void addProductSearchWidget(HstRequest request){
         request.setAttribute(PSR_WIDGET, psrFactory.getWidget(request));

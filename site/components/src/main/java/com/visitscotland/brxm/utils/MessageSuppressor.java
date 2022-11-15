@@ -1,25 +1,25 @@
 package com.visitscotland.brxm.utils;
 
-import com.google.common.collect.Lists;
 import org.jetbrains.annotations.NotNull;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.context.annotation.Lazy;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import java.io.Serializable;
 import java.util.*;
 
 
 @Component
-//@Scope(ConfigurableBeanFactory.SCOPE_SINGLETON)
-public class MessageCache {
+public class MessageSuppressor {
 
-    private static final Logger logger = LoggerFactory.getLogger(MessageCache.class);
+    private static final Logger logger = LoggerFactory.getLogger(MessageSuppressor.class);
 
     private Properties properties;
 
-    public MessageCache(Properties properties){
+    List<Message> messages = new ArrayList<>();
+
+    @Autowired
+    public void setProperties(Properties properties){
         this.properties = properties;
     }
 
@@ -34,10 +34,10 @@ public class MessageCache {
             messages.add(issue);
         } else {
             issue = messages.get(index);
-            Date doNotLogUntil = new Date(new Date().getTime() + properties.getContentCacheRetention());
-            if (issue.getLastOccurrence().after(doNotLogUntil)){
+            Date doNotLogUntil = new Date(issue.getFirstOccurrence().getTime() + properties.getContentCacheRetention());
+            if (new Date().after(doNotLogUntil)){
                 //TODO: verify that the messages go together
-                logger.info("The next content message has been logged {} time(s) in the last {}s", issue.getCount(), 1000);
+                logger.info("The next content message has been logged {} time(s) in the last {}s", issue.getCount(), properties.getContentCacheRetention());
                 issue.reset();
             } else {
                 return false;
@@ -46,50 +46,47 @@ public class MessageCache {
         return true;
     }
 
-    ArrayList<Message> messages = new ArrayList<>();
-
     private void cleanUpIfNeeded(){
-        if (messages.size() > properties.getContentCacheMaxElements()){
+        if (messages.size() >= properties.getContentCacheMaxElements()){
 
             long cutPoint = new Date().getTime() - properties.getContentCacheRetention();
             List<Message> removeElements = new ArrayList<>();
+            double percentage;
 
             for (Message message: messages){
-                if (message.lastOccurrence.getTime() < cutPoint){
+                if (message.getLastOccurrence().getTime() < cutPoint){
                     removeElements.add(message);
                 }
             }
 
-            //TODO this shouldn't be a warning
-            logger.warn("Content Cache Clean up execurted because more than {} were recorded. The size of the cache was reduced by {}%",
-                    properties.getContentCacheRetention(), new Double(100 * removeElements.size()/properties.getContentCacheRetention()).intValue());
+            percentage = 100. * removeElements.size() / properties.getContentCacheRetention();
 
-            synchronized (MessageCache.class){
-                Collections.sort(messages);
-                for (int i=0; i <properties.getContentCacheMaxElements()/2;i++){
-                    messages.remove(0);
-                }
+            if (percentage < 10) {
+                logger.error("Suppressor Clean up, only reduced the amount of elements by {}%. It is advised to increase " +
+                                "the maximum number of elements for the cache", percentage);
+            } else {
+                logger.warn("Suppressor Clean up invoked because more than {} messages were recorded. The size of the cache was reduced by {}%",
+                        properties.getContentCacheRetention(), (int) percentage);
             }
-        }
 
-        //TODO: Create a clean up method and scheduled process to execute the clean up
-        //Helpful link: https://www.baeldung.com/spring-scheduled-tasks
+            messages.removeAll(removeElements);
+        }
     }
 
-    private class Message implements Serializable, Comparable<Message> {
-        private final String message;
+    static class Message implements Comparable<Message> {
+        private final String template;
         private final Object[] arguments;
         private Date firstOccurrence;
         private Date lastOccurrence;
         private int count = 0;
 
-        private Message(String message, Object... args){
-            this.message = message;
+        private Message(String template, Object... args){
+            this.template = template;
             this.arguments = args;
         }
 
-        public String getMessage() {
-            return message;
+        public String getTemplate() {
+            return template;
         }
 
         public Object[] getArguments() {
@@ -109,8 +106,8 @@ public class MessageCache {
         }
 
         @Override
-        public int compareTo(@NotNull MessageCache.Message message) {
-            return lastOccurrence.compareTo(message.lastOccurrence);
+        public int compareTo(@NotNull MessageSuppressor.Message message) {
+            return getLastOccurrence().compareTo(message.getLastOccurrence());
         }
 
         void log(){
@@ -133,14 +130,14 @@ public class MessageCache {
             if (this == o) return true;
             if (o == null || getClass() != o.getClass()) return false;
             Message message1 = (Message) o;
-            if (!message.equals(message1.message)) return false;
+            if (!template.equals(message1.template)) return false;
             return Arrays.equals(arguments, message1.arguments);
         }
 
         //Autogenerated by IntelliJ
         @Override
         public int hashCode() {
-            int result = message.hashCode();
+            int result = template.hashCode();
             result = 31 * result + Arrays.hashCode(arguments);
             return result;
         }

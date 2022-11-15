@@ -7,6 +7,7 @@ import freemarker.template.TemplateModelException;
 import org.hippoecm.hst.servlet.HstFreemarkerServlet;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.FactoryBeanNotInitializedException;
 
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
@@ -35,10 +36,14 @@ public class VsHstFreemarkerServlet extends HstFreemarkerServlet {
             addObject("ResourceBundle", VsComponentManager.get(ResourceBundleService.class));
             addObject("Properties", VsComponentManager.get(com.visitscotland.brxm.utils.Properties.class));
             addObject("Logger", logger);
+
             includeVersionNumber();
             includeBranchInformation();
         } catch (TemplateModelException e) {
             logger.error("Unable to set shared variables.", e);
+        } catch (FactoryBeanNotInitializedException e) {
+            //TODO: Test that ResourceBundle, Properties and Logger are still available to Freemarker
+            logger.warn("VsHstFreemarkerServlet couldn't be initialized.");
         }
     }
 
