@@ -96,5 +96,7 @@ public class DMSConstants {
     public static final String VS_DMS_CANNED_SEARCH_TOURS = "/component/cannedsearchtours";
     public static final String META_PRODUCT_LIST = "/meta/%s/list?%s";
     public static final String META_LOCATIONS = "/meta/location/list?full";
+    public static final String META_LOCATIONS_COORDINATES = "/meta/location/polygon?";
+    public static final String META_CATEGORY_GROUP = "/meta/categorygroup/list?";
 
 }

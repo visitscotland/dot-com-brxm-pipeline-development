@@ -1,10 +1,11 @@
 package com.visitscotland.brxm.factory;
 
 import com.fasterxml.jackson.databind.JsonNode;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonObject;
-import com.visitscotland.brxm.dms.DMSDataService;
-import com.visitscotland.brxm.dms.LocationLoader;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.node.ArrayNode;
+import com.fasterxml.jackson.databind.node.ObjectNode;
+import com.visitscotland.brxm.config.VsComponentManager;
+import com.visitscotland.brxm.dms.*;
 import com.visitscotland.brxm.dms.model.LocationObject;
 import com.visitscotland.brxm.hippobeans.*;
 import com.visitscotland.brxm.model.FlatImage;
@@ -15,50 +16,50 @@ import com.visitscotland.brxm.services.LinkService;
 import com.visitscotland.brxm.services.ResourceBundleService;
 import com.visitscotland.brxm.utils.HippoUtilsService;
 import com.visitscotland.utils.Contract;
-import org.hippoecm.hst.content.beans.query.HstQuery;
 import org.hippoecm.hst.content.beans.query.HstQueryResult;
-import org.hippoecm.hst.content.beans.query.builder.HstQueryBuilder;
-import org.hippoecm.hst.content.beans.query.exceptions.QueryException;
 import org.hippoecm.hst.content.beans.standard.HippoBean;
 import org.hippoecm.hst.content.beans.standard.HippoBeanIterator;
-import org.hippoecm.hst.content.beans.standard.HippoMirror;
 import org.hippoecm.hst.core.component.HstRequest;
-import org.hippoecm.hst.core.request.HstRequestContext;
-import org.hippoecm.hst.site.HstServices;
 import org.onehippo.taxonomy.api.Category;
 import org.onehippo.taxonomy.api.Taxonomy;
-import org.onehippo.taxonomy.api.TaxonomyManager;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 import java.util.Locale;
 
 import static com.visitscotland.brxm.dms.DMSConstants.DMSProduct.*;
-import static org.hippoecm.hst.content.beans.query.builder.ConstraintBuilder.constraint;
 
 @Component
 public class MapFactory {
 
     static final String GEOMETRY = "geometry";
     static final String LABEL = "label";
+    static final String DISCOVER = "map.discover";
+    static final String PROPERTIES = "properties";
+    static final String REGIONS = "regions";
+    static final String POINT = "Point";
 
     private final LinkService linkService;
     private final LocationLoader locationLoader;
     private final DMSDataService dmsDataService;
     private final ImageFactory imageFactory;
     private final ResourceBundleService bundle;
+    private final HippoUtilsService hippoUtilsService;
+    private final ObjectMapper mapper;
     private static final Logger contentLogger = LoggerFactory.getLogger("content");
 
-    public MapFactory(LinkService linkService, LocationLoader locationLoader, DMSDataService dmsDataService, ImageFactory imageFactory , ResourceBundleService bundle) {
-
+    public MapFactory(LinkService linkService, LocationLoader locationLoader, DMSDataService dmsDataService, ImageFactory imageFactory, ResourceBundleService bundle, HippoUtilsService hippoUtilsService) {
         this.linkService = linkService;
         this.locationLoader = locationLoader;
         this.dmsDataService = dmsDataService;
         this.imageFactory = imageFactory;
         this.bundle = bundle;
+        this.hippoUtilsService = hippoUtilsService;
+        this.mapper = new ObjectMapper();
     }
 
     /**
@@ -77,20 +78,20 @@ public class MapFactory {
         module.setIntroduction(mapModuleDocument.getCopy());
         module.setTabTitle(mapModuleDocument.getTabTitle());
 
-        JsonObject featureCollectionGeoJson = new JsonObject();
-        featureCollectionGeoJson.addProperty("type", "FeatureCollection");
-        JsonArray features = new JsonArray();
-        JsonArray keys = new JsonArray();
-        if (!(page instanceof General)) {
-            buildMapDestinationPages(request, mapModuleDocument, module, keys, features);
-        } else {
+        ObjectNode featureCollectionGeoJson = mapper.createObjectNode();
+        featureCollectionGeoJson.put("type", "FeatureCollection");
+        ArrayNode features = mapper.createArrayNode();
+        ArrayNode keys = mapper.createArrayNode();
+        if (page instanceof General) {
             buildMapGeneralPages(request, mapModuleDocument, module, keys, features);
+        } else if (page instanceof Destination) {
+            buildMapDestinationPages(request,(Destination)page, mapModuleDocument, module, keys, features);
         }
         //add first Json for filters
         module.setFilters(keys);
 
         //add second json (geoJson) to the module
-        featureCollectionGeoJson.add("features", features);
+        featureCollectionGeoJson.set("features", features);
         module.setGeoJson(featureCollectionGeoJson);
         module.setHippoBean(mapModuleDocument);
         return module;
@@ -105,27 +106,25 @@ public class MapFactory {
      * @param keys filters for maps
      * @param features features information for mapcards
      */
-    private void buildMapGeneralPages (HstRequest request, MapModule mapModuleDocument, MapsModule module, JsonArray keys, JsonArray features){
+    private void buildMapGeneralPages (HstRequest request, MapModule mapModuleDocument, MapsModule module, ArrayNode keys, ArrayNode features){
         for (String taxonomy : mapModuleDocument.getKeys()) {
             //get all the Taxonomy information
-            TaxonomyManager taxonomyManager = HstServices.getComponentManager().getComponent("TaxonomyManager", "org.onehippo.taxonomy.contentbean");
-            Taxonomy vsTaxonomyTree = taxonomyManager.getTaxonomies().getTaxonomy("Visitscotland-categories");
+            Taxonomy vsTaxonomyTree = hippoUtilsService.getTaxonomy();
             for (Category mainCategory : vsTaxonomyTree.getCategoryByKey(taxonomy).getChildren()) {
                 keys.add(getFilterNode(mainCategory, request.getLocale()));
                 //if the map has 2 levels, the parent wont be a category for the mapcards, so pick sons
                 if (!mainCategory.getChildren().isEmpty()) {
                     for(Category child : mainCategory.getChildren()){
                         //find all the documents with a taxonomy/category
-                        addMapDocumentsToJson(request, module,child, features, mapModuleDocument);
+                        addMapDocumentsToJson(request, module,child, features);
                     }
-
                 } else {
                     //find all the documents with a taxonomy/category
-                    addMapDocumentsToJson(request, module, mainCategory, features, mapModuleDocument);
+                    addMapDocumentsToJson(request, module, mainCategory, features);
                 }
             }
             if (!Contract.isNull(mapModuleDocument.getFeaturedPlacesItem())) {
-                addFeaturePlacesNode(module, mapModuleDocument.getCategories(), request.getLocale(), keys, features, mapModuleDocument);
+                addFeaturePlacesNode(module, mapModuleDocument.getCategories(), request.getLocale(), keys, features);
             }
         }
     }
@@ -140,11 +139,31 @@ public class MapFactory {
      * @param keys filters for maps
      * @param features features information for mapcards
      */
-    private void buildMapDestinationPages (HstRequest request, MapModule mapModuleDocument, MapsModule module, JsonArray keys , JsonArray features){
-        //TODO differentiate between cities and regions and bring the right filters for each of them.
+    private void buildMapDestinationPages (HstRequest request,Destination destinationPage, MapModule mapModuleDocument, MapsModule module, ArrayNode keys , ArrayNode features){
         if (!Contract.isNull(mapModuleDocument.getFeaturedPlacesItem())) {
-            addFeaturePlacesNode(module, mapModuleDocument.getCategories(), request.getLocale() , keys, features,mapModuleDocument);
+            addFeaturePlacesNode(module, mapModuleDocument.getCategories(), request.getLocale() , keys, features);
         }
+  /*     if (Arrays.asList(destinationPage.getKeys()).contains(REGIONS)) {
+            //TODO region map
+        }else{
+           for (CitiesMapTab prodType : CitiesMapTab.values()) {
+
+               //filters
+               ObjectNode filter = mapper.createObjectNode();
+               filter.put("id", prodType.getProdTypeId());
+               filter.put(LABEL,  prodType.getProdType());
+
+               ///endpoint for data
+               ProductSearchBuilder dmsQuery = VsComponentManager.get(ProductSearchBuilder.class).location(destinationPage.getLocation())
+                       .productTypes(prodType.getProdTypeId());
+               filter.put("geoJsonEndpoint", dmsQuery.buildDataMap());
+
+               ArrayNode childrenArray = dmsDataService.getCatGroup(prodType.getProdTypeId(),request.getLocale().getLanguage());
+               filter.set("subCategory",childrenArray);
+               keys.add(filter);
+           }
+
+       }*/
     }
 
     /** Method to build the property section for the GeoJson file generated for maps
@@ -154,57 +173,55 @@ public class MapFactory {
      * @param image Mapcard image
      * @param category Mapcard category (id and label)
      * @param link Mapcard link to the page
-     * @return JsonObject with the right format to be consumed by the front end team
+     * @return ObjectNode with the right format to be consumed by the front end team
      */
-    private JsonObject getPropertyNode(String title, String description, FlatImage image, JsonObject category, FlatLink link, String id) {
-        JsonObject properties = new JsonObject();
-        properties.add("category", category);
-        properties.addProperty("id", id);
-        properties.addProperty("title", title);
-        properties.addProperty("description", description);
+    private ObjectNode getPropertyNode(String title, String description, FlatImage image, ObjectNode  category, FlatLink link, String id) {
+        ObjectNode rootNode = mapper.createObjectNode();
+        rootNode.set("category", category);
+        rootNode.put("id", id);
+        rootNode.put("title", title);
+        rootNode.put("description", description);
+
         if (!Contract.isNull(image)){
-            properties.addProperty("image", !Contract.isNull(image.getCmsImage())? HippoUtilsService.createUrl(image.getCmsImage()) : image.getExternalImage());
+            rootNode.put("image", !Contract.isNull(image.getCmsImage())? HippoUtilsService.createUrl(image.getCmsImage()) : image.getExternalImage());
         }
 
         if (!Contract.isNull(link)){
-            JsonObject linkNode = new JsonObject();
-            linkNode.addProperty(LABEL, link.getLabel() + " " + title);
-            linkNode.addProperty("link", link.getLink());
-            linkNode.addProperty("type", link.getType().name());
-            properties.add("link", linkNode);
+            ObjectNode linkNode = mapper.createObjectNode();
+            linkNode.put(LABEL, link.getLabel() + " " + title);
+            linkNode.put("link", link.getLink());
+            linkNode.put("type", link.getType().name());
+            rootNode.set("link", linkNode);
         }
 
-        return properties;
+        return rootNode;
     }
 
     /**
      * Method to build the geometry node for the GeoJson file generated for maps
-     * @param latitude latitude value for the pin/mapcard
-     * @param longitude longitude value for the pin/mapcard
-     * @return JsonObject with the right format to be consumed by the front end team
+     * @param coordinates coordinates
+     * @param type coordinate type
+     * @return ObjectNode with the right format to be consumed by the front end team
      */
-    private JsonObject getGeometryNode(Double latitude, Double longitude) {
-        JsonObject geometry = new JsonObject();
-        JsonArray coordinates = new JsonArray();
-        coordinates.add(longitude);
-        coordinates.add(latitude);
-        geometry.addProperty("type", "Point");
-        geometry.add("coordinates", coordinates);
+    private ObjectNode getGeometryNode(ArrayNode coordinates, String type) {
+        ObjectNode geometry = mapper.createObjectNode();
+        geometry.put("type", type);
+        geometry.set("coordinates", coordinates);
 
         return geometry;
     }
 
     /**
-     * Method to build JsonObject key label for category/taxonomy
+     * Method to build ObjectNode key label for category/taxonomy
      *
      * @param category taxonomy category to build key label
      * @param locale language wanted
-     * @return Json object key label for categories
+     * @return ObjectNode key label for categories
      */
-    private JsonObject getCategoryNode(Category category, Locale locale) {
-        JsonObject filter = new JsonObject();
-        filter.addProperty("id", category.getKey());
-        filter.addProperty(LABEL, category.getInfo(locale).getName());
+    private ObjectNode getCategoryNode(Category category, Locale locale) {
+        ObjectNode filter = mapper.createObjectNode();
+        filter.put("id", category.getKey());
+        filter.put(LABEL, category.getInfo(locale).getName());
 
         return filter;
     }
@@ -217,28 +234,30 @@ public class MapFactory {
      * @param keys filters for maps
      * @param features features information for mapcards
      */
-    private void addFeaturePlacesNode(MapsModule module, List<MapCategory> categories, Locale locale, JsonArray keys, JsonArray features,MapModule mapModuleDocument ) {
+    private void addFeaturePlacesNode(MapsModule module, List<MapCategory> categories, Locale locale, ArrayNode keys, ArrayNode features) {
         for (MapCategory featuredPlaces : categories) {
-            JsonObject filter = new JsonObject();
-            filter.addProperty("id", "featured");
+            ObjectNode filter = mapper.createObjectNode();
+            filter.put("id", "featured");
             if (Contract.isEmpty(featuredPlaces.getTitle())) {
-                filter.addProperty(LABEL, bundle.getResourceBundle("map", "map.feature-default-title", locale));
+                filter.put(LABEL, bundle.getResourceBundle("map", "map.feature-default-title", locale));
             } else {
-                filter.addProperty(LABEL, featuredPlaces.getTitle());
+                filter.put(LABEL, featuredPlaces.getTitle());
             }
             keys.add(filter);
             for(HippoBean link : featuredPlaces.getMapPins()){
-                JsonObject feat = new JsonObject();
-                if (link instanceof Destination) {
-                    buildPageNode(locale, filter, module,(Destination) link,feat);
+                ObjectNode feat = mapper.createObjectNode();
+                if (link instanceof Destination){
+                    buildPageNode(locale, filter, module,(Destination) link, feat);
                 }else if (link instanceof Stop){
-                        buildStopNode(locale,filter,module, (Stop) link, feat,mapModuleDocument);
-
-                }else  if (link instanceof SpecialLinkCoordinates){
+                    buildStopNode(locale, filter, module,(Stop) link,feat);
+                }else if (link instanceof SpecialLinkCoordinates){
                     SpecialLinkCoordinates linkCoordinates = ((SpecialLinkCoordinates) link);
                     Page otherPage = (Page)(linkCoordinates).getLink();
                     buildPageNode(locale, filter, module,otherPage,feat);
-                    feat.add(GEOMETRY, getGeometryNode(((SpecialLinkCoordinates)link).getCoordinates().getLatitude(), ((SpecialLinkCoordinates)link).getCoordinates().getLongitude()));
+                    ArrayNode coordinates = mapper.createArrayNode();
+                    coordinates.add(((SpecialLinkCoordinates)link).getCoordinates().getLongitude());
+                    coordinates.add(((SpecialLinkCoordinates)link).getCoordinates().getLatitude());
+                    feat.set(GEOMETRY, getGeometryNode(coordinates,POINT));
                 }
                 features.add(feat);
             }
@@ -249,16 +268,16 @@ public class MapFactory {
      * Method to build a normal Json with parameters for the maps, in particular for the filters to use in the map
      * @param child Category or taxonomy to use as a filter, adding id and label
      * @param locale locale to bring the label in the right language
-     * @return JsonObject with the filters to be used
+     * @return ObjectNode with the filters to be used
      */
-    private JsonObject getFilterNode(Category child, Locale locale) {
-        JsonObject filter = this.getCategoryNode(child,locale);
+    private ObjectNode getFilterNode(Category child, Locale locale) {
+        ObjectNode filter = this.getCategoryNode(child,locale);
         if (!child.getChildren().isEmpty()){
-            JsonArray childrenArray = new JsonArray();
+            ArrayNode childrenArray = mapper.createArrayNode();
             for (Category children : child.getChildren()) {
                 childrenArray.add(this.getCategoryNode(children, locale));
             }
-            filter.add("subCategory",childrenArray);
+            filter.set("subCategory",childrenArray);
         }
         return filter;
     }
@@ -268,39 +287,17 @@ public class MapFactory {
      * @param request the request
      * @param module module to be consumed
      * @param category the category or taxonomy wanted
-     * @param features Jsonarray to add the features to the mapcard
+     * @param features ArrayNode to add the features to the mapcard
      */
-    private void addMapDocumentsToJson(HstRequest request, MapsModule module, Category category, JsonArray features, MapModule mapModuleDocument) {
-        HstQueryResult result = getMapDocumentsByTaxonomy(request, category);
+    private void addMapDocumentsToJson(HstRequest request, MapsModule module, Category category, ArrayNode features) {
+        HstQueryResult result = hippoUtilsService.getDocumentsByTaxonomy(request, category,"@hippotaxonomy:keys","visitscotland:title",Destination.class, Stop.class);
         if (result != null) {
             final HippoBeanIterator it = result.getHippoBeans();
             while (it.hasNext()) {
-                JsonObject feature = new JsonObject();
-                features.add(getMapDocuments(request.getLocale(), category, module, feature, it, mapModuleDocument));
+                ObjectNode feature = mapper.createObjectNode();
+                features.add(getMapDocuments(request.getLocale(), category, module, feature, it));
             }
         }
-    }
-
-    /**
-     * Get all the Destinations and stops categorised with the taxonomy wanted in alphabetic order
-     *
-     * @param request the request
-     * @param category the category or taxonomy wanted
-     * @return all the destinations and stop with that category selected
-     */
-    private HstQueryResult getMapDocumentsByTaxonomy(HstRequest request,Category category) {
-        HstRequestContext requestContext = request.getRequestContext();
-        HippoBean scope = requestContext.getSiteContentBaseBean();
-        HstQuery hstQuery = HstQueryBuilder.create(scope)
-                .ofTypes(Destination.class, Stop.class)
-                .where(constraint("@hippotaxonomy:keys").contains(category.getKey())).orderByAscending("visitscotland:title").build();
-
-        try {
-            return hstQuery.execute();
-        } catch (QueryException e) {
-            e.printStackTrace();
-        }
-        return null;
     }
 
 
@@ -311,19 +308,19 @@ public class MapFactory {
      * @param locale the locale/language
      * @param category the category/taxonomy selected
      * @param module the map module
-     * @param feature jsonobject to keep adding destinations or stops
+     * @param feature ObjectNode to keep adding destinations or stops
      * @param it iterator to iterate the list of destinations or stops
-     * @return JsonObject with the right format to be sent to FEDs
+     * @return ObjectNode with the right format to be sent to FEDs
      */
-    private JsonObject getMapDocuments(Locale locale, Category category, MapsModule module, JsonObject feature, HippoBeanIterator it, MapModule mapModuleDocument){
+    private ObjectNode getMapDocuments(Locale locale, Category category, MapsModule module, ObjectNode feature, HippoBeanIterator it){
         //find all the documents with a taxonomy
         final HippoBean bean = it.nextHippoBean();
         if (!Contract.isNull(bean)) {
             if (bean instanceof Destination) {
-                feature.addProperty("type", "Feature");
+                feature.put("type", "Feature");
                 buildPageNode(locale, getCategoryNode(category, locale), module,((Destination) bean), feature);
             } else {
-                buildStopNode(locale,getCategoryNode(category, locale),module, ((Stop) bean), feature, mapModuleDocument);
+                buildStopNode(locale,getCategoryNode(category, locale),module, ((Stop) bean), feature);
             }
         }
         return feature;
@@ -336,21 +333,20 @@ public class MapFactory {
      * @param category category or taxonomy for the mapcard (id and label)
      * @param module Mapsmodule needed for images and links
      * @param stop stop document information
-     * @param feature JsonObject to add the Stop information
+     * @param feature ObjectNode to add the Stop information
      */
-    private void buildStopNode(Locale locale, JsonObject category, MapsModule module, Stop stop, JsonObject feature, MapModule mapModuleDocument){
-        Double latitude = null;
-        Double longitude = null;
-        FlatLink flatLink = null;
-
+    private void buildStopNode(Locale locale, ObjectNode category, MapsModule module, Stop stop, ObjectNode feature){
         if (stop != null){
+            Double latitude = null;
+            Double longitude = null;
+            FlatLink flatLink = null;
             HippoBean item = stop.getStopItem();
             FlatImage image = imageFactory.createImage(stop.getImage(), module, locale);
             if (item instanceof DMSLink) {
                 JsonNode dmsNode = dmsDataService.productCard(((DMSLink) item).getProduct(), locale);
                 if (!Contract.isNull(dmsNode)) {
                     flatLink = linkService.createDmsLink(locale,(DMSLink) item, dmsNode);
-                    flatLink.setLabel(bundle.getResourceBundle("map", "map.discover", locale));
+                    flatLink.setLabel(bundle.getResourceBundle("map", DISCOVER, locale));
                     if (Contract.isNull(stop.getImage()) && dmsNode.has(IMAGE)) {
                         image = imageFactory.createImage(dmsNode, module, locale);
                     }
@@ -363,26 +359,25 @@ public class MapFactory {
                     ItineraryExternalLink externalStop = ((ItineraryExternalLink) item);
                     latitude = externalStop.getCoordinates().getLatitude();
                     longitude = externalStop.getCoordinates().getLongitude();
-                    flatLink = new FlatLink(bundle.getResourceBundle("map", "map.discover", locale),externalStop.getExternalLink().getLink(), LinkType.EXTERNAL);
+                    flatLink = new FlatLink(bundle.getResourceBundle("map", DISCOVER, locale),externalStop.getExternalLink().getLink(), LinkType.EXTERNAL);
             }
             if (!Contract.isNull(latitude) && !Contract.isNull(longitude)) {
-                feature.addProperty("type", "Feature");
+                feature.put("type", "Feature");
                 String description = stop.getDescription().getContent().trim().replace("\"", "'");
                 if (description.startsWith("<p>") && description.endsWith("</p>")) {
                     description = description.substring(3, description.length() - 4);
                 }
-                feature.add("properties", getPropertyNode(stop.getTitle(), description,
+                feature.set(PROPERTIES, getPropertyNode(stop.getTitle(), description,
                         image, category, flatLink, stop.getCanonicalUUID()));
-                feature.add(GEOMETRY, getGeometryNode(latitude, longitude));
+                ArrayNode coordinates = mapper.createArrayNode();
+                coordinates.add(longitude);
+                coordinates.add(latitude);
+                feature.set(GEOMETRY, getGeometryNode(coordinates,POINT));
             }else{
-                String errorMessage = String.format("Failed to create map card '%s' , please review the document attached at: %s", mapModuleDocument.getDisplayName(), mapModuleDocument.getPath() );
+                String errorMessage = String.format("Failed to create map card '%s', please review the document attached at: %s", item.getDisplayName(), item.getPath() );
                 module.setErrorMessages(Collections.singletonList(errorMessage));
                 contentLogger.error(errorMessage);
             }
-        } else{
-            String errorMessage = String.format("Failed to create map card '%s' , please review the document attached at: %s", mapModuleDocument.getDisplayName(), mapModuleDocument.getPath() );
-            module.setErrorMessages(Collections.singletonList(errorMessage));
-            contentLogger.error(errorMessage);
         }
     }
 
@@ -395,15 +390,26 @@ public class MapFactory {
      * @param page the destination or other pages
      * @param feature json to build the features and geometry nodes
      */
-    private void buildPageNode(Locale locale, JsonObject category, MapsModule module, Page page, JsonObject feature){
+    private void buildPageNode(Locale locale, ObjectNode category, MapsModule module, Page page, ObjectNode feature){
         FlatLink flatLink = linkService.createSimpleLink(page, module, locale);
-        flatLink.setLabel(bundle.getResourceBundle("map", "map.discover", locale));
-        feature.add("properties", getPropertyNode(page.getTitle(), page.getTeaser(),
+        flatLink.setLabel(bundle.getResourceBundle("map", DISCOVER, locale));
+        ObjectNode properties = getPropertyNode(page.getTitle(), page.getTeaser(),
                 imageFactory.createImage(page.getImage(), module, locale), category,
-                flatLink, page.getCanonicalUUID()));
+                flatLink, page.getCanonicalUUID());
         if (page instanceof Destination){
-            LocationObject location = locationLoader.getLocation(((Destination)page).getLocation(), Locale.UK);
-            feature.add(GEOMETRY, getGeometryNode(location.getLatitude(), location.getLongitude()));
+            Destination destination = (Destination) page;
+            LocationObject location = locationLoader.getLocation(destination.getLocation(), Locale.UK);
+            feature.set(PROPERTIES, properties);
+            if (Arrays.asList(destination.getKeys()).contains(REGIONS)){
+                feature.set(GEOMETRY, getGeometryNode(dmsDataService.getPolygonCoordinates(locationLoader.getLocation(destination.getLocation(), null).getId()),"Polygon"));
+            }else {
+                ArrayNode coordinates = mapper.createArrayNode();
+                coordinates.add(location.getLongitude());
+                coordinates.add(location.getLatitude());
+                feature.set(GEOMETRY, getGeometryNode(coordinates,POINT));
+            }
+        }else {
+            feature.set(PROPERTIES, properties);
         }
     }
 }

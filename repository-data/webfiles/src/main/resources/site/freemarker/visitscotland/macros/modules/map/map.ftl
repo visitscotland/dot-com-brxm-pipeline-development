@@ -29,13 +29,12 @@
         <template slot="vsModuleWrapperIntro">
             <@hst.html hippohtml=module.introduction/>
         </template>
-
         <vs-main-map-wrapper
             :main-heading-exists="${mainHeadingExists}"
             category-heading="${module.tabTitle}"
             :filters="${escapeJSON(module.filters,true)}"
             :places-data="${escapeJSON(module.geoJson.features,true)}"
-            map-id="vs-map"
+            map-id="vs-map-${module.id}"
         >
 
             <template slot="closeSidePanelText">
