@@ -1,5 +1,8 @@
 <#include "../../../../include/imports.ftl">
 <#include "../../../../frontend/components/vs-article.ftl">
+<#include "../../../../frontend/components/vs-video-caption.ftl">
+
+<#include "../../../macros/modules/video/video.ftl">
 
 <#include "../../global/image-with-caption.ftl">
 <#include "../../global/preview-warning.ftl">
@@ -14,9 +17,6 @@
     <@hst.manageContent hippobean=module.hippoBean />
     <@previewWarning editMode module module.errorMessages />
 
-     <#if module.video??>
-     <#-- TODO video in article -->
-     </#if>
     <#if module.image??>
         <#if module.image.cmsImage??>
             <#assign image>
@@ -33,7 +33,23 @@
         title="${module.title}"
         anchor-link="<#if module.anchor?has_content>${module.anchor}</#if>"
     >
-        <#if image?? && image?has_content>
+        <#if module.video?? >
+            <template slot="vsArticleImg">
+                <@video video=module.video />
+                <vs-video-caption
+                    video-id="${module.video.youtubeId}"
+                >
+                    <#if module.video.label??>
+                        <#assign videoTitle = module.video.label />
+                    <#else>
+                        <#assign videoTitle = label('video', 'video.play-btn') />
+                    </#if>
+                    <template slot="video-title">
+                        ${videoTitle}
+                    </template>?
+                </vs-video-caption>
+            </template>
+        <#elseif image?? && image?has_content>
             <template slot="vsArticleImg">
                 <@imageWithCaption imageSrc=image imageDetails=module.image />
             </template>
@@ -47,9 +63,6 @@
         <#assign alignSidebar = ""/>
 
         <#list module.sections as section>
-            <#if section.video??>
-            <#-- TODO video in section -->
-            </#if>
             <#if section.quote?? || section.image??>
                 <#assign i++ />
                 <#if i % 2 != 0 >

@@ -106,5 +106,9 @@ export default {
             margin-bottom: 0;
         }
     }
+
+    .vs-video-caption__details {
+        display: block;
+    }
 }
 </style>

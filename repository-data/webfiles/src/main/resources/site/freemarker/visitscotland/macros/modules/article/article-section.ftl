@@ -4,7 +4,7 @@
 <#macro articleSection section alignSidebar>
     <vs-article-section sidebar-align="${alignSidebar}">
         <template slot="articleSidebar">
-            <#if section.quote?? || section.image??>
+            <#if section.video?? || section.quote?? || section.image??>
                 <@articleSidebar section=section alignSidebar=alignSidebar />
             </#if>
         </template>

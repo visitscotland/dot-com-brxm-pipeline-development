@@ -136,6 +136,20 @@ describe('VsVideoCaption', () => {
 
             expect(wrapper.find('vstogglebutton-stub').exists()).toBe(false);
         });
+
+        it(':variant - should accept and render variants as props', async() => {
+            const wrapper = factoryShallowMount();
+            wrapper.setProps({
+                variant: 'narrow',
+            });
+            wrapper.setData({
+                requiredCookies: [],
+            });
+            await wrapper.vm.$nextTick();
+
+            const variantHolder = wrapper.find('div[data-test="video-caption-variants"]');
+            expect(variantHolder.classes()).toContain('vs-video-caption--narrow');
+        });
     });
 
     describe(':methods', () => {
