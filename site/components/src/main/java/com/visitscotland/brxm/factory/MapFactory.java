@@ -143,7 +143,7 @@ public class MapFactory {
         if (!Contract.isNull(mapModuleDocument.getFeaturedPlacesItem())) {
             addFeaturePlacesNode(module, mapModuleDocument.getCategories(), request.getLocale() , keys, features);
         }
-       if (Arrays.asList(destinationPage.getKeys()).contains(REGIONS)) {
+  /*     if (Arrays.asList(destinationPage.getKeys()).contains(REGIONS)) {
             //TODO region map
         }else{
            for (CitiesMapTab prodType : CitiesMapTab.values()) {
@@ -163,7 +163,7 @@ public class MapFactory {
                keys.add(filter);
            }
 
-       }
+       }*/
     }
 
     /** Method to build the property section for the GeoJson file generated for maps
