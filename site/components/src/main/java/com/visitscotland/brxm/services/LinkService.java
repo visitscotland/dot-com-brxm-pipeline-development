@@ -179,7 +179,8 @@ public class LinkService {
     private String localize(Locale locale, String site, String path) {
         String languagePath = Language.getLanguageForLocale(locale).getPathVariable();
 
-        if (path.startsWith(languagePath)) {
+        if (path.startsWith(languagePath) ||
+                (languagePath.length() == 6 && path.startsWith(languagePath.substring(0,3)))) {
             return site + path;
         } else {
             return site + languagePath + path;
@@ -251,6 +252,8 @@ public class LinkService {
             return null;
         } else if (url.toLowerCase().endsWith(".pdf")) {
             return LinkType.DOWNLOAD;
+        } else if (url.toLowerCase().startsWith("mailto:")){
+            return LinkType.MAIL;
         } else if (url.startsWith("/") || url.startsWith("#")) {
             return LinkType.INTERNAL;
         } else if (isInternalDomain(url)) {
