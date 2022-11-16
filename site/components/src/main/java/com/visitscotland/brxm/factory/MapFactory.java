@@ -143,27 +143,30 @@ public class MapFactory {
         if (!Contract.isNull(mapModuleDocument.getFeaturedPlacesItem())) {
             addFeaturePlacesNode(module, mapModuleDocument.getCategories(), request.getLocale() , keys, features);
         }
-  /*     if (Arrays.asList(destinationPage.getKeys()).contains(REGIONS)) {
+       if (Arrays.asList(destinationPage.getKeys()).contains(REGIONS)) {
             //TODO region map
         }else{
            for (CitiesMapTab prodType : CitiesMapTab.values()) {
-
                //filters
                ObjectNode filter = mapper.createObjectNode();
                filter.put("id", prodType.getProdTypeId());
-               filter.put(LABEL,  prodType.getProdType());
+               filter.put(LABEL,bundle.getResourceBundle("map","map."+prodType.getProdTypeId(), request.getLocale()));
 
-               ///endpoint for data
+               ///endpoint for data (pins)
                ProductSearchBuilder dmsQuery = VsComponentManager.get(ProductSearchBuilder.class).location(destinationPage.getLocation())
                        .productTypes(prodType.getProdTypeId());
                filter.put("geoJsonEndpoint", dmsQuery.buildDataMap());
 
+                //Endpoint base to bring 24 random results
+               filter.put("listProductsEndPoint", dmsQuery.buildCannedSearch());
+
+               //subcategoies added
                ArrayNode childrenArray = dmsDataService.getCatGroup(prodType.getProdTypeId(),request.getLocale().getLanguage());
                filter.set("subCategory",childrenArray);
                keys.add(filter);
            }
 
-       }*/
+       }
     }
 
     /** Method to build the property section for the GeoJson file generated for maps
