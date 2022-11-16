@@ -35,6 +35,18 @@
             :filters="${escapeJSON(module.filters,true)}"
             :places-data="${escapeJSON(module.geoJson.features,true)}"
             map-id="vs-map-${module.id}"
+            :toggle-data="[
+                {
+                    text: 'Regions',
+                    value: 'regions',
+                    icon: 'map',
+                },
+                {
+                    text: 'Places',
+                    value: 'places',
+                    icon: 'pin'
+                },
+            ]"
         >
 
             <template slot="closeSidePanelText">
