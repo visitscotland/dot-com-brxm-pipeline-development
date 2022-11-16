@@ -464,7 +464,7 @@ public class LinkService {
             return null;
         }
 
-        if (product != null && product.has(DMSConstants.DMSProduct.IMAGE)) {
+        if (product != null && !hasOverrideImage(sharedLink) && product.has(DMSConstants.DMSProduct.IMAGE)) {
             link.setImage(imageFactory.createImage(product, module, locale));
         }else{
             link.setImage(imageFactory.createImage(sharedLink.getImage(), module, locale));
@@ -489,6 +489,10 @@ public class LinkService {
             module.addErrorMessage(String.format("The image selected for '%s' is not available. Please select a valid image for the shared document '%s' at: %s",  sharedLink.getTitle(), sharedLink.getDisplayName(), sharedLink.getPath()));
         }
         return link;
+    }
+
+    private boolean hasOverrideImage(SharedLink sharedLink){
+        return sharedLink.getImage() != null && !Contract.isEmpty(sharedLink.getImage().getPath());
     }
 
     /**
