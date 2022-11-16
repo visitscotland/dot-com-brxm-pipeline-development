@@ -3770,7 +3770,7 @@
         jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
         jcr:uuid: 178cc6ee-9b6a-4095-80b2-9026263d173e
         hippo:name: National musseum - free example
-        hippo:versionHistory: 2666d6fe-d19f-410b-89b5-c9b78557b6f5
+        hippo:versionHistory: bac07ff4-ea15-476c-86e9-bc1a44a55f40
         /national-musseum---free-example[1]:
           jcr:primaryType: visitscotland:Stop
           jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
@@ -3780,7 +3780,7 @@
           hippostd:state: draft
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2021-05-05T08:34:12.475+01:00
-          hippostdpubwf:lastModificationDate: 2021-06-24T13:39:10.923+01:00
+          hippostdpubwf:lastModificationDate: 2022-11-16T16:11:00.512Z
           hippostdpubwf:lastModifiedBy: admin
           hippotranslation:id: e6433e3e-29d9-485c-b409-fff4ee7307a9
           hippotranslation:locale: en
@@ -3800,12 +3800,6 @@
             jcr:primaryType: visitscotland:DMSLink
             visitscotland:label: ''
             visitscotland:product: '246591'
-          /visitscotland:media:
-            jcr:primaryType: hippogallerypicker:imagelink
-            hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
-            hippo:facets: []
-            hippo:modes: []
-            hippo:values: []
         /national-musseum---free-example[2]:
           jcr:primaryType: visitscotland:Stop
           jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable', 'mix:versionable']
@@ -3815,7 +3809,7 @@
           hippostd:state: unpublished
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2021-05-05T08:34:12.475+01:00
-          hippostdpubwf:lastModificationDate: 2021-06-24T13:40:01.567+01:00
+          hippostdpubwf:lastModificationDate: 2022-11-16T16:11:08.176Z
           hippostdpubwf:lastModifiedBy: admin
           hippotranslation:id: e6433e3e-29d9-485c-b409-fff4ee7307a9
           hippotranslation:locale: en
@@ -3835,12 +3829,6 @@
             jcr:primaryType: visitscotland:DMSLink
             visitscotland:label: ''
             visitscotland:product: '246591'
-          /visitscotland:media:
-            jcr:primaryType: hippogallerypicker:imagelink
-            hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
-            hippo:facets: []
-            hippo:modes: []
-            hippo:values: []
         /national-musseum---free-example[3]:
           jcr:primaryType: visitscotland:Stop
           jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
@@ -3850,9 +3838,9 @@
           hippostd:state: published
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2021-05-05T08:34:12.475+01:00
-          hippostdpubwf:lastModificationDate: 2021-06-24T13:40:01.567+01:00
+          hippostdpubwf:lastModificationDate: 2022-11-16T16:11:08.176Z
           hippostdpubwf:lastModifiedBy: admin
-          hippostdpubwf:publicationDate: 2021-06-24T13:40:04.410+01:00
+          hippostdpubwf:publicationDate: 2022-11-16T16:11:12.056Z
           hippotranslation:id: e6433e3e-29d9-485c-b409-fff4ee7307a9
           hippotranslation:locale: en
           visitscotland:subtitle: ''
@@ -3871,12 +3859,6 @@
             jcr:primaryType: visitscotland:DMSLink
             visitscotland:label: ''
             visitscotland:product: '246591'
-          /visitscotland:media:
-            jcr:primaryType: hippogallerypicker:imagelink
-            hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
-            hippo:facets: []
-            hippo:modes: []
-            hippo:values: []
       /clava-cairns:
         jcr:primaryType: hippo:handle
         jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
@@ -4000,26 +3982,28 @@
         jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
         jcr:uuid: 8ef343ea-4650-4fb7-98d1-b34822be9817
         hippo:name: Culloden Battlefield
-        hippo:versionHistory: 93304889-99c5-4ca2-a4f4-555e942c4402
+        hippo:versionHistory: 071c8dc5-c972-4da5-86d1-3c8521a3b868
         /culloden-battlefield[1]:
           jcr:primaryType: visitscotland:Stop
           jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
           jcr:uuid: 2d5c59d9-f017-4081-a436-57cb87c75fe9
           hippo:availability: []
+          hippostd:retainable: false
           hippostd:state: draft
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2020-10-20T13:38:28.294Z
-          hippostdpubwf:lastModificationDate: 2020-10-21T12:08:42.938Z
+          hippostdpubwf:lastModificationDate: 2022-11-16T16:11:17.638Z
           hippostdpubwf:lastModifiedBy: admin
           hippotranslation:id: 466c9a3c-0498-4d13-9b4c-d2593d675fcb
           hippotranslation:locale: en
           visitscotland:subtitle: ''
           visitscotland:tipsTitle: ''
           visitscotland:title: Culloden Battlefield
+          visitscotland:translation: ''
           /visitscotland:description:
             jcr:primaryType: hippostd:html
             hippostd:content: |-
-              <p>A prominent location during the Jacobite Rising in 1745. Head to the&nbsp;<a href="https://www.nts.org.uk/visit/places/culloden" title="" target="_blank">Battle of Culloden Visitor Centre</a>&nbsp;and feel like you are right at the very heart of the action as you immerse yourself in the 360-degree immersion theatre experience. Discover the unfolding story of the Jacobite Rising as you learn more about the Jacobite and Government perspectives with unique artefacts on display around the museum on the series of events that occurred. Make sure to pop into the gift shop and take a small piece of history home with you ranging from the flowers of the Battlefield to Culloden whisky.</p>
+              <p>A prominent location during the Jacobite Rising in 1745. Head to the&nbsp;<a rel="noopener noreferrer" href="https://www.nts.org.uk/visit/places/culloden" title="" target="_blank">Battle of Culloden Visitor Centre</a>&nbsp;and feel like you are right at the very heart of the action as you immerse yourself in the 360-degree immersion theatre experience. Discover the unfolding story of the Jacobite Rising as you learn more about the Jacobite and Government perspectives with unique artefacts on display around the museum on the series of events that occurred. Make sure to pop into the gift shop and take a small piece of history home with you ranging from the flowers of the Battlefield to Culloden whisky.</p>
 
               <p>Duration of stay: 3 Hours</p>
           /visitscotland:tips:
@@ -4029,31 +4013,27 @@
             jcr:primaryType: visitscotland:DMSLink
             visitscotland:label: ''
             visitscotland:product: '247471'
-          /visitscotland:media:
-            jcr:primaryType: hippogallerypicker:imagelink
-            hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
-            hippo:facets: []
-            hippo:modes: []
-            hippo:values: []
         /culloden-battlefield[2]:
           jcr:primaryType: visitscotland:Stop
           jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable', 'mix:versionable']
           jcr:uuid: feda86a3-7723-4e84-b600-a06d2d69f2b2
           hippo:availability: [preview]
+          hippostd:retainable: false
           hippostd:state: unpublished
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2020-10-20T13:38:28.294Z
-          hippostdpubwf:lastModificationDate: 2020-10-20T16:36:57.082Z
+          hippostdpubwf:lastModificationDate: 2022-11-16T16:11:22.808Z
           hippostdpubwf:lastModifiedBy: admin
           hippotranslation:id: 466c9a3c-0498-4d13-9b4c-d2593d675fcb
           hippotranslation:locale: en
           visitscotland:subtitle: ''
           visitscotland:tipsTitle: ''
           visitscotland:title: Culloden Battlefield
+          visitscotland:translation: ''
           /visitscotland:description:
             jcr:primaryType: hippostd:html
             hippostd:content: |-
-              <p>A prominent location during the Jacobite Rising in 1745. Head to the&nbsp;<a href="https://www.nts.org.uk/visit/places/culloden" title="" target="_blank">Battle of Culloden Visitor Centre</a>&nbsp;and feel like you are right at the very heart of the action as you immerse yourself in the 360-degree immersion theatre experience. Discover the unfolding story of the Jacobite Rising as you learn more about the Jacobite and Government perspectives with unique artefacts on display around the museum on the series of events that occurred. Make sure to pop into the gift shop and take a small piece of history home with you ranging from the flowers of the Battlefield to Culloden whisky.</p>
+              <p>A prominent location during the Jacobite Rising in 1745. Head to the&nbsp;<a rel="noopener noreferrer" href="https://www.nts.org.uk/visit/places/culloden" title="" target="_blank">Battle of Culloden Visitor Centre</a>&nbsp;and feel like you are right at the very heart of the action as you immerse yourself in the 360-degree immersion theatre experience. Discover the unfolding story of the Jacobite Rising as you learn more about the Jacobite and Government perspectives with unique artefacts on display around the museum on the series of events that occurred. Make sure to pop into the gift shop and take a small piece of history home with you ranging from the flowers of the Battlefield to Culloden whisky.</p>
 
               <p>Duration of stay: 3 Hours</p>
           /visitscotland:tips:
@@ -4063,32 +4043,28 @@
             jcr:primaryType: visitscotland:DMSLink
             visitscotland:label: ''
             visitscotland:product: '247471'
-          /visitscotland:media:
-            jcr:primaryType: hippogallerypicker:imagelink
-            hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
-            hippo:facets: []
-            hippo:modes: []
-            hippo:values: []
         /culloden-battlefield[3]:
           jcr:primaryType: visitscotland:Stop
           jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
           jcr:uuid: 7bea6324-7765-4307-80c6-956bde7ac4b1
           hippo:availability: [live]
+          hippostd:retainable: false
           hippostd:state: published
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2020-10-20T13:38:28.294Z
-          hippostdpubwf:lastModificationDate: 2020-10-20T16:36:57.082Z
+          hippostdpubwf:lastModificationDate: 2022-11-16T16:11:22.808Z
           hippostdpubwf:lastModifiedBy: admin
-          hippostdpubwf:publicationDate: 2021-11-09T13:14:07.006Z
+          hippostdpubwf:publicationDate: 2022-11-16T16:11:27.912Z
           hippotranslation:id: 466c9a3c-0498-4d13-9b4c-d2593d675fcb
           hippotranslation:locale: en
           visitscotland:subtitle: ''
           visitscotland:tipsTitle: ''
           visitscotland:title: Culloden Battlefield
+          visitscotland:translation: ''
           /visitscotland:description:
             jcr:primaryType: hippostd:html
             hippostd:content: |-
-              <p>A prominent location during the Jacobite Rising in 1745. Head to the&nbsp;<a href="https://www.nts.org.uk/visit/places/culloden" title="" target="_blank">Battle of Culloden Visitor Centre</a>&nbsp;and feel like you are right at the very heart of the action as you immerse yourself in the 360-degree immersion theatre experience. Discover the unfolding story of the Jacobite Rising as you learn more about the Jacobite and Government perspectives with unique artefacts on display around the museum on the series of events that occurred. Make sure to pop into the gift shop and take a small piece of history home with you ranging from the flowers of the Battlefield to Culloden whisky.</p>
+              <p>A prominent location during the Jacobite Rising in 1745. Head to the&nbsp;<a rel="noopener noreferrer" href="https://www.nts.org.uk/visit/places/culloden" title="" target="_blank">Battle of Culloden Visitor Centre</a>&nbsp;and feel like you are right at the very heart of the action as you immerse yourself in the 360-degree immersion theatre experience. Discover the unfolding story of the Jacobite Rising as you learn more about the Jacobite and Government perspectives with unique artefacts on display around the museum on the series of events that occurred. Make sure to pop into the gift shop and take a small piece of history home with you ranging from the flowers of the Battlefield to Culloden whisky.</p>
 
               <p>Duration of stay: 3 Hours</p>
           /visitscotland:tips:
@@ -4098,31 +4074,26 @@
             jcr:primaryType: visitscotland:DMSLink
             visitscotland:label: ''
             visitscotland:product: '247471'
-          /visitscotland:media:
-            jcr:primaryType: hippogallerypicker:imagelink
-            hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
-            hippo:facets: []
-            hippo:modes: []
-            hippo:values: []
       /dining-out:
         jcr:primaryType: hippo:handle
         jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
         jcr:uuid: 0aba5bc3-cfab-48cf-807f-f24dd702ab2b
         hippo:name: Dining Out Inverness
-        hippo:versionHistory: 852ff48d-1cac-4228-86c3-81db7318fb9d
+        hippo:versionHistory: c6464c36-c5d4-4a8d-b15e-d36c09f02096
         /dining-out[1]:
           jcr:primaryType: visitscotland:Stop
           jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
           jcr:uuid: d56c0fc1-8761-4845-b2f4-591f7aaecdc0
           hippo:availability: []
+          hippostd:retainable: false
           hippostd:state: draft
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2020-10-20T13:44:40.192Z
-          hippostdpubwf:lastModificationDate: 2020-11-24T13:35:12.933Z
+          hippostdpubwf:lastModificationDate: 2022-11-16T16:11:32.201Z
           hippostdpubwf:lastModifiedBy: admin
           hippotranslation:id: 2d7d4c8e-7326-4fcc-99aa-1d6c62ad3bd5
           hippotranslation:locale: en
-          visitscotland:subtitle: ''
+          visitscotland:subtitle: Loch Ness
           visitscotland:tipsTitle: ''
           visitscotland:title: Dining Out & Nightlife
           visitscotland:translation: ''
@@ -4130,27 +4101,29 @@
             jcr:primaryType: hippostd:html
             hippostd:content: <p>After a long day of exploring the city, there is
               nothing better than sitting down while tucking into a delicious meal.
-              Just 10 miles outside of Inverness is&nbsp;<a href="http://www.thedoresinn.co.uk/"
-              title="" target="_blank">Dores Inn</a>, situated along the banks of
-              Loch Ness. Choose from a wide range of mouth-watering dishes and, with
-              its traditional furnishings and wood-burning stove, it is sure to set
-              the right ambience for the evening. Another scenic location that might
-              take your fancy is the&nbsp;<a href="http://riverhouseinverness.co.uk/"
-              title="" target="_blank">River House Restaurant</a>. You certainly won’t
-              go hungry here with the restaurant’s extensive food &amp; drink menu.
-              Working with local suppliers, you can always expect high quality dishes
-              that will certainly go down a treat. For starters, why not opt for the
-              pan-seared Isle of Harris scallops or Orkney crab on toast and for mains,
-              sink your teeth into a tasty 28-day matured Scottish ribeye – simply
-              delicious! Enjoy a night on the town! Inverness is certainly the place
-              to be to let your hair down!&nbsp;<a href="https://baroneinverness.com/"
-              title="" target="_blank">Bar One</a>&nbsp;is a great find if you are
-              looking to try a delicious cocktail or two while you lap up its lively
-              atmosphere. Watch the world go by at the&nbsp;<a href="https://www.castletavern.pub/"
+              Just 10 miles outside of Inverness is&nbsp;<a rel="noopener noreferrer"
+              href="http://www.thedoresinn.co.uk/" title="" target="_blank">Dores
+              Inn</a>, situated along the banks of Loch Ness. Choose from a wide range
+              of mouth-watering dishes and, with its traditional furnishings and wood-burning
+              stove, it is sure to set the right ambience for the evening. Another
+              scenic location that might take your fancy is the&nbsp;<a rel="noopener
+              noreferrer" href="http://riverhouseinverness.co.uk/" title="" target="_blank">River
+              House Restaurant</a>. You certainly won’t go hungry here with the restaurant’s
+              extensive food &amp; drink menu. Working with local suppliers, you can
+              always expect high quality dishes that will certainly go down a treat.
+              For starters, why not opt for the pan-seared Isle of Harris scallops
+              or Orkney crab on toast and for mains, sink your teeth into a tasty
+              28-day matured Scottish ribeye – simply delicious! Enjoy a night on
+              the town! Inverness is certainly the place to be to let your hair down!&nbsp;<a
+              rel="noopener noreferrer" href="https://baroneinverness.com/" title=""
+              target="_blank">Bar One</a>&nbsp;is a great find if you are looking
+              to try a delicious cocktail or two while you lap up its lively atmosphere.
+              Watch the world go by at the&nbsp;<a rel="noopener noreferrer" href="https://www.castletavern.pub/"
               title="" target="_blank">Castle Tavern</a>. Sample some of the best
               ales and meals on offer and when the weather is nice, make sure to soak
               up those rays in the beer garden. If you’re partial to sipping away
-              on a craft beer, then look no further than the&nbsp;<a href="https://www.blackislebrewery.com/black-isle-bar/"
+              on a craft beer, then look no further than the&nbsp;<a rel="noopener
+              noreferrer" href="https://www.blackislebrewery.com/black-isle-bar/"
               title="" target="_blank">Black Isle Brewery Bar</a>. Why not sink your
               teeth into one of their delicious wood-fired pizzas to go along with
               your meal?</p>
@@ -4166,7 +4139,7 @@
             /visitscotland:ExternalLink:
               jcr:primaryType: visitscotland:ExternalLink
               visitscotland:label: ''
-              visitscotland:link: http://riverhouseinverness.co.uk/
+              visitscotland:link: https://riverhouseinverness.co.uk/
           /visitscotland:media:
             jcr:primaryType: hippogallerypicker:imagelink
             hippo:docbase: 9fb38865-ca10-4ef4-bcab-a1097cc44487
@@ -4178,14 +4151,15 @@
           jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable', 'mix:versionable']
           jcr:uuid: 553a38b2-52c3-4218-8dfc-cc712553e9a0
           hippo:availability: [preview]
+          hippostd:retainable: false
           hippostd:state: unpublished
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2020-10-20T13:44:40.192Z
-          hippostdpubwf:lastModificationDate: 2020-11-24T13:35:12.898Z
+          hippostdpubwf:lastModificationDate: 2022-11-16T16:11:56.205Z
           hippostdpubwf:lastModifiedBy: admin
           hippotranslation:id: 2d7d4c8e-7326-4fcc-99aa-1d6c62ad3bd5
           hippotranslation:locale: en
-          visitscotland:subtitle: ''
+          visitscotland:subtitle: Loch Ness
           visitscotland:tipsTitle: ''
           visitscotland:title: Dining Out & Nightlife
           visitscotland:translation: ''
@@ -4193,27 +4167,29 @@
             jcr:primaryType: hippostd:html
             hippostd:content: <p>After a long day of exploring the city, there is
               nothing better than sitting down while tucking into a delicious meal.
-              Just 10 miles outside of Inverness is&nbsp;<a href="http://www.thedoresinn.co.uk/"
-              title="" target="_blank">Dores Inn</a>, situated along the banks of
-              Loch Ness. Choose from a wide range of mouth-watering dishes and, with
-              its traditional furnishings and wood-burning stove, it is sure to set
-              the right ambience for the evening. Another scenic location that might
-              take your fancy is the&nbsp;<a href="http://riverhouseinverness.co.uk/"
-              title="" target="_blank">River House Restaurant</a>. You certainly won’t
-              go hungry here with the restaurant’s extensive food &amp; drink menu.
-              Working with local suppliers, you can always expect high quality dishes
-              that will certainly go down a treat. For starters, why not opt for the
-              pan-seared Isle of Harris scallops or Orkney crab on toast and for mains,
-              sink your teeth into a tasty 28-day matured Scottish ribeye – simply
-              delicious! Enjoy a night on the town! Inverness is certainly the place
-              to be to let your hair down!&nbsp;<a href="https://baroneinverness.com/"
-              title="" target="_blank">Bar One</a>&nbsp;is a great find if you are
-              looking to try a delicious cocktail or two while you lap up its lively
-              atmosphere. Watch the world go by at the&nbsp;<a href="https://www.castletavern.pub/"
+              Just 10 miles outside of Inverness is&nbsp;<a rel="noopener noreferrer"
+              href="http://www.thedoresinn.co.uk/" title="" target="_blank">Dores
+              Inn</a>, situated along the banks of Loch Ness. Choose from a wide range
+              of mouth-watering dishes and, with its traditional furnishings and wood-burning
+              stove, it is sure to set the right ambience for the evening. Another
+              scenic location that might take your fancy is the&nbsp;<a rel="noopener
+              noreferrer" href="http://riverhouseinverness.co.uk/" title="" target="_blank">River
+              House Restaurant</a>. You certainly won’t go hungry here with the restaurant’s
+              extensive food &amp; drink menu. Working with local suppliers, you can
+              always expect high quality dishes that will certainly go down a treat.
+              For starters, why not opt for the pan-seared Isle of Harris scallops
+              or Orkney crab on toast and for mains, sink your teeth into a tasty
+              28-day matured Scottish ribeye – simply delicious! Enjoy a night on
+              the town! Inverness is certainly the place to be to let your hair down!&nbsp;<a
+              rel="noopener noreferrer" href="https://baroneinverness.com/" title=""
+              target="_blank">Bar One</a>&nbsp;is a great find if you are looking
+              to try a delicious cocktail or two while you lap up its lively atmosphere.
+              Watch the world go by at the&nbsp;<a rel="noopener noreferrer" href="https://www.castletavern.pub/"
               title="" target="_blank">Castle Tavern</a>. Sample some of the best
               ales and meals on offer and when the weather is nice, make sure to soak
               up those rays in the beer garden. If you’re partial to sipping away
-              on a craft beer, then look no further than the&nbsp;<a href="https://www.blackislebrewery.com/black-isle-bar/"
+              on a craft beer, then look no further than the&nbsp;<a rel="noopener
+              noreferrer" href="https://www.blackislebrewery.com/black-isle-bar/"
               title="" target="_blank">Black Isle Brewery Bar</a>. Why not sink your
               teeth into one of their delicious wood-fired pizzas to go along with
               your meal?</p>
@@ -4229,7 +4205,7 @@
             /visitscotland:ExternalLink:
               jcr:primaryType: visitscotland:ExternalLink
               visitscotland:label: ''
-              visitscotland:link: http://riverhouseinverness.co.uk/
+              visitscotland:link: https://riverhouseinverness.co.uk/
           /visitscotland:media:
             jcr:primaryType: hippogallerypicker:imagelink
             hippo:docbase: 9fb38865-ca10-4ef4-bcab-a1097cc44487
@@ -4241,15 +4217,16 @@
           jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
           jcr:uuid: 2ea04e51-6eb1-43a1-9955-b1baeaf275a5
           hippo:availability: [live]
+          hippostd:retainable: false
           hippostd:state: published
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2020-10-20T13:44:40.192Z
-          hippostdpubwf:lastModificationDate: 2020-11-24T13:35:12.898Z
+          hippostdpubwf:lastModificationDate: 2022-11-16T16:11:56.205Z
           hippostdpubwf:lastModifiedBy: admin
-          hippostdpubwf:publicationDate: 2021-11-09T13:14:07.207Z
+          hippostdpubwf:publicationDate: 2022-11-16T16:11:59.314Z
           hippotranslation:id: 2d7d4c8e-7326-4fcc-99aa-1d6c62ad3bd5
           hippotranslation:locale: en
-          visitscotland:subtitle: ''
+          visitscotland:subtitle: Loch Ness
           visitscotland:tipsTitle: ''
           visitscotland:title: Dining Out & Nightlife
           visitscotland:translation: ''
@@ -4257,27 +4234,29 @@
             jcr:primaryType: hippostd:html
             hippostd:content: <p>After a long day of exploring the city, there is
               nothing better than sitting down while tucking into a delicious meal.
-              Just 10 miles outside of Inverness is&nbsp;<a href="http://www.thedoresinn.co.uk/"
-              title="" target="_blank">Dores Inn</a>, situated along the banks of
-              Loch Ness. Choose from a wide range of mouth-watering dishes and, with
-              its traditional furnishings and wood-burning stove, it is sure to set
-              the right ambience for the evening. Another scenic location that might
-              take your fancy is the&nbsp;<a href="http://riverhouseinverness.co.uk/"
-              title="" target="_blank">River House Restaurant</a>. You certainly won’t
-              go hungry here with the restaurant’s extensive food &amp; drink menu.
-              Working with local suppliers, you can always expect high quality dishes
-              that will certainly go down a treat. For starters, why not opt for the
-              pan-seared Isle of Harris scallops or Orkney crab on toast and for mains,
-              sink your teeth into a tasty 28-day matured Scottish ribeye – simply
-              delicious! Enjoy a night on the town! Inverness is certainly the place
-              to be to let your hair down!&nbsp;<a href="https://baroneinverness.com/"
-              title="" target="_blank">Bar One</a>&nbsp;is a great find if you are
-              looking to try a delicious cocktail or two while you lap up its lively
-              atmosphere. Watch the world go by at the&nbsp;<a href="https://www.castletavern.pub/"
+              Just 10 miles outside of Inverness is&nbsp;<a rel="noopener noreferrer"
+              href="http://www.thedoresinn.co.uk/" title="" target="_blank">Dores
+              Inn</a>, situated along the banks of Loch Ness. Choose from a wide range
+              of mouth-watering dishes and, with its traditional furnishings and wood-burning
+              stove, it is sure to set the right ambience for the evening. Another
+              scenic location that might take your fancy is the&nbsp;<a rel="noopener
+              noreferrer" href="http://riverhouseinverness.co.uk/" title="" target="_blank">River
+              House Restaurant</a>. You certainly won’t go hungry here with the restaurant’s
+              extensive food &amp; drink menu. Working with local suppliers, you can
+              always expect high quality dishes that will certainly go down a treat.
+              For starters, why not opt for the pan-seared Isle of Harris scallops
+              or Orkney crab on toast and for mains, sink your teeth into a tasty
+              28-day matured Scottish ribeye – simply delicious! Enjoy a night on
+              the town! Inverness is certainly the place to be to let your hair down!&nbsp;<a
+              rel="noopener noreferrer" href="https://baroneinverness.com/" title=""
+              target="_blank">Bar One</a>&nbsp;is a great find if you are looking
+              to try a delicious cocktail or two while you lap up its lively atmosphere.
+              Watch the world go by at the&nbsp;<a rel="noopener noreferrer" href="https://www.castletavern.pub/"
               title="" target="_blank">Castle Tavern</a>. Sample some of the best
               ales and meals on offer and when the weather is nice, make sure to soak
               up those rays in the beer garden. If you’re partial to sipping away
-              on a craft beer, then look no further than the&nbsp;<a href="https://www.blackislebrewery.com/black-isle-bar/"
+              on a craft beer, then look no further than the&nbsp;<a rel="noopener
+              noreferrer" href="https://www.blackislebrewery.com/black-isle-bar/"
               title="" target="_blank">Black Isle Brewery Bar</a>. Why not sink your
               teeth into one of their delicious wood-fired pizzas to go along with
               your meal?</p>
@@ -4293,7 +4272,7 @@
             /visitscotland:ExternalLink:
               jcr:primaryType: visitscotland:ExternalLink
               visitscotland:label: ''
-              visitscotland:link: http://riverhouseinverness.co.uk/
+              visitscotland:link: https://riverhouseinverness.co.uk/
           /visitscotland:media:
             jcr:primaryType: hippogallerypicker:imagelink
             hippo:docbase: 9fb38865-ca10-4ef4-bcab-a1097cc44487
@@ -4305,22 +4284,24 @@
         jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
         jcr:uuid: 56d04a55-ae5b-4357-a8fd-b20bebbe91c5
         hippo:name: Inverness Botanic Gardens
-        hippo:versionHistory: d4733be5-e50b-44d2-acad-4ddce101c7ee
+        hippo:versionHistory: 5428fe91-3482-4d39-aeb6-7bbd23b3254c
         /inverness-botanic-gardens[1]:
           jcr:primaryType: visitscotland:Stop
           jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
           jcr:uuid: d03bac81-1005-4d1e-b52b-fe45ff6580c6
           hippo:availability: []
+          hippostd:retainable: false
           hippostd:state: draft
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2020-10-20T13:43:16.322Z
-          hippostdpubwf:lastModificationDate: 2020-10-22T15:27:03.592Z
+          hippostdpubwf:lastModificationDate: 2022-11-16T16:12:05.317Z
           hippostdpubwf:lastModifiedBy: admin
           hippotranslation:id: ff9e6db9-2526-4683-8006-d7df8d831d94
           hippotranslation:locale: en
           visitscotland:subtitle: ''
           visitscotland:tipsTitle: ''
           visitscotland:title: Inverness Botanic Gardens
+          visitscotland:translation: ''
           /visitscotland:description:
             jcr:primaryType: hippostd:html
             hippostd:content: |-
@@ -4334,27 +4315,23 @@
             jcr:primaryType: visitscotland:DMSLink
             visitscotland:label: ''
             visitscotland:product: '255531'
-          /visitscotland:media:
-            jcr:primaryType: hippogallerypicker:imagelink
-            hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
-            hippo:facets: []
-            hippo:modes: []
-            hippo:values: []
         /inverness-botanic-gardens[2]:
           jcr:primaryType: visitscotland:Stop
           jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable', 'mix:versionable']
           jcr:uuid: 36eff3e3-93aa-43f9-9c07-64f7847c464c
           hippo:availability: [preview]
+          hippostd:retainable: false
           hippostd:state: unpublished
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2020-10-20T13:43:16.322Z
-          hippostdpubwf:lastModificationDate: 2020-10-20T13:43:42.222Z
+          hippostdpubwf:lastModificationDate: 2022-11-16T16:12:13.095Z
           hippostdpubwf:lastModifiedBy: admin
           hippotranslation:id: ff9e6db9-2526-4683-8006-d7df8d831d94
           hippotranslation:locale: en
           visitscotland:subtitle: ''
           visitscotland:tipsTitle: ''
           visitscotland:title: Inverness Botanic Gardens
+          visitscotland:translation: ''
           /visitscotland:description:
             jcr:primaryType: hippostd:html
             hippostd:content: |-
@@ -4368,28 +4345,24 @@
             jcr:primaryType: visitscotland:DMSLink
             visitscotland:label: ''
             visitscotland:product: '255531'
-          /visitscotland:media:
-            jcr:primaryType: hippogallerypicker:imagelink
-            hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
-            hippo:facets: []
-            hippo:modes: []
-            hippo:values: []
         /inverness-botanic-gardens[3]:
           jcr:primaryType: visitscotland:Stop
           jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
           jcr:uuid: 5196aa52-e7ac-4b86-8b14-0f6ebb427f36
           hippo:availability: [live]
+          hippostd:retainable: false
           hippostd:state: published
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2020-10-20T13:43:16.322Z
-          hippostdpubwf:lastModificationDate: 2020-10-20T13:43:42.222Z
+          hippostdpubwf:lastModificationDate: 2022-11-16T16:12:13.095Z
           hippostdpubwf:lastModifiedBy: admin
-          hippostdpubwf:publicationDate: 2021-11-09T13:14:07.832Z
+          hippostdpubwf:publicationDate: 2022-11-16T16:12:15.802Z
           hippotranslation:id: ff9e6db9-2526-4683-8006-d7df8d831d94
           hippotranslation:locale: en
           visitscotland:subtitle: ''
           visitscotland:tipsTitle: ''
           visitscotland:title: Inverness Botanic Gardens
+          visitscotland:translation: ''
           /visitscotland:description:
             jcr:primaryType: hippostd:html
             hippostd:content: |-
@@ -4403,12 +4376,6 @@
             jcr:primaryType: visitscotland:DMSLink
             visitscotland:label: ''
             visitscotland:product: '255531'
-          /visitscotland:media:
-            jcr:primaryType: hippogallerypicker:imagelink
-            hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
-            hippo:facets: []
-            hippo:modes: []
-            hippo:values: []
       /inverness-museum-art-gallery:
         jcr:primaryType: hippo:handle
         jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
@@ -6152,280 +6119,6 @@
               jcr:primaryType: visitscotland:DMSLink
               visitscotland:label: ''
               visitscotland:product: '-1'
-        /royal-botanic-garden:
-          jcr:primaryType: hippo:handle
-          jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
-          jcr:uuid: bbd8ed3a-53cf-45c3-a01a-0d427301479b
-          hippo:name: Royal Botanic Garden
-          hippo:versionHistory: 8c1dac92-ab37-4b1d-b90d-a48f434e3967
-          /royal-botanic-garden[1]:
-            jcr:primaryType: visitscotland:SharedLink
-            jcr:mixinTypes: ['mix:referenceable']
-            jcr:uuid: dfd0b39c-3934-4055-be15-ba1fd5460933
-            hippo:availability: []
-            hippostd:retainable: false
-            hippostd:state: draft
-            hippostd:transferable: false
-            hippostdpubwf:createdBy: admin
-            hippostdpubwf:creationDate: 2022-11-14T11:16:00.237Z
-            hippostdpubwf:lastModificationDate: 2022-11-14T11:35:23.748Z
-            hippostdpubwf:lastModifiedBy: admin
-            hippotranslation:id: a87f22fb-7950-4271-b4d5-fd7b5ad4ac9c
-            hippotranslation:locale: en
-            visitscotland:teaser: Just one mile from city centre, the Royal Botanic
-              Garden Edinburgh offers visitors peace and tranquillity amongst 72 acres
-              of stunning scenery.
-            visitscotland:title: Royal Botanic Garden Edinburgh
-            visitscotland:translation: ''
-            /visitscotland:image:
-              jcr:primaryType: hippogallerypicker:imagelink
-              hippo:docbase: ecede5a4-326c-4ce5-b9be-bcdf32c3f2c2
-              hippo:facets: []
-              hippo:modes: []
-              hippo:values: []
-            /visitscotland:linkTypes:
-              jcr:primaryType: visitscotland:DMSLink
-              visitscotland:label: ''
-              visitscotland:product: '246181'
-          /royal-botanic-garden[2]:
-            jcr:primaryType: visitscotland:SharedLink
-            jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
-            jcr:uuid: 3b35cfff-2e49-4b5c-8eec-4066c3b26814
-            hippo:availability: [preview]
-            hippostd:retainable: false
-            hippostd:state: unpublished
-            hippostdpubwf:createdBy: admin
-            hippostdpubwf:creationDate: 2022-11-14T11:16:00.237Z
-            hippostdpubwf:lastModificationDate: 2022-11-14T11:17:41.685Z
-            hippostdpubwf:lastModifiedBy: admin
-            hippotranslation:id: a87f22fb-7950-4271-b4d5-fd7b5ad4ac9c
-            hippotranslation:locale: en
-            visitscotland:teaser: Just one mile from city centre, the Royal Botanic
-              Garden Edinburgh offers visitors peace and tranquillity amongst 72 acres
-              of stunning scenery.
-            visitscotland:title: Royal Botanic Garden Edinburgh
-            visitscotland:translation: ''
-            /visitscotland:image:
-              jcr:primaryType: hippogallerypicker:imagelink
-              hippo:docbase: ecede5a4-326c-4ce5-b9be-bcdf32c3f2c2
-              hippo:facets: []
-              hippo:modes: []
-              hippo:values: []
-            /visitscotland:linkTypes:
-              jcr:primaryType: visitscotland:DMSLink
-              visitscotland:label: ''
-              visitscotland:product: '246181'
-          /royal-botanic-garden[3]:
-            jcr:primaryType: visitscotland:SharedLink
-            jcr:mixinTypes: ['mix:referenceable']
-            jcr:uuid: 56a4465b-2aff-41cf-8725-40cce40bead4
-            hippo:availability: [live]
-            hippostd:retainable: false
-            hippostd:state: published
-            hippostdpubwf:createdBy: admin
-            hippostdpubwf:creationDate: 2022-11-14T11:16:00.237Z
-            hippostdpubwf:lastModificationDate: 2022-11-14T11:17:41.685Z
-            hippostdpubwf:lastModifiedBy: admin
-            hippostdpubwf:publicationDate: 2022-11-14T11:17:47.268Z
-            hippotranslation:id: a87f22fb-7950-4271-b4d5-fd7b5ad4ac9c
-            hippotranslation:locale: en
-            visitscotland:teaser: Just one mile from city centre, the Royal Botanic
-              Garden Edinburgh offers visitors peace and tranquillity amongst 72 acres
-              of stunning scenery.
-            visitscotland:title: Royal Botanic Garden Edinburgh
-            visitscotland:translation: ''
-            /visitscotland:image:
-              jcr:primaryType: hippogallerypicker:imagelink
-              hippo:docbase: ecede5a4-326c-4ce5-b9be-bcdf32c3f2c2
-              hippo:facets: []
-              hippo:modes: []
-              hippo:values: []
-            /visitscotland:linkTypes:
-              jcr:primaryType: visitscotland:DMSLink
-              visitscotland:label: ''
-              visitscotland:product: '246181'
-        /royal-botanic-garden-with-no-override-image:
-          jcr:primaryType: hippo:handle
-          jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
-          jcr:uuid: 297774b3-e274-4bb2-a09f-45849bb0309f
-          hippo:name: Royal Botanic Garden (with No override image)
-          hippo:versionHistory: e6b0afbd-28da-4611-b829-89e5f3630ead
-          /royal-botanic-garden-with-no-override-image[1]:
-            jcr:primaryType: visitscotland:SharedLink
-            jcr:mixinTypes: ['mix:versionable']
-            jcr:uuid: af5ee03e-e68f-4ff9-9b7a-97d3ed6bf9b4
-            hippo:availability: [preview]
-            hippostd:retainable: false
-            hippostd:state: unpublished
-            hippostdpubwf:createdBy: admin
-            hippostdpubwf:creationDate: 2022-11-14T11:16:00.237Z
-            hippostdpubwf:lastModificationDate: 2022-11-14T11:35:54.079Z
-            hippostdpubwf:lastModifiedBy: admin
-            hippotranslation:id: 86331aac-9dab-4728-957f-2f92b74e17bb
-            hippotranslation:locale: en
-            visitscotland:teaser: Just one mile from city centre, the Royal Botanic
-              Garden Edinburgh offers visitors peace and tranquillity amongst 72 acres
-              of stunning scenery.
-            visitscotland:title: Royal Botanic Garden Edinburgh
-            visitscotland:translation: ''
-            /visitscotland:image:
-              jcr:primaryType: hippogallerypicker:imagelink
-              hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
-              hippo:facets: []
-              hippo:modes: []
-              hippo:values: []
-            /visitscotland:linkTypes:
-              jcr:primaryType: visitscotland:DMSLink
-              visitscotland:label: ''
-              visitscotland:product: '246181'
-          /royal-botanic-garden-with-no-override-image[2]:
-            jcr:primaryType: visitscotland:SharedLink
-            jcr:mixinTypes: ['mix:referenceable']
-            jcr:uuid: 23c5bb64-864b-4daa-9b8a-fe82421f2168
-            hippo:availability: []
-            hippostd:retainable: false
-            hippostd:state: draft
-            hippostdpubwf:createdBy: admin
-            hippostdpubwf:creationDate: 2022-11-14T11:16:00.237Z
-            hippostdpubwf:lastModificationDate: 2022-11-14T11:35:52.062Z
-            hippostdpubwf:lastModifiedBy: admin
-            hippotranslation:id: 86331aac-9dab-4728-957f-2f92b74e17bb
-            hippotranslation:locale: en
-            visitscotland:teaser: Just one mile from city centre, the Royal Botanic
-              Garden Edinburgh offers visitors peace and tranquillity amongst 72 acres
-              of stunning scenery.
-            visitscotland:title: Royal Botanic Garden Edinburgh
-            visitscotland:translation: ''
-            /visitscotland:image:
-              jcr:primaryType: hippogallerypicker:imagelink
-              hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
-              hippo:facets: []
-              hippo:modes: []
-              hippo:values: []
-            /visitscotland:linkTypes:
-              jcr:primaryType: visitscotland:DMSLink
-              visitscotland:label: ''
-              visitscotland:product: '246181'
-          /royal-botanic-garden-with-no-override-image[3]:
-            jcr:primaryType: visitscotland:SharedLink
-            jcr:mixinTypes: ['mix:referenceable']
-            jcr:uuid: df67ae32-610b-4b10-b937-5f083be86b6f
-            hippo:availability: [live]
-            hippostd:retainable: false
-            hippostd:state: published
-            hippostdpubwf:createdBy: admin
-            hippostdpubwf:creationDate: 2022-11-14T11:16:00.237Z
-            hippostdpubwf:lastModificationDate: 2022-11-14T11:35:54.079Z
-            hippostdpubwf:lastModifiedBy: admin
-            hippostdpubwf:publicationDate: 2022-11-14T11:35:58.623Z
-            hippotranslation:id: 86331aac-9dab-4728-957f-2f92b74e17bb
-            hippotranslation:locale: en
-            visitscotland:teaser: Just one mile from city centre, the Royal Botanic
-              Garden Edinburgh offers visitors peace and tranquillity amongst 72 acres
-              of stunning scenery.
-            visitscotland:title: Royal Botanic Garden Edinburgh
-            visitscotland:translation: ''
-            /visitscotland:image:
-              jcr:primaryType: hippogallerypicker:imagelink
-              hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
-              hippo:facets: []
-              hippo:modes: []
-              hippo:values: []
-            /visitscotland:linkTypes:
-              jcr:primaryType: visitscotland:DMSLink
-              visitscotland:label: ''
-              visitscotland:product: '246181'
-        /royal-botanic-garden-with-broken-image:
-          jcr:primaryType: hippo:handle
-          jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
-          jcr:uuid: 36e1bead-c356-433f-a6ae-b89629bebdee
-          hippo:name: Royal Botanic Garden (with broken image)
-          hippo:versionHistory: 9906d7a4-24ce-4435-8305-72eb7f48ccb0
-          /royal-botanic-garden-with-broken-image[1]:
-            jcr:primaryType: visitscotland:SharedLink
-            jcr:mixinTypes: ['mix:versionable']
-            jcr:uuid: 2e05bbd6-acd2-4cde-801b-371f9d3af1bf
-            hippo:availability: [preview]
-            hippostd:retainable: false
-            hippostd:state: unpublished
-            hippostdpubwf:createdBy: admin
-            hippostdpubwf:creationDate: 2022-11-14T11:16:00.237Z
-            hippostdpubwf:lastModificationDate: 2022-11-14T11:39:32.436Z
-            hippostdpubwf:lastModifiedBy: admin
-            hippotranslation:id: ddc39061-fe07-49fb-93a6-e14059642d92
-            hippotranslation:locale: en
-            visitscotland:teaser: Just one mile from city centre, the Royal Botanic
-              Garden Edinburgh offers visitors peace and tranquillity amongst 72 acres
-              of stunning scenery.
-            visitscotland:title: Royal Botanic Garden Edinburgh
-            visitscotland:translation: ''
-            /visitscotland:image:
-              jcr:primaryType: hippogallerypicker:imagelink
-              hippo:docbase: 50b3f878-ba0f-411a-b913-6e39e8d38956
-              hippo:facets: []
-              hippo:modes: []
-              hippo:values: []
-            /visitscotland:linkTypes:
-              jcr:primaryType: visitscotland:DMSLink
-              visitscotland:label: ''
-              visitscotland:product: '246181'
-          /royal-botanic-garden-with-broken-image[2]:
-            jcr:primaryType: visitscotland:SharedLink
-            jcr:mixinTypes: ['mix:referenceable']
-            jcr:uuid: 6dcdb1f4-0f14-4d78-8ef2-aa55c654633a
-            hippo:availability: [live]
-            hippostd:retainable: false
-            hippostd:state: published
-            hippostdpubwf:createdBy: admin
-            hippostdpubwf:creationDate: 2022-11-14T11:16:00.237Z
-            hippostdpubwf:lastModificationDate: 2022-11-14T11:39:32.436Z
-            hippostdpubwf:lastModifiedBy: admin
-            hippostdpubwf:publicationDate: 2022-11-14T11:39:37.910Z
-            hippotranslation:id: ddc39061-fe07-49fb-93a6-e14059642d92
-            hippotranslation:locale: en
-            visitscotland:teaser: Just one mile from city centre, the Royal Botanic
-              Garden Edinburgh offers visitors peace and tranquillity amongst 72 acres
-              of stunning scenery.
-            visitscotland:title: Royal Botanic Garden Edinburgh
-            visitscotland:translation: ''
-            /visitscotland:image:
-              jcr:primaryType: hippogallerypicker:imagelink
-              hippo:docbase: 50b3f878-ba0f-411a-b913-6e39e8d38956
-              hippo:facets: []
-              hippo:modes: []
-              hippo:values: []
-            /visitscotland:linkTypes:
-              jcr:primaryType: visitscotland:DMSLink
-              visitscotland:label: ''
-              visitscotland:product: '246181'
-          /royal-botanic-garden-with-broken-image[3]:
-            jcr:primaryType: visitscotland:SharedLink
-            jcr:mixinTypes: ['mix:referenceable']
-            jcr:uuid: f453fb36-8e68-4629-ba9e-533b22e18c6d
-            hippo:availability: []
-            hippostd:retainable: false
-            hippostd:state: draft
-            hippostdpubwf:createdBy: admin
-            hippostdpubwf:creationDate: 2022-11-14T11:16:00.237Z
-            hippostdpubwf:lastModificationDate: 2022-11-14T11:38:36.656Z
-            hippostdpubwf:lastModifiedBy: admin
-            hippotranslation:id: ddc39061-fe07-49fb-93a6-e14059642d92
-            hippotranslation:locale: en
-            visitscotland:teaser: Just one mile from city centre, the Royal Botanic
-              Garden Edinburgh offers visitors peace and tranquillity amongst 72 acres
-              of stunning scenery.
-            visitscotland:title: Royal Botanic Garden Edinburgh
-            visitscotland:translation: ''
-            /visitscotland:image:
-              jcr:primaryType: hippogallerypicker:imagelink
-              hippo:docbase: 50b3f878-ba0f-411a-b913-6e39e8d38956
-              hippo:facets: []
-              hippo:modes: []
-              hippo:values: []
-            /visitscotland:linkTypes:
-              jcr:primaryType: visitscotland:DMSLink
-              visitscotland:label: ''
-              visitscotland:product: '246181'
       /product-search:
         jcr:primaryType: hippostd:folder
         jcr:mixinTypes: ['frontend:orderChildFolders', 'hippo:named', 'hippotranslation:translated',
@@ -10576,121 +10269,6 @@
           /visitscotland:copy:
             jcr:primaryType: hippostd:html
             hippostd:content: ''
-    /royal-botanic-garden:
-      jcr:primaryType: hippo:handle
-      jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
-      jcr:uuid: 983807b2-825a-40d7-8990-e300cad4f4c2
-      hippo:name: Royal Botanic Garden
-      hippo:versionHistory: bdbce2ab-a048-4271-90d0-b381f574c472
-      /royal-botanic-garden[1]:
-        jcr:primaryType: visitscotland:ListicleItem
-        jcr:mixinTypes: ['mix:versionable']
-        jcr:uuid: 85f1e27a-2549-4c40-a713-efab68da7b47
-        hippo:availability: [preview]
-        hippostd:retainable: false
-        hippostd:state: unpublished
-        hippostdpubwf:createdBy: admin
-        hippostdpubwf:creationDate: 2020-03-30T14:46:39.631+01:00
-        hippostdpubwf:lastModificationDate: 2022-11-14T11:20:15.285Z
-        hippostdpubwf:lastModifiedBy: admin
-        hippotranslation:id: 236d2cf8-9942-4b25-8396-0b72f417f9d1
-        hippotranslation:locale: en
-        visitscotland:subtitle: Edinburgh
-        visitscotland:title: Royal Botanic Garden Edinburgh
-        visitscotland:translation: ''
-        /visitscotland:description:
-          jcr:primaryType: hippostd:html
-          hippostd:content: |-
-            <p>The Royal Botanic Garden Edinburgh is one of the finest botanic gardens in the world.&nbsp; A pleasure for all the family, the Garden offers fantastic views of the capital's skyline, featuring Edinburgh Castle, and is located just a mile from the city centre.&nbsp; Visitors can discover its fascinating history, which dates back 350 years, learn about its plantings and walk around 72 acres of beautiful, awe-inspiring&nbsp;landscape.</p>
-
-            <p>Visitors can enjoy the serenity of the Chinese Hillside, explore the world-famous Rock Garden or stroll amongst the magnificent Giant Redwood trees in the Woodland Garden.&nbsp;&nbsp; Plus, there are artworks to view in the Garden's exhibition space, Inverleith House.</p>
-
-            <p>The Botanics Shop, located in the John Hope Gateway visitor centre, offers a wide selection of gifts, souvenirs, crafts and plants.&nbsp; Refreshments are available although check the website for up to date information.</p>
-
-            <p>Admission to the Garden is FREE.</p>
-        /visitscotland:products:
-          jcr:primaryType: visitscotland:DMSLink
-          visitscotland:label: Discover the musseum.
-          visitscotland:product: '246181'
-        /visitscotland:images:
-          jcr:primaryType: hippogallerypicker:imagelink
-          hippo:docbase: ecede5a4-326c-4ce5-b9be-bcdf32c3f2c2
-          hippo:facets: []
-          hippo:modes: []
-          hippo:values: []
-      /royal-botanic-garden[2]:
-        jcr:primaryType: visitscotland:ListicleItem
-        jcr:mixinTypes: ['mix:referenceable']
-        jcr:uuid: 92db38ec-9b83-40c0-b5d1-16e9c54b2198
-        hippo:availability: []
-        hippostd:retainable: false
-        hippostd:state: draft
-        hippostdpubwf:createdBy: admin
-        hippostdpubwf:creationDate: 2020-03-30T14:46:39.631+01:00
-        hippostdpubwf:lastModificationDate: 2022-11-14T11:18:43.079Z
-        hippostdpubwf:lastModifiedBy: admin
-        hippotranslation:id: 236d2cf8-9942-4b25-8396-0b72f417f9d1
-        hippotranslation:locale: en
-        visitscotland:subtitle: Edinburgh
-        visitscotland:title: Royal Botanic Garden Edinburgh
-        visitscotland:translation: ''
-        /visitscotland:description:
-          jcr:primaryType: hippostd:html
-          hippostd:content: |-
-            <p>The Royal Botanic Garden Edinburgh is one of the finest botanic gardens in the world.&nbsp; A pleasure for all the family, the Garden offers fantastic views of the capital's skyline, featuring Edinburgh Castle, and is located just a mile from the city centre.&nbsp; Visitors can discover its fascinating history, which dates back 350 years, learn about its plantings and walk around 72 acres of beautiful, awe-inspiring&nbsp;landscape.</p>
-
-            <p>Visitors can enjoy the serenity of the Chinese Hillside, explore the world-famous Rock Garden or stroll amongst the magnificent Giant Redwood trees in the Woodland Garden.&nbsp;&nbsp; Plus, there are artworks to view in the Garden's exhibition space, Inverleith House.</p>
-
-            <p>The Botanics Shop, located in the John Hope Gateway visitor centre, offers a wide selection of gifts, souvenirs, crafts and plants.&nbsp; Refreshments are available although check the website for up to date information.</p>
-
-            <p>Admission to the Garden is FREE.</p>
-        /visitscotland:products:
-          jcr:primaryType: visitscotland:DMSLink
-          visitscotland:label: Discover the musseum.
-          visitscotland:product: '246181'
-        /visitscotland:images:
-          jcr:primaryType: hippogallerypicker:imagelink
-          hippo:docbase: ecede5a4-326c-4ce5-b9be-bcdf32c3f2c2
-          hippo:facets: []
-          hippo:modes: []
-          hippo:values: []
-      /royal-botanic-garden[3]:
-        jcr:primaryType: visitscotland:ListicleItem
-        jcr:mixinTypes: ['mix:referenceable']
-        jcr:uuid: 373a9cce-387a-440f-9783-512ba361c1ce
-        hippo:availability: [live]
-        hippostd:retainable: false
-        hippostd:state: published
-        hippostdpubwf:createdBy: admin
-        hippostdpubwf:creationDate: 2020-03-30T14:46:39.631+01:00
-        hippostdpubwf:lastModificationDate: 2022-11-14T11:20:15.285Z
-        hippostdpubwf:lastModifiedBy: admin
-        hippostdpubwf:publicationDate: 2022-11-14T11:20:19.423Z
-        hippotranslation:id: 236d2cf8-9942-4b25-8396-0b72f417f9d1
-        hippotranslation:locale: en
-        visitscotland:subtitle: Edinburgh
-        visitscotland:title: Royal Botanic Garden Edinburgh
-        visitscotland:translation: ''
-        /visitscotland:description:
-          jcr:primaryType: hippostd:html
-          hippostd:content: |-
-            <p>The Royal Botanic Garden Edinburgh is one of the finest botanic gardens in the world.&nbsp; A pleasure for all the family, the Garden offers fantastic views of the capital's skyline, featuring Edinburgh Castle, and is located just a mile from the city centre.&nbsp; Visitors can discover its fascinating history, which dates back 350 years, learn about its plantings and walk around 72 acres of beautiful, awe-inspiring&nbsp;landscape.</p>
-
-            <p>Visitors can enjoy the serenity of the Chinese Hillside, explore the world-famous Rock Garden or stroll amongst the magnificent Giant Redwood trees in the Woodland Garden.&nbsp;&nbsp; Plus, there are artworks to view in the Garden's exhibition space, Inverleith House.</p>
-
-            <p>The Botanics Shop, located in the John Hope Gateway visitor centre, offers a wide selection of gifts, souvenirs, crafts and plants.&nbsp; Refreshments are available although check the website for up to date information.</p>
-
-            <p>Admission to the Garden is FREE.</p>
-        /visitscotland:products:
-          jcr:primaryType: visitscotland:DMSLink
-          visitscotland:label: Discover the musseum.
-          visitscotland:product: '246181'
-        /visitscotland:images:
-          jcr:primaryType: hippogallerypicker:imagelink
-          hippo:docbase: ecede5a4-326c-4ce5-b9be-bcdf32c3f2c2
-          hippo:facets: []
-          hippo:modes: []
-          hippo:values: []
   /destinations:
     jcr:primaryType: hippostd:folder
     jcr:mixinTypes: ['hippo:named', 'hippotranslation:translated', 'mix:versionable']
@@ -10885,7 +10463,7 @@
         jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
         jcr:uuid: 932f15c1-74d1-47f6-9a3f-f8644e2ae491
         hippo:name: Featured Layout
-        hippo:versionHistory: b1558daf-82fd-44b2-b9c3-6949fc0ce795
+        hippo:versionHistory: ed031d73-963c-443c-859e-d7352717d25e
         /featured-layout[1]:
           jcr:primaryType: visitscotland:Megalinks
           jcr:mixinTypes: ['mix:referenceable']
@@ -10895,7 +10473,7 @@
           hippostd:state: draft
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2020-05-21T17:54:15.934+01:00
-          hippostdpubwf:lastModificationDate: 2022-11-14T11:22:45.948Z
+          hippostdpubwf:lastModificationDate: 2022-06-16T15:09:16.200+01:00
           hippostdpubwf:lastModifiedBy: admin
           hippotranslation:id: 5dc9b699-4821-4c91-b426-7b75aed683e4
           hippotranslation:locale: en
@@ -10939,12 +10517,6 @@
             /visitscotland:links:
               jcr:primaryType: hippo:mirror
               hippo:docbase: 8b4a3c11-8b84-4aa0-bccf-f407d18c1c44
-          /visitscotland:megalinkItems[6]:
-            jcr:primaryType: visitscotland:MegalinkItem
-            visitscotland:feature: false
-            /visitscotland:links:
-              jcr:primaryType: hippo:mirror
-              hippo:docbase: bbd8ed3a-53cf-45c3-a01a-0d427301479b
         /featured-layout[2]:
           jcr:primaryType: visitscotland:Megalinks
           jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
@@ -10954,7 +10526,7 @@
           hippostd:state: unpublished
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2020-05-21T17:54:15.934+01:00
-          hippostdpubwf:lastModificationDate: 2022-11-14T11:23:38.126Z
+          hippostdpubwf:lastModificationDate: 2022-06-16T15:09:20.867+01:00
           hippostdpubwf:lastModifiedBy: admin
           hippotranslation:id: 5dc9b699-4821-4c91-b426-7b75aed683e4
           hippotranslation:locale: en
@@ -10998,12 +10570,6 @@
             /visitscotland:links:
               jcr:primaryType: hippo:mirror
               hippo:docbase: 8b4a3c11-8b84-4aa0-bccf-f407d18c1c44
-          /visitscotland:megalinkItems[6]:
-            jcr:primaryType: visitscotland:MegalinkItem
-            visitscotland:feature: false
-            /visitscotland:links:
-              jcr:primaryType: hippo:mirror
-              hippo:docbase: bbd8ed3a-53cf-45c3-a01a-0d427301479b
         /featured-layout[3]:
           jcr:primaryType: visitscotland:Megalinks
           jcr:mixinTypes: ['mix:referenceable']
@@ -11013,9 +10579,9 @@
           hippostd:state: published
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2020-05-21T17:54:15.934+01:00
-          hippostdpubwf:lastModificationDate: 2022-11-14T11:23:38.126Z
+          hippostdpubwf:lastModificationDate: 2022-06-16T15:09:20.867+01:00
           hippostdpubwf:lastModifiedBy: admin
-          hippostdpubwf:publicationDate: 2022-11-14T11:23:43.948Z
+          hippostdpubwf:publicationDate: 2022-06-16T15:09:24.427+01:00
           hippotranslation:id: 5dc9b699-4821-4c91-b426-7b75aed683e4
           hippotranslation:locale: en
           visitscotland:hideTeaser: false
@@ -11058,18 +10624,12 @@
             /visitscotland:links:
               jcr:primaryType: hippo:mirror
               hippo:docbase: 8b4a3c11-8b84-4aa0-bccf-f407d18c1c44
-          /visitscotland:megalinkItems[6]:
-            jcr:primaryType: visitscotland:MegalinkItem
-            visitscotland:feature: false
-            /visitscotland:links:
-              jcr:primaryType: hippo:mirror
-              hippo:docbase: bbd8ed3a-53cf-45c3-a01a-0d427301479b
       /edinburgh-map:
         jcr:primaryType: hippo:handle
         jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
         jcr:uuid: 1073ee1d-3527-4a16-8486-3a339f829dfc
         hippo:name: edinburgh map
-        hippo:versionHistory: e5dcccd1-8844-4e19-b4ef-97480acbdc00
+        hippo:versionHistory: 348e3a19-8d8c-44f4-bc39-a269972c8eb3
         /edinburgh-map[1]:
           jcr:primaryType: visitscotland:MapModule
           jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
@@ -11077,10 +10637,9 @@
           hippo:availability: []
           hippostd:retainable: false
           hippostd:state: draft
-          hippostd:transferable: false
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2022-06-15T11:39:32.156+01:00
-          hippostdpubwf:lastModificationDate: 2022-06-16T16:31:55.810+01:00
+          hippostdpubwf:lastModificationDate: 2022-11-16T16:03:42.471Z
           hippostdpubwf:lastModifiedBy: admin
           hippotaxonomy:keys: []
           hippotranslation:id: 3cc78bbf-6007-4623-80b3-19097c916111
@@ -11093,10 +10652,13 @@
             visitscotland:title: Featured Places
             /visitscotland:mapPins[1]:
               jcr:primaryType: hippo:mirror
-              hippo:docbase: ab8d2643-1517-4a6a-aa86-f5a9c8b5e2c3
+              hippo:docbase: d364cfc7-f59f-4869-9171-24f760b9978e
             /visitscotland:mapPins[2]:
               jcr:primaryType: hippo:mirror
-              hippo:docbase: e8202d3f-3d3e-43e2-8075-3cf9b212df05
+              hippo:docbase: e67cca0b-469d-4281-8815-0612f856f316
+            /visitscotland:mapPins[3]:
+              jcr:primaryType: hippo:mirror
+              hippo:docbase: 9830f174-d0eb-47bf-9b1a-02f86f43e17f
         /edinburgh-map[2]:
           jcr:primaryType: visitscotland:MapModule
           jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable', 'mix:versionable']
@@ -11106,7 +10668,7 @@
           hippostd:state: unpublished
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2022-06-15T11:39:32.156+01:00
-          hippostdpubwf:lastModificationDate: 2022-06-16T16:29:39.512+01:00
+          hippostdpubwf:lastModificationDate: 2022-11-16T16:04:08.857Z
           hippostdpubwf:lastModifiedBy: admin
           hippotaxonomy:keys: []
           hippotranslation:id: 3cc78bbf-6007-4623-80b3-19097c916111
@@ -11119,10 +10681,13 @@
             visitscotland:title: Featured Places
             /visitscotland:mapPins[1]:
               jcr:primaryType: hippo:mirror
-              hippo:docbase: ab8d2643-1517-4a6a-aa86-f5a9c8b5e2c3
+              hippo:docbase: d364cfc7-f59f-4869-9171-24f760b9978e
             /visitscotland:mapPins[2]:
               jcr:primaryType: hippo:mirror
-              hippo:docbase: e8202d3f-3d3e-43e2-8075-3cf9b212df05
+              hippo:docbase: e67cca0b-469d-4281-8815-0612f856f316
+            /visitscotland:mapPins[3]:
+              jcr:primaryType: hippo:mirror
+              hippo:docbase: 9830f174-d0eb-47bf-9b1a-02f86f43e17f
         /edinburgh-map[3]:
           jcr:primaryType: visitscotland:MapModule
           jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
@@ -11132,9 +10697,9 @@
           hippostd:state: published
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2022-06-15T11:39:32.156+01:00
-          hippostdpubwf:lastModificationDate: 2022-06-16T16:29:39.512+01:00
+          hippostdpubwf:lastModificationDate: 2022-11-16T16:04:08.857Z
           hippostdpubwf:lastModifiedBy: admin
-          hippostdpubwf:publicationDate: 2022-06-16T16:29:42.281+01:00
+          hippostdpubwf:publicationDate: 2022-11-16T16:04:11.491Z
           hippotaxonomy:keys: []
           hippotranslation:id: 3cc78bbf-6007-4623-80b3-19097c916111
           hippotranslation:locale: en
@@ -11146,10 +10711,13 @@
             visitscotland:title: Featured Places
             /visitscotland:mapPins[1]:
               jcr:primaryType: hippo:mirror
-              hippo:docbase: ab8d2643-1517-4a6a-aa86-f5a9c8b5e2c3
+              hippo:docbase: d364cfc7-f59f-4869-9171-24f760b9978e
             /visitscotland:mapPins[2]:
               jcr:primaryType: hippo:mirror
-              hippo:docbase: e8202d3f-3d3e-43e2-8075-3cf9b212df05
+              hippo:docbase: e67cca0b-469d-4281-8815-0612f856f316
+            /visitscotland:mapPins[3]:
+              jcr:primaryType: hippo:mirror
+              hippo:docbase: 9830f174-d0eb-47bf-9b1a-02f86f43e17f
       /article1-example:
         jcr:primaryType: hippo:handle
         jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
@@ -14665,33 +14233,16 @@
         hippo:availability: []
         hippostd:retainable: false
         hippostd:state: draft
+        hippostd:transferable: false
         hippostdpubwf:createdBy: admin
         hippostdpubwf:creationDate: 2022-06-16T09:40:19.973+01:00
-        hippostdpubwf:lastModificationDate: 2022-10-25T10:35:28.744+01:00
+        hippostdpubwf:lastModificationDate: 2022-11-16T14:36:24.319Z
         hippostdpubwf:lastModifiedBy: admin
-        hippotaxonomy:keys: [destinations]
+        hippotaxonomy:keys: []
         hippotranslation:id: 5c1c7d42-9e51-44f3-8c7e-8c78fe05ca34
         hippotranslation:locale: en
         visitscotland:tabTitle: Explore places to go
         visitscotland:title: Map of Scotland
-        /visitscotland:categories:
-          jcr:primaryType: visitscotland:MapCategory
-          visitscotland:title: ''
-          /visitscotland:mapPins[1]:
-            jcr:primaryType: hippo:mirror
-            hippo:docbase: af7bc15d-bc33-4b84-ad01-e77eb5acde61
-          /visitscotland:mapPins[2]:
-            jcr:primaryType: hippo:mirror
-            hippo:docbase: 178cc6ee-9b6a-4095-80b2-9026263d173e
-          /visitscotland:mapPins[3]:
-            jcr:primaryType: visitscotland:SpecialLinkCoordinates
-            /visitscotland:link:
-              jcr:primaryType: hippo:mirror
-              hippo:docbase: 7d2653e5-8068-49d1-9c1e-8aad6d951985
-            /visitscotland:coordinates:
-              jcr:primaryType: visitscotland:Coordinates
-              visitscotland:latitude: 56.797394
-              visitscotland:longitude: -5.003361
         /visitscotland:copy:
           jcr:primaryType: hippostd:html
           hippostd:content: <p>This is an example of a map.&nbsp;&nbsp;Suspendisse
@@ -14779,316 +14330,6 @@
             nec bibendum mauris. Maecenas nulla nibh, gravida non risus quis, sollicitudin
             pulvinar purus. Pellentesque lacus massa, rhoncus et mollis semper, tempus
             a diam.&nbsp;</p>
-    /jose-test:
-      jcr:primaryType: hippostd:folder
-      jcr:mixinTypes: ['hippotranslation:translated', 'mix:versionable']
-      jcr:uuid: e3bcdc5e-e674-4c4c-96dc-a418832afa90
-      hippostd:foldertype: [new-translated-folder, new-page, new-module]
-      hippotranslation:id: d7f613e0-cbe9-4c47-aa92-2e59b56f5e7d
-      hippotranslation:locale: en
-      /content:
-        jcr:primaryType: hippo:handle
-        jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
-        jcr:uuid: e3e7cf60-ce0d-4de2-a674-5f92bc0c5ed2
-        hippo:name: Edinburgh
-        hippo:versionHistory: 21982012-8111-4a5a-982e-fbe4df8d751b
-        /content[1]:
-          jcr:primaryType: visitscotland:Destination
-          jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:versionable']
-          jcr:uuid: 7a78204b-18aa-4ed0-a5a9-d3e1abcba7a5
-          hippo:availability: [preview]
-          hippostd:retainable: false
-          hippostd:state: unpublished
-          hippostdpubwf:createdBy: admin
-          hippostdpubwf:creationDate: 2020-05-15T11:13:39.117+01:00
-          hippostdpubwf:lastModificationDate: 2022-06-16T09:42:04.774+01:00
-          hippostdpubwf:lastModifiedBy: admin
-          hippotaxonomy:keys: [cities]
-          hippotranslation:id: 2d7e8929-da01-4a54-ad92-033878f4d669
-          hippotranslation:locale: en
-          visitscotland:breadcrumb: ''
-          visitscotland:hideNewsletter: false
-          visitscotland:location: Edinburgh
-          visitscotland:newsletter: true
-          visitscotland:seoDescription: Edinburgh seo description
-          visitscotland:seoNoIndex: false
-          visitscotland:seoTitle: Edinburgh seo title
-          visitscotland:teaser: Edinburgh city teaser
-          visitscotland:title: Visit Edinburgh and discover the best things to see
-            and do in Scotland's capital
-          visitscotland:translation: ''
-          /visitscotland:heroImage:
-            jcr:primaryType: hippogallerypicker:imagelink
-            hippo:docbase: ecede5a4-326c-4ce5-b9be-bcdf32c3f2c2
-            hippo:facets: []
-            hippo:modes: []
-            hippo:values: []
-          /visitscotland:introduction:
-            jcr:primaryType: hippostd:html
-            hippostd:content: |-
-              <p>With an abundance of history, top quality attractions and beautiful architecture, Edinburgh is a city that you won’t forget in a hurry. Explore the Medieval Old Town and the elegant Georgian New Town, which sit side by side, and visit unique attractions throughout the city on a holiday in Edinburgh.</p>
-
-              <p>Whether you’re short of time and can only manage a weekend break, planning a full-blown city break or are visiting Edinburgh as part of a wider holiday in Scotland, there’s lots to fill your time, from unforgettable historic sites and world-class festivals to fantastic shopping and mouth-watering dining.</p>
-          /visitscotland:otherThings:
-            jcr:primaryType: visitscotland:OTYML
-            visitscotland:title: ''
-            /visitscotland:links[1]:
-              jcr:primaryType: hippo:mirror
-              hippo:docbase: 4d302e29-93dd-4157-9df9-bbd741bb12a0
-            /visitscotland:links[2]:
-              jcr:primaryType: hippo:mirror
-              hippo:docbase: 8b4a3c11-8b84-4aa0-bccf-f407d18c1c44
-            /visitscotland:links[3]:
-              jcr:primaryType: hippo:mirror
-              hippo:docbase: ab8d2643-1517-4a6a-aa86-f5a9c8b5e2c3
-            /visitscotland:links[4]:
-              jcr:primaryType: hippo:mirror
-              hippo:docbase: bc5bec32-9cbc-45a7-855b-342008ad8ef9
-            /visitscotland:links[5]:
-              jcr:primaryType: hippo:mirror
-              hippo:docbase: a2ca775b-0df5-4e2c-900c-c51c9f2e5d47
-        /content[2]:
-          jcr:primaryType: visitscotland:Destination
-          jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
-          jcr:uuid: ec460b03-37dc-42d6-a62d-2128d344092d
-          hippo:availability: []
-          hippostd:retainable: false
-          hippostd:state: draft
-          hippostd:transferable: false
-          hippostdpubwf:createdBy: admin
-          hippostdpubwf:creationDate: 2020-05-15T11:13:39.117+01:00
-          hippostdpubwf:lastModificationDate: 2022-11-14T11:41:53.291Z
-          hippostdpubwf:lastModifiedBy: admin
-          hippotaxonomy:keys: [cities]
-          hippotranslation:id: 2d7e8929-da01-4a54-ad92-033878f4d669
-          hippotranslation:locale: en
-          visitscotland:breadcrumb: ''
-          visitscotland:hideNewsletter: false
-          visitscotland:location: Edinburgh
-          visitscotland:newsletter: true
-          visitscotland:seoDescription: Edinburgh seo description
-          visitscotland:seoNoIndex: false
-          visitscotland:seoTitle: Edinburgh seo title
-          visitscotland:teaser: Edinburgh city teaser
-          visitscotland:title: Visit Edinburgh and discover the best things to see
-            and do in Scotland's capital
-          visitscotland:translation: ''
-          /visitscotland:heroImage:
-            jcr:primaryType: hippogallerypicker:imagelink
-            hippo:docbase: ecede5a4-326c-4ce5-b9be-bcdf32c3f2c2
-            hippo:facets: []
-            hippo:modes: []
-            hippo:values: []
-          /visitscotland:introduction:
-            jcr:primaryType: hippostd:html
-            hippostd:content: |-
-              <p>With an abundance of history, top quality attractions and beautiful architecture, Edinburgh is a city that you won’t forget in a hurry. Explore the Medieval Old Town and the elegant Georgian New Town, which sit side by side, and visit unique attractions throughout the city on a holiday in Edinburgh.</p>
-
-              <p>Whether you’re short of time and can only manage a weekend break, planning a full-blown city break or are visiting Edinburgh as part of a wider holiday in Scotland, there’s lots to fill your time, from unforgettable historic sites and world-class festivals to fantastic shopping and mouth-watering dining.</p>
-          /visitscotland:otherThings:
-            jcr:primaryType: visitscotland:OTYML
-            visitscotland:title: ''
-            /visitscotland:links[1]:
-              jcr:primaryType: hippo:mirror
-              hippo:docbase: 4d302e29-93dd-4157-9df9-bbd741bb12a0
-            /visitscotland:links[2]:
-              jcr:primaryType: hippo:mirror
-              hippo:docbase: 8b4a3c11-8b84-4aa0-bccf-f407d18c1c44
-            /visitscotland:links[3]:
-              jcr:primaryType: hippo:mirror
-              hippo:docbase: ab8d2643-1517-4a6a-aa86-f5a9c8b5e2c3
-            /visitscotland:links[4]:
-              jcr:primaryType: hippo:mirror
-              hippo:docbase: bc5bec32-9cbc-45a7-855b-342008ad8ef9
-            /visitscotland:links[5]:
-              jcr:primaryType: hippo:mirror
-              hippo:docbase: a2ca775b-0df5-4e2c-900c-c51c9f2e5d47
-        /content[3]:
-          jcr:primaryType: visitscotland:Destination
-          jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
-          jcr:uuid: 2a571532-a9fd-4f31-9512-5ed54c2b0fd0
-          hippo:availability: [live]
-          hippostd:retainable: false
-          hippostd:state: published
-          hippostdpubwf:createdBy: admin
-          hippostdpubwf:creationDate: 2020-05-15T11:13:39.117+01:00
-          hippostdpubwf:lastModificationDate: 2022-06-16T09:42:04.774+01:00
-          hippostdpubwf:lastModifiedBy: admin
-          hippostdpubwf:publicationDate: 2022-11-14T11:43:42.050Z
-          hippotaxonomy:keys: [cities]
-          hippotranslation:id: 2d7e8929-da01-4a54-ad92-033878f4d669
-          hippotranslation:locale: en
-          visitscotland:breadcrumb: ''
-          visitscotland:hideNewsletter: false
-          visitscotland:location: Edinburgh
-          visitscotland:newsletter: true
-          visitscotland:seoDescription: Edinburgh seo description
-          visitscotland:seoNoIndex: false
-          visitscotland:seoTitle: Edinburgh seo title
-          visitscotland:teaser: Edinburgh city teaser
-          visitscotland:title: Visit Edinburgh and discover the best things to see
-            and do in Scotland's capital
-          visitscotland:translation: ''
-          /visitscotland:heroImage:
-            jcr:primaryType: hippogallerypicker:imagelink
-            hippo:docbase: ecede5a4-326c-4ce5-b9be-bcdf32c3f2c2
-            hippo:facets: []
-            hippo:modes: []
-            hippo:values: []
-          /visitscotland:introduction:
-            jcr:primaryType: hippostd:html
-            hippostd:content: |-
-              <p>With an abundance of history, top quality attractions and beautiful architecture, Edinburgh is a city that you won’t forget in a hurry. Explore the Medieval Old Town and the elegant Georgian New Town, which sit side by side, and visit unique attractions throughout the city on a holiday in Edinburgh.</p>
-
-              <p>Whether you’re short of time and can only manage a weekend break, planning a full-blown city break or are visiting Edinburgh as part of a wider holiday in Scotland, there’s lots to fill your time, from unforgettable historic sites and world-class festivals to fantastic shopping and mouth-watering dining.</p>
-          /visitscotland:otherThings:
-            jcr:primaryType: visitscotland:OTYML
-            visitscotland:title: ''
-            /visitscotland:links[1]:
-              jcr:primaryType: hippo:mirror
-              hippo:docbase: 4d302e29-93dd-4157-9df9-bbd741bb12a0
-            /visitscotland:links[2]:
-              jcr:primaryType: hippo:mirror
-              hippo:docbase: 8b4a3c11-8b84-4aa0-bccf-f407d18c1c44
-            /visitscotland:links[3]:
-              jcr:primaryType: hippo:mirror
-              hippo:docbase: ab8d2643-1517-4a6a-aa86-f5a9c8b5e2c3
-            /visitscotland:links[4]:
-              jcr:primaryType: hippo:mirror
-              hippo:docbase: bc5bec32-9cbc-45a7-855b-342008ad8ef9
-            /visitscotland:links[5]:
-              jcr:primaryType: hippo:mirror
-              hippo:docbase: a2ca775b-0df5-4e2c-900c-c51c9f2e5d47
-      /featured-layout-copy:
-        jcr:primaryType: hippo:handle
-        jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
-        jcr:uuid: 2d2db191-11e1-4a3c-89b1-1e6088396064
-        hippo:name: Featured Layout (copy)
-        hippo:versionHistory: fda813e6-61d4-4f96-a8fa-7cffddedccd1
-        /featured-layout-copy[1]:
-          jcr:primaryType: visitscotland:Megalinks
-          jcr:mixinTypes: ['mix:versionable']
-          jcr:uuid: 96ba96e3-8e13-4180-bb4c-9096cdcae5e3
-          hippo:availability: [preview]
-          hippostd:retainable: false
-          hippostd:state: unpublished
-          hippostdpubwf:createdBy: admin
-          hippostdpubwf:creationDate: 2020-05-21T17:54:15.934+01:00
-          hippostdpubwf:lastModificationDate: 2022-11-14T11:43:27.733Z
-          hippostdpubwf:lastModifiedBy: admin
-          hippotranslation:id: 91af94ce-1ffe-48f5-96c3-2b65cec5a412
-          hippotranslation:locale: en
-          visitscotland:hideTeaser: false
-          visitscotland:layout: Default
-          visitscotland:list: false
-          visitscotland:listLayout: false
-          visitscotland:teaserVisible: true
-          visitscotland:title: Megalinks - Multi image Links
-          visitscotland:translation: ''
-          /visitscotland:introduction:
-            jcr:primaryType: hippostd:html
-            hippostd:content: <p>This is an example of Featured Links</p>
-          /visitscotland:megalinkItems[1]:
-            jcr:primaryType: visitscotland:MegalinkItem
-            visitscotland:feature: false
-            /visitscotland:links:
-              jcr:primaryType: hippo:mirror
-              hippo:docbase: bbd8ed3a-53cf-45c3-a01a-0d427301479b
-          /visitscotland:megalinkItems[2]:
-            jcr:primaryType: visitscotland:MegalinkItem
-            visitscotland:feature: false
-            /visitscotland:links:
-              jcr:primaryType: hippo:mirror
-              hippo:docbase: 297774b3-e274-4bb2-a09f-45849bb0309f
-          /visitscotland:megalinkItems[3]:
-            jcr:primaryType: visitscotland:MegalinkItem
-            visitscotland:feature: false
-            /visitscotland:links:
-              jcr:primaryType: hippo:mirror
-              hippo:docbase: 36e1bead-c356-433f-a6ae-b89629bebdee
-        /featured-layout-copy[2]:
-          jcr:primaryType: visitscotland:Megalinks
-          jcr:mixinTypes: ['mix:referenceable']
-          jcr:uuid: 8fbbeafd-f6ca-45d2-90b5-f01c3e411e31
-          hippo:availability: []
-          hippostd:retainable: false
-          hippostd:state: draft
-          hippostdpubwf:createdBy: admin
-          hippostdpubwf:creationDate: 2020-05-21T17:54:15.934+01:00
-          hippostdpubwf:lastModificationDate: 2022-11-14T11:42:34.665Z
-          hippostdpubwf:lastModifiedBy: admin
-          hippotranslation:id: 91af94ce-1ffe-48f5-96c3-2b65cec5a412
-          hippotranslation:locale: en
-          visitscotland:hideTeaser: false
-          visitscotland:layout: Default
-          visitscotland:list: false
-          visitscotland:listLayout: false
-          visitscotland:teaserVisible: true
-          visitscotland:title: Megalinks - Multi image Links
-          visitscotland:translation: ''
-          /visitscotland:introduction:
-            jcr:primaryType: hippostd:html
-            hippostd:content: <p>This is an example of Featured Links</p>
-          /visitscotland:megalinkItems[1]:
-            jcr:primaryType: visitscotland:MegalinkItem
-            visitscotland:feature: false
-            /visitscotland:links:
-              jcr:primaryType: hippo:mirror
-              hippo:docbase: bbd8ed3a-53cf-45c3-a01a-0d427301479b
-          /visitscotland:megalinkItems[2]:
-            jcr:primaryType: visitscotland:MegalinkItem
-            visitscotland:feature: false
-            /visitscotland:links:
-              jcr:primaryType: hippo:mirror
-              hippo:docbase: 297774b3-e274-4bb2-a09f-45849bb0309f
-          /visitscotland:megalinkItems[3]:
-            jcr:primaryType: visitscotland:MegalinkItem
-            visitscotland:feature: false
-            /visitscotland:links:
-              jcr:primaryType: hippo:mirror
-              hippo:docbase: 36e1bead-c356-433f-a6ae-b89629bebdee
-        /featured-layout-copy[3]:
-          jcr:primaryType: visitscotland:Megalinks
-          jcr:mixinTypes: ['mix:referenceable']
-          jcr:uuid: 06623bb3-ac48-451f-bbf2-346777409218
-          hippo:availability: [live]
-          hippostd:retainable: false
-          hippostd:state: published
-          hippostdpubwf:createdBy: admin
-          hippostdpubwf:creationDate: 2020-05-21T17:54:15.934+01:00
-          hippostdpubwf:lastModificationDate: 2022-11-14T11:43:27.733Z
-          hippostdpubwf:lastModifiedBy: admin
-          hippostdpubwf:publicationDate: 2022-11-14T11:43:41.968Z
-          hippotranslation:id: 91af94ce-1ffe-48f5-96c3-2b65cec5a412
-          hippotranslation:locale: en
-          visitscotland:hideTeaser: false
-          visitscotland:layout: Default
-          visitscotland:list: false
-          visitscotland:listLayout: false
-          visitscotland:teaserVisible: true
-          visitscotland:title: Megalinks - Multi image Links
-          visitscotland:translation: ''
-          /visitscotland:introduction:
-            jcr:primaryType: hippostd:html
-            hippostd:content: <p>This is an example of Featured Links</p>
-          /visitscotland:megalinkItems[1]:
-            jcr:primaryType: visitscotland:MegalinkItem
-            visitscotland:feature: false
-            /visitscotland:links:
-              jcr:primaryType: hippo:mirror
-              hippo:docbase: bbd8ed3a-53cf-45c3-a01a-0d427301479b
-          /visitscotland:megalinkItems[2]:
-            jcr:primaryType: visitscotland:MegalinkItem
-            visitscotland:feature: false
-            /visitscotland:links:
-              jcr:primaryType: hippo:mirror
-              hippo:docbase: 297774b3-e274-4bb2-a09f-45849bb0309f
-          /visitscotland:megalinkItems[3]:
-            jcr:primaryType: visitscotland:MegalinkItem
-            visitscotland:feature: false
-            /visitscotland:links:
-              jcr:primaryType: hippo:mirror
-              hippo:docbase: 36e1bead-c356-433f-a6ae-b89629bebdee
   /general-pages:
     jcr:primaryType: hippostd:folder
     jcr:mixinTypes: ['hippo:named', 'hippotranslation:translated', 'mix:versionable']
