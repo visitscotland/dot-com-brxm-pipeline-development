@@ -1,7 +1,7 @@
 package com.visitscotland.brxm.model;
 
-import com.google.gson.JsonArray;
-import com.google.gson.JsonObject;
+import com.fasterxml.jackson.databind.node.ArrayNode;
+import com.fasterxml.jackson.databind.node.ObjectNode;
 import org.hippoecm.hst.content.beans.standard.HippoHtml;
 
 public class MapsModule extends Module {
@@ -9,8 +9,8 @@ public class MapsModule extends Module {
     private String title;
     private HippoHtml introduction;
     private String tabTitle;
-    private JsonArray filters;
-    private JsonObject geoJson;
+    private ArrayNode filters;
+    private ObjectNode geoJson;
 
     public String getId() {
         return id;
@@ -44,21 +44,19 @@ public class MapsModule extends Module {
         this.tabTitle = tabTitle;
     }
 
-    public JsonArray getFilters() {
+    public ArrayNode getFilters() {
         return filters;
     }
 
-    public void setFilters(JsonArray filters) {
+    public void setFilters(ArrayNode filters) {
         this.filters = filters;
     }
 
-    public JsonObject getGeoJson() {
+    public ObjectNode getGeoJson() {
         return geoJson;
     }
 
-    public void setGeoJson(JsonObject geoJson) {
+    public void setGeoJson(ObjectNode geoJson) {
         this.geoJson = geoJson;
     }
-
-
 }
