@@ -37,7 +37,6 @@
         <template slot="vsModuleWrapperIntro">
             <@hst.html hippohtml=module.introduction/>
         </template>
-
         <vs-main-map-wrapper
             :main-heading-exists="${mainHeadingExists}"
             category-heading="${module.tabTitle}"

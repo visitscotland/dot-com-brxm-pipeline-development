@@ -12,7 +12,7 @@ import javax.jcr.RepositoryException;
 import java.util.Optional;
 
 /**
- * jcr:nane = visitscotland:featured-widget-validator
+ * jcr:name = visitscotland:featured-widget-validator
  */
 public class FeaturedWidgetValidator implements Validator<Node> {
 
