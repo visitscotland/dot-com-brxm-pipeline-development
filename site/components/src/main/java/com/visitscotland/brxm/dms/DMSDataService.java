@@ -99,22 +99,39 @@ public class DMSDataService {
 
         return  null;
     }
+    @Cacheable (value="dmsProductSearch")
+    public JsonNode cannedSearch(ProductSearchBuilder psb){
+
+        String dmsUrl = psb.buildCannedSearch();
+
+        logger.info("Requesting data to the canned search: {}", dmsUrl);
+        String responseString = proxy.request(dmsUrl);
+        if (responseString != null) {
+            try {
+                ObjectMapper m = new ObjectMapper();
+                return m.readTree(responseString).get("data").get("products");
+            } catch (JsonProcessingException e) {
+                logger.error("The response could not be parsed:\n {}", responseString, e);
+            }
+        }
+        return null;
+    }
 
     /**
      * This method invokes the canned search endpoint to check if there are results coming
      *
-     * @param toursUrl tours search url
+     * @param cannedSearch tours search url
      *
      * @return boolean to indicate if the search returns products
      */
     @Cacheable (value="dmsProductSearch")
-    public boolean cannedSearchHasResults(String toursUrl){
+    public boolean cannedSearchHasResults(String cannedSearch){
 
         String responseString = null;
 
-        logger.info("Requesting data to the tms: {}", toursUrl);
+        logger.info("Requesting data to the canned search url: {}", cannedSearch);
         try {
-            responseString = proxy.request(toursUrl);
+            responseString = proxy.request(cannedSearch);
 
             if (responseString!=null) {
                 ObjectMapper mapper = new ObjectMapper();

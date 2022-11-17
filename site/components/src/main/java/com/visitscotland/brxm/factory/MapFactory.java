@@ -7,6 +7,7 @@ import com.fasterxml.jackson.databind.node.ObjectNode;
 import com.visitscotland.brxm.config.VsComponentManager;
 import com.visitscotland.brxm.dms.*;
 import com.visitscotland.brxm.dms.model.LocationObject;
+import com.visitscotland.brxm.dms.model.RegionsMapTab;
 import com.visitscotland.brxm.hippobeans.*;
 import com.visitscotland.brxm.model.FlatImage;
 import com.visitscotland.brxm.model.FlatLink;
@@ -139,12 +140,40 @@ public class MapFactory {
      * @param keys filters for maps
      * @param features features information for mapcards
      */
-    private void buildMapDestinationPages (HstRequest request,Destination destinationPage, MapModule mapModuleDocument, MapsModule module, ArrayNode keys , ArrayNode features){
+    private void buildMapDestinationPages (HstRequest request,Destination destinationPage, MapModule mapModuleDocument, MapsModule module, ArrayNode keys, ArrayNode features){
         if (!Contract.isNull(mapModuleDocument.getFeaturedPlacesItem())) {
             addFeaturePlacesNode(module, mapModuleDocument.getCategories(), request.getLocale() , keys, features);
         }
        if (Arrays.asList(destinationPage.getKeys()).contains(REGIONS)) {
-            //TODO region map
+           for (RegionsMapTab prodType: RegionsMapTab.values()){
+               //filters
+               ObjectNode filter = mapper.createObjectNode();
+
+               filter.put("id", prodType.getProdTypeId().equalsIgnoreCase("twnv")?"cities":"towns");
+               filter.put(LABEL,bundle.getResourceBundle("map","map."+prodType.getProdTypeId(), request.getLocale()));
+               keys.add(filter);
+
+               ProductSearchBuilder dmsQuery = VsComponentManager.get(ProductSearchBuilder.class).location(destinationPage.getLocation())
+                       .productTypes(prodType.getProdTypeId()).category(prodType.getCategory())
+                       .sortBy(DMSConstants.SORT_ALPHA).size(100);
+               for (JsonNode jsonNode : dmsDataService.cannedSearch(dmsQuery)) {
+                   FlatImage image = new FlatImage();
+                   if (jsonNode.has("images")) {
+                       image.setExternalImage(jsonNode.get("images").get(0).get("mediaUrl").asText());
+                   }
+                   FlatLink link = new FlatLink( bundle.getResourceBundle("map", DISCOVER, request.getLocale()),jsonNode.get("productLink").get("link").asText(),LinkType.INTERNAL);
+                   ObjectNode data = mapper.createObjectNode();
+                   data.set(PROPERTIES, getPropertyNode(jsonNode.get("name").asText(), jsonNode.get("description").asText(),image,filter,link,jsonNode.get("id").asText()));
+
+                   ArrayNode coordinates = mapper.createArrayNode();
+                   coordinates.add(jsonNode.get("longitude"));
+                   coordinates.add(jsonNode.get("latitude"));
+                   data.set(GEOMETRY, getGeometryNode(coordinates,POINT));
+
+                   features.add(data);
+               }
+
+           }
         }else{
            for (CitiesMapTab prodType : CitiesMapTab.values()) {
                //filters
