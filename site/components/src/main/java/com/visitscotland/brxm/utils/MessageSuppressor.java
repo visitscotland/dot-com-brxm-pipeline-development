@@ -36,8 +36,8 @@ public class MessageSuppressor {
             issue = messages.get(index);
             Date doNotLogUntil = new Date(issue.getFirstOccurrence().getTime() + properties.getContentCacheRetention());
             if (new Date().after(doNotLogUntil)){
-                //TODO: verify that the messages go together
-                logger.info("The next content message has been logged {} time(s) in the last {}s", issue.getCount(), properties.getContentCacheRetention());
+                logger.info("The next content message has been logged {} time(s) in the last {}s", issue.getCount(),
+                        properties.getContentCacheRetention()/1000);
                 issue.reset();
             } else {
                 return false;
@@ -59,17 +59,16 @@ public class MessageSuppressor {
                 }
             }
 
-            percentage = 100. * removeElements.size() / properties.getContentCacheRetention();
+            percentage = 100. * removeElements.size() / properties.getContentCacheMaxElements();
+            messages.removeAll(removeElements);
 
             if (percentage < 10) {
-                logger.error("Suppressor Clean up, only reduced the amount of elements by {}%. It is advised to increase " +
-                                "the maximum number of elements for the cache", percentage);
+                logger.error("Suppressor Clean up, only reduced the amount of elements by {}%. There are {} remaining elements out of {}. " +
+                        "It is advised to increase the maximum number of elements for the cache", percentage, messages.size(), properties.getContentCacheMaxElements());
             } else {
                 logger.warn("Suppressor Clean up invoked because more than {} messages were recorded. The size of the cache was reduced by {}%",
                         properties.getContentCacheRetention(), (int) percentage);
             }
-
-            messages.removeAll(removeElements);
         }
     }
 
