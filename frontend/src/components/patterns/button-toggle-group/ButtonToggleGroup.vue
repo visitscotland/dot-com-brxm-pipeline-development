@@ -14,12 +14,43 @@
             name="radios-btn-default"
             buttons
             @change="toggleChange"
-        />
+            :class="groupTabbedInto ?
+                'vs-button-toggle-group--tabbed-focus' : ''"
+            @focusout="removeTabClass"
+        >
+            <div
+                v-for="option in options"
+                :key="option.text"
+                class="vs-button-toggle-group--button"
+                @keyup.tab="addTabClass"
+                @focusout="removeTabClass"
+            >
+                <BFormRadio
+                    :value="option.value"
+                    :key="option.text"
+                >
+                    <span>
+                        <VsSvg
+                            :path="iconPath(option)"
+                            class="mr-2"
+                            v-if="option.icon"
+                        />
+                        {{ option.text }}
+                    </span>
+                </BFormRadio>
+            </div>
+        </BFormRadioGroup>
     </BFormGroup>
 </template>
 
 <script>
-import { BFormGroup, BFormRadioGroup } from 'bootstrap-vue';
+import {
+    BFormGroup,
+    BFormRadioGroup,
+    BFormRadio,
+} from 'bootstrap-vue';
+import VsSvg from '@components/elements/svg/Svg';
+import initFontAwesome from '../../../utils/init-font-awesome';
 
 /**
  * A group of buttons that allow only one to be selected at a time
@@ -34,6 +65,8 @@ export default {
     components: {
         BFormGroup,
         BFormRadioGroup,
+        BFormRadio,
+        VsSvg,
     },
     props: {
         /**
@@ -62,9 +95,11 @@ export default {
     data() {
         return {
             selected: this.initialSelected,
+            groupTabbedInto: false,
         };
     },
     mounted() {
+        initFontAwesome();
         if (this.initialSelected === '') {
             this.selected = this.options[0].value;
         }
@@ -77,6 +112,28 @@ export default {
         toggleChange(checked) {
             this.$emit('toggleChanged', checked);
         },
+        /**
+         * Return icon path for icon
+         */
+        iconPath(option) {
+            const color = this.selected === option.value ? 'purple' : 'white';
+            return `${option.icon}-${color}`;
+        },
+        /**
+         * Updates data value to signify that the element
+         * has been tabbed into
+         */
+        addTabClass() {
+            this.groupTabbedInto = true;
+        },
+        /**
+         * Removes the 'tabbed into' class
+         */
+        removeTabClass(event) {
+            if (event.target.tagName !== 'INPUT') {
+                this.groupTabbedInto = false;
+            }
+        },
     },
 };
 </script>
@@ -84,7 +141,8 @@ export default {
 <style lang="scss">
     .vs-button-toggle-group {
         width: 100%;
-        text-align: center;
+        display: flex;
+        justify-content: center;
 
         legend {
             // sr-only styles
@@ -100,8 +158,8 @@ export default {
 
         &--radios {
             background-color: $color-purple;
-            display: inline-block;
-            border-radius: 1000px;
+            display: flex;
+            border-radius: $border-radius-pill;
             overflow: hidden;
 
             input[type="radio"] {
@@ -114,6 +172,13 @@ export default {
                 @extend %button-default-styles;
                 text-transform: uppercase;
 
+                & > span {
+                    display: flex;
+                    height: 32px;
+                    align-items: center;
+                    padding: 0 $spacer-2;
+                }
+
                 @include vs-button-variant(
                     $color-white, $color-purple, $color-purple,
                     $color-white, $color-purple-shade-2, $color-purple-shade-2,
@@ -121,18 +186,64 @@ export default {
                 );
 
                 &:not(:disabled):not(.disabled).active {
-                    border-radius: 1000px;
+                    z-index: 2;
+                    border-radius: $border-radius-pill;
 
                     @include vs-button-variant(
                         $color-purple, $color-white, $color-purple,
                         $color-white, $color-purple, $color-purple,
                         $color-white, $color-purple, $color-purple,
                     );
+
+                    @include media-breakpoint-up(lg) {
+                        @include vs-button-variant(
+                            $color-purple, $color-white, $color-purple,
+                            $color-white, $color-purple, $color-purple,
+                            $color-white, $color-purple, $color-purple,
+                        );
+
+                        &:hover {
+                            @include vs-button-variant(
+                                $color-purple, $color-white, $color-purple,
+                                $color-purple, $color-white, $color-purple,
+                                $color-white, $color-purple, $color-purple,
+                            );
+                        }
+                    }
                 }
 
-                &.active {
-                    z-index: 2;
+                &.focus {
+                    box-shadow: none;
                 }
+
+                &:hover {
+                    background-color: $color_pink_shade_4;
+                }
+            }
+        }
+
+        &--tabbed-focus {
+            input:focus {
+                + span {
+                    background-color: $color_yellow_tint_4;
+                    border-bottom: 3px solid $color_theme_primary;
+                }
+            }
+        }
+
+        &--button {
+            display: flex;
+            border: 1px solid $color-purple;
+
+            &:first-child {
+                margin-right: -(#{$spacer-4});
+                border-top-left-radius: $border-radius-pill;
+                border-bottom-left-radius: $border-radius-pill;
+            }
+
+            &:last-child {
+                border-top-right-radius: $border-radius-pill;
+                border-bottom-right-radius: $border-radius-pill;
             }
         }
     }

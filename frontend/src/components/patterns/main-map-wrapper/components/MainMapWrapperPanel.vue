@@ -141,6 +141,11 @@ export default {
         VsMainMapWrapperDetail,
         VsMainMapWrapperButtons,
     },
+    inject: [
+        'filters',
+        'placesData',
+        'regions',
+    ],
     props: {
         /**
          * Heading for the categories view
@@ -185,11 +190,6 @@ export default {
             default: '',
         },
     },
-    inject: [
-        'filters',
-        'placesData',
-        'regions',
-    ],
     computed: {
         currentHeading() {
             let headingText = '';

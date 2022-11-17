@@ -20,6 +20,7 @@ import Vue from 'vue';
 import VsWarning from '@components/patterns/warning/Warning';
 import osBranding from '@/utils/os-branding';
 import VsMapMarker from './components/MapMarker';
+import initFontAwesome from '../../../utils/init-font-awesome';
 import mapStore from '../../../stores/map.store';
 
 let mapboxgl = null;
@@ -178,6 +179,7 @@ export default {
         },
     },
     mounted() {
+        initFontAwesome();
         this.lazyloadMapComponent();
         this.isTablet = window.innerWidth >= 768;
         window.addEventListener('resize', this.onResize);
