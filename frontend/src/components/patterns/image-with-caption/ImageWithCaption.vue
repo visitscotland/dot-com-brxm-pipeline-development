@@ -231,7 +231,6 @@ export default {
                 'vs-image-with-caption--hero': this.isHeroImage,
                 'vs-image-with-caption--show-caption': !this.requiredCookiesExist && this.setCookieStatus === true,
                 'vs-image-with-caption--video': this.isVideo,
-                'vs-image-with-caption--video-small-play-button': this.isVideo && this.smallPlayButton,
             };
         },
         captionWrapperClasses() {
