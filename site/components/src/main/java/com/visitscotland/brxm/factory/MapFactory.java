@@ -4,7 +4,6 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ArrayNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
-import com.visitscotland.brxm.config.VsComponentManager;
 import com.visitscotland.brxm.dms.*;
 import com.visitscotland.brxm.dms.model.LocationObject;
 import com.visitscotland.brxm.hippobeans.*;
@@ -295,8 +294,10 @@ public class MapFactory {
         if (result != null) {
             final HippoBeanIterator it = result.getHippoBeans();
             while (it.hasNext()) {
-                ObjectNode feature = mapper.createObjectNode();
-                features.add(getMapDocuments(request.getLocale(), category, module, feature, it));
+                ObjectNode feature = getMapDocuments(request.getLocale(), category, module, it);
+                if (!feature.isEmpty()) {
+                    features.add(feature);
+                }
             }
         }
     }
@@ -309,14 +310,15 @@ public class MapFactory {
      * @param locale the locale/language
      * @param category the category/taxonomy selected
      * @param module the map module
-     * @param feature ObjectNode to keep adding destinations or stops
      * @param it iterator to iterate the list of destinations or stops
      * @return ObjectNode with the right format to be sent to FEDs
      */
-    private ObjectNode getMapDocuments(Locale locale, Category category, MapsModule module, ObjectNode feature, HippoBeanIterator it){
+    private ObjectNode getMapDocuments(Locale locale, Category category, MapsModule module, HippoBeanIterator it){
         //find all the documents with a taxonomy
         final HippoBean bean = it.nextHippoBean();
+        ObjectNode feature = null;
         if (!Contract.isNull(bean)) {
+            feature = mapper.createObjectNode();
             if (bean instanceof Destination) {
                 feature.put("type", "Feature");
                 buildPageNode(locale, getCategoryNode(category, locale), module,((Destination) bean), feature);
@@ -343,6 +345,7 @@ public class MapFactory {
             FlatLink flatLink = null;
             HippoBean item = stop.getStopItem();
             FlatImage image = imageFactory.createImage(stop.getImage(), module, locale);
+            boolean validPoint = true;
             if (item instanceof DMSLink) {
                 JsonNode dmsNode = dmsDataService.productCard(((DMSLink) item).getProduct(), locale);
                 if (!Contract.isNull(dmsNode)) {
@@ -355,14 +358,17 @@ public class MapFactory {
                         latitude = dmsNode.get(LATITUDE).asDouble();
                         longitude = dmsNode.get(LONGITUDE).asDouble();
                     }
+                }else{
+                    validPoint = false;
                 }
+
             } else if (item instanceof ItineraryExternalLink) {
                     ItineraryExternalLink externalStop = ((ItineraryExternalLink) item);
                     latitude = externalStop.getCoordinates().getLatitude();
                     longitude = externalStop.getCoordinates().getLongitude();
                     flatLink = new FlatLink(bundle.getResourceBundle("map", DISCOVER, locale),externalStop.getExternalLink().getLink(), LinkType.EXTERNAL);
             }
-            if (!Contract.isNull(latitude) && !Contract.isNull(longitude)) {
+            if (validPoint && !Contract.isNull(latitude) && !Contract.isNull(longitude)) {
                 feature.put("type", "Feature");
                 String description = stop.getDescription().getContent().trim().replace("\"", "'");
                 if (description.startsWith("<p>") && description.endsWith("</p>")) {
