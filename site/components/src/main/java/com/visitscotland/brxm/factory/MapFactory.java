@@ -246,6 +246,7 @@ public class MapFactory {
             keys.add(filter);
             for(HippoBean link : featuredPlaces.getMapPins()){
                 ObjectNode feat = mapper.createObjectNode();
+                feat.put("type", "Feature");
                 if (link instanceof Destination){
                     buildPageNode(locale, filter, module,(Destination) link, feat);
                 }else if (link instanceof Stop){

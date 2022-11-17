@@ -144,7 +144,7 @@ public class DMSDataService {
         if (!Contract.isEmpty(location)) {
             String dmsUrl = DMSConstants.META_LOCATIONS_COORDINATES;
             dmsUrl += "loc=" + location;
-            return gerArrayData(dmsUrl);
+            return getArrayData(dmsUrl);
 
         }
       return null;
@@ -164,7 +164,7 @@ public class DMSDataService {
             String dmsUrl = DMSConstants.META_CATEGORY_GROUP;
             dmsUrl += "prodtypes=" + prodType + "&locale=" + locale;
 
-            return gerArrayData(dmsUrl);
+            return getArrayData(dmsUrl);
         }
         return null;
     }
@@ -176,7 +176,7 @@ public class DMSDataService {
      *
      * @return ArrayNode with the response
      */
-    private ArrayNode gerArrayData(String dmsUrl) {
+    private ArrayNode getArrayData(String dmsUrl) {
         String responseString = proxy.request(dmsUrl);
         if (responseString != null) {
             try {
