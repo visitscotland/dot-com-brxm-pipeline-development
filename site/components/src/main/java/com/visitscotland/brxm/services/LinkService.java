@@ -179,7 +179,8 @@ public class LinkService {
     private String localize(Locale locale, String site, String path) {
         String languagePath = Language.getLanguageForLocale(locale).getPathVariable();
 
-        if (path.startsWith(languagePath)) {
+        if (path.startsWith(languagePath) ||
+                (languagePath.length() == 6 && path.startsWith(languagePath.substring(0,3)))) {
             return site + path;
         } else {
             return site + languagePath + path;
@@ -251,6 +252,8 @@ public class LinkService {
             return null;
         } else if (url.toLowerCase().endsWith(".pdf")) {
             return LinkType.DOWNLOAD;
+        } else if (url.toLowerCase().startsWith("mailto:")){
+            return LinkType.MAIL;
         } else if (url.startsWith("/") || url.startsWith("#")) {
             return LinkType.INTERNAL;
         } else if (isInternalDomain(url)) {
@@ -461,7 +464,7 @@ public class LinkService {
             return null;
         }
 
-        if (product != null && product.has(DMSConstants.DMSProduct.IMAGE)) {
+        if (product != null && !hasOverrideImage(sharedLink) && product.has(DMSConstants.DMSProduct.IMAGE)) {
             link.setImage(imageFactory.createImage(product, module, locale));
         }else{
             link.setImage(imageFactory.createImage(sharedLink.getImage(), module, locale));
@@ -486,6 +489,10 @@ public class LinkService {
             module.addErrorMessage(String.format("The image selected for '%s' is not available. Please select a valid image for the shared document '%s' at: %s",  sharedLink.getTitle(), sharedLink.getDisplayName(), sharedLink.getPath()));
         }
         return link;
+    }
+
+    private boolean hasOverrideImage(SharedLink sharedLink){
+        return sharedLink.getImage() != null && !Contract.isEmpty(sharedLink.getImage().getPath());
     }
 
     /**

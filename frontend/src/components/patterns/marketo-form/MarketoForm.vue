@@ -45,6 +45,7 @@
                                     :trigger-validate="triggerValidate"
                                     :hint-text="getTranslatedHint(field.name, index)"
                                     :placeholder="field.placeholder || ''"
+                                    :re-alert-errors="reAlertErrors"
                                 />
                             </template>
 
@@ -63,6 +64,7 @@
                                     :country-list-url="countryListUrl"
                                     :countries="field.countries"
                                     :hint-text="getTranslatedHint(field.name, index)"
+                                    :re-alert-errors="reAlertErrors"
                                 />
                             </template>
 
@@ -85,6 +87,7 @@
                                     :optional-text="getMessagingData('optional', language)"
                                     :hint-text="getTranslatedHint(field.name, index)"
                                     :info-text="getTranslatedInfo(field.name, index)"
+                                    :re-alert-errors="reAlertErrors"
                                 />
                             </template>
                         </div>
@@ -99,6 +102,7 @@
                     :error-msg="getMessagingData('recaptchaError', language)"
                     class="mt-9"
                     :textarea-label="recaptchaTextareaLabel"
+                    :re-alert-errors="reAlertErrors"
                 />
 
                 <VsButton
@@ -276,6 +280,7 @@ export default {
             conditionalFields: {
             },
             inputVal: '',
+            reAlertErrors: false,
         };
     },
     computed: {
@@ -600,6 +605,11 @@ export default {
                 this.marketoSubmit();
             } else {
                 this.showErrorMessage = true;
+                this.reAlertErrors = true;
+
+                setTimeout(() => {
+                    this.reAlertErrors = false;
+                }, 100);
             }
         },
         /**

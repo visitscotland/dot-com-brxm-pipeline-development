@@ -8,9 +8,10 @@
             class="vs-map__map"
             ref="mapbox"
         />
-        <!-- TO DO: Warning to be added once the updated
-        component is available in develop -->
-        <VsWarning class="vs-map__no-js" />
+        <VsWarning class="vs-map__no-js">
+            <!-- @slot Message to show when JS is disabled  -->
+            <slot name="noJs" />
+        </VsWarning>
     </div>
 </template>
 
@@ -19,6 +20,8 @@ import Vue from 'vue';
 import VsWarning from '@components/patterns/warning/Warning';
 import osBranding from '@/utils/os-branding';
 import VsMapMarker from './components/MapMarker';
+import initFontAwesome from '../../../utils/init-font-awesome';
+import mapStore from '../../../stores/map.store';
 
 let mapboxgl = null;
 let geojsonExtent = null;
@@ -88,17 +91,28 @@ export default {
             default: false,
         },
         /**
-         * The ID of the currently selected item
+         * Whether the map should show regions polygons
+         */
+        showPolygons: {
+            type: Boolean,
+            default: false,
+        },
+        /**
+         * The current selectdd item
          */
         selectedItem: {
             type: String,
-            default: '',
+            default: null,
         },
     },
     data() {
         return {
             isDesktop: false,
             geojsonData: {
+                type: 'FeatureCollection',
+                features: [],
+            },
+            polygons: {
                 type: 'FeatureCollection',
                 features: [],
             },
@@ -115,7 +129,18 @@ export default {
             },
             markers: [],
             popup: null,
+            hoveredStateId: null,
+            activeStateId: null,
         };
+    },
+    computed: {
+        highlightedPlace() {
+            if (this.mapbox.map) {
+                return mapStore.getters.getHoveredStop(this.mapId);
+            }
+
+            return '';
+        },
     },
     watch: {
         isVisible(newVal) {
@@ -128,8 +153,33 @@ export default {
             this.addMapFeatures();
             this.addMapMarkers();
         },
+        showPolygons(val) {
+            if (val === true) {
+                this.showMapPolygons();
+            } else {
+                this.hideMapPolygons();
+            }
+        },
+        highlightedPlace(newVal) {
+            if (newVal.length === 0) {
+                this.removeHoveredPolygon();
+            } else {
+                this.addHoveredPolygon(newVal);
+            }
+        },
+        selectedItem(newVal) {
+            const isPolygon = this.polygons.features
+                .filter((feature) => feature.properties.id === newVal);
+
+            if (!newVal) {
+                this.removeActivePolygon();
+            } else if (isPolygon.length > 0) {
+                this.addActivePolygon(newVal);
+            }
+        },
     },
     mounted() {
+        initFontAwesome();
         this.lazyloadMapComponent();
         this.isTablet = window.innerWidth >= 768;
         window.addEventListener('resize', this.onResize);
@@ -163,6 +213,10 @@ export default {
             });
 
             this.mapbox.map.resize();
+
+            this.mapbox.map.on('load', () => {
+                this.addMapPolygons();
+            });
         },
         /**
          * Adds map to controls
@@ -178,14 +232,22 @@ export default {
         addMapFeatures() {
             this.places.map((place) => {
                 if (typeof place.geometry !== 'undefined') {
+                    let coordinateArray = [
+                        place.geometry.coordinates[0],
+                        place.geometry.coordinates[1],
+                    ];
+
+                    if (place.geometry.type === 'Polygon') {
+                        coordinateArray = [
+                            place.geometry.coordinates[0],
+                        ];
+                    }
+
                     return this.geojsonData.features.push({
                         type: 'Feature',
                         geometry: {
-                            type: 'Point',
-                            coordinates: [
-                                place.geometry.coordinates[0],
-                                place.geometry.coordinates[1],
-                            ],
+                            type: place.geometry.type,
+                            coordinates: coordinateArray,
                         },
                         properties: {
                             title: place.properties.title,
@@ -193,6 +255,7 @@ export default {
                             type: place.properties.category.id,
                             id: place.properties.id,
                         },
+                        id: place.properties.id,
                     });
                 }
 
@@ -210,55 +273,250 @@ export default {
             }
 
             this.geojsonData.features.forEach((feature) => {
-                const markerComponent = new Vue({
-                    ...VsMapMarker,
-                    parent: this,
-                    propsData: {
-                        feature,
-                        mapId: this.mapId,
+                if (feature.geometry.type === 'Point') {
+                    const markerComponent = new Vue({
+                        ...VsMapMarker,
+                        parent: this,
+                        propsData: {
+                            feature,
+                            mapId: this.mapId,
+                        },
+                    });
+
+                    markerComponent.$mount();
+
+                    const mapboxMarker = new mapboxgl.Marker(markerComponent.$el)
+                        .setLngLat(feature.geometry.coordinates)
+                        .addTo(this.mapbox.map);
+
+                    this.markers.push(mapboxMarker);
+                }
+            });
+        },
+        /**
+         * Hide all polygons
+         */
+        hideMapPolygons() {
+            this.mapbox.map.setLayoutProperty('regions-fills', 'visibility', 'none');
+            this.mapbox.map.setLayoutProperty('regions-borders', 'visibility', 'none');
+        },
+        /**
+         * Show all polygons
+         */
+        showMapPolygons() {
+            this.mapbox.map.setLayoutProperty('regions-fills', 'visibility', 'visible');
+            this.mapbox.map.setLayoutProperty('regions-borders', 'visibility', 'visible');
+        },
+        /**
+         * Add polygons from data into map
+         */
+        addMapPolygons() {
+            this.geojsonData.features.forEach((feature) => {
+                if (feature.geometry.type === 'Polygon') {
+                    if (!this.polygons.features.includes(feature.properties.id)) {
+                        this.polygons.features.push(feature);
+                    }
+                }
+            });
+
+            this.mapbox.map.addSource('regions', {
+                type: 'geojson',
+                data: this.polygons,
+                promoteId: 'id',
+            });
+
+            this.mapbox.map.addLayer({
+                id: 'regions-borders',
+                type: 'line',
+                source: 'regions',
+                layout: {
+                },
+                paint: {
+                    'line-color': '#fff',
+                    'line-width': 2,
+                },
+            });
+
+            this.mapbox.map.addLayer({
+                id: 'regions-fills',
+                type: 'fill',
+                source: 'regions',
+                layout: {
+                },
+                paint: {
+                    'fill-color': [
+                        'case',
+                        ['==', ['feature-state', 'interaction-state'], 'hover'],
+                        'rgba(173,14,110,0.698)',
+                        ['==', ['feature-state', 'interaction-state'], 'active'],
+                        'rgba(173,14,110,0.533)',
+                        '#A5A5A5',
+                    ],
+                    'fill-opacity': 0.8,
+                },
+            });
+
+            // Hide map polygons by default
+            this.hideMapPolygons();
+
+            // When the user moves their mouse over the state-fill layer,
+            // we'll update the feature state for the feature under the mouse.
+            this.mapbox.map.on('mousemove', 'regions-fills', (e) => {
+                if (e.features.length > 0) {
+                    this.addMapPopup(e);
+                    this.removeHoveredPolygon();
+                    this.addHoveredPolygon(e.features[0].id);
+                }
+            });
+
+            // When the mouse leaves the state-fill layer, update the
+            // feature state of the previously hovered feature.
+            this.mapbox.map.on('mouseleave', 'regions-fills', () => {
+                this.removeMapPopup();
+                this.removeHoveredPolygon();
+            });
+
+            // When the clicks the the state-fill layer, update the
+            // feature state of the active feature.
+            this.mapbox.map.on('click', 'regions-fills', (e) => {
+                this.removeActivePolygon();
+                this.addActivePolygon(e.features[0].id);
+            });
+        },
+        /**
+         * Remove the current active polygon
+         */
+        removeActivePolygon() {
+            this.mapbox.map.setFeatureState(
+                {
+                    source: 'regions',
+                    id: this.activeStateId,
+                },
+                {
+                    'interaction-state': '',
+                },
+            );
+
+            this.activeStateId = null;
+        },
+        /**
+         * Add a new active polygon
+         */
+        addActivePolygon(polyId) {
+            this.activeStateId = polyId;
+
+            this.mapbox.map.setFeatureState(
+                {
+                    source: 'regions',
+                    id: this.activeStateId,
+                },
+                {
+                    'interaction-state': 'active',
+                },
+            );
+
+            mapStore.dispatch('setActivePlace', {
+                mapId: this.mapId,
+                placeId: this.activeStateId,
+            });
+            this.$emit('show-detail', this.activeStateId);
+
+            this.$emit('set-category', 'regions');
+        },
+        /**
+         * Remove the current hovered polygon
+         */
+        removeHoveredPolygon() {
+            if (this.hoveredStateId) {
+                let state = '';
+                if (this.hoveredStateId === this.activeStateId) {
+                    state = 'active';
+                }
+
+                this.mapbox.map.setFeatureState(
+                    {
+                        source: 'regions',
+                        id: this.hoveredStateId,
                     },
-                });
+                    {
+                        'interaction-state': state,
+                    },
+                );
+            }
 
-                markerComponent.$mount();
+            mapStore.dispatch('setHoveredPlace', {
+                mapId: this.mapId,
+                hoveredId: '',
+            });
 
-                const mapboxMarker = new mapboxgl.Marker(markerComponent.$el)
-                    .setLngLat(feature.geometry.coordinates)
-                    .addTo(this.mapbox.map);
+            this.hoveredStateId = null;
+        },
+        /**
+         * Add a hovered polygon
+         */
+        addHoveredPolygon(polyId) {
+            this.hoveredStateId = polyId;
+            this.mapbox.map.setFeatureState(
+                {
+                    source: 'regions',
+                    id: this.hoveredStateId,
+                },
+                {
+                    'interaction-state': 'hover',
+                },
+            );
 
-                this.markers.push(mapboxMarker);
+            mapStore.dispatch('setHoveredPlace', {
+                mapId: this.mapId,
+                hoveredId: polyId,
             });
         },
         /**
          * Adds map pop ups
          */
-        addMapPopup() {
-            this.removeMapPopup();
+        addMapPopup(e) {
+            function findCenter(markers) {
+                const lats = [];
+                const lngs = [];
+                markers[0].forEach((m) => {
+                    lats.push(m[1]);
+                    lngs.push(m[0]);
+                });
+                return {
+                    lat: (Math.min(...lats) + Math.max(...lats)) / 2,
+                    lng: (Math.min(...lngs) + Math.max(...lngs)) / 2,
+                };
+            };
 
-            if (this.highlightedStopCoordinates !== null && this.highlightedStop !== null) {
-                this.popup = new mapboxgl.Popup({
-                    closeButton: false,
-                    offset: {
-                        top: [0, 20],
-                        'top-left': [0, 20],
-                        'top-right': [0, 20],
-                        bottom: [0, -50],
-                        'bottom-left': [0, -50],
-                        'bottom-right': [0, -50],
-                        left: [30, -20],
-                        right: [-30, -20],
-                    },
-                })
-                    .setLngLat(this.highlightedStopCoordinates)
-                    .setHTML(
-                        `
-                            <img class="vs-itinerary-map__popup-image" src="${this.highlightedStop.properties.imageSrc}" alt="${this.highlightedStop.properties.altText}" />
-                            <div>
-                            <h4 class="vs-itinerary-map__popup-stop-number mb-0">${this.labels.stopLabel} ${this.highlightedStop.properties.stopCount}</h4>
-                            <p class="vs-itinerary-map__popup-stop-name">${this.highlightedStop.properties.title}</p>
-                            </div>
-                        `,
-                    )
+            const detectEsc = (keyEvent) => {
+                if (keyEvent.key === 'Escape') {
+                    this.removeMapPopup();
+                    document.body.removeEventListener('keyup', detectEsc);
+                }
+            };
+
+            const centerPoint = findCenter(e.features[0].geometry.coordinates);
+
+            if (e.features[0].id !== this.hoveredStateId
+                && e.features[0].id !== this.activeStateId) {
+                this.removeMapPopup();
+                document.body.removeEventListener('keyup', detectEsc);
+
+                this.popup = new mapboxgl.Popup()
+                    .setLngLat(centerPoint)
+                    .setHTML(e.features[0].properties.title)
                     .addTo(this.mapbox.map);
+            }
+
+            document.body.addEventListener('keyup', detectEsc);
+        },
+        /**
+         * Remove the popup from the map
+         */
+        removeMapPopup() {
+            if (this.popup) {
+                this.popup.remove();
+                this.popup = null;
             }
         },
         /**
@@ -319,21 +577,6 @@ export default {
                 }
             });
             this.observer.observe(this.$el);
-
-            if (this.places.length) {
-                this.addMapFeatures();
-            }
-        },
-        /**
-         * Removes a map pop up
-         */
-        removeMapPopup() {
-            if (this.popup !== null) {
-                this.popup.remove();
-                this.popup = null;
-            } else {
-                this.popup = null;
-            }
         },
         /**
          * Checks for window size on resize
@@ -468,7 +711,9 @@ export default {
 
 @include no-js {
     .vs-map {
-        display: none;
+        &__map {
+            display: none;
+        }
 
         &__no-js {
             display: flex;

@@ -120,7 +120,7 @@ public class NavigationFactory {
         if (bean instanceof FeaturedWidget) {
             return addFeatureItem((FeaturedWidget) bean, request);
         } else {
-            contentLogger.warn("Skipping Unexpected document type: {}", bean.getClass().getSimpleName());
+            contentLogger.warn("Skipping Unexpected document type: {}, pointing at: {}, for locale: {}", bean.getClass().getSimpleName(), bean.getPath(), request.getLocale());
         }
 
         return null;

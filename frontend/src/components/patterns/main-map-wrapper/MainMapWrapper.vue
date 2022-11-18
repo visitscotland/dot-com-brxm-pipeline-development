@@ -60,9 +60,15 @@
                             :places="activePins"
                             :selected-item="selectedItem"
                             :map-id="mapId"
+                            :show-polygons="showRegions"
                             @show-detail="showDetail"
                             @set-category="setCategory"
-                        />
+                        >
+                            <template slot="noJs">
+                                <!-- @slot Message to show when JS is disabled  -->
+                                <slot name="noJs" />
+                            </template>
+                        </VsMap>
                     </div>
                 </div>
             </VsCol>
@@ -99,6 +105,14 @@ export default {
         VsMap,
         VsButton,
         VsMainMapWrapperPanel,
+    },
+    provide() {
+        return {
+            filters: this.filters,
+            placesData: this.placesData,
+            mapId: this.mapId,
+            regions: this.regionsData,
+        };
     },
     props: {
         /**
@@ -139,6 +153,27 @@ export default {
             type: Boolean,
             default: false,
         },
+        /**
+         * The ID of the currently selected item
+         */
+        initialSelected: {
+            type: String,
+            default: '',
+        },
+        /**
+         * Data for the toggle buttons
+         */
+        toggleData: {
+            type: Array,
+            default: () => [],
+        },
+        /**
+         * Data for the toggle buttons
+         */
+        buttonsLabel: {
+            type: String,
+            default: '',
+        },
     },
     data() {
         return {
@@ -149,6 +184,9 @@ export default {
             selectedItem: '',
             activePins: this.placesData,
             currentlyHovered: '',
+            showRegions: false,
+            regions: [
+            ],
         };
     },
     computed: {
@@ -158,18 +196,12 @@ export default {
         panelDisplayClass() {
             return this.panelVisible ? '' : 'd-none d-lg-block';
         },
-        formatPinData() {
-            const pinArray = [];
-            this.placesData.forEach((place) => {
-                if (typeof this.place.geometry !== 'undefined') {
-                    pinArray.push(place.geometry.coordinates);
-                }
-            });
-
-            return pinArray;
+        regionsData() {
+            return this.placesData.filter((place) => place.geometry.type === 'Polygon');
         },
     },
     mounted() {
+        console.log(this.placesData);
         this.panelVisible = true;
         mapStore.commit('addMapInstance', {
             id: this.mapId,
@@ -226,35 +258,48 @@ export default {
                     mapId: this.mapId,
                     placeId: '',
                 });
+
+                this.selectedItem = null;
             }
         },
         /**
          * Updates active pins for map
          */
         filterPlaces(id) {
-            const filteredPlaces = this.placesData
-                .filter((place) => {
-                    if (typeof place.properties !== 'undefined') {
-                        return place.properties.category.id === id;
-                    }
+            if (id === 'regions') {
+                this.showRegions = true;
+                this.activePins = [];
+            } else {
+                this.showRegions = false;
 
-                    return false;
-                });
-            this.activePins = filteredPlaces;
+                const filteredPlaces = this.placesData
+                    .filter((place) => {
+                        if (typeof place.properties !== 'undefined') {
+                            return place.properties.category.id === id;
+                        }
+
+                        return false;
+                    });
+                this.activePins = filteredPlaces;
+            }
         },
         /**
-         * Show all pins
+         * Show all pins, remove regions
          */
         showAllPlaces() {
             this.activePins = this.placesData;
+            this.showRegions = false;
         },
-    },
-    provide() {
-        return {
-            filters: this.filters,
-            placesData: this.placesData,
-            mapId: this.mapId,
-        };
+        /**
+         * When toggle is changed, set appropriate category
+         */
+        onToggleChanged(category) {
+            if (category === 'regions') {
+                this.setCategory('regions');
+            } else {
+                this.showAllPlaces();
+            }
+        },
     },
 };
 </script>
@@ -293,6 +338,17 @@ export default {
             top: $spacer-4;
             left: $spacer-4;
             z-index: 1;
+
+            @include media-breakpoint-up(lg) {
+                display: none;
+            }
+        }
+
+        .vs-button-toggle-group {
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
 
             @include media-breakpoint-up(lg) {
                 display: none;
