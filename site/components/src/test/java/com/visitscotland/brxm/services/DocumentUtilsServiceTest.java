@@ -2,6 +2,7 @@ package com.visitscotland.brxm.services;
 
 import com.visitscotland.brxm.hippobeans.*;
 import com.visitscotland.brxm.model.LocalizedURL;
+import com.visitscotland.brxm.utils.ContentLogger;
 import com.visitscotland.brxm.utils.HippoUtilsService;
 import com.visitscotland.brxm.utils.Language;
 import com.visitscotland.brxm.utils.Properties;
@@ -42,6 +43,8 @@ class DocumentUtilsServiceTest {
     ResourceBundleService bundle;
     @Mock
     Properties properties;
+    @Mock
+    ContentLogger logger;
 
     @InjectMocks
     DocumentUtilsService documentUtils;

@@ -44,7 +44,12 @@ public class LocationLoader {
         for (Language lang : Language.values()) {
             Map<String, LocationObject> locationsMap = new HashMap<>();
             try {
-                List<LocationObject> locationList = deserialize(request(lang.getLocale()));
+                String response = request(lang.getLocale());
+                if (response == null){
+                    logger.error("The Location service couldn't be reached");
+                }
+
+                List<LocationObject> locationList = deserialize(response);
 
                 //if the locationToId map is empty, and the locale is null. Both lists are populated simultaneously
                 if (locationToId.size() == 0 && lang == Language.ENGLISH) {

@@ -45,7 +45,7 @@
     <#-- OPEN GRAPH MARKUP  -->
     <@hst.link var="ogImage" hippobean=document.heroImage.original fullyQualified=true/>
     <@hst.headContribution category="opengraph">
-        <meta property="og:title" content="${document.seoTitle}" />
+        <meta property="og:title" content="${document.seoTitle?html}" />
     </@hst.headContribution>
     <@hst.headContribution category="opengraph">
         <meta property="og:description" content="${document.seoDescription?html}" />
