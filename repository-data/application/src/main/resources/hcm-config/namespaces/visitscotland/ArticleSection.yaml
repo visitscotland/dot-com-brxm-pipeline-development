@@ -11,7 +11,7 @@ definitions:
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:uuid: f9e7197a-3757-4ff7-8649-afb6379e44f8
+          jcr:uuid: 7b669daf-385e-4fb8-942d-0656e3815517
           hipposysedit:node: true
           hipposysedit:supertype: ['hippo:compound', 'hippostd:relaxed']
           hipposysedit:uri: http://www.visitscotland.com/visitscotland/nt/1.0
@@ -78,11 +78,12 @@ definitions:
           /media:
             jcr:primaryType: frontend:plugin
             caption: Media
-            compoundList: hippogallerypicker:imagelink
+            compoundList: hippogallerypicker:imagelink,visitscotland:VideoLink
             contentPickerType: links
             field: media
             plugin.class: org.onehippo.forge.contentblocks.ContentBlocksFieldPlugin
             wicket.id: ${cluster.id}.field
+            hint: ''
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
               maxitems: 1

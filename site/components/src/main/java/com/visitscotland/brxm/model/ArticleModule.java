@@ -1,5 +1,6 @@
 package com.visitscotland.brxm.model;
 
+import com.visitscotland.brxm.model.megalinks.EnhancedLink;
 import org.hippoecm.hst.content.beans.standard.HippoHtml;
 
 import java.util.List;
@@ -9,6 +10,7 @@ public class ArticleModule extends Module {
     private String title;
     private HippoHtml introduction;
     private List<ArticleModuleSection> sections;
+    private EnhancedLink video;
 
     public FlatImage getImage() {
         return image;
@@ -40,5 +42,13 @@ public class ArticleModule extends Module {
 
     public void setSections(List<ArticleModuleSection> sections) {
         this.sections = sections;
+    }
+
+    public EnhancedLink getVideo() {
+        return video;
+    }
+
+    public void setVideo(EnhancedLink video) {
+        this.video = video;
     }
 }

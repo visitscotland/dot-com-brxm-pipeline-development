@@ -11,7 +11,7 @@ definitions:
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:uuid: 3237bc13-0cff-436d-a64b-f30086cc308b
+          jcr:uuid: 7d464552-bc05-458d-89ab-49a27d238044
           hipposysedit:node: true
           hipposysedit:supertype: ['visitscotland:Page', 'hippostd:relaxed', 'hippotranslation:translated']
           hipposysedit:uri: http://www.visitscotland.com/visitscotland/nt/1.0
@@ -104,7 +104,7 @@ definitions:
           visitscotland:start: ''
           visitscotland:distance: 0.0
           visitscotland:theme: ''
-          jcr:uuid: 86598054-8d87-47ef-9b15-6fb5eca68cac
+          jcr:uuid: 140278ee-c78e-420f-a33d-8ab957cc0e5c
           hippostdpubwf:creationDate: 2019-12-06T11:10:08.311Z
           hippostdpubwf:lastModificationDate: 2019-12-06T11:10:08.310Z
           visitscotland:areas: []
@@ -317,7 +317,7 @@ definitions:
             jcr:primaryType: frontend:plugin
             caption: Override Miles
             field: distance
-            hint: ''
+            hint: To delete a number, please enter 0.0.
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.left.item
             /cluster.options:
