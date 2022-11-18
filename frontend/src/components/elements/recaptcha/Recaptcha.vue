@@ -4,7 +4,7 @@
         aria-live="assertive"
     >
         <span
-            v-if="invalid"
+            v-if="invalid && !reAlertErrors"
             class="error"
         >
             {{ errorMsg }}
@@ -75,6 +75,15 @@ export default {
         textareaLabel: {
             type: String,
             default: 'Does not need any text',
+        },
+        /**
+         * Whether the parent form has just been submitted, if so all errors
+         * need to be wiped from then re-added to the DOM to inform screen
+         * readers that they should be re-declared
+         */
+        reAlertErrors: {
+            type: Boolean,
+            default: false,
         },
     },
     methods: {
