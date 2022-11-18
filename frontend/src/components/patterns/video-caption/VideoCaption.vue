@@ -1,7 +1,13 @@
 <template>
-    <div data-test="video-caption">
+    <div
+        data-test="video-caption"
+        class="vs-video-caption__wrapper"
+        :class="`vs-video-caption__wrapper--${variant}`"
+    >
         <div
+            data-test="video-caption-variants"
             class="vs-video-caption"
+            :class="`vs-video-caption--${variant}`"
             v-if="videoLoaded && requiredCookiesExist"
             key="video-caption"
         >
@@ -133,6 +139,17 @@ export default {
         videoId: {
             type: String,
             required: true,
+        },
+        /**
+         * Style variant based on caption container width
+         * `wide|narrow`.
+         */
+        variant: {
+            type: String,
+            default: 'wide',
+            validator: (value) => value.match(
+                /(wide|narrow)/,
+            ),
         },
     },
     inject: {
@@ -272,45 +289,107 @@ export default {
         }
 
         @include media-breakpoint-up(sm) {
-            &__details {
-                display: flex;
-                align-items: baseline;
-                padding: $spacer-4 $spacer-5 $spacer-5;
-            }
-
-            &__title {
-                font-size: $font-size-lead;
-                margin-right: $spacer-4;
-                margin-bottom: 0;
-            }
-
             &__buttons-container {
                 & > .container {
                     padding: 0;
-               }
-
-                &__button {
-                    max-width: 400px;
                 }
-
                 .vs-toggle-btn {
                     top: calc(50% - 12px);
                 }
             }
         }
+    }
+
+    .vs-video-caption--wide {
+        @include media-breakpoint-up(sm) {
+            .vs-video-caption__details {
+                display: flex;
+                align-items: baseline;
+                padding: $spacer-4 $spacer-5 $spacer-5;
+            }
+
+            .vs-video-caption__title {
+                font-size: $font-size-lead;
+                margin-right: $spacer-4;
+                margin-bottom: 0;
+            }
+
+            .vs-video-caption__buttons-container {
+                &__button {
+                    max-width: 400px;
+                }
+            }
+        }
 
         @include media-breakpoint-up(lg) {
-            &__details {
+            .vs-video-caption__details {
                 display: block;
                 padding: $spacer-4 $spacer-6 $spacer-5;
             }
 
-            &__title {
+            .vs-video-caption__title {
                 margin-bottom: $spacer-1;
             }
 
-            &__button {
+            .vs-video-caption__button {
                 max-width: 360px;
+            }
+        }
+    }
+
+    .vs-video-caption__wrapper--narrow {
+        width: 100%;
+    }
+
+    .vs-video-caption--narrow {
+        .vs-video-caption__buttons-container {
+            .container {
+                padding: $spacer-0;
+            }
+
+            .vs-video-caption__button {
+                width: $spacer-10;
+                height: $spacer-10;
+                position: relative;
+                padding: $spacer-0;
+                font-size: 0;
+
+                .vs-icon {
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    height: $spacer-8;
+                    width: $spacer-8;
+                }
+            }
+
+            .vs-toggle-btn {
+                display: none;
+            }
+        }
+
+        @include media-breakpoint-up(sm) {
+            .vs-video-caption__details {
+                display: flex;
+                align-items: baseline;
+                padding: $spacer-4 $spacer-5 $spacer-5;
+            }
+
+            .vs-caption .vs-caption__caption-info {
+                padding: $spacer-4 $spacer-5 $spacer-5;
+            }
+        }
+
+        @include media-breakpoint-up(lg) {
+            .vs-video-caption__details {
+                display: block;
+                padding: $spacer-4 $spacer-2 $spacer-3;
+
+            }
+
+            .vs-caption .vs-caption__caption-info {
+                padding: $spacer-4 $spacer-2 $spacer-3;
             }
         }
     }

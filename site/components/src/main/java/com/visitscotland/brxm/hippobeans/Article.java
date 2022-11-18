@@ -25,9 +25,8 @@ public class Article extends BaseDocument {
         return getMedia("visitscotland:media");
     }
 
-    @HippoEssentialsGenerated(internalName = "visitscotland:media", allowModifications = false)
-    public Image getImage() {
-        return getLinkedBean("visitscotland:media", Image.class);
+    public HippoBean getMediaItem(){
+        return getOnlyChild(getMedia());
     }
 
     @HippoEssentialsGenerated(internalName = "visitscotland:copy")

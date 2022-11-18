@@ -38,7 +38,6 @@ public class ArticleSection extends HippoCompound {
         return getOnlyChild(getMedia());
     }
 
-    //TODO Refactor
     protected <T> T getOnlyChild(List<T> children) {
         if (children.size() == 0) {
             return null;

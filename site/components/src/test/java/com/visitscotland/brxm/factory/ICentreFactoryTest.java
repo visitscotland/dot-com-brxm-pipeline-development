@@ -81,7 +81,7 @@ class ICentreFactoryTest {
         when(psb.build()).thenReturn("URL");
         when(context.getComponent(ProductSearchBuilder.class)).thenReturn(psb);
 
-        new VsComponentManager().setComponentManager(context);
+        VsComponentManager.setComponentManager(context);
     }
 
     @BeforeEach

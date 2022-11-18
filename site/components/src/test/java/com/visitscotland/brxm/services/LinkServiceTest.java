@@ -17,6 +17,7 @@ import com.visitscotland.brxm.dms.ProductSearchBuilder;
 import com.visitscotland.brxm.model.Module;
 import com.visitscotland.brxm.model.megalinks.EnhancedLink;
 import com.visitscotland.brxm.model.YoutubeVideo;
+import com.visitscotland.brxm.utils.ContentLogger;
 import com.visitscotland.brxm.utils.HippoUtilsService;
 import com.visitscotland.brxm.utils.Properties;
 import com.visitscotland.brxm.dms.DMSConstants;
@@ -71,6 +72,9 @@ class LinkServiceTest {
 
     @Mock
     private YoutubeApiService youtubeApiService;
+
+    @Mock
+    ContentLogger logger;
 
     @Resource
     @InjectMocks
@@ -688,6 +692,56 @@ class LinkServiceTest {
         EnhancedLink link = service.createEnhancedLink(video, null, null, false).get();
 
         assertNotNull(link.getPublishedDate());
+    }
+
+    @Test
+    @DisplayName("VS-4192 - When shared links define an override image, that image takes precedence")
+    void enhancedLink_sharedLinkwithImage(){
+        SharedLink sharedLink = mock(SharedLink.class);
+        Image image = mock(Image.class);
+        JsonNode product = mock(JsonNode.class,RETURNS_DEEP_STUBS);
+        DMSLink dmsLink = mock(DMSLink.class);
+        FlatImage flatImage = new FlatImage();
+        flatImage.setCmsImage(image);
+
+        when(sharedLink.getImage()).thenReturn(image);
+        when(image.getPath()).thenReturn("path/to/image");
+        when(imageFactory.createImage(image, null, Locale.UK)).thenReturn(flatImage);
+
+        when(sharedLink.getLinkType()).thenReturn(dmsLink);
+        when(dmsLink.getProduct()).thenReturn("123");
+        when(dmsData.productCard("123", Locale.UK)).thenReturn(product);
+
+        // Next line shouldn't be executed. However, it makes the test more resilient if the method is refactored
+        lenient().when(product.has(DMSConstants.DMSProduct.IMAGE)).thenReturn(true);
+
+        EnhancedLink link = service.createEnhancedLink(sharedLink, null, Locale.UK, false).get();
+
+        Assertions.assertEquals(image, link.getImage().getCmsImage());
+    }
+
+    @Test
+    @DisplayName("VS-4192 - When shared links define an override image, and the image is broken the DMS image is displayed")
+    void enhancedLink_sharedLinkWithBrokenImage(){
+        SharedLink sharedLink = mock(SharedLink.class);
+        Image image = mock(Image.class);
+        JsonNode product = mock(JsonNode.class,RETURNS_DEEP_STUBS);
+        DMSLink dmsLink = mock(DMSLink.class);
+        FlatImage flatImage = new FlatImage();
+        flatImage.setExternalImage("dms-image.jpg");;
+
+        when(sharedLink.getImage()).thenReturn(image);
+
+        when(sharedLink.getLinkType()).thenReturn(dmsLink);
+        when(dmsLink.getProduct()).thenReturn("123");
+        when(dmsData.productCard("123", Locale.UK)).thenReturn(product);
+        when(imageFactory.createImage(product, null, Locale.UK)).thenReturn(flatImage);
+
+        when(product.has(DMSConstants.DMSProduct.IMAGE)).thenReturn(true);
+
+        EnhancedLink link = service.createEnhancedLink(sharedLink, null, Locale.UK, false).get();
+
+        Assertions.assertEquals("dms-image.jpg", link.getImage().getExternalImage());
     }
 
 }

@@ -13,6 +13,7 @@ import com.visitscotland.brxm.model.LinkType;
 import com.visitscotland.brxm.model.Module;
 import com.visitscotland.brxm.model.megalinks.EnhancedLink;
 import com.visitscotland.brxm.model.YoutubeVideo;
+import com.visitscotland.brxm.utils.ContentLogger;
 import com.visitscotland.brxm.utils.HippoUtilsService;
 import com.visitscotland.brxm.utils.Language;
 import com.visitscotland.brxm.utils.Properties;
@@ -35,7 +36,6 @@ import java.util.Optional;
 public class LinkService {
 
     private static final Logger logger = LoggerFactory.getLogger(LinkService.class);
-    private static final Logger contentLogger = LoggerFactory.getLogger("content");
 
     private final DMSDataService dmsData;
     private final ResourceBundleService bundle;
@@ -45,18 +45,22 @@ public class LinkService {
     private final CommonUtilsService commonUtils;
     private final DocumentUtilsService documentUtilsService;
     private final YoutubeApiService youtubeApiService;
+    private final Logger contentLogger;
 
     @Autowired
-    public LinkService(DMSDataService dmsData, ResourceBundleService bundle, HippoUtilsService utils, Properties properties, ImageFactory imageFactory, CommonUtilsService commonUtils, DocumentUtilsService documentUtilsService, YoutubeApiService youtubeApiService) {
+    public LinkService(DMSDataService dmsData, ResourceBundleService bundle, HippoUtilsService utils, Properties properties,
+                       ImageFactory imageFactory, CommonUtilsService commonUtils, DocumentUtilsService documentUtilsService,
+                       YoutubeApiService youtubeApiService, ContentLogger contentLogger) {
+
         this.dmsData = dmsData;
         this.bundle = bundle;
         this.utils = utils;
         this.properties = properties;
-
         this.imageFactory = imageFactory;
         this.commonUtils = commonUtils;
         this.documentUtilsService = documentUtilsService;
         this.youtubeApiService = youtubeApiService;
+        this.contentLogger = contentLogger;
     }
 
     /**
@@ -464,7 +468,7 @@ public class LinkService {
             return null;
         }
 
-        if (product != null && product.has(DMSConstants.DMSProduct.IMAGE)) {
+        if (product != null && !hasOverrideImage(sharedLink) && product.has(DMSConstants.DMSProduct.IMAGE)) {
             link.setImage(imageFactory.createImage(product, module, locale));
         }else{
             link.setImage(imageFactory.createImage(sharedLink.getImage(), module, locale));
@@ -489,6 +493,10 @@ public class LinkService {
             module.addErrorMessage(String.format("The image selected for '%s' is not available. Please select a valid image for the shared document '%s' at: %s",  sharedLink.getTitle(), sharedLink.getDisplayName(), sharedLink.getPath()));
         }
         return link;
+    }
+
+    private boolean hasOverrideImage(SharedLink sharedLink){
+        return sharedLink.getImage() != null && !Contract.isEmpty(sharedLink.getImage().getPath());
     }
 
     /**

@@ -57,6 +57,9 @@ class PageTemplateBuilderTest {
     @Mock
     PreviewModeFactory previewModeFactory;
 
+    @Mock
+    ContentLogger logger;
+
     @Resource
     @InjectMocks
     PageTemplateBuilder builder;
