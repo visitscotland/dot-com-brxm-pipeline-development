@@ -4,6 +4,7 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ArrayNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
+import com.visitscotland.brxm.config.VsComponentManager;
 import com.visitscotland.brxm.dms.*;
 import com.visitscotland.brxm.dms.model.LocationObject;
 import com.visitscotland.brxm.dms.model.RegionsMapTab;
