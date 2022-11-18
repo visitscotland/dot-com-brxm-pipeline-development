@@ -19,6 +19,7 @@ public class Destination extends Page {
                 "visitscotland:TravelInformation",
                 "visitscotland:CannedSearchTours",
                 "visitscotland:CannedSearch",
+                "visitscotland:MapModule",
                 "visitscotland:Article"};
     }
 
