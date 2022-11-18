@@ -7,7 +7,7 @@ import com.fasterxml.jackson.databind.node.ObjectNode;
 import com.visitscotland.brxm.config.VsComponentManager;
 import com.visitscotland.brxm.dms.*;
 import com.visitscotland.brxm.dms.model.LocationObject;
-import com.visitscotland.brxm.dms.model.RegionsMapTab;
+import com.visitscotland.brxm.dms.RegionsMapTab;
 import com.visitscotland.brxm.hippobeans.*;
 import com.visitscotland.brxm.model.FlatImage;
 import com.visitscotland.brxm.model.FlatLink;
@@ -41,7 +41,13 @@ public class MapFactory {
     static final String LABEL = "label";
     static final String DISCOVER = "map.discover";
     static final String PROPERTIES = "properties";
+    static final String DESCRIPTION = "description";
+    static final String NAME = "name";
+    static final String FEATURE = "feature";
+    static final String ID = "id";
     static final String REGIONS = "regions";
+    static final String MAP = "map";
+    static final String TYPE = "type";
     static final String POINT = "Point";
 
     private final LinkService linkService;
@@ -80,7 +86,7 @@ public class MapFactory {
         module.setTabTitle(mapModuleDocument.getTabTitle());
 
         ObjectNode featureCollectionGeoJson = mapper.createObjectNode();
-        featureCollectionGeoJson.put("type", "FeatureCollection");
+        featureCollectionGeoJson.put(TYPE, "FeatureCollection");
         ArrayNode features = mapper.createArrayNode();
         ArrayNode keys = mapper.createArrayNode();
         if (page instanceof General) {
@@ -149,8 +155,8 @@ public class MapFactory {
                //filters
                ObjectNode filter = mapper.createObjectNode();
 
-               filter.put("id", prodType.getProdTypeId().equalsIgnoreCase("twnv")?"cities":"towns");
-               filter.put(LABEL,bundle.getResourceBundle("map","map."+prodType.getProdTypeId(), request.getLocale()));
+               filter.put(ID, prodType.getProdTypeId().equalsIgnoreCase(DMSConstants.TYPE_TOWN)?"cities":"towns");
+               filter.put(LABEL,bundle.getResourceBundle(MAP,"map."+prodType.getProdTypeId(), request.getLocale()));
                keys.add(filter);
 
                ProductSearchBuilder dmsQuery = VsComponentManager.get(ProductSearchBuilder.class).location(destinationPage.getLocation())
@@ -161,25 +167,24 @@ public class MapFactory {
                    if (jsonNode.has("images")) {
                        image.setExternalImage(jsonNode.get("images").get(0).get("mediaUrl").asText());
                    }
-                   FlatLink link = new FlatLink( bundle.getResourceBundle("map", DISCOVER, request.getLocale()),jsonNode.get("productLink").get("link").asText(),LinkType.INTERNAL);
+                   FlatLink link = new FlatLink( bundle.getResourceBundle(MAP, DISCOVER, request.getLocale()),jsonNode.get("productLink").get("link").asText(),LinkType.INTERNAL);
                    ObjectNode data = mapper.createObjectNode();
-                   data.set(PROPERTIES, getPropertyNode(jsonNode.get("name").asText(), jsonNode.get("description").asText(),image,filter,link,jsonNode.get("id").asText()));
-
-                   ArrayNode coordinates = mapper.createArrayNode();
-                   coordinates.add(jsonNode.get("longitude"));
-                   coordinates.add(jsonNode.get("latitude"));
-                   data.set(GEOMETRY, getGeometryNode(coordinates,POINT));
+                   String name = jsonNode.has(NAME)?jsonNode.get(NAME).asText() : null;
+                   String description = jsonNode.has(DESCRIPTION)?jsonNode.get(DESCRIPTION).asText() : null;
+                   String id = jsonNode.has(ID)?jsonNode.get(ID).asText() : null;
+                   data.set(PROPERTIES, getPropertyNode(name, description,image,filter,link,id));
+                   data.set(GEOMETRY, getGeometryNode(getCoordinates(jsonNode.get("longitude").asDouble(),jsonNode.get("latitude").asDouble()),POINT));
 
                    features.add(data);
                }
 
            }
-        }else{
+        }/*else{
            for (CitiesMapTab prodType : CitiesMapTab.values()) {
                //filters
                ObjectNode filter = mapper.createObjectNode();
-               filter.put("id", prodType.getProdTypeId());
-               filter.put(LABEL,bundle.getResourceBundle("map","map."+prodType.getProdTypeId(), request.getLocale()));
+               filter.put(ID, prodType.getProdTypeId());
+               filter.put(LABEL,bundle.getResourceBundle(MAP,"map."+prodType.getProdTypeId(), request.getLocale()));
 
                ///endpoint for data (pins)
                ProductSearchBuilder dmsQuery = VsComponentManager.get(ProductSearchBuilder.class).location(destinationPage.getLocation())
@@ -195,7 +200,7 @@ public class MapFactory {
                keys.add(filter);
            }
 
-       }
+       }*/
     }
 
     /** Method to build the property section for the GeoJson file generated for maps
@@ -210,9 +215,9 @@ public class MapFactory {
     private ObjectNode getPropertyNode(String title, String description, FlatImage image, ObjectNode  category, FlatLink link, String id) {
         ObjectNode rootNode = mapper.createObjectNode();
         rootNode.set("category", category);
-        rootNode.put("id", id);
+        rootNode.put(ID, id);
         rootNode.put("title", title);
-        rootNode.put("description", description);
+        rootNode.put(DESCRIPTION, description);
 
         if (!Contract.isNull(image)){
             rootNode.put("image", !Contract.isNull(image.getCmsImage())? HippoUtilsService.createUrl(image.getCmsImage()) : image.getExternalImage());
@@ -222,7 +227,7 @@ public class MapFactory {
             ObjectNode linkNode = mapper.createObjectNode();
             linkNode.put(LABEL, link.getLabel() + " " + title);
             linkNode.put("link", link.getLink());
-            linkNode.put("type", link.getType().name());
+            linkNode.put(TYPE, link.getType().name());
             rootNode.set("link", linkNode);
         }
 
@@ -237,7 +242,7 @@ public class MapFactory {
      */
     private ObjectNode getGeometryNode(ArrayNode coordinates, String type) {
         ObjectNode geometry = mapper.createObjectNode();
-        geometry.put("type", type);
+        geometry.put(TYPE, type);
         geometry.set("coordinates", coordinates);
 
         return geometry;
@@ -252,7 +257,7 @@ public class MapFactory {
      */
     private ObjectNode getCategoryNode(Category category, Locale locale) {
         ObjectNode filter = mapper.createObjectNode();
-        filter.put("id", category.getKey());
+        filter.put(ID, category.getKey());
         filter.put(LABEL, category.getInfo(locale).getName());
 
         return filter;
@@ -269,16 +274,16 @@ public class MapFactory {
     private void addFeaturePlacesNode(MapsModule module, List<MapCategory> categories, Locale locale, ArrayNode keys, ArrayNode features) {
         for (MapCategory featuredPlaces : categories) {
             ObjectNode filter = mapper.createObjectNode();
-            filter.put("id", "featured");
+            filter.put(ID, "featured");
             if (Contract.isEmpty(featuredPlaces.getTitle())) {
-                filter.put(LABEL, bundle.getResourceBundle("map", "map.feature-default-title", locale));
+                filter.put(LABEL, bundle.getResourceBundle(MAP, "map.feature-default-title", locale));
             } else {
                 filter.put(LABEL, featuredPlaces.getTitle());
             }
             keys.add(filter);
             for(HippoBean link : featuredPlaces.getMapPins()){
                 ObjectNode feat = mapper.createObjectNode();
-                feat.put("type", "Feature");
+                feat.put(TYPE, FEATURE);
                 if (link instanceof Destination){
                     buildPageNode(locale, filter, module,(Destination) link, feat);
                 }else if (link instanceof Stop){
@@ -287,10 +292,8 @@ public class MapFactory {
                     SpecialLinkCoordinates linkCoordinates = ((SpecialLinkCoordinates) link);
                     Page otherPage = (Page)(linkCoordinates).getLink();
                     buildPageNode(locale, filter, module,otherPage,feat);
-                    ArrayNode coordinates = mapper.createArrayNode();
-                    coordinates.add(((SpecialLinkCoordinates)link).getCoordinates().getLongitude());
-                    coordinates.add(((SpecialLinkCoordinates)link).getCoordinates().getLatitude());
-                    feat.set(GEOMETRY, getGeometryNode(coordinates,POINT));
+                    feat.set(GEOMETRY, getGeometryNode(getCoordinates(((SpecialLinkCoordinates)link).getCoordinates().getLongitude(),((SpecialLinkCoordinates)link).getCoordinates().getLatitude()
+                    ),POINT));
                 }
                 features.add(feat);
             }
@@ -328,7 +331,7 @@ public class MapFactory {
             final HippoBeanIterator it = result.getHippoBeans();
             while (it.hasNext()) {
                 ObjectNode feature = getMapDocuments(request.getLocale(), category, module, it);
-                if (!feature.isEmpty()) {
+                if (feature != null && !feature.isEmpty()) {
                     features.add(feature);
                 }
             }
@@ -353,7 +356,7 @@ public class MapFactory {
         if (!Contract.isNull(bean)) {
             feature = mapper.createObjectNode();
             if (bean instanceof Destination) {
-                feature.put("type", "Feature");
+                feature.put(TYPE, FEATURE);
                 buildPageNode(locale, getCategoryNode(category, locale), module,((Destination) bean), feature);
             } else {
                 buildStopNode(locale,getCategoryNode(category, locale),module, ((Stop) bean), feature);
@@ -383,7 +386,7 @@ public class MapFactory {
                 JsonNode dmsNode = dmsDataService.productCard(((DMSLink) item).getProduct(), locale);
                 if (!Contract.isNull(dmsNode)) {
                     flatLink = linkService.createDmsLink(locale,(DMSLink) item, dmsNode);
-                    flatLink.setLabel(bundle.getResourceBundle("map", DISCOVER, locale));
+                    flatLink.setLabel(bundle.getResourceBundle(MAP, DISCOVER, locale));
                     if (Contract.isNull(stop.getImage()) && dmsNode.has(IMAGE)) {
                         image = imageFactory.createImage(dmsNode, module, locale);
                     }
@@ -399,20 +402,17 @@ public class MapFactory {
                     ItineraryExternalLink externalStop = ((ItineraryExternalLink) item);
                     latitude = externalStop.getCoordinates().getLatitude();
                     longitude = externalStop.getCoordinates().getLongitude();
-                    flatLink = new FlatLink(bundle.getResourceBundle("map", DISCOVER, locale),externalStop.getExternalLink().getLink(), LinkType.EXTERNAL);
+                    flatLink = new FlatLink(bundle.getResourceBundle(MAP, DISCOVER, locale),externalStop.getExternalLink().getLink(), LinkType.EXTERNAL);
             }
             if (validPoint && !Contract.isNull(latitude) && !Contract.isNull(longitude)) {
-                feature.put("type", "Feature");
+                feature.put(TYPE, FEATURE);
                 String description = stop.getDescription().getContent().trim().replace("\"", "'");
                 if (description.startsWith("<p>") && description.endsWith("</p>")) {
                     description = description.substring(3, description.length() - 4);
                 }
                 feature.set(PROPERTIES, getPropertyNode(stop.getTitle(), description,
                         image, category, flatLink, stop.getCanonicalUUID()));
-                ArrayNode coordinates = mapper.createArrayNode();
-                coordinates.add(longitude);
-                coordinates.add(latitude);
-                feature.set(GEOMETRY, getGeometryNode(coordinates,POINT));
+                feature.set(GEOMETRY, getGeometryNode(getCoordinates(longitude,latitude),POINT));
             }else{
                 String errorMessage = String.format("Failed to create map card '%s', please review the document attached at: %s", item.getDisplayName(), item.getPath() );
                 module.setErrorMessages(Collections.singletonList(errorMessage));
@@ -432,7 +432,7 @@ public class MapFactory {
      */
     private void buildPageNode(Locale locale, ObjectNode category, MapsModule module, Page page, ObjectNode feature){
         FlatLink flatLink = linkService.createSimpleLink(page, module, locale);
-        flatLink.setLabel(bundle.getResourceBundle("map", DISCOVER, locale));
+        flatLink.setLabel(bundle.getResourceBundle(MAP, DISCOVER, locale));
         ObjectNode properties = getPropertyNode(page.getTitle(), page.getTeaser(),
                 imageFactory.createImage(page.getImage(), module, locale), category,
                 flatLink, page.getCanonicalUUID());
@@ -441,16 +441,25 @@ public class MapFactory {
             LocationObject location = locationLoader.getLocation(destination.getLocation(), Locale.UK);
             feature.set(PROPERTIES, properties);
             if (Arrays.asList(destination.getKeys()).contains(REGIONS)){
-                feature.set(GEOMETRY, getGeometryNode(dmsDataService.getPolygonCoordinates(locationLoader.getLocation(destination.getLocation(), null).getId()),"Polygon"));
+                JsonNode geometryNode = dmsDataService.getPolygonCoordinates(locationLoader.getLocation(destination.getLocation(), null).getId());
+                if(geometryNode!=null && !geometryNode.isEmpty()) {
+                    feature.set(GEOMETRY, getGeometryNode((ArrayNode) geometryNode.get("coordinates"), geometryNode.get(TYPE).asText()));
+                }
             }else {
-                ArrayNode coordinates = mapper.createArrayNode();
-                coordinates.add(location.getLongitude());
-                coordinates.add(location.getLatitude());
-                feature.set(GEOMETRY, getGeometryNode(coordinates,POINT));
+                feature.set(GEOMETRY, getGeometryNode(getCoordinates(location.getLongitude(),location.getLatitude()),POINT));
             }
         }else {
             feature.set(PROPERTIES, properties);
         }
+    }
+
+
+    private ArrayNode getCoordinates(Double longitude, Double latitude){
+        ArrayNode coordinates = mapper.createArrayNode();
+        coordinates.add(longitude);
+        coordinates.add(latitude);
+        return coordinates;
+
     }
 }
 

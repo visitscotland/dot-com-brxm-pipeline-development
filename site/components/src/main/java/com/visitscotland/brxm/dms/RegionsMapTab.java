@@ -1,10 +1,9 @@
-package com.visitscotland.brxm.dms.model;
+package com.visitscotland.brxm.dms;
 
-import com.visitscotland.brxm.dms.DMSConstants;
 
 public enum RegionsMapTab {
-    TOWNS("twnv","townsvillages"),
-    ICENTRE(DMSConstants.TYPE_SERVICES,DMSConstants.CAT_ICENTRE);
+    TOWNS(DMSConstants.TYPE_TOWN,""),
+    ICENTRE(DMSConstants.TYPE_SERVICES, DMSConstants.CAT_ICENTRE);
 
     private final String prodTypeId;
     private final String category;

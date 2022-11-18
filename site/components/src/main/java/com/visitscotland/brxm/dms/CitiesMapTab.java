@@ -2,11 +2,11 @@ package com.visitscotland.brxm.dms;
 
 public enum CitiesMapTab {
     ACCOMMODATION(DMSConstants.TYPE_ACCOMMODATION),
-    ATTRACTION( "attr"),
-    ACTIVITIES("acti"),
+    ATTRACTION(DMSConstants.TYPE_ATTRACTIONS),
+    ACTIVITIES(DMSConstants.TYPE_ACTIVITIES),
     EVENTS(DMSConstants.TYPE_EVENTS),
     FOOD_DRINK(DMSConstants.TYPE_FOOD_DRINK),
-    SHOPPING("reta");
+    SHOPPING(DMSConstants.TYPE_RETAIL);
 
     private final String prodTypeId;
 
