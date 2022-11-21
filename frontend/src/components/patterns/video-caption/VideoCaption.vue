@@ -341,12 +341,8 @@ export default {
         width: 100%;
     }
 
-    .vs-video-caption--narrow {
+    @mixin small-play-button {
         .vs-video-caption__buttons-container {
-            .container {
-                padding: $spacer-0;
-            }
-
             .vs-video-caption__button {
                 width: $spacer-10;
                 height: $spacer-10;
@@ -366,6 +362,36 @@ export default {
 
             .vs-toggle-btn {
                 display: none;
+            }
+        }
+    }
+
+    @mixin large-play-button {
+        .vs-video-caption__buttons-container {
+            .vs-video-caption__button {
+                width: auto;
+                height: auto;
+                padding: $spacer-3 $spacer-4;
+                font-size: $font-size-4;
+
+                .vs-icon {
+                    position: relative;
+                    top: auto;
+                    left: auto;
+                    transform: none;
+                    height: $spacer-5;
+                    width: $spacer-5;
+                }
+            }
+        }
+    }
+
+    .vs-article-sidebar {
+        @include small-play-button;
+
+        .vs-video-caption__buttons-container {
+            .container {
+                padding: $spacer-0;
             }
         }
 
@@ -390,6 +416,24 @@ export default {
 
             .vs-caption .vs-caption__caption-info {
                 padding: $spacer-4 $spacer-2 $spacer-3;
+            }
+        }
+    }
+
+    .vs-image-with-caption--hero.vs-image-with-caption--video {
+        @include small-play-button;
+
+        .vs-image-with-caption__image-wrapper .vs-toggle-btn {
+            display: block !important;
+        }
+
+        @include media-breakpoint-up(sm) {
+            @include large-play-button;
+        }
+
+        @include media-breakpoint-up(lg) {
+            .vs-image-with-caption__image-wrapper .vs-toggle-btn {
+                display: none !important;
             }
         }
     }
