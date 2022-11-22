@@ -357,18 +357,6 @@ export default {
             });
 
             this.mapbox.map.addLayer({
-                id: 'regions-borders',
-                type: 'line',
-                source: 'regions',
-                layout: {
-                },
-                paint: {
-                    'line-color': '#fff',
-                    'line-width': 2,
-                },
-            });
-
-            this.mapbox.map.addLayer({
                 id: 'regions-fills',
                 type: 'fill',
                 source: 'regions',
@@ -384,6 +372,18 @@ export default {
                         '#A5A5A5',
                     ],
                     'fill-opacity': 0.8,
+                },
+            });
+
+            this.mapbox.map.addLayer({
+                id: 'regions-borders',
+                type: 'line',
+                source: 'regions',
+                layout: {
+                },
+                paint: {
+                    'line-color': '#fff',
+                    'line-width': 1,
                 },
             });
 
@@ -448,9 +448,9 @@ export default {
 
             mapStore.dispatch('setActivePlace', {
                 mapId: this.mapId,
-                placeId: this.correctMultiPolyId(polyId),
+                placeId: polyId,
             });
-            this.$emit('show-detail', this.correctMultiPolyId(polyId));
+            this.$emit('show-detail', polyId);
 
             this.$emit('set-category', 'regions');
         },
@@ -499,7 +499,7 @@ export default {
 
             mapStore.dispatch('setHoveredPlace', {
                 mapId: this.mapId,
-                hoveredId: this.correctMultiPolyId(polyId),
+                hoveredId: polyId,
             });
         },
         /**
@@ -614,16 +614,6 @@ export default {
          */
         onResize() {
             this.isTablet = window.innerWidth >= 768;
-        },
-        /**
-         * Removes excess characters from MultiPoly ids
-         */
-        correctMultiPolyId(id) {
-            if (id.includes('multi')) {
-                return id.substr(0, id.lastIndexOf('-'));
-            }
-
-            return id;
         },
     },
 };
