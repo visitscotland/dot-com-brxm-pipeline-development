@@ -13384,7 +13384,7 @@
         jcr:primaryType: hippo:handle
         jcr:mixinTypes: ['hippo:versionInfo', 'mix:referenceable']
         jcr:uuid: de0cf6a7-b1c0-4d71-a7bd-f7ce0513508a
-        hippo:versionHistory: 310e603e-6d4a-442b-87c9-1e22518e77e1
+        hippo:versionHistory: b18e0d55-601a-495b-9079-9eca0a6c9b06
         /map[1]:
           jcr:primaryType: visitscotland:MapModule
           jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
@@ -13394,12 +13394,21 @@
           hippostd:state: draft
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2022-11-18T17:47:04.964Z
-          hippostdpubwf:lastModificationDate: 2022-11-18T17:47:04.964Z
+          hippostdpubwf:lastModificationDate: 2022-11-22T15:07:31.435Z
           hippostdpubwf:lastModifiedBy: admin
           hippotranslation:id: a5488a6a-2b8a-41a6-b6e8-ec2f90b71ded
           hippotranslation:locale: en
           visitscotland:tabTitle: Explore this region
           visitscotland:title: ''
+          /visitscotland:categories:
+            jcr:primaryType: visitscotland:MapCategory
+            visitscotland:title: ''
+            /visitscotland:mapPins[1]:
+              jcr:primaryType: hippo:mirror
+              hippo:docbase: 8ef343ea-4650-4fb7-98d1-b34822be9817
+            /visitscotland:mapPins[2]:
+              jcr:primaryType: hippo:mirror
+              hippo:docbase: f0c435ec-14f2-48a0-81b7-05507be62018
         /map[2]:
           jcr:primaryType: visitscotland:MapModule
           jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable', 'mix:versionable']
@@ -13409,12 +13418,21 @@
           hippostd:state: unpublished
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2022-11-18T17:47:04.964Z
-          hippostdpubwf:lastModificationDate: 2022-11-18T17:47:16.424Z
+          hippostdpubwf:lastModificationDate: 2022-11-22T15:12:27.732Z
           hippostdpubwf:lastModifiedBy: admin
           hippotranslation:id: a5488a6a-2b8a-41a6-b6e8-ec2f90b71ded
           hippotranslation:locale: en
           visitscotland:tabTitle: Explore this region
           visitscotland:title: ''
+          /visitscotland:categories:
+            jcr:primaryType: visitscotland:MapCategory
+            visitscotland:title: ''
+            /visitscotland:mapPins[1]:
+              jcr:primaryType: hippo:mirror
+              hippo:docbase: 8ef343ea-4650-4fb7-98d1-b34822be9817
+            /visitscotland:mapPins[2]:
+              jcr:primaryType: hippo:mirror
+              hippo:docbase: f0c435ec-14f2-48a0-81b7-05507be62018
         /map[3]:
           jcr:primaryType: visitscotland:MapModule
           jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
@@ -13424,13 +13442,22 @@
           hippostd:state: published
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2022-11-18T17:47:04.964Z
-          hippostdpubwf:lastModificationDate: 2022-11-18T17:47:16.424Z
+          hippostdpubwf:lastModificationDate: 2022-11-22T15:12:27.732Z
           hippostdpubwf:lastModifiedBy: admin
-          hippostdpubwf:publicationDate: 2022-11-18T17:47:29.857Z
+          hippostdpubwf:publicationDate: 2022-11-22T15:12:29.139Z
           hippotranslation:id: a5488a6a-2b8a-41a6-b6e8-ec2f90b71ded
           hippotranslation:locale: en
           visitscotland:tabTitle: Explore this region
           visitscotland:title: ''
+          /visitscotland:categories:
+            jcr:primaryType: visitscotland:MapCategory
+            visitscotland:title: ''
+            /visitscotland:mapPins[1]:
+              jcr:primaryType: hippo:mirror
+              hippo:docbase: 8ef343ea-4650-4fb7-98d1-b34822be9817
+            /visitscotland:mapPins[2]:
+              jcr:primaryType: hippo:mirror
+              hippo:docbase: f0c435ec-14f2-48a0-81b7-05507be62018
       /test-megalinks:
         jcr:primaryType: hippo:handle
         jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
