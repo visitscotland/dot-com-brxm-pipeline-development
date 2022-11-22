@@ -116,6 +116,7 @@ export default {
                 type: 'FeatureCollection',
                 features: [],
             },
+            multiPolygons: [],
             mapbox: {
                 map: null,
                 bounds: null,
@@ -243,6 +244,12 @@ export default {
                         ];
                     }
 
+                    if (place.geometry.type === 'MultiPolygon') {
+                        coordinateArray = [
+                            place.geometry.coordinates,
+                        ];
+                    }
+
                     return this.geojsonData.features.push({
                         type: 'Feature',
                         geometry: {
@@ -316,25 +323,37 @@ export default {
                     if (!this.polygons.features.includes(feature.properties.id)) {
                         this.polygons.features.push(feature);
                     }
+                } else if (feature.geometry.type === 'MultiPolygon') {
+                    if (!this.polygons.features.includes(feature.properties.id)) {
+                        this.multiPolygons.push(feature);
+                    }
                 }
+            });
+
+            this.multiPolygons.forEach((poly) => {
+                const polyProps = poly.properties;
+                poly.geometry.coordinates[0].forEach((coord) => {
+                    this.polygons.features.push({
+                        geometry: {
+                            type: 'Polygon',
+                            coordinates: coord,
+                        },
+                        id: polyProps.id,
+                        properties: {
+                            id: polyProps.id,
+                            imageSrc: polyProps.imageSrc,
+                            title: polyProps.title,
+                            type: polyProps.type,
+                        },
+                        type: 'Feature',
+                    });
+                });
             });
 
             this.mapbox.map.addSource('regions', {
                 type: 'geojson',
                 data: this.polygons,
                 promoteId: 'id',
-            });
-
-            this.mapbox.map.addLayer({
-                id: 'regions-borders',
-                type: 'line',
-                source: 'regions',
-                layout: {
-                },
-                paint: {
-                    'line-color': '#fff',
-                    'line-width': 2,
-                },
             });
 
             this.mapbox.map.addLayer({
@@ -353,6 +372,18 @@ export default {
                         '#A5A5A5',
                     ],
                     'fill-opacity': 0.8,
+                },
+            });
+
+            this.mapbox.map.addLayer({
+                id: 'regions-borders',
+                type: 'line',
+                source: 'regions',
+                layout: {
+                },
+                paint: {
+                    'line-color': '#fff',
+                    'line-width': 1,
                 },
             });
 
@@ -417,9 +448,9 @@ export default {
 
             mapStore.dispatch('setActivePlace', {
                 mapId: this.mapId,
-                placeId: this.activeStateId,
+                placeId: polyId,
             });
-            this.$emit('show-detail', this.activeStateId);
+            this.$emit('show-detail', polyId);
 
             this.$emit('set-category', 'regions');
         },

@@ -69,6 +69,13 @@
                                 <slot name="noJs" />
                             </template>
                         </VsMap>
+                        />
+                        <VsButtonToggleGroup
+                            :initial-selected="selectedToggle"
+                            :options="toggleData"
+                            :buttons-label="buttonsLabel"
+                            @toggleChanged="onToggleChanged"
+                        />
                     </div>
                 </div>
             </VsCol>
@@ -187,6 +194,7 @@ export default {
             showRegions: false,
             regions: [
             ],
+            selectedToggle: this.initialSelected,
         };
     },
     computed: {
@@ -197,11 +205,11 @@ export default {
             return this.panelVisible ? '' : 'd-none d-lg-block';
         },
         regionsData() {
-            return this.placesData.filter((place) => place.geometry.type === 'Polygon');
+            return this.placesData.filter((place) => place.geometry.type === 'Polygon'
+                || place.geometry.type === 'MultiPolygon');
         },
     },
     mounted() {
-        console.log(this.placesData);
         this.panelVisible = true;
         mapStore.commit('addMapInstance', {
             id: this.mapId,
@@ -238,6 +246,14 @@ export default {
         setCategory(cat) {
             this.selectedCategory = cat;
             this.filterPlaces(cat);
+
+            console.log(cat);
+
+            if (cat === 'regions') {
+                this.selectedToggle = 'regions';
+            } else {
+                this.selectedToggle = 'places';
+            }
         },
         /**
          * Sets the current stage

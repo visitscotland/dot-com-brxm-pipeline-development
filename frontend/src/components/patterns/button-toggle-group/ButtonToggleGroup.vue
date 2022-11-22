@@ -9,7 +9,6 @@
             class="vs-button-toggle-group--radios"
             id="btn-radios-1"
             v-model="selected"
-            :options="options"
             :aria-describedby="ariaDescribedby"
             name="radios-btn-default"
             buttons
@@ -50,7 +49,6 @@ import {
     BFormRadio,
 } from 'bootstrap-vue';
 import VsSvg from '@components/elements/svg/Svg';
-import initFontAwesome from '../../../utils/init-font-awesome';
 
 /**
  * A group of buttons that allow only one to be selected at a time
@@ -98,8 +96,12 @@ export default {
             groupTabbedInto: false,
         };
     },
+    watch: {
+        initialSelected(newVal) {
+            this.selected = newVal;
+        },
+    },
     mounted() {
-        initFontAwesome();
         if (this.initialSelected === '') {
             this.selected = this.options[0].value;
         }
@@ -171,6 +173,17 @@ export default {
             label.btn-secondary {
                 @extend %button-default-styles;
                 text-transform: uppercase;
+                padding-top: $spacer-2;
+                padding-bottom: $spacer-2;
+                display: flex;
+                align-items: center;
+
+                & > span {
+                    display: flex;
+                    height: 32px;
+                    align-items: center;
+                    padding: 0 $spacer-2;
+                }
 
                 & > span {
                     display: flex;
@@ -191,7 +204,7 @@ export default {
 
                     @include vs-button-variant(
                         $color-purple, $color-white, $color-purple,
-                        $color-white, $color-purple, $color-purple,
+                        $color-purple, $color-white, $color-purple,
                         $color-white, $color-purple, $color-purple,
                     );
 
