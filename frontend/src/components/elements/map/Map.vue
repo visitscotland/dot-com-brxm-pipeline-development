@@ -330,7 +330,7 @@ export default {
                 }
             });
 
-            this.multiPolygons.forEach((poly, index) => {
+            this.multiPolygons.forEach((poly) => {
                 const polyProps = poly.properties;
                 poly.geometry.coordinates[0].forEach((coord) => {
                     this.polygons.features.push({
@@ -338,9 +338,9 @@ export default {
                             type: 'Polygon',
                             coordinates: coord,
                         },
-                        id: `${polyProps.id}-multi${index}`,
+                        id: polyProps.id,
                         properties: {
-                            id: `${polyProps.id}-multi${index}`,
+                            id: polyProps.id,
                             imageSrc: polyProps.imageSrc,
                             title: polyProps.title,
                             type: polyProps.type,
@@ -355,10 +355,6 @@ export default {
                 data: this.polygons,
                 promoteId: 'id',
             });
-
-            // for each multi poly
-            // addSource - 'multi-1'
-            // construct data
 
             this.mapbox.map.addLayer({
                 id: 'regions-borders',
