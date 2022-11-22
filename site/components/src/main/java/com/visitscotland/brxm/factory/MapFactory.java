@@ -150,6 +150,7 @@ public class MapFactory {
         if (!Contract.isNull(mapModuleDocument.getFeaturedPlacesItem())) {
             addFeaturePlacesNode(module, mapModuleDocument.getCategories(), request.getLocale() , keys, features);
         }
+        //TODO create a class for Regions, another for Cities and ski, icentre...
        if (Arrays.asList(destinationPage.getKeys()).contains(REGIONS)) {
            for (RegionsMapTab prodType: RegionsMapTab.values()){
                //filters
@@ -194,7 +195,7 @@ public class MapFactory {
                 //Endpoint base to bring 24 random results
                filter.put("listProductsEndPoint", dmsQuery.buildCannedSearch());
 
-               //subcategoies added
+               //subcategories added
                ArrayNode childrenArray = dmsDataService.getCatGroup(prodType.getProdTypeId(),request.getLocale().getLanguage());
                filter.set("subCategory",childrenArray);
                keys.add(filter);
