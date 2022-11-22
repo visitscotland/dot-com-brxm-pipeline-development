@@ -9673,6 +9673,58 @@
               /visitscotland:introduction:
                 jcr:primaryType: hippostd:html
                 hippostd:content: <p>Borders intro</p>
+          /map:
+            jcr:primaryType: hippo:handle
+            jcr:mixinTypes: ['hippo:versionInfo', 'mix:referenceable']
+            jcr:uuid: 94d4ed24-0d21-4358-a82b-f1692ae2993f
+            hippo:versionHistory: 7601202d-0c60-43ae-bda9-a14c59071f1d
+            /map[1]:
+              jcr:primaryType: visitscotland:MapModule
+              jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
+              jcr:uuid: e18da8aa-5ea5-4a95-a1dd-b64f28ec69e2
+              hippo:availability: []
+              hippostd:retainable: false
+              hippostd:state: draft
+              hippostdpubwf:createdBy: admin
+              hippostdpubwf:creationDate: 2022-11-22T14:46:15.695Z
+              hippostdpubwf:lastModificationDate: 2022-11-22T14:46:15.695Z
+              hippostdpubwf:lastModifiedBy: admin
+              hippotranslation:id: 8507a032-9bc6-4a5a-ac65-1c56df8a4362
+              hippotranslation:locale: en
+              visitscotland:tabTitle: Explore the borders
+              visitscotland:title: The Borders map
+            /map[2]:
+              jcr:primaryType: visitscotland:MapModule
+              jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable',
+                'mix:versionable']
+              jcr:uuid: 6aa52ddc-be96-450f-af7a-36e4cb793a37
+              hippo:availability: [preview]
+              hippostd:retainable: false
+              hippostd:state: unpublished
+              hippostdpubwf:createdBy: admin
+              hippostdpubwf:creationDate: 2022-11-22T14:46:15.695Z
+              hippostdpubwf:lastModificationDate: 2022-11-22T14:46:30.500Z
+              hippostdpubwf:lastModifiedBy: admin
+              hippotranslation:id: 8507a032-9bc6-4a5a-ac65-1c56df8a4362
+              hippotranslation:locale: en
+              visitscotland:tabTitle: Explore the borders
+              visitscotland:title: The Borders map
+            /map[3]:
+              jcr:primaryType: visitscotland:MapModule
+              jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
+              jcr:uuid: 4bd034f0-dd63-45a1-878e-f178a97c2bdc
+              hippo:availability: [live]
+              hippostd:retainable: false
+              hippostd:state: published
+              hippostdpubwf:createdBy: admin
+              hippostdpubwf:creationDate: 2022-11-22T14:46:15.695Z
+              hippostdpubwf:lastModificationDate: 2022-11-22T14:46:30.500Z
+              hippostdpubwf:lastModifiedBy: admin
+              hippostdpubwf:publicationDate: 2022-11-22T14:46:32.311Z
+              hippotranslation:id: 8507a032-9bc6-4a5a-ac65-1c56df8a4362
+              hippotranslation:locale: en
+              visitscotland:tabTitle: Explore the borders
+              visitscotland:title: The Borders map
         /dumfries:
           jcr:primaryType: hippostd:folder
           jcr:mixinTypes: ['hippo:named', 'hippotranslation:translated', 'mix:versionable']
@@ -10009,6 +10061,58 @@
               /visitscotland:introduction:
                 jcr:primaryType: hippostd:html
                 hippostd:content: <p>Edinburgh Lothians intro</p>
+          /map:
+            jcr:primaryType: hippo:handle
+            jcr:mixinTypes: ['hippo:versionInfo', 'mix:referenceable']
+            jcr:uuid: 0c16ff0f-a000-46de-ae60-d4d8386203fb
+            hippo:versionHistory: 2b04b5c5-84fa-4cb2-a05b-7cbc4bbdff29
+            /map[1]:
+              jcr:primaryType: visitscotland:MapModule
+              jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
+              jcr:uuid: 75c3aaa3-fba3-4435-8b12-7baed651619e
+              hippo:availability: []
+              hippostd:retainable: false
+              hippostd:state: draft
+              hippostdpubwf:createdBy: admin
+              hippostdpubwf:creationDate: 2022-11-22T14:44:26.543Z
+              hippostdpubwf:lastModificationDate: 2022-11-22T14:44:26.544Z
+              hippostdpubwf:lastModifiedBy: admin
+              hippotranslation:id: ac65b173-36e5-4c76-b3a9-e042e1cbbbc1
+              hippotranslation:locale: en
+              visitscotland:tabTitle: ''
+              visitscotland:title: Edinburgh and the lothians map
+            /map[2]:
+              jcr:primaryType: visitscotland:MapModule
+              jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable',
+                'mix:versionable']
+              jcr:uuid: 82a254d3-108b-42a6-abf4-2e7f6d4d3b51
+              hippo:availability: [preview]
+              hippostd:retainable: false
+              hippostd:state: unpublished
+              hippostdpubwf:createdBy: admin
+              hippostdpubwf:creationDate: 2022-11-22T14:44:26.543Z
+              hippostdpubwf:lastModificationDate: 2022-11-22T14:44:52.339Z
+              hippostdpubwf:lastModifiedBy: admin
+              hippotranslation:id: ac65b173-36e5-4c76-b3a9-e042e1cbbbc1
+              hippotranslation:locale: en
+              visitscotland:tabTitle: ''
+              visitscotland:title: Edinburgh and the lothians map
+            /map[3]:
+              jcr:primaryType: visitscotland:MapModule
+              jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
+              jcr:uuid: 408b9ae4-77f8-4880-a79a-2e6cfc0301f9
+              hippo:availability: [live]
+              hippostd:retainable: false
+              hippostd:state: published
+              hippostdpubwf:createdBy: admin
+              hippostdpubwf:creationDate: 2022-11-22T14:44:26.543Z
+              hippostdpubwf:lastModificationDate: 2022-11-22T14:44:52.339Z
+              hippostdpubwf:lastModifiedBy: admin
+              hippostdpubwf:publicationDate: 2022-11-22T14:44:55.226Z
+              hippotranslation:id: ac65b173-36e5-4c76-b3a9-e042e1cbbbc1
+              hippotranslation:locale: en
+              visitscotland:tabTitle: ''
+              visitscotland:title: Edinburgh and the lothians map
         /greater-glasgow:
           jcr:primaryType: hippostd:folder
           jcr:mixinTypes: ['hippo:named', 'hippotranslation:translated', 'mix:versionable']
