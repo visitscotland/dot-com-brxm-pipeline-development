@@ -197,11 +197,11 @@ export default {
             return this.panelVisible ? '' : 'd-none d-lg-block';
         },
         regionsData() {
-            return this.placesData.filter((place) => place.geometry.type === 'Polygon');
+            return this.placesData.filter((place) => place.geometry.type === 'Polygon'
+                || place.geometry.type === 'MultiPolygon');
         },
     },
     mounted() {
-        console.log(this.placesData);
         this.panelVisible = true;
         mapStore.commit('addMapInstance', {
             id: this.mapId,
