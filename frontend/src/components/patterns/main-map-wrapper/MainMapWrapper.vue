@@ -213,6 +213,7 @@ export default {
     mounted() {
         this.selectedToggle = this.initialSelected;
         this.panelVisible = true;
+
         mapStore.commit('addMapInstance', {
             id: this.mapId,
             filters: this.filters,

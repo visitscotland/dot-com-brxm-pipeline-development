@@ -11,6 +11,7 @@ import com.visitscotland.brxm.dms.DMSUtils;
 import com.visitscotland.brxm.model.megalinks.EnhancedLink;
 import com.visitscotland.brxm.services.LinkService;
 import com.visitscotland.brxm.services.DocumentUtilsService;
+import com.visitscotland.brxm.utils.ContentLogger;
 import com.visitscotland.utils.Contract;
 import org.hippoecm.hst.content.beans.standard.HippoCompound;
 import org.slf4j.Logger;
@@ -28,7 +29,7 @@ import static com.visitscotland.brxm.dms.DMSConstants.DMSProduct.*;
 public class ListicleFactory {
 
     private static final Logger logger = LoggerFactory.getLogger(ListicleFactory.class);
-    private static final Logger contentLogger = LoggerFactory.getLogger("content");
+    private final Logger contentLogger;
 
     private final LinkService linksService;
     private final DMSDataService dmsData;
@@ -36,12 +37,14 @@ public class ListicleFactory {
     private final DMSUtils dmsUtils;
     private final DocumentUtilsService documentUtils;
 
-    public ListicleFactory(LinkService linksService, DMSDataService dmsData, ImageFactory imageFactory, DMSUtils dmsUtils, DocumentUtilsService documentUtils) {
+    public ListicleFactory(LinkService linksService, DMSDataService dmsData, ImageFactory imageFactory, DMSUtils dmsUtils,
+                           DocumentUtilsService documentUtils, ContentLogger contentLogger) {
         this.linksService = linksService;
         this.dmsData = dmsData;
         this.imageFactory = imageFactory;
         this.dmsUtils = dmsUtils;
         this.documentUtils = documentUtils;
+        this.contentLogger = contentLogger;
     }
 
     /**

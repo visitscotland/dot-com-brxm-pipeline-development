@@ -11,6 +11,7 @@ import com.visitscotland.brxm.model.*;
 import com.visitscotland.brxm.services.DocumentUtilsService;
 import com.visitscotland.brxm.services.LinkService;
 import com.visitscotland.brxm.services.ResourceBundleService;
+import com.visitscotland.brxm.utils.ContentLogger;
 import com.visitscotland.brxm.utils.Properties;
 import com.visitscotland.utils.Contract;
 import org.junit.jupiter.api.DisplayName;
@@ -56,9 +57,10 @@ class ItineraryFactoryTest {
     DocumentUtilsService documentUtils;
     @Mock
     Properties properties;
-
     @Mock
     LinkService linkService;
+    @Mock
+    ContentLogger logger;
 
 
     @Test

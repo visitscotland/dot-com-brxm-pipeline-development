@@ -5,6 +5,7 @@ import com.visitscotland.brxm.model.BannerModule;
 import com.visitscotland.brxm.model.FlatLink;
 import com.visitscotland.brxm.services.LinkService;
 import com.visitscotland.brxm.services.ResourceBundleService;
+import com.visitscotland.brxm.utils.ContentLogger;
 import com.visitscotland.brxm.utils.HippoUtilsService;
 import com.visitscotland.utils.Contract;
 import org.hippoecm.hst.content.beans.ObjectBeanManagerException;
@@ -28,12 +29,13 @@ public class BannerFactory {
     private final HippoUtilsService hippoUtilsService;
     private final ResourceBundleService bundle;
     private static final Logger logger = LoggerFactory.getLogger(BannerFactory.class);
-    private static final Logger contentLogger = LoggerFactory.getLogger("content");
+    private final Logger contentLogger;
 
-    public BannerFactory(LinkService linkService, HippoUtilsService hippoUtilsService, ResourceBundleService bundle) {
+    public BannerFactory(LinkService linkService, HippoUtilsService hippoUtilsService, ResourceBundleService bundle, ContentLogger contentLogger) {
         this.linkService = linkService;
         this.hippoUtilsService = hippoUtilsService;
         this.bundle = bundle;
+        this.contentLogger = contentLogger;
     }
 
     public BannerModule getBannerModule(HstRequest request) {

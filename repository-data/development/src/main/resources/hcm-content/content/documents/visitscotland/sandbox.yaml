@@ -933,11 +933,12 @@
           jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
           jcr:uuid: afcc48a6-6945-497a-9b84-9119920ac0bc
           hippo:availability: []
+          hippostd:holder: admin
           hippostd:retainable: false
           hippostd:state: draft
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2020-02-07T12:55:05.069Z
-          hippostdpubwf:lastModificationDate: 2022-06-16T15:49:34.762+01:00
+          hippostdpubwf:lastModificationDate: 2022-11-18T12:54:12.094Z
           hippostdpubwf:lastModifiedBy: admin
           hippotaxonomy:keys: []
           hippotranslation:id: 2d502027-288c-49ee-ac6b-53c4c7c7182c
@@ -4725,6 +4726,109 @@
             /visitscotland:videoLink:
               jcr:primaryType: hippo:mirror
               hippo:docbase: b193d2fa-424d-44b0-a720-1d2cb5cf0184
+      /cameron-house:
+        jcr:primaryType: hippo:handle
+        jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+        jcr:uuid: fc1a1f69-c51a-4b65-8bef-3ba62452b6be
+        hippo:name: Cameron House
+        hippo:versionHistory: 6acd1323-59c7-407b-9901-1cab92c6003d
+        /cameron-house[1]:
+          jcr:primaryType: visitscotland:Stop
+          jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
+          jcr:uuid: 5bb3e938-4ebe-41a0-82ad-55567cce676d
+          hippo:availability: []
+          hippostd:retainable: false
+          hippostd:state: draft
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2022-11-18T12:54:47.065Z
+          hippostdpubwf:lastModificationDate: 2022-11-18T12:54:47.065Z
+          hippostdpubwf:lastModifiedBy: admin
+          hippotranslation:id: a9105769-1564-4058-ae7e-84561072afea
+          hippotranslation:locale: en
+          visitscotland:subtitle: ''
+          visitscotland:title: Cameron House
+          visitscotland:translation: ''
+          /visitscotland:description:
+            jcr:primaryType: hippostd:html
+            hippostd:content: <p>A magnificent baronial mansion surrounded by 400
+              acres of countryside, Cameron House on Loch Lomond, blends traditional
+              Scottish influences with sumptuous contemporary décor to offer guests
+              a memorable stay in the finest surroundings.</p>
+          /visitscotland:product:
+            jcr:primaryType: visitscotland:DMSLink
+            visitscotland:label: ''
+            visitscotland:product: '190371'
+          /visitscotland:media:
+            jcr:primaryType: hippogallerypicker:imagelink
+            hippo:docbase: dbcdddc3-5586-4188-85a7-fcd5e7e3c29a
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+        /cameron-house[2]:
+          jcr:primaryType: visitscotland:Stop
+          jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable', 'mix:versionable']
+          jcr:uuid: 79033906-020b-4f42-8807-1fc5fcabf272
+          hippo:availability: [preview]
+          hippostd:retainable: false
+          hippostd:state: unpublished
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2022-11-18T12:54:47.065Z
+          hippostdpubwf:lastModificationDate: 2022-11-18T12:55:16.390Z
+          hippostdpubwf:lastModifiedBy: admin
+          hippotranslation:id: a9105769-1564-4058-ae7e-84561072afea
+          hippotranslation:locale: en
+          visitscotland:subtitle: ''
+          visitscotland:title: Cameron House
+          visitscotland:translation: ''
+          /visitscotland:description:
+            jcr:primaryType: hippostd:html
+            hippostd:content: <p>A magnificent baronial mansion surrounded by 400
+              acres of countryside, Cameron House on Loch Lomond, blends traditional
+              Scottish influences with sumptuous contemporary décor to offer guests
+              a memorable stay in the finest surroundings.</p>
+          /visitscotland:product:
+            jcr:primaryType: visitscotland:DMSLink
+            visitscotland:label: ''
+            visitscotland:product: '190371'
+          /visitscotland:media:
+            jcr:primaryType: hippogallerypicker:imagelink
+            hippo:docbase: dbcdddc3-5586-4188-85a7-fcd5e7e3c29a
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+        /cameron-house[3]:
+          jcr:primaryType: visitscotland:Stop
+          jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
+          jcr:uuid: 536e7b5f-96d6-47af-bcf2-98384a2bc44f
+          hippo:availability: [live]
+          hippostd:retainable: false
+          hippostd:state: published
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2022-11-18T12:54:47.065Z
+          hippostdpubwf:lastModificationDate: 2022-11-18T12:55:16.390Z
+          hippostdpubwf:lastModifiedBy: admin
+          hippostdpubwf:publicationDate: 2022-11-18T12:55:19.801Z
+          hippotranslation:id: a9105769-1564-4058-ae7e-84561072afea
+          hippotranslation:locale: en
+          visitscotland:subtitle: ''
+          visitscotland:title: Cameron House
+          visitscotland:translation: ''
+          /visitscotland:description:
+            jcr:primaryType: hippostd:html
+            hippostd:content: <p>A magnificent baronial mansion surrounded by 400
+              acres of countryside, Cameron House on Loch Lomond, blends traditional
+              Scottish influences with sumptuous contemporary décor to offer guests
+              a memorable stay in the finest surroundings.</p>
+          /visitscotland:product:
+            jcr:primaryType: visitscotland:DMSLink
+            visitscotland:label: ''
+            visitscotland:product: '190371'
+          /visitscotland:media:
+            jcr:primaryType: hippogallerypicker:imagelink
+            hippo:docbase: dbcdddc3-5586-4188-85a7-fcd5e7e3c29a
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
     /links:
       jcr:primaryType: hippostd:folder
       jcr:mixinTypes: ['frontend:orderChildFolders', 'hippo:named', 'hippotranslation:translated',

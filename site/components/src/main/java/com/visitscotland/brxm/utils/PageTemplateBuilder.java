@@ -23,7 +23,6 @@ import java.util.MissingResourceException;
 public class PageTemplateBuilder {
 
     private static final Logger logger = LoggerFactory.getLogger(PageTemplateBuilder.class);
-    private static final Logger contentLogger = LoggerFactory.getLogger("content");
 
     //Static Constant
     static final String INTRO_THEME = "introTheme";
@@ -54,13 +53,15 @@ public class PageTemplateBuilder {
     private final PreviewModeFactory previewFactory;
     private final MarketoFormFactory marketoFormFactory;
     private final MapFactory mapFactory;
+    private final Logger contentLogger;
 
 
     @Autowired
     public PageTemplateBuilder(DocumentUtilsService documentUtils, MegalinkFactory linksFactory, ICentreFactory iCentre,
                IKnowFactory iKnow, ArticleFactory article, LongCopyFactory longcopy, IKnowCommunityFactory iKnowCommunityFactory,
                StacklaFactory stacklaFactory, TravelInformationFactory travelInformationFactory, CannedSearchFactory cannedSearchFactory,
-               PreviewModeFactory previewFactory, MarketoFormFactory marketoFormFactory, MapFactory mapFactory) {
+               PreviewModeFactory previewFactory, MarketoFormFactory marketoFormFactory, MapFactory mapFactory,
+               ContentLogger contentLogger) {
         this.linksFactory = linksFactory;
         this.iCentreFactory = iCentre;
         this.iKnowFactory = iKnow;
@@ -74,6 +75,7 @@ public class PageTemplateBuilder {
         this.previewFactory = previewFactory;
         this.marketoFormFactory = marketoFormFactory;
         this.mapFactory = mapFactory;
+        this.contentLogger = contentLogger;
     }
 
     private Page getDocument(HstRequest request) {

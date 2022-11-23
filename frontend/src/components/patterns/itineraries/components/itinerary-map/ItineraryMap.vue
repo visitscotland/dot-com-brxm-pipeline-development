@@ -205,6 +205,14 @@ export default {
                     )
                     .addTo(this.mapbox.map);
             }
+
+            document.onkeydown = (evt) => {
+                const keypress = evt || window.event;
+
+                if (keypress.key === 'Escape' || keypress.key === 'Esc') {
+                    this.removeMapPopup();
+                }
+            };
         },
         fitToBounds() {
             this.mapbox.map.fitBounds(geojsonExtent(this.geojsonData), {
@@ -259,6 +267,8 @@ export default {
             } else {
                 this.popup = null;
             }
+
+            document.onkeydown = null;
         },
         onResize() {
             this.isTablet = window.innerWidth >= 768;
