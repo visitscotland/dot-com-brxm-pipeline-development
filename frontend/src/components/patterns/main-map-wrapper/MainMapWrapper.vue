@@ -69,7 +69,6 @@
                                 <slot name="noJs" />
                             </template>
                         </VsMap>
-                        />
                         <VsButtonToggleGroup
                             :initial-selected="selectedToggle"
                             :options="toggleData"
@@ -91,6 +90,7 @@ import {
 } from '@components/elements/grid';
 import VsMap from '@components/elements/map/Map';
 import VsButton from '@components/elements/button/Button/';
+import VsButtonToggleGroup from '@components/patterns/button-toggle-group/ButtonToggleGroup';
 import VsMainMapWrapperPanel from './components/MainMapWrapperPanel';
 import mapStore from '../../../stores/map.store';
 
@@ -112,6 +112,7 @@ export default {
         VsMap,
         VsButton,
         VsMainMapWrapperPanel,
+        VsButtonToggleGroup,
     },
     provide() {
         return {
@@ -246,8 +247,6 @@ export default {
         setCategory(cat) {
             this.selectedCategory = cat;
             this.filterPlaces(cat);
-
-            console.log(cat);
 
             if (cat === 'regions') {
                 this.selectedToggle = 'regions';

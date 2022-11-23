@@ -45,14 +45,14 @@
             map-id="vs-map-${module.id}"
             :toggle-data="[
                 {
-                    text: '${regionsText?trim}',
-                    value: 'regions',
-                    icon: 'map',
-                },
-                {
                     text: '${placesText?trim}',
                     value: 'places',
                     icon: 'pin'
+                },
+                {
+                    text: '${regionsText?trim}',
+                    value: 'regions',
+                    icon: 'map',
                 },
             ]"
         >
