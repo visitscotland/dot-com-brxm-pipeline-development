@@ -20,6 +20,11 @@ public class DMSConstants {
     public static final String TYPE_IKNOW = "cate,acti,attr,reta";
     public static final String TYPE_SERVICES = "serv";
 
+    public static final String TYPE_ACTIVITIES = "acti";
+    public static final String TYPE_ATTRACTIONS = "attr";
+    public static final String TYPE_RETAIL = "reta";
+    public static final String TYPE_TOWN = "twnv";
+
     private DMSConstants(){}
 
     public static final String CAT_ICENTRE = "vics";
@@ -96,7 +101,7 @@ public class DMSConstants {
     public static final String VS_DMS_CANNED_SEARCH_TOURS = "/component/cannedsearchtours";
     public static final String META_PRODUCT_LIST = "/meta/%s/list?%s";
     public static final String META_LOCATIONS = "/meta/location/list?full";
-    public static final String META_LOCATIONS_COORDINATES = "/meta/location/polygon?";
+    public static final String META_LOCATIONS_COORDINATES = "/meta/location/display-polygon?";
     public static final String META_CATEGORY_GROUP = "/meta/categorygroup/list?";
 
 }

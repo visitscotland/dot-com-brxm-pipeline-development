@@ -1,15 +1,24 @@
 import { shallowMount } from '@vue/test-utils';
 
 import VsMap from '../Map';
+import placeData from '../../../../assets/fixtures/maps/places-data.json';
+
+const mockAddMethod = jest.fn();
+const mockMarkerMethod = jest.fn();
 
 const factoryShallowMount = () => shallowMount(VsMap, {
     methods: {
         initialiseMapComponent: jest.fn(),
+        addMapFeatures: mockAddMethod,
+        addMapMarkers: mockMarkerMethod,
     },
     propsData: {
         mapId: 'vs-map',
         isVisible: true,
-        places: '',
+        places: [
+        ],
+        regions: [
+        ],
     },
 });
 
@@ -29,6 +38,29 @@ describe('VsMap', () => {
             const wrapper = factoryShallowMount();
 
             expect(wrapper.find('.vs-map__map').attributes('id')).toBe('vs-map');
+        });
+    });
+    describe(':methods', () => {
+        it('should add map features when places props change', async() => {
+            const wrapper = factoryShallowMount();
+
+            wrapper.setProps({
+                places: placeData.features,
+            });
+            await wrapper.vm.$nextTick();
+
+            expect(mockAddMethod).toHaveBeenCalled();
+        });
+
+        it('should add map markers when places props change', async() => {
+            const wrapper = factoryShallowMount();
+
+            wrapper.setProps({
+                places: placeData.features,
+            });
+            await wrapper.vm.$nextTick();
+
+            expect(mockMarkerMethod).toHaveBeenCalled();
         });
     });
 });

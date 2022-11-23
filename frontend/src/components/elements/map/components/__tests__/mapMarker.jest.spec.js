@@ -7,6 +7,7 @@ const mockMethod = jest.fn();
 const factoryShallowMount = () => shallowMount(VsMapMarker, {
     propsData: {
         feature: markerExample,
+        mapId: 'vs-map',
     },
     computed: {
         isActive() {

@@ -5,12 +5,14 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import com.fasterxml.jackson.databind.node.ArrayNode;
+import com.visitscotland.brxm.services.CommonUtilsService;
 import com.visitscotland.utils.Contract;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Component;
 
+import java.io.IOException;
 import java.util.Locale;
 
 @Component
@@ -19,9 +21,11 @@ public class DMSDataService {
     private static final Logger logger = LoggerFactory.getLogger(DMSDataService.class.getName());
 
     private final DMSProxy proxy;
+    private final CommonUtilsService utilsService;
 
-    public DMSDataService(DMSProxy proxy) {
+    public DMSDataService(DMSProxy proxy, CommonUtilsService utilsService) {
         this.proxy = proxy;
+        this.utilsService = utilsService;
     }
 
 
@@ -99,22 +103,39 @@ public class DMSDataService {
 
         return  null;
     }
+    @Cacheable (value="dmsProductSearch")
+    public JsonNode cannedSearch(ProductSearchBuilder psb){
+
+        String dmsUrl = psb.buildCannedSearch();
+
+        logger.info("Requesting data to the canned search: {}", dmsUrl);
+        String responseString = proxy.request(dmsUrl);
+        if (responseString != null) {
+            try {
+                ObjectMapper m = new ObjectMapper();
+                return m.readTree(responseString).get("data").get("products");
+            } catch (JsonProcessingException e) {
+                logger.error("The response could not be parsed:\n {}", responseString, e);
+            }
+        }
+        return null;
+    }
 
     /**
      * This method invokes the canned search endpoint to check if there are results coming
      *
-     * @param toursUrl tours search url
+     * @param cannedSearch tours search url
      *
      * @return boolean to indicate if the search returns products
      */
     @Cacheable (value="dmsProductSearch")
-    public boolean cannedSearchHasResults(String toursUrl){
+    public boolean cannedSearchHasResults(String cannedSearch){
 
         String responseString = null;
 
-        logger.info("Requesting data to the tms: {}", toursUrl);
+        logger.info("Requesting data to the canned search url: {}", cannedSearch);
         try {
-            responseString = proxy.request(toursUrl);
+            responseString = proxy.request(cannedSearch);
 
             if (responseString!=null) {
                 ObjectMapper mapper = new ObjectMapper();
@@ -133,38 +154,51 @@ public class DMSDataService {
     }
 
     /**
-     * This method invokes the polugon endpoint to retrieve polygons borders
+     * This method invokes the polygon endpoint to retrieve polygons borders
      *
      * @param location DMS location
      *
      * @return ArrayNode with the data for coordinates
      */
-    public ArrayNode getPolygonCoordinates(String location){
+    //TODO this cache should be for a longer period of time?
+    @Cacheable (value="dmsProductSearch")
+    public JsonNode getPolygonCoordinates(String location){
         logger.info("Requesting data to retrieve the coordinates for the polygon: {}", location);
         if (!Contract.isEmpty(location)) {
-            String dmsUrl = DMSConstants.META_LOCATIONS_COORDINATES;
-            dmsUrl += "loc=" + location;
-            return gerArrayData(dmsUrl);
+            /*String dmsUrl = DMSConstants.META_LOCATIONS_COORDINATES;*/
+            String dmsUrl ="https://api.visitscotland.com/dev/data/products/dms/meta/location/display-polygon?";
+            dmsUrl += location;
+            String responseString = null;
+            try {
+                responseString = utilsService.requestUrl(dmsUrl);
 
+                if (responseString != null) {
+                        ObjectMapper m = new ObjectMapper();
+                        return m.readTree(responseString).get("geometry");
+                }
+            } catch (IOException e) {
+                logger.error("The response could not be parsed:\n {}", responseString, e);
+            }
         }
       return null;
     }
 
     /**
-     * This method invokes the category group endpoint to retrieve category groups for produc type passed
+     * This method invokes the category group endpoint to retrieve category groups for product type passed
      *
      * @param prodType DMS product type
      * @param locale language
      *
      * @return ArrayNode with the data for coordinates
      */
+    @Cacheable (value="dmsProductSearch")
     public ArrayNode getCatGroup(String prodType, String locale){
         logger.info("Requesting data to retrieve the category groups for produc type: {}", prodType);
         if (!Contract.isEmpty(prodType)) {
             String dmsUrl = DMSConstants.META_CATEGORY_GROUP;
             dmsUrl += "prodtypes=" + prodType + "&locale=" + locale;
 
-            return gerArrayData(dmsUrl);
+            return getArrayData(dmsUrl);
         }
         return null;
     }
@@ -176,7 +210,7 @@ public class DMSDataService {
      *
      * @return ArrayNode with the response
      */
-    private ArrayNode gerArrayData(String dmsUrl) {
+    private ArrayNode getArrayData(String dmsUrl) {
         String responseString = proxy.request(dmsUrl);
         if (responseString != null) {
             try {

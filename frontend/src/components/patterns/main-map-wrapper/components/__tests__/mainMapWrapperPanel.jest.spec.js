@@ -58,13 +58,17 @@ const factoryShallowMount = (propsData) => shallowMount(VsMainMapWrapperPanel, {
 
 describe('VsMainMapWrapperPanel', () => {
     it('should render a component with the data-test attribute `vs-main-map-wrapper-panel`', () => {
-        const wrapper = factoryShallowMount();
+        const wrapper = factoryShallowMount({
+            currentStage: 0,
+        });
         expect(wrapper.attributes('data-test')).toBe('vs-main-map-wrapper-panel');
     });
 
     describe(':methods', () => {
         it('should emit `close-panel` when the close button is clicked', async() => {
-            const wrapper = factoryShallowMount();
+            const wrapper = factoryShallowMount({
+                currentStage: 0,
+            });
             const closeBtn = wrapper.find('[data-test="vs-main-map-wrapper-panel--btn-close"]');
 
             await closeBtn.trigger('click');
@@ -115,7 +119,9 @@ describe('VsMainMapWrapperPanel', () => {
         });
 
         it('should not display a header if the `categoryHeading` prop is blank', () => {
-            const wrapper = factoryShallowMount();
+            const wrapper = factoryShallowMount({
+                currentStage: 0,
+            });
             const panelHeading = wrapper.find('[data-test="vs-main-map-categories__heading"]');
 
             expect(panelHeading.exists()).toBe(false);
@@ -133,7 +139,9 @@ describe('VsMainMapWrapperPanel', () => {
 
     describe(':slots', () => {
         it('should display a button with the `closePanelText` slot value', () => {
-            const wrapper = factoryShallowMount();
+            const wrapper = factoryShallowMount({
+                currentStage: 0,
+            });
             const closeBtn = wrapper.find('[data-test="vs-main-map-wrapper-panel--btn-close"]');
 
             expect(closeBtn.text()).toBe('Close panel');
@@ -150,7 +158,9 @@ describe('VsMainMapWrapperPanel', () => {
         });
 
         it('should display a button with the `resetSidePanelText` slot value', () => {
-            const wrapper = factoryShallowMount();
+            const wrapper = factoryShallowMount({
+                currentStage: 0,
+            });
             const closeBtn = wrapper.find('[data-test="vs-main-map-wrapper-panel--btn-reset"]');
 
             expect(closeBtn.text()).toBe('Reset panel');
