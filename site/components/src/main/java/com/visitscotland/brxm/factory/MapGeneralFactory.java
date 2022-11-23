@@ -57,7 +57,8 @@ public class MapGeneralFactory {
         featureCollectionGeoJson.put(TYPE, "FeatureCollection");
         ArrayNode features = mapper.createArrayNode();
         ArrayNode keys = mapper.createArrayNode();
-        buildMapPages(request, mapModuleDocument, module, keys, features);
+        //TODO check if the map is iCentre then create a new method to handle it
+        buildMapGeneralPages(request, mapModuleDocument, module, keys, features);
 
         //add first Json for filters
         module.setFilters(keys);
@@ -78,7 +79,7 @@ public class MapGeneralFactory {
      * @param keys filters for maps
      * @param features features information for mapcards
      */
-    private void buildMapPages (HstRequest request, MapModule mapModuleDocument, MapsModule module, ArrayNode keys, ArrayNode features){
+    private void buildMapGeneralPages (HstRequest request, MapModule mapModuleDocument, MapsModule module, ArrayNode keys, ArrayNode features){
         for (String taxonomy : mapModuleDocument.getKeys()) {
             //get all the Taxonomy information
             Taxonomy vsTaxonomyTree = hippoUtilsService.getTaxonomy();
