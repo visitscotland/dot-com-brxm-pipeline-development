@@ -157,7 +157,7 @@ public class MapFactory {
                ObjectNode filter = mapper.createObjectNode();
 
                filter.put(ID, prodType.getProdTypeId().equalsIgnoreCase(DMSConstants.TYPE_TOWN)?"cities":"towns");
-               filter.put(LABEL,bundle.getResourceBundle(MAP,"map."+prodType.getProdTypeId(), request.getLocale()));
+               filter.put(LABEL,bundle.getResourceBundle(MAP,prodType.getLabel(), request.getLocale()));
                keys.add(filter);
 
                ProductSearchBuilder dmsQuery = VsComponentManager.get(ProductSearchBuilder.class).location(destinationPage.getLocation())
