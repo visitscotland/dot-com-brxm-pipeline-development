@@ -195,7 +195,7 @@ export default {
             showRegions: false,
             regions: [
             ],
-            selectedToggle: this.initialSelected,
+            selectedToggle: '',
         };
     },
     computed: {
@@ -211,6 +211,7 @@ export default {
         },
     },
     mounted() {
+        this.selectedToggle = this.initialSelected;
         this.panelVisible = true;
         mapStore.commit('addMapInstance', {
             id: this.mapId,
@@ -247,12 +248,6 @@ export default {
         setCategory(cat) {
             this.selectedCategory = cat;
             this.filterPlaces(cat);
-
-            if (cat === 'regions') {
-                this.selectedToggle = 'regions';
-            } else {
-                this.selectedToggle = 'places';
-            }
         },
         /**
          * Sets the current stage
@@ -262,6 +257,7 @@ export default {
 
             if (this.currentStage === 0) {
                 this.showAllPlaces();
+                this.selectedToggle = 'places';
             } else if (this.currentStage === 1) {
                 this.filterPlaces(this.selectedCategory);
             }
@@ -284,8 +280,10 @@ export default {
             if (id === 'regions') {
                 this.showRegions = true;
                 this.activePins = [];
+                this.selectedToggle = 'regions';
             } else {
                 this.showRegions = false;
+                this.selectedToggle = 'places';
 
                 const filteredPlaces = this.placesData
                     .filter((place) => {
@@ -311,8 +309,10 @@ export default {
         onToggleChanged(category) {
             if (category === 'regions') {
                 this.setCategory('regions');
+                this.setStage(1);
             } else {
                 this.showAllPlaces();
+                this.setStage(0);
             }
         },
     },
