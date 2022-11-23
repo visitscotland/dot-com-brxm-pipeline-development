@@ -163,22 +163,24 @@ public class MapFactory {
                ProductSearchBuilder dmsQuery = VsComponentManager.get(ProductSearchBuilder.class).location(destinationPage.getLocation())
                        .productTypes(prodType.getProdTypeId()).category(prodType.getCategory())
                        .sortBy(DMSConstants.SORT_ALPHA).size(100);
-               for (JsonNode jsonNode : dmsDataService.cannedSearch(dmsQuery)) {
-                   FlatImage image = new FlatImage();
-                   if (jsonNode.has("images")) {
-                       image.setExternalImage(jsonNode.get("images").get(0).get("mediaUrl").asText());
+               JsonNode regionsData =  dmsDataService.cannedSearch(dmsQuery);
+               if (regionsData != null && !regionsData.isEmpty()) {
+                   for (JsonNode jsonNode : regionsData) {
+                       FlatImage image = new FlatImage();
+                       if (jsonNode.has("images")) {
+                           image.setExternalImage(jsonNode.get("images").get(0).get("mediaUrl").asText());
+                       }
+                       FlatLink link = new FlatLink(bundle.getResourceBundle(MAP, DISCOVER, request.getLocale()), jsonNode.get("productLink").get("link").asText(), LinkType.INTERNAL);
+                       ObjectNode data = mapper.createObjectNode();
+                       String name = jsonNode.has(NAME) ? jsonNode.get(NAME).asText() : null;
+                       String description = jsonNode.has(DESCRIPTION) ? jsonNode.get(DESCRIPTION).asText() : null;
+                       String id = jsonNode.has(ID) ? jsonNode.get(ID).asText() : null;
+                       data.set(PROPERTIES, getPropertyNode(name, description, image, filter, link, id));
+                       data.set(GEOMETRY, getGeometryNode(getCoordinates(jsonNode.get("longitude").asDouble(), jsonNode.get("latitude").asDouble()), POINT));
+
+                       features.add(data);
                    }
-                   FlatLink link = new FlatLink( bundle.getResourceBundle(MAP, DISCOVER, request.getLocale()),jsonNode.get("productLink").get("link").asText(),LinkType.INTERNAL);
-                   ObjectNode data = mapper.createObjectNode();
-                   String name = jsonNode.has(NAME)?jsonNode.get(NAME).asText() : null;
-                   String description = jsonNode.has(DESCRIPTION)?jsonNode.get(DESCRIPTION).asText() : null;
-                   String id = jsonNode.has(ID)?jsonNode.get(ID).asText() : null;
-                   data.set(PROPERTIES, getPropertyNode(name, description,image,filter,link,id));
-                   data.set(GEOMETRY, getGeometryNode(getCoordinates(jsonNode.get("longitude").asDouble(),jsonNode.get("latitude").asDouble()),POINT));
-
-                   features.add(data);
                }
-
            }
         }/*else{
            for (CitiesMapTab prodType : CitiesMapTab.values()) {
