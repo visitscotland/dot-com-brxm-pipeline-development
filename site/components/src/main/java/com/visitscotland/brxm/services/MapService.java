@@ -53,9 +53,6 @@ public class MapService {
         this.mapper = mapper;
     }
 
-
-
-
     /**
      *
      * @param module module to be sent to feds
@@ -149,7 +146,6 @@ public class MapService {
         }
     }
 
-
     /**
      * Method to build nodes when the document selected is a Destination
      *
@@ -182,7 +178,6 @@ public class MapService {
         }
     }
 
-
     /** Method to build the property section for the GeoJson file generated for maps
      *
      * @param title Mapcard title
@@ -202,7 +197,6 @@ public class MapService {
         if (!Contract.isNull(image)){
             rootNode.put("image", !Contract.isNull(image.getCmsImage())? HippoUtilsService.createUrl(image.getCmsImage()) : image.getExternalImage());
         }
-
         if (!Contract.isNull(link)){
             ObjectNode linkNode = mapper.createObjectNode();
             linkNode.put(LABEL, link.getLabel() + " " + title);
@@ -228,13 +222,17 @@ public class MapService {
         return geometry;
     }
 
-
+    /**
+     * build array node of coordinates given longitude and latitude
+     * @param longitude longitude value
+     * @param latitude latitude value
+     * @return array node of coordinates given longitude and latitude
+     */
     public ArrayNode getCoordinates(Double longitude, Double latitude){
         ArrayNode coordinates = mapper.createArrayNode();
         coordinates.add(longitude);
         coordinates.add(latitude);
         return coordinates;
-
     }
 
 }
