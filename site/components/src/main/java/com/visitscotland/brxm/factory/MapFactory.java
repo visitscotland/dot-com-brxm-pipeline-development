@@ -15,7 +15,6 @@ import com.visitscotland.brxm.model.LinkType;
 import com.visitscotland.brxm.model.MapsModule;
 import com.visitscotland.brxm.services.LinkService;
 import com.visitscotland.brxm.services.ResourceBundleService;
-import com.visitscotland.brxm.utils.ContentLogger;
 import com.visitscotland.brxm.utils.HippoUtilsService;
 import com.visitscotland.utils.Contract;
 import org.hippoecm.hst.content.beans.query.HstQueryResult;
@@ -57,9 +56,9 @@ public class MapFactory {
     private final ResourceBundleService bundle;
     private final HippoUtilsService hippoUtilsService;
     private final ObjectMapper mapper;
-    private static final Logger contentLogger = LoggerFactory.getLogger("content");
+    private final Logger logger;
 
-    public MapFactory(LinkService linkService, LocationLoader locationLoader, DMSDataService dmsDataService, ImageFactory imageFactory, ResourceBundleService bundle, HippoUtilsService hippoUtilsService) {
+    public MapFactory(LinkService linkService, LocationLoader locationLoader, DMSDataService dmsDataService, ImageFactory imageFactory, ResourceBundleService bundle, HippoUtilsService hippoUtilsService, Logger logger) {
         this.linkService = linkService;
         this.locationLoader = locationLoader;
         this.dmsDataService = dmsDataService;
@@ -67,6 +66,7 @@ public class MapFactory {
         this.bundle = bundle;
         this.hippoUtilsService = hippoUtilsService;
         this.mapper = new ObjectMapper();
+        this.logger = logger;
     }
 
     /**
@@ -417,7 +417,7 @@ public class MapFactory {
             }else{
                 String errorMessage = String.format("Failed to create map card '%s', please review the document attached at: %s", item.getDisplayName(), item.getPath() );
                 module.setErrorMessages(Collections.singletonList(errorMessage));
-                contentLogger.error(errorMessage);
+                logger.error(errorMessage);
             }
         }
     }
