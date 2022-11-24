@@ -103,20 +103,7 @@ public class MapGeneralFactory {
     }
 
 
-    /**
-     * Method to build ObjectNode key label for category/taxonomy
-     *
-     * @param category taxonomy category to build key label
-     * @param locale language wanted
-     * @return ObjectNode key label for categories
-     */
-    private ObjectNode getCategoryNode(Category category, Locale locale) {
-        ObjectNode filter = mapper.createObjectNode();
-        filter.put(ID, category.getKey());
-        filter.put(LABEL, category.getInfo(locale).getName());
 
-        return filter;
-    }
 
 
     /**
@@ -126,11 +113,11 @@ public class MapGeneralFactory {
      * @return ObjectNode with the filters to be used
      */
     private ObjectNode getFilterNode(Category child, Locale locale) {
-        ObjectNode filter = this.getCategoryNode(child,locale);
+        ObjectNode filter = mapService.getCategoryNode(child.getKey(), child.getInfo(locale).getName());
         if (!child.getChildren().isEmpty()){
             ArrayNode childrenArray = mapper.createArrayNode();
             for (Category children : child.getChildren()) {
-                childrenArray.add(this.getCategoryNode(children, locale));
+                childrenArray.add(mapService.getCategoryNode(children.getKey(),children.getInfo(locale).getName()));
             }
             filter.set("subCategory",childrenArray);
         }
@@ -175,9 +162,9 @@ public class MapGeneralFactory {
             feature = mapper.createObjectNode();
             if (bean instanceof Destination) {
                 feature.put(TYPE, FEATURE);
-                mapService.buildPageNode(locale, getCategoryNode(category, locale), module,((Destination) bean), feature);
+                mapService.buildPageNode(locale, mapService.getCategoryNode(category.getKey(),category.getInfo(locale).getName()), module,((Destination) bean), feature);
             } else {
-                mapService.buildStopNode(locale,getCategoryNode(category, locale),module, ((Stop) bean), feature);
+                mapService.buildStopNode(locale, mapService.getCategoryNode(category.getKey(),category.getInfo(locale).getName()),module, ((Stop) bean), feature);
             }
         }
         return feature;

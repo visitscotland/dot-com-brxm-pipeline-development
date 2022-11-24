@@ -178,6 +178,21 @@ public class MapService {
         }
     }
 
+    /**
+     * Method to build ObjectNode key label for category/taxonomy
+     *
+     * @param key taxonomy category to build key
+     * @param label taxonomy category to build label
+     * @return ObjectNode key label for categories
+     */
+    public ObjectNode getCategoryNode(String key, String label) {
+        ObjectNode filter = mapper.createObjectNode();
+        filter.put(ID, key);
+        filter.put(LABEL, label);
+
+        return filter;
+    }
+
     /** Method to build the property section for the GeoJson file generated for maps
      *
      * @param title Mapcard title
@@ -187,7 +202,7 @@ public class MapService {
      * @param link Mapcard link to the page
      * @return ObjectNode with the right format to be consumed by the front end team
      */
-    public ObjectNode getPropertyNode(String title, String description, FlatImage image, ObjectNode  category, FlatLink link, String id) {
+    public ObjectNode getPropertyNode(String title, String description, FlatImage image, ObjectNode category, FlatLink link, String id) {
         ObjectNode rootNode = mapper.createObjectNode();
         rootNode.set("category", category);
         rootNode.put(ID, id);

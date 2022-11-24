@@ -97,10 +97,8 @@ public class MapDestinationFactory {
        if (Arrays.asList(destinationPage.getKeys()).contains(REGIONS)) {
            for (RegionsMapTab prodType: RegionsMapTab.values()){
                //filters
-               ObjectNode filter = mapper.createObjectNode();
-
-               filter.put(ID, prodType.getProdTypeId().equalsIgnoreCase(DMSConstants.TYPE_TOWN)?"cities":"towns");
-               filter.put(LABEL,bundle.getResourceBundle(MAP,prodType.getLabel(), request.getLocale()));
+               ObjectNode filter = mapService.getCategoryNode(prodType.getProdTypeId().equalsIgnoreCase(DMSConstants.TYPE_TOWN)?"cities":"towns",
+                       bundle.getResourceBundle(MAP, prodType.getLabel(), request.getLocale()));
                keys.add(filter);
 
                ProductSearchBuilder dmsQuery = VsComponentManager.get(ProductSearchBuilder.class).location(destinationPage.getLocation())
@@ -128,9 +126,7 @@ public class MapDestinationFactory {
         }else{
            for (CitiesMapTab prodType : CitiesMapTab.values()) {
                //filters
-               ObjectNode filter = mapper.createObjectNode();
-               filter.put(ID, prodType.getProdTypeId());
-               filter.put(LABEL,bundle.getResourceBundle(MAP,"map."+prodType.getProdTypeId(), request.getLocale()));
+               ObjectNode filter = mapService.getCategoryNode(prodType.getProdTypeId(), bundle.getResourceBundle(MAP, prodType.getLabel(), request.getLocale()));
 
                ///endpoint for data (pins)
                ProductSearchBuilder dmsQuery = VsComponentManager.get(ProductSearchBuilder.class).location(destinationPage.getLocation())
