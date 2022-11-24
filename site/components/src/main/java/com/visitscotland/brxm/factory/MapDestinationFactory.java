@@ -125,7 +125,7 @@ public class MapDestinationFactory {
                    }
                }
            }
-        }/*else{
+        }else{
            for (CitiesMapTab prodType : CitiesMapTab.values()) {
                //filters
                ObjectNode filter = mapper.createObjectNode();
@@ -145,8 +145,7 @@ public class MapDestinationFactory {
                filter.set("subCategory",childrenArray);
                keys.add(filter);
            }
-
-       }*/
+       }
     }
 }
 
