@@ -285,6 +285,10 @@ public class ProductSearchBuilder {
         return buildSearchUrl(DMSConstants.VS_DMS_CANNED_SEARCH, true, false);
     }
 
+    public String buildCannedSearchInternal(){
+        return buildSearchUrl(DMSConstants.VS_DMS_CANNED_SEARCH, true, true);
+    }
+
     /**
      * Composes a search URL depending on if the endpoint are internal or external and if they are consumed by a front-end
      * or a back-end application.

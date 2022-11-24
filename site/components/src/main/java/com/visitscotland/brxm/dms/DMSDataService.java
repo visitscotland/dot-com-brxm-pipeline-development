@@ -106,7 +106,7 @@ public class DMSDataService {
     @Cacheable (value="dmsProductSearch")
     public JsonNode cannedSearch(ProductSearchBuilder psb){
 
-        String dmsUrl = psb.buildCannedSearch();
+        String dmsUrl = psb.buildCannedSearchInternal();
 
         logger.info("Requesting data to the canned search: {}", dmsUrl);
         String responseString = proxy.request(dmsUrl);
