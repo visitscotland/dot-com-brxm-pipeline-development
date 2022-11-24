@@ -41,7 +41,7 @@
             <VsWarning
                 theme="light"
                 data-test="vs-video__warning--no-js"
-                class="vs-video__warning--no-js"
+                class="vs-video__warning vs-video__warning--no-js"
             >
                 {{ noJsMessage }}
             </VsWarning>

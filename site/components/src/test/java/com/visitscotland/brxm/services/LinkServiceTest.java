@@ -17,6 +17,7 @@ import com.visitscotland.brxm.dms.ProductSearchBuilder;
 import com.visitscotland.brxm.model.Module;
 import com.visitscotland.brxm.model.megalinks.EnhancedLink;
 import com.visitscotland.brxm.model.YoutubeVideo;
+import com.visitscotland.brxm.utils.ContentLogger;
 import com.visitscotland.brxm.utils.HippoUtilsService;
 import com.visitscotland.brxm.utils.Properties;
 import com.visitscotland.brxm.dms.DMSConstants;
@@ -71,6 +72,9 @@ class LinkServiceTest {
 
     @Mock
     private YoutubeApiService youtubeApiService;
+
+    @Mock
+    ContentLogger logger;
 
     @Resource
     @InjectMocks
@@ -547,9 +551,9 @@ class LinkServiceTest {
     void createExternalLink_languange_fullyqualified(){
         when(properties.getInternalSites()).thenReturn(Arrays.asList("www.visitscotland.com,x.y.z".split(",")));
 
-        assertEquals("https://www.visitscotland.com/fr/unit-test/", service.createExternalLink(Locale.FRANCE, "https://www.visitscotland.com/unit-test/",null).getLink());
-        assertEquals("https://www.visitscotland.com/fr/info/accommodation/unit-test/", service.createExternalLink(Locale.FRANCE, "https://www.visitscotland.com/info/accommodation/unit-test/",null).getLink());
-        assertEquals("ftp://x.y.z/fr", service.createExternalLink(Locale.FRANCE, "ftp://x.y.z",null).getLink());
+        assertEquals("https://www.visitscotland.com/fr-fr/unit-test/", service.createExternalLink(Locale.FRANCE, "https://www.visitscotland.com/unit-test/",null).getLink());
+        assertEquals("https://www.visitscotland.com/fr-fr/info/accommodation/unit-test/", service.createExternalLink(Locale.FRANCE, "https://www.visitscotland.com/info/accommodation/unit-test/",null).getLink());
+        assertEquals("ftp://x.y.z/fr-fr", service.createExternalLink(Locale.FRANCE, "ftp://x.y.z",null).getLink());
         assertEquals("https://www.visitedimburg.com/unit-test/", service.createExternalLink(Locale.FRANCE, "https://www.visitedimburg.com/unit-test/",null).getLink());
     }
 
@@ -561,7 +565,7 @@ class LinkServiceTest {
 
         assertEquals("/unit-test/", service.createExternalLink(Locale.UK, "https://www.visitscotland.com/unit-test/",null).getLink());
         assertEquals("/info/accommodation/unit-test/", service.createExternalLink(Locale.UK, "https://www.visitscotland.com/info/accommodation/unit-test/",null).getLink());
-        assertEquals("/fr/unit-test/", service.createExternalLink(Locale.FRANCE, "https://www.visitscotland.com/unit-test/",null).getLink());
+        assertEquals("/fr-fr/unit-test/", service.createExternalLink(Locale.FRANCE, "https://www.visitscotland.com/unit-test/",null).getLink());
     }
 
     @ParameterizedTest
@@ -588,8 +592,8 @@ class LinkServiceTest {
     @Test
     @DisplayName("VS-2756 - Create a localized External Link for an French page")
     void createExternalLink_languange(){
-        assertEquals("/fr/unit-test/", service.createExternalLink(Locale.FRANCE, "/unit-test/","Label").getLink());
-        assertEquals("/fr/info/accommodation/unit-test/", service.createExternalLink(Locale.FRANCE, "/info/accommodation/unit-test/",null).getLink());
+        assertEquals("/fr-fr/unit-test/", service.createExternalLink(Locale.FRANCE, "/unit-test/","Label").getLink());
+        assertEquals("/fr-fr/info/accommodation/unit-test/", service.createExternalLink(Locale.FRANCE, "/info/accommodation/unit-test/",null).getLink());
         assertEquals("#anchor-link", service.createExternalLink(Locale.FRANCE, "#anchor-link",null).getLink());
     }
 
@@ -688,6 +692,56 @@ class LinkServiceTest {
         EnhancedLink link = service.createEnhancedLink(video, null, null, false).get();
 
         assertNotNull(link.getPublishedDate());
+    }
+
+    @Test
+    @DisplayName("VS-4192 - When shared links define an override image, that image takes precedence")
+    void enhancedLink_sharedLinkwithImage(){
+        SharedLink sharedLink = mock(SharedLink.class);
+        Image image = mock(Image.class);
+        JsonNode product = mock(JsonNode.class,RETURNS_DEEP_STUBS);
+        DMSLink dmsLink = mock(DMSLink.class);
+        FlatImage flatImage = new FlatImage();
+        flatImage.setCmsImage(image);
+
+        when(sharedLink.getImage()).thenReturn(image);
+        when(image.getPath()).thenReturn("path/to/image");
+        when(imageFactory.createImage(image, null, Locale.UK)).thenReturn(flatImage);
+
+        when(sharedLink.getLinkType()).thenReturn(dmsLink);
+        when(dmsLink.getProduct()).thenReturn("123");
+        when(dmsData.productCard("123", Locale.UK)).thenReturn(product);
+
+        // Next line shouldn't be executed. However, it makes the test more resilient if the method is refactored
+        lenient().when(product.has(DMSConstants.DMSProduct.IMAGE)).thenReturn(true);
+
+        EnhancedLink link = service.createEnhancedLink(sharedLink, null, Locale.UK, false).get();
+
+        Assertions.assertEquals(image, link.getImage().getCmsImage());
+    }
+
+    @Test
+    @DisplayName("VS-4192 - When shared links define an override image, and the image is broken the DMS image is displayed")
+    void enhancedLink_sharedLinkWithBrokenImage(){
+        SharedLink sharedLink = mock(SharedLink.class);
+        Image image = mock(Image.class);
+        JsonNode product = mock(JsonNode.class,RETURNS_DEEP_STUBS);
+        DMSLink dmsLink = mock(DMSLink.class);
+        FlatImage flatImage = new FlatImage();
+        flatImage.setExternalImage("dms-image.jpg");;
+
+        when(sharedLink.getImage()).thenReturn(image);
+
+        when(sharedLink.getLinkType()).thenReturn(dmsLink);
+        when(dmsLink.getProduct()).thenReturn("123");
+        when(dmsData.productCard("123", Locale.UK)).thenReturn(product);
+        when(imageFactory.createImage(product, null, Locale.UK)).thenReturn(flatImage);
+
+        when(product.has(DMSConstants.DMSProduct.IMAGE)).thenReturn(true);
+
+        EnhancedLink link = service.createEnhancedLink(sharedLink, null, Locale.UK, false).get();
+
+        Assertions.assertEquals("dms-image.jpg", link.getImage().getExternalImage());
     }
 
 }

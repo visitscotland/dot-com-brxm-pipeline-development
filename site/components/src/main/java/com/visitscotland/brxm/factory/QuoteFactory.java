@@ -6,8 +6,8 @@ import com.visitscotland.brxm.model.FlatQuote;
 import com.visitscotland.brxm.model.Module;
 import com.visitscotland.brxm.model.megalinks.EnhancedLink;
 import com.visitscotland.brxm.services.LinkService;
+import com.visitscotland.brxm.utils.ContentLogger;
 import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
 import java.util.Locale;
@@ -16,15 +16,14 @@ import java.util.Optional;
 @Component
 public class QuoteFactory {
 
-    private static final Logger contentLogger = LoggerFactory.getLogger("content");
+    private final Logger contentLogger;
+    private final ImageFactory imageFactory;
+    private final LinkService linkService;
 
-    private ImageFactory imageFactory;
-
-    private LinkService linkService;
-
-    public QuoteFactory(ImageFactory imageFactory, LinkService linkService){
+    public QuoteFactory(ImageFactory imageFactory, LinkService linkService, ContentLogger contentLogger){
         this.imageFactory = imageFactory;
         this.linkService = linkService;
+        this.contentLogger = contentLogger;
     }
 
     public FlatQuote getQuote(Quote doc, Module<?> module, Locale locale){

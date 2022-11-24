@@ -4,7 +4,7 @@
   jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
   jcr:uuid: 06d5a758-fe0a-44ef-b1fb-efec4b20e1b5
   hippo:name: Travel Information Transports
-  hippo:versionHistory: b8e8d5c0-7adc-4941-a501-928ffa7a111c
+  hippo:versionHistory: 6de1aabb-0da5-4e35-96f4-6b53526fbb43
   /travel-information-transports[1]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:referenceable']
@@ -12,11 +12,10 @@
     hippo:availability: []
     hippostd:retainable: false
     hippostd:state: draft
-    hippostd:transferable: false
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2021-10-20T14:03:42.816+01:00
-    hippostdpubwf:lastModificationDate: 2022-09-07T11:19:15.544+02:00
-    hippostdpubwf:lastModifiedBy: juanluis.hurtado
+    hippostdpubwf:lastModificationDate: 2022-11-08T09:03:47.069Z
+    hippostdpubwf:lastModifiedBy: admin
     resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '', '', '', '',
       '', '', '']
     resourcebundle:id: travel-information-transports
@@ -37,8 +36,8 @@
     resourcebundle:messages_it: [Viaggio accessibile, Autobus e pullman, Bicicletta,
       Auto, Traghetto, Aereo, Destinazioni principali, Metropolitana, Taxi, Tour,
       Treno, Tram, Biglietti, Noleggio di veicoli, A piedi]
-    resourcebundle:messages_nl: ['', '', '', '', '', '', '', '', '', '', '', '', '',
-      '', '']
+    resourcebundle:messages_nl: ['', Bus, Fiets, Auto, Veerboot, '', '', '', '', '',
+      Trein, '', '', '', Te voet]
   /travel-information-transports[2]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:versionable']
@@ -48,8 +47,8 @@
     hippostd:state: unpublished
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2021-10-20T14:03:42.816+01:00
-    hippostdpubwf:lastModificationDate: 2022-07-08T10:46:07.591+02:00
-    hippostdpubwf:lastModifiedBy: nikki.sherret
+    hippostdpubwf:lastModificationDate: 2022-11-08T09:04:31.913Z
+    hippostdpubwf:lastModifiedBy: admin
     resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '', '', '', '',
       '', '', '']
     resourcebundle:id: travel-information-transports
@@ -70,8 +69,8 @@
     resourcebundle:messages_it: [Viaggio accessibile, Autobus e pullman, Bicicletta,
       Auto, Traghetto, Aereo, Destinazioni principali, Metropolitana, Taxi, Tour,
       Treno, Tram, Biglietti, Noleggio di veicoli, A piedi]
-    resourcebundle:messages_nl: ['', '', '', '', '', '', '', '', '', '', '', '', '',
-      '', '']
+    resourcebundle:messages_nl: ['', Bus, Fiets, Auto, Veerboot, '', '', '', '', '',
+      Trein, '', '', '', Te voet]
   /travel-information-transports[3]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:referenceable']
@@ -81,9 +80,9 @@
     hippostd:state: published
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2021-10-20T14:03:42.816+01:00
-    hippostdpubwf:lastModificationDate: 2022-07-08T10:46:07.591+02:00
-    hippostdpubwf:lastModifiedBy: nikki.sherret
-    hippostdpubwf:publicationDate: 2022-07-13T17:54:13.716+02:00
+    hippostdpubwf:lastModificationDate: 2022-11-08T09:04:31.913Z
+    hippostdpubwf:lastModifiedBy: admin
+    hippostdpubwf:publicationDate: 2022-11-08T09:04:34.925Z
     resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '', '', '', '',
       '', '', '']
     resourcebundle:id: travel-information-transports
@@ -104,5 +103,5 @@
     resourcebundle:messages_it: [Viaggio accessibile, Autobus e pullman, Bicicletta,
       Auto, Traghetto, Aereo, Destinazioni principali, Metropolitana, Taxi, Tour,
       Treno, Tram, Biglietti, Noleggio di veicoli, A piedi]
-    resourcebundle:messages_nl: ['', '', '', '', '', '', '', '', '', '', '', '', '',
-      '', '']
+    resourcebundle:messages_nl: ['', Bus, Fiets, Auto, Veerboot, '', '', '', '', '',
+      Trein, '', '', '', Te voet]

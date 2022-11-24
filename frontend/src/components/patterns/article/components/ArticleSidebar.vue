@@ -93,5 +93,33 @@ export default {
             }
         }
     }
+
+    .vs-image-with-caption__video-caption-wrapper {
+        padding: $spacer-0;
+    }
+
+    .vs-image-with-caption__image-wrapper {
+        .vs-toggle-btn {
+            @include media-breakpoint-between(sm, md) {
+                display: block;
+            }
+        }
+    }
+
+    .vs-caption .col {
+        padding: $spacer-0;
+    }
+
+    .vs-caption .vs-caption__caption-info {
+        padding: $spacer-4 $spacer-2 $spacer-3;
+
+        @include media-breakpoint-up(sm) {
+            padding: $spacer-4 $spacer-5 $spacer-5;
+        }
+
+        @include media-breakpoint-up(lg) {
+            padding: $spacer-4 $spacer-2 $spacer-3;
+        }
+    }
 }
 </style>

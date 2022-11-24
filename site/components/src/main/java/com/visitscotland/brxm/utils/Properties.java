@@ -34,6 +34,8 @@ public class Properties {
     static final String CHANNEL_ORDER = "seo.alternate-link-locale-order";
     static final String GLOBAL_SEARCH_PATH = "global-search.path";
     static final String ENGINE_ID = "global-search.engine-id";
+    static final String CONTENT_CACHE_RETENTION_PERIOD = "content-cache.retention-period";
+    static final String CONTENT_CACHE_MAX_ELEMENTS = "content-cache.max-elements";
 
     //Environment
     static final String USE_RELATIVE_URLS = "links.use-relative-urls";
@@ -162,6 +164,19 @@ public class Properties {
 
     public String getDmsInternalPath() {
         return readString(DMS_INTERNAL_PATH);
+    }
+
+    public Integer getContentCacheRetention() {
+        //Note that the retention period is defined in seconds and java.util.Date measures the time in seconds
+        return readInteger(CONTENT_CACHE_RETENTION_PERIOD) * 1000;
+    }
+
+    /**
+     * Max number of elements cached. If the property is not defined in the CMS, there is no maximum
+     */
+    public Integer getContentCacheMaxElements() {
+        Integer size = readInteger(CONTENT_CACHE_MAX_ELEMENTS);
+        return size > 0 ? size : Integer.MAX_VALUE;
     }
 
     /**

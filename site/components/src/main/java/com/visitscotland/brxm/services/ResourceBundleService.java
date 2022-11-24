@@ -1,6 +1,7 @@
 package com.visitscotland.brxm.services;
 
 import com.visitscotland.brxm.config.VsComponentManager;
+import com.visitscotland.brxm.utils.ContentLogger;
 import com.visitscotland.utils.Contract;
 import org.hippoecm.hst.resourcebundle.ResourceBundleRegistry;
 import org.slf4j.Logger;
@@ -14,8 +15,13 @@ import java.util.ResourceBundle;
 public class ResourceBundleService {
 
     private static final Logger logger = LoggerFactory.getLogger(ResourceBundleService.class.getName());
-    private static final Logger contentLogger = LoggerFactory.getLogger("content");
     private static final String GLOBAL_BUNDLE_FILE = "essentials.global";
+
+    private final Logger contentLogger;
+
+    public ResourceBundleService(ContentLogger contentLogger){
+        this.contentLogger = contentLogger;
+    }
 
     ResourceBundleRegistry registry;
 

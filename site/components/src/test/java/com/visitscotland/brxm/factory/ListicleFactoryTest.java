@@ -13,6 +13,7 @@ import com.visitscotland.brxm.mock.ListicleItemMockBuilder;
 import com.visitscotland.brxm.model.megalinks.EnhancedLink;
 import com.visitscotland.brxm.services.LinkService;
 import com.visitscotland.brxm.services.DocumentUtilsService;
+import com.visitscotland.brxm.utils.ContentLogger;
 import com.visitscotland.brxm.utils.VsException;
 import com.visitscotland.dataobjects.DataType;
 import org.hippoecm.hst.content.beans.standard.HippoBean;
@@ -44,6 +45,8 @@ class ListicleFactoryTest {
     DMSUtils dmsUtils;
     @Mock
     DocumentUtilsService documentUtils;
+    @Mock
+    ContentLogger logger;
 
     @Resource
     @InjectMocks

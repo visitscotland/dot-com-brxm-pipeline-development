@@ -6,6 +6,7 @@ import com.visitscotland.brxm.model.BannerModule;
 import com.visitscotland.brxm.model.FlatLink;
 import com.visitscotland.brxm.services.LinkService;
 import com.visitscotland.brxm.services.ResourceBundleService;
+import com.visitscotland.brxm.utils.ContentLogger;
 import com.visitscotland.brxm.utils.HippoUtilsService;
 import org.hippoecm.hst.core.component.HstRequest;
 import org.junit.jupiter.api.Test;
@@ -23,7 +24,7 @@ import java.util.Locale;
 import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
-public class BannerFactoryTest {
+class BannerFactoryTest {
 
     @Mock
     LinkService linkService;
@@ -34,13 +35,16 @@ public class BannerFactoryTest {
     @Mock
     ResourceBundleService bundleService;
 
+    @Mock
+    ContentLogger logger;
+
     @InjectMocks
     @Resource
     BannerFactory factory;
 
     @DisplayName("Create banner module")
     @Test
-    public void bannerModule() throws Exception {
+    void bannerModule() throws Exception {
         HstRequest request = mock(HstRequest.class);
         Banner bannerBean = new BannerMockBuilder().copy("copy").build();
         FlatLink mockLink = mock(FlatLink.class);
@@ -56,7 +60,7 @@ public class BannerFactoryTest {
 
     @DisplayName("If banner does not exist, null is returned")
     @Test
-    public void bannerDoesNotExist() throws Exception {
+    void bannerDoesNotExist() throws Exception {
         HstRequest request = mock(HstRequest.class);
         when(bundleService.getResourceBundle("banner", "path", Locale.UK)).thenReturn("banner");
         when(hippoUtilsService.getDocumentFromContent("banner")).thenReturn(null);
@@ -65,7 +69,7 @@ public class BannerFactoryTest {
 
     @DisplayName("VS-3221 - If link is not published, then don't create banner")
     @Test
-    public void linkDoesNotExist() throws Exception {
+    void linkDoesNotExist() throws Exception {
         HstRequest request = mock(HstRequest.class);
         Banner bannerBean = new BannerMockBuilder().build();
         when(hippoUtilsService.getDocumentFromContent("banner")).thenReturn(bannerBean);

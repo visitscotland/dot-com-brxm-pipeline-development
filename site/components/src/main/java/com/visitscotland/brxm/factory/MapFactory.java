@@ -13,6 +13,7 @@ import com.visitscotland.brxm.model.LinkType;
 import com.visitscotland.brxm.model.MapsModule;
 import com.visitscotland.brxm.services.LinkService;
 import com.visitscotland.brxm.services.ResourceBundleService;
+import com.visitscotland.brxm.utils.ContentLogger;
 import com.visitscotland.brxm.utils.HippoUtilsService;
 import com.visitscotland.utils.Contract;
 import org.hippoecm.hst.content.beans.query.HstQuery;
@@ -21,7 +22,6 @@ import org.hippoecm.hst.content.beans.query.builder.HstQueryBuilder;
 import org.hippoecm.hst.content.beans.query.exceptions.QueryException;
 import org.hippoecm.hst.content.beans.standard.HippoBean;
 import org.hippoecm.hst.content.beans.standard.HippoBeanIterator;
-import org.hippoecm.hst.content.beans.standard.HippoMirror;
 import org.hippoecm.hst.core.component.HstRequest;
 import org.hippoecm.hst.core.request.HstRequestContext;
 import org.hippoecm.hst.site.HstServices;
@@ -29,7 +29,6 @@ import org.onehippo.taxonomy.api.Category;
 import org.onehippo.taxonomy.api.Taxonomy;
 import org.onehippo.taxonomy.api.TaxonomyManager;
 import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
 import java.util.Collections;
@@ -50,15 +49,17 @@ public class MapFactory {
     private final DMSDataService dmsDataService;
     private final ImageFactory imageFactory;
     private final ResourceBundleService bundle;
-    private static final Logger contentLogger = LoggerFactory.getLogger("content");
+    private final Logger contentLogger;
 
-    public MapFactory(LinkService linkService, LocationLoader locationLoader, DMSDataService dmsDataService, ImageFactory imageFactory , ResourceBundleService bundle) {
+    public MapFactory(LinkService linkService, LocationLoader locationLoader, DMSDataService dmsDataService,
+                      ImageFactory imageFactory , ResourceBundleService bundle, ContentLogger contentLogger) {
 
         this.linkService = linkService;
         this.locationLoader = locationLoader;
         this.dmsDataService = dmsDataService;
         this.imageFactory = imageFactory;
         this.bundle = bundle;
+        this.contentLogger = contentLogger;
     }
 
     /**

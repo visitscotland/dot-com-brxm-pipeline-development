@@ -47,7 +47,7 @@ class IKnowFactoryTest {
         when(psBuilder.build()).thenReturn("URL");
         when(context.getComponent(ProductSearchBuilder.class)).thenReturn(psBuilder);
 
-        new VsComponentManager().setComponentManager(context);
+        VsComponentManager.setComponentManager(context);
     }
 
     @BeforeEach

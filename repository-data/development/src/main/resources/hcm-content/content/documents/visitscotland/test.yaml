@@ -6923,7 +6923,7 @@
         jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
         jcr:uuid: 7bd449e8-d590-4d52-a3d2-ea2d3e0a8b85
         hippo:name: Experiencing Ben Nevis
-        hippo:versionHistory: a1e69208-b531-4a75-bd91-a6b032c39ab9
+        hippo:versionHistory: 29b181c1-0f7c-4304-8739-3b1a31f34d4f
         /experiencing-ben-nevis[1]:
           jcr:primaryType: visitscotland:Article
           jcr:mixinTypes: ['mix:versionable']
@@ -6933,7 +6933,7 @@
           hippostd:state: unpublished
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2021-01-11T14:27:02.137Z
-          hippostdpubwf:lastModificationDate: 2022-08-23T12:48:34.244+01:00
+          hippostdpubwf:lastModificationDate: 2022-11-17T16:42:52.307Z
           hippostdpubwf:lastModifiedBy: admin
           hippotranslation:id: c62b31d0-0841-4c20-b6f7-636e36534659
           hippotranslation:locale: en
@@ -6980,28 +6980,25 @@
                   active volcano which exploded and collapsed inwards on itself millions
                   of years ago.</p>
             /visitscotland:media:
-              jcr:primaryType: hippogallerypicker:imagelink
-              hippo:docbase: dd3e5e22-111b-41f1-aac6-0c8fcf4bc954
-              hippo:facets: []
-              hippo:modes: []
-              hippo:values: []
+              jcr:primaryType: visitscotland:VideoLink
+              /visitscotland:videoLink:
+                jcr:primaryType: hippo:mirror
+                hippo:docbase: b193d2fa-424d-44b0-a720-1d2cb5cf0184
           /visitscotland:media:
-            jcr:primaryType: hippogallerypicker:imagelink
-            hippo:docbase: 81e169c7-a76e-4388-9854-29d03f173ba0
-            hippo:facets: []
-            hippo:modes: []
-            hippo:values: []
+            jcr:primaryType: visitscotland:VideoLink
+            /visitscotland:videoLink:
+              jcr:primaryType: hippo:mirror
+              hippo:docbase: b193d2fa-424d-44b0-a720-1d2cb5cf0184
         /experiencing-ben-nevis[2]:
           jcr:primaryType: visitscotland:Article
           jcr:mixinTypes: ['mix:referenceable']
           jcr:uuid: ef23d867-84ef-4a0e-81c2-14338321a82f
           hippo:availability: []
-          hippostd:holder: admin
           hippostd:retainable: false
           hippostd:state: draft
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2021-01-11T14:27:02.137Z
-          hippostdpubwf:lastModificationDate: 2022-10-24T11:03:13.019+01:00
+          hippostdpubwf:lastModificationDate: 2022-11-17T16:42:27.583Z
           hippostdpubwf:lastModifiedBy: admin
           hippotranslation:id: c62b31d0-0841-4c20-b6f7-636e36534659
           hippotranslation:locale: en
@@ -7048,17 +7045,15 @@
                   active volcano which exploded and collapsed inwards on itself millions
                   of years ago.</p>
             /visitscotland:media:
-              jcr:primaryType: hippogallerypicker:imagelink
-              hippo:docbase: dd3e5e22-111b-41f1-aac6-0c8fcf4bc954
-              hippo:facets: []
-              hippo:modes: []
-              hippo:values: []
+              jcr:primaryType: visitscotland:VideoLink
+              /visitscotland:videoLink:
+                jcr:primaryType: hippo:mirror
+                hippo:docbase: b193d2fa-424d-44b0-a720-1d2cb5cf0184
           /visitscotland:media:
-            jcr:primaryType: hippogallerypicker:imagelink
-            hippo:docbase: 81e169c7-a76e-4388-9854-29d03f173ba0
-            hippo:facets: []
-            hippo:modes: []
-            hippo:values: []
+            jcr:primaryType: visitscotland:VideoLink
+            /visitscotland:videoLink:
+              jcr:primaryType: hippo:mirror
+              hippo:docbase: b193d2fa-424d-44b0-a720-1d2cb5cf0184
         /experiencing-ben-nevis[3]:
           jcr:primaryType: visitscotland:Article
           jcr:mixinTypes: ['mix:referenceable']
@@ -7068,9 +7063,9 @@
           hippostd:state: published
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2021-01-11T14:27:02.137Z
-          hippostdpubwf:lastModificationDate: 2022-08-23T12:48:34.244+01:00
+          hippostdpubwf:lastModificationDate: 2022-11-17T16:42:52.307Z
           hippostdpubwf:lastModifiedBy: admin
-          hippostdpubwf:publicationDate: 2022-08-23T12:48:37.475+01:00
+          hippostdpubwf:publicationDate: 2022-11-17T16:42:54.682Z
           hippotranslation:id: c62b31d0-0841-4c20-b6f7-636e36534659
           hippotranslation:locale: en
           visitscotland:anchor: introduction
@@ -7116,17 +7111,15 @@
                   active volcano which exploded and collapsed inwards on itself millions
                   of years ago.</p>
             /visitscotland:media:
-              jcr:primaryType: hippogallerypicker:imagelink
-              hippo:docbase: dd3e5e22-111b-41f1-aac6-0c8fcf4bc954
-              hippo:facets: []
-              hippo:modes: []
-              hippo:values: []
+              jcr:primaryType: visitscotland:VideoLink
+              /visitscotland:videoLink:
+                jcr:primaryType: hippo:mirror
+                hippo:docbase: b193d2fa-424d-44b0-a720-1d2cb5cf0184
           /visitscotland:media:
-            jcr:primaryType: hippogallerypicker:imagelink
-            hippo:docbase: 81e169c7-a76e-4388-9854-29d03f173ba0
-            hippo:facets: []
-            hippo:modes: []
-            hippo:values: []
+            jcr:primaryType: visitscotland:VideoLink
+            /visitscotland:videoLink:
+              jcr:primaryType: hippo:mirror
+              hippo:docbase: b193d2fa-424d-44b0-a720-1d2cb5cf0184
       /routes-to-the-summit:
         jcr:primaryType: hippo:handle
         jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
@@ -8832,7 +8825,7 @@
         jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
         jcr:uuid: 8eeae920-228b-4873-b642-7b9f97a092fe
         hippo:name: Itinerary day one
-        hippo:versionHistory: 3d6d17f5-413e-4c86-923d-7e4d8de7fba3
+        hippo:versionHistory: 8036e18e-9ee1-4d3d-bf59-341a05e878c1
         /itinerary-day-one[1]:
           jcr:primaryType: visitscotland:Day
           jcr:mixinTypes: ['mix:referenceable']
@@ -8842,7 +8835,7 @@
           hippostd:state: draft
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2021-05-24T12:38:52.578+01:00
-          hippostdpubwf:lastModificationDate: 2021-06-25T14:54:19.791+01:00
+          hippostdpubwf:lastModificationDate: 2022-11-18T12:52:00.152Z
           hippostdpubwf:lastModifiedBy: admin
           hippotranslation:id: 677b511a-e54b-482b-a2b5-7d8615fded44
           hippotranslation:locale: en
@@ -8860,6 +8853,9 @@
           /visitscotland:stops[2]:
             jcr:primaryType: hippo:mirror
             hippo:docbase: 030dde79-74ad-441b-b7f2-731cb0312e3c
+          /visitscotland:stops[3]:
+            jcr:primaryType: hippo:mirror
+            hippo:docbase: fc1a1f69-c51a-4b65-8bef-3ba62452b6be
         /itinerary-day-one[2]:
           jcr:primaryType: visitscotland:Day
           jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
@@ -8869,7 +8865,7 @@
           hippostd:state: unpublished
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2021-05-24T12:38:52.578+01:00
-          hippostdpubwf:lastModificationDate: 2021-05-25T14:22:08.791+01:00
+          hippostdpubwf:lastModificationDate: 2022-11-18T12:55:34.907Z
           hippostdpubwf:lastModifiedBy: admin
           hippotranslation:id: 677b511a-e54b-482b-a2b5-7d8615fded44
           hippotranslation:locale: en
@@ -8887,6 +8883,9 @@
           /visitscotland:stops[2]:
             jcr:primaryType: hippo:mirror
             hippo:docbase: 030dde79-74ad-441b-b7f2-731cb0312e3c
+          /visitscotland:stops[3]:
+            jcr:primaryType: hippo:mirror
+            hippo:docbase: fc1a1f69-c51a-4b65-8bef-3ba62452b6be
         /itinerary-day-one[3]:
           jcr:primaryType: visitscotland:Day
           jcr:mixinTypes: ['mix:referenceable']
@@ -8896,9 +8895,9 @@
           hippostd:state: published
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2021-05-24T12:38:52.578+01:00
-          hippostdpubwf:lastModificationDate: 2021-05-25T14:22:08.791+01:00
+          hippostdpubwf:lastModificationDate: 2022-11-18T12:55:34.907Z
           hippostdpubwf:lastModifiedBy: admin
-          hippostdpubwf:publicationDate: 2021-05-25T14:22:56.221+01:00
+          hippostdpubwf:publicationDate: 2022-11-18T12:55:36.881Z
           hippotranslation:id: 677b511a-e54b-482b-a2b5-7d8615fded44
           hippotranslation:locale: en
           visitscotland:title: Take in the highlights of Scotland's capital
@@ -8915,6 +8914,9 @@
           /visitscotland:stops[2]:
             jcr:primaryType: hippo:mirror
             hippo:docbase: 030dde79-74ad-441b-b7f2-731cb0312e3c
+          /visitscotland:stops[3]:
+            jcr:primaryType: hippo:mirror
+            hippo:docbase: fc1a1f69-c51a-4b65-8bef-3ba62452b6be
       /itinerary-day-two:
         jcr:primaryType: hippo:handle
         jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
@@ -9029,7 +9031,7 @@
         jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
         jcr:uuid: 7746679b-6821-4a09-9173-664653dad7dd
         hippo:name: Destination page example
-        hippo:versionHistory: 72b4eaf0-146c-4434-8310-0aadc0522d47
+        hippo:versionHistory: 2a11ef1c-f00b-41c8-a771-66fe40bb45f4
         /content[1]:
           jcr:primaryType: visitscotland:Destination
           jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
@@ -9039,9 +9041,9 @@
           hippostd:state: draft
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2021-05-24T13:47:56.985+01:00
-          hippostdpubwf:lastModificationDate: 2022-10-13T08:20:00.901+01:00
+          hippostdpubwf:lastModificationDate: 2022-11-16T16:05:48.418Z
           hippostdpubwf:lastModifiedBy: admin
-          hippotaxonomy:keys: [regions]
+          hippotaxonomy:keys: [islands]
           hippotranslation:id: c991600c-b975-4528-b4d8-dada510a957f
           hippotranslation:locale: en
           visitscotland:breadcrumb: ''
@@ -9097,9 +9099,9 @@
           hippostd:state: unpublished
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2021-05-24T13:47:56.985+01:00
-          hippostdpubwf:lastModificationDate: 2022-10-13T08:20:16.022+01:00
+          hippostdpubwf:lastModificationDate: 2022-11-16T16:06:02.650Z
           hippostdpubwf:lastModifiedBy: admin
-          hippotaxonomy:keys: [regions]
+          hippotaxonomy:keys: [islands]
           hippotranslation:id: c991600c-b975-4528-b4d8-dada510a957f
           hippotranslation:locale: en
           visitscotland:breadcrumb: ''
@@ -9155,10 +9157,10 @@
           hippostd:state: published
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2021-05-24T13:47:56.985+01:00
-          hippostdpubwf:lastModificationDate: 2022-10-13T08:20:16.022+01:00
+          hippostdpubwf:lastModificationDate: 2022-11-16T16:06:02.650Z
           hippostdpubwf:lastModifiedBy: admin
-          hippostdpubwf:publicationDate: 2022-10-13T08:20:18.109+01:00
-          hippotaxonomy:keys: [regions]
+          hippostdpubwf:publicationDate: 2022-11-16T16:06:04.921Z
+          hippotaxonomy:keys: [islands]
           hippotranslation:id: c991600c-b975-4528-b4d8-dada510a957f
           hippotranslation:locale: en
           visitscotland:breadcrumb: ''

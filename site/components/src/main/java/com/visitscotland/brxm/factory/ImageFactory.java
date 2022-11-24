@@ -12,6 +12,7 @@ import com.visitscotland.brxm.model.FlatImage;
 import com.visitscotland.brxm.model.Module;
 import com.visitscotland.brxm.services.CommonUtilsService;
 import com.visitscotland.brxm.services.ResourceBundleService;
+import com.visitscotland.brxm.utils.ContentLogger;
 import com.visitscotland.brxm.utils.HippoUtilsService;
 import com.visitscotland.brxm.utils.Language;
 import com.visitscotland.brxm.utils.Properties;
@@ -31,7 +32,7 @@ import static com.visitscotland.brxm.dms.DMSConstants.DMSProduct.*;
 public class ImageFactory {
 
     private static final Logger logger = LoggerFactory.getLogger(ImageFactory.class);
-    private static final Logger contentLogger = LoggerFactory.getLogger("content");
+
 
     static final String GLOBAL_BUNDLE = "essentials.global";
 
@@ -40,14 +41,17 @@ public class ImageFactory {
     private final HippoUtilsService hippoUtils;
     private final Properties properties;
     private final ResourceBundleService bundle;
+    private final Logger contentLogger;
 
     @Autowired
-    public ImageFactory(LocationLoader locationLoader, CommonUtilsService utils, Properties properties, HippoUtilsService hippoUtils, ResourceBundleService bundle) {
+    public ImageFactory(LocationLoader locationLoader, CommonUtilsService utils, Properties properties, HippoUtilsService hippoUtils, ResourceBundleService bundle,
+                        ContentLogger contentLogger) {
         this.locationLoader = locationLoader;
         this.utils = utils;
         this.properties = properties;
         this.hippoUtils = hippoUtils;
         this.bundle = bundle;
+        this.contentLogger = contentLogger;
     }
 
     FlatImage getPlaceholder(Module<?> module, Locale locale){
