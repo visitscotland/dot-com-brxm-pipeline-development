@@ -94,7 +94,7 @@ public class MapDestinationFactory {
             mapService.addFeaturePlacesNode(module, mapModuleDocument.getCategories(), request.getLocale() , keys, features);
         }
         //TODO create a class for Regions, another for Cities and ski, icentre...
-       if (Arrays.asList(destinationPage.getKeys()).contains(REGIONS)) {
+    /*   if (Arrays.asList(destinationPage.getKeys()).contains(REGIONS)) {
            for (RegionsMapTab prodType: RegionsMapTab.values()){
                //filters
                ObjectNode filter = mapper.createObjectNode();
@@ -125,7 +125,7 @@ public class MapDestinationFactory {
                    }
                }
            }
-        }/*else{
+        }else{
            for (CitiesMapTab prodType : CitiesMapTab.values()) {
                //filters
                ObjectNode filter = mapper.createObjectNode();
