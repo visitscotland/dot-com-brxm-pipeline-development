@@ -4,7 +4,7 @@
   jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
   jcr:uuid: c4dbe9f5-9b67-4ae3-9293-bfcb945e73f7
   hippo:name: Video
-  hippo:versionHistory: 10564c3d-324a-4050-b65e-d97236d38186
+  hippo:versionHistory: f46e83e7-2cb7-4365-8a87-9a6881c280ec
   /video[1]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:referenceable']
@@ -14,34 +14,32 @@
     hippostd:state: draft
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2021-12-06T14:16:20.241Z
-    hippostdpubwf:lastModificationDate: 2022-11-22T09:27:43.783Z
+    hippostdpubwf:lastModificationDate: 2022-11-25T15:02:15.922Z
     hippostdpubwf:lastModifiedBy: admin
-    resourcebundle:descriptions: ['', '', '', '', '', '', '', '']
+    resourcebundle:descriptions: ['', '', '', '', '', '']
     resourcebundle:id: video
     resourcebundle:keys: [video.play-btn, video.no-js, video.minute-text, video.minutes-text,
-      video.video-descriptor, video.cookie-setting-link-message, video.cookie-setting-link-url,
-      video.no-cookies]
+      video.video-descriptor, video.no-cookies]
     resourcebundle:messages: [Play video, JavaScript needs to be enabled to watch
         this video. You can turn this on in your browser settings., '%s minute video',
-      '%s minute video', Video, Update my cookie settings, 'https://www.visitscotland.com/policies/privacy/cookies/',
-      Cookies need to be enabled to watch this video]
+      '%s minute video', Video, Cookies need to be enabled to watch this video]
     resourcebundle:messages_de: [Video abspielen, 'JavaScript muss aktiviert sein,
         um dieses Video abzuspielen. Sie können es in Ihren Browser-Einstellungen
-        aktivieren.', '%s-minütiges Video', '%s-minütiges Video', Video, Meine Cookie-Einstellungen
-        aktualisieren, '', 'Sie benötigen Cookies, um dieses Video abzuspielen']
+        aktivieren.', '%s-minütiges Video', '%s-minütiges Video', Video, 'Sie benötigen
+        Cookies, um dieses Video abzuspielen']
     resourcebundle:messages_es: [Ver el vídeo, JavaScript debe estar habilitado para
         ver este video. Puedes activar esto en la configuración de tu navegador.,
-      Vídeo de %s minutos, Vídeo de %s minutos, Video, Actualizar mi configuración
-        de cookies, '', Necesitas cookies para ver el video]
+      Vídeo de %s minutos, Vídeo de %s minutos, Video, Necesitas cookies para ver
+        el video]
     resourcebundle:messages_fr: [Regarder la vidéo, JavaScript doit être activé pour
         regarder cette vidéo. Vous pouvez l’activer dans les paramètres de votre navigateur.,
-      vidéo de %s minute, vidéo de %s minutes, Vidéo, Actualiser mes paramètres de
-        cookies, '', Vous devez activer les cookies pour regarder cette vidéo]
+      vidéo de %s minute, vidéo de %s minutes, Vidéo, Vous devez activer les cookies
+        pour regarder cette vidéo]
     resourcebundle:messages_it: [Guarda video, JavaScript deve essere abilitato per
         guardare questo video. È possibile attivarlo nelle impostazioni del browser.,
-      video di %s minuto, video di %s minuti, Video, Aggiorna le impostazioni dei
-        cookie, '', Per visualizzare il video sono necessari i cookie]
-    resourcebundle:messages_nl: ['', '', '', '', '', '', '', '']
+      video di %s minuto, video di %s minuti, Video, Per visualizzare il video sono
+        necessari i cookie]
+    resourcebundle:messages_nl: ['', '', '', '', '', '']
   /video[2]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
@@ -51,34 +49,32 @@
     hippostd:state: unpublished
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2021-12-06T14:16:20.241Z
-    hippostdpubwf:lastModificationDate: 2022-11-22T09:14:10.314Z
+    hippostdpubwf:lastModificationDate: 2022-11-25T15:02:51.512Z
     hippostdpubwf:lastModifiedBy: admin
-    resourcebundle:descriptions: ['', '', '', '', '', '', '', '']
+    resourcebundle:descriptions: ['', '', '', '', '', '']
     resourcebundle:id: video
     resourcebundle:keys: [video.play-btn, video.no-js, video.minute-text, video.minutes-text,
-      video.video-descriptor, video.cookie-setting-link-message, video.cookie-setting-link-url,
-      video.no-cookies]
+      video.video-descriptor, video.no-cookies]
     resourcebundle:messages: [Play video, JavaScript needs to be enabled to watch
         this video. You can turn this on in your browser settings., '%s minute video',
-      '%s minute video', Video, Update my cookie settings, 'https://www.visitscotland.com/policies/privacy/cookies/',
-      Cookies need to be enabled to watch this video]
+      '%s minute video', Video, Cookies need to be enabled to watch this video]
     resourcebundle:messages_de: [Video abspielen, 'JavaScript muss aktiviert sein,
         um dieses Video abzuspielen. Sie können es in Ihren Browser-Einstellungen
-        aktivieren.', '%s-minütiges Video', '%s-minütiges Video', Video, Meine Cookie-Einstellungen
-        aktualisieren, '', 'Sie benötigen Cookies, um dieses Video abzuspielen']
+        aktivieren.', '%s-minütiges Video', '%s-minütiges Video', Video, 'Sie benötigen
+        Cookies, um dieses Video abzuspielen']
     resourcebundle:messages_es: [Ver el vídeo, JavaScript debe estar habilitado para
         ver este video. Puedes activar esto en la configuración de tu navegador.,
-      Vídeo de %s minutos, Vídeo de %s minutos, Video, Actualizar mi configuración
-        de cookies, '', Necesitas cookies para ver el video]
+      Vídeo de %s minutos, Vídeo de %s minutos, Video, Necesitas cookies para ver
+        el video]
     resourcebundle:messages_fr: [Regarder la vidéo, JavaScript doit être activé pour
         regarder cette vidéo. Vous pouvez l’activer dans les paramètres de votre navigateur.,
-      vidéo de %s minute, vidéo de %s minutes, Vidéo, Actualiser mes paramètres de
-        cookies, '', Vous devez activer les cookies pour regarder cette vidéo]
+      vidéo de %s minute, vidéo de %s minutes, Vidéo, Vous devez activer les cookies
+        pour regarder cette vidéo]
     resourcebundle:messages_it: [Guarda video, JavaScript deve essere abilitato per
         guardare questo video. È possibile attivarlo nelle impostazioni del browser.,
-      video di %s minuto, video di %s minuti, Video, Aggiorna le impostazioni dei
-        cookie, '', Per visualizzare il video sono necessari i cookie]
-    resourcebundle:messages_nl: ['', '', '', '', '', '', '', '']
+      video di %s minuto, video di %s minuti, Video, Per visualizzare il video sono
+        necessari i cookie]
+    resourcebundle:messages_nl: ['', '', '', '', '', '']
   /video[3]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:referenceable']
@@ -88,32 +84,30 @@
     hippostd:state: published
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2021-12-06T14:16:20.241Z
-    hippostdpubwf:lastModificationDate: 2022-11-22T09:14:10.314Z
+    hippostdpubwf:lastModificationDate: 2022-11-25T15:02:51.512Z
     hippostdpubwf:lastModifiedBy: admin
-    hippostdpubwf:publicationDate: 2022-11-22T09:14:13.902Z
-    resourcebundle:descriptions: ['', '', '', '', '', '', '', '']
+    hippostdpubwf:publicationDate: 2022-11-25T15:02:54.509Z
+    resourcebundle:descriptions: ['', '', '', '', '', '']
     resourcebundle:id: video
     resourcebundle:keys: [video.play-btn, video.no-js, video.minute-text, video.minutes-text,
-      video.video-descriptor, video.cookie-setting-link-message, video.cookie-setting-link-url,
-      video.no-cookies]
+      video.video-descriptor, video.no-cookies]
     resourcebundle:messages: [Play video, JavaScript needs to be enabled to watch
         this video. You can turn this on in your browser settings., '%s minute video',
-      '%s minute video', Video, Update my cookie settings, 'https://www.visitscotland.com/policies/privacy/cookies/',
-      Cookies need to be enabled to watch this video]
+      '%s minute video', Video, Cookies need to be enabled to watch this video]
     resourcebundle:messages_de: [Video abspielen, 'JavaScript muss aktiviert sein,
         um dieses Video abzuspielen. Sie können es in Ihren Browser-Einstellungen
-        aktivieren.', '%s-minütiges Video', '%s-minütiges Video', Video, Meine Cookie-Einstellungen
-        aktualisieren, '', 'Sie benötigen Cookies, um dieses Video abzuspielen']
+        aktivieren.', '%s-minütiges Video', '%s-minütiges Video', Video, 'Sie benötigen
+        Cookies, um dieses Video abzuspielen']
     resourcebundle:messages_es: [Ver el vídeo, JavaScript debe estar habilitado para
         ver este video. Puedes activar esto en la configuración de tu navegador.,
-      Vídeo de %s minutos, Vídeo de %s minutos, Video, Actualizar mi configuración
-        de cookies, '', Necesitas cookies para ver el video]
+      Vídeo de %s minutos, Vídeo de %s minutos, Video, Necesitas cookies para ver
+        el video]
     resourcebundle:messages_fr: [Regarder la vidéo, JavaScript doit être activé pour
         regarder cette vidéo. Vous pouvez l’activer dans les paramètres de votre navigateur.,
-      vidéo de %s minute, vidéo de %s minutes, Vidéo, Actualiser mes paramètres de
-        cookies, '', Vous devez activer les cookies pour regarder cette vidéo]
+      vidéo de %s minute, vidéo de %s minutes, Vidéo, Vous devez activer les cookies
+        pour regarder cette vidéo]
     resourcebundle:messages_it: [Guarda video, JavaScript deve essere abilitato per
         guardare questo video. È possibile attivarlo nelle impostazioni del browser.,
-      video di %s minuto, video di %s minuti, Video, Aggiorna le impostazioni dei
-        cookie, '', Per visualizzare il video sono necessari i cookie]
-    resourcebundle:messages_nl: ['', '', '', '', '', '', '', '']
+      video di %s minuto, video di %s minuti, Video, Per visualizzare il video sono
+        necessari i cookie]
+    resourcebundle:messages_nl: ['', '', '', '', '', '']
