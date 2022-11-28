@@ -9,6 +9,20 @@ user to filter and search for data contained on the map.
     :places-data="maps.placesData.features"
     discover-text="discover"
     map-id="vs-map"
+    initialSelected="places"
+    :toggleData="[
+        {
+            text: 'Regions',
+            value: 'regions',
+            icon: 'map',
+        },
+        {
+            text: 'Places',
+            value: 'places',
+            icon: 'pin'
+        },
+    ]"
+    buttonsLabel="Select map type"
 >
     <template slot="closeSidePanelText">
         <span class="sr-only">
@@ -25,6 +39,9 @@ user to filter and search for data contained on the map.
     </template>
     <template slot="resetSidePanelText">
         Reset filters
+    </template>
+    <template slot="noJs">
+        You need Javascript enabled to see this map
     </template>
 </VsMainMapWrapper>
 ```

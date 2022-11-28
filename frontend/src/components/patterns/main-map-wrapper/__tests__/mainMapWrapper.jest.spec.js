@@ -12,6 +12,11 @@ const factoryShallowMount = () => shallowMount(VsMainMapWrapper, {
         filters: filtersJson,
         selectedItem: 'a4260a0c-9d66-425b-835a-eec833c30a92',
         mapId: 'vs-map',
+        currentStage: 0,
+    },
+    provide: {
+        regions: [
+        ],
     },
 });
 
@@ -92,6 +97,13 @@ describe('VsMainMapWrapper', () => {
             wrapper.vm.filterPlaces('cities');
 
             expect(wrapper.vm.activePins.length).toBe(3);
+        });
+
+        it('should remove all pins if `id` is set to `regions`', async() => {
+            const wrapper = factoryShallowMount();
+            wrapper.vm.filterPlaces('regions');
+
+            expect(wrapper.vm.activePins.length).toBe(0);
         });
     });
 

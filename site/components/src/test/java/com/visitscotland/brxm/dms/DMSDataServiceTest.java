@@ -1,6 +1,7 @@
 package com.visitscotland.brxm.dms;
 
 import com.fasterxml.jackson.databind.JsonNode;
+import com.visitscotland.brxm.services.CommonUtilsService;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -21,11 +22,14 @@ class DMSDataServiceTest {
     DMSDataService service;
 
     @Mock
-    DMSProxy proxy;    
+    DMSProxy proxy;
+
+    @Mock
+    CommonUtilsService utilsService;
     
     @BeforeEach
     void init (){
-        service = new DMSDataService(proxy);
+        service = new DMSDataService(proxy,   utilsService);
     }
 
     @Test
