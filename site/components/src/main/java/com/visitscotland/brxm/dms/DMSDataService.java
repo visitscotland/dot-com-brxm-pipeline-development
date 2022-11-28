@@ -106,14 +106,16 @@ public class DMSDataService {
     @Cacheable (value="dmsProductSearch")
     public JsonNode cannedSearch(ProductSearchBuilder psb){
 
-        String dmsUrl = psb.buildCannedSearch();
+        String dmsUrl = psb.buildCannedSearchInternal();
 
         logger.info("Requesting data to the canned search: {}", dmsUrl);
         String responseString = proxy.request(dmsUrl);
         if (responseString != null) {
             try {
                 ObjectMapper m = new ObjectMapper();
-                return m.readTree(responseString).get("data").get("products");
+                if (m.readTree(responseString).has("data")){
+                    return m.readTree(responseString).get("data").get("products");
+                }
             } catch (JsonProcessingException e) {
                 logger.error("The response could not be parsed:\n {}", responseString, e);
             }
