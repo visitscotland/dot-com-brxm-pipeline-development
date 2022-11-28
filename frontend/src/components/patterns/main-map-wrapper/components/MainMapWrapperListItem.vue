@@ -44,6 +44,9 @@ export default {
         VsImg,
         VsIcon,
     },
+    inject: [
+        'mapId',
+    ],
     props: {
         /**
          * Name of item
@@ -89,9 +92,6 @@ export default {
             });
         },
     },
-    inject: [
-        'mapId',
-    ],
 };
 </script>
 

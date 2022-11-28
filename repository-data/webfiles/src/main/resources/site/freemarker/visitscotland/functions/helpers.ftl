@@ -72,7 +72,7 @@
 <#--  Usage: ${escapeJSON(stop.opening)} -->
 <#function escapeJSON original isJsonObject>
     <#assign escaped = original?replace("'", "\\'")>
-    <#if isJsonObject == true>
+    <#if isJsonObject>
         <#assign escaped = escaped?replace("\"", "'")>
     <#else>
         <#assign escaped = escaped?replace("\"", "&quot;")>
