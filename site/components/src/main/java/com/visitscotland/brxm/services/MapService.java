@@ -12,7 +12,11 @@ import com.visitscotland.brxm.hippobeans.*;
 import com.visitscotland.brxm.model.*;
 import com.visitscotland.brxm.utils.HippoUtilsService;
 import com.visitscotland.utils.Contract;
+import org.hippoecm.hst.content.beans.query.HstQueryResult;
 import org.hippoecm.hst.content.beans.standard.HippoBean;
+import org.hippoecm.hst.content.beans.standard.HippoBeanIterator;
+import org.hippoecm.hst.core.component.HstRequest;
+import org.onehippo.taxonomy.api.Category;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -42,15 +46,17 @@ public class MapService {
     private final ImageFactory imageFactory;
     private final LinkService linkService;
     private final LocationLoader locationLoader;
+    private final HippoUtilsService hippoUtilsService;
 
     @Autowired
-    public MapService(DMSDataService dmsData, ResourceBundleService bundle,ImageFactory imageFactory, LinkService linkService, ObjectMapper mapper, LocationLoader locationLoader) {
+    public MapService(DMSDataService dmsData, ResourceBundleService bundle,ImageFactory imageFactory, LinkService linkService, ObjectMapper mapper, LocationLoader locationLoader, HippoUtilsService hippoUtilsService) {
         this.dmsData = dmsData;
         this.bundle = bundle;
         this.locationLoader = locationLoader;
         this.imageFactory = imageFactory;
         this.linkService = linkService;
         this.mapper = mapper;
+        this.hippoUtilsService = hippoUtilsService;
     }
 
     /**
@@ -99,7 +105,7 @@ public class MapService {
      * @param stop stop document information
      * @param feature ObjectNode to add the Stop information
      */
-    public void buildStopNode(Locale locale, ObjectNode category, MapsModule module, Stop stop, ObjectNode feature){
+    private void buildStopNode(Locale locale, ObjectNode category, MapsModule module, Stop stop, ObjectNode feature){
         if (stop != null){
             Double latitude = null;
             Double longitude = null;
@@ -155,7 +161,7 @@ public class MapService {
      * @param page the destination or other pages
      * @param feature json to build the features and geometry nodes
      */
-    public void buildPageNode(Locale locale, ObjectNode category, MapsModule module, Page page, ObjectNode feature){
+    private void buildPageNode(Locale locale, ObjectNode category, MapsModule module, Page page, ObjectNode feature){
         FlatLink flatLink = linkService.createSimpleLink(page, module, locale);
         flatLink.setLabel(bundle.getResourceBundle(MAP, DISCOVER, locale));
         ObjectNode properties = getPropertyNode(page.getTitle(), page.getTeaser(),
@@ -248,6 +254,70 @@ public class MapService {
         coordinates.add(longitude);
         coordinates.add(latitude);
         return coordinates;
+    }
+
+    /**
+     * Method to build a normal Json with parameters for the maps, in particular for the filters to use in the map
+     * @param child Category or taxonomy to use as a filter, adding id and label
+     * @param locale locale to bring the label in the right language
+     * @return ObjectNode with the filters to be used
+     */
+    public ObjectNode getFilterNode(Category child, Locale locale) {
+        ObjectNode filter = getCategoryNode(child.getKey(), child.getInfo(locale).getName());
+        if (!child.getChildren().isEmpty()){
+            ArrayNode childrenArray = mapper.createArrayNode();
+            for (Category children : child.getChildren()) {
+                childrenArray.add(getCategoryNode(children.getKey(),children.getInfo(locale).getName()));
+            }
+            filter.set("subCategory",childrenArray);
+        }
+        return filter;
+    }
+
+    /**
+     *
+     * @param request the request
+     * @param module module to be consumed
+     * @param category the category or taxonomy wanted
+     * @param features ArrayNode to add the features to the mapcard
+     */
+    public void addMapDocumentsToJson(HstRequest request, MapsModule module, Category category, ArrayNode features) {
+        HstQueryResult result = hippoUtilsService.getDocumentsByTaxonomy(request, category,"@hippotaxonomy:keys","visitscotland:title",Destination.class, Stop.class);
+        if (result != null) {
+            final HippoBeanIterator it = result.getHippoBeans();
+            while (it.hasNext()) {
+                ObjectNode feature = getMapDocuments(request.getLocale(), category, module, it);
+                if (feature != null && !feature.isEmpty()) {
+                    features.add(feature);
+                }
+            }
+        }
+    }
+
+    /**
+     * Method that build properties and geometry nodes for the GeoJson file to be consumed by feds
+     * for each destination and stop with the category/taxonomy selected
+     *
+     * @param locale the locale/language
+     * @param category the category/taxonomy selected
+     * @param module the map module
+     * @param it iterator to iterate the list of destinations or stops
+     * @return ObjectNode with the right format to be sent to FEDs
+     */
+    private ObjectNode getMapDocuments(Locale locale, Category category, MapsModule module, HippoBeanIterator it){
+        //find all the documents with a taxonomy
+        final HippoBean bean = it.nextHippoBean();
+        ObjectNode feature = null;
+        if (!Contract.isNull(bean)) {
+            feature = mapper.createObjectNode();
+            if (bean instanceof Destination) {
+                feature.put(TYPE, FEATURE);
+                buildPageNode(locale, getCategoryNode(category.getKey(),category.getInfo(locale).getName()), module,((Destination) bean), feature);
+            } else {
+                buildStopNode(locale, getCategoryNode(category.getKey(),category.getInfo(locale).getName()),module, ((Stop) bean), feature);
+            }
+        }
+        return feature;
     }
 
 }
