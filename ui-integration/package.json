@@ -25,11 +25,12 @@
     "build:frontend:ssr:dev": "yarn --cwd ./node_modules/@visitscotland/vs-component-library/ ssr:build:dev",
     "install:frontend": "yarn --cwd ./node_modules/@visitscotland/vs-component-library/",
     "third-party": "webpack --config ./build/thirdparty.webpack.conf.js",
-    "ssr:serve": "nodemon ./node_modules/@visitscotland/vs-component-library/ssr/server/index.js"
+    "ssr:serve": "nodemon ./ssr/server/index.js"
   },
   "dependencies": {
-    "@visitscotland/vs-component-library": "0.4.3",
+    "@visitscotland/vs-component-library": "0.4.4",
     "autoprefixer": "^10.4.2",
+    "cheerio": "1.0.0-rc.3",
     "css-loader": "^6.7.1",
     "express": "4.17.1",
     "express-http-proxy": "1.6.2",
