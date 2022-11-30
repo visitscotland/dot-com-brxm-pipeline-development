@@ -11,6 +11,14 @@
     <@hst.manageContent hippobean=module.hippoBean />
     <@previewWarning editMode module module.errorMessages />
 
+    <#assign regionsText>
+        ${label('map', 'map.regions')}
+    </#assign>
+
+    <#assign placesText>
+        ${label('map', 'map.places')}
+    </#assign>
+
     <#if module.title??>
         <#assign mainHeadingExists>
             true
@@ -29,13 +37,24 @@
         <template slot="vsModuleWrapperIntro">
             <@hst.html hippohtml=module.introduction/>
         </template>
-
         <vs-main-map-wrapper
             :main-heading-exists="${mainHeadingExists}"
             category-heading="${module.tabTitle}"
             :filters="${escapeJSON(module.filters,true)}"
             :places-data="${escapeJSON(module.geoJson.features,true)}"
-            map-id="vs-map"
+            map-id="vs-map-${module.id}"
+            :toggle-data="[
+                {
+                    text: '${placesText?trim}',
+                    value: 'places',
+                    icon: 'pin'
+                },
+                {
+                    text: '${regionsText?trim}',
+                    value: 'regions',
+                    icon: 'map',
+                },
+            ]"
         >
 
             <template slot="closeSidePanelText">
@@ -53,6 +72,9 @@
             </template>
             <template slot="resetSidePanelText">
                 ${label('map', 'map.reset-filters')}
+            </template>
+            <template slot="noJs">
+                ${label('map', 'map.no-js')}
             </template>
         </vs-main-map-wrapper>
     </vs-module-wrapper>
