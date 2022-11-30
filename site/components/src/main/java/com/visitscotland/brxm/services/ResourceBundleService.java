@@ -1,6 +1,7 @@
 package com.visitscotland.brxm.services;
 
 import com.visitscotland.brxm.config.VsComponentManager;
+import com.visitscotland.brxm.utils.ContentLogger;
 import com.visitscotland.utils.Contract;
 import org.hippoecm.hst.resourcebundle.ResourceBundleRegistry;
 import org.slf4j.Logger;
@@ -14,8 +15,13 @@ import java.util.ResourceBundle;
 public class ResourceBundleService {
 
     private static final Logger logger = LoggerFactory.getLogger(ResourceBundleService.class.getName());
-    private static final Logger contentLogger = LoggerFactory.getLogger("content");
     private static final String GLOBAL_BUNDLE_FILE = "essentials.global";
+
+    private final Logger contentLogger;
+
+    public ResourceBundleService(ContentLogger contentLogger){
+        this.contentLogger = contentLogger;
+    }
 
     ResourceBundleRegistry registry;
 
@@ -65,7 +71,7 @@ public class ResourceBundleService {
      * @param locale locale
      * @param optional when {@code false} if the value does not exist in the language it would fallback to English
      *
-     * @return
+     * @return string for the given key
      */
     public String getResourceBundle(String bundleName, String key, String locale, boolean optional){
         return getResourceBundle(bundleName, key, toLocale(locale), optional);
@@ -95,7 +101,7 @@ public class ResourceBundleService {
      * @param key key
      * @param locale locale
      * @param optional when {@code false} if the value does not exist in the language it would fallback to English
-     * @return
+     * @return string for the given key
      */
     public String getResourceBundle(String bundleName, String key, Locale locale, boolean optional){
 
@@ -129,7 +135,7 @@ public class ResourceBundleService {
      * @param bundleName id of the Resource Bundle defined in Hippo
      * @param locale locale
      *
-     * @return
+     * @return resource bundle for a specific locale
      */
     private ResourceBundle getResourceBundle(String bundleName, Locale locale){
         if (locale == null) {

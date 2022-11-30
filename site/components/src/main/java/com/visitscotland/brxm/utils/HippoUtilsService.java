@@ -1,11 +1,14 @@
 package com.visitscotland.brxm.utils;
 
+import com.visitscotland.brxm.hippobeans.Image;
 import com.visitscotland.brxm.hippobeans.Page;
-import org.hippoecm.hst.component.support.bean.BaseHstComponent;
 import org.hippoecm.hst.configuration.hosting.Mount;
 import org.hippoecm.hst.container.RequestContextProvider;
 import org.hippoecm.hst.content.beans.ObjectBeanManagerException;
 import org.hippoecm.hst.content.beans.manager.ObjectConverter;
+import org.hippoecm.hst.content.beans.query.HstQuery;
+import org.hippoecm.hst.content.beans.query.HstQueryResult;
+import org.hippoecm.hst.content.beans.query.builder.HstQueryBuilder;
 import org.hippoecm.hst.content.beans.query.exceptions.QueryException;
 import org.hippoecm.hst.content.beans.standard.HippoBean;
 import org.hippoecm.hst.core.component.HstRequest;
@@ -15,10 +18,14 @@ import org.hippoecm.hst.core.request.HstRequestContext;
 import org.hippoecm.hst.core.request.ResolvedMount;
 import org.hippoecm.hst.core.request.ResolvedSiteMapItem;
 import org.hippoecm.hst.core.request.ResolvedVirtualHost;
+import org.hippoecm.hst.site.HstServices;
 import org.hippoecm.hst.util.PathUtils;
 import org.jetbrains.annotations.NotNull;
 import org.onehippo.forge.selection.hst.contentbean.ValueList;
 import org.onehippo.forge.selection.hst.util.SelectionUtil;
+import org.onehippo.taxonomy.api.Category;
+import org.onehippo.taxonomy.api.Taxonomy;
+import org.onehippo.taxonomy.api.TaxonomyManager;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
@@ -28,6 +35,8 @@ import javax.jcr.RepositoryException;
 import java.util.Locale;
 import java.util.Map;
 import java.util.Optional;
+
+import static org.hippoecm.hst.content.beans.query.builder.ConstraintBuilder.constraint;
 
 /**
  * Set of utilities related with Hippo that from the whole environment to be running in order to work
@@ -67,6 +76,27 @@ public class HippoUtilsService {
             if (localize && link.getMount().getLocale().equals(Locale.UK.toString()) && !requestMount.getLocale().equals(Locale.UK.toString())) {
                 link.setPath(String.format("%s/%s", requestMount.getMountPath(), link.getPath()));
             }
+            return link.toUrlForm(requestContext, FULLY_QUALIFIED);
+        }
+    }
+
+    /**
+     * Convert Image into a URL String
+     *
+     * @param image CMS image
+     *
+     * @return URL for the image that renders the document's image or null when it cannot be rendered the image.
+     *
+     *
+     */
+    public static String createUrl(Image image) {
+        if (image == null) {
+            logger.info("The linked image does not exist.");
+            return null;
+        } else {
+            final boolean FULLY_QUALIFIED = false;
+            HstRequestContext requestContext = RequestContextProvider.get();
+            HstLink link = requestContext.getHstLinkCreator().create(image, requestContext);
             return link.toUrlForm(requestContext, FULLY_QUALIFIED);
         }
     }
@@ -113,7 +143,7 @@ public class HippoUtilsService {
 
     /**
      * Return a (possibly unavailable) hippo bean from a node
-     * @param jcrNode
+     * @param jcrNode CMS node
      * @param includeUnavailable If true, then the bean will be found even if hippo:availability is not set to 'live'
      */
     @NonTestable(NonTestable.Cause.BRIDGE)
@@ -139,8 +169,8 @@ public class HippoUtilsService {
     /**
      * TODO: To be reused by getContentBeanWithTranslationFallback()
      *
-     * @param request
-     * @param resolvedSiteMapItem
+     * @param request the HstRequest request
+     * @param resolvedSiteMapItem item from the cms sitemap
      * @param resolvedMount
      * @return
      *
@@ -167,7 +197,7 @@ public class HippoUtilsService {
 
     /**
      * TODO Comment
-     * @param request
+     * @param request the HstRequest request
      * @param mount
      * @return
      */
@@ -180,13 +210,13 @@ public class HippoUtilsService {
             }
         }
 
-        logger.warn("The mount {} could not be resolver for the following request", mount, request.getRequestURI());
+        logger.warn("The mount {} could not be resolver for the following request: {}", mount, request.getRequestURI());
         return request.getRequestContext().getResolvedMount();
     }
 
     /**
      * Obtain the content bean for a request. If the content bean is not found in request mount, then check english
-     * mount (as part of the traslation fallback)
+     * mount (as part of the translation fallback)
      *
      * @param request HstRequest
      * @return Optional<HippoBean>
@@ -261,5 +291,38 @@ public class HippoUtilsService {
     public Map<String, String> getValueMap(String valueListIdentifier) {
         ValueList valueList = SelectionUtil.getValueListByIdentifier(valueListIdentifier, RequestContextProvider.get());
         return SelectionUtil.valueListAsMap(valueList);
+    }
+
+    @NonTestable(NonTestable.Cause.BRIDGE)
+    public Taxonomy getTaxonomy() {
+        TaxonomyManager taxonomyManager = HstServices.getComponentManager().getComponent("TaxonomyManager", "org.onehippo.taxonomy.contentbean");
+        return taxonomyManager.getTaxonomies().getTaxonomy("Visitscotland-categories");
+
+    }
+
+    /**
+     * Get all the Destinations and stops categorised with the taxonomy wanted in alphabetic order
+     *
+     * @param request the request
+     * @param category the category or taxonomy wanted
+     * @param constraint constrait or field in the cms with the taxonomy
+     * @param order field to short the results by
+     * @param types to filter the document types we want to perform the search
+     *
+     * @return all the destinations and stop with that category selected
+     */
+    @NonTestable(NonTestable.Cause.BRIDGE)
+    public HstQueryResult getDocumentsByTaxonomy(HstRequest request, Category category, String constraint, String order, Class<? extends HippoBean>... types) {
+        HstRequestContext requestContext = request.getRequestContext();
+        HippoBean scope = requestContext.getSiteContentBaseBean();
+        HstQuery hstQuery = HstQueryBuilder.create(scope)
+                .ofTypes(types)
+                .where(constraint(constraint).contains(category.getKey())).orderByAscending(order).build();
+        try {
+            return hstQuery.execute();
+        } catch (QueryException e) {
+            logger.warn("HstQuery failed to obtain documents by taxonomy", e);
+        }
+        return null;
     }
 }

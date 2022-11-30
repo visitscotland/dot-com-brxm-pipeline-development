@@ -141,6 +141,13 @@ export default {
 .vs-itinerary-day{
     border-top: 5px solid $color-base-text;
 
+    @include media-breakpoint-down(xs) {
+        max-width: initial;
+        width: calc(100% + #{$spacer-4});
+        margin-left: -#{$spacer-2};
+        padding: $spacer-0 $spacer-2;
+    }
+
     &:first-of-type {
         @include media-breakpoint-up(md) {
             border-top: none;

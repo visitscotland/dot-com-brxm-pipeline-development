@@ -23,7 +23,6 @@ import java.util.MissingResourceException;
 public class PageTemplateBuilder {
 
     private static final Logger logger = LoggerFactory.getLogger(PageTemplateBuilder.class);
-    private static final Logger contentLogger = LoggerFactory.getLogger("content");
 
     //Static Constant
     static final String INTRO_THEME = "introTheme";
@@ -53,13 +52,17 @@ public class PageTemplateBuilder {
     private final CannedSearchFactory cannedSearchFactory;
     private final PreviewModeFactory previewFactory;
     private final MarketoFormFactory marketoFormFactory;
+    private final MapGeneralFactory mapGeneralFactory;
+    private final MapDestinationFactory mapDestinationFactory;
+    private final Logger contentLogger;
 
 
     @Autowired
     public PageTemplateBuilder(DocumentUtilsService documentUtils, MegalinkFactory linksFactory, ICentreFactory iCentre,
-               IKnowFactory iKnow, ArticleFactory article, LongCopyFactory longcopy, IKnowCommunityFactory iKnowCommunityFactory,
-               StacklaFactory stacklaFactory, TravelInformationFactory travelInformationFactory, CannedSearchFactory cannedSearchFactory,
-               PreviewModeFactory previewFactory, MarketoFormFactory marketoFormFactory) {
+                               IKnowFactory iKnow, ArticleFactory article, LongCopyFactory longcopy, IKnowCommunityFactory iKnowCommunityFactory,
+                               StacklaFactory stacklaFactory, TravelInformationFactory travelInformationFactory, CannedSearchFactory cannedSearchFactory,
+                               PreviewModeFactory previewFactory, MarketoFormFactory marketoFormFactory, MapGeneralFactory mapGeneralFactory,MapDestinationFactory mapDestinationFactory,
+                               ContentLogger contentLogger) {
         this.linksFactory = linksFactory;
         this.iCentreFactory = iCentre;
         this.iKnowFactory = iKnow;
@@ -72,6 +75,9 @@ public class PageTemplateBuilder {
         this.cannedSearchFactory = cannedSearchFactory;
         this.previewFactory = previewFactory;
         this.marketoFormFactory = marketoFormFactory;
+        this.mapGeneralFactory = mapGeneralFactory;
+        this.mapDestinationFactory = mapDestinationFactory;
+        this.contentLogger = contentLogger;
     }
 
     private Page getDocument(HstRequest request) {
@@ -96,8 +102,8 @@ public class PageTemplateBuilder {
                     page.modules.add(articleFactory.getModule(request, (Article) item));
                 } else if (item instanceof LongCopy){
                     processLongCopy(request, page, (LongCopy) item);
-                } else if (item instanceof IknowCommunity) {
-                    page.modules.add(iKnowCommunityFactory.getIKnowCommunityModule((IknowCommunity) item, request.getLocale()));
+                } else if (item instanceof MapModule) {
+                    processMapModule(request, page, (MapModule) item);
                 } else if (item instanceof Stackla) {
                     page.modules.add(stacklaFactory.getStacklaModule((Stackla) item, request.getLocale()));
                 }  else if (item instanceof TravelInformation) {
@@ -187,6 +193,19 @@ public class PageTemplateBuilder {
         iKnowModule.setHippoBean(touristInfo);
 
         page.modules.add(iKnowModule);
+    }
+
+    /**
+     * Creates a MapsModule from a destination or general page
+     */
+
+   private void processMapModule(HstRequest request, PageConfiguration page, MapModule item){
+       Page document = getDocument(request);
+       if (document instanceof Destination) {
+           page.modules.add(mapDestinationFactory.getModule(request, item,document));
+       }else if (document instanceof General){
+           page.modules.add(mapGeneralFactory.getModule(request, item));
+       }
     }
 
     /**

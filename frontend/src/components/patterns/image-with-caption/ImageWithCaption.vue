@@ -45,6 +45,7 @@
                     :video-id="videoId"
                     :cookie-link-text="cookieLinkText"
                     :error-message="errorMessage"
+                    :variant="smallPlayButton ? 'narrow' : 'wide'"
                 >
                     <!-- @slot Slot for the video title text -->
                     <template slot="video-title">
@@ -73,7 +74,7 @@
 
 import { v4 as uuidv4 } from 'uuid';
 import VsImg from '@components/elements/img/Img';
-import VsToggleButton from '@components/patterns/toggle-button/ToggleButton';
+import VsToggleButton from '@components/elements/toggle-button/ToggleButton';
 import VsVideoCaption from '@components/patterns/video-caption/VideoCaption';
 import verifyCookiesMixin from '../../../mixins/verifyCookiesMixin';
 import requiredCookiesData from '../../../utils/required-cookies-data';
@@ -170,6 +171,14 @@ export default {
             default: '',
         },
         /**
+         * Set to true if component displays a video and is in a narrow container, adjusts
+         * the layout of the play button
+        */
+        smallPlayButton: {
+            type: Boolean,
+            default: false,
+        },
+        /**
         * A message explaining why the component has been disabled with disabled cookies, is
         * provided for descendent components to inject
         */
@@ -262,10 +271,18 @@ export default {
 
         &__image-wrapper {
             position: relative;
+            aspect-ratio: 3/2;
+
+            @supports not (aspect-ratio: 3/2) {
+                padding-bottom: 66.6%;
+            }
 
             img {
                 width: 100%;
-                height: auto;
+                height: 100%;
+                object-fit: cover;
+                align-self: flex-start;
+                flex-shrink: 0; // IE11 fix, prevents image vertical stretching
             }
 
             .vs-toggle-btn {
@@ -344,15 +361,19 @@ export default {
                 }
             }
 
+            &.vs-image-with-caption--narrow {
+                .vs-image-with-caption__image-wrapper {
+                    .vs-toggle-btn {
+                        display: none;
+                    }
+                }
+            }
+
             .vs-image-with-caption {
                 &__caption-wrapper {
                     display: none;
                     justify-content: flex-end;
                 }
-            }
-
-            .vs-image-with-caption__video-caption-wrapper {
-                margin-top: -50px;
             }
 
             .vs-image-with-caption__captions {
@@ -421,9 +442,11 @@ export default {
                     justify-content: flex-end;
                     padding: 0;
 
-                    .vs-video-caption {
+                    .vs-video-caption--fullwidth {
                         width: 400px;
+                    }
 
+                    .vs-video-caption {
                         .vs-toggle-btn {
                             display: block;
                         }
@@ -435,10 +458,12 @@ export default {
                     padding: 0;
                 }
 
-                .vs-caption {
-                    position: absolute;
-                    bottom: auto;
-                    width: 400px;
+                .vs-video-caption--fullwidth {
+                    .vs-caption {
+                        position: absolute;
+                        bottom: auto;
+                        width: 400px;
+                    }
                 }
 
                 .vs-toggle-btn {
@@ -473,6 +498,11 @@ export default {
                 &__image-wrapper {
                     max-height: 100vh;
                     overflow: hidden;
+                    aspect-ratio: auto;
+
+                    @supports not (aspect-ratio: 3/2) {
+                        padding-bottom: $spacer-0;
+                    }
 
                     .vs-toggle-btn {
                         @include media-breakpoint-between(sm, md) {

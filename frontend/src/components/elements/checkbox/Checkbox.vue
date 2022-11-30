@@ -13,18 +13,19 @@
             v-html="infoText"
         />
         <!-- eslint-enable-vue/no-v-html -->
-
-        <span
-            v-for="error in errorsList"
-            :key="error"
-            class="error"
+        <div
+            aria-live="assertive"
+            v-if="$v.inputVal.$anyError || invalid"
         >
-            <template
-                v-if="$v.inputVal.$anyError || invalid"
+            <span
+                v-for="error in errorsList"
+                v-show="!reAlertErrors"
+                :key="error"
+                class="error"
             >
                 {{ validationMessages[error] || genericValidation[error] }}
-            </template>
-        </span>
+            </span>
+        </div>
         <BFormCheckbox
             v-if="fieldName"
             v-model="inputVal"
@@ -154,6 +155,15 @@ export default {
         infoText: {
             type: String,
             default: '',
+        },
+        /**
+         * Whether the parent form has just been submitted, if so all errors
+         * need to be wiped from then re-added to the DOM to inform screen
+         * readers that they should be re-declared
+         */
+        reAlertErrors: {
+            type: Boolean,
+            default: false,
         },
     },
     data() {

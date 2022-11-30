@@ -5262,7 +5262,7 @@
         jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
         jcr:uuid: 6f0cf660-158d-412e-90ef-ed974c07dca0
         hippo:name: Stackla module
-        hippo:versionHistory: 78087be3-246d-4ec2-b5be-471730610cc1
+        hippo:versionHistory: b2786902-151c-4344-a9c8-3e28df0a91a5
         /stackla-module[1]:
           jcr:primaryType: visitscotland:Stackla
           jcr:mixinTypes: ['mix:referenceable']
@@ -5270,15 +5270,14 @@
           hippo:availability: []
           hippostd:retainable: false
           hippostd:state: draft
-          hippostd:transferable: false
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2021-07-07T12:14:38.200+01:00
-          hippostdpubwf:lastModificationDate: 2022-05-23T14:27:19.593+01:00
+          hippostdpubwf:lastModificationDate: 2022-10-11T09:30:52.944+01:00
           hippostdpubwf:lastModifiedBy: admin
           hippotranslation:id: 9a5f6065-6367-4d23-a305-bc6f02b6d021
           hippotranslation:locale: en
-          visitscotland:stacklaHash: 60ddb1e64808c
-          visitscotland:stacklaId: '83137'
+          visitscotland:stacklaHash: 6324456e6fe79
+          visitscotland:stacklaId: '97279'
           visitscotland:title: Your Pictures Of Scottish Castles
           visitscotland:translation: ''
           /visitscotland:copy:
@@ -5294,12 +5293,12 @@
           hippostd:state: unpublished
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2021-07-07T12:14:38.200+01:00
-          hippostdpubwf:lastModificationDate: 2021-07-08T10:01:48.475+01:00
+          hippostdpubwf:lastModificationDate: 2022-10-11T09:31:01.414+01:00
           hippostdpubwf:lastModifiedBy: admin
           hippotranslation:id: 9a5f6065-6367-4d23-a305-bc6f02b6d021
           hippotranslation:locale: en
-          visitscotland:stacklaHash: 60ddb1e64808c
-          visitscotland:stacklaId: '83137'
+          visitscotland:stacklaHash: 6324456e6fe79
+          visitscotland:stacklaId: '97279'
           visitscotland:title: Your Pictures Of Scottish Castles
           visitscotland:translation: ''
           /visitscotland:copy:
@@ -5315,13 +5314,13 @@
           hippostd:state: published
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2021-07-07T12:14:38.200+01:00
-          hippostdpubwf:lastModificationDate: 2021-07-08T10:01:48.475+01:00
+          hippostdpubwf:lastModificationDate: 2022-10-11T09:31:01.414+01:00
           hippostdpubwf:lastModifiedBy: admin
-          hippostdpubwf:publicationDate: 2021-09-09T16:31:31.727+01:00
+          hippostdpubwf:publicationDate: 2022-10-11T09:31:11.632+01:00
           hippotranslation:id: 9a5f6065-6367-4d23-a305-bc6f02b6d021
           hippotranslation:locale: en
-          visitscotland:stacklaHash: 60ddb1e64808c
-          visitscotland:stacklaId: '83137'
+          visitscotland:stacklaHash: 6324456e6fe79
+          visitscotland:stacklaId: '97279'
           visitscotland:title: Your Pictures Of Scottish Castles
           visitscotland:translation: ''
           /visitscotland:copy:
@@ -6924,7 +6923,7 @@
         jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
         jcr:uuid: 7bd449e8-d590-4d52-a3d2-ea2d3e0a8b85
         hippo:name: Experiencing Ben Nevis
-        hippo:versionHistory: a1e69208-b531-4a75-bd91-a6b032c39ab9
+        hippo:versionHistory: 29b181c1-0f7c-4304-8739-3b1a31f34d4f
         /experiencing-ben-nevis[1]:
           jcr:primaryType: visitscotland:Article
           jcr:mixinTypes: ['mix:versionable']
@@ -6934,7 +6933,7 @@
           hippostd:state: unpublished
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2021-01-11T14:27:02.137Z
-          hippostdpubwf:lastModificationDate: 2022-08-23T12:48:34.244+01:00
+          hippostdpubwf:lastModificationDate: 2022-11-17T16:42:52.307Z
           hippostdpubwf:lastModifiedBy: admin
           hippotranslation:id: c62b31d0-0841-4c20-b6f7-636e36534659
           hippotranslation:locale: en
@@ -6981,17 +6980,15 @@
                   active volcano which exploded and collapsed inwards on itself millions
                   of years ago.</p>
             /visitscotland:media:
-              jcr:primaryType: hippogallerypicker:imagelink
-              hippo:docbase: dd3e5e22-111b-41f1-aac6-0c8fcf4bc954
-              hippo:facets: []
-              hippo:modes: []
-              hippo:values: []
+              jcr:primaryType: visitscotland:VideoLink
+              /visitscotland:videoLink:
+                jcr:primaryType: hippo:mirror
+                hippo:docbase: b193d2fa-424d-44b0-a720-1d2cb5cf0184
           /visitscotland:media:
-            jcr:primaryType: hippogallerypicker:imagelink
-            hippo:docbase: 81e169c7-a76e-4388-9854-29d03f173ba0
-            hippo:facets: []
-            hippo:modes: []
-            hippo:values: []
+            jcr:primaryType: visitscotland:VideoLink
+            /visitscotland:videoLink:
+              jcr:primaryType: hippo:mirror
+              hippo:docbase: b193d2fa-424d-44b0-a720-1d2cb5cf0184
         /experiencing-ben-nevis[2]:
           jcr:primaryType: visitscotland:Article
           jcr:mixinTypes: ['mix:referenceable']
@@ -7001,7 +6998,7 @@
           hippostd:state: draft
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2021-01-11T14:27:02.137Z
-          hippostdpubwf:lastModificationDate: 2022-08-23T12:47:04.787+01:00
+          hippostdpubwf:lastModificationDate: 2022-11-17T16:42:27.583Z
           hippostdpubwf:lastModifiedBy: admin
           hippotranslation:id: c62b31d0-0841-4c20-b6f7-636e36534659
           hippotranslation:locale: en
@@ -7048,17 +7045,15 @@
                   active volcano which exploded and collapsed inwards on itself millions
                   of years ago.</p>
             /visitscotland:media:
-              jcr:primaryType: hippogallerypicker:imagelink
-              hippo:docbase: dd3e5e22-111b-41f1-aac6-0c8fcf4bc954
-              hippo:facets: []
-              hippo:modes: []
-              hippo:values: []
+              jcr:primaryType: visitscotland:VideoLink
+              /visitscotland:videoLink:
+                jcr:primaryType: hippo:mirror
+                hippo:docbase: b193d2fa-424d-44b0-a720-1d2cb5cf0184
           /visitscotland:media:
-            jcr:primaryType: hippogallerypicker:imagelink
-            hippo:docbase: 81e169c7-a76e-4388-9854-29d03f173ba0
-            hippo:facets: []
-            hippo:modes: []
-            hippo:values: []
+            jcr:primaryType: visitscotland:VideoLink
+            /visitscotland:videoLink:
+              jcr:primaryType: hippo:mirror
+              hippo:docbase: b193d2fa-424d-44b0-a720-1d2cb5cf0184
         /experiencing-ben-nevis[3]:
           jcr:primaryType: visitscotland:Article
           jcr:mixinTypes: ['mix:referenceable']
@@ -7068,9 +7063,9 @@
           hippostd:state: published
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2021-01-11T14:27:02.137Z
-          hippostdpubwf:lastModificationDate: 2022-08-23T12:48:34.244+01:00
+          hippostdpubwf:lastModificationDate: 2022-11-17T16:42:52.307Z
           hippostdpubwf:lastModifiedBy: admin
-          hippostdpubwf:publicationDate: 2022-08-23T12:48:37.475+01:00
+          hippostdpubwf:publicationDate: 2022-11-17T16:42:54.682Z
           hippotranslation:id: c62b31d0-0841-4c20-b6f7-636e36534659
           hippotranslation:locale: en
           visitscotland:anchor: introduction
@@ -7116,17 +7111,15 @@
                   active volcano which exploded and collapsed inwards on itself millions
                   of years ago.</p>
             /visitscotland:media:
-              jcr:primaryType: hippogallerypicker:imagelink
-              hippo:docbase: dd3e5e22-111b-41f1-aac6-0c8fcf4bc954
-              hippo:facets: []
-              hippo:modes: []
-              hippo:values: []
+              jcr:primaryType: visitscotland:VideoLink
+              /visitscotland:videoLink:
+                jcr:primaryType: hippo:mirror
+                hippo:docbase: b193d2fa-424d-44b0-a720-1d2cb5cf0184
           /visitscotland:media:
-            jcr:primaryType: hippogallerypicker:imagelink
-            hippo:docbase: 81e169c7-a76e-4388-9854-29d03f173ba0
-            hippo:facets: []
-            hippo:modes: []
-            hippo:values: []
+            jcr:primaryType: visitscotland:VideoLink
+            /visitscotland:videoLink:
+              jcr:primaryType: hippo:mirror
+              hippo:docbase: b193d2fa-424d-44b0-a720-1d2cb5cf0184
       /routes-to-the-summit:
         jcr:primaryType: hippo:handle
         jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
@@ -8832,7 +8825,7 @@
         jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
         jcr:uuid: 8eeae920-228b-4873-b642-7b9f97a092fe
         hippo:name: Itinerary day one
-        hippo:versionHistory: 3d6d17f5-413e-4c86-923d-7e4d8de7fba3
+        hippo:versionHistory: 8036e18e-9ee1-4d3d-bf59-341a05e878c1
         /itinerary-day-one[1]:
           jcr:primaryType: visitscotland:Day
           jcr:mixinTypes: ['mix:referenceable']
@@ -8842,7 +8835,7 @@
           hippostd:state: draft
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2021-05-24T12:38:52.578+01:00
-          hippostdpubwf:lastModificationDate: 2021-06-25T14:54:19.791+01:00
+          hippostdpubwf:lastModificationDate: 2022-11-18T12:52:00.152Z
           hippostdpubwf:lastModifiedBy: admin
           hippotranslation:id: 677b511a-e54b-482b-a2b5-7d8615fded44
           hippotranslation:locale: en
@@ -8860,6 +8853,9 @@
           /visitscotland:stops[2]:
             jcr:primaryType: hippo:mirror
             hippo:docbase: 030dde79-74ad-441b-b7f2-731cb0312e3c
+          /visitscotland:stops[3]:
+            jcr:primaryType: hippo:mirror
+            hippo:docbase: fc1a1f69-c51a-4b65-8bef-3ba62452b6be
         /itinerary-day-one[2]:
           jcr:primaryType: visitscotland:Day
           jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
@@ -8869,7 +8865,7 @@
           hippostd:state: unpublished
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2021-05-24T12:38:52.578+01:00
-          hippostdpubwf:lastModificationDate: 2021-05-25T14:22:08.791+01:00
+          hippostdpubwf:lastModificationDate: 2022-11-18T12:55:34.907Z
           hippostdpubwf:lastModifiedBy: admin
           hippotranslation:id: 677b511a-e54b-482b-a2b5-7d8615fded44
           hippotranslation:locale: en
@@ -8887,6 +8883,9 @@
           /visitscotland:stops[2]:
             jcr:primaryType: hippo:mirror
             hippo:docbase: 030dde79-74ad-441b-b7f2-731cb0312e3c
+          /visitscotland:stops[3]:
+            jcr:primaryType: hippo:mirror
+            hippo:docbase: fc1a1f69-c51a-4b65-8bef-3ba62452b6be
         /itinerary-day-one[3]:
           jcr:primaryType: visitscotland:Day
           jcr:mixinTypes: ['mix:referenceable']
@@ -8896,9 +8895,9 @@
           hippostd:state: published
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2021-05-24T12:38:52.578+01:00
-          hippostdpubwf:lastModificationDate: 2021-05-25T14:22:08.791+01:00
+          hippostdpubwf:lastModificationDate: 2022-11-18T12:55:34.907Z
           hippostdpubwf:lastModifiedBy: admin
-          hippostdpubwf:publicationDate: 2021-05-25T14:22:56.221+01:00
+          hippostdpubwf:publicationDate: 2022-11-18T12:55:36.881Z
           hippotranslation:id: 677b511a-e54b-482b-a2b5-7d8615fded44
           hippotranslation:locale: en
           visitscotland:title: Take in the highlights of Scotland's capital
@@ -8915,6 +8914,9 @@
           /visitscotland:stops[2]:
             jcr:primaryType: hippo:mirror
             hippo:docbase: 030dde79-74ad-441b-b7f2-731cb0312e3c
+          /visitscotland:stops[3]:
+            jcr:primaryType: hippo:mirror
+            hippo:docbase: fc1a1f69-c51a-4b65-8bef-3ba62452b6be
       /itinerary-day-two:
         jcr:primaryType: hippo:handle
         jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
@@ -9029,7 +9031,7 @@
         jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
         jcr:uuid: 7746679b-6821-4a09-9173-664653dad7dd
         hippo:name: Destination page example
-        hippo:versionHistory: 72b4eaf0-146c-4434-8310-0aadc0522d47
+        hippo:versionHistory: 2a11ef1c-f00b-41c8-a771-66fe40bb45f4
         /content[1]:
           jcr:primaryType: visitscotland:Destination
           jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
@@ -9039,9 +9041,9 @@
           hippostd:state: draft
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2021-05-24T13:47:56.985+01:00
-          hippostdpubwf:lastModificationDate: 2022-10-13T08:20:00.901+01:00
+          hippostdpubwf:lastModificationDate: 2022-11-16T16:05:48.418Z
           hippostdpubwf:lastModifiedBy: admin
-          hippotaxonomy:keys: [regions]
+          hippotaxonomy:keys: [islands]
           hippotranslation:id: c991600c-b975-4528-b4d8-dada510a957f
           hippotranslation:locale: en
           visitscotland:breadcrumb: ''
@@ -9097,9 +9099,9 @@
           hippostd:state: unpublished
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2021-05-24T13:47:56.985+01:00
-          hippostdpubwf:lastModificationDate: 2022-10-13T08:20:16.022+01:00
+          hippostdpubwf:lastModificationDate: 2022-11-16T16:06:02.650Z
           hippostdpubwf:lastModifiedBy: admin
-          hippotaxonomy:keys: [regions]
+          hippotaxonomy:keys: [islands]
           hippotranslation:id: c991600c-b975-4528-b4d8-dada510a957f
           hippotranslation:locale: en
           visitscotland:breadcrumb: ''
@@ -9155,10 +9157,10 @@
           hippostd:state: published
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2021-05-24T13:47:56.985+01:00
-          hippostdpubwf:lastModificationDate: 2022-10-13T08:20:16.022+01:00
+          hippostdpubwf:lastModificationDate: 2022-11-16T16:06:02.650Z
           hippostdpubwf:lastModifiedBy: admin
-          hippostdpubwf:publicationDate: 2022-10-13T08:20:18.109+01:00
-          hippotaxonomy:keys: [regions]
+          hippostdpubwf:publicationDate: 2022-11-16T16:06:04.921Z
+          hippotaxonomy:keys: [islands]
           hippotranslation:id: c991600c-b975-4528-b4d8-dada510a957f
           hippotranslation:locale: en
           visitscotland:breadcrumb: ''
@@ -9205,6 +9207,1693 @@
             /visitscotland:links[5]:
               jcr:primaryType: hippo:mirror
               hippo:docbase: a917046f-7774-4544-9762-3e51e4fa0529
+      /regions:
+        jcr:primaryType: hippostd:folder
+        jcr:mixinTypes: ['hippo:named', 'hippotranslation:translated', 'mix:versionable']
+        jcr:uuid: 801dc509-ec3f-40b3-8148-b8267a1ce248
+        hippo:name: Regions
+        hippostd:foldertype: [new-translated-folder-test, new-document]
+        hippotranslation:id: 6f59aed6-94af-4bd8-be2b-d889053bd42d
+        hippotranslation:locale: en
+        /aberdeen-city-shire:
+          jcr:primaryType: hippostd:folder
+          jcr:mixinTypes: ['hippo:named', 'hippotranslation:translated', 'mix:versionable']
+          jcr:uuid: dd565deb-98e1-4240-b910-42ffbe440eea
+          hippo:name: Aberdeen city shire
+          hippostd:foldertype: [new-translated-folder-test, new-document]
+          hippotranslation:id: e52fb740-9eee-4866-80bb-bf08a26af1d7
+          hippotranslation:locale: en
+          /content:
+            jcr:primaryType: hippo:handle
+            jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+            jcr:uuid: c22131ac-2773-4e38-9e39-08ab3e756f27
+            hippo:name: Aberdeen city shire
+            hippo:versionHistory: 35541a2b-c6d7-4e1c-8110-7d1ddd9242e5
+            /content[1]:
+              jcr:primaryType: visitscotland:Destination
+              jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
+              jcr:uuid: 5ad17ce7-f323-451d-b08d-46bb6ae715c0
+              hippo:availability: []
+              hippostd:retainable: false
+              hippostd:state: draft
+              hippostdpubwf:createdBy: admin
+              hippostdpubwf:creationDate: 2022-11-22T14:16:20.008Z
+              hippostdpubwf:lastModificationDate: 2022-11-23T10:36:25.235Z
+              hippostdpubwf:lastModifiedBy: admin
+              hippotaxonomy:keys: [regions]
+              hippotranslation:id: 7bce2042-49fb-42c6-b673-61bac04c2a35
+              hippotranslation:locale: en
+              visitscotland:breadcrumb: ''
+              visitscotland:hideNewsletter: false
+              visitscotland:location: Aberdeen & Aberdeenshire
+              visitscotland:seoDescription: Aberdeen city shire
+              visitscotland:seoNoIndex: false
+              visitscotland:seoTitle: Aberdeen city shire
+              visitscotland:teaser: Aberdeen city shire teaser
+              visitscotland:title: Aberdeen City Shire
+              visitscotland:translation: ''
+              /visitscotland:heroImage:
+                jcr:primaryType: hippogallerypicker:imagelink
+                hippo:docbase: a5b5922e-d0d5-420c-af2d-670768cf7bd6
+                hippo:facets: []
+                hippo:modes: []
+                hippo:values: []
+              /visitscotland:introduction:
+                jcr:primaryType: hippostd:html
+                hippostd:content: <p>Aberdeen city shire introduction</p>
+            /content[2]:
+              jcr:primaryType: visitscotland:Destination
+              jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable',
+                'mix:versionable']
+              jcr:uuid: a352e854-1b43-476f-8082-0c04b70ceeb7
+              hippo:availability: [preview]
+              hippostd:retainable: false
+              hippostd:state: unpublished
+              hippostdpubwf:createdBy: admin
+              hippostdpubwf:creationDate: 2022-11-22T14:16:20.008Z
+              hippostdpubwf:lastModificationDate: 2022-11-23T10:36:43.977Z
+              hippostdpubwf:lastModifiedBy: admin
+              hippotaxonomy:keys: [regions]
+              hippotranslation:id: 7bce2042-49fb-42c6-b673-61bac04c2a35
+              hippotranslation:locale: en
+              visitscotland:breadcrumb: ''
+              visitscotland:hideNewsletter: false
+              visitscotland:location: Aberdeen & Aberdeenshire
+              visitscotland:seoDescription: Aberdeen city shire
+              visitscotland:seoNoIndex: false
+              visitscotland:seoTitle: Aberdeen city shire
+              visitscotland:teaser: Aberdeen city shire teaser
+              visitscotland:title: Aberdeen City Shire
+              visitscotland:translation: ''
+              /visitscotland:heroImage:
+                jcr:primaryType: hippogallerypicker:imagelink
+                hippo:docbase: a5b5922e-d0d5-420c-af2d-670768cf7bd6
+                hippo:facets: []
+                hippo:modes: []
+                hippo:values: []
+              /visitscotland:introduction:
+                jcr:primaryType: hippostd:html
+                hippostd:content: <p>Aberdeen city shire introduction</p>
+            /content[3]:
+              jcr:primaryType: visitscotland:Destination
+              jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
+              jcr:uuid: 573abb8d-d2a6-46c3-b9ac-f68c5a238af1
+              hippo:availability: [live]
+              hippostd:retainable: false
+              hippostd:state: published
+              hippostdpubwf:createdBy: admin
+              hippostdpubwf:creationDate: 2022-11-22T14:16:20.008Z
+              hippostdpubwf:lastModificationDate: 2022-11-23T10:36:43.977Z
+              hippostdpubwf:lastModifiedBy: admin
+              hippostdpubwf:publicationDate: 2022-11-23T10:36:48.374Z
+              hippotaxonomy:keys: [regions]
+              hippotranslation:id: 7bce2042-49fb-42c6-b673-61bac04c2a35
+              hippotranslation:locale: en
+              visitscotland:breadcrumb: ''
+              visitscotland:hideNewsletter: false
+              visitscotland:location: Aberdeen & Aberdeenshire
+              visitscotland:seoDescription: Aberdeen city shire
+              visitscotland:seoNoIndex: false
+              visitscotland:seoTitle: Aberdeen city shire
+              visitscotland:teaser: Aberdeen city shire teaser
+              visitscotland:title: Aberdeen City Shire
+              visitscotland:translation: ''
+              /visitscotland:heroImage:
+                jcr:primaryType: hippogallerypicker:imagelink
+                hippo:docbase: a5b5922e-d0d5-420c-af2d-670768cf7bd6
+                hippo:facets: []
+                hippo:modes: []
+                hippo:values: []
+              /visitscotland:introduction:
+                jcr:primaryType: hippostd:html
+                hippostd:content: <p>Aberdeen city shire introduction</p>
+        /arguill:
+          jcr:primaryType: hippostd:folder
+          jcr:mixinTypes: ['hippo:named', 'hippotranslation:translated', 'mix:versionable']
+          jcr:uuid: 91c8dcf2-85f2-44ba-89eb-1d773886bbe4
+          hippo:name: Arguill
+          hippostd:foldertype: [new-translated-folder-test, new-document]
+          hippotranslation:id: b6e83204-8630-42cf-961a-03649f82cf63
+          hippotranslation:locale: en
+          /content:
+            jcr:primaryType: hippo:handle
+            jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+            jcr:uuid: d40c3ebe-d9bb-4107-bb5d-cdbdcc051f37
+            hippo:name: Arguill
+            hippo:versionHistory: cfee47a0-7cff-4d0f-a628-f8feadd36115
+            /content[1]:
+              jcr:primaryType: visitscotland:Destination
+              jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
+              jcr:uuid: b48a9ba7-4188-49a5-bb21-7d0059f458e5
+              hippo:availability: []
+              hippostd:retainable: false
+              hippostd:state: draft
+              hippostdpubwf:createdBy: admin
+              hippostdpubwf:creationDate: 2022-11-22T14:18:01.984Z
+              hippostdpubwf:lastModificationDate: 2022-11-22T14:18:01.984Z
+              hippostdpubwf:lastModifiedBy: admin
+              hippotaxonomy:keys: [regions]
+              hippotranslation:id: cf635d6b-3546-436c-a5c9-12ef0d587f70
+              hippotranslation:locale: en
+              visitscotland:breadcrumb: ''
+              visitscotland:hideNewsletter: false
+              visitscotland:location: Argyll & The Isles
+              visitscotland:seoDescription: Arguill
+              visitscotland:seoNoIndex: false
+              visitscotland:seoTitle: Arguill
+              visitscotland:teaser: Arguill
+              visitscotland:title: Arguill
+              visitscotland:translation: ''
+              /visitscotland:heroImage:
+                jcr:primaryType: hippogallerypicker:imagelink
+                hippo:docbase: 6fe01b32-04e9-4d0f-86c9-b6b8bd246a67
+                hippo:facets: []
+                hippo:modes: []
+                hippo:values: []
+              /visitscotland:introduction:
+                jcr:primaryType: hippostd:html
+                hippostd:content: <p>Arguill intro</p>
+            /content[2]:
+              jcr:primaryType: visitscotland:Destination
+              jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable',
+                'mix:versionable']
+              jcr:uuid: 9e9c7491-cdc1-4a8a-a604-89f6d79280a8
+              hippo:availability: [preview]
+              hippostd:retainable: false
+              hippostd:state: unpublished
+              hippostdpubwf:createdBy: admin
+              hippostdpubwf:creationDate: 2022-11-22T14:18:01.984Z
+              hippostdpubwf:lastModificationDate: 2022-11-22T14:18:36.226Z
+              hippostdpubwf:lastModifiedBy: admin
+              hippotaxonomy:keys: [regions]
+              hippotranslation:id: cf635d6b-3546-436c-a5c9-12ef0d587f70
+              hippotranslation:locale: en
+              visitscotland:breadcrumb: ''
+              visitscotland:hideNewsletter: false
+              visitscotland:location: Argyll & The Isles
+              visitscotland:seoDescription: Arguill
+              visitscotland:seoNoIndex: false
+              visitscotland:seoTitle: Arguill
+              visitscotland:teaser: Arguill
+              visitscotland:title: Arguill
+              visitscotland:translation: ''
+              /visitscotland:heroImage:
+                jcr:primaryType: hippogallerypicker:imagelink
+                hippo:docbase: 6fe01b32-04e9-4d0f-86c9-b6b8bd246a67
+                hippo:facets: []
+                hippo:modes: []
+                hippo:values: []
+              /visitscotland:introduction:
+                jcr:primaryType: hippostd:html
+                hippostd:content: <p>Arguill intro</p>
+            /content[3]:
+              jcr:primaryType: visitscotland:Destination
+              jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
+              jcr:uuid: 12313705-c1e3-453e-8066-741fcaa956d5
+              hippo:availability: [live]
+              hippostd:retainable: false
+              hippostd:state: published
+              hippostdpubwf:createdBy: admin
+              hippostdpubwf:creationDate: 2022-11-22T14:18:01.984Z
+              hippostdpubwf:lastModificationDate: 2022-11-22T14:18:36.226Z
+              hippostdpubwf:lastModifiedBy: admin
+              hippostdpubwf:publicationDate: 2022-11-22T14:18:38.305Z
+              hippotaxonomy:keys: [regions]
+              hippotranslation:id: cf635d6b-3546-436c-a5c9-12ef0d587f70
+              hippotranslation:locale: en
+              visitscotland:breadcrumb: ''
+              visitscotland:hideNewsletter: false
+              visitscotland:location: Argyll & The Isles
+              visitscotland:seoDescription: Arguill
+              visitscotland:seoNoIndex: false
+              visitscotland:seoTitle: Arguill
+              visitscotland:teaser: Arguill
+              visitscotland:title: Arguill
+              visitscotland:translation: ''
+              /visitscotland:heroImage:
+                jcr:primaryType: hippogallerypicker:imagelink
+                hippo:docbase: 6fe01b32-04e9-4d0f-86c9-b6b8bd246a67
+                hippo:facets: []
+                hippo:modes: []
+                hippo:values: []
+              /visitscotland:introduction:
+                jcr:primaryType: hippostd:html
+                hippostd:content: <p>Arguill intro</p>
+        /ayshire-arran:
+          jcr:primaryType: hippostd:folder
+          jcr:mixinTypes: ['hippo:named', 'hippotranslation:translated', 'mix:versionable']
+          jcr:uuid: 45cbed30-0c25-47f8-8bf0-a2ffb47b8d42
+          hippo:name: Ayshire Arran
+          hippostd:foldertype: [new-translated-folder-test, new-document]
+          hippotranslation:id: 39ebbf97-3a7d-4f1a-8302-c2d04ff458a4
+          hippotranslation:locale: en
+          /content:
+            jcr:primaryType: hippo:handle
+            jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+            jcr:uuid: 8749c6f3-b2b0-45ab-aa17-05944b206ea2
+            hippo:name: Ayshire Arran
+            hippo:versionHistory: bd9aa1d8-abf9-4ebd-aa9a-a1a7f7216331
+            /content[1]:
+              jcr:primaryType: visitscotland:Destination
+              jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
+              jcr:uuid: cc041374-d828-4368-a4d9-c86c5020e826
+              hippo:availability: []
+              hippostd:retainable: false
+              hippostd:state: draft
+              hippostdpubwf:createdBy: admin
+              hippostdpubwf:creationDate: 2022-11-22T14:19:03.770Z
+              hippostdpubwf:lastModificationDate: 2022-11-22T14:24:07.417Z
+              hippostdpubwf:lastModifiedBy: admin
+              hippotaxonomy:keys: [regions]
+              hippotranslation:id: f843edfa-9d20-4f2f-9162-6206d8a8e0af
+              hippotranslation:locale: en
+              visitscotland:breadcrumb: ''
+              visitscotland:hideNewsletter: false
+              visitscotland:location: Ayrshire & Arran
+              visitscotland:seoDescription: Ayshire Arran
+              visitscotland:seoNoIndex: false
+              visitscotland:seoTitle: Ayshire Arran
+              visitscotland:teaser: Ayshire Arran teaser
+              visitscotland:title: Ayshire Arran
+              visitscotland:translation: ''
+              /visitscotland:heroImage:
+                jcr:primaryType: hippogallerypicker:imagelink
+                hippo:docbase: 6fe01b32-04e9-4d0f-86c9-b6b8bd246a67
+                hippo:facets: []
+                hippo:modes: []
+                hippo:values: []
+              /visitscotland:introduction:
+                jcr:primaryType: hippostd:html
+                hippostd:content: <p>Ayshire Arran intro</p>
+            /content[2]:
+              jcr:primaryType: visitscotland:Destination
+              jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable',
+                'mix:versionable']
+              jcr:uuid: 63db31a1-a746-432d-bb7f-aba8789427b6
+              hippo:availability: [preview]
+              hippostd:retainable: false
+              hippostd:state: unpublished
+              hippostdpubwf:createdBy: admin
+              hippostdpubwf:creationDate: 2022-11-22T14:19:03.770Z
+              hippostdpubwf:lastModificationDate: 2022-11-22T14:24:13.225Z
+              hippostdpubwf:lastModifiedBy: admin
+              hippotaxonomy:keys: [regions]
+              hippotranslation:id: f843edfa-9d20-4f2f-9162-6206d8a8e0af
+              hippotranslation:locale: en
+              visitscotland:breadcrumb: ''
+              visitscotland:hideNewsletter: false
+              visitscotland:location: Ayrshire & Arran
+              visitscotland:seoDescription: Ayshire Arran
+              visitscotland:seoNoIndex: false
+              visitscotland:seoTitle: Ayshire Arran
+              visitscotland:teaser: Ayshire Arran teaser
+              visitscotland:title: Ayshire Arran
+              visitscotland:translation: ''
+              /visitscotland:heroImage:
+                jcr:primaryType: hippogallerypicker:imagelink
+                hippo:docbase: 6fe01b32-04e9-4d0f-86c9-b6b8bd246a67
+                hippo:facets: []
+                hippo:modes: []
+                hippo:values: []
+              /visitscotland:introduction:
+                jcr:primaryType: hippostd:html
+                hippostd:content: <p>Ayshire Arran intro</p>
+            /content[3]:
+              jcr:primaryType: visitscotland:Destination
+              jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
+              jcr:uuid: 25925f26-6c97-4f94-bb18-7a9f29e0042a
+              hippo:availability: [live]
+              hippostd:retainable: false
+              hippostd:state: published
+              hippostdpubwf:createdBy: admin
+              hippostdpubwf:creationDate: 2022-11-22T14:19:03.770Z
+              hippostdpubwf:lastModificationDate: 2022-11-22T14:24:13.225Z
+              hippostdpubwf:lastModifiedBy: admin
+              hippostdpubwf:publicationDate: 2022-11-22T14:24:15.059Z
+              hippotaxonomy:keys: [regions]
+              hippotranslation:id: f843edfa-9d20-4f2f-9162-6206d8a8e0af
+              hippotranslation:locale: en
+              visitscotland:breadcrumb: ''
+              visitscotland:hideNewsletter: false
+              visitscotland:location: Ayrshire & Arran
+              visitscotland:seoDescription: Ayshire Arran
+              visitscotland:seoNoIndex: false
+              visitscotland:seoTitle: Ayshire Arran
+              visitscotland:teaser: Ayshire Arran teaser
+              visitscotland:title: Ayshire Arran
+              visitscotland:translation: ''
+              /visitscotland:heroImage:
+                jcr:primaryType: hippogallerypicker:imagelink
+                hippo:docbase: 6fe01b32-04e9-4d0f-86c9-b6b8bd246a67
+                hippo:facets: []
+                hippo:modes: []
+                hippo:values: []
+              /visitscotland:introduction:
+                jcr:primaryType: hippostd:html
+                hippostd:content: <p>Ayshire Arran intro</p>
+        /borders:
+          jcr:primaryType: hippostd:folder
+          jcr:mixinTypes: ['hippo:named', 'hippotranslation:translated', 'mix:versionable']
+          jcr:uuid: c82c75c8-0c98-43d6-894e-8b75405f2fbb
+          hippo:name: Borders
+          hippostd:foldertype: [new-translated-folder-test, new-document]
+          hippotranslation:id: 8cbe9569-ca16-400b-a33e-d1ae5da1b525
+          hippotranslation:locale: en
+          /content:
+            jcr:primaryType: hippo:handle
+            jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+            jcr:uuid: 7df260cd-12dc-436c-b760-d23d744b4c9a
+            hippo:name: Borders
+            hippo:versionHistory: 66bb8dad-1603-4c1a-8cab-b3c82c864929
+            /content[1]:
+              jcr:primaryType: visitscotland:Destination
+              jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
+              jcr:uuid: f273155f-aae8-44e6-b458-587759c9cbaa
+              hippo:availability: []
+              hippostd:retainable: false
+              hippostd:state: draft
+              hippostdpubwf:createdBy: admin
+              hippostdpubwf:creationDate: 2022-11-22T14:20:12.553Z
+              hippostdpubwf:lastModificationDate: 2022-11-22T14:23:55.607Z
+              hippostdpubwf:lastModifiedBy: admin
+              hippotaxonomy:keys: [regions]
+              hippotranslation:id: e6c76f00-63b4-4705-9eb7-cb09a91573e6
+              hippotranslation:locale: en
+              visitscotland:breadcrumb: ''
+              visitscotland:hideNewsletter: false
+              visitscotland:location: The Scottish Borders
+              visitscotland:seoDescription: Borders
+              visitscotland:seoNoIndex: false
+              visitscotland:seoTitle: Borders
+              visitscotland:teaser: Borders teaser
+              visitscotland:title: Borders
+              visitscotland:translation: ''
+              /visitscotland:heroImage:
+                jcr:primaryType: hippogallerypicker:imagelink
+                hippo:docbase: 6fe01b32-04e9-4d0f-86c9-b6b8bd246a67
+                hippo:facets: []
+                hippo:modes: []
+                hippo:values: []
+              /visitscotland:introduction:
+                jcr:primaryType: hippostd:html
+                hippostd:content: <p>Borders intro</p>
+            /content[2]:
+              jcr:primaryType: visitscotland:Destination
+              jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable',
+                'mix:versionable']
+              jcr:uuid: 594c18da-1b9a-4f7a-91cd-e9c84b396bc0
+              hippo:availability: [preview]
+              hippostd:retainable: false
+              hippostd:state: unpublished
+              hippostdpubwf:createdBy: admin
+              hippostdpubwf:creationDate: 2022-11-22T14:20:12.553Z
+              hippostdpubwf:lastModificationDate: 2022-11-22T14:24:02.183Z
+              hippostdpubwf:lastModifiedBy: admin
+              hippotaxonomy:keys: [regions]
+              hippotranslation:id: e6c76f00-63b4-4705-9eb7-cb09a91573e6
+              hippotranslation:locale: en
+              visitscotland:breadcrumb: ''
+              visitscotland:hideNewsletter: false
+              visitscotland:location: The Scottish Borders
+              visitscotland:seoDescription: Borders
+              visitscotland:seoNoIndex: false
+              visitscotland:seoTitle: Borders
+              visitscotland:teaser: Borders teaser
+              visitscotland:title: Borders
+              visitscotland:translation: ''
+              /visitscotland:heroImage:
+                jcr:primaryType: hippogallerypicker:imagelink
+                hippo:docbase: 6fe01b32-04e9-4d0f-86c9-b6b8bd246a67
+                hippo:facets: []
+                hippo:modes: []
+                hippo:values: []
+              /visitscotland:introduction:
+                jcr:primaryType: hippostd:html
+                hippostd:content: <p>Borders intro</p>
+            /content[3]:
+              jcr:primaryType: visitscotland:Destination
+              jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
+              jcr:uuid: 44c0ba4f-3a12-4bd0-b667-e2b33575002b
+              hippo:availability: [live]
+              hippostd:retainable: false
+              hippostd:state: published
+              hippostdpubwf:createdBy: admin
+              hippostdpubwf:creationDate: 2022-11-22T14:20:12.553Z
+              hippostdpubwf:lastModificationDate: 2022-11-22T14:24:02.183Z
+              hippostdpubwf:lastModifiedBy: admin
+              hippostdpubwf:publicationDate: 2022-11-22T14:24:03.926Z
+              hippotaxonomy:keys: [regions]
+              hippotranslation:id: e6c76f00-63b4-4705-9eb7-cb09a91573e6
+              hippotranslation:locale: en
+              visitscotland:breadcrumb: ''
+              visitscotland:hideNewsletter: false
+              visitscotland:location: The Scottish Borders
+              visitscotland:seoDescription: Borders
+              visitscotland:seoNoIndex: false
+              visitscotland:seoTitle: Borders
+              visitscotland:teaser: Borders teaser
+              visitscotland:title: Borders
+              visitscotland:translation: ''
+              /visitscotland:heroImage:
+                jcr:primaryType: hippogallerypicker:imagelink
+                hippo:docbase: 6fe01b32-04e9-4d0f-86c9-b6b8bd246a67
+                hippo:facets: []
+                hippo:modes: []
+                hippo:values: []
+              /visitscotland:introduction:
+                jcr:primaryType: hippostd:html
+                hippostd:content: <p>Borders intro</p>
+          /map:
+            jcr:primaryType: hippo:handle
+            jcr:mixinTypes: ['hippo:versionInfo', 'mix:referenceable']
+            jcr:uuid: 94d4ed24-0d21-4358-a82b-f1692ae2993f
+            hippo:versionHistory: 7601202d-0c60-43ae-bda9-a14c59071f1d
+            /map[1]:
+              jcr:primaryType: visitscotland:MapModule
+              jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
+              jcr:uuid: e18da8aa-5ea5-4a95-a1dd-b64f28ec69e2
+              hippo:availability: []
+              hippostd:retainable: false
+              hippostd:state: draft
+              hippostd:transferable: false
+              hippostdpubwf:createdBy: admin
+              hippostdpubwf:creationDate: 2022-11-22T14:46:15.695Z
+              hippostdpubwf:lastModificationDate: 2022-11-22T14:55:32.908Z
+              hippostdpubwf:lastModifiedBy: admin
+              hippotranslation:id: 8507a032-9bc6-4a5a-ac65-1c56df8a4362
+              hippotranslation:locale: en
+              visitscotland:tabTitle: Explore the borders
+              visitscotland:title: The Borders map
+            /map[2]:
+              jcr:primaryType: visitscotland:MapModule
+              jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable',
+                'mix:versionable']
+              jcr:uuid: 6aa52ddc-be96-450f-af7a-36e4cb793a37
+              hippo:availability: [preview]
+              hippostd:retainable: false
+              hippostd:state: unpublished
+              hippostdpubwf:createdBy: admin
+              hippostdpubwf:creationDate: 2022-11-22T14:46:15.695Z
+              hippostdpubwf:lastModificationDate: 2022-11-22T14:46:30.500Z
+              hippostdpubwf:lastModifiedBy: admin
+              hippotranslation:id: 8507a032-9bc6-4a5a-ac65-1c56df8a4362
+              hippotranslation:locale: en
+              visitscotland:tabTitle: Explore the borders
+              visitscotland:title: The Borders map
+            /map[3]:
+              jcr:primaryType: visitscotland:MapModule
+              jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
+              jcr:uuid: 4bd034f0-dd63-45a1-878e-f178a97c2bdc
+              hippo:availability: [live]
+              hippostd:retainable: false
+              hippostd:state: published
+              hippostdpubwf:createdBy: admin
+              hippostdpubwf:creationDate: 2022-11-22T14:46:15.695Z
+              hippostdpubwf:lastModificationDate: 2022-11-22T14:46:30.500Z
+              hippostdpubwf:lastModifiedBy: admin
+              hippostdpubwf:publicationDate: 2022-11-22T14:46:32.311Z
+              hippotranslation:id: 8507a032-9bc6-4a5a-ac65-1c56df8a4362
+              hippotranslation:locale: en
+              visitscotland:tabTitle: Explore the borders
+              visitscotland:title: The Borders map
+        /dumfries:
+          jcr:primaryType: hippostd:folder
+          jcr:mixinTypes: ['hippo:named', 'hippotranslation:translated', 'mix:versionable']
+          jcr:uuid: 91ab35fe-e3a4-4611-ba10-ca0be5859363
+          hippo:name: Dumfries
+          hippostd:foldertype: [new-translated-folder-test, new-document]
+          hippotranslation:id: 26f11fd7-676f-4bef-a558-03c1ffef8172
+          hippotranslation:locale: en
+          /content:
+            jcr:primaryType: hippo:handle
+            jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+            jcr:uuid: a70f9aea-08e4-4957-951f-e7131901c302
+            hippo:name: Dumfries
+            hippo:versionHistory: 1d35a747-3126-4d8e-a38a-fa191a644d70
+            /content[1]:
+              jcr:primaryType: visitscotland:Destination
+              jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
+              jcr:uuid: 66ee0144-af1a-48c4-8761-567130105472
+              hippo:availability: []
+              hippostd:retainable: false
+              hippostd:state: draft
+              hippostdpubwf:createdBy: admin
+              hippostdpubwf:creationDate: 2022-11-22T14:21:02.615Z
+              hippostdpubwf:lastModificationDate: 2022-11-22T14:23:37.942Z
+              hippostdpubwf:lastModifiedBy: admin
+              hippotaxonomy:keys: [regions]
+              hippotranslation:id: 1acb528a-652d-454b-99f1-c3c02a512017
+              hippotranslation:locale: en
+              visitscotland:breadcrumb: ''
+              visitscotland:hideNewsletter: false
+              visitscotland:location: Dumfries & Galloway
+              visitscotland:seoDescription: Dumfries
+              visitscotland:seoNoIndex: false
+              visitscotland:seoTitle: Dumfries
+              visitscotland:teaser: Dumfries teaser
+              visitscotland:title: Dumfries
+              visitscotland:translation: ''
+              /visitscotland:heroImage:
+                jcr:primaryType: hippogallerypicker:imagelink
+                hippo:docbase: 6fe01b32-04e9-4d0f-86c9-b6b8bd246a67
+                hippo:facets: []
+                hippo:modes: []
+                hippo:values: []
+              /visitscotland:introduction:
+                jcr:primaryType: hippostd:html
+                hippostd:content: <p>Dumfries intro</p>
+            /content[2]:
+              jcr:primaryType: visitscotland:Destination
+              jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable',
+                'mix:versionable']
+              jcr:uuid: b6c0b095-ede0-465c-a96f-62fa3043c4e9
+              hippo:availability: [preview]
+              hippostd:retainable: false
+              hippostd:state: unpublished
+              hippostdpubwf:createdBy: admin
+              hippostdpubwf:creationDate: 2022-11-22T14:21:02.615Z
+              hippostdpubwf:lastModificationDate: 2022-11-22T14:23:45.395Z
+              hippostdpubwf:lastModifiedBy: admin
+              hippotaxonomy:keys: [regions]
+              hippotranslation:id: 1acb528a-652d-454b-99f1-c3c02a512017
+              hippotranslation:locale: en
+              visitscotland:breadcrumb: ''
+              visitscotland:hideNewsletter: false
+              visitscotland:location: Dumfries & Galloway
+              visitscotland:seoDescription: Dumfries
+              visitscotland:seoNoIndex: false
+              visitscotland:seoTitle: Dumfries
+              visitscotland:teaser: Dumfries teaser
+              visitscotland:title: Dumfries
+              visitscotland:translation: ''
+              /visitscotland:heroImage:
+                jcr:primaryType: hippogallerypicker:imagelink
+                hippo:docbase: 6fe01b32-04e9-4d0f-86c9-b6b8bd246a67
+                hippo:facets: []
+                hippo:modes: []
+                hippo:values: []
+              /visitscotland:introduction:
+                jcr:primaryType: hippostd:html
+                hippostd:content: <p>Dumfries intro</p>
+            /content[3]:
+              jcr:primaryType: visitscotland:Destination
+              jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
+              jcr:uuid: bc8540f8-7b88-4a26-9757-9167a8fbb884
+              hippo:availability: [live]
+              hippostd:retainable: false
+              hippostd:state: published
+              hippostdpubwf:createdBy: admin
+              hippostdpubwf:creationDate: 2022-11-22T14:21:02.615Z
+              hippostdpubwf:lastModificationDate: 2022-11-22T14:23:45.395Z
+              hippostdpubwf:lastModifiedBy: admin
+              hippostdpubwf:publicationDate: 2022-11-22T14:23:47.056Z
+              hippotaxonomy:keys: [regions]
+              hippotranslation:id: 1acb528a-652d-454b-99f1-c3c02a512017
+              hippotranslation:locale: en
+              visitscotland:breadcrumb: ''
+              visitscotland:hideNewsletter: false
+              visitscotland:location: Dumfries & Galloway
+              visitscotland:seoDescription: Dumfries
+              visitscotland:seoNoIndex: false
+              visitscotland:seoTitle: Dumfries
+              visitscotland:teaser: Dumfries teaser
+              visitscotland:title: Dumfries
+              visitscotland:translation: ''
+              /visitscotland:heroImage:
+                jcr:primaryType: hippogallerypicker:imagelink
+                hippo:docbase: 6fe01b32-04e9-4d0f-86c9-b6b8bd246a67
+                hippo:facets: []
+                hippo:modes: []
+                hippo:values: []
+              /visitscotland:introduction:
+                jcr:primaryType: hippostd:html
+                hippostd:content: <p>Dumfries intro</p>
+        /dundee-angus:
+          jcr:primaryType: hippostd:folder
+          jcr:mixinTypes: ['hippo:named', 'hippotranslation:translated', 'mix:versionable']
+          jcr:uuid: 1be86d5c-d02a-4c46-b628-85718b0751f8
+          hippo:name: Dundee Angus
+          hippostd:foldertype: [new-translated-folder-test, new-document]
+          hippotranslation:id: e3ba1516-d6df-492b-9095-ea4684e256b8
+          hippotranslation:locale: en
+          /content:
+            jcr:primaryType: hippo:handle
+            jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+            jcr:uuid: a3c6dbec-40bd-488f-af17-16f56f4102ed
+            hippo:name: Dundee Angus
+            hippo:versionHistory: 493961b4-c2e1-4394-83e8-c41590ca207e
+            /content[1]:
+              jcr:primaryType: visitscotland:Destination
+              jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
+              jcr:uuid: d8953265-e588-42e4-bec1-376853d69268
+              hippo:availability: []
+              hippostd:retainable: false
+              hippostd:state: draft
+              hippostdpubwf:createdBy: admin
+              hippostdpubwf:creationDate: 2022-11-22T14:21:56.433Z
+              hippostdpubwf:lastModificationDate: 2022-11-22T14:23:26.250Z
+              hippostdpubwf:lastModifiedBy: admin
+              hippotaxonomy:keys: [regions]
+              hippotranslation:id: 1191877f-b95d-4b69-a5b4-98ec51561faa
+              hippotranslation:locale: en
+              visitscotland:breadcrumb: ''
+              visitscotland:hideNewsletter: false
+              visitscotland:location: Dundee & Angus
+              visitscotland:seoDescription: Dundee Angus
+              visitscotland:seoNoIndex: false
+              visitscotland:seoTitle: Dundee Angus
+              visitscotland:teaser: Dundee Angus teaser
+              visitscotland:title: Dundee Angus
+              visitscotland:translation: ''
+              /visitscotland:heroImage:
+                jcr:primaryType: hippogallerypicker:imagelink
+                hippo:docbase: 6fe01b32-04e9-4d0f-86c9-b6b8bd246a67
+                hippo:facets: []
+                hippo:modes: []
+                hippo:values: []
+              /visitscotland:introduction:
+                jcr:primaryType: hippostd:html
+                hippostd:content: <p>Dundee Angus intro</p>
+            /content[2]:
+              jcr:primaryType: visitscotland:Destination
+              jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable',
+                'mix:versionable']
+              jcr:uuid: 2fcf18b5-7236-4642-ac26-dac3f5a40c32
+              hippo:availability: [preview]
+              hippostd:retainable: false
+              hippostd:state: unpublished
+              hippostdpubwf:createdBy: admin
+              hippostdpubwf:creationDate: 2022-11-22T14:21:56.433Z
+              hippostdpubwf:lastModificationDate: 2022-11-22T14:23:32.282Z
+              hippostdpubwf:lastModifiedBy: admin
+              hippotaxonomy:keys: [regions]
+              hippotranslation:id: 1191877f-b95d-4b69-a5b4-98ec51561faa
+              hippotranslation:locale: en
+              visitscotland:breadcrumb: ''
+              visitscotland:hideNewsletter: false
+              visitscotland:location: Dundee & Angus
+              visitscotland:seoDescription: Dundee Angus
+              visitscotland:seoNoIndex: false
+              visitscotland:seoTitle: Dundee Angus
+              visitscotland:teaser: Dundee Angus teaser
+              visitscotland:title: Dundee Angus
+              visitscotland:translation: ''
+              /visitscotland:heroImage:
+                jcr:primaryType: hippogallerypicker:imagelink
+                hippo:docbase: 6fe01b32-04e9-4d0f-86c9-b6b8bd246a67
+                hippo:facets: []
+                hippo:modes: []
+                hippo:values: []
+              /visitscotland:introduction:
+                jcr:primaryType: hippostd:html
+                hippostd:content: <p>Dundee Angus intro</p>
+            /content[3]:
+              jcr:primaryType: visitscotland:Destination
+              jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
+              jcr:uuid: fe508abe-b028-4b8b-8714-26b5bf4edd31
+              hippo:availability: [live]
+              hippostd:retainable: false
+              hippostd:state: published
+              hippostdpubwf:createdBy: admin
+              hippostdpubwf:creationDate: 2022-11-22T14:21:56.433Z
+              hippostdpubwf:lastModificationDate: 2022-11-22T14:23:32.282Z
+              hippostdpubwf:lastModifiedBy: admin
+              hippostdpubwf:publicationDate: 2022-11-22T14:23:34.055Z
+              hippotaxonomy:keys: [regions]
+              hippotranslation:id: 1191877f-b95d-4b69-a5b4-98ec51561faa
+              hippotranslation:locale: en
+              visitscotland:breadcrumb: ''
+              visitscotland:hideNewsletter: false
+              visitscotland:location: Dundee & Angus
+              visitscotland:seoDescription: Dundee Angus
+              visitscotland:seoNoIndex: false
+              visitscotland:seoTitle: Dundee Angus
+              visitscotland:teaser: Dundee Angus teaser
+              visitscotland:title: Dundee Angus
+              visitscotland:translation: ''
+              /visitscotland:heroImage:
+                jcr:primaryType: hippogallerypicker:imagelink
+                hippo:docbase: 6fe01b32-04e9-4d0f-86c9-b6b8bd246a67
+                hippo:facets: []
+                hippo:modes: []
+                hippo:values: []
+              /visitscotland:introduction:
+                jcr:primaryType: hippostd:html
+                hippostd:content: <p>Dundee Angus intro</p>
+        /edinburgh-lothians:
+          jcr:primaryType: hippostd:folder
+          jcr:mixinTypes: ['hippo:named', 'hippotranslation:translated', 'mix:versionable']
+          jcr:uuid: ef6030e0-80a3-4270-a32d-14f4df993521
+          hippo:name: Edinburgh Lothians
+          hippostd:foldertype: [new-translated-folder-test, new-document]
+          hippotranslation:id: 16ea35ff-fa09-4710-9e33-2f506f428b42
+          hippotranslation:locale: en
+          /content:
+            jcr:primaryType: hippo:handle
+            jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+            jcr:uuid: a00fff8e-1694-4bdc-84be-b0ab30a60638
+            hippo:name: Edinburgh Lothians
+            hippo:versionHistory: d0f2ea52-9b0c-4efc-968f-a19559d48268
+            /content[1]:
+              jcr:primaryType: visitscotland:Destination
+              jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
+              jcr:uuid: cb7ab8b1-ef6a-452c-aba2-92027ba32aa9
+              hippo:availability: []
+              hippostd:retainable: false
+              hippostd:state: draft
+              hippostdpubwf:createdBy: admin
+              hippostdpubwf:creationDate: 2022-11-22T14:22:51.495Z
+              hippostdpubwf:lastModificationDate: 2022-11-22T14:22:51.495Z
+              hippostdpubwf:lastModifiedBy: admin
+              hippotaxonomy:keys: [regions]
+              hippotranslation:id: 6d5186a1-d9c2-46e9-a8c8-e1cefded050c
+              hippotranslation:locale: en
+              visitscotland:breadcrumb: ''
+              visitscotland:hideNewsletter: false
+              visitscotland:location: Edinburgh & The Lothians
+              visitscotland:seoDescription: Edinburgh Lothians
+              visitscotland:seoNoIndex: false
+              visitscotland:seoTitle: Edinburgh Lothians
+              visitscotland:teaser: Edinburgh Lothians teaser
+              visitscotland:title: Edinburgh Lothians
+              visitscotland:translation: ''
+              /visitscotland:heroImage:
+                jcr:primaryType: hippogallerypicker:imagelink
+                hippo:docbase: 6fe01b32-04e9-4d0f-86c9-b6b8bd246a67
+                hippo:facets: []
+                hippo:modes: []
+                hippo:values: []
+              /visitscotland:introduction:
+                jcr:primaryType: hippostd:html
+                hippostd:content: <p>Edinburgh Lothians intro</p>
+            /content[2]:
+              jcr:primaryType: visitscotland:Destination
+              jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable',
+                'mix:versionable']
+              jcr:uuid: e2c5ded8-3978-43a3-aca7-cb3c5c7951d4
+              hippo:availability: [preview]
+              hippostd:retainable: false
+              hippostd:state: unpublished
+              hippostdpubwf:createdBy: admin
+              hippostdpubwf:creationDate: 2022-11-22T14:22:51.495Z
+              hippostdpubwf:lastModificationDate: 2022-11-22T14:23:21.996Z
+              hippostdpubwf:lastModifiedBy: admin
+              hippotaxonomy:keys: [regions]
+              hippotranslation:id: 6d5186a1-d9c2-46e9-a8c8-e1cefded050c
+              hippotranslation:locale: en
+              visitscotland:breadcrumb: ''
+              visitscotland:hideNewsletter: false
+              visitscotland:location: Edinburgh & The Lothians
+              visitscotland:seoDescription: Edinburgh Lothians
+              visitscotland:seoNoIndex: false
+              visitscotland:seoTitle: Edinburgh Lothians
+              visitscotland:teaser: Edinburgh Lothians teaser
+              visitscotland:title: Edinburgh Lothians
+              visitscotland:translation: ''
+              /visitscotland:heroImage:
+                jcr:primaryType: hippogallerypicker:imagelink
+                hippo:docbase: 6fe01b32-04e9-4d0f-86c9-b6b8bd246a67
+                hippo:facets: []
+                hippo:modes: []
+                hippo:values: []
+              /visitscotland:introduction:
+                jcr:primaryType: hippostd:html
+                hippostd:content: <p>Edinburgh Lothians intro</p>
+            /content[3]:
+              jcr:primaryType: visitscotland:Destination
+              jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
+              jcr:uuid: f909b4aa-f0f3-470e-97dc-f2592337793e
+              hippo:availability: [live]
+              hippostd:retainable: false
+              hippostd:state: published
+              hippostdpubwf:createdBy: admin
+              hippostdpubwf:creationDate: 2022-11-22T14:22:51.495Z
+              hippostdpubwf:lastModificationDate: 2022-11-22T14:23:21.996Z
+              hippostdpubwf:lastModifiedBy: admin
+              hippostdpubwf:publicationDate: 2022-11-22T14:23:23.594Z
+              hippotaxonomy:keys: [regions]
+              hippotranslation:id: 6d5186a1-d9c2-46e9-a8c8-e1cefded050c
+              hippotranslation:locale: en
+              visitscotland:breadcrumb: ''
+              visitscotland:hideNewsletter: false
+              visitscotland:location: Edinburgh & The Lothians
+              visitscotland:seoDescription: Edinburgh Lothians
+              visitscotland:seoNoIndex: false
+              visitscotland:seoTitle: Edinburgh Lothians
+              visitscotland:teaser: Edinburgh Lothians teaser
+              visitscotland:title: Edinburgh Lothians
+              visitscotland:translation: ''
+              /visitscotland:heroImage:
+                jcr:primaryType: hippogallerypicker:imagelink
+                hippo:docbase: 6fe01b32-04e9-4d0f-86c9-b6b8bd246a67
+                hippo:facets: []
+                hippo:modes: []
+                hippo:values: []
+              /visitscotland:introduction:
+                jcr:primaryType: hippostd:html
+                hippostd:content: <p>Edinburgh Lothians intro</p>
+          /map:
+            jcr:primaryType: hippo:handle
+            jcr:mixinTypes: ['hippo:versionInfo', 'mix:referenceable']
+            jcr:uuid: 0c16ff0f-a000-46de-ae60-d4d8386203fb
+            hippo:versionHistory: 2b04b5c5-84fa-4cb2-a05b-7cbc4bbdff29
+            /map[1]:
+              jcr:primaryType: visitscotland:MapModule
+              jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
+              jcr:uuid: 75c3aaa3-fba3-4435-8b12-7baed651619e
+              hippo:availability: []
+              hippostd:retainable: false
+              hippostd:state: draft
+              hippostdpubwf:createdBy: admin
+              hippostdpubwf:creationDate: 2022-11-22T14:44:26.543Z
+              hippostdpubwf:lastModificationDate: 2022-11-22T14:44:26.544Z
+              hippostdpubwf:lastModifiedBy: admin
+              hippotranslation:id: ac65b173-36e5-4c76-b3a9-e042e1cbbbc1
+              hippotranslation:locale: en
+              visitscotland:tabTitle: ''
+              visitscotland:title: Edinburgh and the lothians map
+            /map[2]:
+              jcr:primaryType: visitscotland:MapModule
+              jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable',
+                'mix:versionable']
+              jcr:uuid: 82a254d3-108b-42a6-abf4-2e7f6d4d3b51
+              hippo:availability: [preview]
+              hippostd:retainable: false
+              hippostd:state: unpublished
+              hippostdpubwf:createdBy: admin
+              hippostdpubwf:creationDate: 2022-11-22T14:44:26.543Z
+              hippostdpubwf:lastModificationDate: 2022-11-22T14:44:52.339Z
+              hippostdpubwf:lastModifiedBy: admin
+              hippotranslation:id: ac65b173-36e5-4c76-b3a9-e042e1cbbbc1
+              hippotranslation:locale: en
+              visitscotland:tabTitle: ''
+              visitscotland:title: Edinburgh and the lothians map
+            /map[3]:
+              jcr:primaryType: visitscotland:MapModule
+              jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
+              jcr:uuid: 408b9ae4-77f8-4880-a79a-2e6cfc0301f9
+              hippo:availability: [live]
+              hippostd:retainable: false
+              hippostd:state: published
+              hippostdpubwf:createdBy: admin
+              hippostdpubwf:creationDate: 2022-11-22T14:44:26.543Z
+              hippostdpubwf:lastModificationDate: 2022-11-22T14:44:52.339Z
+              hippostdpubwf:lastModifiedBy: admin
+              hippostdpubwf:publicationDate: 2022-11-22T14:44:55.226Z
+              hippotranslation:id: ac65b173-36e5-4c76-b3a9-e042e1cbbbc1
+              hippotranslation:locale: en
+              visitscotland:tabTitle: ''
+              visitscotland:title: Edinburgh and the lothians map
+        /greater-glasgow:
+          jcr:primaryType: hippostd:folder
+          jcr:mixinTypes: ['hippo:named', 'hippotranslation:translated', 'mix:versionable']
+          jcr:uuid: 69cb0e9c-c100-482e-a266-f252eaf35c29
+          hippo:name: Greater glasgow
+          hippostd:foldertype: [new-translated-folder-test, new-document]
+          hippotranslation:id: 9db68149-8ab6-4e07-9c78-66846cbbd8cb
+          hippotranslation:locale: en
+          /content:
+            jcr:primaryType: hippo:handle
+            jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+            jcr:uuid: 06cf4e93-3d91-4cab-9625-a469e0c82179
+            hippo:name: Greater glasgow
+            hippo:versionHistory: f545b9b3-d111-4311-9b61-22c687924a93
+            /content[1]:
+              jcr:primaryType: visitscotland:Destination
+              jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
+              jcr:uuid: 1e82a537-81ef-424a-bf66-a4cc9f6e7a5b
+              hippo:availability: []
+              hippostd:retainable: false
+              hippostd:state: draft
+              hippostdpubwf:createdBy: admin
+              hippostdpubwf:creationDate: 2022-11-22T14:25:21.172Z
+              hippostdpubwf:lastModificationDate: 2022-11-22T14:25:21.172Z
+              hippostdpubwf:lastModifiedBy: admin
+              hippotaxonomy:keys: [regions]
+              hippotranslation:id: a9bbb120-7243-47a2-9b43-67e0c963908f
+              hippotranslation:locale: en
+              visitscotland:breadcrumb: ''
+              visitscotland:hideNewsletter: false
+              visitscotland:location: Greater Glasgow & The Clyde Valley
+              visitscotland:seoDescription: Greater glasgow
+              visitscotland:seoNoIndex: false
+              visitscotland:seoTitle: Greater glasgow
+              visitscotland:teaser: Greater glasgow teaser
+              visitscotland:title: Greater glasgow
+              visitscotland:translation: ''
+              /visitscotland:heroImage:
+                jcr:primaryType: hippogallerypicker:imagelink
+                hippo:docbase: 6fe01b32-04e9-4d0f-86c9-b6b8bd246a67
+                hippo:facets: []
+                hippo:modes: []
+                hippo:values: []
+              /visitscotland:introduction:
+                jcr:primaryType: hippostd:html
+                hippostd:content: <p>Greater glasgow intro</p>
+            /content[2]:
+              jcr:primaryType: visitscotland:Destination
+              jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable',
+                'mix:versionable']
+              jcr:uuid: bbc9aed8-7a3e-48a1-83ae-d3be452bb1b0
+              hippo:availability: [preview]
+              hippostd:retainable: false
+              hippostd:state: unpublished
+              hippostdpubwf:createdBy: admin
+              hippostdpubwf:creationDate: 2022-11-22T14:25:21.172Z
+              hippostdpubwf:lastModificationDate: 2022-11-22T14:25:42.427Z
+              hippostdpubwf:lastModifiedBy: admin
+              hippotaxonomy:keys: [regions]
+              hippotranslation:id: a9bbb120-7243-47a2-9b43-67e0c963908f
+              hippotranslation:locale: en
+              visitscotland:breadcrumb: ''
+              visitscotland:hideNewsletter: false
+              visitscotland:location: Greater Glasgow & The Clyde Valley
+              visitscotland:seoDescription: Greater glasgow
+              visitscotland:seoNoIndex: false
+              visitscotland:seoTitle: Greater glasgow
+              visitscotland:teaser: Greater glasgow teaser
+              visitscotland:title: Greater glasgow
+              visitscotland:translation: ''
+              /visitscotland:heroImage:
+                jcr:primaryType: hippogallerypicker:imagelink
+                hippo:docbase: 6fe01b32-04e9-4d0f-86c9-b6b8bd246a67
+                hippo:facets: []
+                hippo:modes: []
+                hippo:values: []
+              /visitscotland:introduction:
+                jcr:primaryType: hippostd:html
+                hippostd:content: <p>Greater glasgow intro</p>
+            /content[3]:
+              jcr:primaryType: visitscotland:Destination
+              jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
+              jcr:uuid: 6c9be100-ee97-4983-b487-b7d4de913cef
+              hippo:availability: [live]
+              hippostd:retainable: false
+              hippostd:state: published
+              hippostdpubwf:createdBy: admin
+              hippostdpubwf:creationDate: 2022-11-22T14:25:21.172Z
+              hippostdpubwf:lastModificationDate: 2022-11-22T14:25:42.427Z
+              hippostdpubwf:lastModifiedBy: admin
+              hippostdpubwf:publicationDate: 2022-11-22T14:25:44.011Z
+              hippotaxonomy:keys: [regions]
+              hippotranslation:id: a9bbb120-7243-47a2-9b43-67e0c963908f
+              hippotranslation:locale: en
+              visitscotland:breadcrumb: ''
+              visitscotland:hideNewsletter: false
+              visitscotland:location: Greater Glasgow & The Clyde Valley
+              visitscotland:seoDescription: Greater glasgow
+              visitscotland:seoNoIndex: false
+              visitscotland:seoTitle: Greater glasgow
+              visitscotland:teaser: Greater glasgow teaser
+              visitscotland:title: Greater glasgow
+              visitscotland:translation: ''
+              /visitscotland:heroImage:
+                jcr:primaryType: hippogallerypicker:imagelink
+                hippo:docbase: 6fe01b32-04e9-4d0f-86c9-b6b8bd246a67
+                hippo:facets: []
+                hippo:modes: []
+                hippo:values: []
+              /visitscotland:introduction:
+                jcr:primaryType: hippostd:html
+                hippostd:content: <p>Greater glasgow intro</p>
+        /highlands:
+          jcr:primaryType: hippostd:folder
+          jcr:mixinTypes: ['hippo:named', 'hippotranslation:translated', 'mix:versionable']
+          jcr:uuid: 18ec1da3-ea5c-41a1-82f1-e08da8052d5e
+          hippo:name: Highlands
+          hippostd:foldertype: [new-translated-folder-test, new-document]
+          hippotranslation:id: c1d8eb3b-6aa8-480e-84d0-326e05c7cde5
+          hippotranslation:locale: en
+          /content:
+            jcr:primaryType: hippo:handle
+            jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+            jcr:uuid: 31c11ce6-5112-4607-8cab-9b14fdd89442
+            hippo:name: Highlands
+            hippo:versionHistory: 522d8ceb-b893-4624-a4a9-b73c98af62a5
+            /content[1]:
+              jcr:primaryType: visitscotland:Destination
+              jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
+              jcr:uuid: e723ce98-5ae0-4dd9-a51b-d76afb0efa35
+              hippo:availability: []
+              hippostd:retainable: false
+              hippostd:state: draft
+              hippostdpubwf:createdBy: admin
+              hippostdpubwf:creationDate: 2022-11-22T14:27:31.341Z
+              hippostdpubwf:lastModificationDate: 2022-11-22T14:27:31.341Z
+              hippostdpubwf:lastModifiedBy: admin
+              hippotaxonomy:keys: [regions]
+              hippotranslation:id: 2c1993f9-18d6-4828-8089-4010c20898c4
+              hippotranslation:locale: en
+              visitscotland:breadcrumb: ''
+              visitscotland:hideNewsletter: false
+              visitscotland:location: The Highlands
+              visitscotland:seoDescription: Highlands
+              visitscotland:seoNoIndex: false
+              visitscotland:seoTitle: Highlands
+              visitscotland:teaser: Highlands teaser
+              visitscotland:title: Highlands
+              visitscotland:translation: ''
+              /visitscotland:heroImage:
+                jcr:primaryType: hippogallerypicker:imagelink
+                hippo:docbase: 6fe01b32-04e9-4d0f-86c9-b6b8bd246a67
+                hippo:facets: []
+                hippo:modes: []
+                hippo:values: []
+              /visitscotland:introduction:
+                jcr:primaryType: hippostd:html
+                hippostd:content: <p>Highlands intro</p>
+            /content[2]:
+              jcr:primaryType: visitscotland:Destination
+              jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable',
+                'mix:versionable']
+              jcr:uuid: f6cf6cf7-3aad-423e-8712-cfc764a5ea53
+              hippo:availability: [preview]
+              hippostd:retainable: false
+              hippostd:state: unpublished
+              hippostdpubwf:createdBy: admin
+              hippostdpubwf:creationDate: 2022-11-22T14:27:31.341Z
+              hippostdpubwf:lastModificationDate: 2022-11-22T14:27:52.867Z
+              hippostdpubwf:lastModifiedBy: admin
+              hippotaxonomy:keys: [regions]
+              hippotranslation:id: 2c1993f9-18d6-4828-8089-4010c20898c4
+              hippotranslation:locale: en
+              visitscotland:breadcrumb: ''
+              visitscotland:hideNewsletter: false
+              visitscotland:location: The Highlands
+              visitscotland:seoDescription: Highlands
+              visitscotland:seoNoIndex: false
+              visitscotland:seoTitle: Highlands
+              visitscotland:teaser: Highlands teaser
+              visitscotland:title: Highlands
+              visitscotland:translation: ''
+              /visitscotland:heroImage:
+                jcr:primaryType: hippogallerypicker:imagelink
+                hippo:docbase: 6fe01b32-04e9-4d0f-86c9-b6b8bd246a67
+                hippo:facets: []
+                hippo:modes: []
+                hippo:values: []
+              /visitscotland:introduction:
+                jcr:primaryType: hippostd:html
+                hippostd:content: <p>Highlands intro</p>
+            /content[3]:
+              jcr:primaryType: visitscotland:Destination
+              jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
+              jcr:uuid: aaea044a-4353-4109-bf77-99f16e302b2e
+              hippo:availability: [live]
+              hippostd:retainable: false
+              hippostd:state: published
+              hippostdpubwf:createdBy: admin
+              hippostdpubwf:creationDate: 2022-11-22T14:27:31.341Z
+              hippostdpubwf:lastModificationDate: 2022-11-22T14:27:52.867Z
+              hippostdpubwf:lastModifiedBy: admin
+              hippostdpubwf:publicationDate: 2022-11-22T14:27:54.519Z
+              hippotaxonomy:keys: [regions]
+              hippotranslation:id: 2c1993f9-18d6-4828-8089-4010c20898c4
+              hippotranslation:locale: en
+              visitscotland:breadcrumb: ''
+              visitscotland:hideNewsletter: false
+              visitscotland:location: The Highlands
+              visitscotland:seoDescription: Highlands
+              visitscotland:seoNoIndex: false
+              visitscotland:seoTitle: Highlands
+              visitscotland:teaser: Highlands teaser
+              visitscotland:title: Highlands
+              visitscotland:translation: ''
+              /visitscotland:heroImage:
+                jcr:primaryType: hippogallerypicker:imagelink
+                hippo:docbase: 6fe01b32-04e9-4d0f-86c9-b6b8bd246a67
+                hippo:facets: []
+                hippo:modes: []
+                hippo:values: []
+              /visitscotland:introduction:
+                jcr:primaryType: hippostd:html
+                hippostd:content: <p>Highlands intro</p>
+        /fife:
+          jcr:primaryType: hippostd:folder
+          jcr:mixinTypes: ['hippo:named', 'hippotranslation:translated', 'mix:versionable']
+          jcr:uuid: 2f572de8-1df5-41a8-afff-e96e780c9178
+          hippo:name: Fife
+          hippostd:foldertype: [new-translated-folder-test, new-document]
+          hippotranslation:id: d7b2cefb-04ab-4db5-87de-bdc96aa64772
+          hippotranslation:locale: en
+          /content:
+            jcr:primaryType: hippo:handle
+            jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+            jcr:uuid: b8eea9bf-ed21-4ef1-83d9-ce69aad6200e
+            hippo:name: Fife
+            hippo:versionHistory: 328aac6a-bb01-430f-ba43-762258e7a0dc
+            /content[1]:
+              jcr:primaryType: visitscotland:Destination
+              jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
+              jcr:uuid: ab8a2ecc-14ca-4c6d-985c-c6c08f3be1fc
+              hippo:availability: []
+              hippostd:retainable: false
+              hippostd:state: draft
+              hippostdpubwf:createdBy: admin
+              hippostdpubwf:creationDate: 2022-11-22T14:28:31.047Z
+              hippostdpubwf:lastModificationDate: 2022-11-22T14:28:31.047Z
+              hippostdpubwf:lastModifiedBy: admin
+              hippotaxonomy:keys: [regions]
+              hippotranslation:id: 5e909464-8ed4-4f88-9e9b-cfdac301b655
+              hippotranslation:locale: en
+              visitscotland:breadcrumb: ''
+              visitscotland:hideNewsletter: false
+              visitscotland:location: The Kingdom of Fife
+              visitscotland:seoDescription: Fife
+              visitscotland:seoNoIndex: false
+              visitscotland:seoTitle: Fife
+              visitscotland:teaser: Fife teaser
+              visitscotland:title: Fife
+              visitscotland:translation: ''
+              /visitscotland:heroImage:
+                jcr:primaryType: hippogallerypicker:imagelink
+                hippo:docbase: 6fe01b32-04e9-4d0f-86c9-b6b8bd246a67
+                hippo:facets: []
+                hippo:modes: []
+                hippo:values: []
+              /visitscotland:introduction:
+                jcr:primaryType: hippostd:html
+                hippostd:content: <p>Fife intro</p>
+            /content[2]:
+              jcr:primaryType: visitscotland:Destination
+              jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable',
+                'mix:versionable']
+              jcr:uuid: cfd8e1c6-b79a-49c4-bd57-e86865ea5665
+              hippo:availability: [preview]
+              hippostd:retainable: false
+              hippostd:state: unpublished
+              hippostdpubwf:createdBy: admin
+              hippostdpubwf:creationDate: 2022-11-22T14:28:31.047Z
+              hippostdpubwf:lastModificationDate: 2022-11-22T14:29:20.225Z
+              hippostdpubwf:lastModifiedBy: admin
+              hippotaxonomy:keys: [regions]
+              hippotranslation:id: 5e909464-8ed4-4f88-9e9b-cfdac301b655
+              hippotranslation:locale: en
+              visitscotland:breadcrumb: ''
+              visitscotland:hideNewsletter: false
+              visitscotland:location: The Kingdom of Fife
+              visitscotland:seoDescription: Fife
+              visitscotland:seoNoIndex: false
+              visitscotland:seoTitle: Fife
+              visitscotland:teaser: Fife teaser
+              visitscotland:title: Fife
+              visitscotland:translation: ''
+              /visitscotland:heroImage:
+                jcr:primaryType: hippogallerypicker:imagelink
+                hippo:docbase: 6fe01b32-04e9-4d0f-86c9-b6b8bd246a67
+                hippo:facets: []
+                hippo:modes: []
+                hippo:values: []
+              /visitscotland:introduction:
+                jcr:primaryType: hippostd:html
+                hippostd:content: <p>Fife intro</p>
+            /content[3]:
+              jcr:primaryType: visitscotland:Destination
+              jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
+              jcr:uuid: d363d704-b4cf-4855-b9e5-678bae8454f5
+              hippo:availability: [live]
+              hippostd:retainable: false
+              hippostd:state: published
+              hippostdpubwf:createdBy: admin
+              hippostdpubwf:creationDate: 2022-11-22T14:28:31.047Z
+              hippostdpubwf:lastModificationDate: 2022-11-22T14:29:20.225Z
+              hippostdpubwf:lastModifiedBy: admin
+              hippostdpubwf:publicationDate: 2022-11-22T14:29:21.681Z
+              hippotaxonomy:keys: [regions]
+              hippotranslation:id: 5e909464-8ed4-4f88-9e9b-cfdac301b655
+              hippotranslation:locale: en
+              visitscotland:breadcrumb: ''
+              visitscotland:hideNewsletter: false
+              visitscotland:location: The Kingdom of Fife
+              visitscotland:seoDescription: Fife
+              visitscotland:seoNoIndex: false
+              visitscotland:seoTitle: Fife
+              visitscotland:teaser: Fife teaser
+              visitscotland:title: Fife
+              visitscotland:translation: ''
+              /visitscotland:heroImage:
+                jcr:primaryType: hippogallerypicker:imagelink
+                hippo:docbase: 6fe01b32-04e9-4d0f-86c9-b6b8bd246a67
+                hippo:facets: []
+                hippo:modes: []
+                hippo:values: []
+              /visitscotland:introduction:
+                jcr:primaryType: hippostd:html
+                hippostd:content: <p>Fife intro</p>
+        /loch-lomond:
+          jcr:primaryType: hippostd:folder
+          jcr:mixinTypes: ['hippo:named', 'hippotranslation:translated', 'mix:versionable']
+          jcr:uuid: d26ed5a1-7113-4dbb-84a8-1155b86e544f
+          hippo:name: Loch lomond
+          hippostd:foldertype: [new-translated-folder-test, new-document]
+          hippotranslation:id: d360c6fd-b79b-42d6-97ce-6c07948d053f
+          hippotranslation:locale: en
+          /content:
+            jcr:primaryType: hippo:handle
+            jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+            jcr:uuid: 1636ba41-874c-4466-838f-c0b4814bdc22
+            hippo:name: Loch lomond
+            hippo:versionHistory: 6a3d05d0-4f07-42d8-ac65-0c91836b6492
+            /content[1]:
+              jcr:primaryType: visitscotland:Destination
+              jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
+              jcr:uuid: cf9f5e78-32f9-4e63-b4c4-438e71d8fc7c
+              hippo:availability: []
+              hippostd:retainable: false
+              hippostd:state: draft
+              hippostdpubwf:createdBy: admin
+              hippostdpubwf:creationDate: 2022-11-22T14:29:54.751Z
+              hippostdpubwf:lastModificationDate: 2022-11-22T14:30:57.464Z
+              hippostdpubwf:lastModifiedBy: admin
+              hippotaxonomy:keys: [regions]
+              hippotranslation:id: 3eb6f33e-27c4-495b-860b-2a142434e64c
+              hippotranslation:locale: en
+              visitscotland:breadcrumb: ''
+              visitscotland:hideNewsletter: false
+              visitscotland:location: Loch Lomond, The Trossachs, Stirling & Forth
+                Valley
+              visitscotland:seoDescription: Loch lomond
+              visitscotland:seoNoIndex: false
+              visitscotland:seoTitle: Loch lomond
+              visitscotland:teaser: Loch lomond teaser
+              visitscotland:title: Loch lomond
+              visitscotland:translation: ''
+              /visitscotland:heroImage:
+                jcr:primaryType: hippogallerypicker:imagelink
+                hippo:docbase: 6fe01b32-04e9-4d0f-86c9-b6b8bd246a67
+                hippo:facets: []
+                hippo:modes: []
+                hippo:values: []
+              /visitscotland:introduction:
+                jcr:primaryType: hippostd:html
+                hippostd:content: <p>Loch lomond intro</p>
+            /content[2]:
+              jcr:primaryType: visitscotland:Destination
+              jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable',
+                'mix:versionable']
+              jcr:uuid: 8622ed19-9854-45ed-b7a0-d80acc5a5f2b
+              hippo:availability: [preview]
+              hippostd:retainable: false
+              hippostd:state: unpublished
+              hippostdpubwf:createdBy: admin
+              hippostdpubwf:creationDate: 2022-11-22T14:29:54.751Z
+              hippostdpubwf:lastModificationDate: 2022-11-22T14:32:20.907Z
+              hippostdpubwf:lastModifiedBy: admin
+              hippotaxonomy:keys: [regions]
+              hippotranslation:id: 3eb6f33e-27c4-495b-860b-2a142434e64c
+              hippotranslation:locale: en
+              visitscotland:breadcrumb: ''
+              visitscotland:hideNewsletter: false
+              visitscotland:location: Loch Lomond, The Trossachs, Stirling & Forth
+                Valley
+              visitscotland:seoDescription: Loch lomond
+              visitscotland:seoNoIndex: false
+              visitscotland:seoTitle: Loch lomond
+              visitscotland:teaser: Loch lomond teaser
+              visitscotland:title: Loch lomond
+              visitscotland:translation: ''
+              /visitscotland:heroImage:
+                jcr:primaryType: hippogallerypicker:imagelink
+                hippo:docbase: 6fe01b32-04e9-4d0f-86c9-b6b8bd246a67
+                hippo:facets: []
+                hippo:modes: []
+                hippo:values: []
+              /visitscotland:introduction:
+                jcr:primaryType: hippostd:html
+                hippostd:content: <p>Loch lomond intro</p>
+            /content[3]:
+              jcr:primaryType: visitscotland:Destination
+              jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
+              jcr:uuid: 97b429b7-ed81-4bd1-9281-cc1287c787df
+              hippo:availability: [live]
+              hippostd:retainable: false
+              hippostd:state: published
+              hippostdpubwf:createdBy: admin
+              hippostdpubwf:creationDate: 2022-11-22T14:29:54.751Z
+              hippostdpubwf:lastModificationDate: 2022-11-22T14:32:20.907Z
+              hippostdpubwf:lastModifiedBy: admin
+              hippostdpubwf:publicationDate: 2022-11-22T14:32:51.422Z
+              hippotaxonomy:keys: [regions]
+              hippotranslation:id: 3eb6f33e-27c4-495b-860b-2a142434e64c
+              hippotranslation:locale: en
+              visitscotland:breadcrumb: ''
+              visitscotland:hideNewsletter: false
+              visitscotland:location: Loch Lomond, The Trossachs, Stirling & Forth
+                Valley
+              visitscotland:seoDescription: Loch lomond
+              visitscotland:seoNoIndex: false
+              visitscotland:seoTitle: Loch lomond
+              visitscotland:teaser: Loch lomond teaser
+              visitscotland:title: Loch lomond
+              visitscotland:translation: ''
+              /visitscotland:heroImage:
+                jcr:primaryType: hippogallerypicker:imagelink
+                hippo:docbase: 6fe01b32-04e9-4d0f-86c9-b6b8bd246a67
+                hippo:facets: []
+                hippo:modes: []
+                hippo:values: []
+              /visitscotland:introduction:
+                jcr:primaryType: hippostd:html
+                hippostd:content: <p>Loch lomond intro</p>
+        /orkney:
+          jcr:primaryType: hippostd:folder
+          jcr:mixinTypes: ['hippo:named', 'hippotranslation:translated', 'mix:versionable']
+          jcr:uuid: 99859952-30c6-48e0-9e84-3640225e2e34
+          hippo:name: Orkney
+          hippostd:foldertype: [new-translated-folder-test, new-document]
+          hippotranslation:id: 2a997b48-5036-44e1-9a8e-4a75daf4b2b9
+          hippotranslation:locale: en
+          /content:
+            jcr:primaryType: hippo:handle
+            jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+            jcr:uuid: 4a45f102-ce13-4c72-90db-9452905cd4f5
+            hippo:name: Orkney
+            hippo:versionHistory: e86eb59a-9504-407c-9f3a-537389b8ddcf
+            /content[1]:
+              jcr:primaryType: visitscotland:Destination
+              jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
+              jcr:uuid: 716adc32-e3a0-45f7-823c-9e11e7cdf6b3
+              hippo:availability: []
+              hippostd:retainable: false
+              hippostd:state: draft
+              hippostdpubwf:createdBy: admin
+              hippostdpubwf:creationDate: 2022-11-22T14:31:44.073Z
+              hippostdpubwf:lastModificationDate: 2022-11-22T14:31:44.073Z
+              hippostdpubwf:lastModifiedBy: admin
+              hippotaxonomy:keys: [regions]
+              hippotranslation:id: c0de25de-1e0c-4d49-974c-2531bf8680ba
+              hippotranslation:locale: en
+              visitscotland:breadcrumb: ''
+              visitscotland:hideNewsletter: false
+              visitscotland:location: Orkney
+              visitscotland:seoDescription: Orkney
+              visitscotland:seoNoIndex: false
+              visitscotland:seoTitle: Orkney
+              visitscotland:teaser: Orkney teaser
+              visitscotland:title: Orkney
+              visitscotland:translation: ''
+              /visitscotland:heroImage:
+                jcr:primaryType: hippogallerypicker:imagelink
+                hippo:docbase: 6fe01b32-04e9-4d0f-86c9-b6b8bd246a67
+                hippo:facets: []
+                hippo:modes: []
+                hippo:values: []
+              /visitscotland:introduction:
+                jcr:primaryType: hippostd:html
+                hippostd:content: <p>Orkney intro</p>
+            /content[2]:
+              jcr:primaryType: visitscotland:Destination
+              jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable',
+                'mix:versionable']
+              jcr:uuid: b123663f-b333-4e51-9273-48120c62fb0a
+              hippo:availability: [preview]
+              hippostd:retainable: false
+              hippostd:state: unpublished
+              hippostdpubwf:createdBy: admin
+              hippostdpubwf:creationDate: 2022-11-22T14:31:44.073Z
+              hippostdpubwf:lastModificationDate: 2022-11-22T14:32:14.264Z
+              hippostdpubwf:lastModifiedBy: admin
+              hippotaxonomy:keys: [regions]
+              hippotranslation:id: c0de25de-1e0c-4d49-974c-2531bf8680ba
+              hippotranslation:locale: en
+              visitscotland:breadcrumb: ''
+              visitscotland:hideNewsletter: false
+              visitscotland:location: Orkney
+              visitscotland:seoDescription: Orkney
+              visitscotland:seoNoIndex: false
+              visitscotland:seoTitle: Orkney
+              visitscotland:teaser: Orkney teaser
+              visitscotland:title: Orkney
+              visitscotland:translation: ''
+              /visitscotland:heroImage:
+                jcr:primaryType: hippogallerypicker:imagelink
+                hippo:docbase: 6fe01b32-04e9-4d0f-86c9-b6b8bd246a67
+                hippo:facets: []
+                hippo:modes: []
+                hippo:values: []
+              /visitscotland:introduction:
+                jcr:primaryType: hippostd:html
+                hippostd:content: <p>Orkney intro</p>
+            /content[3]:
+              jcr:primaryType: visitscotland:Destination
+              jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
+              jcr:uuid: e24df702-7f3d-42f4-a1b9-fd5b52e31e40
+              hippo:availability: [live]
+              hippostd:retainable: false
+              hippostd:state: published
+              hippostdpubwf:createdBy: admin
+              hippostdpubwf:creationDate: 2022-11-22T14:31:44.073Z
+              hippostdpubwf:lastModificationDate: 2022-11-22T14:32:14.264Z
+              hippostdpubwf:lastModifiedBy: admin
+              hippostdpubwf:publicationDate: 2022-11-22T14:32:15.781Z
+              hippotaxonomy:keys: [regions]
+              hippotranslation:id: c0de25de-1e0c-4d49-974c-2531bf8680ba
+              hippotranslation:locale: en
+              visitscotland:breadcrumb: ''
+              visitscotland:hideNewsletter: false
+              visitscotland:location: Orkney
+              visitscotland:seoDescription: Orkney
+              visitscotland:seoNoIndex: false
+              visitscotland:seoTitle: Orkney
+              visitscotland:teaser: Orkney teaser
+              visitscotland:title: Orkney
+              visitscotland:translation: ''
+              /visitscotland:heroImage:
+                jcr:primaryType: hippogallerypicker:imagelink
+                hippo:docbase: 6fe01b32-04e9-4d0f-86c9-b6b8bd246a67
+                hippo:facets: []
+                hippo:modes: []
+                hippo:values: []
+              /visitscotland:introduction:
+                jcr:primaryType: hippostd:html
+                hippostd:content: <p>Orkney intro</p>
+        /perthshire:
+          jcr:primaryType: hippostd:folder
+          jcr:mixinTypes: ['hippo:named', 'hippotranslation:translated', 'mix:versionable']
+          jcr:uuid: e4215c65-b61e-4e78-9f13-5d1fe27ff29f
+          hippo:name: Perthshire
+          hippostd:foldertype: [new-translated-folder-test, new-document]
+          hippotranslation:id: 7b72be58-6077-4b45-9ae3-07018af427cc
+          hippotranslation:locale: en
+          /content:
+            jcr:primaryType: hippo:handle
+            jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+            jcr:uuid: bcb66f29-2a9c-4538-a4f6-b78906dc2c58
+            hippo:name: Perthshire
+            hippo:versionHistory: 947a48d7-4b74-42a7-9cbc-b4836920cb0c
+            /content[1]:
+              jcr:primaryType: visitscotland:Destination
+              jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
+              jcr:uuid: 397d2bca-e496-4756-9a75-390410bd5cae
+              hippo:availability: []
+              hippostd:retainable: false
+              hippostd:state: draft
+              hippostdpubwf:createdBy: admin
+              hippostdpubwf:creationDate: 2022-11-22T14:33:31.372Z
+              hippostdpubwf:lastModificationDate: 2022-11-22T14:33:31.372Z
+              hippostdpubwf:lastModifiedBy: admin
+              hippotaxonomy:keys: [regions]
+              hippotranslation:id: 283b80ea-c7e8-46f0-a2e7-21d65ece559f
+              hippotranslation:locale: en
+              visitscotland:breadcrumb: ''
+              visitscotland:hideNewsletter: false
+              visitscotland:location: Perthshire
+              visitscotland:seoDescription: Perthshire
+              visitscotland:seoNoIndex: false
+              visitscotland:seoTitle: Perthshire
+              visitscotland:teaser: Perthshire teaser
+              visitscotland:title: Perthshire
+              visitscotland:translation: ''
+              /visitscotland:heroImage:
+                jcr:primaryType: hippogallerypicker:imagelink
+                hippo:docbase: 6fe01b32-04e9-4d0f-86c9-b6b8bd246a67
+                hippo:facets: []
+                hippo:modes: []
+                hippo:values: []
+              /visitscotland:introduction:
+                jcr:primaryType: hippostd:html
+                hippostd:content: <p>Perthshire intro</p>
+            /content[2]:
+              jcr:primaryType: visitscotland:Destination
+              jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable',
+                'mix:versionable']
+              jcr:uuid: 884fe218-95f7-4bfa-a655-e05716828cd3
+              hippo:availability: [preview]
+              hippostd:retainable: false
+              hippostd:state: unpublished
+              hippostdpubwf:createdBy: admin
+              hippostdpubwf:creationDate: 2022-11-22T14:33:31.372Z
+              hippostdpubwf:lastModificationDate: 2022-11-22T14:34:01.090Z
+              hippostdpubwf:lastModifiedBy: admin
+              hippotaxonomy:keys: [regions]
+              hippotranslation:id: 283b80ea-c7e8-46f0-a2e7-21d65ece559f
+              hippotranslation:locale: en
+              visitscotland:breadcrumb: ''
+              visitscotland:hideNewsletter: false
+              visitscotland:location: Perthshire
+              visitscotland:seoDescription: Perthshire
+              visitscotland:seoNoIndex: false
+              visitscotland:seoTitle: Perthshire
+              visitscotland:teaser: Perthshire teaser
+              visitscotland:title: Perthshire
+              visitscotland:translation: ''
+              /visitscotland:heroImage:
+                jcr:primaryType: hippogallerypicker:imagelink
+                hippo:docbase: 6fe01b32-04e9-4d0f-86c9-b6b8bd246a67
+                hippo:facets: []
+                hippo:modes: []
+                hippo:values: []
+              /visitscotland:introduction:
+                jcr:primaryType: hippostd:html
+                hippostd:content: <p>Perthshire intro</p>
+            /content[3]:
+              jcr:primaryType: visitscotland:Destination
+              jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
+              jcr:uuid: dd103ea4-91cf-41a5-8f57-69447e7437a5
+              hippo:availability: [live]
+              hippostd:retainable: false
+              hippostd:state: published
+              hippostdpubwf:createdBy: admin
+              hippostdpubwf:creationDate: 2022-11-22T14:33:31.372Z
+              hippostdpubwf:lastModificationDate: 2022-11-22T14:34:01.090Z
+              hippostdpubwf:lastModifiedBy: admin
+              hippostdpubwf:publicationDate: 2022-11-22T14:34:03.193Z
+              hippotaxonomy:keys: [regions]
+              hippotranslation:id: 283b80ea-c7e8-46f0-a2e7-21d65ece559f
+              hippotranslation:locale: en
+              visitscotland:breadcrumb: ''
+              visitscotland:hideNewsletter: false
+              visitscotland:location: Perthshire
+              visitscotland:seoDescription: Perthshire
+              visitscotland:seoNoIndex: false
+              visitscotland:seoTitle: Perthshire
+              visitscotland:teaser: Perthshire teaser
+              visitscotland:title: Perthshire
+              visitscotland:translation: ''
+              /visitscotland:heroImage:
+                jcr:primaryType: hippogallerypicker:imagelink
+                hippo:docbase: 6fe01b32-04e9-4d0f-86c9-b6b8bd246a67
+                hippo:facets: []
+                hippo:modes: []
+                hippo:values: []
+              /visitscotland:introduction:
+                jcr:primaryType: hippostd:html
+                hippostd:content: <p>Perthshire intro</p>
+        /shetland:
+          jcr:primaryType: hippostd:folder
+          jcr:mixinTypes: ['hippo:named', 'hippotranslation:translated', 'mix:versionable']
+          jcr:uuid: 5e78ae2b-5789-4b91-90b7-3c7fd92e4a80
+          hippo:name: Shetland
+          hippostd:foldertype: [new-translated-folder-test, new-document]
+          hippotranslation:id: 2c68f521-246b-4695-ab91-d4a9a8adc411
+          hippotranslation:locale: en
+          /content:
+            jcr:primaryType: hippo:handle
+            jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+            jcr:uuid: c74a4f66-615d-4338-ba45-5bcfb6ff6246
+            hippo:name: Shetland
+            hippo:versionHistory: bc4c3d9a-2b3e-4604-b399-28049f26305b
+            /content[1]:
+              jcr:primaryType: visitscotland:Destination
+              jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
+              jcr:uuid: 387408c4-9de1-49c0-959b-e62670cbc66f
+              hippo:availability: []
+              hippostd:retainable: false
+              hippostd:state: draft
+              hippostd:transferable: false
+              hippostdpubwf:createdBy: admin
+              hippostdpubwf:creationDate: 2022-11-22T14:34:33.170Z
+              hippostdpubwf:lastModificationDate: 2022-11-22T14:34:33.170Z
+              hippostdpubwf:lastModifiedBy: admin
+              hippotaxonomy:keys: [regions]
+              hippotranslation:id: 867ca753-f6a3-4e2c-adde-0f15e008f198
+              hippotranslation:locale: en
+              visitscotland:breadcrumb: ''
+              visitscotland:hideNewsletter: false
+              visitscotland:location: Shetland
+              visitscotland:seoDescription: Shetland
+              visitscotland:seoNoIndex: false
+              visitscotland:seoTitle: Shetland
+              visitscotland:teaser: Shetland teaser
+              visitscotland:title: Shetland
+              visitscotland:translation: ''
+              /visitscotland:heroImage:
+                jcr:primaryType: hippogallerypicker:imagelink
+                hippo:docbase: 6fe01b32-04e9-4d0f-86c9-b6b8bd246a67
+                hippo:facets: []
+                hippo:modes: []
+                hippo:values: []
+              /visitscotland:introduction:
+                jcr:primaryType: hippostd:html
+                hippostd:content: <p>Shetland intro</p>
+            /content[2]:
+              jcr:primaryType: visitscotland:Destination
+              jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable',
+                'mix:versionable']
+              jcr:uuid: 756a04f4-426f-4510-ad49-8d0d99d3a218
+              hippo:availability: [preview]
+              hippostd:retainable: false
+              hippostd:state: unpublished
+              hippostd:transferable: false
+              hippostdpubwf:createdBy: admin
+              hippostdpubwf:creationDate: 2022-11-22T14:34:33.170Z
+              hippostdpubwf:lastModificationDate: 2022-11-22T14:35:10.948Z
+              hippostdpubwf:lastModifiedBy: admin
+              hippotaxonomy:keys: [regions]
+              hippotranslation:id: 867ca753-f6a3-4e2c-adde-0f15e008f198
+              hippotranslation:locale: en
+              visitscotland:breadcrumb: ''
+              visitscotland:hideNewsletter: false
+              visitscotland:location: Shetland
+              visitscotland:seoDescription: Shetland
+              visitscotland:seoNoIndex: false
+              visitscotland:seoTitle: Shetland
+              visitscotland:teaser: Shetland teaser
+              visitscotland:title: Shetland
+              visitscotland:translation: ''
+              /visitscotland:heroImage:
+                jcr:primaryType: hippogallerypicker:imagelink
+                hippo:docbase: 6fe01b32-04e9-4d0f-86c9-b6b8bd246a67
+                hippo:facets: []
+                hippo:modes: []
+                hippo:values: []
+              /visitscotland:introduction:
+                jcr:primaryType: hippostd:html
+                hippostd:content: <p>Shetland intro</p>
+            /content[3]:
+              jcr:primaryType: visitscotland:Destination
+              jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
+              jcr:uuid: ccaa84f6-ff56-44a6-99b5-7d6a2c37db00
+              hippo:availability: [live]
+              hippostd:retainable: false
+              hippostd:state: published
+              hippostd:transferable: false
+              hippostdpubwf:createdBy: admin
+              hippostdpubwf:creationDate: 2022-11-22T14:34:33.170Z
+              hippostdpubwf:lastModificationDate: 2022-11-22T14:35:10.948Z
+              hippostdpubwf:lastModifiedBy: admin
+              hippostdpubwf:publicationDate: 2022-11-22T14:35:14.214Z
+              hippotaxonomy:keys: [regions]
+              hippotranslation:id: 867ca753-f6a3-4e2c-adde-0f15e008f198
+              hippotranslation:locale: en
+              visitscotland:breadcrumb: ''
+              visitscotland:hideNewsletter: false
+              visitscotland:location: Shetland
+              visitscotland:seoDescription: Shetland
+              visitscotland:seoNoIndex: false
+              visitscotland:seoTitle: Shetland
+              visitscotland:teaser: Shetland teaser
+              visitscotland:title: Shetland
+              visitscotland:translation: ''
+              /visitscotland:heroImage:
+                jcr:primaryType: hippogallerypicker:imagelink
+                hippo:docbase: 6fe01b32-04e9-4d0f-86c9-b6b8bd246a67
+                hippo:facets: []
+                hippo:modes: []
+                hippo:values: []
+              /visitscotland:introduction:
+                jcr:primaryType: hippostd:html
+                hippostd:content: <p>Shetland intro</p>
     /listicle:
       jcr:primaryType: hippostd:folder
       jcr:mixinTypes: ['hippo:named', 'hippotranslation:translated', 'mix:versionable']

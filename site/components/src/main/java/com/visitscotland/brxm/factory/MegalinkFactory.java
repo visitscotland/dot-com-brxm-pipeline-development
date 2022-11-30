@@ -6,6 +6,7 @@ import com.visitscotland.brxm.model.Module;
 import com.visitscotland.brxm.model.megalinks.*;
 import com.visitscotland.brxm.services.LinkService;
 import com.visitscotland.brxm.services.ResourceBundleService;
+import com.visitscotland.brxm.utils.ContentLogger;
 import com.visitscotland.utils.Contract;
 import org.hippoecm.hst.content.beans.standard.HippoBean;
 import org.slf4j.Logger;
@@ -19,7 +20,7 @@ import java.util.stream.Collectors;
 public class MegalinkFactory {
 
     private static final Logger logger = LoggerFactory.getLogger(MegalinkFactory.class);
-    private static final Logger contentLogger = LoggerFactory.getLogger("content");
+
 
     public static final int MAX_ITEMS = 6;
     public static final int MIN_ITEMS_CAROUSEL = 5;
@@ -30,11 +31,14 @@ public class MegalinkFactory {
     private final LinkService linkService;
     private final ResourceBundleService bundle;
     private final ImageFactory imageFactory;
+    private final Logger contentLogger;
 
-    public MegalinkFactory(LinkService linkService, ResourceBundleService bundle, ImageFactory imageFactory) {
+    public MegalinkFactory(LinkService linkService, ResourceBundleService bundle, ImageFactory imageFactory,
+                           ContentLogger contentLogger) {
         this.linkService = linkService;
         this.bundle = bundle;
         this.imageFactory = imageFactory;
+        this.contentLogger = contentLogger;
     }
 
     public LinksModule<EnhancedLink> getMegalinkModule(Megalinks doc, Locale locale) {

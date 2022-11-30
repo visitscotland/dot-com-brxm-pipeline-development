@@ -10,4 +10,13 @@
       <outputDirectory>shared/lib</outputDirectory>
     </file>
   </files>
+  <dependencySets>
+  <dependencySet>
+    <outputDirectory>shared/lib</outputDirectory>
+    <scope>provided</scope>
+    <includes>
+      <include>com.h2database:h2</include>
+    </includes>
+  </dependencySet>
+</dependencySets>
 </component>

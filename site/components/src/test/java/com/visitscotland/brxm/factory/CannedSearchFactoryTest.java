@@ -11,6 +11,7 @@ import com.visitscotland.brxm.mock.CannedSearchToursMockBuilder;
 import com.visitscotland.brxm.model.*;
 import com.visitscotland.brxm.services.LinkService;
 import com.visitscotland.brxm.services.ResourceBundleService;
+import com.visitscotland.brxm.utils.ContentLogger;
 import com.visitscotland.brxm.utils.Properties;
 import org.hippoecm.hst.core.container.ComponentManager;
 import org.junit.jupiter.api.Assertions;
@@ -43,6 +44,9 @@ class CannedSearchFactoryTest {
     @Mock
     Properties properties;
 
+    @Mock
+    ContentLogger logger;
+
     @InjectMocks
     CannedSearchFactory factory;
 
@@ -57,7 +61,7 @@ class CannedSearchFactoryTest {
         when(psBuilder.buildCannedSearch()).thenReturn(PSR_URL);
         when(context.getComponent(ProductSearchBuilder.class)).thenReturn(psBuilder);
 
-        new VsComponentManager().setComponentManager(context);
+        VsComponentManager.setComponentManager(context);
     }
 
     @DisplayName("VS-2715 - When no cta for list view is provided then default cta should be used")

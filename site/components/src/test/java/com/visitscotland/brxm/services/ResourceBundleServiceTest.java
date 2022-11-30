@@ -1,5 +1,6 @@
 package com.visitscotland.brxm.services;
 
+import com.visitscotland.brxm.utils.ContentLogger;
 import org.hippoecm.hst.resourcebundle.ResourceBundleRegistry;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
@@ -33,6 +34,9 @@ class ResourceBundleServiceTest {
     @Mock
     ResourceBundle fbBundle;
 
+    @Mock
+    ContentLogger contentLogger;
+
     @BeforeEach
     void initialize(){
 
@@ -40,7 +44,7 @@ class ResourceBundleServiceTest {
         lenient().when(registry.getBundle(BUNDLE)).thenReturn(fbBundle);
         lenient().when(registry.getBundle(BUNDLE, Locale.UK)).thenReturn(bundle);
 
-        service = new ResourceBundleService();
+        service = new ResourceBundleService(contentLogger);
 
         service.setResourceBundleRegistry(registry);
 

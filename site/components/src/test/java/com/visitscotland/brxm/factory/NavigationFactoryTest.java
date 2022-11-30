@@ -8,6 +8,7 @@ import com.visitscotland.brxm.hippobeans.FeaturedWidget;
 import com.visitscotland.brxm.hippobeans.Page;
 import com.visitscotland.brxm.mock.NavigationMockBuilder;
 import com.visitscotland.brxm.services.ResourceBundleService;
+import com.visitscotland.brxm.utils.ContentLogger;
 import com.visitscotland.brxm.utils.HippoUtilsService;
 import org.hippoecm.hst.content.beans.standard.HippoFolder;
 import org.hippoecm.hst.core.component.HstRequest;
@@ -45,6 +46,9 @@ class NavigationFactoryTest {
 
     @Mock
     HstSiteMenuItem hstMenuItem;
+
+    @Mock
+    ContentLogger logger;
 
     @InjectMocks
     NavigationFactory factory;

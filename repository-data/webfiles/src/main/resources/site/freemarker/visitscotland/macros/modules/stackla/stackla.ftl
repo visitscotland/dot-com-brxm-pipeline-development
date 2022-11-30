@@ -15,8 +15,6 @@
                 t.src = '//assetscdn.stackla.com/media/js/widget/fluid-embed.js';
                 t.id = id;
                 (d.getElementsByTagName('head')[0] || d.getElementsByTagName('body')[0]).appendChild(t);
-
-                Stackla.WidgetManager.sync();
             }(document, 'stackla-widget-js'));
         </script>
     </@hst.headContribution>

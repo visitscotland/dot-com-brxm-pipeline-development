@@ -15,6 +15,7 @@ import com.visitscotland.brxm.dms.LocationLoader;
 import com.visitscotland.brxm.services.ResourceBundleService;
 import com.visitscotland.brxm.services.CommonUtilsService;
 
+import com.visitscotland.brxm.utils.ContentLogger;
 import com.visitscotland.brxm.utils.HippoUtilsService;
 import com.visitscotland.brxm.utils.Properties;
 import org.hippoecm.hst.content.beans.ObjectBeanManagerException;
@@ -54,6 +55,9 @@ class ImageFactoryTest {
 
     @Mock
     ResourceBundleService bundle;
+
+    @Mock
+    ContentLogger logger;
 
     //Injected even though it doesn't override any method. Do not remove
     @Mock
