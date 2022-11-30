@@ -4,8 +4,10 @@ The specification of the events can be found on Airtable which needs to match wi
 to be included or excluded. The front-end specification can be found in:
 - frontend/src/utils/data-layer-templates.js
 -->
+
+<#-- @ftlvariable name="document" type="com.visitscotland.brxm.hippobeans.Page" -->
 <#function pageViewDLEvent document>
-    <#assign searchType = (psrWidget.category.name())!'none'>
+    <#assign searchType = (psrWidget.category.pathVariable)!'none'>
 
     <#assign url = hstRequest.request.pathInfo >
     <#assign event = "{
@@ -19,15 +21,10 @@ to be included or excluded. The front-end specification can be found in:
             <#assign event = event + "'content_city': '${location.name}',">
         </#if>
     </#if>
-    <#assign category = "homepage">
-    <#list url?split("/") as x>
-        <#if x?index gt 0>
-            <#if x?index = 1>
-                <#assign category = x>
-            </#if>
-            <#assign event = event + "'page_category_${x?index}':  '${x}',">
-        </#if>
-    </#list>
+    <#assign category = url?split("/")[1]>
+    <#if !category?has_content>
+        <#assign category = "homepage" />
+    </#if>
     <#assign event = event + "'content_category':  '${category}',">
     <#assign event = event + "'content_page_type':  '${documentType(document)}',">
     <#assign event = event + "'search_category':  '${searchType}',">
@@ -36,9 +33,11 @@ to be included or excluded. The front-end specification can be found in:
 </#function>
 
 <#function documentType document>
-    <#if document.theme??>
+<#-- Remove "visitscotland:" from the jcrType -->
+    <#assign pageType = document.contentType[14..]>
+    <#if pageType = "General">
         <#return document.theme>
     <#else>
-        <#return document.contentType>
+        <#return pageType>
     </#if>
 </#function>
