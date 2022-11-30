@@ -32,9 +32,7 @@
                 <template slot="icentreLinks">
                     ${module.description}
                     <#list module.links as iCentre>
-                        <vs-link href="${iCentre.link}">
-                            ${iCentre.label}
-                        </vs-link>
+                        <vs-link href="${iCentre.link}">${iCentre.label}</vs-link>
                         <#if iCentre?counter == (module.links?size - 1)>
                             &nbsp;and&nbsp;
                         <#else>
