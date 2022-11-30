@@ -29,10 +29,9 @@ VS_PROXY_SERVER_SCHEME=https
 VS_PROXY_SERVER_FQDN=feature.visitscotland.com
 # the next variable "VS_BRXM_PORT_OVERRIDE" should only be used by operations for debug purposes, an available port will be found and used later in this script
 #VS_BRXM_PORT_OVERRIDE=8080
-VS_FRONTEND_DIR=ui-integration/node_modules/@visitscotland/vs-component-library
-VS_SSR_PACKAGE_DIR=ui-integration
+VS_FRONTEND_DIR=ui-integration
 VS_HIPPO_TOMCAT_PORT=8080
-VS_SSR_PACKAGE_SOURCE="$VS_SSR_PACKAGE_DIR/ssr/server/ $VS_FRONTEND_DIR/dist/ssr/ $VS_FRONTEND_DIR/node_modules/"
+VS_SSR_PACKAGE_SOURCE="$VS_FRONTEND_DIR/ssr/server/ $VS_FRONTEND_DIR/node_modules/@visitscotland/vs-component-library/dist/ssr/ $VS_FRONTEND_DIR/node_modules/"
 VS_SSR_PACKAGE_TARGET="./target"
 VS_SSR_PACKAGE_NAME="vs-ssr-package.tar.gz"
 VS_SSR_APP_PORT=8082
