@@ -84,7 +84,7 @@ public class MapFactory {
             if (!Contract.isEmpty(mapModuleDocument.getMapType())){
                 //Feature places on top of these maps
                 if (!Contract.isNull(mapModuleDocument.getFeaturedPlacesItem())) {
-                    mapService.addFeaturePlacesNode(module, mapModuleDocument.getCategories(), request.getLocale() , keys, features);
+                    mapService.addFeaturePlacesNode(module, mapModuleDocument.getCategories(), request.getLocale(), keys, features);
                 }
                 //TODO for each new map a new enum is needed, create the logic to identify which enum is needed based on mapModuleDocument.getMapType() value
                 for (ICentresMapTab prodType : ICentresMapTab.values()) {
@@ -154,9 +154,9 @@ public class MapFactory {
             mapService.addFeaturePlacesNode(module, mapModuleDocument.getCategories(), locale , keys, features);
         }
         if (Arrays.asList(destinationPage.getKeys()).contains(REGIONS)) {
-            for (RegionsMapTab prodType: RegionsMapTab.values()) {
+          /*  for (RegionsMapTab prodType: RegionsMapTab.values()) {
                 buildDMSMapPages(prodType.getProdTypeId(), prodType.getLabel(), destinationPage.getLocation(), module, keys, features, prodType.getCategory(), locale);
-            }
+            }*/
         }else{
             for (CitiesMapTab prodType : CitiesMapTab.values()) {
                 //filters
