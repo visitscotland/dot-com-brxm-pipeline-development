@@ -58,7 +58,7 @@ class CannedSearchFactoryTest {
     public static void initContext(){
         ComponentManager context = mock(ComponentManager.class, withSettings().lenient());
         psBuilder = mock(ProductSearchBuilder.class, Answers.RETURNS_SELF);
-        when(psBuilder.buildCannedSearch()).thenReturn(PSR_URL);
+        when(psBuilder.buildCannedSearchInternal()).thenReturn(PSR_URL);
         when(context.getComponent(ProductSearchBuilder.class)).thenReturn(psBuilder);
 
         VsComponentManager.setComponentManager(context);
