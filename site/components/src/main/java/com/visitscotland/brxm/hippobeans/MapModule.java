@@ -53,13 +53,11 @@ public class MapModule extends BaseDocument {
         return getSingleProperty("visitscotland:translationPriority");
     }
 
-
     @HippoEssentialsGenerated(internalName = "visitscotland:categories", allowModifications = false)
     public List<MapCategory> getCategories() {
         return getChildBeansByName("visitscotland:categories",
                 MapCategory.class);
     }
-
 
     @HippoEssentialsGenerated(internalName = "visitscotland:categories", allowModifications = false)
     public List<HippoCompound> getCompundCategories() {
@@ -69,5 +67,10 @@ public class MapModule extends BaseDocument {
 
     public HippoCompound getFeaturedPlacesItem() {
         return getOnlyChild(getCompundCategories());
+    }
+
+    @HippoEssentialsGenerated(internalName = "visitscotland:mapType")
+    public String getMapType() {
+        return getSingleProperty("visitscotland:mapType");
     }
 }
