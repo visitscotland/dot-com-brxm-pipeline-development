@@ -16,11 +16,16 @@ public class MapModuleValidator implements Validator<Node> {
 
     static final String TITLE = "visitscotland:title";
     static final String TAB_TITLE = "visitscotland:tabTitle";
+    static final String MAP_TYPE = "visitscotland:mapType";
+    private final String MAP_KEYS = "hippotaxonomy:keys";
 
     public Optional<Violation> validate(final ValidationContext context, final Node document) {
         try {
             if (document.getProperty(TITLE).getString().isEmpty() && document.getProperty(TAB_TITLE).getString().isEmpty()) {
                 return Optional.of(context.createViolation());
+            }
+            if (!document.getProperty(MAP_TYPE).getString().isEmpty() && document.getProperty(MAP_KEYS).getValues().length > 0) {
+                return Optional.of(context.createViolation("bespokeMap"));
             }
         } catch (RepositoryException e) {
             return Optional.of(context.createViolation());

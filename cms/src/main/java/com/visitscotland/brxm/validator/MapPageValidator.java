@@ -21,7 +21,7 @@ import java.util.Optional;
  */
 public class MapPageValidator implements Validator<Node> {
 
-    private final String keys = "hippotaxonomy:keys";
+    private final String MAP_KEYS = "hippotaxonomy:keys";
     private final String generalPageError = "generalPage";
     private static final Logger logger = LoggerFactory.getLogger(MapPageValidator.class);
 
@@ -35,8 +35,8 @@ public class MapPageValidator implements Validator<Node> {
             Value[] taxonomyKeys;
             boolean isGeneralPage = getUtilsService().getDocumentFromNode(node.getParent().getParent().getNode("content")) instanceof General;
             if (isGeneralPage) {
-                if (node.hasProperty(keys)) {
-                     taxonomyKeys = node.getProperty(keys).getValues();
+                if (node.hasProperty(MAP_KEYS)) {
+                     taxonomyKeys = node.getProperty(MAP_KEYS).getValues();
 
                     if (taxonomyKeys.length > 1) {
                         return Optional.of(validationContext.createViolation(generalPageError));
@@ -52,8 +52,8 @@ public class MapPageValidator implements Validator<Node> {
                     return Optional.of(validationContext.createViolation(generalPageError));
                 }
             } else {
-                if (node.hasProperty(keys)) {
-                    taxonomyKeys = node.getProperty(keys).getValues();
+                if (node.hasProperty(MAP_KEYS)) {
+                    taxonomyKeys = node.getProperty(MAP_KEYS).getValues();
                     if (taxonomyKeys.length > 0) {
                         return Optional.of(validationContext.createViolation("destinationPage"));
                     }

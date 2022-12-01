@@ -13,7 +13,7 @@ import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.io.IOException;
 import java.util.Locale;
-
+import com.visitscotland.brxm.utils.Properties;
 import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
@@ -26,10 +26,13 @@ class DMSDataServiceTest {
 
     @Mock
     CommonUtilsService utilsService;
+
+    @Mock
+    Properties propertiesService;
     
     @BeforeEach
     void init (){
-        service = new DMSDataService(proxy,   utilsService);
+        service = new DMSDataService(proxy,   utilsService, propertiesService);
     }
 
     @Test

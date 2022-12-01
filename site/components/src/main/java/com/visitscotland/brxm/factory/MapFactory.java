@@ -82,6 +82,10 @@ public class MapFactory {
         }else{
             //bespoke maps data and pins coming from DMS
             if (!Contract.isEmpty(mapModuleDocument.getMapType())){
+                //Feature places on top of these maps
+                if (!Contract.isNull(mapModuleDocument.getFeaturedPlacesItem())) {
+                    mapService.addFeaturePlacesNode(module, mapModuleDocument.getCategories(), request.getLocale() , keys, features);
+                }
                 //TODO for each new map a new enum is needed, create the logic to identify which enum is needed based on mapModuleDocument.getMapType() value
                 for (ICentresMapTab prodType : ICentresMapTab.values()) {
                     buildDMSMapPages(prodType.getProdTypeId(), prodType.getLabel(), "", module, keys, features, prodType.getCategory(), request.getLocale());
