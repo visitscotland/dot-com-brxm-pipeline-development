@@ -103,7 +103,7 @@
     <Logger name="org.onehippo.repository.update" level="debug" />
 
     <Root level="warn">
-      <Appenderef ref="site"/>
+      <AppenderRef ref="site"/>
       <AppenderRef ref="cms"/>
     </Root>
 
