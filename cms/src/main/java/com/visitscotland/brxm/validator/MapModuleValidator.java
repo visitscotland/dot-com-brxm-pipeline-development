@@ -1,5 +1,6 @@
 package com.visitscotland.brxm.validator;
 
+import com.visitscotland.brxm.translation.SessionFactory;
 import org.onehippo.cms.services.validation.api.ValidationContext;
 import org.onehippo.cms.services.validation.api.Validator;
 import org.onehippo.cms.services.validation.api.Violation;
@@ -18,6 +19,9 @@ public class MapModuleValidator implements Validator<Node> {
     static final String TAB_TITLE = "visitscotland:tabTitle";
     static final String MAP_TYPE = "visitscotland:mapType";
     static final String MAP_KEYS = "hippotaxonomy:keys";
+
+    public MapModuleValidator() {
+    }
 
     public Optional<Violation> validate(final ValidationContext context, final Node document) {
         try {
