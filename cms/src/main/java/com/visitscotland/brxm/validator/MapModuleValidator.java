@@ -17,7 +17,7 @@ public class MapModuleValidator implements Validator<Node> {
     static final String TITLE = "visitscotland:title";
     static final String TAB_TITLE = "visitscotland:tabTitle";
     static final String MAP_TYPE = "visitscotland:mapType";
-    private final String MAP_KEYS = "hippotaxonomy:keys";
+    static final String MAP_KEYS = "hippotaxonomy:keys";
 
     public Optional<Violation> validate(final ValidationContext context, final Node document) {
         try {

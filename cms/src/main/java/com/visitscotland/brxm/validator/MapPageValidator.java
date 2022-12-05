@@ -1,6 +1,5 @@
 package com.visitscotland.brxm.validator;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.visitscotland.brxm.config.VsComponentManager;
 import com.visitscotland.brxm.hippobeans.General;
 import com.visitscotland.brxm.utils.HippoUtilsService;
@@ -21,8 +20,8 @@ import java.util.Optional;
  */
 public class MapPageValidator implements Validator<Node> {
 
-    private final String MAP_KEYS = "hippotaxonomy:keys";
-    private final String generalPageError = "generalPage";
+    static final String MAP_KEYS = "hippotaxonomy:keys";
+    static final String GENERAL_PAGE = "generalPage";
     private static final Logger logger = LoggerFactory.getLogger(MapPageValidator.class);
 
     public HippoUtilsService getUtilsService() {
@@ -39,17 +38,17 @@ public class MapPageValidator implements Validator<Node> {
                      taxonomyKeys = node.getProperty(MAP_KEYS).getValues();
 
                     if (taxonomyKeys.length > 1) {
-                        return Optional.of(validationContext.createViolation(generalPageError));
+                        return Optional.of(validationContext.createViolation(GENERAL_PAGE));
                     } else {
                         if (taxonomyKeys.length > 0) {
                             Taxonomy vsTaxonomyTree = getUtilsService().getTaxonomy();
                             if (vsTaxonomyTree.getCategoryByKey(taxonomyKeys[0].getString()).getChildren().isEmpty()) {
-                                return Optional.of(validationContext.createViolation(generalPageError));
+                                return Optional.of(validationContext.createViolation(GENERAL_PAGE));
                             }
                         }
                     }
                 }else{
-                    return Optional.of(validationContext.createViolation(generalPageError));
+                    return Optional.of(validationContext.createViolation(GENERAL_PAGE));
                 }
             } else {
                 if (node.hasProperty(MAP_KEYS)) {
