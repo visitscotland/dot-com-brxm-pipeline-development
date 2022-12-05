@@ -52,6 +52,10 @@ public enum Language {
         }
     }
 
+    public String getDmsPrefix(){
+        return cmsMount.substring(1);
+    }
+
     public String getCmsMount(){
         return cmsMount;
     }
