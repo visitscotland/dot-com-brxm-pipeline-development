@@ -63,7 +63,7 @@ public class CannedSearchFactory {
         }
         module.setViewAllLink(viewAllCta);
 
-        module.setCannedSearchEndpoint(productSearch().fromHippoBean(document.getCriteria().getSearch()).locale(locale).buildCannedSearchInternal());
+        module.setCannedSearchEndpoint(productSearch().fromHippoBean(document.getCriteria().getSearch()).locale(locale).buildCannedSearch());
 
         if(!dmsData.cannedSearchHasResults(module.getCannedSearchEndpoint() + "&size=1")){
            String message =String.format( "The Canned search module '%s' does not return any results, please review your search criteria for '%s' at: %s", document.getTitle(), document.getDisplayName(), document.getPath());

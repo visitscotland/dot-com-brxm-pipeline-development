@@ -140,7 +140,7 @@ public class DMSDataService {
 
         logger.info("Requesting data to the canned search url: {}", cannedSearch);
         try {
-            responseString = proxy.request(cannedSearch);
+            responseString = proxy.request(propertiesService.getDmsDataPublicHost() + cannedSearch);
 
             if (responseString!=null) {
                 ObjectMapper mapper = new ObjectMapper();
