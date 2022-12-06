@@ -89,7 +89,7 @@ class MapModuleValidatorTest {
 
 
     @Test
-    @DisplayName("VS-3996 Validates that at least one title (field title) is filled")
+    @DisplayName("VS-3996 Validates taxonomy and bespoke selected")
     void errorBespokeMapWithTaxonomy() throws RepositoryException {
         MapModuleValidator validator = new MapModuleValidator();
 
