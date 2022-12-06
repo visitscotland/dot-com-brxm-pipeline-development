@@ -33,29 +33,45 @@ class MapModuleValidatorTest {
 
     @Test
     @DisplayName("VS-3996 Validates that at least one title (field title) is filled")
-    @MockitoSettings(strictness = Strictness.LENIENT)
     void correctValues() throws RepositoryException {
         MapModuleValidator validator = new MapModuleValidator();
 
-        Node node = Mockito.mock(Node.class);
-        Property property = Mockito.mock(Property.class);
+        Node node = Mockito.mock(Node.class ,RETURNS_DEEP_STUBS);
+        Property property = Mockito.mock(Property.class ,RETURNS_DEEP_STUBS);
         when(node.getProperty(MapModuleValidator.TITLE)).thenReturn(property);
         when(node.getProperty(MapModuleValidator.TAB_TITLE)).thenReturn(property);
         when(property.getString()).thenReturn("title");
 
-        Property mapType = Mockito.mock(Property.class);
+        Property mapType = Mockito.mock(Property.class ,RETURNS_DEEP_STUBS);
         when(node.getProperty(MapModuleValidator.MAP_TYPE)).thenReturn(mapType);
         when(mapType.getString()).thenReturn("");
-
-        Property mapKeys = Mockito.mock(Property.class);
-        when(node.getProperty(MapModuleValidator.MAP_KEYS)).thenReturn(mapKeys);
-
-        Value value = Mockito.mock(Value.class);
-        when(mapKeys.getValues()).thenReturn(new Value[]{value});
 
         assertFalse(validator.validate(context, node).isPresent());
     }
 
+    @Test
+    @DisplayName("VS-3996 Validates that at least one title (field title) is filled")
+    void correctValuesBespokeMap() throws RepositoryException {
+        MapModuleValidator validator = new MapModuleValidator();
+
+        Node node = Mockito.mock(Node.class ,RETURNS_DEEP_STUBS);
+        Property property = Mockito.mock(Property.class ,RETURNS_DEEP_STUBS);
+        when(node.getProperty(MapModuleValidator.TITLE)).thenReturn(property);
+        when(node.getProperty(MapModuleValidator.TAB_TITLE)).thenReturn(property);
+        when(property.getString()).thenReturn("title");
+
+        Property mapType = Mockito.mock(Property.class ,RETURNS_DEEP_STUBS);
+        when(node.getProperty(MapModuleValidator.MAP_TYPE)).thenReturn(mapType);
+        when(mapType.getString()).thenReturn("bespoke");
+
+        Property mapKeys = Mockito.mock(Property.class ,RETURNS_DEEP_STUBS);
+        when(node.getProperty(MapModuleValidator.MAP_KEYS)).thenReturn(mapKeys);
+
+        Value value = Mockito.mock(Value.class ,RETURNS_DEEP_STUBS);
+        when(mapKeys.getValues()).thenReturn(new Value[]{});
+
+        assertFalse(validator.validate(context, node).isPresent());
+    }
 
     @Test
     @DisplayName("VS-3996 Validates that an error is displayed if both titles are empty")
@@ -76,24 +92,23 @@ class MapModuleValidatorTest {
 
     @Test
     @DisplayName("VS-3996 Validates that at least one title (field title) is filled")
-    @MockitoSettings(strictness = Strictness.LENIENT)
     void errorBespokeMapWithTaxonomy() throws RepositoryException {
         MapModuleValidator validator = new MapModuleValidator();
 
-        Node node = Mockito.mock(Node.class);
-        Property property = Mockito.mock(Property.class);
+        Node node = Mockito.mock(Node.class ,RETURNS_DEEP_STUBS);
+        Property property = Mockito.mock(Property.class ,RETURNS_DEEP_STUBS);
         when(node.getProperty(MapModuleValidator.TITLE)).thenReturn(property);
         when(node.getProperty(MapModuleValidator.TAB_TITLE)).thenReturn(property);
         when(property.getString()).thenReturn("title");
 
-        Property mapType = Mockito.mock(Property.class);
+        Property mapType = Mockito.mock(Property.class ,RETURNS_DEEP_STUBS);
         when(node.getProperty(MapModuleValidator.MAP_TYPE)).thenReturn(mapType);
         when(mapType.getString()).thenReturn("bespokeMap");
 
-        Property mapKeys = Mockito.mock(Property.class);
+        Property mapKeys = Mockito.mock(Property.class ,RETURNS_DEEP_STUBS);
         when(node.getProperty(MapModuleValidator.MAP_KEYS)).thenReturn(mapKeys);
 
-        Value value = Mockito.mock(Value.class);
+        Value value = Mockito.mock(Value.class ,RETURNS_DEEP_STUBS);
         when(mapKeys.getValues()).thenReturn(new Value[]{value});
 
         when(context.createViolation("bespokeMap")).thenReturn(mock(Violation.class));
