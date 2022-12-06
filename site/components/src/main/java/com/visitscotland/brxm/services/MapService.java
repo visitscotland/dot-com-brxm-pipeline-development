@@ -277,8 +277,6 @@ public class MapService {
         return coordinates;
     }
 
-
-
     /**
      *
      * @param request the request
