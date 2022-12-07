@@ -11,9 +11,10 @@ to be included or excluded. The front-end specification can be found in:
         'content_language' : '${document.locale.language}',"
     >
     <#if location??>
-        <#if location.isRegion() >
-            <#assign event = event + "'content_region': '${location.name}',">
-        <#else >
+        <#if region??>
+            <#assign event = event + "'content_region': '${region.name}',">
+        </#if>
+        <#if !location.isRegion() >
             <#assign event = event + "'content_city': '${location.name}',">
         </#if>
     </#if>
