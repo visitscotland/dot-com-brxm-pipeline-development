@@ -14,16 +14,7 @@
     "yargs": "^15.3.1"
   },
   "scripts": {
-    "build": "npm-run-all build:frontend build:integrate",
-    "build:dev": "npm-run-all build:frontend:dev build:integrate",
-    "build:ssr": "npm-run-all \"build:integrate --src-path=./node_modules/@visitscotland/vs-component-library/dist/ssr/client\"",
-    "build:ssr:dev": "npm-run-all build:frontend:ssr:dev \"build:integrate --src-path=./node_modules/@visitscotland/vs-component-library/dist/ssr/client\"",
-    "build:integrate": "webpack --config webpack.config.js",
-    "build:frontend": "yarn --cwd ./node_modules/@visitscotland/vs-component-library/ library",
-    "build:frontend:dev": "yarn --cwd ./node_modules/@visitscotland/vs-component-library/ library:dev",
-    "build:frontend:ssr": "yarn --cwd ../../design-system/ ssr:build",
-    "build:frontend:ssr:dev": "yarn --cwd ./node_modules/@visitscotland/vs-component-library/ ssr:build:dev",
-    "install:frontend": "yarn --cwd ./node_modules/@visitscotland/vs-component-library/",
+    "build:ssr": "webpack --config webpack.config.js",
     "third-party": "webpack --config ./build/thirdparty.webpack.conf.js",
     "ssr:serve": "nodemon ./ssr/server/index.js"
   },
