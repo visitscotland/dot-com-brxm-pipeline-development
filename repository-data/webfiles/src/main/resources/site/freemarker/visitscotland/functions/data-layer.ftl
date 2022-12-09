@@ -7,8 +7,6 @@ to be included or excluded. The front-end specification can be found in:
 
 <#-- @ftlvariable name="document" type="com.visitscotland.brxm.hippobeans.Page" -->
 <#function pageViewDLEvent document>
-    <#assign searchType = (psrWidget.category.pathVariable)!'none'>
-
     <#assign url = hstRequest.request.pathInfo >
     <#assign event = "{
         'site_language': '${language}',
@@ -33,7 +31,6 @@ to be included or excluded. The front-end specification can be found in:
     </#list>
     <#assign event = event + "'content_category':  '${category}',">
     <#assign event = event + "'content_page_type':  '${documentType(document)}',">
-    <#assign event = event + "'search_category':  '${searchType}',">
     <#assign event = event + "}">
     <#return event>
 </#function>
