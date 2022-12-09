@@ -20,6 +20,7 @@ public class LocationLoader {
     private final EnumMap<Language, Map<String, LocationObject>> locations = new EnumMap<>(Language.class);
 
     private final Map<String, String> locationToId = new HashMap<>();
+    private final Map<String, String> polygonKeys = new HashMap<>();
 
     private final DMSProxy proxy;
 
@@ -56,6 +57,9 @@ public class LocationLoader {
                     for (LocationObject location : locationList) {
                         locationToId.put(location.getName(), location.getId());
                         locationsMap.put(location.getId(), location);
+                        if (location.getType().equals("POLYGON")){
+                            polygonKeys.put(location.getKey(), location.getId());
+                        }
                     }
                 } else {
                     for (LocationObject location : locationList) {
@@ -109,6 +113,35 @@ public class LocationLoader {
         Collections.sort(locationList, Comparator.comparing(LocationObject::getName));
 
         return  locationList;
+    }
+
+    /**
+     * Return the Region of that contains the location or null when the location is Scotland.
+     *
+     * This method relies on the hierarchy properly defined in the DMS
+     *
+     * @param location: Location to determine its region.
+     * @param lang: Langua
+     * @return
+     */
+    public LocationObject getRegion(LocationObject location, Locale locale){
+        Language lang = Language.getLanguageForLocale(locale);
+        LocationObject obj = location;
+        do {
+            if (obj.isRegion()){
+                return obj;
+            } else {
+                if (polygonKeys.containsKey(location.getParentId())){
+                    // The parent is a polygon and its ID is different that the location
+                    obj = locations.get(lang).get(polygonKeys.get(location.getParentId()));
+                } else {
+                    // The parent is a regular location
+                    obj = locations.get(lang).get(location.getParentId());
+                }
+            }
+        } while (obj != null);
+
+        return null;
     }
 
     public void clear(){

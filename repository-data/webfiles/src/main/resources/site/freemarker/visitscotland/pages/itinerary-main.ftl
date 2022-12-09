@@ -66,13 +66,14 @@
                                 <vs-tooltip
                                     title="${label('transports', '${transport}')}"
                                     href="#"
-                                    class="p-0"
+                                    icon="${transport}"
+                                    size="lg"
+                                    icon-only
                                     variant="transparent"
                                 >
                                     <span class="sr-only">
                                         ${label("transports", "${transport}")}
                                     </span>
-                                    <vs-icon name="${transport}" variant="dark" size="md" small-size="xs"></vs-icon>
                                 </vs-tooltip>
                             </dd>
                         </#list>
