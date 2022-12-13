@@ -4,6 +4,7 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.visitscotland.brxm.dms.model.LocationObject;
 import com.visitscotland.brxm.utils.Language;
+import com.visitscotland.utils.Contract;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,7 +33,7 @@ public class LocationLoader {
     /**
      * Initialize maps
      */
-    private void validateMaps() {
+    void validateMaps() {
         synchronized (LocationLoader.class) {
             if (locationToId.size() == 0 && proxy.canMakeRequest()) {
                 loadLocations();
@@ -48,6 +49,7 @@ public class LocationLoader {
                 String response = request(lang.getLocale());
                 if (response == null){
                     logger.error("The Location service couldn't be reached");
+                    continue;
                 }
 
                 List<LocationObject> locationList = deserialize(response);
@@ -121,7 +123,7 @@ public class LocationLoader {
      * This method relies on the hierarchy properly defined in the DMS
      *
      * @param location: Location to determine its region.
-     * @param lang: Langua
+     * @param locale: Language
      * @return
      */
     public LocationObject getRegion(LocationObject location, Locale locale){
@@ -140,6 +142,10 @@ public class LocationLoader {
                 }
             }
         } while (obj != null);
+
+        if (!Contract.isEmpty(location.getParentId())){
+            logger.warn("The location '{}' doesn't seem to be contained in a region", location.getName());
+        }
 
         return null;
     }
