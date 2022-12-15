@@ -87,8 +87,8 @@ class MessageSuppressorTest {
 
         Assertions.assertTrue(cache.canLog("SHORT RETENTION"));
 
-        // We wait 1ms before trying to log it again
-        Thread.sleep(1);
+        // We wait 2ms before trying to log it again
+        Thread.sleep(2);
         // TODO Replace previous line with "await().atMost(1, Duration.MILLISECONDS)". Sonar is complaining
         Assertions.assertTrue(cache.canLog("SHORT RETENTION"));
     }

@@ -1,13 +1,13 @@
 package com.visitscotland.brxm.dms.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
-import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class LocationObject implements Comparable<LocationObject> {
-
 
     private String id;
     private String key;
@@ -15,6 +15,8 @@ public class LocationObject implements Comparable<LocationObject> {
     private String type;
     private Double latitude;
     private Double longitude;
+    private String parentId;
+
 
     private Set<String> types;
 
@@ -105,12 +107,12 @@ public class LocationObject implements Comparable<LocationObject> {
         this.types = types;
     }
 
-    public void addType(String type){
-        if (types == null){
-            types = new HashSet<>();
-            types.add(type);
-        }
-        types.add(type);
+    public String getParentId() {
+        return parentId;
+    }
+
+    public void setParentId(String parentId) {
+        this.parentId = parentId;
     }
 
     public boolean isRegion(){
