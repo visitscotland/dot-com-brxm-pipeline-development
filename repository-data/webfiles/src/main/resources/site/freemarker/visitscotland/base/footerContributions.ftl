@@ -1,4 +1,9 @@
-<#macro footerContributions>
+<#macro footerContributions integration=false>
+    <#if !integration>
+        <!-- BEGIN HEAD CONTRIBUTIONS: htmlBodyEndScriptsFirst -->
+        <@hst.headContributions categoryIncludes="htmlBodyLocalizedScripts" xhtml=true/>
+        <!-- END HEAD CONTRIBUTIONS: htmlBodyEndScriptsFirst -->
+    </#if>
     <!-- BEGIN HEAD CONTRIBUTIONS: htmlBodyEndScriptsFirst -->
     <@hst.headContributions categoryIncludes="htmlBodyEndScriptsFirst" xhtml=true/>
     <!-- END HEAD CONTRIBUTIONS: htmlBodyEndScriptsFirst -->

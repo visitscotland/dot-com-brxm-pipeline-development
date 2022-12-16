@@ -7,7 +7,7 @@
 
     <#assign integration=true>
 
-    <@footerContributions />
+    <@footerContributions integration/>
 
     <script>
         (function() {
