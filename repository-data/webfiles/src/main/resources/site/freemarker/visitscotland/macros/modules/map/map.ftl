@@ -63,9 +63,7 @@
                 </span>
             </template>
             <template slot="openSidePanelText">
-                <span class="sr-only">
-                    ${label('map', 'map.open-panel')}
-                </span>
+                ${label('map', 'map.open-panel')}
             </template>
             <template slot="backBtnText">
                 ${label('map', 'map.step-back')}
