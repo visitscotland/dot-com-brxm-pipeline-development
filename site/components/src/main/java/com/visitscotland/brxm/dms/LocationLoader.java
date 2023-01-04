@@ -122,7 +122,7 @@ public class LocationLoader {
      * This method relies on the hierarchy properly defined in the DMS
      *
      * @param location: Location to determine its region.
-     * @param lang: Langua
+     * @param lang: Language
      * @return
      */
     public LocationObject getRegion(LocationObject location, Locale locale){
