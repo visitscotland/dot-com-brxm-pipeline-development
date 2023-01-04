@@ -94,6 +94,7 @@ public class LocationLoader {
      */
     public List<LocationObject> getLocationsByLevel(String... levels){
         List<LocationObject> locationList = new ArrayList<>();
+
         for (LocationObject obj : getLocations(Language.ENGLISH).values()){
             if (levels!=null && levels.length>0){
                 for (String level : levels){
@@ -102,7 +103,7 @@ public class LocationLoader {
                         break;
                     }
                 }
-            }else{
+            } else {
                 locationList.add(obj);
             }
         }
@@ -126,20 +127,27 @@ public class LocationLoader {
      */
     public LocationObject getRegion(LocationObject location, Locale locale){
         Language lang = Language.getLanguageForLocale(locale);
-        LocationObject obj = location;
+        LocationObject aux = location;
+        int chain = 10;
         do {
-            if (obj.isRegion()){
-                return obj;
+            if (aux.isRegion()){
+                return aux;
             } else {
-                if (polygonKeys.containsKey(location.getParentId())){
+                if (polygonKeys.containsKey(aux.getParentId())){
                     // The parent is a polygon and its ID is different that the location
-                    obj = locations.get(lang).get(polygonKeys.get(location.getParentId()));
+                    aux = locations.get(lang).get(polygonKeys.get(aux.getParentId()));
                 } else {
                     // The parent is a regular location
-                    obj = locations.get(lang).get(location.getParentId());
+                    aux = locations.get(lang).get(aux.getParentId());
                 }
             }
-        } while (obj != null);
+            if (chain <= 0){
+                logger.error("The region for {} could not be calculated. Last element = {}", location.getKey(), aux.getKey());
+                break;
+            }
+
+        } while (aux != null);
+
 
         return null;
     }
