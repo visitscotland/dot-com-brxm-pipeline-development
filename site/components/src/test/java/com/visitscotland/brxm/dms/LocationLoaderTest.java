@@ -25,7 +25,7 @@ class LocationLoaderTest {
     DMSProxy dmsProxy;
 
     @Test
-    @Disabled
+    @Disabled ("Location Loader Methods need to be created")
     void test(){
         assertFalse(true, "This method has been created due to static analysis");
     }
@@ -39,11 +39,11 @@ class LocationLoaderTest {
 
     private void initiatizeLocations(){
         final String DMS_RESPONSE = "{\"data\": [\n" +
-                "{\"id\":\"1\",\"key\":\"1\",\"name\":\"Scotland\",\"type\":\"COUNTRY\"},\n" +
-                "{\"id\":\"10\",\"key\":\"10\",\"name\":\"Region\",\"type\":\"SUBREGION\",\"parentId\":\"1\"},\n" +
-                "{\"id\":\"100\",\"key\":\"100\",\"name\":\"Subregion\",\"type\":\"SUBREGION\",\"parentId\":\"10\"},\n" +
-                "{\"id\":\"1000\",\"key\":\"1000\",\"name\":\"District \",\"type\":\"DISTRICT\",\"parentId\":\"100\"},\n" +
-                "{\"id\":\"polygon\",\"key\":\"10\",\"name\":\"Region\",\"type\":\"POLYGON\"}\n" +
+                "{\"id\":\"1\",\"key\":\"1\",\"name\":\"Scotland\",\"type\":\"COUNTRY\", \"types\":[\"COUNTRY\"]},\n" +
+                "{\"id\":\"10\",\"key\":\"10\",\"name\":\"Region\",\"type\":\"REGION\",\"parentId\":\"1\", \"types\":[\"REGION\"]},\n" +
+                "{\"id\":\"100\",\"key\":\"100\",\"name\":\"Subregion\",\"type\":\"SUBREGION\",\"parentId\":\"10\", \"types\":[\"SUBREGION\"]},\n" +
+                "{\"id\":\"1000\",\"key\":\"1000\",\"name\":\"District \",\"type\":\"DISTRICT\",\"parentId\":\"100\", \"types\":[\"DISTRICT\"]},\n" +
+                "{\"id\":\"polygon\",\"key\":\"10\",\"name\":\"Region\",\"type\":\"POLYGON\", \"types\":[\"POLYGON\", \"REGION\"]}\n" +
                 "]}";
 
         Mockito.when(dmsProxy.canMakeRequest()).thenReturn(true);
@@ -73,7 +73,6 @@ class LocationLoaderTest {
         Assertions.assertTrue(locationService.getRegion(level5, Locale.UK).isRegion());
     }
 
-
     @Test
     @DisplayName("getRegion - returns null if the location is Scotland (country level)")
     void getRegion_Country(){
@@ -96,8 +95,4 @@ class LocationLoaderTest {
         Assertions.assertNull(output);
     }
 
-
-
-    
-        
 }

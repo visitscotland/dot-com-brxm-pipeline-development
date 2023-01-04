@@ -129,32 +129,29 @@ public class LocationLoader {
      */
     public LocationObject getRegion(LocationObject location, Locale locale){
         Language lang = Language.getLanguageForLocale(locale);
-        LocationObject aux = location;
-        int chain = 10;
-        do {
-            if (aux.isRegion()){
-                return aux;
-            } else {
-                if (polygonKeys.containsKey(aux.getParentId())){
-                    // The parent is a polygon and its ID is different that the location
-                    aux = locations.get(lang).get(polygonKeys.get(aux.getParentId()));
-                } else {
-                    // The parent is a regular location
-                    aux = locations.get(lang).get(aux.getParentId());
-                }
-            }
-            if (chain <= 0){
-                logger.error("The region for {} could not be calculated. Last element = {}", location.getKey(), aux.getKey());
-                break;
-            }
+        LocationObject obj = navigateToRegion(location, lang, 5);
 
-        } while (aux != null);
-
-
-        if (!Contract.isEmpty(location.getParentId())){
+        if (obj == null){
             logger.warn("The location '{}' doesn't seem to be contained in a region", location.getName());
         }
 
+        return obj;
+    }
+
+    private LocationObject navigateToRegion(LocationObject location, Language lang, int depth) {
+        if (depth == 0) {
+            logger.error("The region for '{}' ({}) could not be calculated", location.getName(), location.getKey());
+        } else if (location != null) {
+            if (location.isRegion()) {
+                return location;
+            } else if (polygonKeys.containsKey(location.getParentId())) {
+                // The parent is a polygon and its ID is different that the location
+                return navigateToRegion(locations.get(lang).get(polygonKeys.get(location.getParentId())), lang, depth--);
+            } else {
+                // The parent is a regular location
+                return navigateToRegion(locations.get(lang).get(location.getParentId()), lang, depth--);
+            }
+        }
         return null;
     }
 
