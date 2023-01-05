@@ -21,7 +21,7 @@
     <!-- END HEAD CONTRIBUTIONS: htmlHeadStyles -->
 
     <!-- BEGIN HEAD CONTRIBUTIONS: general -->
-    <@hst.headContributions categoryExcludes="htmlHeadPreload,htmlHeadStyles,htmlBodyEndScriptsFirst,htmlBodyEndScripts,htmlBodyEndAppInit,htmlBodyEndScriptsLast,seo,opengraph" xhtml=true/>
+    <@hst.headContributions categoryExcludes="htmlHeadPreload,htmlHeadStyles,htmlBodyEndScriptsFirst,htmlBodyEndScripts,htmlBodyEndAppInit,htmlBodyEndScriptsLast,htmlBodyLocalizedScripts,seo,opengraph" xhtml=true/>
     <!-- END HEAD CONTRIBUTIONS: general -->
 
     <link rel="icon" href="<@hst.webfile path="/assets/favicons/favicon.ico"/>" sizes="any">
