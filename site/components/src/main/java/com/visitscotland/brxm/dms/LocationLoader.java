@@ -4,6 +4,7 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.visitscotland.brxm.dms.model.LocationObject;
 import com.visitscotland.brxm.utils.Language;
+import com.visitscotland.utils.Contract;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,7 +33,7 @@ public class LocationLoader {
     /**
      * Initialize maps
      */
-    private void validateMaps() {
+    void validateMaps() {
         synchronized (LocationLoader.class) {
             if (locationToId.size() == 0 && proxy.canMakeRequest()) {
                 loadLocations();
@@ -48,6 +49,7 @@ public class LocationLoader {
                 String response = request(lang.getLocale());
                 if (response == null){
                     logger.error("The Location service couldn't be reached");
+                    continue;
                 }
 
                 List<LocationObject> locationList = deserialize(response);
@@ -122,33 +124,34 @@ public class LocationLoader {
      * This method relies on the hierarchy properly defined in the DMS
      *
      * @param location: Location to determine its region.
-     * @param lang: Langua
+     * @param locale: Language
      * @return
      */
     public LocationObject getRegion(LocationObject location, Locale locale){
         Language lang = Language.getLanguageForLocale(locale);
-        LocationObject aux = location;
-        int chain = 10;
-        do {
-            if (aux.isRegion()){
-                return aux;
+        LocationObject obj = navigateToRegion(location, lang, 5);
+
+        if (obj == null){
+            logger.warn("The location '{}' doesn't seem to be contained in a region", location.getName());
+        }
+
+        return obj;
+    }
+
+    private LocationObject navigateToRegion(LocationObject location, Language lang, int depth) {
+        if (depth == 0) {
+            logger.error("The region for '{}' ({}) could not be calculated", location.getName(), location.getKey());
+        } else if (location != null) {
+            if (location.isRegion()) {
+                return location;
+            } else if (polygonKeys.containsKey(location.getParentId())) {
+                // The parent is a polygon and its ID is different that the location
+                return navigateToRegion(locations.get(lang).get(polygonKeys.get(location.getParentId())), lang, depth--);
             } else {
-                if (polygonKeys.containsKey(aux.getParentId())){
-                    // The parent is a polygon and its ID is different that the location
-                    aux = locations.get(lang).get(polygonKeys.get(aux.getParentId()));
-                } else {
-                    // The parent is a regular location
-                    aux = locations.get(lang).get(aux.getParentId());
-                }
+                // The parent is a regular location
+                return navigateToRegion(locations.get(lang).get(location.getParentId()), lang, depth--);
             }
-            if (chain <= 0){
-                logger.error("The region for {} could not be calculated. Last element = {}", location.getKey(), aux.getKey());
-                break;
-            }
-
-        } while (aux != null);
-
-
+        }
         return null;
     }
 
