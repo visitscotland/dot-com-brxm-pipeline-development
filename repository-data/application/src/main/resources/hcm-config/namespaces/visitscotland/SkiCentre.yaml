@@ -11,7 +11,7 @@ definitions:
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:uuid: 1bd61425-6c9f-4dba-948d-997b5d494a0c
+          jcr:uuid: 3593d9d5-8b65-471e-8ef4-01bef3f39099
           hipposysedit:node: true
           hipposysedit:supertype: ['visitscotland:basedocument', 'hippostd:relaxed',
             'hippotranslation:translated']
@@ -25,55 +25,12 @@ definitions:
             hipposysedit:primary: false
             hipposysedit:type: String
             hipposysedit:validators: [required]
-          /introduction:
+          /copy:
             jcr:primaryType: hipposysedit:field
             hipposysedit:mandatory: false
             hipposysedit:multiple: false
             hipposysedit:ordered: false
-            hipposysedit:path: visitscotland:introduction
-            hipposysedit:primary: false
-            hipposysedit:type: hippostd:html
-            hipposysedit:validators: [optional]
-          /feed:
-            jcr:primaryType: hipposysedit:field
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: false
-            hipposysedit:ordered: false
-            hipposysedit:path: visitscotland:feed
-            hipposysedit:primary: false
-            hipposysedit:type: String
-            hipposysedit:validators: [required]
-          /productId:
-            jcr:primaryType: hipposysedit:field
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: false
-            hipposysedit:ordered: false
-            hipposysedit:path: visitscotland:productId
-            hipposysedit:primary: false
-            hipposysedit:type: String
-            hipposysedit:validators: [required]
-        /hipposysedit:nodetype[2]:
-          jcr:primaryType: hipposysedit:nodetype
-          jcr:mixinTypes: ['mix:referenceable']
-          jcr:uuid: 0f4d2cee-0c5e-41bb-99c9-1e7db7564a3a
-          hipposysedit:node: true
-          hipposysedit:supertype: ['visitscotland:basedocument', 'hippostd:relaxed',
-            'hippotranslation:translated']
-          /title:
-            jcr:primaryType: hipposysedit:field
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: false
-            hipposysedit:ordered: false
-            hipposysedit:path: visitscotland:title
-            hipposysedit:primary: false
-            hipposysedit:type: String
-            hipposysedit:validators: [required]
-          /introduction:
-            jcr:primaryType: hipposysedit:field
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: false
-            hipposysedit:ordered: false
-            hipposysedit:path: visitscotland:introduction
+            hipposysedit:path: visitscotland:copy
             hipposysedit:primary: false
             hipposysedit:type: hippostd:html
             hipposysedit:validators: [optional]
@@ -109,25 +66,9 @@ definitions:
           visitscotland:title: ''
           visitscotland:productId: ''
           visitscotland:feed: ''
-          jcr:uuid: f55b3eae-2440-4bcb-8e70-738deb22640e
+          jcr:uuid: 791bc70a-7752-42ff-bb80-ec4484d6a8f4
           hippostdpubwf:lastModificationDate: 2022-12-05T11:32:07.174Z
           hippostdpubwf:creationDate: 2022-12-05T11:32:07.174Z
-        /hipposysedit:prototype[2]:
-          jcr:primaryType: nt:unstructured
-          jcr:mixinTypes: ['hippostd:publishableSummary', 'hippostd:relaxed', 'hippostdpubwf:document',
-            'hippotranslation:translated', 'mix:referenceable']
-          jcr:uuid: b68e4bd2-580c-4150-8cdd-6cb84d9411a3
-          hippostd:holder: holder
-          hippostd:state: draft
-          hippostdpubwf:createdBy: ''
-          hippostdpubwf:creationDate: 2022-12-05T11:32:07.174Z
-          hippostdpubwf:lastModificationDate: 2022-12-05T11:32:07.174Z
-          hippostdpubwf:lastModifiedBy: ''
-          hippotranslation:id: document-type-locale-id
-          hippotranslation:locale: document-type-locale
-          visitscotland:feed: ''
-          visitscotland:productId: ''
-          visitscotland:title: ''
       /editor:templates:
         jcr:primaryType: editor:templateset
         /_default_:
@@ -148,10 +89,10 @@ definitions:
             wicket.id: ${cluster.id}.field
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-          /introduction:
+          /copy:
             jcr:primaryType: frontend:plugin
             caption: Override Copy
-            field: introduction
+            field: copy
             hint: ''
             plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
             wicket.id: ${cluster.id}.field

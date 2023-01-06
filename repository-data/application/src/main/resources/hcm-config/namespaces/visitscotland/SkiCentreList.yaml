@@ -1,6 +1,6 @@
 definitions:
   config:
-    /hippo:namespaces/visitscotland/SkiCentresList:
+    /hippo:namespaces/visitscotland/SkiCentreList:
       jcr:primaryType: hipposysedit:templatetype
       jcr:mixinTypes: ['editor:editable', 'mix:referenceable']
       jcr:uuid: 7c5fdf8f-b2a5-4ecf-8fa1-3e6259d86f50
@@ -10,8 +10,8 @@ definitions:
         jcr:uuid: bdf53920-bb2b-4d2b-91e8-cac8c4b2d02b
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
-          jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:uuid: 7f32fe1d-e162-477a-a2e7-52f47aa194b1
+          jcr:mixinTypes: ['hipposysedit:remodel', 'mix:referenceable']
+          jcr:uuid: 30c73304-86be-4693-be8f-a6094efd254b
           hipposysedit:node: true
           hipposysedit:supertype: ['visitscotland:basedocument', 'hippostd:relaxed',
             'hippotranslation:translated']
@@ -24,6 +24,7 @@ definitions:
             hipposysedit:path: visitscotland:title
             hipposysedit:primary: false
             hipposysedit:type: String
+            hipposysedit:validators: [required, 'visitscotland:medium-string-validator']
           /copy:
             jcr:primaryType: hipposysedit:field
             hipposysedit:mandatory: false
@@ -32,54 +33,20 @@ definitions:
             hipposysedit:path: visitscotland:copy
             hipposysedit:primary: false
             hipposysedit:type: hippostd:html
-        /hipposysedit:nodetype[2]:
-          jcr:primaryType: hipposysedit:nodetype
-          jcr:mixinTypes: ['mix:referenceable']
-          jcr:uuid: 13b5cf38-78df-48c4-8e8c-70b88a01d0cf
-          hipposysedit:node: true
-          hipposysedit:supertype: ['visitscotland:basedocument', 'hippostd:relaxed',
-            'hippotranslation:translated']
-          /title:
+            hipposysedit:validators: [optional]
+          /links:
             jcr:primaryType: hipposysedit:field
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: false
-            hipposysedit:ordered: false
-            hipposysedit:path: visitscotland:title
-            hipposysedit:primary: false
-            hipposysedit:type: String
-            hipposysedit:validators: [required]
-          /copy:
-            jcr:primaryType: hipposysedit:field
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: false
-            hipposysedit:ordered: false
-            hipposysedit:path: visitscotland:copy
-            hipposysedit:primary: false
-            hipposysedit:type: hippostd:html
-            hipposysedit:validators: [required]
+            hipposysedit:multiple: true
+            hipposysedit:ordered: true
+            hipposysedit:path: visitscotland:links
+            hipposysedit:type: hippo:compound
+            hipposysedit:validators: [contentblocks-validator]
       /hipposysedit:prototypes:
         jcr:primaryType: hipposysedit:prototypeset
         /hipposysedit:prototype:
-          jcr:primaryType: visitscotland:SkiCentresList
-          hippostd:holder: holder
-          hippostd:state: draft
-          hippostdpubwf:createdBy: ''
-          hippostdpubwf:lastModifiedBy: ''
-          hippotranslation:id: document-type-locale-id
-          hippotranslation:locale: document-type-locale
+          jcr:primaryType: visitscotland:SkiCentreList
           jcr:mixinTypes: ['mix:referenceable']
-          visitscotland:title: ''
-          jcr:uuid: 5cb1581b-e06a-4079-b6ea-650e50239893
-          hippostdpubwf:lastModificationDate: 2022-12-05T11:43:48.258Z
-          hippostdpubwf:creationDate: 2022-12-05T11:43:48.258Z
-          /visitscotland:copy:
-            jcr:primaryType: hippostd:html
-            hippostd:content: ''
-        /hipposysedit:prototype[2]:
-          jcr:primaryType: nt:unstructured
-          jcr:mixinTypes: ['hippostd:publishableSummary', 'hippostd:relaxed', 'hippostdpubwf:document',
-            'hippotranslation:translated', 'mix:referenceable']
-          jcr:uuid: a9153788-fd7c-4247-bcff-513dc1f6c340
+          jcr:uuid: a1fb2390-ab4a-4e3f-a000-571db69e618b
           hippostd:holder: holder
           hippostd:state: draft
           hippostdpubwf:createdBy: ''
@@ -115,9 +82,9 @@ definitions:
             jcr:primaryType: frontend:plugin
             caption: Copy
             field: copy
+            hint: ''
             plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
             wicket.id: ${cluster.id}.field
-            hint: ''
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
               ckeditor.config.appended.json: '{extraPlugins: ''wordcount'',   wordcount:
@@ -125,3 +92,13 @@ definitions:
               ckeditor.config.overlayed.json: '{disallowedContent: ''p[align]'', toolbarGroups:
                 [{ name: ''basicstyles''},{ name: ''links'' },{name:''insert''},{name:''clipboard''},{name:''tools''},{name:''undo''}]
                 , removeButtons: ''PickImage,Youtube,Table,Bold,Underline,Strike,Subscript,Superscript''}'
+          /links:
+            jcr:primaryType: frontend:plugin
+            caption: Ski Centre Pages
+            compoundList: hippo:mirror
+            contentPickerType: links
+            field: links
+            plugin.class: org.onehippo.forge.contentblocks.ContentBlocksFieldPlugin
+            wicket.id: ${cluster.id}.field
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
