@@ -33,7 +33,7 @@ public class MapPageValidator implements Validator<Node> {
     public Optional<Violation> validate(ValidationContext validationContext, Node node) {
         try {
             Value[] taxonomyKeys;
-            boolean isGeneralPage = getUtilsService().getDocumentFromNode(node.getParent().getParent().getNode("content")) instanceof General;
+            boolean isGeneralPage = getUtilsService().getDocumentFromNode(node.getParent().getParent().getNode("content"), true) instanceof General;
             if (isGeneralPage) {
                 if (node.hasProperty(keys)) {
                      taxonomyKeys = node.getProperty(keys).getValues();
