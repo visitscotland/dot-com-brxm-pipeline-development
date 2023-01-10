@@ -71,7 +71,7 @@ class ImageFactoryTest {
     @Test
     @DisplayName("Request information about the image to instagram. (Happy Path)")
     void getImageFromInstagram() throws IOException {
-        LocationObject location = new LocationObject(null, null,"The Highlands",null, 1., -1., null,null);
+        LocationObject location = new LocationObject(null, null,"The Highlands",null, 1., -1., null,null, null);
         InstagramImage insta = mock(InstagramImage.class);
 
         when(insta.getCaption()).thenReturn("The magnificent coo");
@@ -108,7 +108,7 @@ class ImageFactoryTest {
     @Test
     @DisplayName("The image retrieves the information from the CMS. (Happy Path)")
     void getImageFromCMS(){
-        LocationObject location = new LocationObject(null, null,"The Highlands",null, 1., -1., null,null);
+        LocationObject location = new LocationObject(null, null,"The Highlands",null, 1., -1., null,null, null);
         Module module = new Module();
         Image cmsImage = mock(Image.class);
 
