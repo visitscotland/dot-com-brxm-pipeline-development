@@ -251,7 +251,9 @@ public class ProductSearchBuilder {
     }
 
     public ProductSearchBuilder sortBy(String order){
-        this.order = Order.fromValue(order);
+        if (order != null){
+            this.order = Order.fromValue(order);
+        }
         return this;
     }
 
