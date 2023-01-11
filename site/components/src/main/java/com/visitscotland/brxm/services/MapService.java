@@ -38,6 +38,7 @@ public class MapService {
     static final String MAP = "map";
     static final String TYPE = "type";
     static final String POINT = "Point";
+    static final String SUBCATEGORY = "subCategory";
     private static final Logger logger = LoggerFactory.getLogger(MapService.class);
 
     private final ObjectMapper mapper;
@@ -59,6 +60,39 @@ public class MapService {
         this.hippoUtilsService = hippoUtilsService;
     }
 
+    /**
+     * Method to build a normal Json with parameters for the maps, in particular for the filters to use in the map coming from Taxonomies
+     * @param child Category or taxonomy to use as a filter, adding id and label
+     * @param locale locale to bring the label in the right language
+     * @return ObjectNode with the filters to be used
+     */
+    public ObjectNode addFilterNode(Category child, Locale locale) {
+        ObjectNode filter = buildCategoryNode(child.getKey(), child.getInfo(locale).getName());
+        if (!child.getChildren().isEmpty()){
+            ArrayNode childrenArray = mapper.createArrayNode();
+            for (Category children : child.getChildren()) {
+                childrenArray.add(buildCategoryNode(children.getKey(),children.getInfo(locale).getName()));
+            }
+            filter.set(SUBCATEGORY,childrenArray);
+        }
+        return filter;
+    }
+
+
+    /**
+     * Method to build ObjectNode key label for category/taxonomy
+     *
+     * @param key taxonomy category to build key
+     * @param label taxonomy category to build label
+     * @return ObjectNode key label for categories
+     */
+    public ObjectNode buildCategoryNode(String key, String label) {
+        ObjectNode filter = mapper.createObjectNode();
+        filter.put(ID, key);
+        filter.put(LABEL, label);
+
+        return filter;
+    }
     /**
      *
      * @param module module to be sent to feds
@@ -184,20 +218,7 @@ public class MapService {
         }
     }
 
-    /**
-     * Method to build ObjectNode key label for category/taxonomy
-     *
-     * @param key taxonomy category to build key
-     * @param label taxonomy category to build label
-     * @return ObjectNode key label for categories
-     */
-    public ObjectNode getCategoryNode(String key, String label) {
-        ObjectNode filter = mapper.createObjectNode();
-        filter.put(ID, key);
-        filter.put(LABEL, label);
 
-        return filter;
-    }
 
     /** Method to build the property section for the GeoJson file generated for maps
      *
@@ -257,24 +278,6 @@ public class MapService {
     }
 
     /**
-     * Method to build a normal Json with parameters for the maps, in particular for the filters to use in the map
-     * @param child Category or taxonomy to use as a filter, adding id and label
-     * @param locale locale to bring the label in the right language
-     * @return ObjectNode with the filters to be used
-     */
-    public ObjectNode getFilterNode(Category child, Locale locale) {
-        ObjectNode filter = getCategoryNode(child.getKey(), child.getInfo(locale).getName());
-        if (!child.getChildren().isEmpty()){
-            ArrayNode childrenArray = mapper.createArrayNode();
-            for (Category children : child.getChildren()) {
-                childrenArray.add(getCategoryNode(children.getKey(),children.getInfo(locale).getName()));
-            }
-            filter.set("subCategory",childrenArray);
-        }
-        return filter;
-    }
-
-    /**
      *
      * @param request the request
      * @param module module to be consumed
@@ -312,9 +315,9 @@ public class MapService {
             feature = mapper.createObjectNode();
             if (bean instanceof Destination) {
                 feature.put(TYPE, FEATURE);
-                buildPageNode(locale, getCategoryNode(category.getKey(),category.getInfo(locale).getName()), module,((Destination) bean), feature);
+                buildPageNode(locale, buildCategoryNode(category.getKey(),category.getInfo(locale).getName()), module,((Destination) bean), feature);
             } else {
-                buildStopNode(locale, getCategoryNode(category.getKey(),category.getInfo(locale).getName()),module, ((Stop) bean), feature);
+                buildStopNode(locale, buildCategoryNode(category.getKey(),category.getInfo(locale).getName()),module, ((Stop) bean), feature);
             }
         }
         return feature;

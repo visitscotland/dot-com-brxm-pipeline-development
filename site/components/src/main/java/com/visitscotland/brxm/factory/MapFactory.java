@@ -24,7 +24,6 @@ import org.springframework.stereotype.Component;
 import java.util.Arrays;
 import java.util.Locale;
 
-
 @Component
 public class MapFactory {
 
@@ -76,10 +75,25 @@ public class MapFactory {
         featureCollectionGeoJson.put(TYPE, "FeatureCollection");
         ArrayNode features = mapper.createArrayNode();
         ArrayNode keys = mapper.createArrayNode();
-        if (page instanceof General){
-            buildMapGeneralPages(request, mapModuleDocument, module, keys, features);
-        }else{
+
+
+        if (page instanceof Destination){
             buildDestinationMapPages(request.getLocale(),(Destination)page, mapModuleDocument, module, keys, features);
+        }else{
+            //bespoke maps data and pins coming from DMS
+            if (!Contract.isEmpty(mapModuleDocument.getMapType())){
+                //Feature places on top of these maps
+                if (!Contract.isNull(mapModuleDocument.getFeaturedPlacesItem())) {
+                    mapService.addFeaturePlacesNode(module, mapModuleDocument.getCategories(), request.getLocale(), keys, features);
+                }
+                //TODO for each new map a new enum is needed, create the logic to identify which enum is needed based on mapModuleDocument.getMapType() value
+                for (ICentresMapTab prodType : ICentresMapTab.values()) {
+                    buildDMSMapPages(prodType.getProdTypeId(), prodType.getLabel(), "", module, keys, features, prodType.getCategory(), request.getLocale());
+                }
+            }else {
+                // CMS maps, data and pins coming from CMS
+                buildMapGeneralPages(request, mapModuleDocument, module, keys, features);
+            }
         }
 
         //add first Json for filters
@@ -106,7 +120,7 @@ public class MapFactory {
             //get all the Taxonomy information
             Taxonomy vsTaxonomyTree = hippoUtilsService.getTaxonomy();
             for (Category mainCategory : vsTaxonomyTree.getCategoryByKey(taxonomy).getChildren()) {
-                keys.add(mapService.getFilterNode(mainCategory, request.getLocale()));
+                keys.add(mapService.addFilterNode(mainCategory, request.getLocale()));
                 //if the map has 2 levels, the parent wont be a category for the mapcards, so pick sons
                 if (!mainCategory.getChildren().isEmpty()) {
                     for(Category child : mainCategory.getChildren()){
@@ -124,7 +138,6 @@ public class MapFactory {
         }
     }
 
-
     /**
      *
      * Method to build maps for Destination pages based on DMS products and manual and optional featured places
@@ -136,25 +149,21 @@ public class MapFactory {
      * @param features features information for mapcards
      */
     private void buildDestinationMapPages (Locale locale,Destination destinationPage, MapModule mapModuleDocument, MapsModule module, ArrayNode keys, ArrayNode features){
+        //Feature places on top of these maps
         if (!Contract.isNull(mapModuleDocument.getFeaturedPlacesItem())) {
             mapService.addFeaturePlacesNode(module, mapModuleDocument.getCategories(), locale , keys, features);
         }
-        //TODO create a class for Regions, another for Cities and ski, icentre...
         if (Arrays.asList(destinationPage.getKeys()).contains(REGIONS)) {
-            for (RegionsMapTab prodType: RegionsMapTab.values()) {
-                ObjectNode regionFilters = this.addRegionsFilters(prodType, locale);
-                features.add(regionFilters);
-                this.addRegionsData(prodType, destinationPage, module,  regionFilters, features,  locale);
-            }
-
+          /*  for (RegionsMapTab prodType: RegionsMapTab.values()) {
+                buildDMSMapPages(prodType.getProdTypeId(), prodType.getLabel(), destinationPage.getLocation(), module, keys, features, prodType.getCategory(), locale);
+            }*/
         }else{
             for (CitiesMapTab prodType : CitiesMapTab.values()) {
                 //filters
-                ObjectNode filter = mapService.getCategoryNode(prodType.getProdTypeId(), bundle.getResourceBundle(MAP, prodType.getLabel(), locale));
+                ObjectNode filter = this.addFilters(prodType.getProdTypeId(), bundle.getResourceBundle(MAP, prodType.getLabel(), locale), locale);
 
                 ///endpoint for data (pins)
-                ProductSearchBuilder dmsQuery = VsComponentManager.get(ProductSearchBuilder.class).location(destinationPage.getLocation())
-                        .productTypes(prodType.getProdTypeId());
+                ProductSearchBuilder dmsQuery = this.buildProductSearch (destinationPage.getLocation(), prodType.getProdTypeId(), null, locale, null, 24);
                 filter.put("pinsEndpoint", dmsQuery.buildDataMap());
 
                 //Endpoint base to bring 24 random results
@@ -162,7 +171,6 @@ public class MapFactory {
 
                 filter.put("pinClickEndPoint", propertiesService.getDmsDataPublicHost() + DMSConstants.VS_DMS_PRODUCT_MAP_CARD
                         +"locale="+locale+"&id=");
-
 
                 //subcategories added
                 ArrayNode childrenArray = dmsDataService.getCatGroup(prodType.getProdTypeId(),locale.getLanguage());
@@ -172,18 +180,25 @@ public class MapFactory {
         }
     }
 
-    private ObjectNode addRegionsFilters (RegionsMapTab prodType, Locale locale){
-        return  mapService.getCategoryNode(prodType.getProdTypeId().equalsIgnoreCase(DMSConstants.TYPE_TOWN)?"cities":"towns",
-                bundle.getResourceBundle(MAP, prodType.getLabel(), locale));
+    private ObjectNode addFilters (String prodTypeId, String prodTypelabel, Locale locale){
+        //TODO remove cities and towns categories here once we know the icons for places and iCentres
+        return  mapService.buildCategoryNode(prodTypeId.equalsIgnoreCase(DMSConstants.TYPE_TOWN)?"cities":"towns",
+                bundle.getResourceBundle(MAP,prodTypelabel,locale));
     }
 
-    private void addRegionsData (RegionsMapTab prodType, Destination destinationPage, MapsModule module, ObjectNode filter, ArrayNode features, Locale locale){
-        ProductSearchBuilder dmsQuery = VsComponentManager.get(ProductSearchBuilder.class).location(destinationPage.getLocation())
-                .productTypes(prodType.getProdTypeId()).category(prodType.getCategory())
-                .sortBy(DMSConstants.SORT_ALPHA).size(100);
-        JsonNode regionsData =  dmsDataService.cannedSearch(dmsQuery);
-        if (regionsData != null && !regionsData.isEmpty()) {
-            for (JsonNode jsonNode : regionsData) {
+
+    private void buildDMSMapPages (String prodTypeId, String prodTypeLabel, String location, MapsModule module,ArrayNode keys,ArrayNode features, String category, Locale locale) {
+        ObjectNode regionFilters = this.addFilters(prodTypeId, prodTypeLabel, locale);
+        keys.add(regionFilters);
+        this.addDmsData(this.buildProductSearch(location, prodTypeId, category, locale, DMSConstants.SORT_ALPHA, 100),
+                module, regionFilters, features, locale);
+
+    }
+
+    private void addDmsData (ProductSearchBuilder dmsQuery, MapsModule module, ObjectNode filter, ArrayNode features, Locale locale){
+        JsonNode dmsResponseData =  dmsDataService.cannedSearch(dmsQuery);
+        if (dmsResponseData != null && !dmsResponseData.isEmpty()) {
+            for (JsonNode jsonNode : dmsResponseData) {
                 FlatImage image = imageFactory.createImage(jsonNode, module,locale);
                 FlatLink link = new FlatLink(bundle.getResourceBundle(MAP, DISCOVER, locale), jsonNode.get("productLink").get("link").asText(), LinkType.INTERNAL);
                 ObjectNode data = mapper.createObjectNode();
@@ -198,5 +213,8 @@ public class MapFactory {
         }
     }
 
+    private ProductSearchBuilder buildProductSearch (String location, String prodType, String category, Locale locale, String order, int size){
+        return  VsComponentManager.get(ProductSearchBuilder.class).location(location).productTypes(prodType).category(category).sortBy(order).size(size).locale(locale);
+    }
 }
 

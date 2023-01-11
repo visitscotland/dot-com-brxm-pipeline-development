@@ -6,6 +6,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import com.fasterxml.jackson.databind.node.ArrayNode;
 import com.visitscotland.brxm.services.CommonUtilsService;
+import com.visitscotland.brxm.utils.Properties;
 import com.visitscotland.utils.Contract;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -22,10 +23,12 @@ public class DMSDataService {
 
     private final DMSProxy proxy;
     private final CommonUtilsService utilsService;
+    private final Properties propertiesService;
 
-    public DMSDataService(DMSProxy proxy, CommonUtilsService utilsService) {
+    public DMSDataService(DMSProxy proxy, CommonUtilsService utilsService, Properties propertiesService) {
         this.proxy = proxy;
         this.utilsService = utilsService;
+        this.propertiesService = propertiesService;
     }
 
 
@@ -167,12 +170,11 @@ public class DMSDataService {
     public JsonNode getPolygonCoordinates(String location){
         logger.info("Requesting data to retrieve the coordinates for the polygon: {}", location);
         if (!Contract.isEmpty(location)) {
-            /*String dmsUrl = DMSConstants.META_LOCATIONS_COORDINATES;*/
-            String dmsUrl ="https://api.visitscotland.com/dev/data/products/dms/meta/location/display-polygon?";
-            dmsUrl += location;
+            String apiUrl = propertiesService.getApiDataBackendHost() + "maps/meta/location/polygon?";
+            apiUrl += location;
             String responseString = null;
             try {
-                responseString = utilsService.requestUrl(dmsUrl);
+                responseString = utilsService.requestUrl(apiUrl);
 
                 if (responseString != null) {
                         ObjectMapper m = new ObjectMapper();

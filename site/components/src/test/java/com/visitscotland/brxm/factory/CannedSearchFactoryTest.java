@@ -3,7 +3,6 @@ package com.visitscotland.brxm.factory;
 import com.visitscotland.brxm.config.VsComponentManager;
 import com.visitscotland.brxm.dms.DMSConstants;
 import com.visitscotland.brxm.dms.DMSDataService;
-import com.visitscotland.brxm.dms.DMSProxy;
 import com.visitscotland.brxm.dms.ProductSearchBuilder;
 import com.visitscotland.brxm.hippobeans.*;
 import com.visitscotland.brxm.mock.CannedSearchMockBuilder;
@@ -59,6 +58,7 @@ class CannedSearchFactoryTest {
         ComponentManager context = mock(ComponentManager.class, withSettings().lenient());
         psBuilder = mock(ProductSearchBuilder.class, Answers.RETURNS_SELF);
         when(psBuilder.buildCannedSearch()).thenReturn(PSR_URL);
+        when(psBuilder.buildCannedSearchInternal()).thenReturn(PSR_URL);
         when(context.getComponent(ProductSearchBuilder.class)).thenReturn(psBuilder);
 
         VsComponentManager.setComponentManager(context);
