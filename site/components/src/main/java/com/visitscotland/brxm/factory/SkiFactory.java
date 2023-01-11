@@ -71,7 +71,7 @@ public class SkiFactory {
         }
 
         if (product.has(OPENING)){
-            module.setOpeningLink(new FlatLink(bundle.getResourceBundle(BUNDLE_FILE, "opening.label", locale),
+            module.setOpeningLink(new FlatLink(bundle.getResourceBundle(BUNDLE_FILE, "ski-centre.opening-times.label", locale),
                     product.get(URL).get(URL_LINK).asText() + "#opening", null));
         }
 

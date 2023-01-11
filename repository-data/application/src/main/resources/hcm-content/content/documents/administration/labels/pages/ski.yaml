@@ -1,0 +1,79 @@
+/content/documents/administration/labels/pages/ski:
+  jcr:primaryType: hippo:handle
+  jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+  jcr:uuid: af8ccc7c-88b9-4391-a8ee-25e3d42b574c
+  hippo:name: Ski Section
+  hippo:versionHistory: a22264dd-1370-4b27-807c-d31480a23b42
+  /ski[1]:
+    jcr:primaryType: resourcebundle:resourcebundle
+    jcr:mixinTypes: ['mix:referenceable']
+    jcr:uuid: e80a96c2-c6e7-4c32-8aae-2cc4c6d83afe
+    hippo:availability: []
+    hippostd:retainable: false
+    hippostd:state: draft
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2023-01-11T15:09:27.332Z
+    hippostdpubwf:lastModificationDate: 2023-01-11T15:09:27.332Z
+    hippostdpubwf:lastModifiedBy: admin
+    resourcebundle:descriptions: ['', '', '', '', '']
+    resourcebundle:id: ski
+    resourcebundle:keys: [ski-centre.opening-times.label, ski-data.loading, ski-data.unavailable,
+      ski-data.no-js, ski-data.provider]
+    resourcebundle:messages: [Check opening times, 'Data is currently loading, please
+        wait...', 'Data currently unavailable, please try again later.', JavaScript
+        needs to be enabled to see Runs and Lifts status, Data provided by Ski Scotland
+        and Cairngorm Mountain]
+    resourcebundle:messages_de: [Öffnungszeiten überprüfen, '', '', '', '']
+    resourcebundle:messages_es: [Consulta los horarios de apertura, '', '', '', '']
+    resourcebundle:messages_fr: [Vérifier les horaires d’ouverture, '', '', '', '']
+    resourcebundle:messages_it: [Controlla gli orari di apertura, '', '', '', '']
+    resourcebundle:messages_nl: [Bekijk de openingstijden, '', '', '', '']
+  /ski[2]:
+    jcr:primaryType: resourcebundle:resourcebundle
+    jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+    jcr:uuid: b39206b2-ccd7-476a-b18b-8a41552bca51
+    hippo:availability: [preview]
+    hippostd:retainable: false
+    hippostd:state: unpublished
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2023-01-11T15:09:27.332Z
+    hippostdpubwf:lastModificationDate: 2023-01-11T15:56:12.031Z
+    hippostdpubwf:lastModifiedBy: admin
+    resourcebundle:descriptions: ['', '', '', '', '']
+    resourcebundle:id: ski
+    resourcebundle:keys: [ski-centre.opening-times.label, ski-data.loading, ski-data.unavailable,
+      ski-data.no-js, ski-data.provider]
+    resourcebundle:messages: [Check opening times, 'Data is currently loading, please
+        wait...', 'Data currently unavailable, please try again later.', JavaScript
+        needs to be enabled to see Runs and Lifts status, Data provided by Ski Scotland
+        and Cairngorm Mountain]
+    resourcebundle:messages_de: [Öffnungszeiten überprüfen, '', '', '', '']
+    resourcebundle:messages_es: [Consulta los horarios de apertura, '', '', '', '']
+    resourcebundle:messages_fr: [Vérifier les horaires d’ouverture, '', '', '', '']
+    resourcebundle:messages_it: [Controlla gli orari di apertura, '', '', '', '']
+    resourcebundle:messages_nl: [Bekijk de openingstijden, '', '', '', '']
+  /ski[3]:
+    jcr:primaryType: resourcebundle:resourcebundle
+    jcr:mixinTypes: ['mix:referenceable']
+    jcr:uuid: b0c58634-5108-4a55-b147-76ed11c8e009
+    hippo:availability: [live]
+    hippostd:retainable: false
+    hippostd:state: published
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2023-01-11T15:09:27.332Z
+    hippostdpubwf:lastModificationDate: 2023-01-11T15:56:12.031Z
+    hippostdpubwf:lastModifiedBy: admin
+    hippostdpubwf:publicationDate: 2023-01-11T16:10:43.580Z
+    resourcebundle:descriptions: ['', '', '', '', '']
+    resourcebundle:id: ski
+    resourcebundle:keys: [ski-centre.opening-times.label, ski-data.loading, ski-data.unavailable,
+      ski-data.no-js, ski-data.provider]
+    resourcebundle:messages: [Check opening times, 'Data is currently loading, please
+        wait...', 'Data currently unavailable, please try again later.', JavaScript
+        needs to be enabled to see Runs and Lifts status, Data provided by Ski Scotland
+        and Cairngorm Mountain]
+    resourcebundle:messages_de: [Öffnungszeiten überprüfen, '', '', '', '']
+    resourcebundle:messages_es: [Consulta los horarios de apertura, '', '', '', '']
+    resourcebundle:messages_fr: [Vérifier les horaires d’ouverture, '', '', '', '']
+    resourcebundle:messages_it: [Controlla gli orari di apertura, '', '', '', '']
+    resourcebundle:messages_nl: [Bekijk de openingstijden, '', '', '', '']
