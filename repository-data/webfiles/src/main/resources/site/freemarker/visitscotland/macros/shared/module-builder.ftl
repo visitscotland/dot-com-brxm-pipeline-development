@@ -12,6 +12,8 @@
 <#include "../modules/stackla/stackla.ftl">
 <#include "../modules/canned-search/canned-search.ftl">
 <#include "../modules/map/map.ftl">
+<#include "../modules/ski-centre/ski-centre.ftl">
+<#include "../modules/ski-centre-list/ski-centre-list.ftl">
 <#include "theme-calculator.ftl">
 
 <#-- Implicit Request Objects -->
@@ -78,6 +80,12 @@
 
         <#elseif module.getType()== "IKnowCommunityModule">
             <@iknowCommunity module/>
+
+        <#elseif module.getType()== "SkiModule">
+            <@skiCentre module/>
+
+        <#elseif module.getType()== "SkiListModule">
+            <@skiCentreList module/>
         <#else >
             <@previewWarning editMode module module.errorMessages true />
         </#if>

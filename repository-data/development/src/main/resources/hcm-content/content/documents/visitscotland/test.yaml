@@ -17641,6 +17641,236 @@
           /visitscotland:links:
             jcr:primaryType: hippo:mirror
             hippo:docbase: b4f5210a-8aec-4a67-861f-bc8d1c85e861
+    /snow-sports:
+      jcr:primaryType: hippostd:folder
+      jcr:mixinTypes: ['hippo:named', 'hippotranslation:translated', 'mix:versionable']
+      jcr:uuid: 8db16731-f078-4c89-8aa4-53f8598f6a41
+      hippo:name: Snow Sports
+      hippostd:foldertype: [new-translated-folder-test, new-document]
+      hippotranslation:id: cfc2f5be-dedc-4b3b-909a-da5792788ec1
+      hippotranslation:locale: en
+      /glencoe:
+        jcr:primaryType: hippostd:folder
+        jcr:mixinTypes: ['hippo:named', 'hippotranslation:translated', 'mix:versionable']
+        jcr:uuid: c361d7f1-ac5f-44bd-9287-bc44975691bf
+        hippo:name: Glencoe
+        hippostd:foldertype: [new-translated-folder-test, new-document]
+        hippotranslation:id: dd9cc235-55e6-4dff-8c82-1c2cd0ae11aa
+        hippotranslation:locale: en
+        /content:
+          jcr:primaryType: hippo:handle
+          jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+          jcr:uuid: 1dd4d5ca-0241-43ec-b6c9-4718f1202c0c
+          hippo:name: Glencoe Mountain Resort
+          hippo:versionHistory: 6bf566da-0eea-4f1e-bc70-e04969b4b6be
+          /content[1]:
+            jcr:primaryType: visitscotland:General
+            jcr:mixinTypes: ['mix:referenceable']
+            jcr:uuid: 41e099b0-3078-4860-b778-4373a642914d
+            hippo:availability: []
+            hippostd:retainable: false
+            hippostd:state: draft
+            hippostdpubwf:createdBy: admin
+            hippostdpubwf:creationDate: 2023-01-11T17:52:16.855Z
+            hippostdpubwf:lastModificationDate: 2023-01-11T17:58:06.709Z
+            hippostdpubwf:lastModifiedBy: admin
+            hippotranslation:id: 89cc192e-9681-453a-a28d-e70dced52cd0
+            hippotranslation:locale: en
+            visitscotland:breadcrumb: ''
+            visitscotland:hideNewsletter: false
+            visitscotland:seoDescription: Find detailed information on snow conditions
+              at the Glencoe ski centre, with up-to-date snow reports, weather forecasts
+              & lift and road statuses.
+            visitscotland:seoNoIndex: false
+            visitscotland:seoTitle: Glencoe Mountain Resort
+            visitscotland:teaser: Find detailed information on snow conditions at
+              the Glencoe ski centre, with up-to-date snow reports, weather forecasts
+              & lift and road statuses.
+            visitscotland:theme: Standard
+            visitscotland:title: Glencoe Mountain Resort
+            visitscotland:translation: ''
+            /visitscotland:heroImage:
+              jcr:primaryType: hippogallerypicker:imagelink
+              hippo:docbase: c0d67ee5-7a22-4fa8-b0b8-335921c3f0e7
+              hippo:facets: []
+              hippo:modes: []
+              hippo:values: []
+            /visitscotland:introduction:
+              jcr:primaryType: hippostd:html
+              hippostd:content: <p>When it comes to picturesque views, it doesn't
+                get any better than the Highlands. One of the first commercially operating
+                ski resorts in Scotland, <a rel="noopener noreferrer" href="https://www.glencoemountain.co.uk/"
+                title="" target="_blank">Glencoe Mountain Resort</a> is a skiers'
+                paradise! With 20 runs serviced by 8 lifts, it includes both the longest
+                run in Scotland and the steepest run too. Looking for accommodation
+                with a difference? The resort's <a rel="noopener noreferrer" href="https://www.glencoemountain.co.uk/book-accommodation/"
+                title="" target="_blank">Microlodges</a> are a perfect alternative
+                to help keep you warm and snug after a day out in the snow.</p>
+          /content[2]:
+            jcr:primaryType: visitscotland:General
+            jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+            jcr:uuid: 541b4057-d037-4db6-b29f-bf61a10dd2cb
+            hippo:availability: [preview]
+            hippostd:retainable: false
+            hippostd:state: unpublished
+            hippostdpubwf:createdBy: admin
+            hippostdpubwf:creationDate: 2023-01-11T17:52:16.855Z
+            hippostdpubwf:lastModificationDate: 2023-01-11T17:53:45.542Z
+            hippostdpubwf:lastModifiedBy: admin
+            hippotranslation:id: 89cc192e-9681-453a-a28d-e70dced52cd0
+            hippotranslation:locale: en
+            visitscotland:breadcrumb: ''
+            visitscotland:hideNewsletter: false
+            visitscotland:seoDescription: Find detailed information on snow conditions
+              at the Glencoe ski centre, with up-to-date snow reports, weather forecasts
+              & lift and road statuses.
+            visitscotland:seoNoIndex: false
+            visitscotland:seoTitle: Glencoe Mountain Resort
+            visitscotland:teaser: Find detailed information on snow conditions at
+              the Glencoe ski centre, with up-to-date snow reports, weather forecasts
+              & lift and road statuses.
+            visitscotland:theme: Standard
+            visitscotland:title: Glencoe Mountain Resort
+            visitscotland:translation: ''
+            /visitscotland:heroImage:
+              jcr:primaryType: hippogallerypicker:imagelink
+              hippo:docbase: c0d67ee5-7a22-4fa8-b0b8-335921c3f0e7
+              hippo:facets: []
+              hippo:modes: []
+              hippo:values: []
+            /visitscotland:introduction:
+              jcr:primaryType: hippostd:html
+              hippostd:content: <p>When it comes to picturesque views, it doesn't
+                get any better than the Highlands. One of the first commercially operating
+                ski resorts in Scotland, <a rel="noopener noreferrer" href="https://www.glencoemountain.co.uk/"
+                title="" target="_blank">Glencoe Mountain Resort</a> is a skiers'
+                paradise! With 20 runs serviced by 8 lifts, it includes both the longest
+                run in Scotland and the steepest run too. Looking for accommodation
+                with a difference? The resort's <a rel="noopener noreferrer" href="https://www.glencoemountain.co.uk/book-accommodation/"
+                title="" target="_blank">Microlodges</a> are a perfect alternative
+                to help keep you warm and snug after a day out in the snow.</p>
+          /content[3]:
+            jcr:primaryType: visitscotland:General
+            jcr:mixinTypes: ['mix:referenceable']
+            jcr:uuid: c17263e9-8fad-4488-ad79-c4bade08fe22
+            hippo:availability: [live]
+            hippostd:retainable: false
+            hippostd:state: published
+            hippostdpubwf:createdBy: admin
+            hippostdpubwf:creationDate: 2023-01-11T17:52:16.855Z
+            hippostdpubwf:lastModificationDate: 2023-01-11T17:53:45.542Z
+            hippostdpubwf:lastModifiedBy: admin
+            hippostdpubwf:publicationDate: 2023-01-11T17:56:57.957Z
+            hippotranslation:id: 89cc192e-9681-453a-a28d-e70dced52cd0
+            hippotranslation:locale: en
+            visitscotland:breadcrumb: ''
+            visitscotland:hideNewsletter: false
+            visitscotland:seoDescription: Find detailed information on snow conditions
+              at the Glencoe ski centre, with up-to-date snow reports, weather forecasts
+              & lift and road statuses.
+            visitscotland:seoNoIndex: false
+            visitscotland:seoTitle: Glencoe Mountain Resort
+            visitscotland:teaser: Find detailed information on snow conditions at
+              the Glencoe ski centre, with up-to-date snow reports, weather forecasts
+              & lift and road statuses.
+            visitscotland:theme: Standard
+            visitscotland:title: Glencoe Mountain Resort
+            visitscotland:translation: ''
+            /visitscotland:heroImage:
+              jcr:primaryType: hippogallerypicker:imagelink
+              hippo:docbase: c0d67ee5-7a22-4fa8-b0b8-335921c3f0e7
+              hippo:facets: []
+              hippo:modes: []
+              hippo:values: []
+            /visitscotland:introduction:
+              jcr:primaryType: hippostd:html
+              hippostd:content: <p>When it comes to picturesque views, it doesn't
+                get any better than the Highlands. One of the first commercially operating
+                ski resorts in Scotland, <a rel="noopener noreferrer" href="https://www.glencoemountain.co.uk/"
+                title="" target="_blank">Glencoe Mountain Resort</a> is a skiers'
+                paradise! With 20 runs serviced by 8 lifts, it includes both the longest
+                run in Scotland and the steepest run too. Looking for accommodation
+                with a difference? The resort's <a rel="noopener noreferrer" href="https://www.glencoemountain.co.uk/book-accommodation/"
+                title="" target="_blank">Microlodges</a> are a perfect alternative
+                to help keep you warm and snug after a day out in the snow.</p>
+        /glencoe-ski-centre:
+          jcr:primaryType: hippo:handle
+          jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+          jcr:uuid: bdeb5c6a-9351-44ab-a5e1-113bf8396005
+          hippo:name: Glencoe Ski Centre
+          hippo:versionHistory: 26002e97-f647-4b73-9a93-8d9b0dd2ab00
+          /glencoe-ski-centre[1]:
+            jcr:primaryType: visitscotland:SkiCentre
+            jcr:mixinTypes: ['mix:referenceable']
+            jcr:uuid: ac27dcce-5245-4007-9b63-26a5542cd2af
+            hippo:availability: []
+            hippostd:retainable: false
+            hippostd:state: draft
+            hippostdpubwf:createdBy: admin
+            hippostdpubwf:creationDate: 2023-01-11T17:54:28.024Z
+            hippostdpubwf:lastModificationDate: 2023-01-11T17:54:28.024Z
+            hippostdpubwf:lastModifiedBy: admin
+            hippotranslation:id: 6fbe0b43-1439-4c42-b8ab-b0a08802df3c
+            hippotranslation:locale: en
+            visitscotland:feed: http://glencoe.infonet-online.fr/json/snowreport.json
+            visitscotland:productId: '990461'
+            visitscotland:title: Latest Conditions at Glencoe
+            visitscotland:translation: ''
+            /visitscotland:copy:
+              jcr:primaryType: hippostd:html
+              hippostd:content: <p>Find detailed information for Glencoe below, with
+                up-to-date snow reports, weather forecasts &amp; lift and road statuses.</p>
+          /glencoe-ski-centre[2]:
+            jcr:primaryType: visitscotland:SkiCentre
+            jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+            jcr:uuid: b74e72e6-fce8-451a-937e-5537eba55038
+            hippo:availability: [preview]
+            hippostd:retainable: false
+            hippostd:state: unpublished
+            hippostdpubwf:createdBy: admin
+            hippostdpubwf:creationDate: 2023-01-11T17:54:28.024Z
+            hippostdpubwf:lastModificationDate: 2023-01-11T17:56:46.456Z
+            hippostdpubwf:lastModifiedBy: admin
+            hippotranslation:id: 6fbe0b43-1439-4c42-b8ab-b0a08802df3c
+            hippotranslation:locale: en
+            visitscotland:feed: http://glencoe.infonet-online.fr/json/snowreport.json
+            visitscotland:productId: '990461'
+            visitscotland:title: Latest Conditions at Glencoe
+            visitscotland:translation: ''
+            /visitscotland:copy:
+              jcr:primaryType: hippostd:html
+              hippostd:content: <p>Find detailed information for Glencoe below, with
+                up-to-date snow reports, weather forecasts &amp; lift and road statuses.</p>
+          /glencoe-ski-centre[3]:
+            jcr:primaryType: visitscotland:SkiCentre
+            jcr:mixinTypes: ['mix:referenceable']
+            jcr:uuid: 6c49d580-3844-43c9-aa6b-6a73609329ff
+            hippo:availability: [live]
+            hippostd:retainable: false
+            hippostd:state: published
+            hippostdpubwf:createdBy: admin
+            hippostdpubwf:creationDate: 2023-01-11T17:54:28.024Z
+            hippostdpubwf:lastModificationDate: 2023-01-11T17:56:46.456Z
+            hippostdpubwf:lastModifiedBy: admin
+            hippostdpubwf:publicationDate: 2023-01-11T17:56:57.299Z
+            hippotranslation:id: 6fbe0b43-1439-4c42-b8ab-b0a08802df3c
+            hippotranslation:locale: en
+            visitscotland:feed: http://glencoe.infonet-online.fr/json/snowreport.json
+            visitscotland:productId: '990461'
+            visitscotland:title: Latest Conditions at Glencoe
+            visitscotland:translation: ''
+            /visitscotland:copy:
+              jcr:primaryType: hippostd:html
+              hippostd:content: <p>Find detailed information for Glencoe below, with
+                up-to-date snow reports, weather forecasts &amp; lift and road statuses.</p>
+      /nevis-range:
+        jcr:primaryType: hippostd:folder
+        jcr:mixinTypes: ['hippo:named', 'hippotranslation:translated', 'mix:versionable']
+        jcr:uuid: 21b3a38a-756c-412b-ab2d-274ca6ad1fde
+        hippo:name: Nevis Range
+        hippostd:foldertype: [new-translated-folder-test, new-document]
+        hippotranslation:id: 5469d1d1-5b77-4f89-869b-1ad008c138af
+        hippotranslation:locale: en
   /automation:
     jcr:primaryType: hippostd:folder
     jcr:mixinTypes: ['hippo:named', 'hippotranslation:translated', 'mix:versionable']
