@@ -78,9 +78,6 @@
         <#elseif module.getType()== "MarketoFormModule">
             <@marketo module/>
 
-        <#elseif module.getType()== "IKnowCommunityModule">
-            <@iknowCommunity module/>
-
         <#elseif module.getType()== "SkiModule">
             <@skiCentre module/>
 
