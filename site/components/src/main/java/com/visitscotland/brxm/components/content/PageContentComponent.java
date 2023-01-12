@@ -15,6 +15,7 @@ import com.visitscotland.brxm.model.megalinks.EnhancedLink;
 import com.visitscotland.brxm.model.megalinks.HorizontalListLinksModule;
 import com.visitscotland.brxm.services.LinkService;
 import com.visitscotland.brxm.utils.ContentLogger;
+import com.visitscotland.brxm.utils.Properties;
 import com.visitscotland.utils.Contract;
 import org.hippoecm.hst.core.component.HstRequest;
 import org.hippoecm.hst.core.component.HstResponse;
@@ -44,6 +45,7 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
     private final SignpostFactory signpostFactory;
     private final ProductSearchWidgetFactory psrFactory;
     private final PreviewModeFactory previewFactory;
+    private final Properties properties;
     private final Logger contentLogger;
 
     public PageContentComponent() {
@@ -54,6 +56,7 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
         psrFactory = VsComponentManager.get(ProductSearchWidgetFactory.class);
         previewFactory = VsComponentManager.get(PreviewModeFactory.class);
         contentLogger = VsComponentManager.get(ContentLogger.class);
+        properties = VsComponentManager.get(Properties.class);
     }
 
     @Override
@@ -117,8 +120,12 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
     protected void addNewsletterSignup(HstRequest request) {
         Page page = getDocument(request);
         if (!Contract.defaultIfNull(page.getHideNewsletter(), false)) {
-            SignpostModule signpost = signpostFactory.createNewsletterSignpostModule(request.getLocale());
-            request.setAttribute(NEWSLETTER_SIGNPOST, signpost);
+            if (request.getPathInfo().contains(properties.getSiteSkiSection())){
+                //TODO: SKi Section uses its own signup post
+            } else {
+                SignpostModule signpost = signpostFactory.createNewsletterSignpostModule(request.getLocale());
+                request.setAttribute(NEWSLETTER_SIGNPOST, signpost);
+            }
         }
     }
 
@@ -126,7 +133,9 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
      * Add the configuration related to the Product Search Widget for the page
      */
     private void addProductSearchWidget(HstRequest request){
-        request.setAttribute(PSR_WIDGET, psrFactory.getWidget(request));
+        if (!request.getPathInfo().contains(properties.getSiteSkiSection())){
+            request.setAttribute(PSR_WIDGET, psrFactory.getWidget(request));
+        }
     }
 
     public void addLogging(HstRequest request){
