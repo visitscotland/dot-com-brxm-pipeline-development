@@ -11,6 +11,7 @@ import org.jetbrains.annotations.NotNull;
 import org.slf4j.Logger;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Locale;
 
@@ -40,7 +41,9 @@ public class SkiFactory {
         JsonNode product = dataService.productCard(document.getProductId(), locale);
 
         if (product == null){
-            contentLogger.error("The DMS product associated with this Ski Centre (ID={}) is not available", document.getProductId());
+            String errorMessage = String.format("The DMS product associated with this Ski Centre (ID=%s) is not available", document.getProductId());
+            contentLogger.error(errorMessage + ". Path= " + document.getPath());
+            module.addErrorMessage(errorMessage);
         } else {
             populateDmsData(module, product, locale);
         }

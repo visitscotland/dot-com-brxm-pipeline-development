@@ -83,6 +83,18 @@ class SkiFactoryTest {
         Assertions.assertTrue(module.getSocialChannels().get(0).toString().contains("https://www.facebook.com/cairngormmountainscotlandltd"));
     }
 
+    @DisplayName("Flag error when the DMS is not valid")
+    @Test
+    void dms_notValid() {
+        SkiCentre document = mock(SkiCentre.class);
+
+        when(document.getProductId()).thenReturn("NOT-VALID-ID");
+
+        SkiModule module = skiFactory.createSkyModule(document, Locale.UK);
+
+        Assertions.assertEquals(1, module.getErrorMessages().size());
+        Assertions.assertTrue(module.getErrorMessages().get(0).contains("NOT-VALID-ID"));
+    }
 
 
 }
