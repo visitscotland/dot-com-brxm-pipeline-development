@@ -56,7 +56,7 @@ public class DMSDataService {
             logger.info("Requesting data to the dms: {}", dmsUrl);
             try {
                 responseString = proxy.request(dmsUrl);
-                if (responseString!=null) {
+                if (!Contract.isEmpty(responseString)) {
 
                     ObjectMapper mapper = new ObjectMapper();
                     JsonNode json = mapper.readTree(responseString);
@@ -91,7 +91,7 @@ public class DMSDataService {
         try {
             responseString = proxy.request(dmsUrl);
 
-            if (responseString!=null) {
+            if (!Contract.isEmpty(responseString)) {
 
                 ObjectMapper mapper = new ObjectMapper();
                 JsonNode json = mapper.readTree(responseString);
@@ -113,7 +113,7 @@ public class DMSDataService {
 
         logger.info("Requesting data to the canned search: {}", dmsUrl);
         String responseString = proxy.request(dmsUrl);
-        if (responseString != null) {
+        if (!Contract.isEmpty(responseString)) {
             try {
                 ObjectMapper m = new ObjectMapper();
                 if (m.readTree(responseString).has("data")){
@@ -142,7 +142,7 @@ public class DMSDataService {
         try {
             responseString = proxy.request(cannedSearch);
 
-            if (responseString!=null) {
+            if (!Contract.isEmpty(responseString)) {
                 ObjectMapper mapper = new ObjectMapper();
                 JsonNode json = mapper.readTree(responseString);
 
@@ -176,7 +176,7 @@ public class DMSDataService {
             try {
                 responseString = utilsService.requestUrl(apiUrl);
 
-                if (responseString != null) {
+                if (!Contract.isEmpty(responseString)) {
                         ObjectMapper m = new ObjectMapper();
                         return m.readTree(responseString).get("geometry");
                 }
@@ -216,7 +216,7 @@ public class DMSDataService {
      */
     private ArrayNode getArrayData(String dmsUrl) {
         String responseString = proxy.request(dmsUrl);
-        if (responseString != null) {
+        if (!Contract.isEmpty(responseString)) {
             try {
                 ObjectMapper m = new ObjectMapper();
                 return (ArrayNode) m.readTree(responseString).get("data");
