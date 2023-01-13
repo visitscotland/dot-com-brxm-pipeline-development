@@ -11,7 +11,7 @@ definitions:
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:uuid: dc592035-7fb6-4f26-94be-f8cacb3d049b
+          jcr:uuid: 568163a7-ea98-4086-9ffc-54eefc75998b
           hipposysedit:node: true
           hipposysedit:supertype: ['visitscotland:basedocument', 'hippostd:relaxed',
             'hippotranslation:translated']
@@ -60,6 +60,15 @@ definitions:
             hipposysedit:path: visitscotland:translation
             hipposysedit:primary: false
             hipposysedit:type: OpenUiString
+          /pisteMap:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: visitscotland:pisteMap
+            hipposysedit:primary: false
+            hipposysedit:type: String
+            hipposysedit:validators: [required]
       /hipposysedit:prototypes:
         jcr:primaryType: hipposysedit:prototypeset
         /hipposysedit:prototype:
@@ -74,10 +83,11 @@ definitions:
           visitscotland:title: ''
           visitscotland:productId: ''
           visitscotland:feed: ''
-          jcr:uuid: 6a6eed67-56ce-4448-a5c9-6ad1f07aa39d
+          jcr:uuid: a4efdf43-4968-440e-a828-d9bce7abbc6d
           hippostdpubwf:lastModificationDate: 2022-12-05T11:32:07.174Z
           hippostdpubwf:creationDate: 2022-12-05T11:32:07.174Z
           visitscotland:translation: ''
+          visitscotland:pisteMap: ''
       /editor:templates:
         jcr:primaryType: editor:templateset
         /_default_:
@@ -128,6 +138,15 @@ definitions:
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
             hint: ''
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+          /pisteMap:
+            jcr:primaryType: frontend:plugin
+            caption: Piste Map URL
+            field: pisteMap
+            hint: ''
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
           /translation:

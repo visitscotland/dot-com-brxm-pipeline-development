@@ -57,12 +57,14 @@ class SkiFactoryTest {
         when(document.getCopy()).thenReturn(description);
         when(document.getFeed()).thenReturn("http://www.ski.scot/cairngorm");
         when(document.getProductId()).thenReturn("NOT-VALID");
+        when(document.getPisteMap()).thenReturn("map.pdf");
 
         SkiModule module = skiFactory.createSkyModule(document, Locale.UK);
 
         Assertions.assertEquals("Title", module.getTitle());
         Assertions.assertEquals("http://www.ski.scot/cairngorm", module.getFeedURL());
         Assertions.assertEquals(description, document.getCopy());
+        Assertions.assertEquals("map.pdf", module.getPisteMap());
     }
 
     @DisplayName("Populate information from the DMS")
