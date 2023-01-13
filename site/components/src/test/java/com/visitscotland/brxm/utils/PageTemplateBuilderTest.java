@@ -411,19 +411,20 @@ class PageTemplateBuilderTest {
     }
 
     @Test
+    @Disabled("This feature has been moved to PageContentComponent")
     @DisplayName("VS-3168 - Test global search page")
     void globalSearchPage(){
-        General page = mock(General.class);
-
-        //The module is only allowed got general pages.
-        when(page.getTheme()).thenReturn("Simple");
-        request.setAttribute("document", page);
-
-        when(utils.getAllowedDocuments(page)).thenReturn(Arrays.asList(mock(LongCopy.class), mock(LongCopy.class), mock(LongCopy.class)));
-        when(longCopyFactory.getModule(any(LongCopy.class))).thenReturn(new LongCopyModule());
-        when(page.getPath()).thenReturn("/site-search-results");
-        builder.addModules(request);
-
-        assertNotNull(request.getAttribute(PageTemplateBuilder.SEARCH_RESULTS));
+//        General page = mock(General.class);
+//
+//        //The module is only allowed got general pages.
+//        when(page.getTheme()).thenReturn("Simple");
+//        request.setAttribute("document", page);
+//
+//        when(utils.getAllowedDocuments(page)).thenReturn(Arrays.asList(mock(LongCopy.class), mock(LongCopy.class), mock(LongCopy.class)));
+//        when(longCopyFactory.getModule(any(LongCopy.class))).thenReturn(new LongCopyModule());
+//        when(page.getPath()).thenReturn("/site-search-results");
+//        builder.addModules(request);
+//
+//        assertNotNull(request.getAttribute(PageContentComponent.SEARCH_RESULTS));
     }
 }
