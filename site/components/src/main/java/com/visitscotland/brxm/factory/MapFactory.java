@@ -67,6 +67,7 @@ public class MapFactory {
         MapsModule module = new MapsModule();
 
         module.setId(mapModuleDocument.getCanonicalUUID());
+        module.setHippoBean(mapModuleDocument);
         module.setTitle(mapModuleDocument.getTitle());
         module.setIntroduction(mapModuleDocument.getCopy());
         module.setTabTitle(mapModuleDocument.getTabTitle());
