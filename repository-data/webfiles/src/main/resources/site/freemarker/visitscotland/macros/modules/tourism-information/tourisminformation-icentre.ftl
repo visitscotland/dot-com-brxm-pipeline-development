@@ -50,5 +50,4 @@
             </vs-icentre>
         </vs-container>
     </vs-module-wrapper>
-
 </#macro>
