@@ -161,8 +161,6 @@ public class MapFactory {
         }else{
             for (CitiesMapTab prodType : CitiesMapTab.values()) {
                 //filters
-               // ObjectNode filter = this.addFilters(prodType.getProdTypeId(), bundle.getResourceBundle(MAP, prodType.getLabel(), locale), locale);
-
                 ObjectNode filter = mapService.buildCategoryNode(prodType.getProdTypeId(), bundle.getResourceBundle(MAP, prodType.getLabel(), locale));
 
                 ///endpoint for data (pins)
