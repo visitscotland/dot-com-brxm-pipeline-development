@@ -28,7 +28,7 @@
     - PHONE - ${module.phone}
     - URL - ${module.website.link?eval}
     - ADDRESS - <@address module.address true />
-    <#-- TODO: PISTE MAP -->
+    - PISTE MAP - ${module.pisteMap}
     - OPENING TIMES
         - LABEL - ${module.openingLink.label}
         - LINK - ${module.openingLink.link}

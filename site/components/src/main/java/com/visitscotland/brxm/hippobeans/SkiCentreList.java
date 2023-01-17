@@ -45,18 +45,8 @@ public class SkiCentreList extends BaseDocument {
         return getSingleProperty("visitscotland:translationDeadline");
     }
 
-    @HippoEssentialsGenerated(internalName = "visitscotland:feed")
-    public String getFeed() {
-        return getSingleProperty("visitscotland:feed");
-    }
-
-    @HippoEssentialsGenerated(internalName = "visitscotland:productId")
-    public String getProductId() {
-        return getSingleProperty("visitscotland:productId");
-    }
-
-    @HippoEssentialsGenerated(internalName = "visitscotland:introduction")
-    public HippoHtml getIntroduction() {
-        return getHippoHtml("visitscotland:introduction");
+    @HippoEssentialsGenerated(internalName = "visitscotland:openuistring")
+    public String getOpenuistring() {
+        return getSingleProperty("visitscotland:openuistring");
     }
 }
