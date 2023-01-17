@@ -56,6 +56,10 @@ public class Properties {
     static final String DMS_HOST = "links.vs-dms-products.url";
     static final String DMS_MAP_DEFAULT_DISTANCE = "dms.default-distance";
 
+    //Page References
+    static final String GLOBAL_SEARCH = "site.path.global-search";
+    static final String SKI_SECTION = "site.path.ski-landing";
+
     private final ResourceBundleService bundle;
 
     private final HippoUtilsService utils;
@@ -164,6 +168,14 @@ public class Properties {
 
     public String getDmsInternalPath() {
         return readString(DMS_INTERNAL_PATH);
+    }
+
+    public String getSiteSkiSection() {
+        return readString(SKI_SECTION);
+    }
+
+    public String getSiteGlobalSearch() {
+        return readString(GLOBAL_SEARCH);
     }
 
     public Integer getContentCacheRetention() {
