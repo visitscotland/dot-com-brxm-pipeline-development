@@ -20,11 +20,52 @@
     FEED: Config:
         URL - ${module.feedURL}
         Timeout - ${property("ski.timeout")}
+        locale - ${locale}
         MESSAGES
-            - loading - ${label("ski", "ski-data.loading")}
-            - no-js - ${label("ski", "ski-data.no-js")}
-            - unavailable - ${label("ski", "ski-data.unavailable")}
-        DATA PROVIDER -  ${label("ski", "ski-data.provider")}
+            ${label("ski", "ski-centre.run-lift-status")} // Run/Lift Status
+            ${label("ski", "ski-centre.status")} // Status
+            ${label("ski", "ski-centre.lifts")} // Runs
+            ${label("ski", "ski-centre.lifts")} // Lifts
+            ${label("ski", "ski-centre.detailed-status")} // Detailed Status
+            ${label("ski", "ski-centre.status.open")} // Open
+            ${label("ski", "ski-centre.status.closed")} // Closed
+            ${label("ski", "ski-centre.status.expected-to-open")} // Expected to Open
+            ${label("ski", "ski-centre.status.on-hold")} // On Hold
+            ${label("ski", "ski-centre.status.limited-patrol")} // Limited Patrol
+            ${label("ski", "ski-centre.status.open-soon")} // Open soon
+            ${label("ski", "ski-centre.run.green")} // Green
+            ${label("ski", "ski-centre.run.easy")} // Easy
+            ${label("ski", "ski-centre.run.blue")} // Blue
+            ${label("ski", "ski-centre.run.intermediate")} // Intermediate
+            ${label("ski", "ski-centre.run.red")} // Red
+            ${label("ski", "ski-centre.run.difficult")} // Difficult
+            ${label("ski", "ski-centre.run.black")} // Black
+            ${label("ski", "ski-centre.run.very-difficult")} // Very Difficult
+            ${label("ski", "ski-centre.run.orange")} // Orange
+            ${label("ski", "ski-centre.run.itineraries")} // Itineraries
+            ${label("ski", "ski-centre.run.back-country")} // Back Country
+            ${label("ski", "ski-centre.run.grey")} // Grey
+            ${label("ski", "ski-centre.run.other")} // Other
+            ${label("ski", "ski-centre.lift-status")} // Lift Status
+            ${label("ski", "ski-centre.run-status")} // Run Status
+            ${label("ski", "ski-centre.lift")} // Lift
+            ${label("ski", "ski-centre.centre-information")} // Centre Information
+            ${label("ski", "ski-centre.piste-map")} // Piste Map
+            ${label("ski", "ski-centre.webcam")} // WebCam
+            ${label("ski", "ski-centre.view-piste-map")} // View Piste Map
+            ${label("ski", "ski-centre.more-details")} // More Details
+            ${label("ski", "ski-centre.last-updated")} // Last updated
+            ${label("ski", "ski-data.no-js")} // JavaScript needs to be enabled to see Run and Lift status
+            ${label("ski", "ski-data.ski-centre.no-js")} // JavaScript needs to be enabled to see the latest conditions at this ski centre
+            ${label("ski", "ski-data.loading")} // Data is currently loading, please wait…
+            ${label("ski", "ski-data.unavailable")} // Data is currently unavailable, please try again later.
+            ${label("ski", "ski-centre.snow-conditions.news-from-the-slopes")} // News from the slopes
+            ${label("ski", "ski-centre.snow-conditions.weather")} // Weather
+            ${label("ski", "ski-centre.snow-conditions.current-weather")} // Current Weather
+            ${label("ski", "ski-centre.snow-conditions.weather-forecast")} // Weather Forecast
+            ${label("ski", "ski-centre.snow-conditions.full-report")} // Snow conditions full report
+            ${label("ski", "ski-centre.snow-conditions.road-status")} // Road Status
+            ${label("ski", "ski-data.provider")}
 
     CENTRE INFORMATION
     - PHONE - ${module.phone}

@@ -3,7 +3,7 @@
   jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
   jcr:uuid: af8ccc7c-88b9-4391-a8ee-25e3d42b574c
   hippo:name: Ski Section
-  hippo:versionHistory: a22264dd-1370-4b27-807c-d31480a23b42
+  hippo:versionHistory: feed1756-a764-489c-befc-9e57e4164d34
   /ski[1]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:referenceable']
@@ -13,21 +13,89 @@
     hippostd:state: draft
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2023-01-11T15:09:27.332Z
-    hippostdpubwf:lastModificationDate: 2023-01-11T15:09:27.332Z
+    hippostdpubwf:lastModificationDate: 2023-01-17T17:49:23.657Z
     hippostdpubwf:lastModifiedBy: admin
-    resourcebundle:descriptions: ['', '', '', '', '']
+    resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '', '', '', '',
+      '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
+      '', '', '', '', '', '', '', '', '', '', '', '', '', '', '']
     resourcebundle:id: ski
     resourcebundle:keys: [ski-centre.opening-times.label, ski-data.loading, ski-data.unavailable,
-      ski-data.no-js, ski-data.provider]
+      ski-data.no-js, ski-data.provider, ski-centre.run-lift-status, ski-centre.status,
+      ski-centre.runs, ski-centre.lifts, ski-centre.detailed-status, ski-centre.status.open,
+      ski-centre.status.closed, ski-centre.status.expected-to-open, ski-centre.status.on-hold,
+      ski-centre.status.limited-patrol, ski-centre.status.open-soon, ski-centre.run.green,
+      ski-centre.run.easy, ski-centre.run.blue, ski-centre.run.intermediate, ski-centre.run.red,
+      ski-centre.run.difficult, ski-centre.run.black, ski-centre.run.very-difficult,
+      ski-centre.run.orange, ski-centre.run.itineraries, ski-centre.run.back-country,
+      ski-centre.run.grey, ski-centre.run.other, ski-centre.lift-status, ski-centre.run-status,
+      ski-centre.lift, ski-centre.centre-information, ski-centre.piste-map, ski-centre.webcam,
+      ski-centre.view-piste-map, ski-centre.more-details, ski-centre.last-updated,
+      ski-data.ski-centre.no-js, ski-centre.snow-conditions.news-from-the-slopes,
+      Weer, ski-centre.snow-conditions.current-weather, ski-centre.snow-conditions.weather-forecast,
+      ski-centre.snow-conditions.full-report, ski-centre.snow-conditions.road-status,
+      ski-centre.snow-conditions.weather]
     resourcebundle:messages: [Check opening times, 'Data is currently loading, please
         wait...', 'Data currently unavailable, please try again later.', JavaScript
         needs to be enabled to see Runs and Lifts status, Data provided by Ski Scotland
-        and Cairngorm Mountain]
-    resourcebundle:messages_de: [Öffnungszeiten überprüfen, '', '', '', '']
-    resourcebundle:messages_es: [Consulta los horarios de apertura, '', '', '', '']
-    resourcebundle:messages_fr: [Vérifier les horaires d’ouverture, '', '', '', '']
-    resourcebundle:messages_it: [Controlla gli orari di apertura, '', '', '', '']
-    resourcebundle:messages_nl: [Bekijk de openingstijden, '', '', '', '']
+        and Cairngorm Mountain, Run/Lift Status, Status, Runs, Lifts, Detailed Status,
+      Open, Closed, Expected to Open, On Hold, Limited Patrol, Open soon, Green, Easy,
+      Blue, Intermediate, Red, Difficult, Black, Very Difficult, Orange, Itineraries,
+      Back Country, Grey, Other, Lift Status, Run Status, Lift, Centre Information,
+      Piste Map, Webcam, View Piste Map, More Details, Last updated, JavaScript needs
+        to be enabled to see the latest conditions at this ski centre, News from the
+        slopes, Meteo, Current Weather, Weather Forecast, Snow conditions full report,
+      Road Status, Weather]
+    resourcebundle:messages_de: [Öffnungszeiten überprüfen, '', '', '', '', Pisten-/Liftstatus,
+      Status, Pisten, Lifte, Detaillierter Status, Geöffnet, Geschlossen, Öffnung
+        erwartet, Angehalten, Begrenzte Skipatrouillen, Öffnet bald, Grün, Leicht,
+      Blau, Mittel, Rot, Schwierig, Schwarz, Sehr schwierig, Orange, Reisevorschläge,
+      Tiefschnee, Grau, Andere, Liftstatus, Pistenstatus, Lift, Informationen zum
+        Skizentrum, Pistenkarte, Webcam, Pistenkarte sehen, Weitere Details, Zuletzt
+        aktualisiert, 'JavaScript muss aktiviert sein, um die aktuellen Bedingungen
+        an diesem Skizentrum anzuzeigen.', Neues von der Piste, Météo, Aktuelles Wetter,
+      Wettervorhersage, Kompletter Bericht zu den Schneebedingungen, Straßenbedingungen,
+      Wetter]
+    resourcebundle:messages_es: [Consulta los horarios de apertura, '', '', '', '',
+      Estado de Pista/Remonte, Estado, Pista, Remonte, Estado detallado, Abierto,
+      Cerrado, Se espera que abra, En espera, Patrullaje limitado, Abre pronto, Verde,
+      Fácil, Azul, Intermedio, Rojo, Difícil, Negro, Muy difícil, Naranja, Itinerarios,
+      Esquí de fondo, Gris, Otros, Estado de remonte, Estado de pista, Remonte, Centro
+        de información, Mapa de pista, Webcam, Ver mapa de pista, Más detalles, Última
+        actualización, JavaScript debe estar habilitado para ver las últimas condiciones
+        en este centro de esquí, Novedades desde la nieve, Clima, Clima actual, Pronóstico
+        meteorológico, Informe completo del estado de la nieve, Estado de las rutas,
+      Clima]
+    resourcebundle:messages_fr: [Vérifier les horaires d’ouverture, '', '', '', '',
+      État de fonctionnement/levage, Statut, Pistes, Remontées mécaniques, Statut
+        détaillé, Ouvertes, Fermées, Ouverture imminente, En attente, Nombre retreint
+        de pisteurs, Bientôt ouvert, Verte, Facile, Bleue, Intermédiaire, rouge, Difficile,
+      Noire, Très difficile, orange, itinéraires, ski de fond, grise, Autre, Etat
+        de l'ascenseur, Etat du parcours, Remontées mécaniques, Centre d'informations,
+      Carte des pistes, Webcam, Voir la carte des pistes, Plus sur, Dernière mise
+        à jour, JavaScript doit être activé pour voir les dernières conditions à ce
+        centre de ski, Nouvelles des pistes, Wetter, 'Quel temps fait-il ?', Prévisions
+        météo, Rapport complet sur les conditions de neige, Etat de la route, Météo]
+    resourcebundle:messages_it: [Controlla gli orari di apertura, '', '', '', '',
+      Status piste/impianti di risalita, Status, Piste, Impianti di risalita, Status
+        dettagliato, Aperto, Chiuso, Apertura prevista, In pausa, Assistenza limitata,
+      Apertura a breve, Verde, Facile, Blu, Intermedia, Rosso, Difficile, Nera, Molto
+        difficile, Arancio, Itinerari, Fuoripista, Grigio, Altro, Status impianti
+        di risalita, Status piste, Impianto di risalita, Centro informazioni, Mappa
+        delle piste, Webcam, Visualizza la mappa delle piste, Ulteriori dettagli,
+      Ultimo aggiornamento, JavaScript deve essere abilitato per vedere le ultime
+        condizioni di questo centro sciistico, Notizie dalle piste, Weather, Meteo
+        attuale, Previsioni meteo, Bollettino completo delle condizioni della neve,
+      Stato delle strade, Meteo]
+    resourcebundle:messages_nl: [Bekijk de openingstijden, '', '', '', '', Status
+        piste/lift, Status, Pistes, Liften, Gedetailleerde status, Open, Gesloten,
+      Verwacht te openen, In de wacht, Beperkte patrouille, Binnenkort open, Groen,
+      Makkelijk, Blauw, Gemiddeld, Rood, Moeilijk, Zwart, Zeer moeilijk, Oranje, Itineraries,
+      Backcountry, Grijs, Anders, Status van liften, Status van pistes, Lift, Centruminformatie,
+      Kaart van de piste, Webcam, Bekijk kaart van de piste, Meer details, Laatst
+        bijgewerkt, JavaScript moet ingeschakeld zijn om de meest recente condities
+        van dit skicentrum te zien, Nieuws van de pistes, ski-centre.snow-conditions.weather,
+      Huidige weersomstandigheden, Weersvoorspelling, Sneeuwcondities volledig rapport,
+      Toestand van de wegen, Weer]
   /ski[2]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
@@ -37,21 +105,89 @@
     hippostd:state: unpublished
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2023-01-11T15:09:27.332Z
-    hippostdpubwf:lastModificationDate: 2023-01-11T15:56:12.031Z
+    hippostdpubwf:lastModificationDate: 2023-01-17T17:49:58.757Z
     hippostdpubwf:lastModifiedBy: admin
-    resourcebundle:descriptions: ['', '', '', '', '']
+    resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '', '', '', '',
+      '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
+      '', '', '', '', '', '', '', '', '', '', '', '', '', '', '']
     resourcebundle:id: ski
     resourcebundle:keys: [ski-centre.opening-times.label, ski-data.loading, ski-data.unavailable,
-      ski-data.no-js, ski-data.provider]
+      ski-data.no-js, ski-data.provider, ski-centre.run-lift-status, ski-centre.status,
+      ski-centre.runs, ski-centre.lifts, ski-centre.detailed-status, ski-centre.status.open,
+      ski-centre.status.closed, ski-centre.status.expected-to-open, ski-centre.status.on-hold,
+      ski-centre.status.limited-patrol, ski-centre.status.open-soon, ski-centre.run.green,
+      ski-centre.run.easy, ski-centre.run.blue, ski-centre.run.intermediate, ski-centre.run.red,
+      ski-centre.run.difficult, ski-centre.run.black, ski-centre.run.very-difficult,
+      ski-centre.run.orange, ski-centre.run.itineraries, ski-centre.run.back-country,
+      ski-centre.run.grey, ski-centre.run.other, ski-centre.lift-status, ski-centre.run-status,
+      ski-centre.lift, ski-centre.centre-information, ski-centre.piste-map, ski-centre.webcam,
+      ski-centre.view-piste-map, ski-centre.more-details, ski-centre.last-updated,
+      ski-data.ski-centre.no-js, ski-centre.snow-conditions.news-from-the-slopes,
+      Weer, ski-centre.snow-conditions.current-weather, ski-centre.snow-conditions.weather-forecast,
+      ski-centre.snow-conditions.full-report, ski-centre.snow-conditions.road-status,
+      ski-centre.snow-conditions.weather]
     resourcebundle:messages: [Check opening times, 'Data is currently loading, please
         wait...', 'Data currently unavailable, please try again later.', JavaScript
         needs to be enabled to see Runs and Lifts status, Data provided by Ski Scotland
-        and Cairngorm Mountain]
-    resourcebundle:messages_de: [Öffnungszeiten überprüfen, '', '', '', '']
-    resourcebundle:messages_es: [Consulta los horarios de apertura, '', '', '', '']
-    resourcebundle:messages_fr: [Vérifier les horaires d’ouverture, '', '', '', '']
-    resourcebundle:messages_it: [Controlla gli orari di apertura, '', '', '', '']
-    resourcebundle:messages_nl: [Bekijk de openingstijden, '', '', '', '']
+        and Cairngorm Mountain, Run/Lift Status, Status, Runs, Lifts, Detailed Status,
+      Open, Closed, Expected to Open, On Hold, Limited Patrol, Open soon, Green, Easy,
+      Blue, Intermediate, Red, Difficult, Black, Very Difficult, Orange, Itineraries,
+      Back Country, Grey, Other, Lift Status, Run Status, Lift, Centre Information,
+      Piste Map, Webcam, View Piste Map, More Details, Last updated, JavaScript needs
+        to be enabled to see the latest conditions at this ski centre, News from the
+        slopes, Meteo, Current Weather, Weather Forecast, Snow conditions full report,
+      Road Status, Weather]
+    resourcebundle:messages_de: [Öffnungszeiten überprüfen, '', '', '', '', Pisten-/Liftstatus,
+      Status, Pisten, Lifte, Detaillierter Status, Geöffnet, Geschlossen, Öffnung
+        erwartet, Angehalten, Begrenzte Skipatrouillen, Öffnet bald, Grün, Leicht,
+      Blau, Mittel, Rot, Schwierig, Schwarz, Sehr schwierig, Orange, Reisevorschläge,
+      Tiefschnee, Grau, Andere, Liftstatus, Pistenstatus, Lift, Informationen zum
+        Skizentrum, Pistenkarte, Webcam, Pistenkarte sehen, Weitere Details, Zuletzt
+        aktualisiert, 'JavaScript muss aktiviert sein, um die aktuellen Bedingungen
+        an diesem Skizentrum anzuzeigen.', Neues von der Piste, Météo, Aktuelles Wetter,
+      Wettervorhersage, Kompletter Bericht zu den Schneebedingungen, Straßenbedingungen,
+      Wetter]
+    resourcebundle:messages_es: [Consulta los horarios de apertura, '', '', '', '',
+      Estado de Pista/Remonte, Estado, Pista, Remonte, Estado detallado, Abierto,
+      Cerrado, Se espera que abra, En espera, Patrullaje limitado, Abre pronto, Verde,
+      Fácil, Azul, Intermedio, Rojo, Difícil, Negro, Muy difícil, Naranja, Itinerarios,
+      Esquí de fondo, Gris, Otros, Estado de remonte, Estado de pista, Remonte, Centro
+        de información, Mapa de pista, Webcam, Ver mapa de pista, Más detalles, Última
+        actualización, JavaScript debe estar habilitado para ver las últimas condiciones
+        en este centro de esquí, Novedades desde la nieve, Clima, Clima actual, Pronóstico
+        meteorológico, Informe completo del estado de la nieve, Estado de las rutas,
+      Clima]
+    resourcebundle:messages_fr: [Vérifier les horaires d’ouverture, '', '', '', '',
+      État de fonctionnement/levage, Statut, Pistes, Remontées mécaniques, Statut
+        détaillé, Ouvertes, Fermées, Ouverture imminente, En attente, Nombre retreint
+        de pisteurs, Bientôt ouvert, Verte, Facile, Bleue, Intermédiaire, rouge, Difficile,
+      Noire, Très difficile, orange, itinéraires, ski de fond, grise, Autre, Etat
+        de l'ascenseur, Etat du parcours, Remontées mécaniques, Centre d'informations,
+      Carte des pistes, Webcam, Voir la carte des pistes, Plus sur, Dernière mise
+        à jour, JavaScript doit être activé pour voir les dernières conditions à ce
+        centre de ski, Nouvelles des pistes, Wetter, 'Quel temps fait-il ?', Prévisions
+        météo, Rapport complet sur les conditions de neige, Etat de la route, Météo]
+    resourcebundle:messages_it: [Controlla gli orari di apertura, '', '', '', '',
+      Status piste/impianti di risalita, Status, Piste, Impianti di risalita, Status
+        dettagliato, Aperto, Chiuso, Apertura prevista, In pausa, Assistenza limitata,
+      Apertura a breve, Verde, Facile, Blu, Intermedia, Rosso, Difficile, Nera, Molto
+        difficile, Arancio, Itinerari, Fuoripista, Grigio, Altro, Status impianti
+        di risalita, Status piste, Impianto di risalita, Centro informazioni, Mappa
+        delle piste, Webcam, Visualizza la mappa delle piste, Ulteriori dettagli,
+      Ultimo aggiornamento, JavaScript deve essere abilitato per vedere le ultime
+        condizioni di questo centro sciistico, Notizie dalle piste, Weather, Meteo
+        attuale, Previsioni meteo, Bollettino completo delle condizioni della neve,
+      Stato delle strade, Meteo]
+    resourcebundle:messages_nl: [Bekijk de openingstijden, '', '', '', '', Status
+        piste/lift, Status, Pistes, Liften, Gedetailleerde status, Open, Gesloten,
+      Verwacht te openen, In de wacht, Beperkte patrouille, Binnenkort open, Groen,
+      Makkelijk, Blauw, Gemiddeld, Rood, Moeilijk, Zwart, Zeer moeilijk, Oranje, Itineraries,
+      Backcountry, Grijs, Anders, Status van liften, Status van pistes, Lift, Centruminformatie,
+      Kaart van de piste, Webcam, Bekijk kaart van de piste, Meer details, Laatst
+        bijgewerkt, JavaScript moet ingeschakeld zijn om de meest recente condities
+        van dit skicentrum te zien, Nieuws van de pistes, ski-centre.snow-conditions.weather,
+      Huidige weersomstandigheden, Weersvoorspelling, Sneeuwcondities volledig rapport,
+      Toestand van de wegen, Weer]
   /ski[3]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:referenceable']
@@ -61,19 +197,87 @@
     hippostd:state: published
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2023-01-11T15:09:27.332Z
-    hippostdpubwf:lastModificationDate: 2023-01-11T15:56:12.031Z
+    hippostdpubwf:lastModificationDate: 2023-01-17T17:49:58.757Z
     hippostdpubwf:lastModifiedBy: admin
-    hippostdpubwf:publicationDate: 2023-01-11T16:10:43.580Z
-    resourcebundle:descriptions: ['', '', '', '', '']
+    hippostdpubwf:publicationDate: 2023-01-17T17:50:01.543Z
+    resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '', '', '', '',
+      '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
+      '', '', '', '', '', '', '', '', '', '', '', '', '', '', '']
     resourcebundle:id: ski
     resourcebundle:keys: [ski-centre.opening-times.label, ski-data.loading, ski-data.unavailable,
-      ski-data.no-js, ski-data.provider]
+      ski-data.no-js, ski-data.provider, ski-centre.run-lift-status, ski-centre.status,
+      ski-centre.runs, ski-centre.lifts, ski-centre.detailed-status, ski-centre.status.open,
+      ski-centre.status.closed, ski-centre.status.expected-to-open, ski-centre.status.on-hold,
+      ski-centre.status.limited-patrol, ski-centre.status.open-soon, ski-centre.run.green,
+      ski-centre.run.easy, ski-centre.run.blue, ski-centre.run.intermediate, ski-centre.run.red,
+      ski-centre.run.difficult, ski-centre.run.black, ski-centre.run.very-difficult,
+      ski-centre.run.orange, ski-centre.run.itineraries, ski-centre.run.back-country,
+      ski-centre.run.grey, ski-centre.run.other, ski-centre.lift-status, ski-centre.run-status,
+      ski-centre.lift, ski-centre.centre-information, ski-centre.piste-map, ski-centre.webcam,
+      ski-centre.view-piste-map, ski-centre.more-details, ski-centre.last-updated,
+      ski-data.ski-centre.no-js, ski-centre.snow-conditions.news-from-the-slopes,
+      Weer, ski-centre.snow-conditions.current-weather, ski-centre.snow-conditions.weather-forecast,
+      ski-centre.snow-conditions.full-report, ski-centre.snow-conditions.road-status,
+      ski-centre.snow-conditions.weather]
     resourcebundle:messages: [Check opening times, 'Data is currently loading, please
         wait...', 'Data currently unavailable, please try again later.', JavaScript
         needs to be enabled to see Runs and Lifts status, Data provided by Ski Scotland
-        and Cairngorm Mountain]
-    resourcebundle:messages_de: [Öffnungszeiten überprüfen, '', '', '', '']
-    resourcebundle:messages_es: [Consulta los horarios de apertura, '', '', '', '']
-    resourcebundle:messages_fr: [Vérifier les horaires d’ouverture, '', '', '', '']
-    resourcebundle:messages_it: [Controlla gli orari di apertura, '', '', '', '']
-    resourcebundle:messages_nl: [Bekijk de openingstijden, '', '', '', '']
+        and Cairngorm Mountain, Run/Lift Status, Status, Runs, Lifts, Detailed Status,
+      Open, Closed, Expected to Open, On Hold, Limited Patrol, Open soon, Green, Easy,
+      Blue, Intermediate, Red, Difficult, Black, Very Difficult, Orange, Itineraries,
+      Back Country, Grey, Other, Lift Status, Run Status, Lift, Centre Information,
+      Piste Map, Webcam, View Piste Map, More Details, Last updated, JavaScript needs
+        to be enabled to see the latest conditions at this ski centre, News from the
+        slopes, Meteo, Current Weather, Weather Forecast, Snow conditions full report,
+      Road Status, Weather]
+    resourcebundle:messages_de: [Öffnungszeiten überprüfen, '', '', '', '', Pisten-/Liftstatus,
+      Status, Pisten, Lifte, Detaillierter Status, Geöffnet, Geschlossen, Öffnung
+        erwartet, Angehalten, Begrenzte Skipatrouillen, Öffnet bald, Grün, Leicht,
+      Blau, Mittel, Rot, Schwierig, Schwarz, Sehr schwierig, Orange, Reisevorschläge,
+      Tiefschnee, Grau, Andere, Liftstatus, Pistenstatus, Lift, Informationen zum
+        Skizentrum, Pistenkarte, Webcam, Pistenkarte sehen, Weitere Details, Zuletzt
+        aktualisiert, 'JavaScript muss aktiviert sein, um die aktuellen Bedingungen
+        an diesem Skizentrum anzuzeigen.', Neues von der Piste, Météo, Aktuelles Wetter,
+      Wettervorhersage, Kompletter Bericht zu den Schneebedingungen, Straßenbedingungen,
+      Wetter]
+    resourcebundle:messages_es: [Consulta los horarios de apertura, '', '', '', '',
+      Estado de Pista/Remonte, Estado, Pista, Remonte, Estado detallado, Abierto,
+      Cerrado, Se espera que abra, En espera, Patrullaje limitado, Abre pronto, Verde,
+      Fácil, Azul, Intermedio, Rojo, Difícil, Negro, Muy difícil, Naranja, Itinerarios,
+      Esquí de fondo, Gris, Otros, Estado de remonte, Estado de pista, Remonte, Centro
+        de información, Mapa de pista, Webcam, Ver mapa de pista, Más detalles, Última
+        actualización, JavaScript debe estar habilitado para ver las últimas condiciones
+        en este centro de esquí, Novedades desde la nieve, Clima, Clima actual, Pronóstico
+        meteorológico, Informe completo del estado de la nieve, Estado de las rutas,
+      Clima]
+    resourcebundle:messages_fr: [Vérifier les horaires d’ouverture, '', '', '', '',
+      État de fonctionnement/levage, Statut, Pistes, Remontées mécaniques, Statut
+        détaillé, Ouvertes, Fermées, Ouverture imminente, En attente, Nombre retreint
+        de pisteurs, Bientôt ouvert, Verte, Facile, Bleue, Intermédiaire, rouge, Difficile,
+      Noire, Très difficile, orange, itinéraires, ski de fond, grise, Autre, Etat
+        de l'ascenseur, Etat du parcours, Remontées mécaniques, Centre d'informations,
+      Carte des pistes, Webcam, Voir la carte des pistes, Plus sur, Dernière mise
+        à jour, JavaScript doit être activé pour voir les dernières conditions à ce
+        centre de ski, Nouvelles des pistes, Wetter, 'Quel temps fait-il ?', Prévisions
+        météo, Rapport complet sur les conditions de neige, Etat de la route, Météo]
+    resourcebundle:messages_it: [Controlla gli orari di apertura, '', '', '', '',
+      Status piste/impianti di risalita, Status, Piste, Impianti di risalita, Status
+        dettagliato, Aperto, Chiuso, Apertura prevista, In pausa, Assistenza limitata,
+      Apertura a breve, Verde, Facile, Blu, Intermedia, Rosso, Difficile, Nera, Molto
+        difficile, Arancio, Itinerari, Fuoripista, Grigio, Altro, Status impianti
+        di risalita, Status piste, Impianto di risalita, Centro informazioni, Mappa
+        delle piste, Webcam, Visualizza la mappa delle piste, Ulteriori dettagli,
+      Ultimo aggiornamento, JavaScript deve essere abilitato per vedere le ultime
+        condizioni di questo centro sciistico, Notizie dalle piste, Weather, Meteo
+        attuale, Previsioni meteo, Bollettino completo delle condizioni della neve,
+      Stato delle strade, Meteo]
+    resourcebundle:messages_nl: [Bekijk de openingstijden, '', '', '', '', Status
+        piste/lift, Status, Pistes, Liften, Gedetailleerde status, Open, Gesloten,
+      Verwacht te openen, In de wacht, Beperkte patrouille, Binnenkort open, Groen,
+      Makkelijk, Blauw, Gemiddeld, Rood, Moeilijk, Zwart, Zeer moeilijk, Oranje, Itineraries,
+      Backcountry, Grijs, Anders, Status van liften, Status van pistes, Lift, Centruminformatie,
+      Kaart van de piste, Webcam, Bekijk kaart van de piste, Meer details, Laatst
+        bijgewerkt, JavaScript moet ingeschakeld zijn om de meest recente condities
+        van dit skicentrum te zien, Nieuws van de pistes, ski-centre.snow-conditions.weather,
+      Huidige weersomstandigheden, Weersvoorspelling, Sneeuwcondities volledig rapport,
+      Toestand van de wegen, Weer]
