@@ -11,6 +11,7 @@ public class MapsModule extends Module {
     private String tabTitle;
     private ArrayNode filters;
     private ObjectNode geoJson;
+    private ObjectNode mapPosition;
 
     public String getId() {
         return id;
@@ -58,5 +59,13 @@ public class MapsModule extends Module {
 
     public void setGeoJson(ObjectNode geoJson) {
         this.geoJson = geoJson;
+    }
+
+    public ObjectNode getMapPosition() {
+        return mapPosition;
+    }
+
+    public void setMapPosition(ObjectNode mapPosition) {
+        this.mapPosition = mapPosition;
     }
 }
