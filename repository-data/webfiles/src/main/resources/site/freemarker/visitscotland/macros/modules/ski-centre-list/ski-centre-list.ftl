@@ -6,9 +6,11 @@
 <#include "../../../../frontend/components/vs-button.ftl">
 <#include "../../../../frontend/components/vs-img.ftl">
 <#include "../../../../frontend/components/vs-rich-text-wrapper.ftl">
+<#include "../../global/preview-warning.ftl">
 
 <#-- @ftlvariable name="module" type="com.visitscotland.brxm.model.SkiListModule" -->
 <#macro skiCentreList module>
+    <@previewWarning editMode module module.errorMessages />
     <#-- TODO THIS IS JUST A PLACE HOLDER
 
     TITLE : ${module.title}

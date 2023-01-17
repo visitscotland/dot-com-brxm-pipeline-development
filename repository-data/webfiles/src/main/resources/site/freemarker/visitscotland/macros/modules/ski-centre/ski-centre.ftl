@@ -7,9 +7,11 @@
 <#include "../../../../frontend/components/vs-img.ftl">
 <#include "../../../../frontend/components/vs-rich-text-wrapper.ftl">
 <#include "../../global/address.ftl">
+<#include "../../global/preview-warning.ftl">
 
 <#-- @ftlvariable name="module" type="com.visitscotland.brxm.model.SkiModule" -->
 <#macro skiCentre module>
+    <@previewWarning editMode module module.errorMessages />
 
 <!--
     TITLE : ${module.title}
