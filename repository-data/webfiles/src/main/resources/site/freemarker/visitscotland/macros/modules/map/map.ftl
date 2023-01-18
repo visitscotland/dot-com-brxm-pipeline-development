@@ -28,6 +28,8 @@
             false
         </#assign>
     </#if>
+
+    ${module.mapPosition}
     
     <vs-module-wrapper>
         <template slot="vsModuleWrapperHeading">
@@ -61,6 +63,7 @@
             details-endpoint="http://172.28.81.65:8089/data/component/mapcard?id="
             filters-applied-text="${label('map', 'map.filters-applied')}"
             clear-filters-text="${label('map', 'map.clear')}"
+            :region-bounds="${escapeJSON(module.mapPosition,true)}"
         >
 
             <template slot="closeSidePanelText">
