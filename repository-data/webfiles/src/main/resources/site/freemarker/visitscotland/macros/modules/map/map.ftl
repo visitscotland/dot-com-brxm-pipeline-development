@@ -28,7 +28,7 @@
             false
         </#assign>
     </#if>
-
+    
     <vs-module-wrapper>
         <template slot="vsModuleWrapperHeading">
             ${module.title}
@@ -55,6 +55,12 @@
                     icon: 'map',
                 },
             ]"
+            buttons-label="Select map type"
+            clear-selection-text="${label('map', 'map.clear')}"
+            apply-filters-text="${label('map', 'map.show-results')}"
+            details-endpoint="http://172.28.81.65:8089/data/component/mapcard?id="
+            filters-applied-text="${label('map', 'map.filters-applied')}"
+            clear-filters-text="${label('map', 'map.clear')}"
         >
 
             <template slot="closeSidePanelText">
