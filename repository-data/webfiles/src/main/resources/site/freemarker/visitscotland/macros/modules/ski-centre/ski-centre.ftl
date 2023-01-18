@@ -23,10 +23,20 @@
         locale - ${locale}
         MESSAGES
             ${label("ski", "ski-centre.run-lift-status")} // Run/Lift Status
+            <#-- Note that ski-centre.summary.open and ski-centre.status.open have the same value but they have different
+                purposes. In other languages the texts don't match-->
+            <#-- "ski-centre.summary.*" Are to be used in the "Run/Lift Status" section -->
+            ${label("ski", "ski-centre.summary.open")} //Open
+            ${label("ski", "ski-centre.summary.closed")} //Closed
+            ${label("ski", "ski-centre.summary.expected-to-open")} //Expected to Open
+            ${label("ski", "ski-centre.summary.on-hold")} //On Hold
+            ${label("ski", "ski-centre.summary.limited-patrol")} //Limited Patrol
+            ${label("ski", "ski-centre.summary.open-soon")} //Open soon
             ${label("ski", "ski-centre.status")} // Status
             ${label("ski", "ski-centre.lifts")} // Runs
             ${label("ski", "ski-centre.lifts")} // Lifts
             ${label("ski", "ski-centre.detailed-status")} // Detailed Status
+            <#-- "ski-centre.status.*" Are to be used in the "Detailed Status" section -->
             ${label("ski", "ski-centre.status.open")} // Open
             ${label("ski", "ski-centre.status.closed")} // Closed
             ${label("ski", "ski-centre.status.expected-to-open")} // Expected to Open
