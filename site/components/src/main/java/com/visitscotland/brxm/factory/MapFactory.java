@@ -6,6 +6,7 @@ import com.fasterxml.jackson.databind.node.ArrayNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 import com.visitscotland.brxm.config.VsComponentManager;
 import com.visitscotland.brxm.dms.*;
+import com.visitscotland.brxm.dms.model.LocationObject;
 import com.visitscotland.brxm.hippobeans.*;
 import com.visitscotland.brxm.model.FlatImage;
 import com.visitscotland.brxm.model.FlatLink;
@@ -45,8 +46,9 @@ public class MapFactory {
     private final ResourceBundleService bundle;
     private final Properties propertiesService;
     private final ImageFactory imageFactory;
+    private final LocationLoader locationLoader;
 
-    public MapFactory(MapService mapService, HippoUtilsService hippoUtilsService, DMSDataService dmsDataService, ResourceBundleService bundle, Properties properties, ImageFactory imageFactory) {
+    public MapFactory(MapService mapService, HippoUtilsService hippoUtilsService, DMSDataService dmsDataService, ResourceBundleService bundle, Properties properties, ImageFactory imageFactory,LocationLoader locationLoader) {
         this.hippoUtilsService = hippoUtilsService;
         this.mapper = new ObjectMapper();
         this.mapService = mapService;
@@ -54,6 +56,7 @@ public class MapFactory {
         this.bundle = bundle;
         this.propertiesService = properties;
         this.imageFactory = imageFactory;
+        this.locationLoader = locationLoader;
     }
 
     /**
@@ -67,6 +70,7 @@ public class MapFactory {
         MapsModule module = new MapsModule();
 
         module.setId(mapModuleDocument.getCanonicalUUID());
+        module.setHippoBean(mapModuleDocument);
         module.setTitle(mapModuleDocument.getTitle());
         module.setIntroduction(mapModuleDocument.getCopy());
         module.setTabTitle(mapModuleDocument.getTabTitle());
@@ -149,19 +153,21 @@ public class MapFactory {
      * @param features features information for mapcards
      */
     private void buildDestinationMapPages (Locale locale,Destination destinationPage, MapModule mapModuleDocument, MapsModule module, ArrayNode keys, ArrayNode features){
+        LocationObject location = locationLoader.getLocation(destinationPage.getLocation(),locale);
+        JsonNode geometryNode;
         //Feature places on top of these maps
         if (!Contract.isNull(mapModuleDocument.getFeaturedPlacesItem())) {
             mapService.addFeaturePlacesNode(module, mapModuleDocument.getCategories(), locale , keys, features);
         }
         if (Arrays.asList(destinationPage.getKeys()).contains(REGIONS)) {
-          /*  for (RegionsMapTab prodType: RegionsMapTab.values()) {
+            geometryNode = dmsDataService.getLocationBorders(location.getId(),true);
+            for (RegionsMapTab prodType: RegionsMapTab.values()) {
                 buildDMSMapPages(prodType.getProdTypeId(), prodType.getLabel(), destinationPage.getLocation(), module, keys, features, prodType.getCategory(), locale);
-            }*/
+            }
         }else{
+            geometryNode = dmsDataService.getLocationBorders(location.getId(),false);
             for (CitiesMapTab prodType : CitiesMapTab.values()) {
                 //filters
-               // ObjectNode filter = this.addFilters(prodType.getProdTypeId(), bundle.getResourceBundle(MAP, prodType.getLabel(), locale), locale);
-
                 ObjectNode filter = mapService.buildCategoryNode(prodType.getProdTypeId(), bundle.getResourceBundle(MAP, prodType.getLabel(), locale));
 
                 ///endpoint for data (pins)
@@ -179,6 +185,12 @@ public class MapFactory {
                 filter.set("subCategory",childrenArray);
                 keys.add(filter);
             }
+        }
+
+        if (geometryNode != null) {
+            module.setMapPosition((ObjectNode) geometryNode);
+        }else{
+            module.setMapPosition(mapper.createObjectNode());
         }
     }
 
