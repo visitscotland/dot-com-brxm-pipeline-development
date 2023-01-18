@@ -11,7 +11,7 @@ definitions:
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:uuid: 8e18611d-5a2f-4ebe-bb35-e1994dbc9f1c
+          jcr:uuid: 4515f8a4-125d-446c-9fff-2cc17d32b4b0
           hipposysedit:node: true
           hipposysedit:supertype: ['visitscotland:basedocument', 'hippostd:relaxed',
             'hippotranslation:translated']
@@ -41,6 +41,7 @@ definitions:
             hipposysedit:path: visitscotland:headContributions
             hipposysedit:primary: false
             hipposysedit:type: String
+            hipposysedit:validators: [url]
           /footerContributions:
             jcr:primaryType: hipposysedit:field
             hipposysedit:mandatory: false
@@ -49,6 +50,7 @@ definitions:
             hipposysedit:path: visitscotland:footerContributions
             hipposysedit:primary: false
             hipposysedit:type: String
+            hipposysedit:validators: [url]
       /hipposysedit:prototypes:
         jcr:primaryType: hipposysedit:prototypeset
         /hipposysedit:prototype:
@@ -62,7 +64,7 @@ definitions:
           jcr:mixinTypes: ['mix:referenceable']
           visitscotland:html: ''
           visitscotland:notes: ''
-          jcr:uuid: fcf63a7a-84fe-4248-838b-5d7ee0ce94b2
+          jcr:uuid: 615c42a6-065b-48fa-a3e3-f4d00e2d1477
           hippostdpubwf:lastModificationDate: 2023-01-18T16:27:53.908Z
           hippostdpubwf:creationDate: 2023-01-18T16:27:53.908Z
           visitscotland:headContributions: []
@@ -80,7 +82,7 @@ definitions:
             plugin.class: org.hippoecm.frontend.service.render.ListViewPlugin
           /headContributions:
             jcr:primaryType: frontend:plugin
-            caption: Head Contributions
+            caption: CSS Files
             field: headContributions
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
@@ -98,10 +100,11 @@ definitions:
               jcr:primaryType: frontend:pluginconfig
           /footerContributions:
             jcr:primaryType: frontend:plugin
-            caption: Footer Contributions
+            caption: JavaScript Files
             field: footerContributions
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
+            hint: ''
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
           /notes:

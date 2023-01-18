@@ -54,6 +54,7 @@ public class PageTemplateBuilder {
     private final MarketoFormFactory marketoFormFactory;
     private final MapGeneralFactory mapGeneralFactory;
     private final MapDestinationFactory mapDestinationFactory;
+    private final DevModuleFactory devModuleFactory;
     private final Logger contentLogger;
 
 
@@ -62,7 +63,7 @@ public class PageTemplateBuilder {
                                IKnowFactory iKnow, ArticleFactory article, LongCopyFactory longcopy, IKnowCommunityFactory iKnowCommunityFactory,
                                StacklaFactory stacklaFactory, TravelInformationFactory travelInformationFactory, CannedSearchFactory cannedSearchFactory,
                                PreviewModeFactory previewFactory, MarketoFormFactory marketoFormFactory, MapGeneralFactory mapGeneralFactory,MapDestinationFactory mapDestinationFactory,
-                               ContentLogger contentLogger) {
+                               DevModuleFactory devModuleFactory, ContentLogger contentLogger) {
         this.linksFactory = linksFactory;
         this.iCentreFactory = iCentre;
         this.iKnowFactory = iKnow;
@@ -77,6 +78,7 @@ public class PageTemplateBuilder {
         this.marketoFormFactory = marketoFormFactory;
         this.mapGeneralFactory = mapGeneralFactory;
         this.mapDestinationFactory = mapDestinationFactory;
+        this.devModuleFactory = devModuleFactory;
         this.contentLogger = contentLogger;
     }
 
@@ -114,6 +116,8 @@ public class PageTemplateBuilder {
                     page.modules.add(cannedSearchFactory.getCannedSearchToursModule((CannedSearchTours) item, request.getLocale()));
                 } else if (item instanceof MarketoForm) {
                     page.modules.add(marketoFormFactory.getModule((MarketoForm) item));
+                } else if (item instanceof DevModule){
+                    page.modules.add(devModuleFactory.getModule((DevModule) item));
                 }
             } catch (MissingResourceException e){
                 logger.error("The module for {} couldn't be built because some labels do not exist", item.getPath(), e);
