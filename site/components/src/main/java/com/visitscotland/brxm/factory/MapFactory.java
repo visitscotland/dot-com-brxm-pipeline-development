@@ -103,7 +103,6 @@ public class MapFactory {
         //add second json (geoJson) to the module
         featureCollectionGeoJson.set("features", features);
         module.setGeoJson(featureCollectionGeoJson);
-        module.setHippoBean(mapModuleDocument);
         return module;
     }
 
