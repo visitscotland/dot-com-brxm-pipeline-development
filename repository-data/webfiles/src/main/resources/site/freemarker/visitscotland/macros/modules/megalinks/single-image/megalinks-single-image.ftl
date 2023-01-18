@@ -39,7 +39,6 @@
                 <#list item.links as listItem>
                     <vs-link-list-item
                         variant="${linkVariant}"
-
                         <#if listItem.youtubeId??>
                             type="video"
                             href="#"
@@ -48,7 +47,6 @@
                         <#else>
                             href="${listItem.link}"
                             link-type="${listItem.type}"
-
                             <#if listItem.type != "internal">type="${listItem.type}"</#if>
                         </#if>
                     >
@@ -61,10 +59,11 @@
                 </#list>
             </template>
             
-            <template slot="vsSingleImageButtonText">
-                <#if (item.cta.link)??>${item.cta.label}</#if>
-            </template>
-            
+            <#if (item.cta.link)??>
+                <template slot="vsSingleImageButtonText">
+                    ${item.cta.label}
+                </template>
+            </#if>            
         </vs-megalink-single-image>
     </vs-col>
 </#macro>
