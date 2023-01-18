@@ -167,10 +167,10 @@ public class DMSDataService {
      */
     //TODO this cache should be for a longer period of time?
     @Cacheable (value="dmsProductSearch")
-    public JsonNode getPolygonCoordinates(String location){
+    public JsonNode getLocationBorders(String location, boolean isRegion){
         logger.info("Requesting data to retrieve the coordinates for the polygon: {}", location);
         if (!Contract.isEmpty(location)) {
-            String apiUrl = propertiesService.getApiDataBackendHost() + "maps/meta/location/polygon?";
+            String apiUrl = propertiesService.getApiDataBackendHost() + "maps/meta/location/" + (isRegion? "polygon":"bounds")+"?";
             apiUrl += location;
             String responseString = null;
             try {
