@@ -1,0 +1,116 @@
+definitions:
+  config:
+    /hippo:namespaces/visitscotland/DevModule:
+      jcr:primaryType: hipposysedit:templatetype
+      jcr:mixinTypes: ['editor:editable', 'mix:referenceable']
+      jcr:uuid: 7b687824-1579-4e51-b48b-d1f9774e5dae
+      /hipposysedit:nodetype:
+        jcr:primaryType: hippo:handle
+        jcr:mixinTypes: ['mix:referenceable']
+        jcr:uuid: 363ab235-8f80-43e5-b21d-6086a15abe5c
+        /hipposysedit:nodetype:
+          jcr:primaryType: hipposysedit:nodetype
+          jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
+          jcr:uuid: 8e18611d-5a2f-4ebe-bb35-e1994dbc9f1c
+          hipposysedit:node: true
+          hipposysedit:supertype: ['visitscotland:basedocument', 'hippostd:relaxed',
+            'hippotranslation:translated']
+          hipposysedit:uri: http://www.visitscotland.com/visitscotland/nt/1.0
+          /html:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: visitscotland:html
+            hipposysedit:primary: false
+            hipposysedit:type: Text
+          /notes:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: visitscotland:notes
+            hipposysedit:primary: false
+            hipposysedit:type: Text
+            hipposysedit:validators: [optional]
+          /headContributions:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: true
+            hipposysedit:ordered: false
+            hipposysedit:path: visitscotland:headContributions
+            hipposysedit:primary: false
+            hipposysedit:type: String
+          /footerContributions:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: true
+            hipposysedit:ordered: false
+            hipposysedit:path: visitscotland:footerContributions
+            hipposysedit:primary: false
+            hipposysedit:type: String
+      /hipposysedit:prototypes:
+        jcr:primaryType: hipposysedit:prototypeset
+        /hipposysedit:prototype:
+          jcr:primaryType: visitscotland:DevModule
+          hippostd:holder: holder
+          hippostd:state: draft
+          hippostdpubwf:createdBy: ''
+          hippostdpubwf:lastModifiedBy: ''
+          hippotranslation:id: document-type-locale-id
+          hippotranslation:locale: document-type-locale
+          jcr:mixinTypes: ['mix:referenceable']
+          visitscotland:html: ''
+          visitscotland:notes: ''
+          jcr:uuid: fcf63a7a-84fe-4248-838b-5d7ee0ce94b2
+          hippostdpubwf:lastModificationDate: 2023-01-18T16:27:53.908Z
+          hippostdpubwf:creationDate: 2023-01-18T16:27:53.908Z
+          visitscotland:headContributions: []
+          visitscotland:footerContributions: []
+      /editor:templates:
+        jcr:primaryType: editor:templateset
+        /_default_:
+          jcr:primaryType: frontend:plugincluster
+          frontend:properties: [mode]
+          frontend:references: [wicket.model, model.compareTo, engine, validator.id]
+          frontend:services: [wicket.id, validator.id]
+          /root:
+            jcr:primaryType: frontend:plugin
+            item: ${cluster.id}.field
+            plugin.class: org.hippoecm.frontend.service.render.ListViewPlugin
+          /headContributions:
+            jcr:primaryType: frontend:plugin
+            caption: Head Contributions
+            field: headContributions
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
+            hint: ''
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+          /html:
+            jcr:primaryType: frontend:plugin
+            caption: HTML
+            field: html
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
+            hint: ''
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+          /footerContributions:
+            jcr:primaryType: frontend:plugin
+            caption: Footer Contributions
+            field: footerContributions
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+          /notes:
+            jcr:primaryType: frontend:plugin
+            caption: Notes (Not renderable)
+            field: notes
+            hint: The content of this filed won't render. It is just a handy field
+              for developers to add notes.
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
