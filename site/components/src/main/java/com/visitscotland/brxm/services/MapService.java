@@ -206,7 +206,7 @@ public class MapService {
             LocationObject location = locationLoader.getLocation(destination.getLocation(), Locale.UK);
             feature.set(PROPERTIES, properties);
             if (Arrays.asList(destination.getKeys()).contains(REGIONS)){
-                JsonNode geometryNode = dmsData.getPolygonCoordinates(locationLoader.getLocation(destination.getLocation(), null).getId());
+                JsonNode geometryNode = dmsData.getLocationBorders(locationLoader.getLocation(destination.getLocation(), null).getId(),true);
                 if(geometryNode!=null && !geometryNode.isEmpty()) {
                     feature.set(GEOMETRY, getGeometryNode((ArrayNode) geometryNode.get("coordinates"), geometryNode.get(TYPE).asText()));
                 }
