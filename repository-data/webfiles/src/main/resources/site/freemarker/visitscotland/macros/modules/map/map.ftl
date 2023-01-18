@@ -55,7 +55,7 @@
                     icon: 'map',
                 },
             ]"
-            buttons-label="Select map type"
+            buttons-label="${label('map', 'map.buttons-label')}"
             clear-selection-text="${label('map', 'map.clear')}"
             apply-filters-text="${label('map', 'map.show-results')}"
             details-endpoint="http://172.28.81.65:8089/data/component/mapcard?id="
