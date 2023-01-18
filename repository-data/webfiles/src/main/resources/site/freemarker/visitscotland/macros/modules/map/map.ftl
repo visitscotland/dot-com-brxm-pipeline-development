@@ -28,8 +28,6 @@
             false
         </#assign>
     </#if>
-
-    ${module.mapPosition}
     
     <vs-module-wrapper>
         <template slot="vsModuleWrapperHeading">
