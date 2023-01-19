@@ -6,8 +6,6 @@
 <#include "../../global/preview-warning.ftl">
 
 <#macro megalinks item type theme="">
-
-
     <#if type=="MultiImageLinksModule">
         <#assign variant = "multi-image">
     <#elseif type=="ListLinksModule">
@@ -30,7 +28,6 @@
         cookie-link-text="${label('essentials.global', 'cookie.link-message')}"
         no-js-message="${label('video', 'video.no-js')}"
     >
-
         <template slot="vsMegalinksHeading">
             ${item.title}
         </template>
@@ -56,6 +53,5 @@
                 ${item.cta.label}
             </template>
         </#if>
-         
     </vs-megalinks>
 </#macro>
