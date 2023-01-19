@@ -279,8 +279,8 @@ public class ProductSearchBuilder {
         return buildSearchUrl(String.format(DMSConstants.PRODUCT_SEARCH, path), false, false);
     }
 
-    public String buildDataMap(){
-        return buildSearchUrl(DMSConstants.PRODUCT_SEARCH_DATA_MAP, true, true);
+    public String buildDataMap(boolean internal){
+        return buildSearchUrl(DMSConstants.PRODUCT_SEARCH_DATA_MAP, true, internal);
     }
 
     public String buildCannedSearch(){

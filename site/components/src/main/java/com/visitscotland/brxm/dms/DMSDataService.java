@@ -85,7 +85,7 @@ public class DMSDataService {
     public JsonNode legacyMapSearch(ProductSearchBuilder psb){
 
         String responseString = null;
-        String dmsUrl = psb.buildDataMap();
+        String dmsUrl = psb.buildDataMap(true);
 
         logger.info("Requesting data to the dms: {}", dmsUrl);
         try {
