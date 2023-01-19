@@ -161,7 +161,7 @@ public class MapFactory {
         if (Arrays.asList(destinationPage.getKeys()).contains(REGIONS)) {
             geometryNode = dmsDataService.getLocationBorders(location.getId(),false);
             //for multipolygon regions we need the bounds, if geometryNode is empty means it is a polygon
-            if (geometryNode != null) {
+            if (geometryNode == null || geometryNode.isEmpty()) {
                 geometryNode = dmsDataService.getLocationBorders(location.getId(),true);
             }
 
