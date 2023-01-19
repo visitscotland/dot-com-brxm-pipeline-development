@@ -9,7 +9,6 @@
         <@hst.headContribution category="devModuleHead">
             <link rel="stylesheet" href="${asset}" type="text/css"/>
         </@hst.headContribution>
-       HEAD CONTRIBUTION -> ${asset}
     </#list>
     ${module.hippoBean.html}
     <#list module.hippoBean.footerContributions as asset>
