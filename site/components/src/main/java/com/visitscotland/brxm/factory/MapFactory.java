@@ -176,7 +176,7 @@ public class MapFactory {
 
                 ///endpoint for data (pins)
                 ProductSearchBuilder dmsQuery = this.buildProductSearch (destinationPage.getLocation(), prodType.getProdTypeId(), null, locale, null, 24);
-                filter.put("pinsEndpoint", dmsQuery.buildDataMap());
+                filter.put("pinsEndpoint", dmsQuery.buildDataMap(false));
 
                 //Endpoint base to bring 24 random results
                 filter.put("listProductsEndPoint", dmsQuery.buildCannedSearch());

@@ -92,7 +92,7 @@ class DMSDataServiceTest {
                 "}";
 
         ProductSearchBuilder psb = mock(ProductSearchBuilder.class);
-        when(psb.buildDataMap()).thenReturn(SAMPLE_URL);
+        when(psb.buildDataMap(true)).thenReturn(SAMPLE_URL);
         when(proxy.request(SAMPLE_URL)).thenReturn(SAMPLE_RESPONSE);
 
         JsonNode output = service.legacyMapSearch(psb);
@@ -106,7 +106,7 @@ class DMSDataServiceTest {
     void corruptedResponseReturnsNull_errorControl() throws IOException{
         //Tries different errors and verifies that the answer doesn't break the method
         ProductSearchBuilder psb = mock(ProductSearchBuilder.class);
-        when(psb.buildDataMap()).thenReturn("URL");
+        when(psb.buildDataMap(true)).thenReturn("URL");
 
         //No features nodes in the response
         when(proxy.request("URL")).thenReturn("{\"type\": \"FeatureCollection\"}");
