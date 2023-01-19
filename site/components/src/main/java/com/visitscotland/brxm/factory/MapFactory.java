@@ -160,7 +160,12 @@ public class MapFactory {
             mapService.addFeaturePlacesNode(module, mapModuleDocument.getCategories(), locale , keys, features);
         }
         if (Arrays.asList(destinationPage.getKeys()).contains(REGIONS)) {
-            geometryNode = dmsDataService.getLocationBorders(location.getId(),true);
+            geometryNode = dmsDataService.getLocationBorders(location.getId(),false);
+            //for multipolygon regions we need the bounds, if geometryNode is empty means it is a polygon
+            if (geometryNode != null) {
+                geometryNode = dmsDataService.getLocationBorders(location.getId(),true);
+            }
+
             for (RegionsMapTab prodType: RegionsMapTab.values()) {
                 buildDMSMapPages(prodType.getProdTypeId(), prodType.getLabel(), destinationPage.getLocation(), module, keys, features, prodType.getCategory(), locale);
             }
@@ -186,7 +191,7 @@ public class MapFactory {
                 keys.add(filter);
             }
         }
-
+        module.setDetailsEndpoint(propertiesService.getDmsDataPublicHost() + DMSConstants.VS_DMS_PRODUCT_MAP_CARD+"locale="+locale+"&id=");
         if (geometryNode != null) {
             module.setMapPosition((ObjectNode) geometryNode);
         }else{
