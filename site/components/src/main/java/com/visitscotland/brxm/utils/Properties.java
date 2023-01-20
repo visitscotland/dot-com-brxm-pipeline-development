@@ -46,6 +46,7 @@ public class Properties {
     static final String DMS_INTERNAL_PATH = "data-internal.path";
 
     // DMS Properties
+    public static final String API_DATA_BACKEND_HOST = "api-data.backend-url";
     public static final String DMS_DATA_HOST = "dms-data.private-url";
     static final String DMS_DATA_PUBLIC_HOST = "dms-data.public-url";
     static final String DMS_DATA_ENCODING = "dms-data.encoding";
@@ -120,6 +121,10 @@ public class Properties {
         } else {
             return "";
         }
+    }
+
+    public String getApiDataBackendHost() {
+        return readString(API_DATA_BACKEND_HOST);
     }
 
     public String getDmsDataHost() {
