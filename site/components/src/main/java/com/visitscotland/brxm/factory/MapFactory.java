@@ -8,10 +8,7 @@ import com.visitscotland.brxm.config.VsComponentManager;
 import com.visitscotland.brxm.dms.*;
 import com.visitscotland.brxm.dms.model.LocationObject;
 import com.visitscotland.brxm.hippobeans.*;
-import com.visitscotland.brxm.model.FlatImage;
-import com.visitscotland.brxm.model.FlatLink;
-import com.visitscotland.brxm.model.LinkType;
-import com.visitscotland.brxm.model.MapsModule;
+import com.visitscotland.brxm.model.*;
 import com.visitscotland.brxm.services.MapService;
 import com.visitscotland.brxm.services.ResourceBundleService;
 import com.visitscotland.brxm.utils.HippoUtilsService;
@@ -84,6 +81,7 @@ public class MapFactory {
         if (page instanceof Destination){
             buildDestinationMapPages(request.getLocale(),(Destination)page, mapModuleDocument, module, keys, features);
         }else{
+            module.setMapType(MapType.GENERAL.getMapType());
             //bespoke maps data and pins coming from DMS
             if (!Contract.isEmpty(mapModuleDocument.getMapType())){
                 //Feature places on top of these maps
@@ -159,6 +157,7 @@ public class MapFactory {
             mapService.addFeaturePlacesNode(module, mapModuleDocument.getCategories(), locale , keys, features);
         }
         if (Arrays.asList(destinationPage.getKeys()).contains(REGIONS)) {
+            module.setMapType(MapType.REGIONAL.getMapType());
             geometryNode = dmsDataService.getLocationBorders(location.getId(),false);
             //for multipolygon regions we need the bounds, if geometryNode is empty means it is a polygon
             if (geometryNode == null || geometryNode.isEmpty()) {
@@ -169,6 +168,7 @@ public class MapFactory {
                 buildDMSMapPages(prodType.getProdTypeId(), prodType.getLabel(), destinationPage.getLocation(), module, keys, features, prodType.getCategory(), locale);
             }
         }else{
+            module.setMapType(MapType.CITIES.getMapType());
             geometryNode = dmsDataService.getLocationBorders(location.getId(),false);
             for (CitiesMapTab prodType : CitiesMapTab.values()) {
                 //filters
