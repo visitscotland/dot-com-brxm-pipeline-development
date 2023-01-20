@@ -110,22 +110,31 @@ public class MapService {
             } else {
                 filter.put(LABEL, featuredPlaces.getTitle());
             }
-            keys.add(filter);
-            for(HippoBean link : featuredPlaces.getMapPins()){
+            boolean addFeaturedTab = false;
+            for(HippoBean link : featuredPlaces.getMapPins()) {
+                boolean validPoint = true;
                 ObjectNode feat = mapper.createObjectNode();
                 feat.put(TYPE, FEATURE);
-                if (link instanceof Destination){
-                    buildPageNode(locale, filter, module,(Destination) link, feat);
-                }else if (link instanceof Stop){
-                    buildStopNode(locale, filter, module,(Stop) link,feat);
-                }else if (link instanceof SpecialLinkCoordinates){
-                    SpecialLinkCoordinates linkCoordinates = ((SpecialLinkCoordinates) link);
-                    Page otherPage = (Page)(linkCoordinates).getLink();
-                    buildPageNode(locale, filter, module,otherPage,feat);
-                    feat.set(GEOMETRY, getGeometryNode(getCoordinates(((SpecialLinkCoordinates)link).getCoordinates().getLongitude(),((SpecialLinkCoordinates)link).getCoordinates().getLatitude()
-                    ),POINT));
+                if (link != null) {
+                    addFeaturedTab = true;
+                    if (link instanceof Destination) {
+                        buildPageNode(locale, filter, module, (Destination) link, feat);
+                    } else if (link instanceof Stop) {
+                        validPoint= buildStopNode(locale, filter, module, (Stop) link, feat);
+                    } else if (link instanceof SpecialLinkCoordinates) {
+                        SpecialLinkCoordinates linkCoordinates = ((SpecialLinkCoordinates) link);
+                        Page otherPage = (Page) (linkCoordinates).getLink();
+                        buildPageNode(locale, filter, module, otherPage, feat);
+                        feat.set(GEOMETRY, getGeometryNode(getCoordinates(((SpecialLinkCoordinates) link).getCoordinates().getLongitude(), ((SpecialLinkCoordinates) link).getCoordinates().getLatitude()
+                        ), POINT));
+                    }
+                    if (validPoint) {
+                        features.add(feat);
+                    }
                 }
-                features.add(feat);
+            }
+            if (addFeaturedTab){
+                keys.add(filter);
             }
         }
     }
@@ -138,18 +147,21 @@ public class MapService {
      * @param module Mapsmodule needed for images and links
      * @param stop stop document information
      * @param feature ObjectNode to add the Stop information
+     *
+     * @return boolean to indicate if the stop/dms/pin is valid and was built as expected
      */
-    private void buildStopNode(Locale locale, ObjectNode category, MapsModule module, Stop stop, ObjectNode feature){
+    private boolean buildStopNode(Locale locale, ObjectNode category, MapsModule module, Stop stop, ObjectNode feature){
+        boolean validPoint = false;
         if (stop != null){
             Double latitude = null;
             Double longitude = null;
             FlatLink flatLink = null;
             HippoBean item = stop.getStopItem();
             FlatImage image = imageFactory.createImage(stop.getImage(), module, locale);
-            boolean validPoint = true;
             if (item instanceof DMSLink) {
                 JsonNode dmsNode = dmsData.productCard(((DMSLink) item).getProduct(), locale);
                 if (!Contract.isNull(dmsNode)) {
+                    validPoint = true;
                     flatLink = linkService.createDmsLink(locale,(DMSLink) item, dmsNode);
                     flatLink.setLabel(bundle.getResourceBundle(MAP, DISCOVER, locale));
                     if (Contract.isNull(stop.getImage()) && dmsNode.has(IMAGE)) {
@@ -159,11 +171,9 @@ public class MapService {
                         latitude = dmsNode.get(LATITUDE).asDouble();
                         longitude = dmsNode.get(LONGITUDE).asDouble();
                     }
-                }else{
-                    validPoint = false;
                 }
-
             } else if (item instanceof ItineraryExternalLink) {
+                validPoint = true;
                 ItineraryExternalLink externalStop = ((ItineraryExternalLink) item);
                 latitude = externalStop.getCoordinates().getLatitude();
                 longitude = externalStop.getCoordinates().getLongitude();
@@ -184,6 +194,7 @@ public class MapService {
                 logger.error(errorMessage);
             }
         }
+        return validPoint;
     }
 
     /**
@@ -317,7 +328,7 @@ public class MapService {
                 feature.put(TYPE, FEATURE);
                 buildPageNode(locale, buildCategoryNode(category.getKey(),category.getInfo(locale).getName()), module,((Destination) bean), feature);
             } else {
-                buildStopNode(locale, buildCategoryNode(category.getKey(),category.getInfo(locale).getName()),module, ((Stop) bean), feature);
+               boolean valid = buildStopNode(locale, buildCategoryNode(category.getKey(),category.getInfo(locale).getName()),module, ((Stop) bean), feature);
             }
         }
         return feature;
