@@ -190,7 +190,7 @@ public class MapFactory {
                 keys.add(filter);
             }
         }
-        module.setDetailsEndpoint(propertiesService.getDmsDataPublicHost() + DMSConstants.VS_DMS_PRODUCT_MAP_CARD+"locale="+locale+"&id=");
+        module.setDetailsEndpoint(propertiesService.getDmsDataPublicHost() + DMSConstants.VS_DMS_PRODUCT_MAP_CARD+"locale="+locale.getLanguage()+"&id=");
         if (geometryNode != null) {
             module.setMapPosition((ObjectNode) geometryNode);
         }else{
