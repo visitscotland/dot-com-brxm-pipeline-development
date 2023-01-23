@@ -13,6 +13,7 @@
     <#include "../modules/stackla/stackla.ftl">
     <#include "../modules/canned-search/canned-search.ftl">
     <#include "../modules/map/map.ftl">
+    <#include "../modules/dev-module/dev-module.ftl">
     <#include "theme-calculator.ftl">
 
     <#-- Implicit Request Objects -->
@@ -61,6 +62,8 @@
             <@marketo module/>
         <#elseif module.getType()== "IKnowCommunityModule">
             <@iknowCommunity module/>
+        <#elseif module.getType()== "SimpleDevModule">
+            <@devModule module/>
         <#else >
             <@previewWarning editMode module module.errorMessages true />
         </#if>
