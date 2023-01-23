@@ -46,7 +46,6 @@ public class PageTemplateBuilder {
     private final IKnowFactory iKnowFactory;
     private final ArticleFactory articleFactory;
     private final LongCopyFactory longCopyFactory;
-    private final IKnowCommunityFactory iKnowCommunityFactory;
     private final StacklaFactory stacklaFactory;
     private final TravelInformationFactory travelInformationFactory;
     private final CannedSearchFactory cannedSearchFactory;
@@ -54,22 +53,22 @@ public class PageTemplateBuilder {
     private final MarketoFormFactory marketoFormFactory;
     private final MapGeneralFactory mapGeneralFactory;
     private final MapDestinationFactory mapDestinationFactory;
+    private final SkiFactory skiFactory;
     private final Logger contentLogger;
 
 
     @Autowired
-    public PageTemplateBuilder(DocumentUtilsService documentUtils, MegalinkFactory linksFactory, ICentreFactory iCentre,
-                               IKnowFactory iKnow, ArticleFactory article, LongCopyFactory longcopy, IKnowCommunityFactory iKnowCommunityFactory,
-                               StacklaFactory stacklaFactory, TravelInformationFactory travelInformationFactory, CannedSearchFactory cannedSearchFactory,
-                               PreviewModeFactory previewFactory, MarketoFormFactory marketoFormFactory, MapGeneralFactory mapGeneralFactory,MapDestinationFactory mapDestinationFactory,
-                               ContentLogger contentLogger) {
-        this.linksFactory = linksFactory;
-        this.iCentreFactory = iCentre;
-        this.iKnowFactory = iKnow;
+    public PageTemplateBuilder(DocumentUtilsService documentUtils, MegalinkFactory linksFactory, ICentreFactory iCentreFactory,
+                               IKnowFactory iKnowFactory, ArticleFactory articleFactory, LongCopyFactory longCopyFactory,
+                               StacklaFactory stacklaFactory, TravelInformationFactory travelInformationFactory,
+                               CannedSearchFactory cannedSearchFactory, PreviewModeFactory previewFactory, MarketoFormFactory marketoFormFactory,
+                               MapGeneralFactory mapGeneralFactory, MapDestinationFactory mapDestinationFactory, SkiFactory skiFactory, Logger contentLogger) {
         this.documentUtils = documentUtils;
-        this.articleFactory = article;
-        this.longCopyFactory = longcopy;
-        this.iKnowCommunityFactory = iKnowCommunityFactory;
+        this.linksFactory = linksFactory;
+        this.iCentreFactory = iCentreFactory;
+        this.iKnowFactory = iKnowFactory;
+        this.articleFactory = articleFactory;
+        this.longCopyFactory = longCopyFactory;
         this.stacklaFactory = stacklaFactory;
         this.travelInformationFactory = travelInformationFactory;
         this.cannedSearchFactory = cannedSearchFactory;
@@ -77,6 +76,7 @@ public class PageTemplateBuilder {
         this.marketoFormFactory = marketoFormFactory;
         this.mapGeneralFactory = mapGeneralFactory;
         this.mapDestinationFactory = mapDestinationFactory;
+        this.skiFactory = skiFactory;
         this.contentLogger = contentLogger;
     }
 
@@ -114,6 +114,10 @@ public class PageTemplateBuilder {
                     page.modules.add(cannedSearchFactory.getCannedSearchToursModule((CannedSearchTours) item, request.getLocale()));
                 } else if (item instanceof MarketoForm) {
                     page.modules.add(marketoFormFactory.getModule((MarketoForm) item));
+                } else if (item instanceof SkiCentre){
+                    page.modules.add(skiFactory.createSkyModule((SkiCentre) item, request.getLocale()));
+                } else if (item instanceof SkiCentreList){
+                    page.modules.add(skiFactory.createSkyListModule((SkiCentreList) item, request.getLocale()));
                 }
             } catch (MissingResourceException e){
                 logger.error("The module for {} couldn't be built because some labels do not exist", item.getPath(), e);
