@@ -6,7 +6,6 @@
 <#include "../../frontend/components/vs-row.ftl">
 <#include "../../frontend/components/vs-col.ftl">
 <#include "../../frontend/components/vs-cookie-checker.ftl">
-
 <#include "../macros/modules/footer/footer-accordion-item.ftl">
 <#include "../macros/modules/footer/footer-copyright.ftl">
 <#include "../macros/modules/footer/footer-social-menu.ftl">
