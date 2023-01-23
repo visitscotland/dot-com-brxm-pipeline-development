@@ -199,9 +199,7 @@ public class MapFactory {
     }
 
     private ObjectNode addFilters (String prodTypeId, String prodTypelabel, Locale locale){
-        //TODO remove cities and towns categories here once we know the icons for places and iCentres
-        return  mapService.buildCategoryNode(prodTypeId.equalsIgnoreCase(DMSConstants.TYPE_TOWN)?"cities":"towns",
-                bundle.getResourceBundle(MAP,prodTypelabel,locale));
+        return  mapService.buildCategoryNode(prodTypeId,bundle.getResourceBundle(MAP,prodTypelabel,locale));
     }
 
 
