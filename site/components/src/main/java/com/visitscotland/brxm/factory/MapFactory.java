@@ -182,7 +182,7 @@ public class MapFactory {
                 filter.put("listProductsEndPoint", dmsQuery.buildCannedSearch());
 
                 filter.put("pinClickEndPoint", propertiesService.getDmsDataPublicHost() + DMSConstants.VS_DMS_PRODUCT_MAP_CARD
-                        +"locale="+locale+"&id=");
+                        +"locale="+locale.toLanguageTag()+"&id=");
 
                 //subcategories added
                 ArrayNode childrenArray = dmsDataService.getCatGroup(prodType.getProdTypeId(),locale.getLanguage());
