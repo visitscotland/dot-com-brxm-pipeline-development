@@ -18,6 +18,7 @@ public class SkiModule extends Module<SkiCentre> {
     private JsonNode website;
     private JsonNode address;
     private FlatLink openingLink;
+    private FlatLink cmsPage;
 
     private List<JsonNode> socialChannels;
 
@@ -92,5 +93,13 @@ public class SkiModule extends Module<SkiCentre> {
 
     public void setOpeningLink(FlatLink openingLink) {
         this.openingLink = openingLink;
+    }
+
+    public FlatLink getCmsPage() {
+        return cmsPage;
+    }
+
+    public void setCmsPage(FlatLink cmsPage) {
+        this.cmsPage = cmsPage;
     }
 }
