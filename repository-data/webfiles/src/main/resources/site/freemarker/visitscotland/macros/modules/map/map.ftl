@@ -77,6 +77,9 @@
             <template slot="resetSidePanelText">
                 ${label('map', 'map.reset-filters')}
             </template>
+            <template slot="loadMoreText">
+                ${label('map', 'map.load-more')}
+            </template>
             <template slot="noJs">
                 ${label('map', 'map.no-js')}
             </template>
