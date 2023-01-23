@@ -58,9 +58,15 @@
             buttons-label="${label('map', 'map.buttons-label')}"
             clear-selection-text="${label('map', 'map.clear')}"
             apply-filters-text="${label('map', 'map.show-results')}"
-            details-endpoint="${module.detailsEndpoint}"
             filters-applied-text="${label('map', 'map.filters-applied')}"
             clear-filters-text="${label('map', 'map.clear')}"
+            :region-bounds="${escapeJSON(module.mapPosition,true)}"
+            <#if module.detailsEndpoint??>
+                details-endpoint="${module.detailsEndpoint}"
+            </#if>
+            <#if module.mapType = 'regional'>
+                panel-message="${label('map', 'map.region-map-message')}"
+            </#if>
         >
 
             <template slot="closeSidePanelText">
