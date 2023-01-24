@@ -54,6 +54,7 @@ public class PageTemplateBuilder {
     private final MapGeneralFactory mapGeneralFactory;
     private final MapDestinationFactory mapDestinationFactory;
     private final SkiFactory skiFactory;
+    private final DevModuleFactory devModuleFactory;
     private final Logger contentLogger;
 
 
@@ -62,7 +63,8 @@ public class PageTemplateBuilder {
                                IKnowFactory iKnowFactory, ArticleFactory articleFactory, LongCopyFactory longCopyFactory,
                                StacklaFactory stacklaFactory, TravelInformationFactory travelInformationFactory,
                                CannedSearchFactory cannedSearchFactory, PreviewModeFactory previewFactory, MarketoFormFactory marketoFormFactory,
-                               MapGeneralFactory mapGeneralFactory, MapDestinationFactory mapDestinationFactory, SkiFactory skiFactory, Logger contentLogger) {
+                               MapGeneralFactory mapGeneralFactory, MapDestinationFactory mapDestinationFactory, SkiFactory skiFactory,
+                               DevModuleFactory devModuleFactory, Logger contentLogger) {
         this.documentUtils = documentUtils;
         this.linksFactory = linksFactory;
         this.iCentreFactory = iCentreFactory;
@@ -76,6 +78,7 @@ public class PageTemplateBuilder {
         this.marketoFormFactory = marketoFormFactory;
         this.mapGeneralFactory = mapGeneralFactory;
         this.mapDestinationFactory = mapDestinationFactory;
+        this.devModuleFactory = devModuleFactory;
         this.skiFactory = skiFactory;
         this.contentLogger = contentLogger;
     }
@@ -118,6 +121,8 @@ public class PageTemplateBuilder {
                     page.modules.add(skiFactory.createSkyModule((SkiCentre) item, request.getLocale()));
                 } else if (item instanceof SkiCentreList){
                     page.modules.add(skiFactory.createSkyListModule((SkiCentreList) item, request.getLocale()));
+                } else if (item instanceof DevModule){
+                    page.modules.add(devModuleFactory.getModule((DevModule) item));
                 }
             } catch (MissingResourceException e){
                 logger.error("The module for {} couldn't be built because some labels do not exist", item.getPath(), e);

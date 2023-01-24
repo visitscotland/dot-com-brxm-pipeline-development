@@ -20,7 +20,6 @@
                             ${listItem.image.externalImage}
                         </#assign>
                     </#if>
-
                     <vs-col
                         cols="12"
                         md="6"
