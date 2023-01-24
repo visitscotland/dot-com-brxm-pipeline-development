@@ -24,7 +24,7 @@
         </template>
 
         <vs-ski-scotland-status
-            ski-status-url="http://glencoe.infonet-online.fr/json/snowreport.json"
+            ski-status-url="${module.feedURL}"
             locale="${locale}"
             runs-lifts-status-label="${label("ski", "ski-centre.run-lift-status")}"
             status-label="${label("ski", "ski-centre.status")}"
