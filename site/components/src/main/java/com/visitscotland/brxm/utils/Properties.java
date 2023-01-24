@@ -59,6 +59,7 @@ public class Properties {
     //Page References
     static final String GLOBAL_SEARCH = "site.path.global-search";
     static final String SKI_SECTION = "site.path.ski-landing";
+    static final String CONTACT_US = "site.path.contact-us";
 
     private final ResourceBundleService bundle;
 
@@ -174,6 +175,10 @@ public class Properties {
         return readString(SKI_SECTION);
     }
 
+    public String getSiteContactUs() {
+        return readString(CONTACT_US);
+    }
+
     public String getSiteGlobalSearch() {
         return readString(GLOBAL_SEARCH);
     }
@@ -181,6 +186,7 @@ public class Properties {
     public Integer getContentCacheRetention() {
         //Note that the retention period is defined in seconds and java.util.Date measures the time in seconds
         return readInteger(CONTENT_CACHE_RETENTION_PERIOD) * 1000;
+
     }
 
     /**
