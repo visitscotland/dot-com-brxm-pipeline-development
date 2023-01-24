@@ -13,6 +13,7 @@
     <#include "../modules/stackla/stackla.ftl">
     <#include "../modules/canned-search/canned-search.ftl">
     <#include "../modules/map/map.ftl">
+    <#include "../modules/dev-module/dev-module.ftl">
     <#include "../modules/ski-centre/ski-centre.ftl">
     <#include "../modules/ski-centre-list/ski-centre-list.ftl">
     <#include "theme-calculator.ftl">
@@ -63,9 +64,13 @@
             <@marketo module/>
         <#elseif module.getType()== "SkiModule">
             <@skiCentre module/>
-
         <#elseif module.getType()== "SkiListModule">
             <@skiCentreList module/>
+<<<<<<< HEAD
+=======
+        <#elseif module.getType()== "SimpleDevModule">
+            <@devModule module/>
+>>>>>>> fb6de75172b1e351f53a321815bf745343eca675
         <#else >
             <@previewWarning editMode module module.errorMessages true />
         </#if>
