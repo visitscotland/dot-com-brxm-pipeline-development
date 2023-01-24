@@ -1,17 +1,146 @@
 <#include "../../../../include/imports.ftl">
 <#include "../../../../frontend/components/vs-module-wrapper.ftl">
-<#include "../../../../frontend/components/vs-container.ftl">
-<#include "../../../../frontend/components/vs-row.ftl">
-<#include "../../../../frontend/components/vs-col.ftl">
-<#include "../../../../frontend/components/vs-button.ftl">
-<#include "../../../../frontend/components/vs-img.ftl">
-<#include "../../../../frontend/components/vs-rich-text-wrapper.ftl">
+<#include "../../../../frontend/components/vs-ski-scotland-status.ftl">
+<#include "../../../../frontend/components/vs-heading.ftl">
+<#include "../../../../frontend/components/vs-icon.ftl">
+<#include "../../../../frontend/components/vs-link.ftl">
 <#include "../../global/address.ftl">
 <#include "../../global/preview-warning.ftl">
 
 <#-- @ftlvariable name="module" type="com.visitscotland.brxm.model.SkiModule" -->
-<#macro skiCentre module>
+<#macro skiCentre module themeName="">
     <@previewWarning editMode module module.errorMessages />
+
+    <vs-module-wrapper theme="<#if themeName?has_content>${themeName}<#else>light</#if>">
+        <template slot="vsModuleWrapperHeading">
+            ${module.title}
+        </template>
+
+        <template slot="vsModuleWrapperIntro">
+            <@hst.html hippohtml=module.introduction/>
+        </template>
+
+        <vs-ski-scotland-status
+            ski-status-url="http://glencoe.infonet-online.fr/json/snowreport.json"
+            locale="en-gb"
+        >
+            <div slot="data-loading">
+                Data is currently loading, please wait...
+            </div>
+            <div slot="js-required">
+                JavaScript is required to load more ski data.
+            </div>
+
+            <div slot="centre-information">
+                <vs-heading
+                    level="3"
+                    override-style-level="6"
+                >
+                    ${label("ski", "ski-centre.centre-information")}
+                </vs-heading>
+                <#if module.phone??>
+                    <div class="mb-2">
+                        <vs-icon
+                            name="phone"
+                            size="xs"
+                            class="mr-2"
+                        ></vs-icon>
+                        ${module.phone}
+                    </div>
+                </#if>
+                <#if module.website.link??>
+                    <div class="mb-2">
+                        <vs-icon
+                            name="globe"
+                            size="xs"
+                            class="mr-2"
+                        ></vs-icon>
+                        <vs-link
+                            type="external"
+                            href="${module.website.link?eval}"
+                        >
+                            ${module.website.link?eval}
+                        </vs-link>
+                    </div>
+                </#if>
+                <#if module.address??>
+                    <div class="mb-2">
+                        <vs-icon
+                            name="map-marker"
+                            size="xs"
+                            class="mr-2"
+                        ></vs-icon>
+                        <@address module.address true />
+                    </div>
+                </#if>
+                <#if module.pisteMap??>
+                    <div class="mb-2">
+                        <vs-icon
+                            name="landscape"
+                            size="xs"
+                            class="mr-2"
+                        ></vs-icon>
+                        <vs-link
+                            type="download"
+                            href="${module.pisteMap}"
+                        >
+                            ${label("ski", "ski-centre.view-piste-map")}
+                        </vs-link>
+                    </div>
+                </#if>
+                <#if module.openingLink?? && module.openingLink.label??>
+                    <div class="mb-2">
+                        <vs-icon
+                            name="clock"
+                            size="xs"
+                            class="mr-2"
+                        ></vs-icon>
+                        <vs-link
+                            type="${module.openingLink.type}"
+                            href="${module.openingLink.link}"
+                        >
+                            ${module.openingLink.label}
+                        </vs-link>
+                    </div>
+                </#if>
+                <#if module.webcam??>
+                    <div class="mb-2">
+                        <vs-icon
+                            name="webcam"
+                            size="xs"
+                            class="mr-2"
+                        ></vs-icon>
+                        <span>${label("ski", "ski-centre.webcam")}</span>
+                    </div>
+                </#if>
+                <#list module.socialChannels as channel>
+                    <vs-link
+                        href="${channel.link?eval}"
+                        class="d-inline-block mt-4"
+                    >
+                        <div class="d-inline-block mr-4">
+                            <span class="sr-only">${channel.label?eval}</span>
+                            <vs-icon
+                                size="sm"
+                                name="${channel.label?eval?lower_case}"
+                                <#switch channel.label?eval>
+                                    <#case 'Twitter'>
+                                        custom-colour="#55ACEE"
+                                    <#break>
+                                    <#case 'Facebook' >
+                                        custom-colour="#3A5A99"
+                                    <#break>
+                                    <#case 'Instagram'>
+                                        custom-colour="#E1306C"
+                                    <#break>
+                                </#switch>
+                            ></vs-icon>
+                        </div>
+                    </vs-link>
+                </#list>
+            </div>
+        </vs-ski-scotland-status>
+    </vs-module-wrapper>
 
 <!--
     TITLE : ${module.title}
@@ -77,20 +206,21 @@
             ${label("ski", "ski-centre.snow-conditions.road-status")} // Road Status
             ${label("ski", "ski-data.provider")}
 
-    CENTRE INFORMATION
-    - PHONE - ${module.phone}
-    - URL - ${module.website.link?eval}
-    - ADDRESS - <@address module.address true />
-    - PISTE MAP - ${module.pisteMap}
-    - OPENING TIMES
-        - LABEL - ${module.openingLink.label}
-        - LINK - ${module.openingLink.link}
-        - TYPE - ${module.openingLink.type}
-    - SOCIAL CHANNELS
-    <#list module.socialChannels as channel>
-        - LINK - ${channel.link?eval}
-        - ICON - (${channel.label?eval}) - //Possible values (Twitter, Facebook, Instagram)
-    </#list>
+
+            CENTRE INFORMATION
+                - PHONE - ${module.phone}
+                - URL - ${module.website.link?eval}
+                - ADDRESS - <@address module.address true />
+                - PISTE MAP - ${module.pisteMap}
+                - OPENING TIMES
+                    - LABEL - ${module.openingLink.label}
+                    - LINK - ${module.openingLink.link}
+                    - TYPE - ${module.openingLink.type}
+                - SOCIAL CHANNELS
+            <#list module.socialChannels as channel>
+                - LINK - ${channel.link?eval}
+                - ICON - (${channel.label?eval}) - //Possible values (Twitter, Facebook, Instagram)
+            </#list>
 -->
 
 
