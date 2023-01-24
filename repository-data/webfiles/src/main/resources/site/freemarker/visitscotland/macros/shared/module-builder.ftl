@@ -66,11 +66,8 @@
             <@skiCentre module/>
         <#elseif module.getType()== "SkiListModule">
             <@skiCentreList module/>
-<<<<<<< HEAD
-=======
         <#elseif module.getType()== "SimpleDevModule">
             <@devModule module/>
->>>>>>> fb6de75172b1e351f53a321815bf745343eca675
         <#else >
             <@previewWarning editMode module module.errorMessages true />
         </#if>
