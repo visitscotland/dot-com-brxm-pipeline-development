@@ -66,7 +66,6 @@ function generateTemplateContent(moduleName, mod, configPaths, appMountTarget) {
   if(!isApp) {
     content += generateVueAppInclude()
     content += generateImportsInclude(configPaths.imports)
-    content += "\n"
   }
 
   if(!isEmpty(mod.styles)) {
@@ -111,7 +110,6 @@ function generateTemplateContentApp(appMountTarget) {
             stores: {},
             initApp: ${appModuleName}.initApp
         }
-        
         Vue = ${appModuleName}.Vue
   `
   const initScriptContent = `
@@ -198,7 +196,7 @@ function generateTemplateContentScript(scriptContent, href, headContributionName
   nodeString += ">"
 
   if (scriptContent) {
-    nodeString += "\n\t\t" + scriptContent + "\n\t"
+    nodeString += "\t\t" + scriptContent + "\t"
   }
 
   nodeString += "</script>"
@@ -229,9 +227,9 @@ function generateTemplateContentStyle(href) {
 function generateTemplateContentHeadContribution(content, category) {
   let node = ""
 
-  node += '\n<@hst.headContribution category="' + category + '">\n'
+  node += '<@hst.headContribution category="' + category + '">\n'
   node += content + "\n"
-  node += "</@hst.headContribution>\n"
+  node += "</@hst.headContribution>"
 
   return node
 }
