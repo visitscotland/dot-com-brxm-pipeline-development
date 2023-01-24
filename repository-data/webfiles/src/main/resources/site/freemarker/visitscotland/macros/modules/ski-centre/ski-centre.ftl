@@ -4,6 +4,9 @@
 <#include "../../../../frontend/components/vs-heading.ftl">
 <#include "../../../../frontend/components/vs-icon.ftl">
 <#include "../../../../frontend/components/vs-link.ftl">
+<#include "../../../../frontend/components/vs-container.ftl">
+<#include "../../../../frontend/components/vs-row.ftl">
+<#include "../../../../frontend/components/vs-col.ftl">
 <#include "../../global/address.ftl">
 <#include "../../global/preview-warning.ftl">
 
@@ -22,13 +25,46 @@
 
         <vs-ski-scotland-status
             ski-status-url="http://glencoe.infonet-online.fr/json/snowreport.json"
-            locale="en-gb"
+            locale="${locale}"
+            runs-lifts-status-label="${label("ski", "ski-centre.run-lift-status")}"
+            status-label="${label("ski", "ski-centre.status")}"
+            runs-label="${label("ski", "ski-centre.runs")}"
+            lifts-label="${label("ski", "ski-centre.lifts")}"
+            summary-open-label="${label("ski", "ski-centre.summary.open")}"
+            summary-opening-label="${label("ski", "ski-centre.summary.expected-to-open")}"
+            summary-closed-label="${label("ski", "ski-centre.summary.closed")}"
+            last-updated-label="${label("ski", "ski-centre.last-updated")}"
+            detailed-status-label="${label("ski", "ski-centre.detailed-status")}"
+            snow-conditions-label="${label("ski", "ski-centre.snow-conditions.full-report")}"
+            current-weather-label="${label("ski", "ski-centre.snow-conditions.current-weather")}"
+            weather-forecast-label="${label("ski", "ski-centre.snow-conditions.weather-forecast")}"
+            roads-label="${label("ski", "ski-centre.snow-conditions.road-status")}"
+            news-label="${label("ski", "ski-centre.snow-conditions.news-from-the-slopes")}"
+            run-status-label="${label("ski", "ski-centre.run-status")}"
+            lift-status-label="${label("ski", "ski-centre.lift-status")}"
+            run-label="${label("ski", "ski-centre.run")}"
+            lift-label="${label("ski", "ski-centre.lift")}"
+            easy-label="${label("ski", "ski-centre.run.easy")}"
+            intermediate-label="${label("ski", "ski-centre.run.intermediate")}"
+            difficult-label="${label("ski", "ski-centre.run.difficult")}"
+            very-difficult-label="${label("ski", "ski-centre.run.very-difficult")}"
+            itineraries-label="${label("ski", "ski-centre.run.itineraries")}"
+            other-label="${label("ski", "ski-centre.run.other")}"
+            green-label="${label("ski", "ski-centre.run.green")}"
+            blue-label="${label("ski", "ski-centre.run.blue")}"
+            red-label="${label("ski", "ski-centre.run.red")}"
+            black-label="${label("ski", "ski-centre.run.black")}"
+            orange-label="${label("ski", "ski-centre.run.orange")}"
+            grey-label="${label("ski", "ski-centre.run.grey")}"
+            status-open-label="${label("ski", "ski-centre.status.open")}"
+            status-opening-label="${label("ski", "ski-centre.status.expected-to-open")}"
+            status-closed-label="${label("ski", "ski-centre.status.closed")}"
         >
             <div slot="data-loading">
-                Data is currently loading, please wait...
+                ${label("ski", "ski-data.loading")}
             </div>
             <div slot="js-required">
-                JavaScript is required to load more ski data.
+                ${label("ski", "ski-data.ski-centre.no-js")}
             </div>
 
             <div slot="centre-information">
@@ -140,88 +176,16 @@
                 </#list>
             </div>
         </vs-ski-scotland-status>
+        <vs-container class="mt-8">
+            <vs-row>
+                <vs-col
+                    cols="12"
+                    md="6"
+                    offset-md="3"
+                >
+                    <p>${label("ski", "ski-data.provider")}</p>
+                </vs-col>
+            </vs-row>
+        </vs-container>
     </vs-module-wrapper>
-
-<!--
-    TITLE : ${module.title}
-    INTRO : <@hst.html hippohtml=module.introduction/>
-
-    FEED: Config:
-        URL - ${module.feedURL}
-        Timeout - ${property("ski.timeout")}
-        locale - ${locale}
-        MESSAGES
-            ${label("ski", "ski-centre.run-lift-status")} // Run/Lift Status
-            <#-- Note that ski-centre.summary.open and ski-centre.status.open have the same value but they have different
-                purposes. In other languages the texts don't match-->
-            <#-- "ski-centre.summary.*" Are to be used in the "Run/Lift Status" section -->
-            ${label("ski", "ski-centre.summary.open")} //Open
-            ${label("ski", "ski-centre.summary.closed")} //Closed
-            ${label("ski", "ski-centre.summary.expected-to-open")} //Expected to Open
-            ${label("ski", "ski-centre.summary.on-hold")} //On Hold
-            ${label("ski", "ski-centre.summary.limited-patrol")} //Limited Patrol
-            ${label("ski", "ski-centre.summary.open-soon")} //Open soon
-            ${label("ski", "ski-centre.status")} // Status
-            ${label("ski", "ski-centre.lifts")} // Runs
-            ${label("ski", "ski-centre.lifts")} // Lifts
-            ${label("ski", "ski-centre.detailed-status")} // Detailed Status
-            <#-- "ski-centre.status.*" Are to be used in the "Detailed Status" section -->
-            ${label("ski", "ski-centre.status.open")} // Open
-            ${label("ski", "ski-centre.status.closed")} // Closed
-            ${label("ski", "ski-centre.status.expected-to-open")} // Expected to Open
-            ${label("ski", "ski-centre.status.on-hold")} // On Hold
-            ${label("ski", "ski-centre.status.limited-patrol")} // Limited Patrol
-            ${label("ski", "ski-centre.status.open-soon")} // Open soon
-            ${label("ski", "ski-centre.run.green")} // Green
-            ${label("ski", "ski-centre.run.easy")} // Easy
-            ${label("ski", "ski-centre.run.blue")} // Blue
-            ${label("ski", "ski-centre.run.intermediate")} // Intermediate
-            ${label("ski", "ski-centre.run.red")} // Red
-            ${label("ski", "ski-centre.run.difficult")} // Difficult
-            ${label("ski", "ski-centre.run.black")} // Black
-            ${label("ski", "ski-centre.run.very-difficult")} // Very Difficult
-            ${label("ski", "ski-centre.run.orange")} // Orange
-            ${label("ski", "ski-centre.run.itineraries")} // Itineraries
-            ${label("ski", "ski-centre.run.back-country")} // Back Country
-            ${label("ski", "ski-centre.run.grey")} // Grey
-            ${label("ski", "ski-centre.run.other")} // Other
-            ${label("ski", "ski-centre.lift-status")} // Lift Status
-            ${label("ski", "ski-centre.run-status")} // Run Status
-            ${label("ski", "ski-centre.lift")} // Lift
-            ${label("ski", "ski-centre.centre-information")} // Centre Information
-            ${label("ski", "ski-centre.piste-map")} // Piste Map
-            ${label("ski", "ski-centre.webcam")} // WebCam
-            ${label("ski", "ski-centre.view-piste-map")} // View Piste Map
-            ${label("ski", "ski-centre.more-details")} // More Details
-            ${label("ski", "ski-centre.last-updated")} // Last updated
-            ${label("ski", "ski-data.no-js")} // JavaScript needs to be enabled to see Run and Lift status
-            ${label("ski", "ski-data.ski-centre.no-js")} // JavaScript needs to be enabled to see the latest conditions at this ski centre
-            ${label("ski", "ski-data.loading")} // Data is currently loading, please wait…
-            ${label("ski", "ski-data.unavailable")} // Data is currently unavailable, please try again later.
-            ${label("ski", "ski-centre.snow-conditions.news-from-the-slopes")} // News from the slopes
-            ${label("ski", "ski-centre.snow-conditions.weather")} // Weather
-            ${label("ski", "ski-centre.snow-conditions.current-weather")} // Current Weather
-            ${label("ski", "ski-centre.snow-conditions.weather-forecast")} // Weather Forecast
-            ${label("ski", "ski-centre.snow-conditions.full-report")} // Snow conditions full report
-            ${label("ski", "ski-centre.snow-conditions.road-status")} // Road Status
-            ${label("ski", "ski-data.provider")}
-
-
-            CENTRE INFORMATION
-                - PHONE - ${module.phone}
-                - URL - ${module.website.link?eval}
-                - ADDRESS - <@address module.address true />
-                - PISTE MAP - ${module.pisteMap}
-                - OPENING TIMES
-                    - LABEL - ${module.openingLink.label}
-                    - LINK - ${module.openingLink.link}
-                    - TYPE - ${module.openingLink.type}
-                - SOCIAL CHANNELS
-            <#list module.socialChannels as channel>
-                - LINK - ${channel.link?eval}
-                - ICON - (${channel.label?eval}) - //Possible values (Twitter, Facebook, Instagram)
-            </#list>
--->
-
-
 </#macro>
