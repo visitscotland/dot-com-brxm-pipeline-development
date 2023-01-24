@@ -15,7 +15,7 @@
     <#include "../modules/map/map.ftl">
     <#include "../modules/dev-module/dev-module.ftl">
     <#include "../modules/ski-centre/ski-centre.ftl">
-<#include "../modules/ski-centre-list/ski-centre-list.ftl">
+    <#include "../modules/ski-centre-list/ski-centre-list.ftl">
 <#include "theme-calculator.ftl">
 
     <#-- Implicit Request Objects -->
