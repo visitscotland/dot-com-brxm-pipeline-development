@@ -151,7 +151,15 @@
                 </#if>
                 <#list module.socialChannels as channel>
                     <vs-link
-                        href="${channel.link?eval}"
+                        <#if channel.label?eval == 'Twitter'>
+                            <#if channel.link?contains("twitter.com")>
+                                href="${channel.link?eval}"
+                            <#else>
+                                href="https://twitter.com/${channel.link?eval}"
+                            </#if>
+                        <#else>
+                            href="${channel.link?eval}"
+                        </#if>
                         class="d-inline-block mt-4"
                     >
                         <div class="d-inline-block mr-4">
