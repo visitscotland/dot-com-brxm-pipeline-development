@@ -14,8 +14,8 @@
     <#include "../modules/canned-search/canned-search.ftl">
     <#include "../modules/map/map.ftl">
     <#include "../modules/ski-centre/ski-centre.ftl">
-<#include "../modules/ski-centre-list/ski-centre-list.ftl">
-<#include "theme-calculator.ftl">
+    <#include "../modules/ski-centre-list/ski-centre-list.ftl">
+    <#include "theme-calculator.ftl">
 
     <#-- Implicit Request Objects -->
     <#-- @ftlvariable name="document" type="com.visitscotland.brxm.hippobeans.Destination" -->
@@ -63,7 +63,6 @@
             <@marketo module/>
         <#elseif moduleType == "SkiModule">
             <@skiCentre module/>
-
         <#elseif moduleType == "SkiListModule">
             <@skiCentreList module/>
         <#else >
