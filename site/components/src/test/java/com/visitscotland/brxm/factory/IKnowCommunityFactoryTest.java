@@ -5,7 +5,6 @@ import com.visitscotland.brxm.mock.IKnowCommunityMockBuilder;
 import com.visitscotland.brxm.model.IKnowCommunityModule;
 import com.visitscotland.brxm.model.LinkType;
 import com.visitscotland.brxm.services.ResourceBundleService;
-import com.visitscotland.brxm.utils.HippoUtilsService;
 import com.visitscotland.brxm.utils.Properties;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Assertions;
