@@ -46,23 +46,21 @@ public class PageTemplateBuilder {
     private final IKnowFactory iKnowFactory;
     private final ArticleFactory articleFactory;
     private final LongCopyFactory longCopyFactory;
-    private final IKnowCommunityFactory iKnowCommunityFactory;
     private final StacklaFactory stacklaFactory;
     private final TravelInformationFactory travelInformationFactory;
     private final CannedSearchFactory cannedSearchFactory;
     private final PreviewModeFactory previewFactory;
     private final MarketoFormFactory marketoFormFactory;
-    private final MapGeneralFactory mapGeneralFactory;
-    private final MapDestinationFactory mapDestinationFactory;
+    private final MapFactory mapFactory;
     private final DevModuleFactory devModuleFactory;
     private final Logger contentLogger;
 
 
     @Autowired
     public PageTemplateBuilder(DocumentUtilsService documentUtils, MegalinkFactory linksFactory, ICentreFactory iCentre,
-                               IKnowFactory iKnow, ArticleFactory article, LongCopyFactory longcopy, IKnowCommunityFactory iKnowCommunityFactory,
+                               IKnowFactory iKnow, ArticleFactory article, LongCopyFactory longcopy,
                                StacklaFactory stacklaFactory, TravelInformationFactory travelInformationFactory, CannedSearchFactory cannedSearchFactory,
-                               PreviewModeFactory previewFactory, MarketoFormFactory marketoFormFactory, MapGeneralFactory mapGeneralFactory,MapDestinationFactory mapDestinationFactory,
+                               PreviewModeFactory previewFactory, MarketoFormFactory marketoFormFactory, MapFactory mapFactory,
                                DevModuleFactory devModuleFactory, ContentLogger contentLogger) {
         this.linksFactory = linksFactory;
         this.iCentreFactory = iCentre;
@@ -70,14 +68,12 @@ public class PageTemplateBuilder {
         this.documentUtils = documentUtils;
         this.articleFactory = article;
         this.longCopyFactory = longcopy;
-        this.iKnowCommunityFactory = iKnowCommunityFactory;
         this.stacklaFactory = stacklaFactory;
         this.travelInformationFactory = travelInformationFactory;
         this.cannedSearchFactory = cannedSearchFactory;
         this.previewFactory = previewFactory;
         this.marketoFormFactory = marketoFormFactory;
-        this.mapGeneralFactory = mapGeneralFactory;
-        this.mapDestinationFactory = mapDestinationFactory;
+        this.mapFactory = mapFactory;
         this.devModuleFactory = devModuleFactory;
         this.contentLogger = contentLogger;
     }
@@ -105,7 +101,7 @@ public class PageTemplateBuilder {
                 } else if (item instanceof LongCopy){
                     processLongCopy(request, page, (LongCopy) item);
                 } else if (item instanceof MapModule) {
-                    processMapModule(request, page, (MapModule) item);
+                    page.modules.add(mapFactory.getModule(request, (MapModule) item, getDocument(request)));
                 } else if (item instanceof Stackla) {
                     page.modules.add(stacklaFactory.getStacklaModule((Stackla) item, request.getLocale()));
                 }  else if (item instanceof TravelInformation) {
@@ -167,7 +163,7 @@ public class PageTemplateBuilder {
             contentLogger.error("Megalinks module at {} contains no valid items", item.getPath());
             page.modules.add(previewFactory.createErrorModule(al));
             return;
-        } 
+        }
 
         if (al.getType().equalsIgnoreCase(SingleImageLinksModule.class.getSimpleName())) {
             al.setAlignment(alignment[page.alignment++ % alignment.length]);
@@ -197,19 +193,6 @@ public class PageTemplateBuilder {
         iKnowModule.setHippoBean(touristInfo);
 
         page.modules.add(iKnowModule);
-    }
-
-    /**
-     * Creates a MapsModule from a destination or general page
-     */
-
-   private void processMapModule(HstRequest request, PageConfiguration page, MapModule item){
-       Page document = getDocument(request);
-       if (document instanceof Destination) {
-           page.modules.add(mapDestinationFactory.getModule(request, item,document));
-       }else if (document instanceof General){
-           page.modules.add(mapGeneralFactory.getModule(request, item));
-       }
     }
 
     /**

@@ -6,7 +6,6 @@ import com.visitscotland.brxm.hippobeans.Quote;
 import com.visitscotland.brxm.hippobeans.SharedLink;
 import com.visitscotland.brxm.model.FlatLink;
 import com.visitscotland.brxm.model.FlatQuote;
-import com.visitscotland.brxm.model.Module;
 import com.visitscotland.brxm.model.megalinks.EnhancedLink;
 import com.visitscotland.brxm.services.LinkService;
 import org.hippoecm.hst.content.beans.standard.HippoHtml;
