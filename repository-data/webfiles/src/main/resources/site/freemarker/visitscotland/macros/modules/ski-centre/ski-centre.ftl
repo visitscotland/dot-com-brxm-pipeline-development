@@ -7,14 +7,15 @@
 <#include "../../../../frontend/components/vs-container.ftl">
 <#include "../../../../frontend/components/vs-row.ftl">
 <#include "../../../../frontend/components/vs-col.ftl">
+<#include "../../../../frontend/components/vs-list.ftl">
 <#include "../../global/address.ftl">
 <#include "../../global/preview-warning.ftl">
 
 <#-- @ftlvariable name="module" type="com.visitscotland.brxm.model.SkiModule" -->
-<#macro skiCentre module themeName="">
+<#macro skiCentre module>
     <@previewWarning editMode module module.errorMessages />
 
-    <vs-module-wrapper theme="<#if themeName?has_content>${themeName}<#else>light</#if>">
+    <vs-module-wrapper theme="light">
         <template slot="vsModuleWrapperHeading">
             ${module.title}
         </template>
