@@ -28,7 +28,6 @@
             false
         </#assign>
     </#if>
-    
     <vs-module-wrapper>
         <template slot="vsModuleWrapperHeading">
             ${module.title}

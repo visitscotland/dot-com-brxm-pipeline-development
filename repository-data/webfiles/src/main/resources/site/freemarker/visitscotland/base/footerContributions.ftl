@@ -15,6 +15,7 @@
 
         <!-- BEGIN HEAD CONTRIBUTIONS: htmlBodyEndAppInit -->
         <@hst.headContributions categoryIncludes="htmlBodyEndAppInit" xhtml=true/>
+        <@hst.headContributions categoryIncludes="devModuleFooter" xhtml=true/>
         <!-- END HEAD CONTRIBUTIONS: htmlBodyEndAppInit -->
 
         <!-- BEGIN HEAD CONTRIBUTIONS: htmlBodyEndScriptsLast -->

@@ -52,6 +52,7 @@ public class PageTemplateBuilder {
     private final PreviewModeFactory previewFactory;
     private final MarketoFormFactory marketoFormFactory;
     private final MapFactory mapFactory;
+    private final DevModuleFactory devModuleFactory;
     private final Logger contentLogger;
 
 
@@ -60,7 +61,7 @@ public class PageTemplateBuilder {
                                IKnowFactory iKnow, ArticleFactory article, LongCopyFactory longcopy,
                                StacklaFactory stacklaFactory, TravelInformationFactory travelInformationFactory, CannedSearchFactory cannedSearchFactory,
                                PreviewModeFactory previewFactory, MarketoFormFactory marketoFormFactory, MapFactory mapFactory,
-                               ContentLogger contentLogger) {
+                               DevModuleFactory devModuleFactory, ContentLogger contentLogger) {
         this.linksFactory = linksFactory;
         this.iCentreFactory = iCentre;
         this.iKnowFactory = iKnow;
@@ -73,6 +74,7 @@ public class PageTemplateBuilder {
         this.previewFactory = previewFactory;
         this.marketoFormFactory = marketoFormFactory;
         this.mapFactory = mapFactory;
+        this.devModuleFactory = devModuleFactory;
         this.contentLogger = contentLogger;
     }
 
@@ -110,6 +112,8 @@ public class PageTemplateBuilder {
                     page.modules.add(cannedSearchFactory.getCannedSearchToursModule((CannedSearchTours) item, request.getLocale()));
                 } else if (item instanceof MarketoForm) {
                     page.modules.add(marketoFormFactory.getModule((MarketoForm) item));
+                } else if (item instanceof DevModule){
+                    page.modules.add(devModuleFactory.getModule((DevModule) item));
                 }
             } catch (MissingResourceException e){
                 logger.error("The module for {} couldn't be built because some labels do not exist", item.getPath(), e);
