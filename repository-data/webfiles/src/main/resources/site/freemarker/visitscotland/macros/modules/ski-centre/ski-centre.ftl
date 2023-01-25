@@ -75,81 +75,83 @@
                 >
                     ${label("ski", "ski-centre.centre-information")}
                 </vs-heading>
-                <#if module.phone??>
-                    <div class="mb-2">
-                        <vs-icon
-                            name="phone"
-                            size="xs"
-                            class="mr-2"
-                        ></vs-icon>
-                        ${module.phone}
-                    </div>
-                </#if>
-                <#if module.website.link??>
-                    <div class="mb-2">
-                        <vs-icon
-                            name="globe"
-                            size="xs"
-                            class="mr-2"
-                        ></vs-icon>
-                        <vs-link
-                            type="external"
-                            href="${module.website.link?eval}"
-                        >
-                            ${module.website.link?eval}
-                        </vs-link>
-                    </div>
-                </#if>
-                <#if module.address??>
-                    <div class="mb-2">
-                        <vs-icon
-                            name="map-marker"
-                            size="xs"
-                            class="mr-2"
-                        ></vs-icon>
-                        <@address module.address true />
-                    </div>
-                </#if>
-                <#if module.pisteMap??>
-                    <div class="mb-2">
-                        <vs-icon
-                            name="landscape"
-                            size="xs"
-                            class="mr-2"
-                        ></vs-icon>
-                        <vs-link
-                            type="download"
-                            href="${module.pisteMap}"
-                        >
-                            ${label("ski", "ski-centre.view-piste-map")}
-                        </vs-link>
-                    </div>
-                </#if>
-                <#if module.openingLink?? && module.openingLink.label??>
-                    <div class="mb-2">
-                        <vs-icon
-                            name="clock"
-                            size="xs"
-                            class="mr-2"
-                        ></vs-icon>
-                        <vs-link
-                            type="${module.openingLink.type}"
-                            href="${module.openingLink.link}"
-                        >
-                            ${module.openingLink.label}
-                        </vs-link>
-                    </div>
-                </#if>
-                <#if module.webcam??>
-                    <div class="mb-2">
-                        <vs-icon
-                            name="webcam"
-                            size="xs"
-                            class="mr-2"
-                        ></vs-icon>
-                        <span>${label("ski", "ski-centre.webcam")}</span>
-                    </div>
-                </#if>
+                <vs-list unstyled>
+                    <#if module.phone??>
+                        <li class="mb-2">
+                            <vs-icon
+                                name="phone"
+                                size="xs"
+                                class="mr-2"
+                            ></vs-icon>
+                            ${module.phone}
+                        </li>
+                    </#if>
+                    <#if module.website.link??>
+                        <li class="mb-2">
+                            <vs-icon
+                                name="globe"
+                                size="xs"
+                                class="mr-2"
+                            ></vs-icon>
+                            <vs-link
+                                type="external"
+                                href="${module.website.link?eval}"
+                            >
+                                ${module.website.link?eval}
+                            </vs-link>
+                        </li>
+                    </#if>
+                    <#if module.address??>
+                        <li class="mb-2">
+                            <vs-icon
+                                name="map-marker"
+                                size="xs"
+                                class="mr-2"
+                            ></vs-icon>
+                            <@address module.address true />
+                        </li>
+                    </#if>
+                    <#if module.pisteMap??>
+                        <li class="mb-2">
+                            <vs-icon
+                                name="landscape"
+                                size="xs"
+                                class="mr-2"
+                            ></vs-icon>
+                            <vs-link
+                                type="download"
+                                href="${module.pisteMap}"
+                            >
+                                ${label("ski", "ski-centre.view-piste-map")}
+                            </vs-link>
+                        </li>
+                    </#if>
+                    <#if module.openingLink?? && module.openingLink.label??>
+                        <li class="mb-2">
+                            <vs-icon
+                                name="clock"
+                                size="xs"
+                                class="mr-2"
+                            ></vs-icon>
+                            <vs-link
+                                type="${module.openingLink.type}"
+                                href="${module.openingLink.link}"
+                            >
+                                ${module.openingLink.label}
+                            </vs-link>
+                        </li>
+                    </#if>
+                    <#if module.webcam??>
+                        <li class="mb-2">
+                            <vs-icon
+                                name="webcam"
+                                size="xs"
+                                class="mr-2"
+                            ></vs-icon>
+                            <span>${label("ski", "ski-centre.webcam")}</span>
+                        </li>
+                    </#if>
+                </vs-list>
                 <#list module.socialChannels as channel>
                     <vs-link
                         <#if channel.label?eval == 'Twitter'>
