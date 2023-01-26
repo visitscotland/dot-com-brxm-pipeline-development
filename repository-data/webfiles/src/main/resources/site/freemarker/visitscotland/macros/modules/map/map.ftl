@@ -28,7 +28,6 @@
             false
         </#assign>
     </#if>
-    
     <vs-module-wrapper>
         <template slot="vsModuleWrapperHeading">
             ${module.title}
@@ -67,6 +66,9 @@
             <#if module.mapType = 'regional'>
                 panel-message="${label('map', 'map.region-map-message')}"
             </#if>
+            map-filter-message="${label('map', 'map.apply-filters')}"
+            map-no-results-message="${label('map', 'map.no-results')}"
+            panel-message="${label('map', 'map.panel-bottom-msg')}"
         >
 
             <template slot="closeSidePanelText">
@@ -83,8 +85,17 @@
             <template slot="resetSidePanelText">
                 ${label('map', 'map.reset-filters')}
             </template>
+            <template slot="loadMoreText">
+                ${label('map', 'map.load-more')}
+            </template>
             <template slot="noJs">
                 ${label('map', 'map.no-js')}
+            </template>
+            <template slot="mapLoadingText">
+                ${label('map', 'map.loading')}
+            </template>
+            <template slot="panelLoadingMessage">
+                ${label('map', 'map.loading-results')}
             </template>
         </vs-main-map-wrapper>
     </vs-module-wrapper>
