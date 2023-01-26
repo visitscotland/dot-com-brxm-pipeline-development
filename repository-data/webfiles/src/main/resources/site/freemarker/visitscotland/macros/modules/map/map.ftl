@@ -89,9 +89,6 @@
             <template slot="mapLoadingText">
                 ${label('map', 'map.loading')}
             </template>
-            <template slot="loadMoreText">
-                ${label('map', 'map.load-more')}
-            </template>
             <template slot="panelLoadingMessage">
                 ${label('map', 'map.loading-results')}
             </template>
