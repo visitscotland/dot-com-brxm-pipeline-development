@@ -16,7 +16,7 @@
     <#include "../modules/dev-module/dev-module.ftl">
     <#include "../modules/ski-centre/ski-centre.ftl">
     <#include "../modules/ski-centre-list/ski-centre-list.ftl">
-<#include "theme-calculator.ftl">
+    <#include "theme-calculator.ftl">
 
     <#-- Implicit Request Objects -->
     <#-- @ftlvariable name="document" type="com.visitscotland.brxm.hippobeans.Destination" -->
