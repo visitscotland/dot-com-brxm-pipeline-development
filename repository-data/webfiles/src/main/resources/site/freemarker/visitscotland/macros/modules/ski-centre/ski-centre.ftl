@@ -74,6 +74,9 @@
                         <div slot="js-required">
                             ${label("ski", "ski-data.ski-centre.no-js")}
                         </div>
+                        <div slot="data-unavailable">
+                            ${label("ski", "ski-data.unavailable")}
+                        </div>
 
                         <div slot="centre-information">
                             <vs-heading
