@@ -24,6 +24,7 @@ class MessageSuppressorTest {
 
     @BeforeEach
     void init(){
+        when(properties.isContentCacheEnabled()).thenReturn(true);
         when(properties.getContentCacheMaxElements()).thenReturn(10);
     }
 
