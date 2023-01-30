@@ -34,6 +34,7 @@ public class Properties {
     static final String CHANNEL_ORDER = "seo.alternate-link-locale-order";
     static final String GLOBAL_SEARCH_PATH = "global-search.path";
     static final String ENGINE_ID = "global-search.engine-id";
+    static final String CONTENT_CACHE_ENABLED = "content-cache.enabled";
     static final String CONTENT_CACHE_RETENTION_PERIOD = "content-cache.retention-period";
     static final String CONTENT_CACHE_MAX_ELEMENTS = "content-cache.max-elements";
 
@@ -186,6 +187,11 @@ public class Properties {
     public Integer getContentCacheRetention() {
         //Note that the retention period is defined in seconds and java.util.Date measures the time in seconds
         return readInteger(CONTENT_CACHE_RETENTION_PERIOD) * 1000;
+    }
+
+    public boolean isContentCacheEnabled() {
+        //Note that the retention period is defined in seconds and java.util.Date measures the time in seconds
+        return readBoolean(CONTENT_CACHE_ENABLED);
     }
 
     /**
