@@ -3,9 +3,7 @@ package com.visitscotland.brxm.hippobeans;
 import org.hippoecm.hst.content.beans.Node;
 import org.hippoecm.hst.content.beans.standard.HippoHtml;
 import org.onehippo.cms7.essentials.dashboard.annotations.HippoEssentialsGenerated;
-
 import java.util.Calendar;
-import java.util.List;
 
 @HippoEssentialsGenerated(internalName = "visitscotland:SkiCentre")
 @Node(jcrType = "visitscotland:SkiCentre")
@@ -53,5 +51,10 @@ public class SkiCentre extends BaseDocument {
     @HippoEssentialsGenerated(internalName = "visitscotland:translationDeadline")
     public Calendar getTranslationDeadline() {
         return getSingleProperty("visitscotland:translationDeadline");
+    }
+
+    @HippoEssentialsGenerated(internalName = "visitscotland:pisteMap")
+    public String getPisteMap() {
+        return getSingleProperty("visitscotland:pisteMap");
     }
 }

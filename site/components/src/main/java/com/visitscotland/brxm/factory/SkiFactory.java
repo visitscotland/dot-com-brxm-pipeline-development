@@ -15,7 +15,6 @@ import org.slf4j.Logger;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 import java.util.Locale;
 
@@ -54,12 +53,13 @@ public class SkiFactory {
         module.setTitle(document.getTitle());
         module.setIntroduction(document.getCopy());
         module.setFeedURL(document.getFeed());
+        module.setPisteMap(document.getPisteMap());
 
         JsonNode product = dataService.productCard(document.getProductId(), locale);
 
         if (product == null){
             String errorMessage = String.format("The DMS product associated with this Ski Centre (ID=%s) is not available", document.getProductId());
-            contentLogger.error(errorMessage + ". Path= " + document.getPath());
+            contentLogger.error("{}. Path={} ", errorMessage, document.getPath());
             module.addErrorMessage(errorMessage);
         } else {
             populateDmsData(module, product, locale);
