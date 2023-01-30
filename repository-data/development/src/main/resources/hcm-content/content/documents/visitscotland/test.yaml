@@ -17641,6 +17641,409 @@
           /visitscotland:links:
             jcr:primaryType: hippo:mirror
             hippo:docbase: b4f5210a-8aec-4a67-861f-bc8d1c85e861
+    /snow-sports:
+      jcr:primaryType: hippostd:folder
+      jcr:mixinTypes: ['hippo:named', 'hippotranslation:translated', 'mix:versionable']
+      jcr:uuid: 8db16731-f078-4c89-8aa4-53f8598f6a41
+      hippo:name: Snow Sports
+      hippostd:foldertype: [new-translated-folder-test, new-document]
+      hippotranslation:id: cfc2f5be-dedc-4b3b-909a-da5792788ec1
+      hippotranslation:locale: en
+      /glencoe:
+        jcr:primaryType: hippostd:folder
+        jcr:mixinTypes: ['hippo:named', 'hippotranslation:translated', 'mix:versionable']
+        jcr:uuid: c361d7f1-ac5f-44bd-9287-bc44975691bf
+        hippo:name: Glencoe
+        hippostd:foldertype: [new-translated-folder-test, new-document]
+        hippotranslation:id: dd9cc235-55e6-4dff-8c82-1c2cd0ae11aa
+        hippotranslation:locale: en
+        /content:
+          jcr:primaryType: hippo:handle
+          jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+          jcr:uuid: 1dd4d5ca-0241-43ec-b6c9-4718f1202c0c
+          hippo:name: Glencoe Mountain Resort
+          hippo:versionHistory: 20d3dabe-6fab-45a2-81f8-141cb2bf5e17
+          /content[1]:
+            jcr:primaryType: visitscotland:General
+            jcr:mixinTypes: ['mix:referenceable']
+            jcr:uuid: 41e099b0-3078-4860-b778-4373a642914d
+            hippo:availability: []
+            hippostd:retainable: false
+            hippostd:state: draft
+            hippostdpubwf:createdBy: admin
+            hippostdpubwf:creationDate: 2023-01-11T17:52:16.855Z
+            hippostdpubwf:lastModificationDate: 2023-01-18T16:12:21.372Z
+            hippostdpubwf:lastModifiedBy: admin
+            hippotranslation:id: 89cc192e-9681-453a-a28d-e70dced52cd0
+            hippotranslation:locale: en
+            visitscotland:breadcrumb: ''
+            visitscotland:hideNewsletter: false
+            visitscotland:seoDescription: Find detailed information on snow conditions
+              at the Glencoe ski centre, with up-to-date snow reports, weather forecasts
+              & lift and road statuses.
+            visitscotland:seoNoIndex: false
+            visitscotland:seoTitle: Glencoe Mountain Resort
+            visitscotland:teaser: Find detailed information on snow conditions at
+              the Glencoe ski centre, with up-to-date snow reports, weather forecasts
+              & lift and road statuses.
+            visitscotland:theme: Top-Level
+            visitscotland:title: Glencoe Mountain Resort
+            visitscotland:translation: ''
+            /visitscotland:heroImage:
+              jcr:primaryType: hippogallerypicker:imagelink
+              hippo:docbase: c0d67ee5-7a22-4fa8-b0b8-335921c3f0e7
+              hippo:facets: []
+              hippo:modes: []
+              hippo:values: []
+            /visitscotland:introduction:
+              jcr:primaryType: hippostd:html
+              hippostd:content: <p>When it comes to picturesque views, it doesn't
+                get any better than the Highlands. One of the first commercially operating
+                ski resorts in Scotland, <a rel="noopener noreferrer" href="https://www.glencoemountain.co.uk/"
+                title="" target="_blank">Glencoe Mountain Resort</a> is a skiers'
+                paradise! With 20 runs serviced by 8 lifts, it includes both the longest
+                run in Scotland and the steepest run too. Looking for accommodation
+                with a difference? The resort's <a rel="noopener noreferrer" href="https://www.glencoemountain.co.uk/book-accommodation/"
+                title="" target="_blank">Microlodges</a> are a perfect alternative
+                to help keep you warm and snug after a day out in the snow.</p>
+          /content[2]:
+            jcr:primaryType: visitscotland:General
+            jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+            jcr:uuid: 541b4057-d037-4db6-b29f-bf61a10dd2cb
+            hippo:availability: [preview]
+            hippostd:retainable: false
+            hippostd:state: unpublished
+            hippostdpubwf:createdBy: admin
+            hippostdpubwf:creationDate: 2023-01-11T17:52:16.855Z
+            hippostdpubwf:lastModificationDate: 2023-01-18T16:12:42.725Z
+            hippostdpubwf:lastModifiedBy: admin
+            hippotranslation:id: 89cc192e-9681-453a-a28d-e70dced52cd0
+            hippotranslation:locale: en
+            visitscotland:breadcrumb: ''
+            visitscotland:hideNewsletter: false
+            visitscotland:seoDescription: Find detailed information on snow conditions
+              at the Glencoe ski centre, with up-to-date snow reports, weather forecasts
+              & lift and road statuses.
+            visitscotland:seoNoIndex: false
+            visitscotland:seoTitle: Glencoe Mountain Resort
+            visitscotland:teaser: Find detailed information on snow conditions at
+              the Glencoe ski centre, with up-to-date snow reports, weather forecasts
+              & lift and road statuses.
+            visitscotland:theme: Top-Level
+            visitscotland:title: Glencoe Mountain Resort
+            visitscotland:translation: ''
+            /visitscotland:heroImage:
+              jcr:primaryType: hippogallerypicker:imagelink
+              hippo:docbase: c0d67ee5-7a22-4fa8-b0b8-335921c3f0e7
+              hippo:facets: []
+              hippo:modes: []
+              hippo:values: []
+            /visitscotland:introduction:
+              jcr:primaryType: hippostd:html
+              hippostd:content: <p>When it comes to picturesque views, it doesn't
+                get any better than the Highlands. One of the first commercially operating
+                ski resorts in Scotland, <a rel="noopener noreferrer" href="https://www.glencoemountain.co.uk/"
+                title="" target="_blank">Glencoe Mountain Resort</a> is a skiers'
+                paradise! With 20 runs serviced by 8 lifts, it includes both the longest
+                run in Scotland and the steepest run too. Looking for accommodation
+                with a difference? The resort's <a rel="noopener noreferrer" href="https://www.glencoemountain.co.uk/book-accommodation/"
+                title="" target="_blank">Microlodges</a> are a perfect alternative
+                to help keep you warm and snug after a day out in the snow.</p>
+          /content[3]:
+            jcr:primaryType: visitscotland:General
+            jcr:mixinTypes: ['mix:referenceable']
+            jcr:uuid: c17263e9-8fad-4488-ad79-c4bade08fe22
+            hippo:availability: [live]
+            hippostd:retainable: false
+            hippostd:state: published
+            hippostdpubwf:createdBy: admin
+            hippostdpubwf:creationDate: 2023-01-11T17:52:16.855Z
+            hippostdpubwf:lastModificationDate: 2023-01-18T16:12:42.725Z
+            hippostdpubwf:lastModifiedBy: admin
+            hippostdpubwf:publicationDate: 2023-01-18T16:12:47.079Z
+            hippotranslation:id: 89cc192e-9681-453a-a28d-e70dced52cd0
+            hippotranslation:locale: en
+            visitscotland:breadcrumb: ''
+            visitscotland:hideNewsletter: false
+            visitscotland:seoDescription: Find detailed information on snow conditions
+              at the Glencoe ski centre, with up-to-date snow reports, weather forecasts
+              & lift and road statuses.
+            visitscotland:seoNoIndex: false
+            visitscotland:seoTitle: Glencoe Mountain Resort
+            visitscotland:teaser: Find detailed information on snow conditions at
+              the Glencoe ski centre, with up-to-date snow reports, weather forecasts
+              & lift and road statuses.
+            visitscotland:theme: Top-Level
+            visitscotland:title: Glencoe Mountain Resort
+            visitscotland:translation: ''
+            /visitscotland:heroImage:
+              jcr:primaryType: hippogallerypicker:imagelink
+              hippo:docbase: c0d67ee5-7a22-4fa8-b0b8-335921c3f0e7
+              hippo:facets: []
+              hippo:modes: []
+              hippo:values: []
+            /visitscotland:introduction:
+              jcr:primaryType: hippostd:html
+              hippostd:content: <p>When it comes to picturesque views, it doesn't
+                get any better than the Highlands. One of the first commercially operating
+                ski resorts in Scotland, <a rel="noopener noreferrer" href="https://www.glencoemountain.co.uk/"
+                title="" target="_blank">Glencoe Mountain Resort</a> is a skiers'
+                paradise! With 20 runs serviced by 8 lifts, it includes both the longest
+                run in Scotland and the steepest run too. Looking for accommodation
+                with a difference? The resort's <a rel="noopener noreferrer" href="https://www.glencoemountain.co.uk/book-accommodation/"
+                title="" target="_blank">Microlodges</a> are a perfect alternative
+                to help keep you warm and snug after a day out in the snow.</p>
+        /glencoe-ski-centre:
+          jcr:primaryType: hippo:handle
+          jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+          jcr:uuid: bdeb5c6a-9351-44ab-a5e1-113bf8396005
+          hippo:name: Glencoe Ski Centre
+          hippo:versionHistory: 8ae8c158-2c83-4740-abcb-1fa68c01516f
+          /glencoe-ski-centre[1]:
+            jcr:primaryType: visitscotland:SkiCentre
+            jcr:mixinTypes: ['mix:referenceable']
+            jcr:uuid: ac27dcce-5245-4007-9b63-26a5542cd2af
+            hippo:availability: []
+            hippostd:retainable: false
+            hippostd:state: draft
+            hippostdpubwf:createdBy: admin
+            hippostdpubwf:creationDate: 2023-01-11T17:54:28.024Z
+            hippostdpubwf:lastModificationDate: 2023-01-24T10:26:44.261Z
+            hippostdpubwf:lastModifiedBy: admin
+            hippotranslation:id: 6fbe0b43-1439-4c42-b8ab-b0a08802df3c
+            hippotranslation:locale: en
+            visitscotland:feed: http://glencoe.infonet-online.fr/json/snowreport.json
+            visitscotland:pisteMap: https://static.visitscotland.com/pdf/glencoe-mountain-piste-map.pdf
+            visitscotland:productId: '990461'
+            visitscotland:title: Latest Conditions at Glencoe
+            visitscotland:translation: ''
+            /visitscotland:copy:
+              jcr:primaryType: hippostd:html
+              hippostd:content: <p>Find detailed information for Glencoe below, with
+                up-to-date snow reports, weather forecasts &amp; lift and road statuses.</p>
+          /glencoe-ski-centre[2]:
+            jcr:primaryType: visitscotland:SkiCentre
+            jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+            jcr:uuid: b74e72e6-fce8-451a-937e-5537eba55038
+            hippo:availability: [preview]
+            hippostd:retainable: false
+            hippostd:state: unpublished
+            hippostdpubwf:createdBy: admin
+            hippostdpubwf:creationDate: 2023-01-11T17:54:28.024Z
+            hippostdpubwf:lastModificationDate: 2023-01-24T10:26:48.495Z
+            hippostdpubwf:lastModifiedBy: admin
+            hippotranslation:id: 6fbe0b43-1439-4c42-b8ab-b0a08802df3c
+            hippotranslation:locale: en
+            visitscotland:feed: http://glencoe.infonet-online.fr/json/snowreport.json
+            visitscotland:pisteMap: https://static.visitscotland.com/pdf/glencoe-mountain-piste-map.pdf
+            visitscotland:productId: '990461'
+            visitscotland:title: Latest Conditions at Glencoe
+            visitscotland:translation: ''
+            /visitscotland:copy:
+              jcr:primaryType: hippostd:html
+              hippostd:content: <p>Find detailed information for Glencoe below, with
+                up-to-date snow reports, weather forecasts &amp; lift and road statuses.</p>
+          /glencoe-ski-centre[3]:
+            jcr:primaryType: visitscotland:SkiCentre
+            jcr:mixinTypes: ['mix:referenceable']
+            jcr:uuid: 6c49d580-3844-43c9-aa6b-6a73609329ff
+            hippo:availability: [live]
+            hippostd:retainable: false
+            hippostd:state: published
+            hippostdpubwf:createdBy: admin
+            hippostdpubwf:creationDate: 2023-01-11T17:54:28.024Z
+            hippostdpubwf:lastModificationDate: 2023-01-24T10:26:48.495Z
+            hippostdpubwf:lastModifiedBy: admin
+            hippostdpubwf:publicationDate: 2023-01-24T10:26:50.795Z
+            hippotranslation:id: 6fbe0b43-1439-4c42-b8ab-b0a08802df3c
+            hippotranslation:locale: en
+            visitscotland:feed: http://glencoe.infonet-online.fr/json/snowreport.json
+            visitscotland:pisteMap: https://static.visitscotland.com/pdf/glencoe-mountain-piste-map.pdf
+            visitscotland:productId: '990461'
+            visitscotland:title: Latest Conditions at Glencoe
+            visitscotland:translation: ''
+            /visitscotland:copy:
+              jcr:primaryType: hippostd:html
+              hippostd:content: <p>Find detailed information for Glencoe below, with
+                up-to-date snow reports, weather forecasts &amp; lift and road statuses.</p>
+      /nevis-range:
+        jcr:primaryType: hippostd:folder
+        jcr:mixinTypes: ['hippo:named', 'hippotranslation:translated', 'mix:versionable']
+        jcr:uuid: 21b3a38a-756c-412b-ab2d-274ca6ad1fde
+        hippo:name: Nevis Range
+        hippostd:foldertype: [new-translated-folder-test, new-document]
+        hippotranslation:id: 5469d1d1-5b77-4f89-869b-1ad008c138af
+        hippotranslation:locale: en
+      /cairngorms:
+        jcr:primaryType: hippostd:folder
+        jcr:mixinTypes: ['hippo:named', 'hippotranslation:translated', 'mix:versionable']
+        jcr:uuid: 17d89b06-dc13-4505-a6e2-ff43e456c5e1
+        hippo:name: Cairngorms
+        hippostd:foldertype: [new-translated-folder-test, new-document]
+        hippotranslation:id: 97a51900-0497-48b3-85bb-8b3153ee0418
+        hippotranslation:locale: en
+        /content:
+          jcr:primaryType: hippo:handle
+          jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+          jcr:uuid: 4b3bea63-a615-4623-92b6-1062e767fd08
+          hippo:name: Cairngorms Mountain Resort
+          hippo:versionHistory: 10318e31-5cc8-4dac-b2d6-f731a3525b24
+          /content[1]:
+            jcr:primaryType: visitscotland:General
+            jcr:mixinTypes: ['mix:referenceable']
+            jcr:uuid: bd4d4277-7850-436a-b8d7-4d66ae54db02
+            hippo:availability: []
+            hippostd:retainable: false
+            hippostd:state: draft
+            hippostd:transferable: false
+            hippostdpubwf:createdBy: admin
+            hippostdpubwf:creationDate: 2023-01-24T11:00:59.418Z
+            hippostdpubwf:lastModificationDate: 2023-01-24T11:04:28.069Z
+            hippostdpubwf:lastModifiedBy: admin
+            hippotranslation:id: 1b19b3e4-daef-4bdf-910b-fed001767d92
+            hippotranslation:locale: en
+            visitscotland:breadcrumb: ''
+            visitscotland:hideNewsletter: false
+            visitscotland:seoDescription: Cairngorms Mountain Range
+            visitscotland:seoNoIndex: false
+            visitscotland:seoTitle: Cairngorms Mountain Range
+            visitscotland:teaser: Cairngorms Mountain Range
+            visitscotland:theme: Top-Level
+            visitscotland:title: Cairngorms Mountain Range
+            visitscotland:translation: ''
+            /visitscotland:heroImage:
+              jcr:primaryType: hippogallerypicker:imagelink
+              hippo:docbase: ecede5a4-326c-4ce5-b9be-bcdf32c3f2c2
+              hippo:facets: []
+              hippo:modes: []
+              hippo:values: []
+            /visitscotland:introduction:
+              jcr:primaryType: hippostd:html
+              hippostd:content: <p>Cairngorms Mountain Range</p>
+          /content[2]:
+            jcr:primaryType: visitscotland:General
+            jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+            jcr:uuid: 438c3eb8-0cbb-4193-b056-cab8e9989c0c
+            hippo:availability: [preview]
+            hippostd:retainable: false
+            hippostd:state: unpublished
+            hippostdpubwf:createdBy: admin
+            hippostdpubwf:creationDate: 2023-01-24T11:00:59.418Z
+            hippostdpubwf:lastModificationDate: 2023-01-24T11:01:28.062Z
+            hippostdpubwf:lastModifiedBy: admin
+            hippotranslation:id: 1b19b3e4-daef-4bdf-910b-fed001767d92
+            hippotranslation:locale: en
+            visitscotland:breadcrumb: ''
+            visitscotland:hideNewsletter: false
+            visitscotland:seoDescription: Cairngorms Mountain Range
+            visitscotland:seoNoIndex: false
+            visitscotland:seoTitle: Cairngorms Mountain Range
+            visitscotland:teaser: Cairngorms Mountain Range
+            visitscotland:theme: Top-Level
+            visitscotland:title: Cairngorms Mountain Range
+            visitscotland:translation: ''
+            /visitscotland:heroImage:
+              jcr:primaryType: hippogallerypicker:imagelink
+              hippo:docbase: ecede5a4-326c-4ce5-b9be-bcdf32c3f2c2
+              hippo:facets: []
+              hippo:modes: []
+              hippo:values: []
+            /visitscotland:introduction:
+              jcr:primaryType: hippostd:html
+              hippostd:content: <p>Cairngorms Mountain Range</p>
+          /content[3]:
+            jcr:primaryType: visitscotland:General
+            jcr:mixinTypes: ['mix:referenceable']
+            jcr:uuid: 550f025c-e6e9-4dc4-bd4c-c4c055a65c6c
+            hippo:availability: [live]
+            hippostd:retainable: false
+            hippostd:state: published
+            hippostdpubwf:createdBy: admin
+            hippostdpubwf:creationDate: 2023-01-24T11:00:59.418Z
+            hippostdpubwf:lastModificationDate: 2023-01-24T11:01:28.062Z
+            hippostdpubwf:lastModifiedBy: admin
+            hippostdpubwf:publicationDate: 2023-01-24T11:04:49.392Z
+            hippotranslation:id: 1b19b3e4-daef-4bdf-910b-fed001767d92
+            hippotranslation:locale: en
+            visitscotland:breadcrumb: ''
+            visitscotland:hideNewsletter: false
+            visitscotland:seoDescription: Cairngorms Mountain Range
+            visitscotland:seoNoIndex: false
+            visitscotland:seoTitle: Cairngorms Mountain Range
+            visitscotland:teaser: Cairngorms Mountain Range
+            visitscotland:theme: Top-Level
+            visitscotland:title: Cairngorms Mountain Range
+            visitscotland:translation: ''
+            /visitscotland:heroImage:
+              jcr:primaryType: hippogallerypicker:imagelink
+              hippo:docbase: ecede5a4-326c-4ce5-b9be-bcdf32c3f2c2
+              hippo:facets: []
+              hippo:modes: []
+              hippo:values: []
+            /visitscotland:introduction:
+              jcr:primaryType: hippostd:html
+              hippostd:content: <p>Cairngorms Mountain Range</p>
+        /cairngorms:
+          jcr:primaryType: hippo:handle
+          jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+          jcr:uuid: 103e6cca-06b6-4457-827b-037a199592a1
+          hippo:name: Cairngorms
+          hippo:versionHistory: 9b7c3a7d-ace7-4166-8161-30f73715b083
+          /cairngorms[1]:
+            jcr:primaryType: visitscotland:SkiCentre
+            jcr:mixinTypes: ['mix:referenceable']
+            jcr:uuid: fe6ea4f7-8e12-4135-b68b-b14e93350406
+            hippo:availability: []
+            hippostd:retainable: false
+            hippostd:state: draft
+            hippostdpubwf:createdBy: admin
+            hippostdpubwf:creationDate: 2023-01-24T11:01:55.120Z
+            hippostdpubwf:lastModificationDate: 2023-01-24T11:01:55.120Z
+            hippostdpubwf:lastModifiedBy: admin
+            hippotranslation:id: 73837c7a-fbe3-4ae4-8984-83cab5750ca3
+            hippotranslation:locale: en
+            visitscotland:feed: https://www.cairngormmountain.co.uk/_mountain_feed/?json
+            visitscotland:pisteMap: https://static.visitscotland.com/pdf/cairngorm-mountain-piste-map.pdf
+            visitscotland:productId: '2165531'
+            visitscotland:title: Cairngorms
+            visitscotland:translation: ''
+          /cairngorms[2]:
+            jcr:primaryType: visitscotland:SkiCentre
+            jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+            jcr:uuid: 504816fd-64eb-4df8-b506-4d74a05441ca
+            hippo:availability: [preview]
+            hippostd:retainable: false
+            hippostd:state: unpublished
+            hippostdpubwf:createdBy: admin
+            hippostdpubwf:creationDate: 2023-01-24T11:01:55.120Z
+            hippostdpubwf:lastModificationDate: 2023-01-24T11:03:37.644Z
+            hippostdpubwf:lastModifiedBy: admin
+            hippotranslation:id: 73837c7a-fbe3-4ae4-8984-83cab5750ca3
+            hippotranslation:locale: en
+            visitscotland:feed: https://www.cairngormmountain.co.uk/_mountain_feed/?json
+            visitscotland:pisteMap: https://static.visitscotland.com/pdf/cairngorm-mountain-piste-map.pdf
+            visitscotland:productId: '2165531'
+            visitscotland:title: Cairngorms
+            visitscotland:translation: ''
+          /cairngorms[3]:
+            jcr:primaryType: visitscotland:SkiCentre
+            jcr:mixinTypes: ['mix:referenceable']
+            jcr:uuid: e5b755fb-ea6d-450a-8917-ed4a8f0d761d
+            hippo:availability: [live]
+            hippostd:retainable: false
+            hippostd:state: published
+            hippostdpubwf:createdBy: admin
+            hippostdpubwf:creationDate: 2023-01-24T11:01:55.120Z
+            hippostdpubwf:lastModificationDate: 2023-01-24T11:03:37.644Z
+            hippostdpubwf:lastModifiedBy: admin
+            hippostdpubwf:publicationDate: 2023-01-24T11:03:39.751Z
+            hippotranslation:id: 73837c7a-fbe3-4ae4-8984-83cab5750ca3
+            hippotranslation:locale: en
+            visitscotland:feed: https://www.cairngormmountain.co.uk/_mountain_feed/?json
+            visitscotland:pisteMap: https://static.visitscotland.com/pdf/cairngorm-mountain-piste-map.pdf
+            visitscotland:productId: '2165531'
+            visitscotland:title: Cairngorms
+            visitscotland:translation: ''
   /automation:
     jcr:primaryType: hippostd:folder
     jcr:mixinTypes: ['hippo:named', 'hippotranslation:translated', 'mix:versionable']

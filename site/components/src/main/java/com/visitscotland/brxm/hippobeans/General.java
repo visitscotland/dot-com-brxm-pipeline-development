@@ -22,7 +22,9 @@ public class General extends Page {
                 "visitscotland:CannedSearch",
                 "visitscotland:MapModule",
                 "visitscotland:DevModule",
-                "visitscotland:MarketoForm"};
+                "visitscotland:MarketoForm",
+                "visitscotland:SkiCentre",
+                "visitscotland:SkiCentreList"};
     }
 
     @HippoEssentialsGenerated(internalName = "visitscotland:otherThings")

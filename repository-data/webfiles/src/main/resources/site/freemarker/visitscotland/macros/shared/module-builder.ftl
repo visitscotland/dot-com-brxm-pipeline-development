@@ -59,9 +59,12 @@
         <#elseif module.getType()== "MarketoFormModule">
             <@includeOnce "../modules/marketo/marketo.ftl" />
             <@marketo module/>
-        <#elseif module.getType()== "IKnowCommunityModule">
-            <@includeOnce "../modules/iknow-community/iknow-community.ftl" />
-            <@iknowCommunity module/>
+        <#elseif module.getType()== "SkiModule">
+            <@includeOnce "../modules/ski-centre/ski-centre.ftl" />
+            <@skiCentre module/>
+        <#elseif module.getType()== "SkiListModule">
+            <@includeOnce "../modules/ski-centre-list/ski-centre-list.ftl" />
+            <@skiCentreList module/>
         <#elseif module.getType()== "SimpleDevModule">
             <@includeOnce "../modules/dev-module/dev-module.ftl" />
             <@devModule module/>
