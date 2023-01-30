@@ -51,8 +51,7 @@ public class PageTemplateBuilder {
     private final CannedSearchFactory cannedSearchFactory;
     private final PreviewModeFactory previewFactory;
     private final MarketoFormFactory marketoFormFactory;
-    private final MapGeneralFactory mapGeneralFactory;
-    private final MapDestinationFactory mapDestinationFactory;
+    private final MapFactory mapFactory;
     private final SkiFactory skiFactory;
     private final DevModuleFactory devModuleFactory;
     private final Logger contentLogger;
@@ -76,8 +75,7 @@ public class PageTemplateBuilder {
         this.cannedSearchFactory = cannedSearchFactory;
         this.previewFactory = previewFactory;
         this.marketoFormFactory = marketoFormFactory;
-        this.mapGeneralFactory = mapGeneralFactory;
-        this.mapDestinationFactory = mapDestinationFactory;
+        this.mapFactory = mapFactory;
         this.devModuleFactory = devModuleFactory;
         this.skiFactory = skiFactory;
         this.contentLogger = contentLogger;
@@ -106,7 +104,7 @@ public class PageTemplateBuilder {
                 } else if (item instanceof LongCopy){
                     processLongCopy(request, page, (LongCopy) item);
                 } else if (item instanceof MapModule) {
-                    processMapModule(request, page, (MapModule) item);
+                    page.modules.add(mapFactory.getModule(request, (MapModule) item, getDocument(request)));
                 } else if (item instanceof Stackla) {
                     page.modules.add(stacklaFactory.getStacklaModule((Stackla) item, request.getLocale()));
                 }  else if (item instanceof TravelInformation) {
@@ -172,7 +170,7 @@ public class PageTemplateBuilder {
             contentLogger.error("Megalinks module at {} contains no valid items", item.getPath());
             page.modules.add(previewFactory.createErrorModule(al));
             return;
-        } 
+        }
 
         if (al.getType().equalsIgnoreCase(SingleImageLinksModule.class.getSimpleName())) {
             al.setAlignment(alignment[page.alignment++ % alignment.length]);
@@ -202,19 +200,6 @@ public class PageTemplateBuilder {
         iKnowModule.setHippoBean(touristInfo);
 
         page.modules.add(iKnowModule);
-    }
-
-    /**
-     * Creates a MapsModule from a destination or general page
-     */
-
-   private void processMapModule(HstRequest request, PageConfiguration page, MapModule item){
-       Page document = getDocument(request);
-       if (document instanceof Destination) {
-           page.modules.add(mapDestinationFactory.getModule(request, item,document));
-       }else if (document instanceof General){
-           page.modules.add(mapGeneralFactory.getModule(request, item));
-       }
     }
 
     /**

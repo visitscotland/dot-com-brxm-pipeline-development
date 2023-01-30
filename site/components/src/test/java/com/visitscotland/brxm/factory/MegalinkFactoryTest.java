@@ -27,7 +27,6 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Optional;
 
-import static org.easymock.EasyMock.anyObject;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.mockito.Mockito.*;
