@@ -62,7 +62,7 @@ public class PageTemplateBuilder {
                                IKnowFactory iKnowFactory, ArticleFactory articleFactory, LongCopyFactory longCopyFactory,
                                StacklaFactory stacklaFactory, TravelInformationFactory travelInformationFactory,
                                CannedSearchFactory cannedSearchFactory, PreviewModeFactory previewFactory, MarketoFormFactory marketoFormFactory,
-                               MapGeneralFactory mapGeneralFactory, MapDestinationFactory mapDestinationFactory, SkiFactory skiFactory,
+                               MapFactory mapFactory, SkiFactory skiFactory,
                                DevModuleFactory devModuleFactory, Logger contentLogger) {
         this.documentUtils = documentUtils;
         this.linksFactory = linksFactory;
