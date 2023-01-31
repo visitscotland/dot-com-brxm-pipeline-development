@@ -52,22 +52,24 @@ public class PageTemplateBuilder {
     private final PreviewModeFactory previewFactory;
     private final MarketoFormFactory marketoFormFactory;
     private final MapFactory mapFactory;
+    private final SkiFactory skiFactory;
     private final DevModuleFactory devModuleFactory;
     private final Logger contentLogger;
 
 
     @Autowired
-    public PageTemplateBuilder(DocumentUtilsService documentUtils, MegalinkFactory linksFactory, ICentreFactory iCentre,
-                               IKnowFactory iKnow, ArticleFactory article, LongCopyFactory longcopy,
-                               StacklaFactory stacklaFactory, TravelInformationFactory travelInformationFactory, CannedSearchFactory cannedSearchFactory,
-                               PreviewModeFactory previewFactory, MarketoFormFactory marketoFormFactory, MapFactory mapFactory,
-                               DevModuleFactory devModuleFactory, ContentLogger contentLogger) {
-        this.linksFactory = linksFactory;
-        this.iCentreFactory = iCentre;
-        this.iKnowFactory = iKnow;
+    public PageTemplateBuilder(DocumentUtilsService documentUtils, MegalinkFactory linksFactory, ICentreFactory iCentreFactory,
+                               IKnowFactory iKnowFactory, ArticleFactory articleFactory, LongCopyFactory longCopyFactory,
+                               StacklaFactory stacklaFactory, TravelInformationFactory travelInformationFactory,
+                               CannedSearchFactory cannedSearchFactory, PreviewModeFactory previewFactory, MarketoFormFactory marketoFormFactory,
+                               MapFactory mapFactory, SkiFactory skiFactory,
+                               DevModuleFactory devModuleFactory, Logger contentLogger) {
         this.documentUtils = documentUtils;
-        this.articleFactory = article;
-        this.longCopyFactory = longcopy;
+        this.linksFactory = linksFactory;
+        this.iCentreFactory = iCentreFactory;
+        this.iKnowFactory = iKnowFactory;
+        this.articleFactory = articleFactory;
+        this.longCopyFactory = longCopyFactory;
         this.stacklaFactory = stacklaFactory;
         this.travelInformationFactory = travelInformationFactory;
         this.cannedSearchFactory = cannedSearchFactory;
@@ -75,6 +77,7 @@ public class PageTemplateBuilder {
         this.marketoFormFactory = marketoFormFactory;
         this.mapFactory = mapFactory;
         this.devModuleFactory = devModuleFactory;
+        this.skiFactory = skiFactory;
         this.contentLogger = contentLogger;
     }
 
@@ -112,6 +115,10 @@ public class PageTemplateBuilder {
                     page.modules.add(cannedSearchFactory.getCannedSearchToursModule((CannedSearchTours) item, request.getLocale()));
                 } else if (item instanceof MarketoForm) {
                     page.modules.add(marketoFormFactory.getModule((MarketoForm) item));
+                } else if (item instanceof SkiCentre){
+                    page.modules.add(skiFactory.createSkyModule((SkiCentre) item, request.getLocale()));
+                } else if (item instanceof SkiCentreList){
+                    page.modules.add(skiFactory.createSkyListModule((SkiCentreList) item, request.getLocale()));
                 } else if (item instanceof DevModule){
                     page.modules.add(devModuleFactory.getModule((DevModule) item));
                 }
