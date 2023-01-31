@@ -1,3 +1,4 @@
+<#include "/site/freemarker/visitscotland/macros/modules/horizontal-list/horizontal-list.ftl">
 
 <#macro otymlModule module editMode>
     <#if module?? >
