@@ -1,4 +1,5 @@
 <#include "/site/freemarker/visitscotland/macros/modules/horizontal-list/horizontal-list.ftl">
+<#include "/site/freemarker/visitscotland/macros/global/preview-warning.ftl">
 
 <#macro otymlModule module editMode>
     <#if module?? >
