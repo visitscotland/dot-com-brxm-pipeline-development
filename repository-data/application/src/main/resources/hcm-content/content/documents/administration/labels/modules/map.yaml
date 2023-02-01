@@ -4,7 +4,7 @@
   jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
   jcr:uuid: ac89a8cf-a2c8-4cd6-bf14-91afb3d68e3e
   hippo:name: Map
-  hippo:versionHistory: b0445310-6f9c-4e51-b83f-ecff03a830de
+  hippo:versionHistory: 4e03f617-7d56-40e0-a062-964816a9d915
   /map[1]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:referenceable']
@@ -14,45 +14,62 @@
     hippostd:state: draft
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2020-03-02T10:09:34.350Z
-    hippostdpubwf:lastModificationDate: 2023-01-19T13:37:43.714Z
+    hippostdpubwf:lastModificationDate: 2023-02-01T10:14:52.716Z
     hippostdpubwf:lastModifiedBy: admin
     resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '', '', '', '',
-      '', '', '', '', '', '', '', '', '', '', '', '', '', '']
+      '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
+      '']
     resourcebundle:id: map
     resourcebundle:keys: [map.fullscreen, map.exitfullscreen, map.reset, map.zoomin,
       map.zoomout, map.feature-default-title, map.discover, map.close-panel, map.open-panel,
       map.step-back, map.reset-filters, map.acco, map.acti, map.attr, map.even, map.cate,
       map.reta, map.twnv, map.serv, map.regions, map.places, map.no-js, map.clear,
-      map.show-results, map.filters-applied, map.buttons-label]
+      map.show-results, map.filters-applied, map.buttons-label, map.loading-results,
+      map.loading, map.load-more, map.panel-bottom-msg, map.apply-filters, map.no-results]
     resourcebundle:messages: [Show fullscreen, Exit fullscreen, Reset angle, Zoom
         in, Zoom out, Featured Places, Discover, Close search and filter panel, Open
         search and filter panel, Go back one step, Reset filters, Accommodation, Activities,
       Attractions, Events, Food & Drink, Shopping, Places, iCentres, Regions, Places,
       Javascript is needed to show this map, Clear all, Show results, Filters Applied,
-      Select map typess]
+      Select map typess, Loading results, Loading, Load more, Get friendly and helpful
+        advice for your trip at our iCentres, Please apply filter(s) to refine results,
+      'No results found, please apply filter(s)']
     resourcebundle:messages_de: [Vollbild anzeigen, Vollbild schließen, Zurücksetzen,
       Vergrößern, Verkleinern, Besondere Orte, 'Jetzt entdecken:', Suche und Filter
         schließen , Suche und Filter öffnen , Einen Schritt zurückgehen , Filter zurücksetzen ,
       '', '', '', '', '', '', '', '', Regionen, Orte, '', Alle entfernen, '', Filter
-        angewendet, '']
+        angewendet, '', Ergebnisse werden geladen, Lädt, Mehr laden, In unseren iCentres
+        erhalten Sie eine freundliche Beratung für Ihre Reise., 'Bitte wählen Sie
+        einen oder mehrere Filter aus, um die Ergebnisse zu verfeinern.', 'Keine Ergebnisse
+        gefunden, bitte wählen Sie einen oder mehrere Filter aus.']
     resourcebundle:messages_es: [Mostrar pantalla completa, Cerrar pantalla completa,
       Restablecer ángulo, Ampliar, Reducir, Lugares destacados, Descubre, Cerrar panel
         de búsqueda y filtro, Abrir panel de búsqueda y filtro, Retroceder un paso,
       Restablecer filtros, '', '', '', '', '', '', '', '', Regiones, Lugares, '',
-      Borrar todo, '', Filtros aplicados, '']
+      Borrar todo, '', Filtros aplicados, '', '', Cargando, Cargar mas, Obtén consejos
+        amables y útiles para tu viaje en nuestros iCentres, Aplique filtro(s) para
+        refinar los resultados, 'No se encontraron resultados, por favor aplique filtro(s)']
     resourcebundle:messages_fr: [Afficher en mode plein écran, Quitter le mode plein
         écran, Réinitialiser, Zoomer, Dézoomer, Lieux d’intérêt, 'Découvrez:', Fermer
         l’outil de recherche et les filtres, Ouvrir l’outil de recherche et les filtres,
       Revenir en arrière, Réinitialiser les filtres, '', '', '', '', '', '', '', '',
-      Régions, Lieux, '', Tout effacer, '', filtres appliqués, '']
+      Régions, Lieux, '', Tout effacer, '', filtres appliqués, '', Chargement des
+        résultats, Chargement, Charger plus, Obtenez des conseils et astuces de voyage
+        dans nos iCentres, Veuillez appliquer un filtre pour affiner les résultats,
+      'Aucun résultat, veuillez appliquer un filtre']
     resourcebundle:messages_it: [Mostra a schermo intero, Esci dallo schermo intero,
       Reset, Ingrandisci, Riduci, Luoghi in primo piano, 'Scopri ora:', Chiudi il
         pannello di ricerca e filtri, Apri il pannello di ricerca e filtri, Torna
         indietro, Reimposta filtri, '', '', '', '', '', '', '', '', Regioni, Luoghi,
-      '', Cancella tutto, '', filtri applicati, '']
+      '', Cancella tutto, '', filtri applicati, '', Caricamento dei risultati, Caricamento,
+      Carica di più, Ottieni consigli utili per il tuo viaggio presso i nostri iCentres,
+      Applica i filtri per affinare i risultati, 'Nessun risultato trovato, si prega
+        di applicare il/i filtro/i']
     resourcebundle:messages_nl: [Volledig scherm tonen, Volledig scherm sluiten, Heroriënteren,
       Inzoomen, Uitzoomen, '', Ontdek, '', '', '', '', '', '', '', '', '', '', '',
-      '', '', '', '', '', '', '', '']
+      '', '', '', '', '', '', '', '', Resultaten laden, Laden, Meer laden, Krijg in
+        onze iCentres vriendelijk en nuttig advies voor je reis, Pas filter(s) toe
+        om de resultaten te verfijnen, 'Geen resultaten gevonden, pas filter(s) toe']
   /map[2]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:versionable']
@@ -62,45 +79,62 @@
     hippostd:state: unpublished
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2020-03-02T10:09:34.350Z
-    hippostdpubwf:lastModificationDate: 2023-01-19T13:37:52.294Z
+    hippostdpubwf:lastModificationDate: 2023-02-01T10:16:13.236Z
     hippostdpubwf:lastModifiedBy: admin
     resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '', '', '', '',
-      '', '', '', '', '', '', '', '', '', '', '', '', '', '']
+      '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
+      '']
     resourcebundle:id: map
     resourcebundle:keys: [map.fullscreen, map.exitfullscreen, map.reset, map.zoomin,
       map.zoomout, map.feature-default-title, map.discover, map.close-panel, map.open-panel,
       map.step-back, map.reset-filters, map.acco, map.acti, map.attr, map.even, map.cate,
       map.reta, map.twnv, map.serv, map.regions, map.places, map.no-js, map.clear,
-      map.show-results, map.filters-applied, map.buttons-label]
+      map.show-results, map.filters-applied, map.buttons-label, map.loading-results,
+      map.loading, map.load-more, map.panel-bottom-msg, map.apply-filters, map.no-results]
     resourcebundle:messages: [Show fullscreen, Exit fullscreen, Reset angle, Zoom
         in, Zoom out, Featured Places, Discover, Close search and filter panel, Open
         search and filter panel, Go back one step, Reset filters, Accommodation, Activities,
       Attractions, Events, Food & Drink, Shopping, Places, iCentres, Regions, Places,
       Javascript is needed to show this map, Clear all, Show results, Filters Applied,
-      Select map typess]
+      Select map typess, Loading results, Loading, Load more, Get friendly and helpful
+        advice for your trip at our iCentres, Please apply filter(s) to refine results,
+      'No results found, please apply filter(s)']
     resourcebundle:messages_de: [Vollbild anzeigen, Vollbild schließen, Zurücksetzen,
       Vergrößern, Verkleinern, Besondere Orte, 'Jetzt entdecken:', Suche und Filter
         schließen , Suche und Filter öffnen , Einen Schritt zurückgehen , Filter zurücksetzen ,
       '', '', '', '', '', '', '', '', Regionen, Orte, '', Alle entfernen, '', Filter
-        angewendet, '']
+        angewendet, '', Ergebnisse werden geladen, Lädt, Mehr laden, In unseren iCentres
+        erhalten Sie eine freundliche Beratung für Ihre Reise., 'Bitte wählen Sie
+        einen oder mehrere Filter aus, um die Ergebnisse zu verfeinern.', 'Keine Ergebnisse
+        gefunden, bitte wählen Sie einen oder mehrere Filter aus.']
     resourcebundle:messages_es: [Mostrar pantalla completa, Cerrar pantalla completa,
       Restablecer ángulo, Ampliar, Reducir, Lugares destacados, Descubre, Cerrar panel
         de búsqueda y filtro, Abrir panel de búsqueda y filtro, Retroceder un paso,
       Restablecer filtros, '', '', '', '', '', '', '', '', Regiones, Lugares, '',
-      Borrar todo, '', Filtros aplicados, '']
+      Borrar todo, '', Filtros aplicados, '', '', Cargando, Cargar mas, Obtén consejos
+        amables y útiles para tu viaje en nuestros iCentres, Aplique filtro(s) para
+        refinar los resultados, 'No se encontraron resultados, por favor aplique filtro(s)']
     resourcebundle:messages_fr: [Afficher en mode plein écran, Quitter le mode plein
         écran, Réinitialiser, Zoomer, Dézoomer, Lieux d’intérêt, 'Découvrez:', Fermer
         l’outil de recherche et les filtres, Ouvrir l’outil de recherche et les filtres,
       Revenir en arrière, Réinitialiser les filtres, '', '', '', '', '', '', '', '',
-      Régions, Lieux, '', Tout effacer, '', filtres appliqués, '']
+      Régions, Lieux, '', Tout effacer, '', filtres appliqués, '', Chargement des
+        résultats, Chargement, Charger plus, Obtenez des conseils et astuces de voyage
+        dans nos iCentres, Veuillez appliquer un filtre pour affiner les résultats,
+      'Aucun résultat, veuillez appliquer un filtre']
     resourcebundle:messages_it: [Mostra a schermo intero, Esci dallo schermo intero,
       Reset, Ingrandisci, Riduci, Luoghi in primo piano, 'Scopri ora:', Chiudi il
         pannello di ricerca e filtri, Apri il pannello di ricerca e filtri, Torna
         indietro, Reimposta filtri, '', '', '', '', '', '', '', '', Regioni, Luoghi,
-      '', Cancella tutto, '', filtri applicati, '']
+      '', Cancella tutto, '', filtri applicati, '', Caricamento dei risultati, Caricamento,
+      Carica di più, Ottieni consigli utili per il tuo viaggio presso i nostri iCentres,
+      Applica i filtri per affinare i risultati, 'Nessun risultato trovato, si prega
+        di applicare il/i filtro/i']
     resourcebundle:messages_nl: [Volledig scherm tonen, Volledig scherm sluiten, Heroriënteren,
       Inzoomen, Uitzoomen, '', Ontdek, '', '', '', '', '', '', '', '', '', '', '',
-      '', '', '', '', '', '', '', '']
+      '', '', '', '', '', '', '', '', Resultaten laden, Laden, Meer laden, Krijg in
+        onze iCentres vriendelijk en nuttig advies voor je reis, Pas filter(s) toe
+        om de resultaten te verfijnen, 'Geen resultaten gevonden, pas filter(s) toe']
   /map[3]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:referenceable']
@@ -110,43 +144,60 @@
     hippostd:state: published
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2020-03-02T10:09:34.350Z
-    hippostdpubwf:lastModificationDate: 2023-01-19T13:37:52.294Z
+    hippostdpubwf:lastModificationDate: 2023-02-01T10:16:13.236Z
     hippostdpubwf:lastModifiedBy: admin
-    hippostdpubwf:publicationDate: 2023-01-19T13:37:54.941Z
+    hippostdpubwf:publicationDate: 2023-02-01T10:16:15.206Z
     resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '', '', '', '',
-      '', '', '', '', '', '', '', '', '', '', '', '', '', '']
+      '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
+      '']
     resourcebundle:id: map
     resourcebundle:keys: [map.fullscreen, map.exitfullscreen, map.reset, map.zoomin,
       map.zoomout, map.feature-default-title, map.discover, map.close-panel, map.open-panel,
       map.step-back, map.reset-filters, map.acco, map.acti, map.attr, map.even, map.cate,
       map.reta, map.twnv, map.serv, map.regions, map.places, map.no-js, map.clear,
-      map.show-results, map.filters-applied, map.buttons-label]
+      map.show-results, map.filters-applied, map.buttons-label, map.loading-results,
+      map.loading, map.load-more, map.panel-bottom-msg, map.apply-filters, map.no-results]
     resourcebundle:messages: [Show fullscreen, Exit fullscreen, Reset angle, Zoom
         in, Zoom out, Featured Places, Discover, Close search and filter panel, Open
         search and filter panel, Go back one step, Reset filters, Accommodation, Activities,
       Attractions, Events, Food & Drink, Shopping, Places, iCentres, Regions, Places,
       Javascript is needed to show this map, Clear all, Show results, Filters Applied,
-      Select map typess]
+      Select map typess, Loading results, Loading, Load more, Get friendly and helpful
+        advice for your trip at our iCentres, Please apply filter(s) to refine results,
+      'No results found, please apply filter(s)']
     resourcebundle:messages_de: [Vollbild anzeigen, Vollbild schließen, Zurücksetzen,
       Vergrößern, Verkleinern, Besondere Orte, 'Jetzt entdecken:', Suche und Filter
         schließen , Suche und Filter öffnen , Einen Schritt zurückgehen , Filter zurücksetzen ,
       '', '', '', '', '', '', '', '', Regionen, Orte, '', Alle entfernen, '', Filter
-        angewendet, '']
+        angewendet, '', Ergebnisse werden geladen, Lädt, Mehr laden, In unseren iCentres
+        erhalten Sie eine freundliche Beratung für Ihre Reise., 'Bitte wählen Sie
+        einen oder mehrere Filter aus, um die Ergebnisse zu verfeinern.', 'Keine Ergebnisse
+        gefunden, bitte wählen Sie einen oder mehrere Filter aus.']
     resourcebundle:messages_es: [Mostrar pantalla completa, Cerrar pantalla completa,
       Restablecer ángulo, Ampliar, Reducir, Lugares destacados, Descubre, Cerrar panel
         de búsqueda y filtro, Abrir panel de búsqueda y filtro, Retroceder un paso,
       Restablecer filtros, '', '', '', '', '', '', '', '', Regiones, Lugares, '',
-      Borrar todo, '', Filtros aplicados, '']
+      Borrar todo, '', Filtros aplicados, '', '', Cargando, Cargar mas, Obtén consejos
+        amables y útiles para tu viaje en nuestros iCentres, Aplique filtro(s) para
+        refinar los resultados, 'No se encontraron resultados, por favor aplique filtro(s)']
     resourcebundle:messages_fr: [Afficher en mode plein écran, Quitter le mode plein
         écran, Réinitialiser, Zoomer, Dézoomer, Lieux d’intérêt, 'Découvrez:', Fermer
         l’outil de recherche et les filtres, Ouvrir l’outil de recherche et les filtres,
       Revenir en arrière, Réinitialiser les filtres, '', '', '', '', '', '', '', '',
-      Régions, Lieux, '', Tout effacer, '', filtres appliqués, '']
+      Régions, Lieux, '', Tout effacer, '', filtres appliqués, '', Chargement des
+        résultats, Chargement, Charger plus, Obtenez des conseils et astuces de voyage
+        dans nos iCentres, Veuillez appliquer un filtre pour affiner les résultats,
+      'Aucun résultat, veuillez appliquer un filtre']
     resourcebundle:messages_it: [Mostra a schermo intero, Esci dallo schermo intero,
       Reset, Ingrandisci, Riduci, Luoghi in primo piano, 'Scopri ora:', Chiudi il
         pannello di ricerca e filtri, Apri il pannello di ricerca e filtri, Torna
         indietro, Reimposta filtri, '', '', '', '', '', '', '', '', Regioni, Luoghi,
-      '', Cancella tutto, '', filtri applicati, '']
+      '', Cancella tutto, '', filtri applicati, '', Caricamento dei risultati, Caricamento,
+      Carica di più, Ottieni consigli utili per il tuo viaggio presso i nostri iCentres,
+      Applica i filtri per affinare i risultati, 'Nessun risultato trovato, si prega
+        di applicare il/i filtro/i']
     resourcebundle:messages_nl: [Volledig scherm tonen, Volledig scherm sluiten, Heroriënteren,
       Inzoomen, Uitzoomen, '', Ontdek, '', '', '', '', '', '', '', '', '', '', '',
-      '', '', '', '', '', '', '', '']
+      '', '', '', '', '', '', '', '', Resultaten laden, Laden, Meer laden, Krijg in
+        onze iCentres vriendelijk en nuttig advies voor je reis, Pas filter(s) toe
+        om de resultaten te verfijnen, 'Geen resultaten gevonden, pas filter(s) toe']

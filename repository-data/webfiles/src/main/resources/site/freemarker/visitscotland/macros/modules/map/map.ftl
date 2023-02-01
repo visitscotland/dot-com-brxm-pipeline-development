@@ -60,6 +60,9 @@
             details-endpoint="${module.detailsEndpoint}"
             filters-applied-text="${label('map', 'map.filters-applied')}"
             clear-filters-text="${label('map', 'map.clear')}"
+            map-filter-message="${label('map', 'map.apply-filters')}"
+            map-no-results-message="${label('map', 'map.no-results')}"
+            panel-message="${label('map', 'map.panel-bottom-msg')}"
         >
 
             <template slot="closeSidePanelText">
@@ -76,9 +79,18 @@
             <template slot="resetSidePanelText">
                 ${label('map', 'map.reset-filters')}
             </template>
+            <template slot="loadMoreText">
+                ${label('map', 'map.load-more')}
+            </template>
             <template slot="noJs">
                 ${label('map', 'map.no-js')}
             </template>
-        </vs-main-map-wrapper>
+            <template slot="mapLoadingText">
+                ${label('map', 'map.loading')}
+            </template>
+            <template slot="panelLoadingMessage">
+                ${label('map', 'map.loading-results')}
+            </template>
+        </vs-main-map-wrapper>         
     </vs-module-wrapper>
 </#macro>
