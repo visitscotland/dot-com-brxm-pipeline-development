@@ -92,6 +92,12 @@
             <template slot="panelLoadingMessage">
                 ${label('map', 'map.loading-results')}
             </template>
+            <template slot="zoomTooClose">
+                ${label('map', 'map.zoom-too-close')}
+            </template>
+            <template slot="zoomTooFar">
+                ${label('map', 'map.zoom-too-far')}
+            </template>
         </vs-main-map-wrapper>
     </vs-module-wrapper>
 </#macro>
