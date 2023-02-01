@@ -491,6 +491,21 @@ class ProductSearchBuilderTest {
     }
 
     @Test
+    @DisplayName("VS-4566 Days Out - Show results with Days out")
+    void daysOut() {
+        mockLocationLoader("Edinburgh");
+        String url = createBuilder().productTypes(DEFAULT_TYPE)
+                .location("Edinburgh").daysOut(true)
+                .proximity(null)
+                .build();
+
+        validateUrl(url);
+        assertTrue(url.contains("fac_id=daysoutscotland"),
+                String.format("The Generated URL is expected to have the parameter days out offer (%s) ", url)
+        );
+    }
+
+    @Test
     @DisplayName("Free entry - Show products with free entry")
     void free_entry() {
         mockLocationLoader("Edinburgh");
