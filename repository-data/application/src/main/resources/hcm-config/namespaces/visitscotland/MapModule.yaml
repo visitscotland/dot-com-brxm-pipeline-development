@@ -11,7 +11,7 @@ definitions:
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:uuid: 4066e217-4655-43b5-b247-98b93860d51a
+          jcr:uuid: b499a59d-52b2-4fdb-bfc7-77beaf0a9305
           hipposysedit:node: true
           hipposysedit:supertype: ['hippotranslation:translated', 'hippotaxonomy:classifiable',
             'visitscotland:basedocument', 'hippostd:relaxed']
@@ -56,6 +56,14 @@ definitions:
             hipposysedit:multiple: true
             hipposysedit:path: hippotaxonomy:keys
             hipposysedit:type: String
+          /mapType:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: visitscotland:mapType
+            hipposysedit:primary: false
+            hipposysedit:type: DynamicDropdown
       /hipposysedit:prototypes:
         jcr:primaryType: hipposysedit:prototypeset
         /hipposysedit:prototype:
@@ -69,9 +77,10 @@ definitions:
           jcr:mixinTypes: ['mix:referenceable', 'hippotaxonomy:classifiable']
           visitscotland:title: ''
           visitscotland:tabTitle: ''
-          jcr:uuid: 61f36ba0-0ce5-46c3-9e39-6a04dea168fb
+          jcr:uuid: b9a6d7bc-ae23-4538-bf26-b6932f1229ed
           hippostdpubwf:lastModificationDate: 2022-06-10T13:36:38.111+01:00
           hippostdpubwf:creationDate: 2022-06-10T13:36:38.111+01:00
+          visitscotland:mapType: ''
       /editor:templates:
         jcr:primaryType: editor:templateset
         /_default_:
@@ -152,3 +161,13 @@ definitions:
             taxonomy.name: Visitscotland-categories
             wicket.id: ${cluster.id}.right.item
             wicket.model: ${wicket.model}
+          /mapType:
+            jcr:primaryType: frontend:plugin
+            caption: Bespoke map
+            field: mapType
+            hint: ''
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.right.item
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+              source: /content/documents/administration/options/maps---dms-categories
