@@ -60,6 +60,7 @@
             details-endpoint="${module.detailsEndpoint}"
             filters-applied-text="${label('map', 'map.filters-applied')}"
             clear-filters-text="${label('map', 'map.clear')}"
+            :region-bounds="${escapeJSON(module.mapPosition,true)}"
             map-filter-message="${label('map', 'map.apply-filters')}"
             map-no-results-message="${label('map', 'map.no-results')}"
             panel-message="${label('map', 'map.panel-bottom-msg')}"
@@ -91,6 +92,6 @@
             <template slot="panelLoadingMessage">
                 ${label('map', 'map.loading-results')}
             </template>
-        </vs-main-map-wrapper>         
+        </vs-main-map-wrapper>
     </vs-module-wrapper>
 </#macro>
