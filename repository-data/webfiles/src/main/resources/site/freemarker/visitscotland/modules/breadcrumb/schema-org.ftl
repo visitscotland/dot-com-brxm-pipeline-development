@@ -1,10 +1,6 @@
 <#include "../../../include/imports.ftl">
 <#-- @ftlvariable name="breadcrumb" type="org.onehippo.forge.breadcrumb.om.Breadcrumb" -->
 
-
-${"PATHINFO = " + hstRequest.request.pathInfo}
-${"Property = " + Properties.siteContactUs}
-
 <#if Properties.siteContactUs == hstRequest.request.pathInfo>
     <@hst.headContribution category="seo">
         <script type="application/ld+json">
