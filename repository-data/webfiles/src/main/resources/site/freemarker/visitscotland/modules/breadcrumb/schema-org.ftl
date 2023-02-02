@@ -1,7 +1,7 @@
 <#include "../../../include/imports.ftl">
 <#-- @ftlvariable name="breadcrumb" type="org.onehippo.forge.breadcrumb.om.Breadcrumb" -->
 
-<!-- Note: Translated labels have not been created because this scrip should only be added for the English version -->
+<!-- Note: Translated labels have not been created because this script should only be added for the English version -->
 <#if Properties.siteAboutUs == hstRequest.request.pathInfo && language = 'en'>
     <@hst.headContribution category="seo">
         <script type="application/ld+json">
