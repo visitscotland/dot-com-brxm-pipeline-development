@@ -61,7 +61,7 @@ public class Properties {
     //Page References
     static final String GLOBAL_SEARCH = "site.path.global-search";
     static final String SKI_SECTION = "site.path.ski-landing";
-    static final String CONTACT_US = "site.path.contact-us";
+    static final String ABOUT_US = "site.path.about-us";
 
     private final ResourceBundleService bundle;
 
@@ -181,8 +181,8 @@ public class Properties {
         return readString(SKI_SECTION);
     }
 
-    public String getSiteContactUs() {
-        return readString(CONTACT_US);
+    public String getSiteAboutUs() {
+        return readString(ABOUT_US);
     }
 
     public String getSiteGlobalSearch() {

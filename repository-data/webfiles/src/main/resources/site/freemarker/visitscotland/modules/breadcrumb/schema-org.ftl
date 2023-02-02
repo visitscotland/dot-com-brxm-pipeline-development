@@ -1,7 +1,8 @@
 <#include "../../../include/imports.ftl">
 <#-- @ftlvariable name="breadcrumb" type="org.onehippo.forge.breadcrumb.om.Breadcrumb" -->
 
-<#if Properties.siteContactUs == hstRequest.request.pathInfo>
+<!-- Note: Translated labels have not been created because this scrip should only be added for the English version -->
+<#if Properties.siteAboutUs == hstRequest.request.pathInfo && language = 'en'>
     <@hst.headContribution category="seo">
         <script type="application/ld+json">
             {
@@ -19,10 +20,10 @@
                     "addressCountry": "Scotland"
                 },
                 "sameAs": [
-                    "${optionalLabel('navigation.social-media', 'facebook')}",
-                    "${optionalLabel('navigation.social-media', 'twitter')}",
-                    "${optionalLabel('navigation.social-media', 'youtube')}",
-                    "${optionalLabel('navigation.social-media', 'instagram')}"
+                    "${label('navigation.social-media', 'facebook')}",
+                    "${label('navigation.social-media', 'twitter')}",
+                    "${label('navigation.social-media', 'youtube')}",
+                    "${label('navigation.social-media', 'instagram')}"
                 ]
             }
         </script>
