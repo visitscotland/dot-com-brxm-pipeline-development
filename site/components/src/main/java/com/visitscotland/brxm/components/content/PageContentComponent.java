@@ -39,6 +39,8 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
     public static final String HERO_VIDEO = "heroVideo";
     public static final String PSR_WIDGET = "psrWidget";
 
+    public static final String SEARCH_RESULTS = "searchResultsPage";
+
     private final MegalinkFactory megalinkFactory;
     private final ImageFactory imageFactory;
     private final LinkService linksService;
@@ -69,6 +71,17 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
         addNewsletterSignup(request);
         addProductSearchWidget(request);
         addLogging(request);
+        addFlags(request);
+    }
+
+    /**
+     * Add flags to the freekarker to indicate what type of page is being processed
+     * @param request
+     */
+    private void addFlags(HstRequest request){
+        if (request.getPathInfo().contains(properties.getSiteGlobalSearch())){
+            request.setAttribute(SEARCH_RESULTS, true);
+        }
     }
 
     /**
