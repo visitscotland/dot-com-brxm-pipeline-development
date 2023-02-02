@@ -1,6 +1,5 @@
 package com.visitscotland.brxm.validator;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.visitscotland.brxm.config.VsComponentManager;
 import com.visitscotland.brxm.hippobeans.General;
 import com.visitscotland.brxm.utils.HippoUtilsService;
@@ -21,8 +20,8 @@ import java.util.Optional;
  */
 public class MapPageValidator implements Validator<Node> {
 
-    private final String keys = "hippotaxonomy:keys";
-    private final String generalPageError = "generalPage";
+    static final String MAP_KEYS = "hippotaxonomy:keys";
+    static final String GENERAL_PAGE = "generalPage";
     private static final Logger logger = LoggerFactory.getLogger(MapPageValidator.class);
 
     public HippoUtilsService getUtilsService() {
@@ -33,27 +32,27 @@ public class MapPageValidator implements Validator<Node> {
     public Optional<Violation> validate(ValidationContext validationContext, Node node) {
         try {
             Value[] taxonomyKeys;
-            boolean isGeneralPage = getUtilsService().getDocumentFromNode(node.getParent().getParent().getNode("content")) instanceof General;
+            boolean isGeneralPage = getUtilsService().getDocumentFromNode(node.getParent().getParent().getNode("content"), true) instanceof General;
             if (isGeneralPage) {
-                if (node.hasProperty(keys)) {
-                     taxonomyKeys = node.getProperty(keys).getValues();
+                if (node.hasProperty(MAP_KEYS)) {
+                     taxonomyKeys = node.getProperty(MAP_KEYS).getValues();
 
                     if (taxonomyKeys.length > 1) {
-                        return Optional.of(validationContext.createViolation(generalPageError));
+                        return Optional.of(validationContext.createViolation(GENERAL_PAGE));
                     } else {
                         if (taxonomyKeys.length > 0) {
                             Taxonomy vsTaxonomyTree = getUtilsService().getTaxonomy();
                             if (vsTaxonomyTree.getCategoryByKey(taxonomyKeys[0].getString()).getChildren().isEmpty()) {
-                                return Optional.of(validationContext.createViolation(generalPageError));
+                                return Optional.of(validationContext.createViolation(GENERAL_PAGE));
                             }
                         }
                     }
                 }else{
-                    return Optional.of(validationContext.createViolation(generalPageError));
+                    return Optional.of(validationContext.createViolation(GENERAL_PAGE));
                 }
             } else {
-                if (node.hasProperty(keys)) {
-                    taxonomyKeys = node.getProperty(keys).getValues();
+                if (node.hasProperty(MAP_KEYS)) {
+                    taxonomyKeys = node.getProperty(MAP_KEYS).getValues();
                     if (taxonomyKeys.length > 0) {
                         return Optional.of(validationContext.createViolation("destinationPage"));
                     }

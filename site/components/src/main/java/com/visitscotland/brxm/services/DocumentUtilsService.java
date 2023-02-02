@@ -147,7 +147,7 @@ public class DocumentUtilsService {
                 translatedURL.add(lan);
             }
         } else {
-            logger.error("Menu functionality is not supported for Channel Manager Pages at the moment");
+            logger.error("Menu functionality is not supported for Channel Manager Pages at the moment. (Requested by {})", request.getPathInfo());
         }
         return translatedURL;
     }

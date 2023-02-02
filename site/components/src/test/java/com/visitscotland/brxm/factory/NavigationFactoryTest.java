@@ -3,7 +3,6 @@ package com.visitscotland.brxm.factory;
 import com.visitscotland.brxm.components.navigation.MenuComponent;
 import com.visitscotland.brxm.components.navigation.MenuItem;
 import com.visitscotland.brxm.components.navigation.RootMenuItem;
-import com.visitscotland.brxm.factory.NavigationFactory;
 import com.visitscotland.brxm.hippobeans.FeaturedWidget;
 import com.visitscotland.brxm.hippobeans.Page;
 import com.visitscotland.brxm.mock.NavigationMockBuilder;

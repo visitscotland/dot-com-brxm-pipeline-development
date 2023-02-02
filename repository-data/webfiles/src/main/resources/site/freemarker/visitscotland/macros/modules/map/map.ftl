@@ -28,7 +28,6 @@
             false
         </#assign>
     </#if>
-
     <vs-module-wrapper>
         <template slot="vsModuleWrapperHeading">
             ${module.title}
@@ -55,6 +54,15 @@
                     icon: 'map',
                 },
             ]"
+            buttons-label="${label('map', 'map.buttons-label')}"
+            clear-selection-text="${label('map', 'map.clear')}"
+            apply-filters-text="${label('map', 'map.show-results')}"
+            details-endpoint="${module.detailsEndpoint}"
+            filters-applied-text="${label('map', 'map.filters-applied')}"
+            clear-filters-text="${label('map', 'map.clear')}"
+            map-filter-message="${label('map', 'map.apply-filters')}"
+            map-no-results-message="${label('map', 'map.no-results')}"
+            panel-message="${label('map', 'map.panel-bottom-msg')}"
         >
 
             <template slot="closeSidePanelText">
@@ -63,9 +71,7 @@
                 </span>
             </template>
             <template slot="openSidePanelText">
-                <span class="sr-only">
-                    ${label('map', 'map.open-panel')}
-                </span>
+                ${label('map', 'map.open-panel')}
             </template>
             <template slot="backBtnText">
                 ${label('map', 'map.step-back')}
@@ -73,9 +79,18 @@
             <template slot="resetSidePanelText">
                 ${label('map', 'map.reset-filters')}
             </template>
+            <template slot="loadMoreText">
+                ${label('map', 'map.load-more')}
+            </template>
             <template slot="noJs">
                 ${label('map', 'map.no-js')}
             </template>
-        </vs-main-map-wrapper>
+            <template slot="mapLoadingText">
+                ${label('map', 'map.loading')}
+            </template>
+            <template slot="panelLoadingMessage">
+                ${label('map', 'map.loading-results')}
+            </template>
+        </vs-main-map-wrapper>         
     </vs-module-wrapper>
 </#macro>

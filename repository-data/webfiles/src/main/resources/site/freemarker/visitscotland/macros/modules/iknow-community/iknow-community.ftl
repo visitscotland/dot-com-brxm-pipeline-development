@@ -11,6 +11,7 @@
 <#-- @ftlvariable name="module" type="com.visitscotland.brxm.model.IKnowCommunityModule" -->
 
 <#macro iknowCommunity module>
+    <#-- THIS MODULE IS NOT CURRENTLY IN USE, CONSIDER REMOVING IT -->
     <@previewWarning editMode module module.errorMessages />
     <vs-module-wrapper theme="<#if themeName?has_content>${themeName}<#else>light</#if>">
         <template slot="vsModuleWrapperHeading">

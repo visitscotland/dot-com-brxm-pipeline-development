@@ -1,30 +1,29 @@
 <#compress>
-<#include "../../include/imports.ftl">
-<#include "../../frontend/components/vs-icon.ftl">
-<#include "../../frontend/components/vs-tooltip.ftl">
-<#include "../../frontend/components/vs-itinerary-day.ftl">
-<#include "../../frontend/components/vs-itinerary.ftl">
+    <#include "../../include/imports.ftl">
+    <#include "../../frontend/components/vs-icon.ftl">
+    <#include "../../frontend/components/vs-tooltip.ftl">
+    <#include "../../frontend/components/vs-itinerary-day.ftl">
+    <#include "../../frontend/components/vs-itinerary.ftl">
+    <#include "../macros/modules/page-intro/social-share.ftl">
+    <#include "../macros/modules/itineraries/itinerary-stop.ftl">
+    <#include "../macros/modules/itineraries/itinerary-map.ftl">
+    <#include "../macros/modules/page-intro/page-intro.ftl">
+    <#include "../macros/global/otyml.ftl">
+    <#include "../macros/shared/module-builder.ftl">
+    <#include "../macros/modules/horizontal-list/horizontal-list.ftl">
+    <#include "../macros/modules/signpost/signpost.ftl">
+    <#include "../macros/modules/product-search/psr-module.ftl">
 
-<#include "../macros/modules/page-intro/social-share.ftl">
-<#include "../macros/modules/itineraries/itinerary-stop.ftl">
-<#include "../macros/modules/itineraries/itinerary-map.ftl">
-<#include "../macros/modules/page-intro/page-intro.ftl">
-<#include "../macros/global/otyml.ftl">
-<#include "../macros/shared/module-builder.ftl">
-<#include "../macros/modules/horizontal-list/horizontal-list.ftl">
-<#include "../macros/modules/signpost/signpost.ftl">
-<#include "../macros/modules/product-search/psr-module.ftl">
+    <#-- Implicit Request Objects -->
+    <#-- @ftlvariable name="document" type="com.visitscotland.brxm.hippobeans.Itinerary" -->
+    <#-- @ftlvariable name="itinerary" type="com.visitscotland.brxm.model.ItineraryPage" -->
+    <#-- @ftlvariable name="heroImage" type="com.visitscotland.brxm.model.FlatImage" -->
+    <#-- @ftlvariable name="heroCoordinates" type="com.visitscotland.brxm.model.Coordinates" -->
 
-<#-- Implicit Request Objects -->
-<#-- @ftlvariable name="document" type="com.visitscotland.brxm.hippobeans.Itinerary" -->
-<#-- @ftlvariable name="itinerary" type="com.visitscotland.brxm.model.ItineraryPage" -->
-<#-- @ftlvariable name="heroImage" type="com.visitscotland.brxm.model.FlatImage" -->
-<#-- @ftlvariable name="heroCoordinates" type="com.visitscotland.brxm.model.Coordinates" -->
-
-<#-- Template defined objects -->
-<#-- @ftlvariable name="day" type="com.visitscotland.brxm.hippobeans.Day" -->
-<#-- @ftlvariable name="stop" type="com.visitscotland.brxm.hippobeans.Stop" -->
-
+    <#-- Template defined objects -->
+    <#-- @ftlvariable name="day" type="com.visitscotland.brxm.hippobeans.Day" -->
+    <#-- @ftlvariable name="stop" type="com.visitscotland.brxm.hippobeans.Stop" -->
+</#compress>
 
 <#assign mainTransport = "">
 <#assign dayNumber = 0>
@@ -33,7 +32,7 @@
 <#if document.transports?has_content >
     <#assign mainTransport = document.transports[0]>
 </#if>
-</#compress>
+
 <div class="has-edit-button">
     <@hst.manageContent hippobean=document/>
 

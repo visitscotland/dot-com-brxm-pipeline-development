@@ -82,12 +82,17 @@ public class DMSConstants {
         public static final String ADDRESS = "address";
         public static final String LOCATION = "city";
         public static final String FACILITIES = "keyFacilities";
+        public static final String TELEPHONE_NUMBER = "telephoneNumber";
+        public static final String WEBSITE = "website";
 
         public static final String URL = "productLink";
         public static final String URL_LINK = "link";
+        public static final String LINK_TYPE = "type";
+        public static final String LINK_LABEL = "label";
         public static final String TIME_TO_EXPLORE = "timeToExplore";
         public static final String PRICE = "price";
         public static final String DISPLAY_PRICE = "displayPrice";
+        public static final String SOCIAL_CHANNEL = "socialChannels";
 
         public static final String OPENING = "opening";
 
@@ -97,11 +102,11 @@ public class DMSConstants {
     public static final String PRODUCT_SEARCH = "/info/%s/search-results?";
     public static final String PRODUCT_SEARCH_DATA_MAP = "/product-search/map?";
     public static final String VS_DMS_PRODUCT_CARD = "/private/products/card?";
+    public static final String VS_DMS_PRODUCT_MAP_CARD = "/component/mapcard?";
     public static final String VS_DMS_CANNED_SEARCH = "/component/cannedsearch?";
     public static final String VS_DMS_CANNED_SEARCH_TOURS = "/component/cannedsearchtours";
     public static final String META_PRODUCT_LIST = "/meta/%s/list?%s";
     public static final String META_LOCATIONS = "/meta/location/list?full";
-    public static final String META_LOCATIONS_COORDINATES = "/meta/location/display-polygon?";
     public static final String META_CATEGORY_GROUP = "/meta/categorygroup/list?";
 
 }
