@@ -28,7 +28,7 @@
 </#compress>
 <#macro moduleBuilder module colourScheme=[]>
     <#assign themeName = themeCalculator(module.themeIndex, module, colourScheme)>
-    <#if module.getType() == "MultiImageLinksModule" ||  module.getType() == "SingleImageLinksModule" || moduleType == "ListLinksModule">
+    <#if module.getType() == "MultiImageLinksModule" ||  module.getType() == "SingleImageLinksModule" || module.getType() == "ListLinksModule">
         <#assign moduleType = "megalinks">
     <#else>
         <#assign moduleType = module.getType()>

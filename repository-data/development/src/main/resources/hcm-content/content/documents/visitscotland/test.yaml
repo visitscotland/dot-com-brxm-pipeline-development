@@ -17874,6 +17874,190 @@
         hippostd:foldertype: [new-translated-folder-test, new-document]
         hippotranslation:id: 5469d1d1-5b77-4f89-869b-1ad008c138af
         hippotranslation:locale: en
+      /snow-statuses:
+        jcr:primaryType: hippostd:folder
+        jcr:mixinTypes: ['hippo:named', 'hippotranslation:translated', 'mix:versionable']
+        jcr:uuid: f4e205cf-3a13-41be-adb6-de8947f87873
+        hippo:name: Snow Statuses
+        hippostd:foldertype: [new-translated-folder-test, new-document]
+        hippotranslation:id: 83382493-bf1d-4c9c-aab1-f2e343e57b53
+        hippotranslation:locale: en
+        /content:
+          jcr:primaryType: hippo:handle
+          jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+          jcr:uuid: edee59ca-750c-4c3e-a048-7b8d1c7f9d93
+          hippo:name: Content
+          hippo:versionHistory: 35c78f5e-40df-4dbd-86b5-3290fa96ae1b
+          /content[1]:
+            jcr:primaryType: visitscotland:General
+            jcr:mixinTypes: ['mix:referenceable']
+            jcr:uuid: 48b1e374-9677-4f99-8646-5d39c43cbc7b
+            hippo:availability: []
+            hippostd:retainable: false
+            hippostd:state: draft
+            hippostdpubwf:createdBy: admin
+            hippostdpubwf:creationDate: 2023-02-03T15:23:44.187Z
+            hippostdpubwf:lastModificationDate: 2023-02-03T15:24:54.381Z
+            hippostdpubwf:lastModifiedBy: admin
+            hippotranslation:id: 1bc84309-18cc-49da-9af8-af01b895ac25
+            hippotranslation:locale: en
+            visitscotland:breadcrumb: ''
+            visitscotland:hideNewsletter: false
+            visitscotland:seoDescription: Snow Statuses
+            visitscotland:seoNoIndex: false
+            visitscotland:seoTitle: Snow Statuses
+            visitscotland:teaser: Snow Statuses
+            visitscotland:theme: Top-Level
+            visitscotland:title: Snow Statuses
+            visitscotland:translation: ''
+            /visitscotland:heroImage:
+              jcr:primaryType: hippogallerypicker:imagelink
+              hippo:docbase: c3eafb5b-6c18-4caa-9c9a-63279b816630
+              hippo:facets: []
+              hippo:modes: []
+              hippo:values: []
+            /visitscotland:introduction:
+              jcr:primaryType: hippostd:html
+              hippostd:content: <p>Lorem ipsum dolor sit amet</p>
+          /content[2]:
+            jcr:primaryType: visitscotland:General
+            jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+            jcr:uuid: 91d0e703-1e47-4c05-9114-d821efa16795
+            hippo:availability: [preview]
+            hippostd:retainable: false
+            hippostd:state: unpublished
+            hippostdpubwf:createdBy: admin
+            hippostdpubwf:creationDate: 2023-02-03T15:23:44.187Z
+            hippostdpubwf:lastModificationDate: 2023-02-03T15:24:57.244Z
+            hippostdpubwf:lastModifiedBy: admin
+            hippotranslation:id: 1bc84309-18cc-49da-9af8-af01b895ac25
+            hippotranslation:locale: en
+            visitscotland:breadcrumb: ''
+            visitscotland:hideNewsletter: false
+            visitscotland:seoDescription: Snow Statuses
+            visitscotland:seoNoIndex: false
+            visitscotland:seoTitle: Snow Statuses
+            visitscotland:teaser: Snow Statuses
+            visitscotland:theme: Top-Level
+            visitscotland:title: Snow Statuses
+            visitscotland:translation: ''
+            /visitscotland:heroImage:
+              jcr:primaryType: hippogallerypicker:imagelink
+              hippo:docbase: c3eafb5b-6c18-4caa-9c9a-63279b816630
+              hippo:facets: []
+              hippo:modes: []
+              hippo:values: []
+            /visitscotland:introduction:
+              jcr:primaryType: hippostd:html
+              hippostd:content: <p>Lorem ipsum dolor sit amet</p>
+          /content[3]:
+            jcr:primaryType: visitscotland:General
+            jcr:mixinTypes: ['mix:referenceable']
+            jcr:uuid: ef81a156-52a1-432a-8ff4-7aa7fc57b0f2
+            hippo:availability: [live]
+            hippostd:retainable: false
+            hippostd:state: published
+            hippostdpubwf:createdBy: admin
+            hippostdpubwf:creationDate: 2023-02-03T15:23:44.187Z
+            hippostdpubwf:lastModificationDate: 2023-02-03T15:24:57.244Z
+            hippostdpubwf:lastModifiedBy: admin
+            hippostdpubwf:publicationDate: 2023-02-03T15:24:59.573Z
+            hippotranslation:id: 1bc84309-18cc-49da-9af8-af01b895ac25
+            hippotranslation:locale: en
+            visitscotland:breadcrumb: ''
+            visitscotland:hideNewsletter: false
+            visitscotland:seoDescription: Snow Statuses
+            visitscotland:seoNoIndex: false
+            visitscotland:seoTitle: Snow Statuses
+            visitscotland:teaser: Snow Statuses
+            visitscotland:theme: Top-Level
+            visitscotland:title: Snow Statuses
+            visitscotland:translation: ''
+            /visitscotland:heroImage:
+              jcr:primaryType: hippogallerypicker:imagelink
+              hippo:docbase: c3eafb5b-6c18-4caa-9c9a-63279b816630
+              hippo:facets: []
+              hippo:modes: []
+              hippo:values: []
+            /visitscotland:introduction:
+              jcr:primaryType: hippostd:html
+              hippostd:content: <p>Lorem ipsum dolor sit amet</p>
+        /snow-statuses:
+          jcr:primaryType: hippo:handle
+          jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+          jcr:uuid: 421fb2bd-bc05-4d21-8709-0a077377afef
+          hippo:name: Snow Statuses
+          hippo:versionHistory: 5177f89c-a844-40d3-be11-c410db153b79
+          /snow-statuses[1]:
+            jcr:primaryType: visitscotland:SkiCentreList
+            jcr:mixinTypes: ['mix:referenceable']
+            jcr:uuid: 652984e7-39f1-41ca-b75d-86615f6d8237
+            hippo:availability: []
+            hippostd:retainable: false
+            hippostd:state: draft
+            hippostdpubwf:createdBy: admin
+            hippostdpubwf:creationDate: 2023-02-03T15:25:43.670Z
+            hippostdpubwf:lastModificationDate: 2023-02-03T15:26:24.276Z
+            hippostdpubwf:lastModifiedBy: admin
+            hippotranslation:id: 411dee80-02a4-41d3-aafa-6a5ab68e14af
+            hippotranslation:locale: en
+            visitscotland:openuistring: ''
+            visitscotland:title: Snow Statuses
+            /visitscotland:copy:
+              jcr:primaryType: hippostd:html
+              hippostd:content: <p>Donec venenatis massa quam, vel feugiat ligula
+                vulputate porttitor. Suspendisse potenti. Integer at nibh molestie,
+                condimentum nisi vel, feugiat magna.</p>
+            /visitscotland:links:
+              jcr:primaryType: hippo:mirror
+              hippo:docbase: 1dd4d5ca-0241-43ec-b6c9-4718f1202c0c
+          /snow-statuses[2]:
+            jcr:primaryType: visitscotland:SkiCentreList
+            jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+            jcr:uuid: 2ca72d7c-423a-41d7-8cb9-7b94e051b808
+            hippo:availability: [preview]
+            hippostd:retainable: false
+            hippostd:state: unpublished
+            hippostdpubwf:createdBy: admin
+            hippostdpubwf:creationDate: 2023-02-03T15:25:43.670Z
+            hippostdpubwf:lastModificationDate: 2023-02-03T15:26:49.074Z
+            hippostdpubwf:lastModifiedBy: admin
+            hippotranslation:id: 411dee80-02a4-41d3-aafa-6a5ab68e14af
+            hippotranslation:locale: en
+            visitscotland:openuistring: ''
+            visitscotland:title: Snow Statuses
+            /visitscotland:copy:
+              jcr:primaryType: hippostd:html
+              hippostd:content: <p>Donec venenatis massa quam, vel feugiat ligula
+                vulputate porttitor. Suspendisse potenti. Integer at nibh molestie,
+                condimentum nisi vel, feugiat magna.</p>
+            /visitscotland:links:
+              jcr:primaryType: hippo:mirror
+              hippo:docbase: 1dd4d5ca-0241-43ec-b6c9-4718f1202c0c
+          /snow-statuses[3]:
+            jcr:primaryType: visitscotland:SkiCentreList
+            jcr:mixinTypes: ['mix:referenceable']
+            jcr:uuid: 32048836-ddb8-4a7e-a52c-a78ca19b883e
+            hippo:availability: [live]
+            hippostd:retainable: false
+            hippostd:state: published
+            hippostdpubwf:createdBy: admin
+            hippostdpubwf:creationDate: 2023-02-03T15:25:43.670Z
+            hippostdpubwf:lastModificationDate: 2023-02-03T15:26:49.074Z
+            hippostdpubwf:lastModifiedBy: admin
+            hippostdpubwf:publicationDate: 2023-02-03T15:26:50.778Z
+            hippotranslation:id: 411dee80-02a4-41d3-aafa-6a5ab68e14af
+            hippotranslation:locale: en
+            visitscotland:openuistring: ''
+            visitscotland:title: Snow Statuses
+            /visitscotland:copy:
+              jcr:primaryType: hippostd:html
+              hippostd:content: <p>Donec venenatis massa quam, vel feugiat ligula
+                vulputate porttitor. Suspendisse potenti. Integer at nibh molestie,
+                condimentum nisi vel, feugiat magna.</p>
+            /visitscotland:links:
+              jcr:primaryType: hippo:mirror
+              hippo:docbase: 1dd4d5ca-0241-43ec-b6c9-4718f1202c0c
   /automation:
     jcr:primaryType: hippostd:folder
     jcr:mixinTypes: ['hippo:named', 'hippotranslation:translated', 'mix:versionable']
