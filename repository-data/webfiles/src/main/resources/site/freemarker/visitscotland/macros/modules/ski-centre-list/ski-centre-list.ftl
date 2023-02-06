@@ -28,7 +28,7 @@
                     <vs-col
                         cols="12"
                         sm="6"
-                        md="4"
+                        lg="4"
                         class="px-4 px-lg-8 text-left"
                     >
                         <vs-ski-scotland-card
