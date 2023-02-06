@@ -60,8 +60,7 @@ public class ICentreFactory {
         module.setLinks(getLinks(location, locale));
 
         if (module.getLinks().isEmpty()) {
-            //The module disappears when there is no iCentres in the area
-            return null;
+            module.setLinks(this.getIcentreLandingLink(locale));
         }
 
         //Populate Title
@@ -113,11 +112,16 @@ public class ICentreFactory {
         if (!Contract.isEmpty(location)) {
             return getVicList(location, locale);
         } else {
-            String url = bundle.getResourceBundle(BUNDLE_ID, "icentre.description.link", locale);
-            String text = bundle.getResourceBundle(BUNDLE_ID, "icentre.description.link.text", locale);
 
-            return Collections.singletonList(new FlatLink(text, url, LinkType.INTERNAL));
+            return this.getIcentreLandingLink(locale);
         }
+    }
+
+    private List<FlatLink> getIcentreLandingLink(Locale locale) {
+        String url = bundle.getResourceBundle(BUNDLE_ID, "icentre.description.link", locale);
+        String text = bundle.getResourceBundle(BUNDLE_ID, "icentre.description.link.text", locale);
+
+        return Collections.singletonList(new FlatLink(text, url, LinkType.INTERNAL));
     }
 
     /**
