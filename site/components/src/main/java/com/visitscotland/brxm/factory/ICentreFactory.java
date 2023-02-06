@@ -60,7 +60,7 @@ public class ICentreFactory {
         module.setLinks(getLinks(location, locale));
 
         if (module.getLinks().isEmpty()) {
-            module.setLinks(this.getIcentreLandingLink(locale));
+            module.setLinks(getIcentreLandingLink(locale));
         }
 
         //Populate Title
@@ -113,7 +113,7 @@ public class ICentreFactory {
             return getVicList(location, locale);
         } else {
 
-            return this.getIcentreLandingLink(locale);
+            return getIcentreLandingLink(locale);
         }
     }
 
