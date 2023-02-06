@@ -8,16 +8,16 @@
             {
                 "@context":"https://schema.org",
                 "@type":"Organization",
-                "name":"VisitScotland",
+                "name":"${label('seo', 'site-name')}",
                 "url":"https://www.visitscotland.com/",
-                "logo":"https://sttc.visitscotland.com/static/img/logos/vs-logo-corp-360.png",
-                "description": "VisitScotland.com is the official consumer website of VisitScotland, Scotland’s national tourist board.",
+                "logo":"${label('seo', 'vs-logo')}",
+                "description": "${label('seo', 'organization.description')}",
                 "address": {
                     "@type": "PostalAddress",
-                    "streetAddress": "Ocean Point One, 94 Ocean Drive",
-                    "addressLocality": "Edinburgh",
-                    "postalCode": "EH6 6JH",
-                    "addressCountry": "Scotland"
+                    "streetAddress": "${label('seo', 'organization.streetAddress')}",
+                    "addressLocality": "${label('seo', 'organization.addressLocality')}",
+                    "postalCode": "${label('seo', 'organization.postalCode')}",
+                    "addressCountry": "${label('seo', 'organization.addressCountry')}"
                 },
                 "sameAs": [
                     "${label('navigation.social-media', 'facebook')}",
