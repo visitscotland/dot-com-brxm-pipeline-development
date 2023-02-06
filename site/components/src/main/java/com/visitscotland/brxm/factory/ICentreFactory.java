@@ -60,7 +60,7 @@ public class ICentreFactory {
         module.setLinks(getLinks(location, locale));
 
         if (module.getLinks().isEmpty()) {
-            module.setLinks(getIcentreLandingLink(locale));
+            module.setLinks(getICentreLandingLink(locale));
         }
 
         //Populate Title
@@ -113,11 +113,11 @@ public class ICentreFactory {
             return getVicList(location, locale);
         } else {
 
-            return getIcentreLandingLink(locale);
+            return getICentreLandingLink(locale);
         }
     }
 
-    private List<FlatLink> getIcentreLandingLink(Locale locale) {
+    private List<FlatLink> getICentreLandingLink(Locale locale) {
         String url = bundle.getResourceBundle(BUNDLE_ID, "icentre.description.link", locale);
         String text = bundle.getResourceBundle(BUNDLE_ID, "icentre.description.link.text", locale);
 
