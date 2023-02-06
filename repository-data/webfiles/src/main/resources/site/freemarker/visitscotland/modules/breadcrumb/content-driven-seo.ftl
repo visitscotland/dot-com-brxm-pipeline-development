@@ -33,7 +33,7 @@
 
     <#-- TITLE TAG -->
     <@hst.headContribution category="seo">
-        <title>${document.seoTitle?html} ${property("seo.title-suffix")}</title>
+        <title>${document.seoTitle?html} ${label("seo", "title-suffix")}</title>
     </@hst.headContribution>
 
     <#-- META DESCRIPTION TAG -->
@@ -57,7 +57,7 @@
         <meta property="og:url" content="<@hst.link hippobean=document canonical=true fullyQualified=true/>" />
     </@hst.headContribution>
     <@hst.headContribution category="opengraph">
-        <meta property="og:site_name" content="${property("seo.og.site-name")}" />
+        <meta property="og:site_name" content="${label("seo","site-name")}" />
     </@hst.headContribution>
     <@hst.headContribution category="opengraph">
         <meta property="og:locale" content="${document.locale.toLanguageTag()?lower_case}" />
@@ -69,7 +69,7 @@
         <meta name="twitter:card" content="summary_large_image" />
     </@hst.headContribution>
     <@hst.headContribution category="opengraph">
-        <meta name="twitter:site" content="${property("seo.og.twitter.site")}" />
+        <meta name="twitter:site" content="${label("seo","og.twitter.site")}" />
     </@hst.headContribution>
     <@hst.headContribution category="opengraph">
         <meta name="twitter:title" content="${document.seoTitle?html}" />
