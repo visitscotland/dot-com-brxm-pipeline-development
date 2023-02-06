@@ -1,0 +1,70 @@
+/content/documents/administration/configuration/seo:
+  jcr:primaryType: hippo:handle
+  jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+  jcr:uuid: 17b7a5b3-6c6f-4418-9138-8a30898e3f6a
+  hippo:name: SEO Configuration
+  hippo:versionHistory: 55f5afcf-5d6e-4997-bd16-9d3ad2ca2a16
+  /seo[1]:
+    jcr:primaryType: resourcebundle:resourcebundle
+    jcr:mixinTypes: ['mix:referenceable']
+    jcr:uuid: d51fe656-5058-445d-a987-3d023710e2ce
+    hippo:availability: []
+    hippostd:retainable: false
+    hippostd:state: draft
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2023-02-06T11:06:56.797Z
+    hippostdpubwf:lastModificationDate: 2023-02-06T11:50:30.027Z
+    hippostdpubwf:lastModifiedBy: admin
+    resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '', '', '']
+    resourcebundle:id: seo
+    resourcebundle:keys: [vs-logo, organization.description, organization.streetAddress,
+      organization.addressLocality, organization.postalCode, organization.addressCountry,
+      og.twitter.site, seo.og.site-name, seo.og.twitter.site, site-name, title-suffix]
+    resourcebundle:messages: ['https://sttc.visitscotland.com/static/img/logos/vs-logo-corp-360.png',
+      'VisitScotland.com is the official consumer website of VisitScotland, Scotland’s
+        national tourist board.', 'Ocean Point One, 94 Ocean Drive', Edinburgh, EH6
+        6JH, Scotland, '@VisitScotland', VisitScotland, '@VisitScotland', VisitScotland,
+      '| VisitScotland']
+  /seo[2]:
+    jcr:primaryType: resourcebundle:resourcebundle
+    jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+    jcr:uuid: a6d32573-3a9c-4101-837e-4b0a7cde3dc6
+    hippo:availability: [preview]
+    hippostd:retainable: false
+    hippostd:state: unpublished
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2023-02-06T11:06:56.797Z
+    hippostdpubwf:lastModificationDate: 2023-02-06T11:55:46.756Z
+    hippostdpubwf:lastModifiedBy: admin
+    resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '', '', '']
+    resourcebundle:id: seo
+    resourcebundle:keys: [vs-logo, organization.description, organization.streetAddress,
+      organization.addressLocality, organization.postalCode, organization.addressCountry,
+      og.twitter.site, seo.og.site-name, seo.og.twitter.site, site-name, title-suffix]
+    resourcebundle:messages: ['https://sttc.visitscotland.com/static/img/logos/vs-logo-corp-360.png',
+      'VisitScotland.com is the official consumer website of VisitScotland, Scotland’s
+        national tourist board.', 'Ocean Point One, 94 Ocean Drive', Edinburgh, EH6
+        6JH, Scotland, '@VisitScotland', VisitScotland, '@VisitScotland', VisitScotland,
+      '| VisitScotland']
+  /seo[3]:
+    jcr:primaryType: resourcebundle:resourcebundle
+    jcr:mixinTypes: ['mix:referenceable']
+    jcr:uuid: 80e54829-01e9-4fc4-bd5e-21b4070ee42e
+    hippo:availability: [live]
+    hippostd:retainable: false
+    hippostd:state: published
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2023-02-06T11:06:56.797Z
+    hippostdpubwf:lastModificationDate: 2023-02-06T11:55:46.756Z
+    hippostdpubwf:lastModifiedBy: admin
+    hippostdpubwf:publicationDate: 2023-02-06T11:55:51.594Z
+    resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '', '', '']
+    resourcebundle:id: seo
+    resourcebundle:keys: [vs-logo, organization.description, organization.streetAddress,
+      organization.addressLocality, organization.postalCode, organization.addressCountry,
+      og.twitter.site, seo.og.site-name, seo.og.twitter.site, site-name, title-suffix]
+    resourcebundle:messages: ['https://sttc.visitscotland.com/static/img/logos/vs-logo-corp-360.png',
+      'VisitScotland.com is the official consumer website of VisitScotland, Scotland’s
+        national tourist board.', 'Ocean Point One, 94 Ocean Drive', Edinburgh, EH6
+        6JH, Scotland, '@VisitScotland', VisitScotland, '@VisitScotland', VisitScotland,
+      '| VisitScotland']
