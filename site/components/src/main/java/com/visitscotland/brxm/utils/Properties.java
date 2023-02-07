@@ -59,9 +59,11 @@ public class Properties {
     static final String DMS_MAP_DEFAULT_DISTANCE = "dms.default-distance";
 
     //Page References
-    static final String GLOBAL_SEARCH = "site.path.global-search";
-    static final String SKI_SECTION = "site.path.ski-landing";
-    static final String ABOUT_US = "site.path.about-us";
+    private static final String PATH_GLOBAL_SEARCH = "site.path.global-search";
+    private static final String PATH_SKI_SECTION = "site.path.ski-landing";
+    private static final String PATH_ABOUT_US = "site.path.about-us";
+    private static final String PATH_NEWSLETTER = "site.path.newsletter";
+    private static final String PATH_ICENTRE = "site.path.icentre-landing";
 
     private final ResourceBundleService bundle;
 
@@ -178,15 +180,29 @@ public class Properties {
     }
 
     public String getSiteSkiSection() {
-        return readString(SKI_SECTION);
+        return readString(PATH_SKI_SECTION);
     }
 
     public String getSiteAboutUs() {
-        return readString(ABOUT_US);
+        return readString(PATH_ABOUT_US);
     }
 
     public String getSiteGlobalSearch() {
-        return readString(GLOBAL_SEARCH);
+        return readString(PATH_GLOBAL_SEARCH);
+    }
+
+    /**
+     * TODO: Don't use translated paths, use documents instead
+     */
+    public String getSiteNewsletter(Locale locale) {
+        return readString(PATH_NEWSLETTER, locale);
+    }
+
+    /**
+     * TODO: Don't use translated paths, use documents instead
+     */
+    public String getSiteICentre(Locale locale) {
+        return readString(PATH_ICENTRE, locale);
     }
 
     public Integer getContentCacheRetention() {
@@ -253,6 +269,15 @@ public class Properties {
             return value;
         } else {
             return "";
+        }
+    }
+
+    public String readString(String key, Locale locale){
+        String value = getProperty(key, locale);
+        if (value != null){
+            return value;
+        } else {
+            return getProperty(key);
         }
     }
 

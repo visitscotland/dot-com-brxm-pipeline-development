@@ -250,4 +250,10 @@ class ICentreFactoryTest {
         assertEquals("Multiple VICs", module.getDescription());
     }
 
+    @Test
+    @DisplayName("VS-4404 -  The iCentre module should not appear on the iCentre landing page")
+    void getModule_iCentreLanding(){
+        fail("not implemented");
+    }
+
 }

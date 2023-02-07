@@ -113,7 +113,7 @@ public class ICentreFactory {
         if (!Contract.isEmpty(location)) {
             return getVicList(location, locale);
         } else {
-            String url = bundle.getResourceBundle(BUNDLE_ID, "icentre.description.link", locale);
+            String url = properties.getSiteICentre(locale);
             String text = bundle.getResourceBundle(BUNDLE_ID, "icentre.description.link.text", locale);
 
             return Collections.singletonList(new FlatLink(text, url, LinkType.INTERNAL));
