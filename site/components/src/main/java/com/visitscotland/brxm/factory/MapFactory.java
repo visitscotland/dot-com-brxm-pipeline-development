@@ -97,6 +97,8 @@ public class MapFactory {
             }else {
                 // CMS maps, data and pins coming from CMS
                 buildMapGeneralPages(request, mapModuleDocument, module, keys, features);
+                module.setDetailsEndpoint("");
+                module.setMapPosition(mapper.createObjectNode());
             }
         }
 
