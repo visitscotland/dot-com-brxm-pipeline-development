@@ -53,7 +53,7 @@
             text-align="${alignment}"
         >
             <template slot="caption">
-                ${label('essentials.global', 'image.title')}: ${(imageDetails.description)!''}
+                <#if isVideo == "true">${label('essentials.global', 'image.title')}: </#if>${(imageDetails.description)!''}
             </template>
 
             <#if imageDetails.source?has_content>

@@ -158,17 +158,7 @@ public class MapFactory {
         if (!Contract.isNull(mapModuleDocument.getFeaturedPlacesItem())) {
             mapService.addFeaturePlacesNode(module, mapModuleDocument.getCategories(), locale , keys, features);
         }
-        if (Arrays.asList(destinationPage.getKeys()).contains(REGIONS)) {
-            geometryNode = dmsDataService.getLocationBorders(location.getId(),false);
-            //for multipolygon regions we need the bounds, if geometryNode is empty means it is a polygon
-            if (geometryNode == null || geometryNode.isEmpty()) {
-                geometryNode = dmsDataService.getLocationBorders(location.getId(),true);
-            }
-
-            for (RegionsMapTab prodType: RegionsMapTab.values()) {
-                buildDMSMapPages(prodType.getProdTypeId(), prodType.getLabel(), destinationPage.getLocation(), module, keys, features, prodType.getCategory(), locale);
-            }
-        }else{
+        if (destinationPage.getKeys() == null || !Arrays.asList(destinationPage.getKeys()).contains(REGIONS)) {
             geometryNode = dmsDataService.getLocationBorders(location.getId(),false);
             for (CitiesMapTab prodType : CitiesMapTab.values()) {
                 //filters
@@ -188,6 +178,16 @@ public class MapFactory {
                 ArrayNode childrenArray = dmsDataService.getCatGroup(prodType.getProdTypeId(),locale.getLanguage());
                 filter.set("subCategory",childrenArray);
                 keys.add(filter);
+            }
+        }else{
+            geometryNode = dmsDataService.getLocationBorders(location.getId(),false);
+            //for multipolygon regions we need the bounds, if geometryNode is empty means it is a polygon
+            if (geometryNode == null || geometryNode.isEmpty()) {
+                geometryNode = dmsDataService.getLocationBorders(location.getId(),true);
+            }
+
+            for (RegionsMapTab prodType: RegionsMapTab.values()) {
+                buildDMSMapPages(prodType.getProdTypeId(), prodType.getLabel(), destinationPage.getLocation(), module, keys, features, prodType.getCategory(), locale);
             }
         }
         module.setDetailsEndpoint(propertiesService.getDmsDataPublicHost() + DMSConstants.VS_DMS_PRODUCT_MAP_CARD+"locale="+locale.toLanguageTag()+"&id=");
