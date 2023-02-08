@@ -9,8 +9,10 @@ public class MapsModule extends Module {
     private String title;
     private HippoHtml introduction;
     private String tabTitle;
+    private String detailsEndpoint;
     private ArrayNode filters;
     private ObjectNode geoJson;
+    private ObjectNode mapPosition;
 
     public String getId() {
         return id;
@@ -58,5 +60,21 @@ public class MapsModule extends Module {
 
     public void setGeoJson(ObjectNode geoJson) {
         this.geoJson = geoJson;
+    }
+
+    public ObjectNode getMapPosition() {
+        return mapPosition;
+    }
+
+    public void setMapPosition(ObjectNode mapPosition) {
+        this.mapPosition = mapPosition;
+    }
+
+    public String getDetailsEndpoint() {
+        return detailsEndpoint;
+    }
+
+    public void setDetailsEndpoint(String detailsEndpoint) {
+        this.detailsEndpoint = detailsEndpoint;
     }
 }

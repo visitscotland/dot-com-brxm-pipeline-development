@@ -22,10 +22,11 @@
         <!-- END HEAD CONTRIBUTIONS: htmlHeadStyles -->
 
         <!-- BEGIN HEAD CONTRIBUTIONS: general -->
-        <@hst.headContributions categoryExcludes="htmlHeadPreload,htmlHeadStyles,htmlBodyEndScriptsFirst,htmlBodyEndScripts,htmlBodyEndAppInit,htmlBodyEndScriptsLast,htmlBodyLocalizedScripts,seo,opengraph" xhtml=true/>
+        <@hst.headContributions categoryExcludes="htmlHeadPreload,htmlHeadStyles,htmlBodyEndScriptsFirst,htmlBodyEndScripts,htmlBodyEndAppInit,htmlBodyEndScriptsLast,htmlBodyLocalizedScripts,seo,opengraph,devModuleHead,devModuleFooter" xhtml=true/>
+        <@hst.headContributions categoryIncludes="devModuleHead" xhtml=true/>
         <!-- END HEAD CONTRIBUTIONS: general -->
 
-        <link rel="icon" href="<@hst.webfile path="/assets/favicons/favicon.ico"/>" sizes="any">
+        <link rel="icon" href="<@hst.webfile path="/favicon.ico"/>" sizes="any">
         <link rel="icon" href="<@hst.webfile path="/assets/favicons/favicon.svg"/>" type="image/svg+xml">
         <link rel="apple-touch-icon" href="<@hst.webfile path="/assets/favicons/apple-touch-icon-180-180.svg"/>">
         <link rel="manifest" href="<@hst.link path="manifest.webmanifest"/>">
