@@ -97,10 +97,9 @@ class ICentreFactoryTest {
         //Verifies that a link to the iCentres page is defined
         //Verifies that no request to the dms is performed
 
-        when(bundle.getResourceBundle(ICentreFactory.BUNDLE_ID, "icentre.description.link", Locale.UK))
-                .thenReturn("url");
         when(bundle.getResourceBundle(ICentreFactory.BUNDLE_ID, "icentre.description.link.text", Locale.UK))
                 .thenReturn("link text");
+        when(properties.getSiteICentre(Locale.UK)).thenReturn("url");
 
         ICentreModule module = factory.getModule(mockBuilder.build().getICentre(), Locale.UK, "");
 
@@ -249,11 +248,4 @@ class ICentreFactoryTest {
         module = factory.getModule(mockBuilder.build().getICentre(), Locale.UK, "Highlands");
         assertEquals("Multiple VICs", module.getDescription());
     }
-
-    @Test
-    @DisplayName("VS-4404 -  The iCentre module should not appear on the iCentre landing page")
-    void getModule_iCentreLanding(){
-        fail("not implemented");
-    }
-
 }
