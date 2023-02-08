@@ -3,7 +3,7 @@
   jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
   jcr:uuid: 45278688-f372-4427-8e15-6b177cf51cc1
   hippo:name: Properties (Local Environment)
-  hippo:versionHistory: 84e5c127-6df0-4e49-8631-dfdf6bea44f2
+  hippo:versionHistory: 085d33c9-6fd5-48d0-bd7f-7122fc3c3694
   /local-environment[1]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:referenceable']
@@ -13,7 +13,7 @@
     hippostd:state: draft
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2021-02-05T15:37:26.056Z
-    hippostdpubwf:lastModificationDate: 2023-02-06T17:27:11.156Z
+    hippostdpubwf:lastModificationDate: 2023-02-08T17:49:55.014Z
     hippostdpubwf:lastModifiedBy: admin
     resourcebundle:descriptions: [Client Token for Instagram request, "Token that\
         \ identifies calls made to vs-dms-products as internal calls giving access\
@@ -31,28 +31,27 @@
         \ able to process the override locale parameter (vs-locale-ctx)\r\n\r\nOverriding\
         \ the locale parameter allows to use a different language for the labels\r\
         \n\r\nTHE VALUE OF THIS PROPERTY DOES NOT CHANGE THE PATH OF THE ENDPOINTS",
-      '', '', '', '', '', '']
+      '', '', '', '']
     resourcebundle:id: environment.local
     resourcebundle:keys: [instagram.accesstoken, dms-data.api-key, instagram.app-id,
       links.use-relative-urls, links.cms-base-path.url, links.vs-dms-products.url,
       dms-data.public-url, dms-data.private-url, youtube.api-key, data-internal.path,
-      global-search.path, site.path.global-search, site.path.ski-landing, dms.default-distance,
-      site.path.newsletter, site.path.icentre-landing]
+      global-search.path, site.path.global-search, site.path.ski-landing, dms.default-distance]
     resourcebundle:messages: [0d41c47eaf42b43fe20de05201c798ec, $VS_DMS_PRODUCT_KEY,
       '1293271387429443', 'false', 'http://localhost:8080/site', 'http://172.28.81.65:8089',
       'http://172.28.81.65:8089/data', 'http://172.28.81.65:8089/data', $YOUTUBE_API_KEY,
       /site/data/internal, /site/site-search-results, /site-search-results, /test/examples/snow-sports,
-      '10.0', /site/test/modules/form, /site/test/examples/icentres]
+      '10.0']
     resourcebundle:messages_de: ['', '', '', '', '', '', '', '', '', '', /site/de-de/site-search-results,
-      '', '', '', /site/de-de/test/modules/form, /site/de-de/test/examples/icentres]
+      '', '', '']
     resourcebundle:messages_es: ['', '', '', '', '', '', '', '', '', '', /site/es-es/site-search-results,
-      '', '', '', /site/es-es/test/modules/form, /site/es-es/test/examples/icentres]
+      '', '', '']
     resourcebundle:messages_fr: ['', '', '', '', '', '', '', '', '', '', /site/fr-fr/site-search-results,
-      '', '', '', /site/fr-fr/test/modules/form, /site/fr-fr/test/examples/icentres]
+      '', '', '']
     resourcebundle:messages_it: ['', '', '', '', '', '', '', '', '', '', /site/it-it/site-search-results,
-      '', '', '', /site/it-it/test/modules/form, /site/it-it/test/examples/icentres]
+      '', '', '']
     resourcebundle:messages_nl: ['', '', '', '', '', '', '', '', '', '', /site/nl-nl/site-search-results,
-      '', '', '', /site/nl-nl/test/modules/form, /site/nl-nl/test/examples/icentres]
+      '', '', '']
   /local-environment[2]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:versionable']
@@ -62,7 +61,7 @@
     hippostd:state: unpublished
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2021-02-05T15:37:26.056Z
-    hippostdpubwf:lastModificationDate: 2023-02-06T17:47:54.296Z
+    hippostdpubwf:lastModificationDate: 2023-02-08T18:17:56.910Z
     hippostdpubwf:lastModifiedBy: admin
     resourcebundle:descriptions: [Client Token for Instagram request, "Token that\
         \ identifies calls made to vs-dms-products as internal calls giving access\
@@ -80,28 +79,27 @@
         \ able to process the override locale parameter (vs-locale-ctx)\r\n\r\nOverriding\
         \ the locale parameter allows to use a different language for the labels\r\
         \n\r\nTHE VALUE OF THIS PROPERTY DOES NOT CHANGE THE PATH OF THE ENDPOINTS",
-      '', '', '', '', '', '']
+      '', '', '', '']
     resourcebundle:id: environment.local
     resourcebundle:keys: [instagram.accesstoken, dms-data.api-key, instagram.app-id,
       links.use-relative-urls, links.cms-base-path.url, links.vs-dms-products.url,
       dms-data.public-url, dms-data.private-url, youtube.api-key, data-internal.path,
-      global-search.path, site.path.global-search, site.path.ski-landing, dms.default-distance,
-      site.path.newsletter, site.path.icentre-landing]
+      global-search.path, site.path.global-search, site.path.ski-landing, dms.default-distance]
     resourcebundle:messages: [0d41c47eaf42b43fe20de05201c798ec, $VS_DMS_PRODUCT_KEY,
       '1293271387429443', 'false', 'http://localhost:8080/site', 'http://172.28.81.65:8089',
       'http://172.28.81.65:8089/data', 'http://172.28.81.65:8089/data', $YOUTUBE_API_KEY,
       /site/data/internal, /site/site-search-results, /site-search-results, /test/examples/snow-sports,
-      '10.0', /site/test/modules/form, /site/test/examples/icentres]
+      '10.0']
     resourcebundle:messages_de: ['', '', '', '', '', '', '', '', '', '', /site/de-de/site-search-results,
-      '', '', '', /site/de-de/test/modules/form, /site/de-de/test/examples/icentres]
+      '', '', '']
     resourcebundle:messages_es: ['', '', '', '', '', '', '', '', '', '', /site/es-es/site-search-results,
-      '', '', '', /site/es-es/test/modules/form, /site/es-es/test/examples/icentres]
+      '', '', '']
     resourcebundle:messages_fr: ['', '', '', '', '', '', '', '', '', '', /site/fr-fr/site-search-results,
-      '', '', '', /site/fr-fr/test/modules/form, /site/fr-fr/test/examples/icentres]
+      '', '', '']
     resourcebundle:messages_it: ['', '', '', '', '', '', '', '', '', '', /site/it-it/site-search-results,
-      '', '', '', /site/it-it/test/modules/form, /site/it-it/test/examples/icentres]
+      '', '', '']
     resourcebundle:messages_nl: ['', '', '', '', '', '', '', '', '', '', /site/nl-nl/site-search-results,
-      '', '', '', /site/nl-nl/test/modules/form, /site/nl-nl/test/examples/icentres]
+      '', '', '']
   /local-environment[3]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:referenceable']
@@ -111,9 +109,9 @@
     hippostd:state: published
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2021-02-05T15:37:26.056Z
-    hippostdpubwf:lastModificationDate: 2023-02-06T17:47:54.296Z
+    hippostdpubwf:lastModificationDate: 2023-02-08T18:17:56.910Z
     hippostdpubwf:lastModifiedBy: admin
-    hippostdpubwf:publicationDate: 2023-02-06T17:47:57.591Z
+    hippostdpubwf:publicationDate: 2023-02-08T18:18:04.764Z
     resourcebundle:descriptions: [Client Token for Instagram request, "Token that\
         \ identifies calls made to vs-dms-products as internal calls giving access\
         \ to wider data\r\n\r\nThis token is configured by the environment variable\
@@ -130,25 +128,24 @@
         \ able to process the override locale parameter (vs-locale-ctx)\r\n\r\nOverriding\
         \ the locale parameter allows to use a different language for the labels\r\
         \n\r\nTHE VALUE OF THIS PROPERTY DOES NOT CHANGE THE PATH OF THE ENDPOINTS",
-      '', '', '', '', '', '']
+      '', '', '', '']
     resourcebundle:id: environment.local
     resourcebundle:keys: [instagram.accesstoken, dms-data.api-key, instagram.app-id,
       links.use-relative-urls, links.cms-base-path.url, links.vs-dms-products.url,
       dms-data.public-url, dms-data.private-url, youtube.api-key, data-internal.path,
-      global-search.path, site.path.global-search, site.path.ski-landing, dms.default-distance,
-      site.path.newsletter, site.path.icentre-landing]
+      global-search.path, site.path.global-search, site.path.ski-landing, dms.default-distance]
     resourcebundle:messages: [0d41c47eaf42b43fe20de05201c798ec, $VS_DMS_PRODUCT_KEY,
       '1293271387429443', 'false', 'http://localhost:8080/site', 'http://172.28.81.65:8089',
       'http://172.28.81.65:8089/data', 'http://172.28.81.65:8089/data', $YOUTUBE_API_KEY,
       /site/data/internal, /site/site-search-results, /site-search-results, /test/examples/snow-sports,
-      '10.0', /site/test/modules/form, /site/test/examples/icentres]
+      '10.0']
     resourcebundle:messages_de: ['', '', '', '', '', '', '', '', '', '', /site/de-de/site-search-results,
-      '', '', '', /site/de-de/test/modules/form, /site/de-de/test/examples/icentres]
+      '', '', '']
     resourcebundle:messages_es: ['', '', '', '', '', '', '', '', '', '', /site/es-es/site-search-results,
-      '', '', '', /site/es-es/test/modules/form, /site/es-es/test/examples/icentres]
+      '', '', '']
     resourcebundle:messages_fr: ['', '', '', '', '', '', '', '', '', '', /site/fr-fr/site-search-results,
-      '', '', '', /site/fr-fr/test/modules/form, /site/fr-fr/test/examples/icentres]
+      '', '', '']
     resourcebundle:messages_it: ['', '', '', '', '', '', '', '', '', '', /site/it-it/site-search-results,
-      '', '', '', /site/it-it/test/modules/form, /site/it-it/test/examples/icentres]
+      '', '', '']
     resourcebundle:messages_nl: ['', '', '', '', '', '', '', '', '', '', /site/nl-nl/site-search-results,
-      '', '', '', /site/nl-nl/test/modules/form, /site/nl-nl/test/examples/icentres]
+      '', '', '']

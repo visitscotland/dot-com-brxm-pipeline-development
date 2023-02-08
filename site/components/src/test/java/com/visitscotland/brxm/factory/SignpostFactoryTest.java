@@ -3,6 +3,7 @@ package com.visitscotland.brxm.factory;
 import com.visitscotland.brxm.model.LinkType;
 import com.visitscotland.brxm.model.SignpostModule;
 import com.visitscotland.brxm.services.ResourceBundleService;
+import com.visitscotland.brxm.utils.HippoUtilsService;
 import com.visitscotland.brxm.utils.Properties;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -23,6 +24,8 @@ class SignpostFactoryTest {
     @Mock
     ResourceBundleService bundle;
     @Mock
+    HippoUtilsService utils;
+    @Mock
     Properties properties;
 
     @InjectMocks
@@ -35,7 +38,7 @@ class SignpostFactoryTest {
         when(bundle.getResourceBundle(BUNDLE_ID, "newsletter.title", Locale.UK)).thenReturn("title");
         when(bundle.getResourceBundle(BUNDLE_ID, "newsletter.copy", Locale.UK)).thenReturn("copy");
 
-        when(properties.getSiteNewsletter(Locale.UK)).thenReturn("cta.link");
+        when(utils.createUrlFromNode(any(), anyBoolean())).thenReturn("cta.link");
 
         SignpostModule module = signpostFactory.createNewsletterSignpostModule(Locale.UK);
 

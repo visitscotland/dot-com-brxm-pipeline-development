@@ -183,12 +183,14 @@ public class PageTemplateBuilder {
         page.modules.add(al);
     }
 
+    private boolean isICentreLanding(HstRequest request){
+        return request.getPathInfo().equals(properties.getSiteICentre().substring(0, properties.getSiteICentre().length() - 8));
+    }
     /**
      * Creates a LinkModule from a TouristInformation document
      */
     private void processTouristInformation(HstRequest request, PageConfiguration page, TourismInformation touristInfo, String location){
-
-        if (!request.getRequestURI().equals(properties.getSiteICentre(request.getLocale()))) {
+        if (isICentreLanding(request)) {
             ICentreModule iCentreModule = iCentreFactory.getModule(touristInfo.getICentre(), request.getLocale(), location);
 
             if (iCentreModule != null) {

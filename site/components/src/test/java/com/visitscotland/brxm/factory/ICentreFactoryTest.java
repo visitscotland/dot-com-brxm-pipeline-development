@@ -27,6 +27,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Answers;
 import org.mockito.ArgumentCaptor;
+import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
@@ -57,6 +58,7 @@ class ICentreFactoryTest {
     @Mock
     Properties properties;
 
+    @InjectMocks
     ICentreFactory factory;
 
     TouristInformationMockBuilder mockBuilder;
@@ -86,7 +88,7 @@ class ICentreFactoryTest {
 
     @BeforeEach
     void init() {
-        factory = new ICentreFactory(utils, dmsData, bundle, quoteEmbedder, imageFactory, properties);
+        factory = new ICentreFactory(utils, dmsData, bundle, quoteEmbedder, imageFactory, properties, utils);
         mockBuilder = new TouristInformationMockBuilder().addICentre();
     }
 
@@ -99,7 +101,7 @@ class ICentreFactoryTest {
 
         when(bundle.getResourceBundle(ICentreFactory.BUNDLE_ID, "icentre.description.link.text", Locale.UK))
                 .thenReturn("link text");
-        when(properties.getSiteICentre(Locale.UK)).thenReturn("url");
+        when(utils.createUrlFromNode(any(),anyBoolean())).thenReturn("url");
 
         ICentreModule module = factory.getModule(mockBuilder.build().getICentre(), Locale.UK, "");
 
@@ -223,7 +225,7 @@ class ICentreFactoryTest {
     void getModuleNoLocationLinkLandingPage() throws JsonProcessingException {
         //Verifies that the module disappears when there is no ICentre
         when(dmsData.legacyMapSearch(any())).thenReturn(new ObjectMapper().readTree("[{}]"));
-        when(properties.getSiteICentre(Locale.UK)).thenReturn("url");
+        when(utils.createUrlFromNode(any(),anyBoolean())).thenReturn("url");
         when(bundle.getResourceBundle(ICentreFactory.BUNDLE_ID, "icentre.description.link.text", Locale.UK))
                 .thenReturn("link text");
         ICentreModule module = factory.getModule(mockBuilder.build().getICentre(), Locale.UK, "St. Kilda");

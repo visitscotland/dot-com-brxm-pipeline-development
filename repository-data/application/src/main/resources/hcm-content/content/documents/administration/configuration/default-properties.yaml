@@ -3,7 +3,7 @@
   jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
   jcr:uuid: a8a8926f-e625-4162-98b4-29f3c3b819b8
   hippo:name: Default Properties
-  hippo:versionHistory: 2df149ca-0589-4088-9876-73b9ca6360c9
+  hippo:versionHistory: 0e50b504-dbb1-4ee4-af8c-72d7f8eacef8
   /default-properties[1]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:versionable']
@@ -13,7 +13,7 @@
     hippostd:state: unpublished
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2021-02-05T15:37:26.056Z
-    hippostdpubwf:lastModificationDate: 2023-02-06T17:45:28.198Z
+    hippostdpubwf:lastModificationDate: 2023-02-08T17:51:47.804Z
     hippostdpubwf:lastModifiedBy: admin
     resourcebundle:descriptions: [URL prefix for Instagram endpoints, '', Client Token
         for Instagram request, '', Encoding for requests made to dms data endpoints,
@@ -71,27 +71,27 @@
       '| VisitScotland', VisitScotland, '@VisitScotland', 'false', GTM-WWKWV5K, '&gtm_auth=YWMt6gew5Au1PAnzyzMADQ&gtm_preview=env-3&gtm_cookies_win=x',
       'true', 'false', /site/data/internal, /site-search-results, '12809', '1000',
       '3600', '30000', /site-search-results, /test/examples/snow-sports, 'https://api.visitscotland.com/dev/data/',
-      'true', '10.0', /test/examples/about-us, /test/examples/icentres, /test/modules/form]
+      'true', '10.0', /test/examples/about-us, /test/examples/icentres/content, /test/modules/form/content]
     resourcebundle:messages_de: ['', '', '', '', '', '', '', '', '', '', '', '', '',
       '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
-      /de-de/site-search-results, '12812', '', '', '', '', '', '', '', '', '', /de-de/test/examples/icentres,
-      /de-de/test/modules/form]
+      /de-de/site-search-results, '12812', '', '', '', '', '', '', '', '', '', '',
+      '']
     resourcebundle:messages_es: ['', '', '', '', '', '', '', '', '', '', '', '', '',
       '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
-      /es-es/site-search-results, '12814', '', '', '', '', '', '', '', '', '', /es-es/test/examples/icentres,
-      /es-es/test/modules/form]
+      /es-es/site-search-results, '12814', '', '', '', '', '', '', '', '', '', '',
+      '']
     resourcebundle:messages_fr: ['', '', '', '', '', '', '', '', '', '', '', '', '',
       '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
-      /fr-fr/site-search-results, '12811', '', '', '', '', '', '', '', '', '', /fr-fr/test/examples/icentres,
-      /fr-fr/test/modules/form]
+      /fr-fr/site-search-results, '12811', '', '', '', '', '', '', '', '', '', '',
+      '']
     resourcebundle:messages_it: ['', '', '', '', '', '', '', '', '', '', '', '', '',
       '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
-      /it-it/site-search-results, '12813', '', '', '', '', '', '', '', '', '', /it-it/test/examples/icentres,
-      /it-it/test/modules/form]
+      /it-it/site-search-results, '12813', '', '', '', '', '', '', '', '', '', '',
+      '']
     resourcebundle:messages_nl: ['', '', '', '', '', '', '', '', '', '', '', '', '',
       '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
-      /nl-nl/site-search-results, '12810', '', '', '', '', '', '', '', '', '', /nl-nl/test/examples/icentres,
-      /nl-nl/test/modules/form]
+      /nl-nl/site-search-results, '12810', '', '', '', '', '', '', '', '', '', '',
+      '']
   /default-properties[2]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:referenceable']
@@ -101,7 +101,7 @@
     hippostd:state: draft
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2021-02-05T15:37:26.056Z
-    hippostdpubwf:lastModificationDate: 2023-02-06T17:14:22.416Z
+    hippostdpubwf:lastModificationDate: 2023-02-08T17:15:07.631Z
     hippostdpubwf:lastModifiedBy: admin
     resourcebundle:descriptions: [URL prefix for Instagram endpoints, '', Client Token
         for Instagram request, '', Encoding for requests made to dms data endpoints,
@@ -159,27 +159,27 @@
       '| VisitScotland', VisitScotland, '@VisitScotland', 'false', GTM-WWKWV5K, '&gtm_auth=YWMt6gew5Au1PAnzyzMADQ&gtm_preview=env-3&gtm_cookies_win=x',
       'true', 'false', /site/data/internal, /site-search-results, '12809', '1000',
       '3600', '30000', /site-search-results, /test/examples/snow-sports, 'https://api.visitscotland.com/dev/data/',
-      'true', '10.0', /test/examples/about-us, /test/examples/icentres, /test/modules/form]
+      'true', '10.0', /test/examples/about-us, /test/examples/icentres/content, /test/modules/form/content]
     resourcebundle:messages_de: ['', '', '', '', '', '', '', '', '', '', '', '', '',
       '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
-      /de-de/site-search-results, '12812', '', '', '', '', '', '', '', '', '', /de-de/test/examples/icentres,
-      /de-de/test/modules/form]
+      /de-de/site-search-results, '12812', '', '', '', '', '', '', '', '', '', '',
+      '']
     resourcebundle:messages_es: ['', '', '', '', '', '', '', '', '', '', '', '', '',
       '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
-      /es-es/site-search-results, '12814', '', '', '', '', '', '', '', '', '', /es-es/test/examples/icentres,
-      /es-es/test/modules/form]
+      /es-es/site-search-results, '12814', '', '', '', '', '', '', '', '', '', '',
+      '']
     resourcebundle:messages_fr: ['', '', '', '', '', '', '', '', '', '', '', '', '',
       '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
-      /fr-fr/site-search-results, '12811', '', '', '', '', '', '', '', '', '', /fr-fr/test/examples/icentres,
-      /fr-fr/test/modules/form]
+      /fr-fr/site-search-results, '12811', '', '', '', '', '', '', '', '', '', '',
+      '']
     resourcebundle:messages_it: ['', '', '', '', '', '', '', '', '', '', '', '', '',
       '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
-      /it-it/site-search-results, '12813', '', '', '', '', '', '', '', '', '', /it-it/test/examples/icentres,
-      /it-it/test/modules/form]
+      /it-it/site-search-results, '12813', '', '', '', '', '', '', '', '', '', '',
+      '']
     resourcebundle:messages_nl: ['', '', '', '', '', '', '', '', '', '', '', '', '',
       '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
-      /nl-nl/site-search-results, '12810', '', '', '', '', '', '', '', '', '', /nl-nl/test/examples/icentres,
-      /nl-nl/test/modules/form]
+      /nl-nl/site-search-results, '12810', '', '', '', '', '', '', '', '', '', '',
+      '']
   /default-properties[3]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:referenceable']
@@ -189,9 +189,9 @@
     hippostd:state: published
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2021-02-05T15:37:26.056Z
-    hippostdpubwf:lastModificationDate: 2023-02-06T17:45:28.198Z
+    hippostdpubwf:lastModificationDate: 2023-02-08T17:51:47.804Z
     hippostdpubwf:lastModifiedBy: admin
-    hippostdpubwf:publicationDate: 2023-02-06T17:45:30.562Z
+    hippostdpubwf:publicationDate: 2023-02-08T17:52:30.953Z
     resourcebundle:descriptions: [URL prefix for Instagram endpoints, '', Client Token
         for Instagram request, '', Encoding for requests made to dms data endpoints,
       "Token that identifies calls made to vs-dms-products as internal calls giving\
@@ -248,24 +248,24 @@
       '| VisitScotland', VisitScotland, '@VisitScotland', 'false', GTM-WWKWV5K, '&gtm_auth=YWMt6gew5Au1PAnzyzMADQ&gtm_preview=env-3&gtm_cookies_win=x',
       'true', 'false', /site/data/internal, /site-search-results, '12809', '1000',
       '3600', '30000', /site-search-results, /test/examples/snow-sports, 'https://api.visitscotland.com/dev/data/',
-      'true', '10.0', /test/examples/about-us, /test/examples/icentres, /test/modules/form]
+      'true', '10.0', /test/examples/about-us, /test/examples/icentres/content, /test/modules/form/content]
     resourcebundle:messages_de: ['', '', '', '', '', '', '', '', '', '', '', '', '',
       '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
-      /de-de/site-search-results, '12812', '', '', '', '', '', '', '', '', '', /de-de/test/examples/icentres,
-      /de-de/test/modules/form]
+      /de-de/site-search-results, '12812', '', '', '', '', '', '', '', '', '', '',
+      '']
     resourcebundle:messages_es: ['', '', '', '', '', '', '', '', '', '', '', '', '',
       '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
-      /es-es/site-search-results, '12814', '', '', '', '', '', '', '', '', '', /es-es/test/examples/icentres,
-      /es-es/test/modules/form]
+      /es-es/site-search-results, '12814', '', '', '', '', '', '', '', '', '', '',
+      '']
     resourcebundle:messages_fr: ['', '', '', '', '', '', '', '', '', '', '', '', '',
       '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
-      /fr-fr/site-search-results, '12811', '', '', '', '', '', '', '', '', '', /fr-fr/test/examples/icentres,
-      /fr-fr/test/modules/form]
+      /fr-fr/site-search-results, '12811', '', '', '', '', '', '', '', '', '', '',
+      '']
     resourcebundle:messages_it: ['', '', '', '', '', '', '', '', '', '', '', '', '',
       '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
-      /it-it/site-search-results, '12813', '', '', '', '', '', '', '', '', '', /it-it/test/examples/icentres,
-      /it-it/test/modules/form]
+      /it-it/site-search-results, '12813', '', '', '', '', '', '', '', '', '', '',
+      '']
     resourcebundle:messages_nl: ['', '', '', '', '', '', '', '', '', '', '', '', '',
       '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
-      /nl-nl/site-search-results, '12810', '', '', '', '', '', '', '', '', '', /nl-nl/test/examples/icentres,
-      /nl-nl/test/modules/form]
+      /nl-nl/site-search-results, '12810', '', '', '', '', '', '', '', '', '', '',
+      '']

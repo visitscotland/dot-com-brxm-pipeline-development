@@ -264,10 +264,9 @@ class PageTemplateBuilderTest {
         when(utils.getAllowedDocuments(page)).thenReturn(Collections.singletonList(ti));
         when(iKnowFactory.getIKnowModule(any(), eq(null), eq(request.getLocale()))).thenReturn(new IKnowModule());
 
-        when(properties.getSiteICentre(Locale.UK)).thenReturn("/icentre-landing");
-        request.setRequestURI("/destination/edinburgh");
+        when(properties.getSiteICentre()).thenReturn("/icentre-landing");
+        request.setPathInfo("/destination/edinburgh");
 
-        
         builder.addModules(request);
 
         List<Module> items = (List<Module>) request.getAttribute(PageTemplateBuilder.PAGE_ITEMS);
@@ -285,8 +284,8 @@ class PageTemplateBuilderTest {
         lenient().when(iCentreFactory.getModule(any(), eq(request.getLocale()), eq(null))).thenReturn(new ICentreModule());
         when(iKnowFactory.getIKnowModule(any(), eq(null), eq(request.getLocale()))).thenReturn(new IKnowModule());
 
-        when(properties.getSiteICentre(Locale.UK)).thenReturn("/icentre-landing");
-        request.setRequestURI("/icentre-landing");
+        when(properties.getSiteICentre()).thenReturn("/icentre-landing");
+        request.setPathInfo("/icentre-landing");
 
         builder.addModules(request);
 

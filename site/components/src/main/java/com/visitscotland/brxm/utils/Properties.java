@@ -192,12 +192,12 @@ public class Properties {
     }
 
 
-    public String getSiteNewsletter(Locale locale) {
-        return readString(PATH_NEWSLETTER, locale);
+    public String getSiteNewsletter() {
+        return readString(PATH_NEWSLETTER);
     }
 
-    public String getSiteICentre(Locale locale) {
-        return readString(PATH_ICENTRE, locale);
+    public String getSiteICentre() {
+        return readString(PATH_ICENTRE);
     }
 
     public Integer getContentCacheRetention() {
