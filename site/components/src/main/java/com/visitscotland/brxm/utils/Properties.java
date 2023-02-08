@@ -191,16 +191,11 @@ public class Properties {
         return readString(PATH_GLOBAL_SEARCH);
     }
 
-    /**
-     * TODO: Don't use translated paths, use documents instead
-     */
+
     public String getSiteNewsletter(Locale locale) {
         return readString(PATH_NEWSLETTER, locale);
     }
 
-    /**
-     * TODO: Don't use translated paths, use documents instead
-     */
     public String getSiteICentre(Locale locale) {
         return readString(PATH_ICENTRE, locale);
     }
