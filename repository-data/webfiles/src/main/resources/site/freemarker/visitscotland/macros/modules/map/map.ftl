@@ -64,11 +64,10 @@
                 details-endpoint="${module.detailsEndpoint}"
             </#if>
             <#if module.mapType = 'regional'>
-                panel-message="${label('map', 'map.region-map-message')}"
+                panel-message="${label('map', 'map.panel-bottom-msg')}"
             </#if>
             map-filter-message="${label('map', 'map.apply-filters')}"
             map-no-results-message="${label('map', 'map.no-results')}"
-            panel-message="${label('map', 'map.panel-bottom-msg')}"
         >
 
             <template slot="closeSidePanelText">
