@@ -10328,6 +10328,62 @@
               /visitscotland:introduction:
                 jcr:primaryType: hippostd:html
                 hippostd:content: <p>Highlands intro</p>
+          /highlands-map:
+            jcr:primaryType: hippo:handle
+            jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+            jcr:uuid: 41924daa-58f1-47ba-943c-3df6a93e37e7
+            hippo:name: Highlands map
+            hippo:versionHistory: 1f289f95-312e-40bf-8b1d-059e8e1cec1f
+            /highlands-map[1]:
+              jcr:primaryType: visitscotland:MapModule
+              jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
+              jcr:uuid: f642e407-3814-43b8-a241-d9a72e21fc68
+              hippo:availability: []
+              hippostd:retainable: false
+              hippostd:state: draft
+              hippostdpubwf:createdBy: admin
+              hippostdpubwf:creationDate: 2023-02-08T10:43:08.988Z
+              hippostdpubwf:lastModificationDate: 2023-02-08T10:43:08.988Z
+              hippostdpubwf:lastModifiedBy: admin
+              hippotranslation:id: a557104d-364b-4770-a0d7-f866d6959275
+              hippotranslation:locale: en
+              visitscotland:mapType: ''
+              visitscotland:tabTitle: ''
+              visitscotland:title: Highlands map
+            /highlands-map[2]:
+              jcr:primaryType: visitscotland:MapModule
+              jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable',
+                'mix:versionable']
+              jcr:uuid: 12552aff-20bd-4ced-994f-497029c4117f
+              hippo:availability: [preview]
+              hippostd:retainable: false
+              hippostd:state: unpublished
+              hippostdpubwf:createdBy: admin
+              hippostdpubwf:creationDate: 2023-02-08T10:43:08.988Z
+              hippostdpubwf:lastModificationDate: 2023-02-08T10:43:30.721Z
+              hippostdpubwf:lastModifiedBy: admin
+              hippotranslation:id: a557104d-364b-4770-a0d7-f866d6959275
+              hippotranslation:locale: en
+              visitscotland:mapType: ''
+              visitscotland:tabTitle: ''
+              visitscotland:title: Highlands map
+            /highlands-map[3]:
+              jcr:primaryType: visitscotland:MapModule
+              jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
+              jcr:uuid: 4b982005-0116-45da-815d-e0e21909aac3
+              hippo:availability: [live]
+              hippostd:retainable: false
+              hippostd:state: published
+              hippostdpubwf:createdBy: admin
+              hippostdpubwf:creationDate: 2023-02-08T10:43:08.988Z
+              hippostdpubwf:lastModificationDate: 2023-02-08T10:43:30.721Z
+              hippostdpubwf:lastModifiedBy: admin
+              hippostdpubwf:publicationDate: 2023-02-08T10:43:41.798Z
+              hippotranslation:id: a557104d-364b-4770-a0d7-f866d6959275
+              hippotranslation:locale: en
+              visitscotland:mapType: ''
+              visitscotland:tabTitle: ''
+              visitscotland:title: Highlands map
         /fife:
           jcr:primaryType: hippostd:folder
           jcr:mixinTypes: ['hippo:named', 'hippotranslation:translated', 'mix:versionable']
