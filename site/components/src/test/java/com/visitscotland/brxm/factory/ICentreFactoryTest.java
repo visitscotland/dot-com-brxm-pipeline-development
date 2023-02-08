@@ -223,8 +223,7 @@ class ICentreFactoryTest {
     void getModuleNoLocationLinkLandingPage() throws JsonProcessingException {
         //Verifies that the module disappears when there is no ICentre
         when(dmsData.legacyMapSearch(any())).thenReturn(new ObjectMapper().readTree("[{}]"));
-        when(bundle.getResourceBundle(ICentreFactory.BUNDLE_ID, "icentre.description.link", Locale.UK))
-                .thenReturn("url");
+        when(properties.getSiteICentre(Locale.UK)).thenReturn("url");
         when(bundle.getResourceBundle(ICentreFactory.BUNDLE_ID, "icentre.description.link.text", Locale.UK))
                 .thenReturn("link text");
         ICentreModule module = factory.getModule(mockBuilder.build().getICentre(), Locale.UK, "St. Kilda");
