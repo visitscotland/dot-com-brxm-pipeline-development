@@ -219,13 +219,19 @@ class ICentreFactoryTest {
     }
 
     @Test
-    @DisplayName("VS-1507 - The module disappears when there is not iCentres in the location")
-    void getModule_disappear() throws JsonProcessingException {
+    @DisplayName("VS-4595 - The module has a link to the iCentre landing page when there is not iCentres in the location")
+    void getModuleNoLocationLinkLandingPage() throws JsonProcessingException {
         //Verifies that the module disappears when there is no ICentre
         when(dmsData.legacyMapSearch(any())).thenReturn(new ObjectMapper().readTree("[{}]"));
+        when(bundle.getResourceBundle(ICentreFactory.BUNDLE_ID, "icentre.description.link", Locale.UK))
+                .thenReturn("url");
+        when(bundle.getResourceBundle(ICentreFactory.BUNDLE_ID, "icentre.description.link.text", Locale.UK))
+                .thenReturn("link text");
         ICentreModule module = factory.getModule(mockBuilder.build().getICentre(), Locale.UK, "St. Kilda");
 
-        assertNull(module);
+        assertEquals(1, module.getLinks().size());
+        assertEquals("url", module.getLinks().get(0).getLink());
+        assertEquals("link text", module.getLinks().get(0).getLabel());
     }
 
     @Test
