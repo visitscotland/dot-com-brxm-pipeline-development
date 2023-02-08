@@ -34,7 +34,7 @@
                     <#list module.links as iCentre>
                         <vs-link href="${iCentre.link}">${iCentre.label}</vs-link><#t>
                         <#if iCentre?counter == (module.links?size - 1)>
-                            &nbsp;and&nbsp;<#t>
+                            &nbsp;${label("tourism.information","icentre.and")}&nbsp;<#t>
                         <#else>
                             <#if iCentre?has_next>,&nbsp;</#if><#t>
                         </#if>
