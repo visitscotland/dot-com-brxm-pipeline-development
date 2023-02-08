@@ -83,6 +83,7 @@ public class MapFactory {
         }else{
             module.setDetailsEndpoint("");
             module.setMapPosition(mapper.createObjectNode());
+            module.setMapType(MapType.GENERAL.getMapType());
             //bespoke maps data and pins coming from DMS
             if (!Contract.isEmpty(mapModuleDocument.getMapType())){
                 //Feature places on top of these maps
@@ -158,6 +159,7 @@ public class MapFactory {
             mapService.addFeaturePlacesNode(module, mapModuleDocument.getCategories(), locale , keys, features);
         }
         if (destinationPage.getKeys() == null || !Arrays.asList(destinationPage.getKeys()).contains(REGIONS)) {
+            module.setMapType(MapType.CITIES.getMapType());
             geometryNode = dmsDataService.getLocationBorders(location.getId(),false);
             for (CitiesMapTab prodType : CitiesMapTab.values()) {
                 //filters
@@ -179,6 +181,7 @@ public class MapFactory {
                 keys.add(filter);
             }
         }else{
+            module.setMapType(MapType.REGIONAL.getMapType());
             geometryNode = dmsDataService.getLocationBorders(location.getId(),false);
             //for multipolygon regions we need the bounds, if geometryNode is empty means it is a polygon
             if (geometryNode == null || geometryNode.isEmpty()) {
