@@ -1,3 +1,5 @@
+<#include "../modules/horizontal-list/horizontal-list.ftl">
+<#include "preview-warning.ftl">
 
 <#macro otymlModule module editMode>
     <#if module?? >

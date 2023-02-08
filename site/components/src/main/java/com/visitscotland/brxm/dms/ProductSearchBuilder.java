@@ -57,6 +57,7 @@ public class ProductSearchBuilder {
     private Boolean offers;
     private Boolean free;
     private Boolean safeTravels;
+    private Boolean daysOut;
     private String keywords;
     private Order order;
     private Integer size;
@@ -99,6 +100,7 @@ public class ProductSearchBuilder {
             free(ps.getFree());
             keywords(ps.getKeywords());
             safeTravels(ps.getSafeTravels());
+            daysOut(ps.getDaysOut());
             channel(ps.getChannel());
         }
         return this;
@@ -238,6 +240,12 @@ public class ProductSearchBuilder {
         return this;
     }
 
+    public ProductSearchBuilder daysOut(Boolean daysOut){
+        this.daysOut = daysOut;
+
+        return this;
+    }
+
     public ProductSearchBuilder channel(String channel){
         this.channel = channel;
 
@@ -370,6 +378,9 @@ public class ProductSearchBuilder {
         }
         if (Boolean.TRUE.equals(safeTravels)){
             compose = addParams(compose, FACILITY_PARAM, "safetrav");
+        }
+        if (Boolean.TRUE.equals(daysOut)){
+            compose = addParams(compose, FACILITY_PARAM, "daysoutscotland");
         }
         if (keywords != null){
             compose = addParams(compose, KEYWORDS, keywords);
