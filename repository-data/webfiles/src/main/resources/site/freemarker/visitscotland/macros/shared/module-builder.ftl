@@ -1,21 +1,8 @@
 <#compress>
     <#include "../../../include/imports.ftl">
-    <#include "../global/preview-warning.ftl">
-    <#include "../modules/megalinks/megalinks.ftl">
-    <#include "../modules/article/article.ftl">
-    <#include "../modules/long-copy/long-copy.ftl">
-    <#include "../modules/marketo/marketo.ftl">
-    <#include "../modules/iknow-community/iknow-community.ftl">
-    <#include "../modules/travel-information/travel-information.ftl">
-    <#include "../modules/tourism-information/tourisminformation-iknow.ftl">
-    <#include "../modules/tourism-information/tourisminformation-icentre.ftl">
-    <#include "../modules/horizontal-list/horizontal-list.ftl">
-    <#include "../modules/stackla/stackla.ftl">
-    <#include "../modules/canned-search/canned-search.ftl">
-    <#include "../modules/map/map.ftl">
-    <#include "../modules/ski-centre/ski-centre.ftl">
-    <#include "../modules/ski-centre-list/ski-centre-list.ftl">
     <#include "theme-calculator.ftl">
+
+    <#include "../global/include-once.ftl">
 
     <#-- Implicit Request Objects -->
     <#-- @ftlvariable name="document" type="com.visitscotland.brxm.hippobeans.Destination" -->
@@ -39,33 +26,50 @@
             <@hst.manageContent hippobean=module.hippoBean />
         </#if>
         <#if moduleType == "megalinks">
+            <@includeOnce "../modules/megalinks/megalinks.ftl" />
             <#-- all Megalinks modules except HorizontalListLinksModule -->
             <@megalinks item=module type=module.getType() theme=themeName />
         <#elseif moduleType == "HorizontalListLinksModule">
+            <@includeOnce "../modules/horizontal-list/horizontal-list.ftl" />
             <@horizontalList module themeName "vs-megalinks-carousel" />
         <#elseif moduleType == "ICentreModule">
+            <@includeOnce "../modules/tourism-information/tourisminformation-icentre.ftl" />
             <@icentre module themeName/>
         <#elseif moduleType == "IKnowModule">
+            <@includeOnce "../modules/tourism-information/tourisminformation-iknow.ftl" />
             <@iknow module themeName/>
         <#elseif moduleType == "ArticleModule">
+            <@includeOnce "../modules/article/article.ftl" />
             <@article module/>
         <#elseif moduleType == "LongCopyModule">
+            <@includeOnce "../modules/long-copy/long-copy.ftl" />
             <@longCopy module/>
         <#elseif moduleType == "StacklaModule">
+            <@includeOnce "../modules/stackla/stackla.ftl" />
             <@stackla module/>
         <#elseif moduleType == "TravelInformationModule">
+            <@includeOnce "../modules/travel-information/travel-information.ftl" />
             <@travelInformation module/>
         <#elseif moduleType == "MapsModule">
+            <@includeOnce "../modules/map/map.ftl" />
             <@map module/>
         <#elseif moduleType == "CannedSearchModule">
+            <@includeOnce "../modules/canned-search/canned-search.ftl" />
             <@cannedSearch module themeName/>
         <#elseif moduleType == "MarketoFormModule">
+            <@includeOnce "../modules/marketo/marketo.ftl" />
             <@marketo module/>
         <#elseif moduleType == "SkiModule">
+            <@includeOnce "../modules/ski-centre/ski-centre.ftl" />
             <@skiCentre module/>
         <#elseif moduleType == "SkiListModule">
+            <@includeOnce "../modules/ski-centre-list/ski-centre-list.ftl" />
             <@skiCentreList module/>
+        <#elseif module.getType()== "SimpleDevModule">
+            <@includeOnce "../modules/dev-module/dev-module.ftl" />
+            <@devModule module/>
         <#else >
+            <@includeOnce "../global/preview-warning.ftl" />
             <@previewWarning editMode module module.errorMessages true />
         </#if>
     </div>

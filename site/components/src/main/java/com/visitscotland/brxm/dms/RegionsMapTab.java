@@ -15,7 +15,6 @@ public enum RegionsMapTab {
         this.label = label;
     }
 
-
     public String getProdTypeId() {
         return prodTypeId;
     }
@@ -26,5 +25,14 @@ public enum RegionsMapTab {
 
     public String getLabel() {
         return label;
+    }
+
+    public static RegionsMapTab findByCategory(String category){
+        for(RegionsMapTab val : values()){
+            if( val.getCategory().equals(category)){
+                return val;
+            }
+        }
+        return null;
     }
 }

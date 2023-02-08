@@ -21,6 +21,7 @@ public class General extends Page {
                 "visitscotland:CannedSearchTours",
                 "visitscotland:CannedSearch",
                 "visitscotland:MapModule",
+                "visitscotland:DevModule",
                 "visitscotland:MarketoForm",
                 "visitscotland:SkiCentre",
                 "visitscotland:SkiCentreList"};
