@@ -84,6 +84,8 @@ public class MapFactory {
         if (page instanceof Destination){
             buildDestinationMapPages(request.getLocale(),(Destination)page, mapModuleDocument, module, keys, features);
         }else{
+            module.setDetailsEndpoint("");
+            module.setMapPosition(mapper.createObjectNode());
             //bespoke maps data and pins coming from DMS
             if (!Contract.isEmpty(mapModuleDocument.getMapType())){
                 //Feature places on top of these maps
