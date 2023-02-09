@@ -3,45 +3,108 @@
 <#include "../../../../frontend/components/vs-container.ftl">
 <#include "../../../../frontend/components/vs-row.ftl">
 <#include "../../../../frontend/components/vs-col.ftl">
-<#include "../../../../frontend/components/vs-button.ftl">
-<#include "../../../../frontend/components/vs-img.ftl">
-<#include "../../../../frontend/components/vs-rich-text-wrapper.ftl">
+<#include "../../../../frontend/components/vs-ski-scotland-card.ftl">
 <#include "../../global/preview-warning.ftl">
 
 <#-- @ftlvariable name="module" type="com.visitscotland.brxm.model.SkiListModule" -->
 <#macro skiCentreList module>
     <@previewWarning editMode module module.errorMessages />
-    <!-- TODO THIS IS JUST A PLACE HOLDER
 
-    TITLE : ${module.title}
-    INTRO : ${module.introduction?html}
+    <vs-module-wrapper theme="light">
+        <template slot="vsModuleWrapperHeading">
+            ${module.title}
+        </template>
 
-    <#list module.skiCentres as centre>
-    - CENTRE = ${centre.title}
-        - JSON = ${centre.feedURL}
-        - PISTE_MAP = ${centre.pisteMap}
-        - CMS_PAGE = ${centre.cmsPage.link}
-    </#list>
+        <template slot="vsModuleWrapperIntro">
+            <@hst.html hippohtml=module.introduction/>
+        </template>
 
-    CONFIGURATION
-        Timeout - ${property("ski.timeout")}
-        locale - ${locale}
-
-    LABELS FOR THE CARDS
-            ${label("ski", "ski-centre.status")} // Status
-            ${label("ski", "ski-centre.lifts")} // Runs
-            ${label("ski", "ski-centre.lifts")} // Lifts
-            ${label("ski", "ski-centre.summary.open")} //Open
-            ${label("ski", "ski-centre.summary.closed")} //Closed
-            ${label("ski", "ski-centre.summary.expected-to-open")} //Expected to Open
-            ${label("ski", "ski-centre.summary.on-hold")} //On Hold
-            ${label("ski", "ski-centre.summary.limited-patrol")} //Limited Patrol
-            ${label("ski", "ski-centre.summary.open-soon")} //Open soon
-            ${label("ski", "ski-centre.view-piste-map")} // View Piste Map
-            ${label("ski", "ski-centre.more-details")} // More Details
-            ${label("ski", "ski-centre.last-updated")} // Last updated
-            ${label("ski", "ski-data.no-js")} // JavaScript needs to be enabled to see Run and Lift status
-            ${label("ski", "ski-data.loading")} // Data is currently loading, please wait…
-            ${label("ski", "ski-data.unavailable")} // Data is currently unavailable, please try again later.
-    -->
+        <vs-container>
+            <vs-row
+                class="mx-n4 mx-lg-n8"
+            >
+                <#list module.skiCentres as centre>
+                    <@hst.link var="imageSrc" hippobean=centre.cmsPage.image.cmsImage.original/>
+                    <vs-col
+                        cols="12"
+                        sm="6"
+                        lg="4"
+                        class="px-4 px-lg-8 text-left"
+                    >
+                        <vs-ski-scotland-card
+                            centre-info-url="${centre.feedURL}"
+                            locale="${locale}"
+                            timeout-duration="${property('ski.timeout')}"
+                            img-src="${imageSrc}"
+                            img-alt="${centre.cmsPage.image.altText}"
+                            more-details-link="${centre.cmsPage.link}"
+                            piste-map-link="${centre.pisteMap}"
+                            last-updated-label="${label('ski', 'ski-centre.last-updated')}"
+                            lifts-label="${label('ski', 'ski-centre.lifts')}"
+                            runs-label="${label('ski', 'ski-centre.runs')}"
+                            runs-lifts-status-label="${label('ski', 'ski-centre.run-lift-status')}"
+                            status-label="${label('ski', 'ski-centre.status')}"
+                            summary-closed-label="${label('ski', 'ski-centre.summary.closed')}"
+                            summary-open-label="${label('ski', 'ski-centre.summary.open')}"
+                            summary-opening-label="${label('ski', 'ski-centre.summary.expected-to-open')}"
+                            summary-limited-patrol-label="${label('ski', 'ski-centre.summary.limited-patrol')}"
+                            summary-on-hold-label="${label('ski', 'ski-centre.summary.on-hold')}"
+                            piste-map-label="${label('ski', 'ski-centre.view-piste-map')}"
+                            more-details-label="${label('ski', 'ski-centre.more-details')}"
+                        >
+                            <template slot="centre-name">${centre.title}</template>
+                            <div slot="data-loading">
+                                ${label("ski", "ski-data.loading")}
+                            </div>
+                            <div slot="data-unavailable">
+                                ${label("ski", "ski-data.unavailable")}
+                            </div>
+                            <div slot="js-required">
+                                ${label("ski", "ski-data.no-js")}
+                            </div>
+                        </vs-ski-scotland-card>
+                    </vs-col>
+                </#list>
+            </vs-row>
+        </vs-container>
+        <vs-container class="mt-8">
+            <vs-row>
+                <vs-col
+                    cols="6"
+                    md="3"
+                    offset-md="3"
+                    lg="2"
+                    offset-lg="4"
+                    class="d-flex"
+                    style="align-items: center;"
+                >
+                    <vs-img
+                        src="https://static.visitscotland.com/img/ski-scotland/ski-scotland.png"
+                        class="w-100 p-4"
+                    />
+                </vs-col>
+                <vs-col
+                    cols="6"
+                    md="3"
+                    lg="2"
+                    class="d-flex"
+                    style="align-items: center;"
+                >
+                    <vs-img
+                        src="https://static.visitscotland.com/img/ski-scotland/cairngorm-mountain.svg"
+                        class="w-100 p-4"
+                    />
+                </vs-col>
+            </vs-row>
+            <vs-row>
+                <vs-col
+                    cols="12"
+                    md="6"
+                    offset-md="3"
+                >
+                    <p>${label("ski", "ski-data.provider")}</p>
+                </vs-col>
+            </vs-row>
+        </vs-container>
+    </vs-module-wrapper>
 </#macro>
