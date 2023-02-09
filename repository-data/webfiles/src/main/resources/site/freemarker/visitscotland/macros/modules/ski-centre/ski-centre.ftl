@@ -8,6 +8,7 @@
 <#include "../../../../frontend/components/vs-row.ftl">
 <#include "../../../../frontend/components/vs-col.ftl">
 <#include "../../../../frontend/components/vs-list.ftl">
+<#include "../../../../frontend/components/vs-img.ftl">
 <#include "../../global/address.ftl">
 <#include "../../global/preview-warning.ftl">
 
@@ -201,6 +202,34 @@
             </vs-row>
         </vs-container>
         <vs-container class="mt-8">
+            <vs-row>
+                <vs-col
+                    cols="6"
+                    md="3"
+                    offset-md="3"
+                    lg="2"
+                    offset-lg="4"
+                    class="d-flex"
+                    style="align-items: center;"
+                >
+                    <vs-img
+                        src="https://static.visitscotland.com/img/ski-scotland/ski-scotland.jpg"
+                        class="w-100 p-4"
+                    />
+                </vs-col>
+                <vs-col
+                    cols="6"
+                    md="3"
+                    lg="2"
+                    class="d-flex"
+                    style="align-items: center;"
+                >
+                    <vs-img
+                        src="https://static.visitscotland.com/img/ski-scotland/cairngorm-mountain.svg"
+                        class="w-100 p-4"
+                    />
+                </vs-col>
+            </vs-row>
             <vs-row>
                 <vs-col
                     cols="12"
