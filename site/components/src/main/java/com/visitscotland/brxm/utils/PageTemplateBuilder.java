@@ -190,7 +190,7 @@ public class PageTemplateBuilder {
      * Creates a LinkModule from a TouristInformation document
      */
     private void processTouristInformation(HstRequest request, PageConfiguration page, TourismInformation touristInfo, String location){
-        if (isICentreLanding(request)) {
+        if (!isICentreLanding(request)) {
             ICentreModule iCentreModule = iCentreFactory.getModule(touristInfo.getICentre(), request.getLocale(), location);
 
             if (iCentreModule != null) {
