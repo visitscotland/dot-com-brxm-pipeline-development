@@ -1,3 +1,5 @@
+<#include "../../../frontend/components/vs-quote.ftl">
+
 <#macro quote quoteItem variant="narrow">    
     <vs-quote variant="${variant}">
         <#if quoteItem.image??>
