@@ -79,7 +79,7 @@
                     style="align-items: center;"
                 >
                     <vs-img
-                        src="https://static.visitscotland.com/img/ski-scotland/ski-scotland.jpg"
+                        src="https://static.visitscotland.com/img/ski-scotland/ski-scotland.png"
                         class="w-100 p-4"
                     />
                 </vs-col>
