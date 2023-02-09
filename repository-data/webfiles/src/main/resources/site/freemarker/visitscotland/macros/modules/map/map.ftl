@@ -28,6 +28,40 @@
             false
         </#assign>
     </#if>
+
+    <#assign toggleValues>
+        [
+            {
+                text: '${placesText?trim}',
+                value: 'places',
+                icon: 'pin'
+            },
+            {
+                text: '${regionsText?trim}',
+                value: 'regions',
+                icon: 'map',
+            },
+        ]
+    </#assign>
+
+    <#if module.mapType = 'regional'>
+        <#assign toggleValues>
+            [
+                {
+                    text: '${placesText?trim}',
+                    value: 'places-regional',
+                    icon: 'pin'
+                },
+                {
+                    text: 'iCentres',
+                    value: 'icentres',
+                    icon: 'serv',
+                },
+            ]
+        </#assign>
+    </#if>
+
+
     <vs-module-wrapper>
         <template slot="vsModuleWrapperHeading">
             ${module.title}
@@ -42,18 +76,7 @@
             :filters="${escapeJSON(module.filters,true)}"
             :places-data="${escapeJSON(module.geoJson.features,true)}"
             map-id="vs-map-${module.id}"
-            :toggle-data="[
-                {
-                    text: '${placesText?trim}',
-                    value: 'places',
-                    icon: 'pin'
-                },
-                {
-                    text: '${regionsText?trim}',
-                    value: 'regions',
-                    icon: 'map',
-                },
-            ]"
+            :toggle-data="${toggleValues}"
             buttons-label="${label('map', 'map.buttons-label')}"
             clear-selection-text="${label('map', 'map.clear')}"
             apply-filters-text="${label('map', 'map.show-results')}"
