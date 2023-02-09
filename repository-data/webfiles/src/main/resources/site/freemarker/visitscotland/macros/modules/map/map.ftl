@@ -28,6 +28,40 @@
             false
         </#assign>
     </#if>
+
+    <#assign toggleValues>
+        [
+            {
+                text: '${placesText?trim}',
+                value: 'places',
+                icon: 'pin'
+            },
+            {
+                text: '${regionsText?trim}',
+                value: 'regions',
+                icon: 'map',
+            },
+        ]
+    </#assign>
+
+    <#if module.mapType = 'regional'>
+        <#assign toggleValues>
+            [
+                {
+                    text: '${placesText?trim}',
+                    value: 'places-regional',
+                    icon: 'pin'
+                },
+                {
+                    text: 'iCentres',
+                    value: 'icentres',
+                    icon: 'serv',
+                },
+            ]
+        </#assign>
+    </#if>
+
+
     <vs-module-wrapper>
         <template slot="vsModuleWrapperHeading">
             ${module.title}
@@ -42,28 +76,21 @@
             :filters="${escapeJSON(module.filters,true)}"
             :places-data="${escapeJSON(module.geoJson.features,true)}"
             map-id="vs-map-${module.id}"
-            :toggle-data="[
-                {
-                    text: '${placesText?trim}',
-                    value: 'places',
-                    icon: 'pin'
-                },
-                {
-                    text: '${regionsText?trim}',
-                    value: 'regions',
-                    icon: 'map',
-                },
-            ]"
+            :toggle-data="${toggleValues}"
             buttons-label="${label('map', 'map.buttons-label')}"
             clear-selection-text="${label('map', 'map.clear')}"
             apply-filters-text="${label('map', 'map.show-results')}"
-            details-endpoint="${module.detailsEndpoint}"
             filters-applied-text="${label('map', 'map.filters-applied')}"
             clear-filters-text="${label('map', 'map.clear')}"
             :region-bounds="${escapeJSON(module.mapPosition,true)}"
+            <#if module.detailsEndpoint??>
+                details-endpoint="${module.detailsEndpoint}"
+            </#if>
+            <#if module.mapType = 'regional'>
+                panel-message="${label('map', 'map.panel-bottom-msg')}"
+            </#if>
             map-filter-message="${label('map', 'map.apply-filters')}"
             map-no-results-message="${label('map', 'map.no-results')}"
-            panel-message="${label('map', 'map.panel-bottom-msg')}"
         >
 
             <template slot="closeSidePanelText">
@@ -91,6 +118,12 @@
             </template>
             <template slot="panelLoadingMessage">
                 ${label('map', 'map.loading-results')}
+            </template>
+            <template slot="zoomTooClose">
+                ${label('map', 'map.zoom-too-close')}
+            </template>
+            <template slot="zoomTooFar">
+                ${label('map', 'map.zoom-too-far')}
             </template>
         </vs-main-map-wrapper>
     </vs-module-wrapper>
