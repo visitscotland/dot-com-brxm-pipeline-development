@@ -21,8 +21,8 @@ public class SkiCentreList extends BaseDocument {
     }
 
     @HippoEssentialsGenerated(internalName = "visitscotland:links", allowModifications = false)
-    public List<HippoBean> getMegalinkItems() {
-        return getLinkedBeans("visitscotland:links", HippoBean.class);
+    public List<Page> getMegalinkItems() {
+        return getLinkedBeans("visitscotland:links", Page.class);
     }
 
     @HippoEssentialsGenerated(internalName = "visitscotland:diff")

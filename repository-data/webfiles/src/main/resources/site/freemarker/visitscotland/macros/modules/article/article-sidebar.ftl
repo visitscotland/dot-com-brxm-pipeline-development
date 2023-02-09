@@ -1,6 +1,7 @@
 <#include "../../../../frontend/components/vs-article-sidebar.ftl">
 <#include "../../../macros/modules/modal/modal.ftl">
 <#include "../../../macros/modules/video/video.ftl">
+<#include "../../global/quote.ftl">
 
 <#macro articleSidebar section alignSidebar>
     <vs-article-sidebar sidebar-align="${alignSidebar}">

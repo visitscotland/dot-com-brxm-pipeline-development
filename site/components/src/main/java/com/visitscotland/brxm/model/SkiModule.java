@@ -2,6 +2,7 @@ package com.visitscotland.brxm.model;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.visitscotland.brxm.hippobeans.SkiCentre;
+import com.visitscotland.brxm.model.megalinks.EnhancedLink;
 import org.hippoecm.hst.content.beans.standard.HippoHtml;
 
 import java.util.List;
@@ -18,6 +19,7 @@ public class SkiModule extends Module<SkiCentre> {
     private JsonNode website;
     private JsonNode address;
     private FlatLink openingLink;
+    private EnhancedLink cmsPage;
 
     private List<JsonNode> socialChannels;
 
@@ -92,5 +94,13 @@ public class SkiModule extends Module<SkiCentre> {
 
     public void setOpeningLink(FlatLink openingLink) {
         this.openingLink = openingLink;
+    }
+
+    public FlatLink getCmsPage() {
+        return cmsPage;
+    }
+
+    public void setCmsPage(EnhancedLink cmsPage) {
+        this.cmsPage = cmsPage;
     }
 }

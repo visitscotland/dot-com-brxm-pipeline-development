@@ -24,7 +24,7 @@ public class MapModuleValidator implements Validator<Node> {
             if (document.getProperty(TITLE).getString().isEmpty() && document.getProperty(TAB_TITLE).getString().isEmpty()) {
                 return Optional.of(context.createViolation());
             }
-            if (!document.getProperty(MAP_TYPE).getString().isEmpty() && document.getProperty(MAP_KEYS).getValues().length > 0) {
+            if (!document.getProperty(MAP_TYPE).getString().isEmpty() && (document.hasProperty(MAP_KEYS) && document.getProperty(MAP_KEYS).getValues().length > 0)) {
                 return Optional.of(context.createViolation("bespokeMap"));
             }
         } catch (RepositoryException e) {

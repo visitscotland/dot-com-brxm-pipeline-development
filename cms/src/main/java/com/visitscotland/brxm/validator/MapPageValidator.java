@@ -21,6 +21,7 @@ import java.util.Optional;
 public class MapPageValidator implements Validator<Node> {
 
     static final String MAP_KEYS = "hippotaxonomy:keys";
+    static final String MAP_TYPE = "visitscotland:mapType";
     static final String GENERAL_PAGE = "generalPage";
     private static final Logger logger = LoggerFactory.getLogger(MapPageValidator.class);
 
@@ -48,7 +49,9 @@ public class MapPageValidator implements Validator<Node> {
                         }
                     }
                 }else{
-                    return Optional.of(validationContext.createViolation(GENERAL_PAGE));
+                    if (node.getProperty(MAP_TYPE).getValue().getString().isEmpty()) {
+                        return Optional.of(validationContext.createViolation(GENERAL_PAGE));
+                    }
                 }
             } else {
                 if (node.hasProperty(MAP_KEYS)) {
