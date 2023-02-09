@@ -11785,6 +11785,172 @@
           /visitscotland:copy:
             jcr:primaryType: hippostd:html
             hippostd:content: ''
+    /ski-sign-up-form:
+      jcr:primaryType: hippostd:folder
+      jcr:mixinTypes: ['hippo:named', 'hippotranslation:translated', 'mix:versionable']
+      jcr:uuid: 635273c9-02a6-4ba8-9767-470908012089
+      hippo:name: Ski Sign Up Form
+      hippostd:foldertype: [new-translated-folder-test, new-document]
+      hippotranslation:id: 371448fd-5f4f-410b-8646-15e17d8a689e
+      hippotranslation:locale: en
+      /content:
+        jcr:primaryType: hippo:handle
+        jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+        jcr:uuid: 6df04061-f1c7-4d4d-b453-42992959974d
+        hippo:name: Ski Signup Example Page
+        hippo:versionHistory: 645d38a4-060d-4098-8d47-9d121645ec89
+        /content[1]:
+          jcr:primaryType: visitscotland:General
+          jcr:mixinTypes: ['mix:referenceable']
+          jcr:uuid: 3e5db969-fe3e-498c-b062-343e852650f2
+          hippo:availability: []
+          hippostd:retainable: false
+          hippostd:state: draft
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2023-02-09T12:27:09.910Z
+          hippostdpubwf:lastModificationDate: 2023-02-09T12:27:09.910Z
+          hippostdpubwf:lastModifiedBy: admin
+          hippotranslation:id: 44bc418d-1dcd-4fc3-8e49-89f6b96792ec
+          hippotranslation:locale: en
+          visitscotland:breadcrumb: ''
+          visitscotland:hideNewsletter: false
+          visitscotland:seoDescription: Ski Signup Example Page
+          visitscotland:seoNoIndex: false
+          visitscotland:seoTitle: Ski Signup Example Page
+          visitscotland:teaser: Ski Signup Example Page
+          visitscotland:theme: Standard
+          visitscotland:title: Ski Signup Example Page
+          visitscotland:translation: ''
+          /visitscotland:heroImage:
+            jcr:primaryType: hippogallerypicker:imagelink
+            hippo:docbase: a5b5922e-d0d5-420c-af2d-670768cf7bd6
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+          /visitscotland:introduction:
+            jcr:primaryType: hippostd:html
+            hippostd:content: <p>Lorem ipsum dolor sit amet consectetur etc etc etc</p>
+        /content[2]:
+          jcr:primaryType: visitscotland:General
+          jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+          jcr:uuid: 59c2fd5c-bc22-48d0-a678-dc65908862fd
+          hippo:availability: [preview]
+          hippostd:retainable: false
+          hippostd:state: unpublished
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2023-02-09T12:27:09.910Z
+          hippostdpubwf:lastModificationDate: 2023-02-09T12:27:44.615Z
+          hippostdpubwf:lastModifiedBy: admin
+          hippotranslation:id: 44bc418d-1dcd-4fc3-8e49-89f6b96792ec
+          hippotranslation:locale: en
+          visitscotland:breadcrumb: ''
+          visitscotland:hideNewsletter: false
+          visitscotland:seoDescription: Ski Signup Example Page
+          visitscotland:seoNoIndex: false
+          visitscotland:seoTitle: Ski Signup Example Page
+          visitscotland:teaser: Ski Signup Example Page
+          visitscotland:theme: Standard
+          visitscotland:title: Ski Signup Example Page
+          visitscotland:translation: ''
+          /visitscotland:heroImage:
+            jcr:primaryType: hippogallerypicker:imagelink
+            hippo:docbase: a5b5922e-d0d5-420c-af2d-670768cf7bd6
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+          /visitscotland:introduction:
+            jcr:primaryType: hippostd:html
+            hippostd:content: <p>Lorem ipsum dolor sit amet consectetur etc etc etc</p>
+        /content[3]:
+          jcr:primaryType: visitscotland:General
+          jcr:mixinTypes: ['mix:referenceable']
+          jcr:uuid: cef93d4b-4b22-4dd2-b155-5983b3907a3c
+          hippo:availability: [live]
+          hippostd:retainable: false
+          hippostd:state: published
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2023-02-09T12:27:09.910Z
+          hippostdpubwf:lastModificationDate: 2023-02-09T12:27:44.615Z
+          hippostdpubwf:lastModifiedBy: admin
+          hippostdpubwf:publicationDate: 2023-02-09T12:27:50.945Z
+          hippotranslation:id: 44bc418d-1dcd-4fc3-8e49-89f6b96792ec
+          hippotranslation:locale: en
+          visitscotland:breadcrumb: ''
+          visitscotland:hideNewsletter: false
+          visitscotland:seoDescription: Ski Signup Example Page
+          visitscotland:seoNoIndex: false
+          visitscotland:seoTitle: Ski Signup Example Page
+          visitscotland:teaser: Ski Signup Example Page
+          visitscotland:theme: Standard
+          visitscotland:title: Ski Signup Example Page
+          visitscotland:translation: ''
+          /visitscotland:heroImage:
+            jcr:primaryType: hippogallerypicker:imagelink
+            hippo:docbase: a5b5922e-d0d5-420c-af2d-670768cf7bd6
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+          /visitscotland:introduction:
+            jcr:primaryType: hippostd:html
+            hippostd:content: <p>Lorem ipsum dolor sit amet consectetur etc etc etc</p>
+      /ski-form:
+        jcr:primaryType: hippo:handle
+        jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+        jcr:uuid: 885d7968-00c7-4be2-917f-ad0af5aca49d
+        hippo:name: Ski Form
+        hippo:versionHistory: 955a645e-033e-4e30-9ce7-40a4cd9a10d1
+        /ski-form[1]:
+          jcr:primaryType: visitscotland:MarketoForm
+          jcr:mixinTypes: ['mix:referenceable']
+          jcr:uuid: 20fed724-e7a0-40ea-8271-5d96a55e8d94
+          hippo:availability: []
+          hippostd:retainable: false
+          hippostd:state: draft
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2023-02-09T12:28:05.229Z
+          hippostdpubwf:lastModificationDate: 2023-02-09T12:28:05.229Z
+          hippostdpubwf:lastModifiedBy: admin
+          hippotranslation:id: 941bc18f-ae7e-4544-9114-f2b5c663bc7d
+          hippotranslation:locale: en
+          visitscotland:jsonUrl: https://static.visitscotland.com/forms/ski-sign-up/ski-sign-up.json
+          visitscotland:nonJavaScriptMessage: ''
+          visitscotland:title: Ski Form
+          visitscotland:translation: ''
+        /ski-form[2]:
+          jcr:primaryType: visitscotland:MarketoForm
+          jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+          jcr:uuid: ecfdccf4-3e35-4511-89d0-8fe57fc29828
+          hippo:availability: [preview]
+          hippostd:retainable: false
+          hippostd:state: unpublished
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2023-02-09T12:28:05.229Z
+          hippostdpubwf:lastModificationDate: 2023-02-09T12:28:27.635Z
+          hippostdpubwf:lastModifiedBy: admin
+          hippotranslation:id: 941bc18f-ae7e-4544-9114-f2b5c663bc7d
+          hippotranslation:locale: en
+          visitscotland:jsonUrl: https://static.visitscotland.com/forms/ski-sign-up/ski-sign-up.json
+          visitscotland:nonJavaScriptMessage: ''
+          visitscotland:title: Ski Form
+          visitscotland:translation: ''
+        /ski-form[3]:
+          jcr:primaryType: visitscotland:MarketoForm
+          jcr:mixinTypes: ['mix:referenceable']
+          jcr:uuid: a83ae7dc-3731-4e9a-bd2b-0ebe1321faec
+          hippo:availability: [live]
+          hippostd:retainable: false
+          hippostd:state: published
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2023-02-09T12:28:05.229Z
+          hippostdpubwf:lastModificationDate: 2023-02-09T12:28:27.635Z
+          hippostdpubwf:lastModifiedBy: admin
+          hippostdpubwf:publicationDate: 2023-02-09T12:28:41.544Z
+          hippotranslation:id: 941bc18f-ae7e-4544-9114-f2b5c663bc7d
+          hippotranslation:locale: en
+          visitscotland:jsonUrl: https://static.visitscotland.com/forms/ski-sign-up/ski-sign-up.json
+          visitscotland:nonJavaScriptMessage: ''
+          visitscotland:title: Ski Form
+          visitscotland:translation: ''
   /content:
     jcr:primaryType: hippo:handle
     jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
