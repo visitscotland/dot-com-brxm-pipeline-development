@@ -49,13 +49,14 @@
                     <vs-link
                         href="${stop.ctaLink.link}"
                         <#if stop.ctaLink.type != "internal">type="${stop.ctaLink.type}"</#if>
+                        class="d-inline-block mb-4"
                     >
                         ${stop.ctaLink.label}
                     </vs-link>
                 </#if>
 
                 <#if stop.timeToExplore?? && stop.timeToExplore?has_content>
-                    <vs-description-list class="my-4 mb-0 justify-content-start" inline slot="stop">
+                    <vs-description-list class="mb-4 justify-content-start" inline slot="stop">
                         <vs-description-list-item title class="mb-0 mr-0 pr-1 col-auto">${label("itinerary", "stop.time-to-explore")}</vs-description-list-item>
                         <vs-description-list-item class="mb-0 col-auto px-0">${stop.timeToExplore}</vs-description-list-item>
                     </vs-description-list>
@@ -114,7 +115,7 @@
             </#if>
             
             <#if stop.opening??>
-                <template slot="stop-info">
+                <#--  <template slot="stop-info">
                     <vs-itinerary-stop-info
                         opening-hours="${escapeJSON(stop.opening, false)}"
                         opening-times-link='${stop.openLink.link}'
@@ -137,8 +138,7 @@
                             </template>
                         </#if>
                     </vs-itinerary-stop-info>
-                </template>
-                
+                </template>  -->
             </#if>
 
             <#if stop.facilities?? && stop.facilities?size gt 1>

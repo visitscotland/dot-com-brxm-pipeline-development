@@ -34,6 +34,7 @@ public class Properties {
     static final String CHANNEL_ORDER = "seo.alternate-link-locale-order";
     static final String GLOBAL_SEARCH_PATH = "global-search.path";
     static final String ENGINE_ID = "global-search.engine-id";
+    static final String CONTENT_CACHE_ENABLED = "content-cache.enabled";
     static final String CONTENT_CACHE_RETENTION_PERIOD = "content-cache.retention-period";
     static final String CONTENT_CACHE_MAX_ELEMENTS = "content-cache.max-elements";
 
@@ -46,6 +47,7 @@ public class Properties {
     static final String DMS_INTERNAL_PATH = "data-internal.path";
 
     // DMS Properties
+    public static final String API_DATA_BACKEND_HOST = "api-data.backend-url";
     public static final String DMS_DATA_HOST = "dms-data.private-url";
     static final String DMS_DATA_PUBLIC_HOST = "dms-data.public-url";
     static final String DMS_DATA_ENCODING = "dms-data.encoding";
@@ -59,6 +61,7 @@ public class Properties {
     //Page References
     static final String GLOBAL_SEARCH = "site.path.global-search";
     static final String SKI_SECTION = "site.path.ski-landing";
+    static final String ABOUT_US = "site.path.about-us";
 
     private final ResourceBundleService bundle;
 
@@ -126,6 +129,10 @@ public class Properties {
         }
     }
 
+    public String getApiDataBackendHost() {
+        return readString(API_DATA_BACKEND_HOST);
+    }
+
     public String getDmsDataHost() {
         return readString(DMS_DATA_HOST);
     }
@@ -174,6 +181,10 @@ public class Properties {
         return readString(SKI_SECTION);
     }
 
+    public String getSiteAboutUs() {
+        return readString(ABOUT_US);
+    }
+
     public String getSiteGlobalSearch() {
         return readString(GLOBAL_SEARCH);
     }
@@ -181,6 +192,12 @@ public class Properties {
     public Integer getContentCacheRetention() {
         //Note that the retention period is defined in seconds and java.util.Date measures the time in seconds
         return readInteger(CONTENT_CACHE_RETENTION_PERIOD) * 1000;
+
+    }
+
+    public boolean isContentCacheEnabled() {
+        //Note that the retention period is defined in seconds and java.util.Date measures the time in seconds
+        return readBoolean(CONTENT_CACHE_ENABLED);
     }
 
     /**

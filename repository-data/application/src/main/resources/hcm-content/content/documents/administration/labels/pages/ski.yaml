@@ -3,7 +3,7 @@
   jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
   jcr:uuid: af8ccc7c-88b9-4391-a8ee-25e3d42b574c
   hippo:name: Ski Section
-  hippo:versionHistory: feed1756-a764-489c-befc-9e57e4164d34
+  hippo:versionHistory: e699d436-7d09-4e2b-8583-272c4e9f1487
   /ski[1]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:referenceable']
@@ -13,12 +13,12 @@
     hippostd:state: draft
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2023-01-11T15:09:27.332Z
-    hippostdpubwf:lastModificationDate: 2023-01-18T14:39:17.411Z
+    hippostdpubwf:lastModificationDate: 2023-01-24T13:28:20.850Z
     hippostdpubwf:lastModifiedBy: admin
     resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '', '', '', '',
       '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
       '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
-      '']
+      '', '']
     resourcebundle:id: ski
     resourcebundle:keys: [ski-centre.opening-times.label, ski-data.loading, ski-data.unavailable,
       ski-data.no-js, ski-data.provider, ski-centre.run-lift-status, ski-centre.status,
@@ -36,7 +36,7 @@
       ski-centre.snow-conditions.full-report, ski-centre.snow-conditions.road-status,
       ski-centre.snow-conditions.weather, ski-centre.summary.open, ski-centre.summary.closed,
       ski-centre.summary.expected-to-open, ski-centre.summary.on-hold, ski-centre.summary.limited-patrol,
-      ski-centre.summary.open-soon]
+      ski-centre.summary.open-soon, ski-centre.run]
     resourcebundle:messages: [Check opening times, 'Data is currently loading, please
         wait...', 'Data is currently unavailable, please try again later.', JavaScript
         needs to be enabled to see Run and Lift status, Data provided by Ski Scotland
@@ -48,7 +48,7 @@
         to be enabled to see the latest conditions at this ski centre, News from the
         slopes, Current Weather, Weather Forecast, Snow conditions full report, Road
         Status, Weather, Open, Closed, Expected to Open, On Hold, Limited Patrol,
-      Open soon]
+      Open soon, Run]
     resourcebundle:messages_de: [Öffnungszeiten überprüfen, 'Die Daten werden gerade
         geladen, bitte warten Sie …', Die Daten sind derzeit nicht verfügbar. Bitte
         versuchen Sie es später erneut., 'JavaScript muss aktiviert sein, um den Pisten-
@@ -60,7 +60,7 @@
         sehen, Weitere Details, Zuletzt aktualisiert, 'JavaScript muss aktiviert sein,
         um die aktuellen Bedingungen an diesem Skizentrum anzuzeigen.', Neues von
         der Piste, Aktuelles Wetter, Wettervorhersage, Kompletter Bericht zu den Schneebedingungen,
-      Straßenbedingungen, Wetter, '', '', '', '', '', '']
+      Straßenbedingungen, Wetter, '', '', '', '', '', '', '']
     resourcebundle:messages_es: [Consulta los horarios de apertura, 'Los datos se
         están cargando ahora, por favor espere...', 'Los datos no están disponibles
         actualmente, inténtelo de nuevo más tarde.', JavaScript debe estar habilitado
@@ -72,7 +72,8 @@
       Webcam, Ver mapa de pista, Más detalles, Última actualización, JavaScript debe
         estar habilitado para ver las últimas condiciones en este centro de esquí,
       Novedades desde la nieve, Clima actual, Pronóstico meteorológico, Informe completo
-        del estado de la nieve, Estado de las rutas, Clima, '', '', '', '', '', '']
+        del estado de la nieve, Estado de las rutas, Clima, '', '', '', '', '', '',
+      '']
     resourcebundle:messages_fr: [Vérifier les horaires d’ouverture, 'Données en cours
         de chargement, veuillez patienter…', 'Les données sont actuellement indisponibles,
         veuillez réessayer plus tard.', JavaScript doit être activé pour afficher
@@ -84,7 +85,8 @@
         des pistes, Webcam, Afficher la carte des pistes, Plus de détails, Dernière
         misée à jour, JavaScript doit être activé pour afficher les dernières conditions
         de cette station de ski, Actus des pistes, Météo actuelle, Prévisions météo,
-      Bullet d'enneigement complet, État des routes, Météo, '', '', '', '', '', '']
+      Bullet d'enneigement complet, État des routes, Météo, '', '', '', '', '', '',
+      '']
     resourcebundle:messages_it: [Controlla gli orari di apertura, 'I dati sono in
         fase di caricamento, attendere...', 'I dati non sono attualmente disponibili,
         riprovare più tardi.', JavaScript deve essere abilitato per vedere lo status
@@ -97,7 +99,8 @@
         mappa delle piste, Ulteriori dettagli, Ultimo aggiornamento, JavaScript deve
         essere abilitato per vedere le ultime condizioni di questo centro sciistico,
       Notizie dalle piste, Meteo attuale, Previsioni meteo, Bollettino completo delle
-        condizioni della neve, Stato delle strade, Meteo, '', '', '', '', '', '']
+        condizioni della neve, Stato delle strade, Meteo, '', '', '', '', '', '',
+      '']
     resourcebundle:messages_nl: [Bekijk de openingstijden, 'Gegevens worden geladen,
         even geduld graag...', 'De gegevens zijn momenteel niet beschikbaar, probeer
         het later nog eens.', JavaScript moet ingeschakeld zijn om de status van de
@@ -109,7 +112,7 @@
         kaart van de piste, Meer details, Laatst bijgewerkt, JavaScript moet ingeschakeld
         zijn om de meest recente condities van dit skicentrum te zien, Nieuws van
         de pistes, Huidige weersomstandigheden, Weersvoorspelling, Sneeuwcondities
-        volledig rapport, Toestand van de wegen, Weer, '', '', '', '', '', '']
+        volledig rapport, Toestand van de wegen, Weer, '', '', '', '', '', '', '']
   /ski[2]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
@@ -119,12 +122,12 @@
     hippostd:state: unpublished
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2023-01-11T15:09:27.332Z
-    hippostdpubwf:lastModificationDate: 2023-01-18T14:48:46.792Z
+    hippostdpubwf:lastModificationDate: 2023-01-24T13:34:45.537Z
     hippostdpubwf:lastModifiedBy: admin
     resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '', '', '', '',
       '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
       '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
-      '']
+      '', '']
     resourcebundle:id: ski
     resourcebundle:keys: [ski-centre.opening-times.label, ski-data.loading, ski-data.unavailable,
       ski-data.no-js, ski-data.provider, ski-centre.run-lift-status, ski-centre.status,
@@ -142,7 +145,7 @@
       ski-centre.snow-conditions.full-report, ski-centre.snow-conditions.road-status,
       ski-centre.snow-conditions.weather, ski-centre.summary.open, ski-centre.summary.closed,
       ski-centre.summary.expected-to-open, ski-centre.summary.on-hold, ski-centre.summary.limited-patrol,
-      ski-centre.summary.open-soon]
+      ski-centre.summary.open-soon, ski-centre.run]
     resourcebundle:messages: [Check opening times, 'Data is currently loading, please
         wait...', 'Data is currently unavailable, please try again later.', JavaScript
         needs to be enabled to see Run and Lift status, Data provided by Ski Scotland
@@ -154,7 +157,7 @@
         to be enabled to see the latest conditions at this ski centre, News from the
         slopes, Current Weather, Weather Forecast, Snow conditions full report, Road
         Status, Weather, Open, Closed, Expected to Open, On Hold, Limited Patrol,
-      Open soon]
+      Open soon, Run]
     resourcebundle:messages_de: [Öffnungszeiten überprüfen, 'Die Daten werden gerade
         geladen, bitte warten Sie …', Die Daten sind derzeit nicht verfügbar. Bitte
         versuchen Sie es später erneut., 'JavaScript muss aktiviert sein, um den Pisten-
@@ -166,7 +169,7 @@
         sehen, Weitere Details, Zuletzt aktualisiert, 'JavaScript muss aktiviert sein,
         um die aktuellen Bedingungen an diesem Skizentrum anzuzeigen.', Neues von
         der Piste, Aktuelles Wetter, Wettervorhersage, Kompletter Bericht zu den Schneebedingungen,
-      Straßenbedingungen, Wetter, '', '', '', '', '', '']
+      Straßenbedingungen, Wetter, '', '', '', '', '', '', '']
     resourcebundle:messages_es: [Consulta los horarios de apertura, 'Los datos se
         están cargando ahora, por favor espere...', 'Los datos no están disponibles
         actualmente, inténtelo de nuevo más tarde.', JavaScript debe estar habilitado
@@ -178,7 +181,8 @@
       Webcam, Ver mapa de pista, Más detalles, Última actualización, JavaScript debe
         estar habilitado para ver las últimas condiciones en este centro de esquí,
       Novedades desde la nieve, Clima actual, Pronóstico meteorológico, Informe completo
-        del estado de la nieve, Estado de las rutas, Clima, '', '', '', '', '', '']
+        del estado de la nieve, Estado de las rutas, Clima, '', '', '', '', '', '',
+      '']
     resourcebundle:messages_fr: [Vérifier les horaires d’ouverture, 'Données en cours
         de chargement, veuillez patienter…', 'Les données sont actuellement indisponibles,
         veuillez réessayer plus tard.', JavaScript doit être activé pour afficher
@@ -190,7 +194,8 @@
         des pistes, Webcam, Afficher la carte des pistes, Plus de détails, Dernière
         misée à jour, JavaScript doit être activé pour afficher les dernières conditions
         de cette station de ski, Actus des pistes, Météo actuelle, Prévisions météo,
-      Bullet d'enneigement complet, État des routes, Météo, '', '', '', '', '', '']
+      Bullet d'enneigement complet, État des routes, Météo, '', '', '', '', '', '',
+      '']
     resourcebundle:messages_it: [Controlla gli orari di apertura, 'I dati sono in
         fase di caricamento, attendere...', 'I dati non sono attualmente disponibili,
         riprovare più tardi.', JavaScript deve essere abilitato per vedere lo status
@@ -203,7 +208,8 @@
         mappa delle piste, Ulteriori dettagli, Ultimo aggiornamento, JavaScript deve
         essere abilitato per vedere le ultime condizioni di questo centro sciistico,
       Notizie dalle piste, Meteo attuale, Previsioni meteo, Bollettino completo delle
-        condizioni della neve, Stato delle strade, Meteo, '', '', '', '', '', '']
+        condizioni della neve, Stato delle strade, Meteo, '', '', '', '', '', '',
+      '']
     resourcebundle:messages_nl: [Bekijk de openingstijden, 'Gegevens worden geladen,
         even geduld graag...', 'De gegevens zijn momenteel niet beschikbaar, probeer
         het later nog eens.', JavaScript moet ingeschakeld zijn om de status van de
@@ -215,7 +221,7 @@
         kaart van de piste, Meer details, Laatst bijgewerkt, JavaScript moet ingeschakeld
         zijn om de meest recente condities van dit skicentrum te zien, Nieuws van
         de pistes, Huidige weersomstandigheden, Weersvoorspelling, Sneeuwcondities
-        volledig rapport, Toestand van de wegen, Weer, '', '', '', '', '', '']
+        volledig rapport, Toestand van de wegen, Weer, '', '', '', '', '', '', '']
   /ski[3]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:referenceable']
@@ -225,13 +231,13 @@
     hippostd:state: published
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2023-01-11T15:09:27.332Z
-    hippostdpubwf:lastModificationDate: 2023-01-18T14:48:46.792Z
+    hippostdpubwf:lastModificationDate: 2023-01-24T13:34:45.537Z
     hippostdpubwf:lastModifiedBy: admin
-    hippostdpubwf:publicationDate: 2023-01-18T14:48:50.473Z
+    hippostdpubwf:publicationDate: 2023-01-24T13:34:47.790Z
     resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '', '', '', '',
       '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
       '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
-      '']
+      '', '']
     resourcebundle:id: ski
     resourcebundle:keys: [ski-centre.opening-times.label, ski-data.loading, ski-data.unavailable,
       ski-data.no-js, ski-data.provider, ski-centre.run-lift-status, ski-centre.status,
@@ -249,7 +255,7 @@
       ski-centre.snow-conditions.full-report, ski-centre.snow-conditions.road-status,
       ski-centre.snow-conditions.weather, ski-centre.summary.open, ski-centre.summary.closed,
       ski-centre.summary.expected-to-open, ski-centre.summary.on-hold, ski-centre.summary.limited-patrol,
-      ski-centre.summary.open-soon]
+      ski-centre.summary.open-soon, ski-centre.run]
     resourcebundle:messages: [Check opening times, 'Data is currently loading, please
         wait...', 'Data is currently unavailable, please try again later.', JavaScript
         needs to be enabled to see Run and Lift status, Data provided by Ski Scotland
@@ -261,7 +267,7 @@
         to be enabled to see the latest conditions at this ski centre, News from the
         slopes, Current Weather, Weather Forecast, Snow conditions full report, Road
         Status, Weather, Open, Closed, Expected to Open, On Hold, Limited Patrol,
-      Open soon]
+      Open soon, Run]
     resourcebundle:messages_de: [Öffnungszeiten überprüfen, 'Die Daten werden gerade
         geladen, bitte warten Sie …', Die Daten sind derzeit nicht verfügbar. Bitte
         versuchen Sie es später erneut., 'JavaScript muss aktiviert sein, um den Pisten-
@@ -273,7 +279,7 @@
         sehen, Weitere Details, Zuletzt aktualisiert, 'JavaScript muss aktiviert sein,
         um die aktuellen Bedingungen an diesem Skizentrum anzuzeigen.', Neues von
         der Piste, Aktuelles Wetter, Wettervorhersage, Kompletter Bericht zu den Schneebedingungen,
-      Straßenbedingungen, Wetter, '', '', '', '', '', '']
+      Straßenbedingungen, Wetter, '', '', '', '', '', '', '']
     resourcebundle:messages_es: [Consulta los horarios de apertura, 'Los datos se
         están cargando ahora, por favor espere...', 'Los datos no están disponibles
         actualmente, inténtelo de nuevo más tarde.', JavaScript debe estar habilitado
@@ -285,7 +291,8 @@
       Webcam, Ver mapa de pista, Más detalles, Última actualización, JavaScript debe
         estar habilitado para ver las últimas condiciones en este centro de esquí,
       Novedades desde la nieve, Clima actual, Pronóstico meteorológico, Informe completo
-        del estado de la nieve, Estado de las rutas, Clima, '', '', '', '', '', '']
+        del estado de la nieve, Estado de las rutas, Clima, '', '', '', '', '', '',
+      '']
     resourcebundle:messages_fr: [Vérifier les horaires d’ouverture, 'Données en cours
         de chargement, veuillez patienter…', 'Les données sont actuellement indisponibles,
         veuillez réessayer plus tard.', JavaScript doit être activé pour afficher
@@ -297,7 +304,8 @@
         des pistes, Webcam, Afficher la carte des pistes, Plus de détails, Dernière
         misée à jour, JavaScript doit être activé pour afficher les dernières conditions
         de cette station de ski, Actus des pistes, Météo actuelle, Prévisions météo,
-      Bullet d'enneigement complet, État des routes, Météo, '', '', '', '', '', '']
+      Bullet d'enneigement complet, État des routes, Météo, '', '', '', '', '', '',
+      '']
     resourcebundle:messages_it: [Controlla gli orari di apertura, 'I dati sono in
         fase di caricamento, attendere...', 'I dati non sono attualmente disponibili,
         riprovare più tardi.', JavaScript deve essere abilitato per vedere lo status
@@ -310,7 +318,8 @@
         mappa delle piste, Ulteriori dettagli, Ultimo aggiornamento, JavaScript deve
         essere abilitato per vedere le ultime condizioni di questo centro sciistico,
       Notizie dalle piste, Meteo attuale, Previsioni meteo, Bollettino completo delle
-        condizioni della neve, Stato delle strade, Meteo, '', '', '', '', '', '']
+        condizioni della neve, Stato delle strade, Meteo, '', '', '', '', '', '',
+      '']
     resourcebundle:messages_nl: [Bekijk de openingstijden, 'Gegevens worden geladen,
         even geduld graag...', 'De gegevens zijn momenteel niet beschikbaar, probeer
         het later nog eens.', JavaScript moet ingeschakeld zijn om de status van de
@@ -322,4 +331,4 @@
         kaart van de piste, Meer details, Laatst bijgewerkt, JavaScript moet ingeschakeld
         zijn om de meest recente condities van dit skicentrum te zien, Nieuws van
         de pistes, Huidige weersomstandigheden, Weersvoorspelling, Sneeuwcondities
-        volledig rapport, Toestand van de wegen, Weer, '', '', '', '', '', '']
+        volledig rapport, Toestand van de wegen, Weer, '', '', '', '', '', '', '']

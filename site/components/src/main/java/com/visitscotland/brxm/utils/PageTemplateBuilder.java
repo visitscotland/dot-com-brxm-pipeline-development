@@ -27,7 +27,6 @@ public class PageTemplateBuilder {
     //Static Constant
     static final String INTRO_THEME = "introTheme";
     static final String PAGE_ITEMS = "pageItems";
-    static final String SEARCH_RESULTS = "searchResultsPage";
 
 
     static final String[] alignment = {"right", "left"};
@@ -51,9 +50,9 @@ public class PageTemplateBuilder {
     private final CannedSearchFactory cannedSearchFactory;
     private final PreviewModeFactory previewFactory;
     private final MarketoFormFactory marketoFormFactory;
-    private final MapGeneralFactory mapGeneralFactory;
-    private final MapDestinationFactory mapDestinationFactory;
+    private final MapFactory mapFactory;
     private final SkiFactory skiFactory;
+    private final DevModuleFactory devModuleFactory;
     private final Logger contentLogger;
 
 
@@ -62,7 +61,8 @@ public class PageTemplateBuilder {
                                IKnowFactory iKnowFactory, ArticleFactory articleFactory, LongCopyFactory longCopyFactory,
                                StacklaFactory stacklaFactory, TravelInformationFactory travelInformationFactory,
                                CannedSearchFactory cannedSearchFactory, PreviewModeFactory previewFactory, MarketoFormFactory marketoFormFactory,
-                               MapGeneralFactory mapGeneralFactory, MapDestinationFactory mapDestinationFactory, SkiFactory skiFactory, Logger contentLogger) {
+                               MapFactory mapFactory, SkiFactory skiFactory,
+                               DevModuleFactory devModuleFactory, Logger contentLogger) {
         this.documentUtils = documentUtils;
         this.linksFactory = linksFactory;
         this.iCentreFactory = iCentreFactory;
@@ -74,8 +74,8 @@ public class PageTemplateBuilder {
         this.cannedSearchFactory = cannedSearchFactory;
         this.previewFactory = previewFactory;
         this.marketoFormFactory = marketoFormFactory;
-        this.mapGeneralFactory = mapGeneralFactory;
-        this.mapDestinationFactory = mapDestinationFactory;
+        this.mapFactory = mapFactory;
+        this.devModuleFactory = devModuleFactory;
         this.skiFactory = skiFactory;
         this.contentLogger = contentLogger;
     }
@@ -103,7 +103,7 @@ public class PageTemplateBuilder {
                 } else if (item instanceof LongCopy){
                     processLongCopy(request, page, (LongCopy) item);
                 } else if (item instanceof MapModule) {
-                    processMapModule(request, page, (MapModule) item);
+                    page.modules.add(mapFactory.getModule(request, (MapModule) item, getDocument(request)));
                 } else if (item instanceof Stackla) {
                     page.modules.add(stacklaFactory.getStacklaModule((Stackla) item, request.getLocale()));
                 }  else if (item instanceof TravelInformation) {
@@ -118,6 +118,8 @@ public class PageTemplateBuilder {
                     page.modules.add(skiFactory.createSkyModule((SkiCentre) item, request.getLocale()));
                 } else if (item instanceof SkiCentreList){
                     page.modules.add(skiFactory.createSkyListModule((SkiCentreList) item, request.getLocale()));
+                } else if (item instanceof DevModule){
+                    page.modules.add(devModuleFactory.getModule((DevModule) item));
                 }
             } catch (MissingResourceException e){
                 logger.error("The module for {} couldn't be built because some labels do not exist", item.getPath(), e);
@@ -127,10 +129,7 @@ public class PageTemplateBuilder {
         }
 
         setIntroTheme(request, page.modules);
-        //TODO try to move this to GeneralContentComponent
-        if (getDocument(request).getPath().contains("/site-search-results")){
-            request.setAttribute(SEARCH_RESULTS, true);
-        }
+
 
         request.setAttribute(PAGE_ITEMS, page.modules);
     }
@@ -167,7 +166,7 @@ public class PageTemplateBuilder {
             contentLogger.error("Megalinks module at {} contains no valid items", item.getPath());
             page.modules.add(previewFactory.createErrorModule(al));
             return;
-        } 
+        }
 
         if (al.getType().equalsIgnoreCase(SingleImageLinksModule.class.getSimpleName())) {
             al.setAlignment(alignment[page.alignment++ % alignment.length]);
@@ -197,19 +196,6 @@ public class PageTemplateBuilder {
         iKnowModule.setHippoBean(touristInfo);
 
         page.modules.add(iKnowModule);
-    }
-
-    /**
-     * Creates a MapsModule from a destination or general page
-     */
-
-   private void processMapModule(HstRequest request, PageConfiguration page, MapModule item){
-       Page document = getDocument(request);
-       if (document instanceof Destination) {
-           page.modules.add(mapDestinationFactory.getModule(request, item,document));
-       }else if (document instanceof General){
-           page.modules.add(mapGeneralFactory.getModule(request, item));
-       }
     }
 
     /**

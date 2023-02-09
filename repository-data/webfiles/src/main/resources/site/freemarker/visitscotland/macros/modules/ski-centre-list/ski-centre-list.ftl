@@ -24,6 +24,7 @@
                 class="mx-n4 mx-lg-n8"
             >
                 <#list module.skiCentres as centre>
+                    <@hst.link var="imageSrc" hippobean=centre.cmsPage.image.cmsImage.original/>
                     <vs-col
                         cols="12"
                         sm="6"
@@ -34,8 +35,8 @@
                             centre-info-url="${centre.feedURL}"
                             locale="${locale}"
                             timeout-duration="${property('ski.timeout')}"
-                            img-src="https://via.placeholder.com/400x200"
-                            img-alt="TO DO"
+                            img-src="${imageSrc}"
+                            img-alt="${centre.cmsPage.image.altText}"
                             more-details-link="${centre.cmsPage.link}"
                             piste-map-link="${centre.pisteMap}"
                             last-updated-label="${label('ski', 'ski-centre.last-updated')}"

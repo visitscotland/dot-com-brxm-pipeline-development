@@ -1,0 +1,16 @@
+/content/documents/administration/options/maps---dms-categories:
+  jcr:primaryType: hippo:handle
+  jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+  jcr:uuid: cfbc7102-50fd-4866-850b-d05f52925f19
+  hippo:name: Maps - DMS Categories
+  /maps---dms-categories:
+    jcr:primaryType: selection:valuelist
+    jcr:mixinTypes: ['hippotranslation:translated', 'mix:referenceable']
+    jcr:uuid: e94fb3e4-738d-4267-ab3c-e87af9172fb0
+    hippo:availability: [live, preview]
+    hippotranslation:id: eba6910c-9c03-4b0b-b8c0-8a529fae564e
+    hippotranslation:locale: inherited - from query
+    /selection:listitem:
+      jcr:primaryType: selection:listitem
+      selection:key: RegionsMapTab
+      selection:label: iCentres
