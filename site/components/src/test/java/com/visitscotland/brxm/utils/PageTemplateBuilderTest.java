@@ -58,6 +58,9 @@ class PageTemplateBuilderTest {
     PreviewModeFactory previewModeFactory;
 
     @Mock
+    Properties properties;
+
+    @Mock
     ContentLogger logger;
 
     @Resource
@@ -261,7 +264,29 @@ class PageTemplateBuilderTest {
         when(utils.getAllowedDocuments(page)).thenReturn(Collections.singletonList(ti));
         when(iKnowFactory.getIKnowModule(any(), eq(null), eq(request.getLocale()))).thenReturn(new IKnowModule());
 
-        
+        when(properties.getSiteICentre()).thenReturn("/icentre-landing");
+        request.setPathInfo("/destination/edinburgh");
+
+        builder.addModules(request);
+
+        List<Module> items = (List<Module>) request.getAttribute(PageTemplateBuilder.PAGE_ITEMS);
+        assertEquals(1, items.size());
+        assertEquals(ti, items.get(0).getHippoBean());
+    }
+
+    @Test
+    @DisplayName("VS-4404 -  The iCentre module should not appear on the iCentre landing page")
+    void getModule_iCentreLanding(){
+        TourismInformation ti = new TouristInformationMockBuilder().build();
+
+        when(utils.getAllowedDocuments(page)).thenReturn(Collections.singletonList(ti));
+
+        lenient().when(iCentreFactory.getModule(any(), eq(request.getLocale()), eq(null))).thenReturn(new ICentreModule());
+        when(iKnowFactory.getIKnowModule(any(), eq(null), eq(request.getLocale()))).thenReturn(new IKnowModule());
+
+        when(properties.getSiteICentre()).thenReturn("/icentre-landing/content");
+        request.setPathInfo("/icentre-landing");
+
         builder.addModules(request);
 
         List<Module> items = (List<Module>) request.getAttribute(PageTemplateBuilder.PAGE_ITEMS);
@@ -409,6 +434,9 @@ class PageTemplateBuilderTest {
         assertEquals(1, ((List<Module>) request.getAttribute(PageTemplateBuilder.PAGE_ITEMS)).size());
     }
 
+    /**
+     * TODO: Do we want to move this test to PageContentComponent Test?
+     */
     @Test
     @Disabled("This feature has been moved to PageContentComponent")
     @DisplayName("VS-3168 - Test global search page")
