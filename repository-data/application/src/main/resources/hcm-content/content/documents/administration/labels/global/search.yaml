@@ -1,20 +1,21 @@
 /content/documents/administration/labels/global/search:
+  .meta:order-before: common-label
   jcr:primaryType: hippo:handle
   jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
-  jcr:uuid: 5ee33cdb-b3ba-4179-b86b-807d2c305b03
+  jcr:uuid: 767ac847-a632-4058-80eb-226bc9ed0f2f
   hippo:name: Search
   hippo:versionHistory: 8fef4b3b-66e5-4626-a532-4d9608a37c63
   /search[1]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:referenceable']
-    jcr:uuid: cae657d0-e104-45f2-aceb-8ac8d1e99178
+    jcr:uuid: ffef00fc-30cb-4912-ab9f-62b0338a31a0
     hippo:availability: []
     hippostd:retainable: false
     hippostd:state: draft
     hippostdpubwf:createdBy: juanluis.hurtado
     hippostdpubwf:creationDate: 2022-07-12T14:24:26.429+02:00
-    hippostdpubwf:lastModificationDate: 2022-07-12T14:30:21.976+02:00
-    hippostdpubwf:lastModifiedBy: nikki.sherret
+    hippostdpubwf:lastModificationDate: 2023-02-03T14:05:33.344+01:00
+    hippostdpubwf:lastModifiedBy: hkroes
     resourcebundle:descriptions: ['', '', '', '']
     resourcebundle:id: search
     resourcebundle:keys: [clear-form, close-form, search, search-label]
@@ -28,18 +29,19 @@
       Rechercher, 'Que recherchez-vous ?']
     resourcebundle:messages_it: [Campo di ricerca vuoto, Chiudere il campo di ricerca,
       Cerca, 'Cosa stai cercando?']
-    resourcebundle:messages_nl: ['', '', '', '']
+    resourcebundle:messages_nl: [Zoeken verwijderen, Zoeken sluiten, Zoeken, 'Waar
+        ben je naar op zoek?']
   /search[2]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:versionable']
-    jcr:uuid: a3e4662f-1fb8-4f9b-9820-a597fcbffe15
+    jcr:uuid: 3fa2a578-1eb9-4fe2-8648-4d37ec114d2f
     hippo:availability: [preview]
     hippostd:retainable: false
     hippostd:state: unpublished
     hippostdpubwf:createdBy: juanluis.hurtado
     hippostdpubwf:creationDate: 2022-07-12T14:24:26.429+02:00
-    hippostdpubwf:lastModificationDate: 2022-07-12T14:31:48.380+02:00
-    hippostdpubwf:lastModifiedBy: nikki.sherret
+    hippostdpubwf:lastModificationDate: 2023-02-03T14:07:53.141+01:00
+    hippostdpubwf:lastModifiedBy: hkroes
     resourcebundle:descriptions: ['', '', '', '']
     resourcebundle:id: search
     resourcebundle:keys: [clear-form, close-form, search, search-label]
@@ -53,19 +55,20 @@
       Rechercher, 'Que recherchez-vous ?']
     resourcebundle:messages_it: [Campo di ricerca vuoto, Chiudere il campo di ricerca,
       Cerca, 'Cosa stai cercando?']
-    resourcebundle:messages_nl: ['', '', '', '']
+    resourcebundle:messages_nl: [Zoeken verwijderen, Zoeken sluiten, Zoeken, 'Waar
+        ben je naar op zoek?']
   /search[3]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:referenceable']
-    jcr:uuid: ca1579c4-e2fb-4d50-b9a0-a2d1a4553596
+    jcr:uuid: 73234d0b-701d-4f38-a63f-5f8653c5dd74
     hippo:availability: [live]
     hippostd:retainable: false
     hippostd:state: published
     hippostdpubwf:createdBy: juanluis.hurtado
     hippostdpubwf:creationDate: 2022-07-12T14:24:26.429+02:00
-    hippostdpubwf:lastModificationDate: 2022-07-12T14:31:48.380+02:00
-    hippostdpubwf:lastModifiedBy: nikki.sherret
-    hippostdpubwf:publicationDate: 2022-07-13T17:54:55.148+02:00
+    hippostdpubwf:lastModificationDate: 2023-02-03T14:07:53.141+01:00
+    hippostdpubwf:lastModifiedBy: hkroes
+    hippostdpubwf:publicationDate: 2023-02-06T09:47:08.314+01:00
     resourcebundle:descriptions: ['', '', '', '']
     resourcebundle:id: search
     resourcebundle:keys: [clear-form, close-form, search, search-label]
@@ -79,4 +82,5 @@
       Rechercher, 'Que recherchez-vous ?']
     resourcebundle:messages_it: [Campo di ricerca vuoto, Chiudere il campo di ricerca,
       Cerca, 'Cosa stai cercando?']
-    resourcebundle:messages_nl: ['', '', '', '']
+    resourcebundle:messages_nl: [Zoeken verwijderen, Zoeken sluiten, Zoeken, 'Waar
+        ben je naar op zoek?']

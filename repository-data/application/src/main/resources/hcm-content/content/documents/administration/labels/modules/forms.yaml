@@ -1,20 +1,20 @@
 /content/documents/administration/labels/modules/forms:
   jcr:primaryType: hippo:handle
   jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
-  jcr:uuid: c84352c2-c31c-4acb-a5b8-1178fafa709a
+  jcr:uuid: dd57937c-6047-4503-8078-1b7fc7811195
   hippo:name: Forms
-  hippo:versionHistory: a77f352c-6cce-4a09-bcea-a808b8ebf400
+  hippo:versionHistory: f721e6f5-9725-4b9d-bcf3-daa84f550df9
   /forms[1]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:referenceable']
-    jcr:uuid: b0e5a577-cc15-4551-987d-2459f1df58bd
+    jcr:uuid: 832c7a9e-d05e-499e-9b9e-e1194e27b9d1
     hippo:availability: []
     hippostd:retainable: false
     hippostd:state: draft
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2022-04-14T11:08:53.925+01:00
-    hippostdpubwf:lastModificationDate: 2022-09-22T08:59:33.978+01:00
-    hippostdpubwf:lastModifiedBy: admin
+    hippostdpubwf:lastModificationDate: 2023-02-03T15:57:35.515+01:00
+    hippostdpubwf:lastModifiedBy: brieuc.botte
     resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '', '', '', '']
     resourcebundle:id: forms
     resourcebundle:keys: [form.messaging-url, form.country-url, form.recaptcha-key,
@@ -26,7 +26,7 @@
       830-QYE-256, 638-HHZ-510, We're just submitting your form, 'We''re sorry there''s
         been a problem, please try again later.', //830-QYE-256.mktoweb.com, //e.visitscotland.com,
       //e.visitscotland.com/js/forms2/js/forms2.min.js, Does not need any text, You
-        need Javascript enabled to be able to display this form.  You can enable this
+        need JavaScript enabled to be able to display this form. You can enable this
         in your browser settings.]
     resourcebundle:messages_de: ['', '', '', '', '', Wir übermitteln gerade Ihre Informationen,
       'Es tut uns leid, dass ein Problem aufgetreten ist. Bitte versuchen Sie es später
@@ -39,24 +39,27 @@
         para mostrar este formulario. Puedes activarlo en la configuración de tu navegador.]
     resourcebundle:messages_fr: ['', '', '', '', '', Nous transmettons vos informations,
       'Désolé, une erreur est survenue. Veuillez réessayer plus tard.', '', '', '',
-      Ne nécessite aucun texte, JavaScript doit être activé pour afficher ce formulaire.
+      Aucun texte requis, JavaScript doit être activé pour afficher ce formulaire.
         Vous pouvez l’activer dans les paramètres de votre navigateur.]
     resourcebundle:messages_it: ['', '', '', '', '', Stiamo inviando le tue informazioni,
       'Siamo spiacenti che si sia verificato un problema, per favore riprova più tardi.',
       '', '', '', Non ha bisogno di testo, Per visualizzare questo modulo è necessario
         abilitare Javascript.  Puoi attivarlo nelle impostazioni del tuo browser.]
-    resourcebundle:messages_nl: ['', '', '', '', '', '', '', '', '', '', '', '']
+    resourcebundle:messages_nl: ['', '', '', '', '', We versturen je informatie, Er
+        is een probleem opgetreden. Probeer het later nog eens., '', '', '', Vereist
+        geen tekst, JavaScript moet ingeschakeld zijn om dit formulier te bekijken.
+        Je kunt het activeren in de instellingen van je browser.]
   /forms[2]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
-    jcr:uuid: c714f71d-6e23-425c-baf6-9759dc6f12ca
+    jcr:uuid: 1fb3aefe-a5d9-4aa4-b8d5-afa83e8d6219
     hippo:availability: [preview]
     hippostd:retainable: false
     hippostd:state: unpublished
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2022-04-14T11:08:53.925+01:00
-    hippostdpubwf:lastModificationDate: 2022-09-22T08:59:53.228+01:00
-    hippostdpubwf:lastModifiedBy: admin
+    hippostdpubwf:lastModificationDate: 2023-02-03T16:00:57.271+01:00
+    hippostdpubwf:lastModifiedBy: brieuc.botte
     resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '', '', '', '']
     resourcebundle:id: forms
     resourcebundle:keys: [form.messaging-url, form.country-url, form.recaptcha-key,
@@ -68,7 +71,7 @@
       830-QYE-256, 638-HHZ-510, We're just submitting your form, 'We''re sorry there''s
         been a problem, please try again later.', //830-QYE-256.mktoweb.com, //e.visitscotland.com,
       //e.visitscotland.com/js/forms2/js/forms2.min.js, Does not need any text, You
-        need Javascript enabled to be able to display this form.  You can enable this
+        need JavaScript enabled to be able to display this form. You can enable this
         in your browser settings.]
     resourcebundle:messages_de: ['', '', '', '', '', Wir übermitteln gerade Ihre Informationen,
       'Es tut uns leid, dass ein Problem aufgetreten ist. Bitte versuchen Sie es später
@@ -81,25 +84,28 @@
         para mostrar este formulario. Puedes activarlo en la configuración de tu navegador.]
     resourcebundle:messages_fr: ['', '', '', '', '', Nous transmettons vos informations,
       'Désolé, une erreur est survenue. Veuillez réessayer plus tard.', '', '', '',
-      Ne nécessite aucun texte, JavaScript doit être activé pour afficher ce formulaire.
+      Aucun texte requis, JavaScript doit être activé pour afficher ce formulaire.
         Vous pouvez l’activer dans les paramètres de votre navigateur.]
     resourcebundle:messages_it: ['', '', '', '', '', Stiamo inviando le tue informazioni,
       'Siamo spiacenti che si sia verificato un problema, per favore riprova più tardi.',
       '', '', '', Non ha bisogno di testo, Per visualizzare questo modulo è necessario
         abilitare Javascript.  Puoi attivarlo nelle impostazioni del tuo browser.]
-    resourcebundle:messages_nl: ['', '', '', '', '', '', '', '', '', '', '', '']
+    resourcebundle:messages_nl: ['', '', '', '', '', We versturen je informatie, Er
+        is een probleem opgetreden. Probeer het later nog eens., '', '', '', Vereist
+        geen tekst, JavaScript moet ingeschakeld zijn om dit formulier te bekijken.
+        Je kunt het activeren in de instellingen van je browser.]
   /forms[3]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:referenceable']
-    jcr:uuid: 565f970c-6357-417c-afad-0767889da241
+    jcr:uuid: d6c90057-80ff-4c6c-9f02-7e2696027d74
     hippo:availability: [live]
     hippostd:retainable: false
     hippostd:state: published
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2022-04-14T11:08:53.925+01:00
-    hippostdpubwf:lastModificationDate: 2022-09-22T08:59:53.228+01:00
-    hippostdpubwf:lastModifiedBy: admin
-    hippostdpubwf:publicationDate: 2022-09-22T08:59:56.254+01:00
+    hippostdpubwf:lastModificationDate: 2023-02-03T16:00:57.271+01:00
+    hippostdpubwf:lastModifiedBy: brieuc.botte
+    hippostdpubwf:publicationDate: 2023-02-06T09:45:40.379+01:00
     resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '', '', '', '']
     resourcebundle:id: forms
     resourcebundle:keys: [form.messaging-url, form.country-url, form.recaptcha-key,
@@ -111,7 +117,7 @@
       830-QYE-256, 638-HHZ-510, We're just submitting your form, 'We''re sorry there''s
         been a problem, please try again later.', //830-QYE-256.mktoweb.com, //e.visitscotland.com,
       //e.visitscotland.com/js/forms2/js/forms2.min.js, Does not need any text, You
-        need Javascript enabled to be able to display this form.  You can enable this
+        need JavaScript enabled to be able to display this form. You can enable this
         in your browser settings.]
     resourcebundle:messages_de: ['', '', '', '', '', Wir übermitteln gerade Ihre Informationen,
       'Es tut uns leid, dass ein Problem aufgetreten ist. Bitte versuchen Sie es später
@@ -124,10 +130,13 @@
         para mostrar este formulario. Puedes activarlo en la configuración de tu navegador.]
     resourcebundle:messages_fr: ['', '', '', '', '', Nous transmettons vos informations,
       'Désolé, une erreur est survenue. Veuillez réessayer plus tard.', '', '', '',
-      Ne nécessite aucun texte, JavaScript doit être activé pour afficher ce formulaire.
+      Aucun texte requis, JavaScript doit être activé pour afficher ce formulaire.
         Vous pouvez l’activer dans les paramètres de votre navigateur.]
     resourcebundle:messages_it: ['', '', '', '', '', Stiamo inviando le tue informazioni,
       'Siamo spiacenti che si sia verificato un problema, per favore riprova più tardi.',
       '', '', '', Non ha bisogno di testo, Per visualizzare questo modulo è necessario
         abilitare Javascript.  Puoi attivarlo nelle impostazioni del tuo browser.]
-    resourcebundle:messages_nl: ['', '', '', '', '', '', '', '', '', '', '', '']
+    resourcebundle:messages_nl: ['', '', '', '', '', We versturen je informatie, Er
+        is een probleem opgetreden. Probeer het later nog eens., '', '', '', Vereist
+        geen tekst, JavaScript moet ingeschakeld zijn om dit formulier te bekijken.
+        Je kunt het activeren in de instellingen van je browser.]
