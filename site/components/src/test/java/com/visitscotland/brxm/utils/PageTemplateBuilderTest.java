@@ -284,7 +284,7 @@ class PageTemplateBuilderTest {
         lenient().when(iCentreFactory.getModule(any(), eq(request.getLocale()), eq(null))).thenReturn(new ICentreModule());
         when(iKnowFactory.getIKnowModule(any(), eq(null), eq(request.getLocale()))).thenReturn(new IKnowModule());
 
-        when(properties.getSiteICentre()).thenReturn("/icentre-landing");
+        when(properties.getSiteICentre()).thenReturn("/icentre-landing/content");
         request.setPathInfo("/icentre-landing");
 
         builder.addModules(request);
