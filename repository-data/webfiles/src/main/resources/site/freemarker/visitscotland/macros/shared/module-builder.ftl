@@ -15,7 +15,7 @@
 </#compress>
 <#macro moduleBuilder module colourScheme=[]>
     <#assign themeName = themeCalculator(module.themeIndex, module, colourScheme)>
-    <#if module.getType() == "MultiImageLinksModule" ||  module.getType() == "SingleImageLinksModule" || module.getType()== "ListLinksModule">
+    <#if module.getType() == "MultiImageLinksModule" ||  module.getType() == "SingleImageLinksModule" || module.getType() == "ListLinksModule">
         <#assign moduleType = "megalinks">
     <#else>
         <#assign moduleType = module.getType()>
@@ -38,31 +38,31 @@
         <#elseif moduleType == "IKnowModule">
             <@includeOnce "../modules/tourism-information/tourisminformation-iknow.ftl" />
             <@iknow module themeName/>
-        <#elseif module.getType()== "ArticleModule">
+        <#elseif moduleType == "ArticleModule">
             <@includeOnce "../modules/article/article.ftl" />
             <@article module/>
-        <#elseif module.getType()== "LongCopyModule">
+        <#elseif moduleType == "LongCopyModule">
             <@includeOnce "../modules/long-copy/long-copy.ftl" />
             <@longCopy module/>
-        <#elseif module.getType()== "StacklaModule">
+        <#elseif moduleType == "StacklaModule">
             <@includeOnce "../modules/stackla/stackla.ftl" />
             <@stackla module/>
-        <#elseif module.getType()== "TravelInformationModule">
+        <#elseif moduleType == "TravelInformationModule">
             <@includeOnce "../modules/travel-information/travel-information.ftl" />
             <@travelInformation module/>
-        <#elseif module.getType()== "MapsModule">
+        <#elseif moduleType == "MapsModule">
             <@includeOnce "../modules/map/map.ftl" />
             <@map module/>
-        <#elseif module.getType()== "CannedSearchModule">
+        <#elseif moduleType == "CannedSearchModule">
             <@includeOnce "../modules/canned-search/canned-search.ftl" />
             <@cannedSearch module themeName/>
-        <#elseif module.getType()== "MarketoFormModule">
+        <#elseif moduleType == "MarketoFormModule">
             <@includeOnce "../modules/marketo/marketo.ftl" />
             <@marketo module/>
-        <#elseif module.getType()== "SkiModule">
+        <#elseif moduleType == "SkiModule">
             <@includeOnce "../modules/ski-centre/ski-centre.ftl" />
             <@skiCentre module/>
-        <#elseif module.getType()== "SkiListModule">
+        <#elseif moduleType == "SkiListModule">
             <@includeOnce "../modules/ski-centre-list/ski-centre-list.ftl" />
             <@skiCentreList module/>
         <#elseif module.getType()== "SimpleDevModule">

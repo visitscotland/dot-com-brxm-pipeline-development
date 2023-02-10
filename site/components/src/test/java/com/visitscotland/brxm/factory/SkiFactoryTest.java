@@ -2,9 +2,16 @@ package com.visitscotland.brxm.factory;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.google.common.collect.Lists;
 import com.visitscotland.brxm.dms.DMSDataService;
+import com.visitscotland.brxm.hippobeans.Page;
 import com.visitscotland.brxm.hippobeans.SkiCentre;
+import com.visitscotland.brxm.hippobeans.SkiCentreList;
+import com.visitscotland.brxm.model.SkiListModule;
 import com.visitscotland.brxm.model.SkiModule;
+import com.visitscotland.brxm.model.megalinks.EnhancedLink;
+import com.visitscotland.brxm.services.DocumentUtilsService;
+import com.visitscotland.brxm.services.LinkService;
 import com.visitscotland.brxm.services.ResourceBundleService;
 import org.hippoecm.hst.content.beans.standard.HippoHtml;
 import org.junit.jupiter.api.Assertions;
@@ -15,11 +22,11 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
+import java.util.Collections;
 import java.util.Locale;
 import org.slf4j.Logger;
 
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
 class SkiFactoryTest {
@@ -34,12 +41,18 @@ class SkiFactoryTest {
     DMSDataService dataService;
 
     @Mock
+    DocumentUtilsService documentUtils;
+
+    @Mock
+    LinkService linkService;
+
+    @Mock
     Logger logger;
 
     @InjectMocks
     SkiFactory skiFactory;
 
-    @DisplayName("Create Basic Module")
+    @DisplayName("VS-4378 - SkiCentre - Create Basic Module")
     @Test
     void createModule(){
         SkiCentre document = mock(SkiCentre.class);
@@ -47,7 +60,7 @@ class SkiFactoryTest {
         Assertions.assertNotNull(skiFactory.createSkyModule(document, Locale.UK));
     }
 
-    @DisplayName("Create Module with all Fields")
+    @DisplayName("VS-4378 - SkiCentre - Create Module with all Fields")
     @Test
     void allFields(){
         SkiCentre document = mock(SkiCentre.class);
@@ -67,7 +80,7 @@ class SkiFactoryTest {
         Assertions.assertEquals("map.pdf", module.getPisteMap());
     }
 
-    @DisplayName("Populate information from the DMS")
+    @DisplayName("VS-4378 - SkiCentre - Populate information from the DMS")
     @Test
     void dmsData() throws JsonProcessingException {
         SkiCentre document = mock(SkiCentre.class);
@@ -85,7 +98,7 @@ class SkiFactoryTest {
         Assertions.assertTrue(module.getSocialChannels().get(0).toString().contains("https://www.facebook.com/cairngormmountainscotlandltd"));
     }
 
-    @DisplayName("Flag error when the DMS is not valid")
+    @DisplayName("VS-4378 - SkiCentre - Flag error when the DMS is not valid")
     @Test
     void dms_notValid() {
         SkiCentre document = mock(SkiCentre.class);
@@ -98,5 +111,86 @@ class SkiFactoryTest {
         Assertions.assertTrue(module.getErrorMessages().get(0).contains("NOT-VALID-ID"));
     }
 
+    @DisplayName("VS-4377 - SkiCentreList - Most basic Module")
+    @Test
+    void skiCentreList(){
+        SkiCentreList document = mock(SkiCentreList.class);
 
+        Assertions.assertNotNull(skiFactory.createSkyListModule(document, Locale.UK));
+    }
+
+
+    @DisplayName("VS-4377 - SkiCentreList - Main Fields")
+    @Test
+    void skiCentreList_fields(){
+        SkiCentreList document = mock(SkiCentreList.class);
+
+        when(document.getTitle()).thenReturn("title");
+        when(document.getCopy()).thenReturn(mock(HippoHtml.class));
+
+        SkiListModule module = skiFactory.createSkyListModule(document, Locale.UK);
+
+        Assertions.assertEquals("title", module.getTitle());
+        Assertions.assertNotNull(module.getIntroduction());
+    }
+
+    @DisplayName("VS-4377 - SkiCentreList - Associated Ski Centres are linked")
+    @Test
+    void skiCentreList_skiCentre(){
+        SkiCentreList document = mock(SkiCentreList.class);
+        Page page = mock(Page.class);
+
+        when(document.getMegalinkItems()).thenReturn(Collections.singletonList(page));
+        when(documentUtils.getSiblingDocuments(page, SkiCentre.class, "visitscotland:SkiCentre"))
+                .thenReturn(Collections.singletonList(mock(SkiCentre.class)));
+        when(linkService.createEnhancedLink(any(), any(), any(), anyBoolean()))
+                .thenReturn(java.util.Optional.of(new EnhancedLink()));
+
+        SkiListModule module = skiFactory.createSkyListModule(document, Locale.UK);
+
+        Assertions.assertEquals(1, module.getSkiCentres().size());
+    }
+
+    @DisplayName("VS-4377 - SkiCentreList - Pages with no ski module don't cause any problem but they are flagged (No Ski Module)")
+    @Test
+    void skiCentreList_broken_skiCentre(){
+        SkiCentreList document = mock(SkiCentreList.class);
+        Page skiPage = mock(Page.class);
+        Page other = mock(Page.class);
+
+        when(other.getDisplayName()).thenReturn("Snow Factor");
+        when(document.getMegalinkItems()).thenReturn(Lists.newArrayList(skiPage, other, skiPage));
+        when(documentUtils.getSiblingDocuments(skiPage, SkiCentre.class, "visitscotland:SkiCentre"))
+                .thenReturn(Collections.singletonList(mock(SkiCentre.class)));
+        when(documentUtils.getSiblingDocuments(other, SkiCentre.class, "visitscotland:SkiCentre"))
+                .thenReturn(Collections.emptyList());
+        when(linkService.createEnhancedLink(any(), any(), any(), anyBoolean()))
+                .thenReturn(java.util.Optional.of(new EnhancedLink()));
+
+        SkiListModule module = skiFactory.createSkyListModule(document, Locale.UK);
+
+        Assertions.assertEquals(2, module.getSkiCentres().size());
+        Assertions.assertEquals(1, module.getErrorMessages().size());
+        Assertions.assertTrue(module.getErrorMessages().get(0).contains("Snow Factor"));
+    }
+
+    @DisplayName("VS-4377 - SkiCentreList - Pages with no ski module don't cause any problem but they are flagged (Too many Ski Modules)")
+    @Test
+    void skiCentreList_multiple_skiCentre(){
+        SkiCentreList document = mock(SkiCentreList.class);
+        Page skiPage = mock(Page.class);
+
+        when(skiPage.getDisplayName()).thenReturn("Nevis Range");
+        when(document.getMegalinkItems()).thenReturn(Collections.singletonList(skiPage));
+        when(documentUtils.getSiblingDocuments(skiPage, SkiCentre.class, "visitscotland:SkiCentre"))
+                .thenReturn(Lists.newArrayList(mock(SkiCentre.class), mock(SkiCentre.class), mock(SkiCentre.class)));
+        when(linkService.createEnhancedLink(any(), any(), any(), anyBoolean()))
+                .thenReturn(java.util.Optional.of(new EnhancedLink()));
+
+        SkiListModule module = skiFactory.createSkyListModule(document, Locale.UK);
+
+        Assertions.assertEquals(1, module.getSkiCentres().size());
+        Assertions.assertEquals(1, module.getErrorMessages().size());
+        Assertions.assertTrue(module.getErrorMessages().get(0).contains("Nevis Range"));
+    }
 }
