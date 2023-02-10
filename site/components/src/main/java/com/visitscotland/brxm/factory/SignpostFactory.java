@@ -39,6 +39,7 @@ public class SignpostFactory {
         FlatLink cta = new FlatLink(bundle.getResourceBundle(BUNDLE_ID, "snow-alerts.cta.text", locale),
                 bundle.getResourceBundle(BUNDLE_ID, "snow-alerts.cta.link", locale), LinkType.INTERNAL);
         FlatImage image = new FlatImage();
+
         image.setExternalImage(bundle.getResourceBundle(BUNDLE_ID, "snow-alerts.image", locale));
 
         signpostModule.setCta(cta);

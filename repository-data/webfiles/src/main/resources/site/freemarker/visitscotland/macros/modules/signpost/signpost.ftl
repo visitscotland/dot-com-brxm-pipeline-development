@@ -45,9 +45,8 @@
                     xl="5"
                     class="text-center text-lg-left col-xxl-5 offset-xxl-1"
                 >
-                    ${module.image.externalImage}
-                    <vs-img 
-                        src="<@hst.webfile path='${imgSrc}'/>" 
+                    <vs-img
+                        src="<@hst.webfile path='${module.image.externalImage}'/>"
                         class="mt-10 mt-sm-2 w-100">
                     </vs-img>
                 </vs-col>
