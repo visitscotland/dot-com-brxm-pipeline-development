@@ -73,4 +73,9 @@ public class MapModule extends BaseDocument {
     public String getMapType() {
         return getSingleProperty("visitscotland:mapType");
     }
+
+    @HippoEssentialsGenerated(internalName = "visitscotland:translation")
+    public String getTranslation() {
+        return getSingleProperty("visitscotland:translation");
+    }
 }
