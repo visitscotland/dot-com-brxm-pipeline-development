@@ -214,7 +214,7 @@ public class MapFactory {
     }
 
     private void addDmsData (ProductSearchBuilder dmsQuery, MapsModule module, ObjectNode filter, ArrayNode features, Locale locale){
-        JsonNode dmsResponseData =  dmsDataService.cannedSearch(dmsQuery);
+        JsonNode dmsResponseData =  dmsDataService.cannedSearch(dmsQuery.buildCannedSearchInternal());
         if (dmsResponseData != null && !dmsResponseData.isEmpty()) {
             for (JsonNode jsonNode : dmsResponseData) {
                 FlatImage image = imageFactory.createImage(jsonNode, module,locale);
