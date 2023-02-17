@@ -10,6 +10,7 @@ public class MapsModule extends Module {
     private HippoHtml introduction;
     private String tabTitle;
     private String detailsEndpoint;
+    private String mapType;
     private ArrayNode filters;
     private ObjectNode geoJson;
     private ObjectNode mapPosition;
@@ -76,5 +77,13 @@ public class MapsModule extends Module {
 
     public void setDetailsEndpoint(String detailsEndpoint) {
         this.detailsEndpoint = detailsEndpoint;
+    }
+
+    public String getMapType() {
+        return mapType;
+    }
+
+    public void setMapType(String mapType) {
+        this.mapType = mapType;
     }
 }

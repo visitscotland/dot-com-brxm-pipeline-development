@@ -63,6 +63,7 @@ class MapModuleValidatorTest {
         when(mapType.getString()).thenReturn("bespoke");
 
         Property mapKeys = Mockito.mock(Property.class ,RETURNS_DEEP_STUBS);
+        when(node.hasProperty(MapModuleValidator.MAP_KEYS)).thenReturn(true);
         when(node.getProperty(MapModuleValidator.MAP_KEYS)).thenReturn(mapKeys);
 
         Value value = Mockito.mock(Value.class ,RETURNS_DEEP_STUBS);
@@ -104,6 +105,7 @@ class MapModuleValidatorTest {
         when(mapType.getString()).thenReturn("bespokeMap");
 
         Property mapKeys = Mockito.mock(Property.class ,RETURNS_DEEP_STUBS);
+        when(node.hasProperty(MapModuleValidator.MAP_KEYS)).thenReturn(true);
         when(node.getProperty(MapModuleValidator.MAP_KEYS)).thenReturn(mapKeys);
 
         Value value = Mockito.mock(Value.class ,RETURNS_DEEP_STUBS);

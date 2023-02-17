@@ -4,7 +4,7 @@
 <#include "headerContributions.ftl">
 <#include "footerContributions.ftl">
 
-<html data-version="${version}" lang="en">
+<html data-version="${version}" lang="${locale}">
     <head>
         <#if hstRequest.requestContext.channelManagerPreviewRequest>
             <link rel="stylesheet" href="<@hst.webfile path='/assets/css/cms-request.css'/>" type="text/css"/>
