@@ -27,7 +27,7 @@
                                 title="${childItem.title}"
                                 level="2"
                                 control-id="${childItem?index}"
-                                @click.native="$root.$emit('navAccordionClick', '${item.title}')"
+                                @click.native='$root.$emit("navAccordionClick", "${item.title}")'
                             >
                                 <vs-mega-nav-list>
                                     <#list childItem.childMenuItems as thirdChildItem>
