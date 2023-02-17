@@ -19,7 +19,7 @@
                     control-id="${item?index}"
                     cta-link="${getUrl(item)}"
                     cta-text="${item.cta!''}"
-                    @click.native="$root.$emit('navAccordionClick', '${item.title}')"
+                    @click.native='$root.$emit("navAccordionClick", "${item.title}")'
                 >
                     <#list item.childMenuItems as childItem>
                         <#if childItem.title??>
