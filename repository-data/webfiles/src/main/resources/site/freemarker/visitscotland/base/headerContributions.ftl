@@ -30,11 +30,5 @@
         <link rel="icon" href="<@hst.webfile path="/assets/favicons/favicon.svg"/>" type="image/svg+xml">
         <link rel="apple-touch-icon" href="<@hst.webfile path="/assets/favicons/apple-touch-icon-180-180.svg"/>">
         <link rel="manifest" href="<@hst.link path="manifest.webmanifest"/>">
-
-        <style>
-            body {
-                visibility: hidden;
-            }
-        </style>
     </#compress>
 </#macro>
