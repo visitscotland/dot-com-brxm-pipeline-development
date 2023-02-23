@@ -2,85 +2,127 @@
   .meta:order-before: meganav-categories
   jcr:primaryType: hippo:handle
   jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
-  jcr:uuid: 942ea92e-1089-4922-aaea-5be65fdab5cd
+  jcr:uuid: 29c5d378-9493-4226-a7a6-9deede973a77
   hippo:name: Meganav links
   hippo:versionHistory: 0a2310d6-8f3b-4466-b594-9c1705a8f077
   /meganav-links[1]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:referenceable']
-    jcr:uuid: e17e1d76-d1c0-47f7-b3e2-985e02b51fda
+    jcr:uuid: 82a94861-dd3f-44c3-80c4-52b38508735b
     hippo:availability: []
     hippostd:retainable: false
     hippostd:state: draft
     hippostdpubwf:createdBy: juanluis.hurtado
     hippostdpubwf:creationDate: 2022-02-23T12:52:03.897+01:00
-    hippostdpubwf:lastModificationDate: 2022-09-09T11:10:50.593+02:00
+    hippostdpubwf:lastModificationDate: 2023-02-06T09:48:46.513+01:00
     hippostdpubwf:lastModifiedBy: nikki.sherret
-    resourcebundle:descriptions: ['', '', '', '', '', '']
+    resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '', '', '', '',
+      '', '']
     resourcebundle:id: navigation.main
-    resourcebundle:keys: [travel-blog, cities, Hotels-labels, nav-labels, help-labels,
-      practical-label]
-    resourcebundle:messages: [Travel blog, Cities, Hotels & Lodgings, Content, Help
-        & Advice, Practical Information]
-    resourcebundle:messages_de: [Reiseblog, '', Hotels und Unterkünfte, '', Hilfe
-        und Hinweise, Praktische Informationen]
-    resourcebundle:messages_es: [Blog de viajes, '', Hoteles y hospedajes, '', Ayuda
-        y consejos, Información práctica]
-    resourcebundle:messages_fr: [Blog de voyage, '', Hôtels et hébergements, '', Aide
-        et conseils, Infos pratiques]
-    resourcebundle:messages_it: [Blog di viaggio, '', Hotel e alloggi, '', Aiuto e
-        consigli, Informazioni pratiche]
-    resourcebundle:messages_nl: [Reisblog, '', '', '', '', '']
+    resourcebundle:keys: [travel-blog, cities, Hotels-labels, help-labels, practical-label,
+      deals-label, tours-label, experiences-label, seasonal-label, types-label, ideas-label,
+      regions-label, towns-label, popular-label]
+    resourcebundle:messages: [Travel Blog, Cities, Hotels & Lodgings, Help & Advice,
+      Practical Information, Deals & Offers, 'Tours, Routes & Trails', Experiences,
+      Seasonal, Holiday Types, Ideas & Advice, Regions, Towns, Popular Places]
+    resourcebundle:messages_de: [Reiseblog, Städte, Hotels & Unterkünfte, Hilfe &
+        Hinweise, Praktische Informationen, Angebote, 'Touren, Routen & Trails', Erlebnisse,
+      Jahreszeiten, Urlaubsarten, Anregungen & Ideen, Regionen, Ortschaften, Beliebte
+        Orte]
+    resourcebundle:messages_es: [Blog de viajes, Ciudades, Hoteles y hospedajes, Ayuda
+        y consejos, Información práctica, Ofertas, 'Visitas, rutas y senderos', Experiencias,
+      Estacional, Tipos de vacaciones, Ideas y consejos, Regiones, Pueblos, Lugares
+        populares]
+    resourcebundle:messages_fr: [Blog de voyage, Villes, Hôtels et hébergements, Aide
+        et conseils, Infos pratiques, Offres, 'Circuits, excursions et itinéraires',
+      Expériences, Saisonnier, Types de vacances, Conseils et inspiration, Régions,
+      Villages, Destinations populaires]
+    resourcebundle:messages_it: [Blog di viaggio, Città, Hotel e alloggi, Aiuto e
+        consigli, Informazioni pratiche, Offerte, 'Tour, itinerari e sentieri', Esperienze,
+      Stagionale, Tipologie di vacanza, Idee e consigli, Regioni, Villaggi, Luoghi
+        popolari]
+    resourcebundle:messages_nl: [Reisblog, Steden, Hotels & accommodatie, Hulp & advies,
+      Praktische informatie, Aanbiedingen, 'Tours, routes & tochten', Ervaringen,
+      Jaargetijden, Type vakantie, Suggesties & ideeën, Regio's, Plaatsen, Populaire
+        plaatsen]
   /meganav-links[2]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:versionable']
-    jcr:uuid: 707cd44b-669e-4b34-af12-8c76c546aa02
+    jcr:uuid: b13e630c-5103-45c8-8f8d-55e65beb44f6
     hippo:availability: [preview]
     hippostd:retainable: false
     hippostd:state: unpublished
     hippostdpubwf:createdBy: juanluis.hurtado
     hippostdpubwf:creationDate: 2022-02-23T12:52:03.897+01:00
-    hippostdpubwf:lastModificationDate: 2022-09-09T11:12:08.901+02:00
+    hippostdpubwf:lastModificationDate: 2023-02-06T09:50:03.345+01:00
     hippostdpubwf:lastModifiedBy: nikki.sherret
-    resourcebundle:descriptions: ['', '', '', '', '', '']
+    resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '', '', '', '',
+      '', '']
     resourcebundle:id: navigation.main
-    resourcebundle:keys: [travel-blog, cities, Hotels-labels, nav-labels, help-labels,
-      practical-label]
-    resourcebundle:messages: [Travel blog, Cities, Hotels & Lodgings, Content, Help
-        & Advice, Practical Information]
-    resourcebundle:messages_de: [Reiseblog, '', Hotels und Unterkünfte, '', Hilfe
-        und Hinweise, Praktische Informationen]
-    resourcebundle:messages_es: [Blog de viajes, '', Hoteles y hospedajes, '', Ayuda
-        y consejos, Información práctica]
-    resourcebundle:messages_fr: [Blog de voyage, '', Hôtels et hébergements, '', Aide
-        et conseils, Infos pratiques]
-    resourcebundle:messages_it: [Blog di viaggio, '', Hotel e alloggi, '', Aiuto e
-        consigli, Informazioni pratiche]
-    resourcebundle:messages_nl: [Reisblog, '', '', '', '', '']
+    resourcebundle:keys: [travel-blog, cities, Hotels-labels, help-labels, practical-label,
+      deals-label, tours-label, experiences-label, seasonal-label, types-label, ideas-label,
+      regions-label, towns-label, popular-label]
+    resourcebundle:messages: [Travel Blog, Cities, Hotels & Lodgings, Help & Advice,
+      Practical Information, Deals & Offers, 'Tours, Routes & Trails', Experiences,
+      Seasonal, Holiday Types, Ideas & Advice, Regions, Towns, Popular Places]
+    resourcebundle:messages_de: [Reiseblog, Städte, Hotels & Unterkünfte, Hilfe &
+        Hinweise, Praktische Informationen, Angebote, 'Touren, Routen & Trails', Erlebnisse,
+      Jahreszeiten, Urlaubsarten, Anregungen & Ideen, Regionen, Ortschaften, Beliebte
+        Orte]
+    resourcebundle:messages_es: [Blog de viajes, Ciudades, Hoteles y hospedajes, Ayuda
+        y consejos, Información práctica, Ofertas, 'Visitas, rutas y senderos', Experiencias,
+      Estacional, Tipos de vacaciones, Ideas y consejos, Regiones, Pueblos, Lugares
+        populares]
+    resourcebundle:messages_fr: [Blog de voyage, Villes, Hôtels et hébergements, Aide
+        et conseils, Infos pratiques, Offres, 'Circuits, excursions et itinéraires',
+      Expériences, Saisonnier, Types de vacances, Conseils et inspiration, Régions,
+      Villages, Destinations populaires]
+    resourcebundle:messages_it: [Blog di viaggio, Città, Hotel e alloggi, Aiuto e
+        consigli, Informazioni pratiche, Offerte, 'Tour, itinerari e sentieri', Esperienze,
+      Stagionale, Tipologie di vacanza, Idee e consigli, Regioni, Villaggi, Luoghi
+        popolari]
+    resourcebundle:messages_nl: [Reisblog, Steden, Hotels & accommodatie, Hulp & advies,
+      Praktische informatie, Aanbiedingen, 'Tours, routes & tochten', Ervaringen,
+      Jaargetijden, Type vakantie, Suggesties & ideeën, Regio's, Plaatsen, Populaire
+        plaatsen]
   /meganav-links[3]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:referenceable']
-    jcr:uuid: 4d8412bb-a813-4ac5-8db6-2ec3ca1a67fc
+    jcr:uuid: dda71078-aa13-409c-b480-7a227510a52c
     hippo:availability: [live]
     hippostd:retainable: false
     hippostd:state: published
     hippostdpubwf:createdBy: juanluis.hurtado
     hippostdpubwf:creationDate: 2022-02-23T12:52:03.897+01:00
-    hippostdpubwf:lastModificationDate: 2022-09-09T11:12:08.901+02:00
+    hippostdpubwf:lastModificationDate: 2023-02-06T09:50:03.345+01:00
     hippostdpubwf:lastModifiedBy: nikki.sherret
-    hippostdpubwf:publicationDate: 2022-09-09T11:12:11.385+02:00
-    resourcebundle:descriptions: ['', '', '', '', '', '']
+    hippostdpubwf:publicationDate: 2023-02-06T09:50:05.667+01:00
+    resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '', '', '', '',
+      '', '']
     resourcebundle:id: navigation.main
-    resourcebundle:keys: [travel-blog, cities, Hotels-labels, nav-labels, help-labels,
-      practical-label]
-    resourcebundle:messages: [Travel blog, Cities, Hotels & Lodgings, Content, Help
-        & Advice, Practical Information]
-    resourcebundle:messages_de: [Reiseblog, '', Hotels und Unterkünfte, '', Hilfe
-        und Hinweise, Praktische Informationen]
-    resourcebundle:messages_es: [Blog de viajes, '', Hoteles y hospedajes, '', Ayuda
-        y consejos, Información práctica]
-    resourcebundle:messages_fr: [Blog de voyage, '', Hôtels et hébergements, '', Aide
-        et conseils, Infos pratiques]
-    resourcebundle:messages_it: [Blog di viaggio, '', Hotel e alloggi, '', Aiuto e
-        consigli, Informazioni pratiche]
-    resourcebundle:messages_nl: [Reisblog, '', '', '', '', '']
+    resourcebundle:keys: [travel-blog, cities, Hotels-labels, help-labels, practical-label,
+      deals-label, tours-label, experiences-label, seasonal-label, types-label, ideas-label,
+      regions-label, towns-label, popular-label]
+    resourcebundle:messages: [Travel Blog, Cities, Hotels & Lodgings, Help & Advice,
+      Practical Information, Deals & Offers, 'Tours, Routes & Trails', Experiences,
+      Seasonal, Holiday Types, Ideas & Advice, Regions, Towns, Popular Places]
+    resourcebundle:messages_de: [Reiseblog, Städte, Hotels & Unterkünfte, Hilfe &
+        Hinweise, Praktische Informationen, Angebote, 'Touren, Routen & Trails', Erlebnisse,
+      Jahreszeiten, Urlaubsarten, Anregungen & Ideen, Regionen, Ortschaften, Beliebte
+        Orte]
+    resourcebundle:messages_es: [Blog de viajes, Ciudades, Hoteles y hospedajes, Ayuda
+        y consejos, Información práctica, Ofertas, 'Visitas, rutas y senderos', Experiencias,
+      Estacional, Tipos de vacaciones, Ideas y consejos, Regiones, Pueblos, Lugares
+        populares]
+    resourcebundle:messages_fr: [Blog de voyage, Villes, Hôtels et hébergements, Aide
+        et conseils, Infos pratiques, Offres, 'Circuits, excursions et itinéraires',
+      Expériences, Saisonnier, Types de vacances, Conseils et inspiration, Régions,
+      Villages, Destinations populaires]
+    resourcebundle:messages_it: [Blog di viaggio, Città, Hotel e alloggi, Aiuto e
+        consigli, Informazioni pratiche, Offerte, 'Tour, itinerari e sentieri', Esperienze,
+      Stagionale, Tipologie di vacanza, Idee e consigli, Regioni, Villaggi, Luoghi
+        popolari]
+    resourcebundle:messages_nl: [Reisblog, Steden, Hotels & accommodatie, Hulp & advies,
+      Praktische informatie, Aanbiedingen, 'Tours, routes & tochten', Ervaringen,
+      Jaargetijden, Type vakantie, Suggesties & ideeën, Regio's, Plaatsen, Populaire
+        plaatsen]

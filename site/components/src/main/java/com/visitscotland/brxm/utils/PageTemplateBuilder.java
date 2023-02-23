@@ -53,6 +53,7 @@ public class PageTemplateBuilder {
     private final MapFactory mapFactory;
     private final SkiFactory skiFactory;
     private final DevModuleFactory devModuleFactory;
+    private final Properties properties;
     private final Logger contentLogger;
 
 
@@ -61,7 +62,7 @@ public class PageTemplateBuilder {
                                IKnowFactory iKnowFactory, ArticleFactory articleFactory, LongCopyFactory longCopyFactory,
                                StacklaFactory stacklaFactory, TravelInformationFactory travelInformationFactory,
                                CannedSearchFactory cannedSearchFactory, PreviewModeFactory previewFactory, MarketoFormFactory marketoFormFactory,
-                               MapFactory mapFactory, SkiFactory skiFactory,
+                               MapFactory mapFactory, SkiFactory skiFactory, Properties properties,
                                DevModuleFactory devModuleFactory, Logger contentLogger) {
         this.documentUtils = documentUtils;
         this.linksFactory = linksFactory;
@@ -77,6 +78,7 @@ public class PageTemplateBuilder {
         this.mapFactory = mapFactory;
         this.devModuleFactory = devModuleFactory;
         this.skiFactory = skiFactory;
+        this.properties = properties;
         this.contentLogger = contentLogger;
     }
 
@@ -181,15 +183,20 @@ public class PageTemplateBuilder {
         page.modules.add(al);
     }
 
+    private boolean isICentreLanding(HstRequest request){
+        return request.getPathInfo().equals(properties.getSiteICentre().substring(0, properties.getSiteICentre().length() - 8));
+    }
     /**
      * Creates a LinkModule from a TouristInformation document
      */
     private void processTouristInformation(HstRequest request, PageConfiguration page, TourismInformation touristInfo, String location){
+        if (!isICentreLanding(request)) {
+            ICentreModule iCentreModule = iCentreFactory.getModule(touristInfo.getICentre(), request.getLocale(), location);
 
-        ICentreModule iCentreModule = iCentreFactory.getModule(touristInfo.getICentre(), request.getLocale(), location);
-        if (iCentreModule != null) {
-            iCentreModule.setHippoBean(touristInfo);
-            page.modules.add(iCentreModule);
+            if (iCentreModule != null) {
+                iCentreModule.setHippoBean(touristInfo);
+                page.modules.add(iCentreModule);
+            }
         }
 
         IKnowModule iKnowModule = iKnowFactory.getIKnowModule(touristInfo.getIKnow(), location, request.getLocale());

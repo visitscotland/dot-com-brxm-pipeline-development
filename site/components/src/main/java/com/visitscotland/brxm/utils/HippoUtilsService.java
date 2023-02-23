@@ -60,6 +60,16 @@ public class HippoUtilsService {
         return createUrl(document, true);
     }
 
+    @NonTestable(NonTestable.Cause.BRIDGE)
+    public String createUrlFromNode(String path, boolean localize) {
+        try {
+            return createUrl(getDocumentFromContent(path), localize);
+        } catch (QueryException | ObjectBeanManagerException | RepositoryException e) {
+            logger.warn("A link could not be created for {}", path);
+            return null;
+        }
+    }
+
     public String createUrl(Page document, boolean localize) {
         if (document == null) {
             logger.info("The linked page does not exist.");
