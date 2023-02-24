@@ -11,7 +11,7 @@ definitions:
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:uuid: ff39f16b-4e3b-4fde-a234-9223e3fe129f
+          jcr:uuid: 696a6f3d-937a-4783-ad09-63526391b28f
           hipposysedit:node: true
           hipposysedit:supertype: ['hippotranslation:translated', 'hippotaxonomy:classifiable',
             'visitscotland:basedocument', 'hippostd:relaxed']
@@ -85,7 +85,7 @@ definitions:
           jcr:mixinTypes: ['mix:referenceable', 'hippotaxonomy:classifiable']
           visitscotland:title: ''
           visitscotland:tabTitle: ''
-          jcr:uuid: 516d31a8-eb8b-4cb9-8b6c-a0155219ceac
+          jcr:uuid: d1a11c99-7a95-4d60-948d-5398b425602b
           hippostdpubwf:lastModificationDate: 2022-06-10T13:36:38.111+01:00
           hippostdpubwf:creationDate: 2022-06-10T13:36:38.111+01:00
           visitscotland:mapType: ''
@@ -141,7 +141,8 @@ definitions:
             jcr:primaryType: frontend:plugin
             caption: Map Main Tab Title
             field: tabTitle
-            hint: ''
+            hint: For Destinations map ONLY this field will have a default value if
+              it is empty
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.left.item
             /cluster.options:
