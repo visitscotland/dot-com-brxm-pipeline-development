@@ -152,6 +152,10 @@ public class MapFactory {
      * @param features features information for mapcards
      */
     private void buildDestinationMapPages (Locale locale,Destination destinationPage, MapModule mapModuleDocument, MapsModule module, ArrayNode keys, ArrayNode features){
+       if (Contract.isEmpty(module.getTabTitle())){
+           String tabTitle = bundle.getResourceBundle(MAP, "map.explore", locale) + " " + destinationPage.getTitle();
+           module.setTabTitle(tabTitle);
+       }
         LocationObject location = locationLoader.getLocation(destinationPage.getLocation(),locale);
         JsonNode geometryNode;
         //Feature places on top of these maps
