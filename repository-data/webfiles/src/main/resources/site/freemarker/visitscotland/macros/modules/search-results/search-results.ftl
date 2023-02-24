@@ -7,7 +7,7 @@
 <#macro searchResults>
     <div id="cludo-search-results" class="cludo-search-results">
         <div class="cludo-search-results__layout mb-9 mb-md-11">
-            <vs-embed-wrapper>
+            <vs-embed-wrapper no-cookies-required>
                 <template slot="embedIntroCopyNoJs">
                     <!-- Update this embed wrapper to use proper javascript fallback component and remove this hardcoded text  -->
                     JavaScript needs to be enabled to see search results. 
