@@ -7,7 +7,8 @@
 <#macro searchResults>
     <div id="cludo-search-results" class="cludo-search-results">
         <div class="cludo-search-results__layout mb-9 mb-md-11">
-            <vs-embed-wrapper
+            <vs-embed-wrapper 
+                no-cookies-required
                 no-cookie-text="You need cookies enabled to view this content"
                 error-text = "${label('essentials.global', 'third-party-error')}"
                 no-js-text="${module.noJsMessage}"
