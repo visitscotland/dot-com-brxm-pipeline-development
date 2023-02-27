@@ -61,6 +61,15 @@
         </#assign>
     </#if>
 
+    <#assign hideToggle>
+        false
+    </#assign>
+
+    <#if module.mapType = 'cities' || module.mapType = 'towns'>
+        <#assign hideToggle>
+            true
+        </#assign>
+    </#if>
 
     <vs-module-wrapper>
         <template slot="vsModuleWrapperHeading">
@@ -91,6 +100,7 @@
             </#if>
             map-filter-message="${label('map', 'map.apply-filters')}"
             map-no-results-message="${label('map', 'map.no-results')}"
+            :hide-mobile-toggle="${hideToggle}"
         >
 
             <template slot="closeSidePanelText">
