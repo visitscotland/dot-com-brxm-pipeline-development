@@ -77,15 +77,13 @@ public class DMSDataService {
     /**
      * This method invokes the legacy data Map endpoint from a ProductSearchBuilder
      *
-     * @param psb ProductSearchBuilder
+     * @param dmsUrl URL for the DMS
      *
      * @return Json node with DMS results
      */
     @Cacheable (value="dmsProductSearch")
-    public JsonNode legacyMapSearch(ProductSearchBuilder psb){
-
+    public JsonNode legacyMapSearch(String dmsUrl){
         String responseString = null;
-        String dmsUrl = psb.buildDataMap(true);
 
         logger.info("Requesting data to the dms: {}", dmsUrl);
         try {
@@ -106,10 +104,9 @@ public class DMSDataService {
 
         return  null;
     }
-    @Cacheable (value="dmsProductSearch")
-    public JsonNode cannedSearch(ProductSearchBuilder psb){
 
-        String dmsUrl = psb.buildCannedSearchInternal();
+    @Cacheable (value="dmsProductSearch")
+    public JsonNode cannedSearch(String dmsUrl){
 
         logger.info("Requesting data to the canned search: {}", dmsUrl);
         String responseString = proxy.request(dmsUrl);

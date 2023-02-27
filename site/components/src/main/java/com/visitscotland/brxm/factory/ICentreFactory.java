@@ -149,7 +149,7 @@ public class ICentreFactory {
                 .sortBy(DMSConstants.SORT_ALPHA);
 
         //Retrieves the iCenters for a location
-        JsonNode node = dmsData.legacyMapSearch(dmsQuery);
+        JsonNode node = dmsData.legacyMapSearch(dmsQuery.buildDataMap(true));
 
         for (JsonNode child : node) {
             if (child.has(DMSConstants.MapSearch.PROPERTIES) &&
