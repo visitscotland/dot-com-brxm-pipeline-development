@@ -28,15 +28,9 @@
         cookie-link-text="${label('essentials.global', 'cookie.link-message')}"
         no-js-message="${label('video', 'video.no-js')}"
     >
-        <template slot="vsMegalinksHeading">
-            ${item.title}
-        </template>
-        <vs-rich-text-wrapper
-            variant="lead"
-            slot="vsMegalinksIntro"
-        >
+        <template slot="vsMegalinksIntro">
             <@hst.html hippohtml=item.introduction/>
-        </vs-rich-text-wrapper>
+        </template>
 
         <#if type == "MultiImageLinksModule">
             <@multiImage item=item showTeaser=showTeaser theme=theme />
