@@ -32,8 +32,8 @@
         <link rel="manifest" href="<@hst.link path="manifest.webmanifest"/>">
 
         <style>
-            body {
-                visibility: hidden;
+            .hide-unstyled {
+                display: none;
             }
         </style>
     </#compress>
