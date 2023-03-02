@@ -61,6 +61,7 @@ public class Properties {
     //Page References
     private static final String PATH_GLOBAL_SEARCH = "site.path.global-search";
     private static final String PATH_SKI_SECTION = "site.path.ski-landing";
+    private static final String PATH_CAMPAIGN_SECTION = "site.path.campaigns";
     private static final String PATH_ABOUT_US = "site.path.about-us";
     private static final String PATH_NEWSLETTER = "site.path.newsletter";
     private static final String PATH_ICENTRE = "site.path.icentre-landing";
@@ -181,6 +182,9 @@ public class Properties {
 
     public String getSiteSkiSection() {
         return readString(PATH_SKI_SECTION);
+    }
+    public String getCampaignSection() {
+        return readString(PATH_CAMPAIGN_SECTION);
     }
 
     public String getSiteAboutUs() {

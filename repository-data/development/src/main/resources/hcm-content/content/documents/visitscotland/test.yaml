@@ -18450,6 +18450,427 @@
             /visitscotland:links:
               jcr:primaryType: hippo:mirror
               hippo:docbase: 1dd4d5ca-0241-43ec-b6c9-4718f1202c0c
+    /campaigns:
+      jcr:primaryType: hippostd:folder
+      jcr:mixinTypes: ['hippo:named', 'hippotranslation:translated', 'mix:versionable']
+      jcr:uuid: babcd278-ff42-4293-9986-24cf46cd109b
+      hippo:name: Campaigns
+      hippostd:foldertype: [new-translated-folder-test, new-document]
+      hippotranslation:id: 61347e3a-918e-45fa-ac15-ad5b365390b0
+      hippotranslation:locale: en
+      /content:
+        jcr:primaryType: hippo:handle
+        jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+        jcr:uuid: d2bb2bdf-4e06-474b-a85b-5598f97d50b3
+        hippo:name: Campaign 1
+        hippo:versionHistory: f07b4c7a-f57b-4da7-92e1-c4b3e69d7615
+        /content[1]:
+          jcr:primaryType: visitscotland:General
+          jcr:mixinTypes: ['mix:referenceable']
+          jcr:uuid: f7998445-7961-43b4-b901-0dbc42016663
+          hippo:availability: []
+          hippostd:retainable: false
+          hippostd:state: draft
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2023-02-28T09:46:16.849Z
+          hippostdpubwf:lastModificationDate: 2023-02-28T09:46:16.849Z
+          hippostdpubwf:lastModifiedBy: admin
+          hippotranslation:id: fb6c15c6-f3b2-4bff-a6af-d73ed6d8c262
+          hippotranslation:locale: en
+          visitscotland:breadcrumb: ''
+          visitscotland:hideNewsletter: false
+          visitscotland:seoDescription: Campaign 1
+          visitscotland:seoNoIndex: false
+          visitscotland:seoTitle: Campaign 1
+          visitscotland:teaser: Campaign 1 is an examples
+          visitscotland:theme: Standard
+          visitscotland:title: Campaign 1
+          visitscotland:translation: ''
+          /visitscotland:heroImage:
+            jcr:primaryType: hippogallerypicker:imagelink
+            hippo:docbase: c3eafb5b-6c18-4caa-9c9a-63279b816630
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+          /visitscotland:introduction:
+            jcr:primaryType: hippostd:html
+            hippostd:content: <p>Campaign 1 example to test PSR widget is not present
+              in this page</p>
+        /content[2]:
+          jcr:primaryType: visitscotland:General
+          jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+          jcr:uuid: e55ed5fa-453f-4888-891a-015570f16774
+          hippo:availability: [preview]
+          hippostd:retainable: false
+          hippostd:state: unpublished
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2023-02-28T09:46:16.849Z
+          hippostdpubwf:lastModificationDate: 2023-02-28T09:47:02.157Z
+          hippostdpubwf:lastModifiedBy: admin
+          hippotranslation:id: fb6c15c6-f3b2-4bff-a6af-d73ed6d8c262
+          hippotranslation:locale: en
+          visitscotland:breadcrumb: ''
+          visitscotland:hideNewsletter: false
+          visitscotland:seoDescription: Campaign 1
+          visitscotland:seoNoIndex: false
+          visitscotland:seoTitle: Campaign 1
+          visitscotland:teaser: Campaign 1 is an examples
+          visitscotland:theme: Standard
+          visitscotland:title: Campaign 1
+          visitscotland:translation: ''
+          /visitscotland:heroImage:
+            jcr:primaryType: hippogallerypicker:imagelink
+            hippo:docbase: c3eafb5b-6c18-4caa-9c9a-63279b816630
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+          /visitscotland:introduction:
+            jcr:primaryType: hippostd:html
+            hippostd:content: <p>Campaign 1 example to test PSR widget is not present
+              in this page</p>
+        /content[3]:
+          jcr:primaryType: visitscotland:General
+          jcr:mixinTypes: ['mix:referenceable']
+          jcr:uuid: 2cdc41d1-7fb7-4846-bd2f-225f0407a8f7
+          hippo:availability: [live]
+          hippostd:retainable: false
+          hippostd:state: published
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2023-02-28T09:46:16.849Z
+          hippostdpubwf:lastModificationDate: 2023-02-28T09:47:02.157Z
+          hippostdpubwf:lastModifiedBy: admin
+          hippostdpubwf:publicationDate: 2023-02-28T09:56:49.833Z
+          hippotranslation:id: fb6c15c6-f3b2-4bff-a6af-d73ed6d8c262
+          hippotranslation:locale: en
+          visitscotland:breadcrumb: ''
+          visitscotland:hideNewsletter: false
+          visitscotland:seoDescription: Campaign 1
+          visitscotland:seoNoIndex: false
+          visitscotland:seoTitle: Campaign 1
+          visitscotland:teaser: Campaign 1 is an examples
+          visitscotland:theme: Standard
+          visitscotland:title: Campaign 1
+          visitscotland:translation: ''
+          /visitscotland:heroImage:
+            jcr:primaryType: hippogallerypicker:imagelink
+            hippo:docbase: c3eafb5b-6c18-4caa-9c9a-63279b816630
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+          /visitscotland:introduction:
+            jcr:primaryType: hippostd:html
+            hippostd:content: <p>Campaign 1 example to test PSR widget is not present
+              in this page</p>
+      /icentre-campaign:
+        jcr:primaryType: hippo:handle
+        jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+        jcr:uuid: 9f98ef9a-c17e-4bde-b791-af544d9c88a3
+        hippo:name: icentre campaign
+        hippo:versionHistory: 5a38821d-5448-40ef-945c-7f6d53f80163
+        /icentre-campaign[1]:
+          jcr:primaryType: visitscotland:TourismInformation
+          jcr:mixinTypes: ['mix:referenceable']
+          jcr:uuid: c80cc492-0a6e-4910-be57-201f3aa2d1e3
+          hippo:availability: []
+          hippostd:retainable: false
+          hippostd:state: draft
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2023-02-28T09:47:29.406Z
+          hippostdpubwf:lastModificationDate: 2023-02-28T09:47:29.406Z
+          hippostdpubwf:lastModifiedBy: admin
+          hippotranslation:id: 90ca857c-dacc-4b18-bfae-f0be56194be7
+          hippotranslation:locale: en
+          visitscotland:translation: ''
+          /visitscotland:ICentre:
+            jcr:primaryType: visitscotland:ICentre
+            visitscotland:description: ''
+            visitscotland:title: ''
+            /visitscotland:image:
+              jcr:primaryType: hippogallerypicker:imagelink
+              hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+              hippo:facets: []
+              hippo:modes: []
+              hippo:values: []
+          /visitscotland:IKnow:
+            jcr:primaryType: visitscotland:IKnow
+            visitscotland:description: ''
+            visitscotland:title: ''
+        /icentre-campaign[2]:
+          jcr:primaryType: visitscotland:TourismInformation
+          jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+          jcr:uuid: 4e26a212-9117-41f3-9fc4-992dbe070c9b
+          hippo:availability: [preview]
+          hippostd:retainable: false
+          hippostd:state: unpublished
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2023-02-28T09:47:29.406Z
+          hippostdpubwf:lastModificationDate: 2023-02-28T09:47:30.925Z
+          hippostdpubwf:lastModifiedBy: admin
+          hippotranslation:id: 90ca857c-dacc-4b18-bfae-f0be56194be7
+          hippotranslation:locale: en
+          visitscotland:translation: ''
+          /visitscotland:ICentre:
+            jcr:primaryType: visitscotland:ICentre
+            visitscotland:description: ''
+            visitscotland:title: ''
+            /visitscotland:image:
+              jcr:primaryType: hippogallerypicker:imagelink
+              hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+              hippo:facets: []
+              hippo:modes: []
+              hippo:values: []
+          /visitscotland:IKnow:
+            jcr:primaryType: visitscotland:IKnow
+            visitscotland:description: ''
+            visitscotland:title: ''
+        /icentre-campaign[3]:
+          jcr:primaryType: visitscotland:TourismInformation
+          jcr:mixinTypes: ['mix:referenceable']
+          jcr:uuid: 87d2d52b-4663-4931-b08b-9aac6119fca6
+          hippo:availability: [live]
+          hippostd:retainable: false
+          hippostd:state: published
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2023-02-28T09:47:29.406Z
+          hippostdpubwf:lastModificationDate: 2023-02-28T09:47:30.925Z
+          hippostdpubwf:lastModifiedBy: admin
+          hippostdpubwf:publicationDate: 2023-02-28T09:47:33.016Z
+          hippotranslation:id: 90ca857c-dacc-4b18-bfae-f0be56194be7
+          hippotranslation:locale: en
+          visitscotland:translation: ''
+          /visitscotland:ICentre:
+            jcr:primaryType: visitscotland:ICentre
+            visitscotland:description: ''
+            visitscotland:title: ''
+            /visitscotland:image:
+              jcr:primaryType: hippogallerypicker:imagelink
+              hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+              hippo:facets: []
+              hippo:modes: []
+              hippo:values: []
+          /visitscotland:IKnow:
+            jcr:primaryType: visitscotland:IKnow
+            visitscotland:description: ''
+            visitscotland:title: ''
+      /campaign-2:
+        jcr:primaryType: hippostd:folder
+        jcr:mixinTypes: ['hippo:named', 'hippotranslation:translated', 'mix:versionable']
+        jcr:uuid: c57ddda7-2648-4f94-ada1-60e3fb87cfa1
+        hippo:name: campaign 2
+        hippostd:foldertype: [new-translated-folder-test, new-document]
+        hippotranslation:id: 70ad5189-6aae-4d16-aec6-4fc71a13cb5f
+        hippotranslation:locale: en
+        /content:
+          jcr:primaryType: hippo:handle
+          jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+          jcr:uuid: 6debfde3-1b09-4534-8e84-a8cc654729a6
+          hippo:name: campaign 2
+          hippo:versionHistory: cd685510-363b-4505-96b6-40826497e9ac
+          /content[1]:
+            jcr:primaryType: visitscotland:General
+            jcr:mixinTypes: ['mix:referenceable']
+            jcr:uuid: da6d3bc8-74e2-4017-889c-2897892a302b
+            hippo:availability: []
+            hippostd:retainable: false
+            hippostd:state: draft
+            hippostdpubwf:createdBy: admin
+            hippostdpubwf:creationDate: 2023-02-28T09:58:23.570Z
+            hippostdpubwf:lastModificationDate: 2023-02-28T09:58:23.570Z
+            hippostdpubwf:lastModifiedBy: admin
+            hippotranslation:id: 9c0110fb-422d-4334-bfe7-61881cbe4296
+            hippotranslation:locale: en
+            visitscotland:breadcrumb: ''
+            visitscotland:hideNewsletter: false
+            visitscotland:seoDescription: camp 2
+            visitscotland:seoNoIndex: false
+            visitscotland:seoTitle: camp 2
+            visitscotland:teaser: camp 2 teaser
+            visitscotland:theme: Standard
+            visitscotland:title: camp 2
+            visitscotland:translation: ''
+            /visitscotland:heroImage:
+              jcr:primaryType: hippogallerypicker:imagelink
+              hippo:docbase: dbcdddc3-5586-4188-85a7-fcd5e7e3c29a
+              hippo:facets: []
+              hippo:modes: []
+              hippo:values: []
+            /visitscotland:introduction:
+              jcr:primaryType: hippostd:html
+              hippostd:content: <p>example camp 2</p>
+          /content[2]:
+            jcr:primaryType: visitscotland:General
+            jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+            jcr:uuid: 6853fa40-de28-4848-99e6-d183299b20ac
+            hippo:availability: [preview]
+            hippostd:retainable: false
+            hippostd:state: unpublished
+            hippostdpubwf:createdBy: admin
+            hippostdpubwf:creationDate: 2023-02-28T09:58:23.570Z
+            hippostdpubwf:lastModificationDate: 2023-02-28T09:59:27.515Z
+            hippostdpubwf:lastModifiedBy: admin
+            hippotranslation:id: 9c0110fb-422d-4334-bfe7-61881cbe4296
+            hippotranslation:locale: en
+            visitscotland:breadcrumb: ''
+            visitscotland:hideNewsletter: false
+            visitscotland:seoDescription: camp 2
+            visitscotland:seoNoIndex: false
+            visitscotland:seoTitle: camp 2
+            visitscotland:teaser: camp 2 teaser
+            visitscotland:theme: Standard
+            visitscotland:title: camp 2
+            visitscotland:translation: ''
+            /visitscotland:heroImage:
+              jcr:primaryType: hippogallerypicker:imagelink
+              hippo:docbase: dbcdddc3-5586-4188-85a7-fcd5e7e3c29a
+              hippo:facets: []
+              hippo:modes: []
+              hippo:values: []
+            /visitscotland:introduction:
+              jcr:primaryType: hippostd:html
+              hippostd:content: <p>example camp 2</p>
+          /content[3]:
+            jcr:primaryType: visitscotland:General
+            jcr:mixinTypes: ['mix:referenceable']
+            jcr:uuid: bd2d041a-d678-47d4-89f7-d8d8d48ebb3b
+            hippo:availability: [live]
+            hippostd:retainable: false
+            hippostd:state: published
+            hippostdpubwf:createdBy: admin
+            hippostdpubwf:creationDate: 2023-02-28T09:58:23.570Z
+            hippostdpubwf:lastModificationDate: 2023-02-28T09:59:27.515Z
+            hippostdpubwf:lastModifiedBy: admin
+            hippostdpubwf:publicationDate: 2023-02-28T09:59:29.749Z
+            hippotranslation:id: 9c0110fb-422d-4334-bfe7-61881cbe4296
+            hippotranslation:locale: en
+            visitscotland:breadcrumb: ''
+            visitscotland:hideNewsletter: false
+            visitscotland:seoDescription: camp 2
+            visitscotland:seoNoIndex: false
+            visitscotland:seoTitle: camp 2
+            visitscotland:teaser: camp 2 teaser
+            visitscotland:theme: Standard
+            visitscotland:title: camp 2
+            visitscotland:translation: ''
+            /visitscotland:heroImage:
+              jcr:primaryType: hippogallerypicker:imagelink
+              hippo:docbase: dbcdddc3-5586-4188-85a7-fcd5e7e3c29a
+              hippo:facets: []
+              hippo:modes: []
+              hippo:values: []
+            /visitscotland:introduction:
+              jcr:primaryType: hippostd:html
+              hippostd:content: <p>example camp 2</p>
+        /cs:
+          jcr:primaryType: hippo:handle
+          jcr:mixinTypes: ['hippo:versionInfo', 'mix:referenceable']
+          jcr:uuid: e53eafc8-6d4f-43f0-9c9e-1bb8f4f2fe64
+          hippo:versionHistory: de2f510d-1f57-4841-86ab-814e846047c7
+          /cs[1]:
+            jcr:primaryType: visitscotland:CannedSearch
+            jcr:mixinTypes: ['mix:referenceable']
+            jcr:uuid: f14689a8-8d13-4ac8-a1b2-3e81a13e2bca
+            hippo:availability: []
+            hippostd:retainable: false
+            hippostd:state: draft
+            hippostdpubwf:createdBy: admin
+            hippostdpubwf:creationDate: 2023-02-28T09:59:56.983Z
+            hippostdpubwf:lastModificationDate: 2023-02-28T09:59:56.984Z
+            hippostdpubwf:lastModifiedBy: admin
+            hippotranslation:id: 97744f1c-6bdb-4338-b807-9cc69bf4bf88
+            hippotranslation:locale: en
+            visitscotland:title: canned seearch
+            visitscotland:translation: ''
+            /visitscotland:criteria:
+              jcr:primaryType: visitscotland:ProductSearchLink
+              visitscotland:label: ''
+              /visitscotland:search:
+                jcr:primaryType: visitscotland:ProductsSearch
+                visitscotland:channel: ''
+                visitscotland:daysOut: false
+                visitscotland:distance: 2.0
+                visitscotland:dmsAwards: []
+                visitscotland:dmsCategories: []
+                visitscotland:dmsFacilities: []
+                visitscotland:free: false
+                visitscotland:goodToGo: false
+                visitscotland:keywords: ''
+                visitscotland:location: Sandyhills
+                visitscotland:offers: false
+                visitscotland:officialrating: []
+                visitscotland:productType: acco
+                visitscotland:producttype: ''
+                visitscotland:safeTravels: false
+          /cs[2]:
+            jcr:primaryType: visitscotland:CannedSearch
+            jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+            jcr:uuid: ae34b4a2-421d-455a-b921-6479f3549dfa
+            hippo:availability: [preview]
+            hippostd:retainable: false
+            hippostd:state: unpublished
+            hippostdpubwf:createdBy: admin
+            hippostdpubwf:creationDate: 2023-02-28T09:59:56.983Z
+            hippostdpubwf:lastModificationDate: 2023-02-28T10:00:44.516Z
+            hippostdpubwf:lastModifiedBy: admin
+            hippotranslation:id: 97744f1c-6bdb-4338-b807-9cc69bf4bf88
+            hippotranslation:locale: en
+            visitscotland:title: canned seearch
+            visitscotland:translation: ''
+            /visitscotland:criteria:
+              jcr:primaryType: visitscotland:ProductSearchLink
+              visitscotland:label: ''
+              /visitscotland:search:
+                jcr:primaryType: visitscotland:ProductsSearch
+                visitscotland:channel: ''
+                visitscotland:daysOut: false
+                visitscotland:distance: 2.0
+                visitscotland:dmsAwards: []
+                visitscotland:dmsCategories: []
+                visitscotland:dmsFacilities: []
+                visitscotland:free: false
+                visitscotland:goodToGo: false
+                visitscotland:keywords: ''
+                visitscotland:location: Sandyhills
+                visitscotland:offers: false
+                visitscotland:officialrating: []
+                visitscotland:productType: acco
+                visitscotland:producttype: ''
+                visitscotland:safeTravels: false
+          /cs[3]:
+            jcr:primaryType: visitscotland:CannedSearch
+            jcr:mixinTypes: ['mix:referenceable']
+            jcr:uuid: 5d79828e-bd86-4ea4-87a5-40ccb9462cb5
+            hippo:availability: [live]
+            hippostd:retainable: false
+            hippostd:state: published
+            hippostdpubwf:createdBy: admin
+            hippostdpubwf:creationDate: 2023-02-28T09:59:56.983Z
+            hippostdpubwf:lastModificationDate: 2023-02-28T10:00:44.516Z
+            hippostdpubwf:lastModifiedBy: admin
+            hippostdpubwf:publicationDate: 2023-02-28T10:00:47.645Z
+            hippotranslation:id: 97744f1c-6bdb-4338-b807-9cc69bf4bf88
+            hippotranslation:locale: en
+            visitscotland:title: canned seearch
+            visitscotland:translation: ''
+            /visitscotland:criteria:
+              jcr:primaryType: visitscotland:ProductSearchLink
+              visitscotland:label: ''
+              /visitscotland:search:
+                jcr:primaryType: visitscotland:ProductsSearch
+                visitscotland:channel: ''
+                visitscotland:daysOut: false
+                visitscotland:distance: 2.0
+                visitscotland:dmsAwards: []
+                visitscotland:dmsCategories: []
+                visitscotland:dmsFacilities: []
+                visitscotland:free: false
+                visitscotland:goodToGo: false
+                visitscotland:keywords: ''
+                visitscotland:location: Sandyhills
+                visitscotland:offers: false
+                visitscotland:officialrating: []
+                visitscotland:productType: acco
+                visitscotland:producttype: ''
+                visitscotland:safeTravels: false
   /automation:
     jcr:primaryType: hippostd:folder
     jcr:mixinTypes: ['hippo:named', 'hippotranslation:translated', 'mix:versionable']
