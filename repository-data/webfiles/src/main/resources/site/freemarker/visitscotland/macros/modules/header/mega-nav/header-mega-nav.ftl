@@ -11,7 +11,6 @@
             search-label-text="${label('search', 'search-label')}"
             search-clear-button-text="${label('search', 'clear-form')}"
             search-close-button-text="${label('search', 'close-form')}"
-            class="hide-unstyled"
     >
         <template slot="megaNavTopMenuItems">
             <@headerDesktopNav menu=menu/>

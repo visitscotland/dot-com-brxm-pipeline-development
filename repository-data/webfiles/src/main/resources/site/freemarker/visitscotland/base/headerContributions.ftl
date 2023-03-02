@@ -32,7 +32,11 @@
         <link rel="manifest" href="<@hst.link path="manifest.webmanifest"/>">
 
         <style>
-            .hide-unstyled {
+            .skeleton-site {
+                display: block;
+            }
+
+            .hydrate {
                 display: none;
             }
         </style>
