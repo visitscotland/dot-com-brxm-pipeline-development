@@ -32,6 +32,6 @@
         <script src="https://customer.cludo.com/scripts/bundles/search-script.js"></script>
     </@hst.headContribution>
     <@hst.headContribution category="htmlBodyEndScriptsLast">
-        <script src="https://customer.cludo.com/assets/623/12809/cludo-search.js"></script>
+        <script src="https://customer.cludo.com/assets/623/12809/cludo-helper.js"></script>
     </@hst.headContribution>
 </#macro>

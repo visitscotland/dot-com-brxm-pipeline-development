@@ -38,7 +38,10 @@
 
     <@pageIntro content=document heroDetails=heroImage itinerary=itinerary />
 
-    <vs-itinerary>
+    <vs-itinerary
+        list-view-text="${label('itinerary', 'list-view')}"
+        map-view-text="${label('itinerary', 'map-view')}"
+    >
         <@itineraryMap itinerary />
         <#list itinerary.days as day>
             <#assign dayNumber++>

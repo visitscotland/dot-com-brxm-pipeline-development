@@ -10,14 +10,17 @@ import com.visitscotland.brxm.config.VsComponentManager;
 import com.visitscotland.brxm.dms.DMSConstants;
 import com.visitscotland.brxm.dms.DMSDataService;
 import com.visitscotland.brxm.dms.ProductSearchBuilder;
+import com.visitscotland.brxm.services.DocumentUtilsService;
 import com.visitscotland.brxm.services.ResourceBundleService;
 import com.visitscotland.brxm.utils.HippoUtilsService;
 import com.visitscotland.brxm.utils.Language;
 import com.visitscotland.brxm.utils.Properties;
 import com.visitscotland.utils.Contract;
 import com.visitscotland.utils.DataServiceUtils;
+import org.hippoecm.hst.content.beans.standard.HippoBean;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import vs.ase.dms.ProductTypes;
 
@@ -39,15 +42,17 @@ public class ICentreFactory {
     private final QuoteFactory quoteEmbedder;
     private final ImageFactory imageFactory;
     private final Properties properties;
+    private final HippoUtilsService hippoUtilsService;
 
-
-    public ICentreFactory(HippoUtilsService utils, DMSDataService dmsData, ResourceBundleService bundle, QuoteFactory quoteEmbedder, ImageFactory image, Properties properties) {
+    @Autowired
+    public ICentreFactory(HippoUtilsService utils, DMSDataService dmsData, ResourceBundleService bundle, QuoteFactory quoteEmbedder, ImageFactory imageFactory, Properties properties, HippoUtilsService hippoUtilsService) {
         this.utils = utils;
         this.dmsData = dmsData;
         this.bundle = bundle;
         this.quoteEmbedder = quoteEmbedder;
-        this.imageFactory = image;
+        this.imageFactory = imageFactory;
         this.properties = properties;
+        this.hippoUtilsService = hippoUtilsService;
     }
 
     /**
@@ -104,6 +109,8 @@ public class ICentreFactory {
     }
 
 
+
+
     /**
      * Get the list of links for a location and a locale. When the location is not provided a link to the iCentres page
      * would be returned
@@ -118,7 +125,7 @@ public class ICentreFactory {
     }
 
     private List<FlatLink> getICentreLandingLink(Locale locale) {
-        String url = bundle.getResourceBundle(BUNDLE_ID, "icentre.description.link", locale);
+        String url = hippoUtilsService.createUrlFromNode(properties.getSiteICentre(), true);
         String text = bundle.getResourceBundle(BUNDLE_ID, "icentre.description.link.text", locale);
 
         return Collections.singletonList(new FlatLink(text, url, LinkType.INTERNAL));
@@ -142,7 +149,7 @@ public class ICentreFactory {
                 .sortBy(DMSConstants.SORT_ALPHA);
 
         //Retrieves the iCenters for a location
-        JsonNode node = dmsData.legacyMapSearch(dmsQuery);
+        JsonNode node = dmsData.legacyMapSearch(dmsQuery.buildDataMap(true));
 
         for (JsonNode child : node) {
             if (child.has(DMSConstants.MapSearch.PROPERTIES) &&

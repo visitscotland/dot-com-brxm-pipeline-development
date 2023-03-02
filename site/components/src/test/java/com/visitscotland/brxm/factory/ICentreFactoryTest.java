@@ -27,6 +27,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Answers;
 import org.mockito.ArgumentCaptor;
+import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
@@ -57,6 +58,7 @@ class ICentreFactoryTest {
     @Mock
     Properties properties;
 
+    @InjectMocks
     ICentreFactory factory;
 
     TouristInformationMockBuilder mockBuilder;
@@ -86,7 +88,7 @@ class ICentreFactoryTest {
 
     @BeforeEach
     void init() {
-        factory = new ICentreFactory(utils, dmsData, bundle, quoteEmbedder, imageFactory, properties);
+        factory = new ICentreFactory(utils, dmsData, bundle, quoteEmbedder, imageFactory, properties, utils);
         mockBuilder = new TouristInformationMockBuilder().addICentre();
     }
 
@@ -97,10 +99,9 @@ class ICentreFactoryTest {
         //Verifies that a link to the iCentres page is defined
         //Verifies that no request to the dms is performed
 
-        when(bundle.getResourceBundle(ICentreFactory.BUNDLE_ID, "icentre.description.link", Locale.UK))
-                .thenReturn("url");
         when(bundle.getResourceBundle(ICentreFactory.BUNDLE_ID, "icentre.description.link.text", Locale.UK))
                 .thenReturn("link text");
+        when(utils.createUrlFromNode(any(),anyBoolean())).thenReturn("url");
 
         ICentreModule module = factory.getModule(mockBuilder.build().getICentre(), Locale.UK, "");
 
@@ -118,8 +119,7 @@ class ICentreFactoryTest {
         String location = "Edinburgh";
         JsonNode node = new ObjectMapper().readTree(MOCK_JSON);
 
-        ArgumentCaptor<ProductSearchBuilder> captor = ArgumentCaptor.forClass(ProductSearchBuilder.class);
-        doReturn(node).when(dmsData).legacyMapSearch(captor.capture());
+        when(dmsData.legacyMapSearch(any())).thenReturn(node);
 
         ICentreModule module = factory.getModule(mockBuilder.build().getICentre(), Locale.UK, location);
 
@@ -134,9 +134,7 @@ class ICentreFactoryTest {
     @DisplayName("ICentre Module - All fields are mapped correctly")
     void getModule_mapping() {
         // Verifies that all data coming from the document gets correctly mapped in the module
-        // The Product product doesn't get directly mapped.
-
-
+        // The Product doesn't get directly mapped.
         ICentre ti = mockBuilder.addICentreTitle("title").addICentreImage()
 //                .addQuoteText().addQuoteImage().addQuoteAuthor("Moo McCoo").addQuoteRole("Grass QA")
                 .build().getICentre();
@@ -224,8 +222,7 @@ class ICentreFactoryTest {
     void getModuleNoLocationLinkLandingPage() throws JsonProcessingException {
         //Verifies that the module disappears when there is no ICentre
         when(dmsData.legacyMapSearch(any())).thenReturn(new ObjectMapper().readTree("[{}]"));
-        when(bundle.getResourceBundle(ICentreFactory.BUNDLE_ID, "icentre.description.link", Locale.UK))
-                .thenReturn("url");
+        when(utils.createUrlFromNode(any(),anyBoolean())).thenReturn("url");
         when(bundle.getResourceBundle(ICentreFactory.BUNDLE_ID, "icentre.description.link.text", Locale.UK))
                 .thenReturn("link text");
         ICentreModule module = factory.getModule(mockBuilder.build().getICentre(), Locale.UK, "St. Kilda");
@@ -255,5 +252,4 @@ class ICentreFactoryTest {
         module = factory.getModule(mockBuilder.build().getICentre(), Locale.UK, "Highlands");
         assertEquals("Multiple VICs", module.getDescription());
     }
-
 }

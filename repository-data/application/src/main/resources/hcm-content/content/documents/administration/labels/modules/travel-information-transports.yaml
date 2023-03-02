@@ -1,21 +1,21 @@
 /content/documents/administration/labels/modules/travel-information-transports:
-  .meta:order-before: product-search-widget
+  .meta:order-before: skip-to
   jcr:primaryType: hippo:handle
   jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
-  jcr:uuid: 06d5a758-fe0a-44ef-b1fb-efec4b20e1b5
+  jcr:uuid: dd0f784e-e773-4dd1-bbc0-d9fa27ea49fe
   hippo:name: Travel Information Transports
-  hippo:versionHistory: 6de1aabb-0da5-4e35-96f4-6b53526fbb43
+  hippo:versionHistory: b8e8d5c0-7adc-4941-a501-928ffa7a111c
   /travel-information-transports[1]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:referenceable']
-    jcr:uuid: 4707115d-168b-48db-a997-b0a3e58c4b5d
+    jcr:uuid: 87881890-7b85-41b3-b850-24de05be1265
     hippo:availability: []
     hippostd:retainable: false
     hippostd:state: draft
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2021-10-20T14:03:42.816+01:00
-    hippostdpubwf:lastModificationDate: 2022-11-08T09:03:47.069Z
-    hippostdpubwf:lastModifiedBy: admin
+    hippostdpubwf:lastModificationDate: 2023-02-03T15:50:05.655+01:00
+    hippostdpubwf:lastModifiedBy: brieuc.botte
     resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '', '', '', '',
       '', '', '']
     resourcebundle:id: travel-information-transports
@@ -32,23 +32,24 @@
       Billetes, Alquiler de vehículo, A pie]
     resourcebundle:messages_fr: [Voyage accessible, Bus & car, Vélo, Voiture, Ferry,
       Avion, Destinations phares, Métro, Taxi, Excursions, Train, Tram, Billets, Location
-        de véhicule, À pied]
+        de véhicules, À pied]
     resourcebundle:messages_it: [Viaggio accessibile, Autobus e pullman, Bicicletta,
       Auto, Traghetto, Aereo, Destinazioni principali, Metropolitana, Taxi, Tour,
       Treno, Tram, Biglietti, Noleggio di veicoli, A piedi]
-    resourcebundle:messages_nl: ['', Bus, Fiets, Auto, Veerboot, '', '', '', '', '',
-      Trein, '', '', '', Te voet]
+    resourcebundle:messages_nl: [Toegankelijk reizen, Bus, Fiets, Auto, Veerboot,
+      Vliegtuig, Belangrijke bestemmingen, Metro, Taxi, Tours, Trein, Tram, Tickets,
+      Voertuigverhuur, Te voet]
   /travel-information-transports[2]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:versionable']
-    jcr:uuid: 2829f4e6-dd32-491f-9e46-46ec615a19c0
+    jcr:uuid: a21af8e3-17e7-43cd-9b4b-4187f22a7165
     hippo:availability: [preview]
     hippostd:retainable: false
     hippostd:state: unpublished
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2021-10-20T14:03:42.816+01:00
-    hippostdpubwf:lastModificationDate: 2022-11-08T09:04:31.913Z
-    hippostdpubwf:lastModifiedBy: admin
+    hippostdpubwf:lastModificationDate: 2023-02-03T15:50:14.893+01:00
+    hippostdpubwf:lastModifiedBy: brieuc.botte
     resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '', '', '', '',
       '', '', '']
     resourcebundle:id: travel-information-transports
@@ -65,24 +66,25 @@
       Billetes, Alquiler de vehículo, A pie]
     resourcebundle:messages_fr: [Voyage accessible, Bus & car, Vélo, Voiture, Ferry,
       Avion, Destinations phares, Métro, Taxi, Excursions, Train, Tram, Billets, Location
-        de véhicule, À pied]
+        de véhicules, À pied]
     resourcebundle:messages_it: [Viaggio accessibile, Autobus e pullman, Bicicletta,
       Auto, Traghetto, Aereo, Destinazioni principali, Metropolitana, Taxi, Tour,
       Treno, Tram, Biglietti, Noleggio di veicoli, A piedi]
-    resourcebundle:messages_nl: ['', Bus, Fiets, Auto, Veerboot, '', '', '', '', '',
-      Trein, '', '', '', Te voet]
+    resourcebundle:messages_nl: [Toegankelijk reizen, Bus, Fiets, Auto, Veerboot,
+      Vliegtuig, Belangrijke bestemmingen, Metro, Taxi, Tours, Trein, Tram, Tickets,
+      Voertuigverhuur, Te voet]
   /travel-information-transports[3]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:referenceable']
-    jcr:uuid: 75294644-8882-46e0-97b1-3918041b7b98
+    jcr:uuid: 8e9bba6d-1b93-4194-97b5-7c3e36ce51a8
     hippo:availability: [live]
     hippostd:retainable: false
     hippostd:state: published
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2021-10-20T14:03:42.816+01:00
-    hippostdpubwf:lastModificationDate: 2022-11-08T09:04:31.913Z
-    hippostdpubwf:lastModifiedBy: admin
-    hippostdpubwf:publicationDate: 2022-11-08T09:04:34.925Z
+    hippostdpubwf:lastModificationDate: 2023-02-03T15:50:14.893+01:00
+    hippostdpubwf:lastModifiedBy: brieuc.botte
+    hippostdpubwf:publicationDate: 2023-02-06T09:45:29.193+01:00
     resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '', '', '', '',
       '', '', '']
     resourcebundle:id: travel-information-transports
@@ -99,9 +101,10 @@
       Billetes, Alquiler de vehículo, A pie]
     resourcebundle:messages_fr: [Voyage accessible, Bus & car, Vélo, Voiture, Ferry,
       Avion, Destinations phares, Métro, Taxi, Excursions, Train, Tram, Billets, Location
-        de véhicule, À pied]
+        de véhicules, À pied]
     resourcebundle:messages_it: [Viaggio accessibile, Autobus e pullman, Bicicletta,
       Auto, Traghetto, Aereo, Destinazioni principali, Metropolitana, Taxi, Tour,
       Treno, Tram, Biglietti, Noleggio di veicoli, A piedi]
-    resourcebundle:messages_nl: ['', Bus, Fiets, Auto, Veerboot, '', '', '', '', '',
-      Trein, '', '', '', Te voet]
+    resourcebundle:messages_nl: [Toegankelijk reizen, Bus, Fiets, Auto, Veerboot,
+      Vliegtuig, Belangrijke bestemmingen, Metro, Taxi, Tours, Trein, Tram, Tickets,
+      Voertuigverhuur, Te voet]
