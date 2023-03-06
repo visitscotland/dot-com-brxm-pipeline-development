@@ -1,5 +1,6 @@
 package com.visitscotland.brxm.factory;
 
+import com.visitscotland.brxm.model.FlatImage;
 import com.visitscotland.brxm.model.FlatLink;
 import com.visitscotland.brxm.model.LinkType;
 import com.visitscotland.brxm.model.SignpostModule;
@@ -30,9 +31,27 @@ public class SignpostFactory {
         SignpostModule signpostModule = new SignpostModule();
         FlatLink cta = new FlatLink(bundle.getResourceBundle(BUNDLE_ID, "newsletter.cta.text", locale),
                 hippoUtilsService.createUrlFromNode(properties.getSiteNewsletter(),true), LinkType.INTERNAL);
+        FlatImage image = new FlatImage();
+        image.setExternalImage(bundle.getResourceBundle(BUNDLE_ID, "newsletter.image", locale));
         signpostModule.setCta(cta);
+        signpostModule.setImage(image);
         signpostModule.setTitle(bundle.getResourceBundle(BUNDLE_ID, "newsletter.title", locale));
         signpostModule.setCopy(new HippoHtmlWrapper(bundle.getResourceBundle(BUNDLE_ID, "newsletter.copy", locale)));
+        return signpostModule;
+    }
+
+    public SignpostModule createSnowAlertsModule(Locale locale) {
+        SignpostModule signpostModule = new SignpostModule();
+        FlatLink cta = new FlatLink(bundle.getResourceBundle(BUNDLE_ID, "snow-alerts.cta.text", locale),
+                bundle.getResourceBundle(BUNDLE_ID, "snow-alerts.cta.link", locale), LinkType.INTERNAL);
+        FlatImage image = new FlatImage();
+
+        image.setExternalImage(bundle.getResourceBundle(BUNDLE_ID, "snow-alerts.image", locale));
+
+        signpostModule.setCta(cta);
+        signpostModule.setImage(image);
+        signpostModule.setTitle(bundle.getResourceBundle(BUNDLE_ID, "snow-alerts.title", locale));
+        signpostModule.setCopy(new HippoHtmlWrapper(bundle.getResourceBundle(BUNDLE_ID, "snow-alerts.copy", locale)));
         return signpostModule;
     }
 
