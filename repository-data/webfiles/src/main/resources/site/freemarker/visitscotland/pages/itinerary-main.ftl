@@ -108,6 +108,6 @@
     </#if>
 
     <#if newsletterSignpost??>
-		<@signpost module=newsletterSignpost imgSrc="assets/images/illustrations/newsletter.svg"/>
+		<@signpost module=newsletterSignpost />
 	</#if>
 </div>

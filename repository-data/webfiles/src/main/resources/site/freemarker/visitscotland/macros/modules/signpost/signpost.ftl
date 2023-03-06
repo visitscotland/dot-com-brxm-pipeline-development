@@ -8,7 +8,7 @@
 <#include "../../../../frontend/components/vs-rich-text-wrapper.ftl">
 
 <#-- @ftlvariable name="module" type="com.visitscotland.brxm.model.SignpostModule" -->
-<#macro signpost module imgSrc="assets/images/illustrations/newsletter.svg">
+<#macro signpost module>
     <vs-module-wrapper theme="grey">
         <template slot="vsModuleWrapperHeading">
             ${module.title}
