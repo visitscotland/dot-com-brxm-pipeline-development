@@ -27,9 +27,22 @@
         <template slot="video-title">
             ${videoTitle}
         </template>
+        
+        <vs-img
+            src="${imageSrc}?size=xxs"
+            class="position-absolute"
+            <#if noAltText?? && noAltText == "true">
+                alt=""
+            <#else>
+                alt="${(imageDetails.altText)!'${label("essentials.global", "default.alt-text")}'}"
+            </#if>
+            :use-lazy-loading="${useLazyLoading}"
+        >
+        </vs-img>
 
         <vs-img
             src="${imageSrc}"
+            class="position-relative"
             <#if noAltText?? && noAltText == "true">
                 alt=""
             <#else>
@@ -40,7 +53,6 @@
                     ${imageSrc}?size=md 1200w, 
                     ${imageSrc}?size=lg 2048w"
             sizes="(min-width: 768px) 75vw, 100vw"
-            low-res-image="${imageSrc}?size=xxs"
             :use-lazy-loading="${useLazyLoading}"
         >
         </vs-img>
