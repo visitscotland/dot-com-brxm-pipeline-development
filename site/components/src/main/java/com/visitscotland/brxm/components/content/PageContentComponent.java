@@ -133,12 +133,13 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
     protected void addNewsletterSignup(HstRequest request) {
         Page page = getDocument(request);
         if (!Contract.defaultIfNull(page.getHideNewsletter(), false)) {
+            SignpostModule signpost;
             if (request.getPathInfo().contains(properties.getSiteSkiSection())){
-                //TODO: SKi Section uses its own signup post
+                signpost = signpostFactory.createSnowAlertsModule(request.getLocale());
             } else {
-                SignpostModule signpost = signpostFactory.createNewsletterSignpostModule(request.getLocale());
-                request.setAttribute(NEWSLETTER_SIGNPOST, signpost);
+                signpost = signpostFactory.createNewsletterSignpostModule(request.getLocale());
             }
+            request.setAttribute(NEWSLETTER_SIGNPOST, signpost);
         }
     }
 

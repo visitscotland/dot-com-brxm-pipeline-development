@@ -4,7 +4,7 @@
   jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
   jcr:uuid: 6efa3b1a-cb7c-4dcf-b020-8d9e245928dc
   hippo:name: Newsletter Signpost
-  hippo:versionHistory: f1932854-7253-4344-ae46-64b0b13cb46e
+  hippo:versionHistory: 1b40fd53-3407-4417-98b7-8774eca93c30
   /newsletter-signpost[1]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:referenceable']
@@ -14,34 +14,62 @@
     hippostd:state: draft
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2021-05-17T15:10:33.190+01:00
-    hippostdpubwf:lastModificationDate: 2022-09-08T11:02:56.572+02:00
-    hippostdpubwf:lastModifiedBy: juanluis.hurtado
-    resourcebundle:descriptions: ['', '', '', '']
+    hippostdpubwf:lastModificationDate: 2023-02-09T16:34:17.268Z
+    hippostdpubwf:lastModifiedBy: admin
+    resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '', '']
     resourcebundle:id: newsletter-signpost
     resourcebundle:keys: [newsletter.title, newsletter.cta.link, newsletter.cta.text,
-      newsletter.copy]
+      newsletter.copy, newsletter.image, snow-alerts.title, snow-alerts.copy, snow-alerts.cta.text,
+      snow-alerts.cta.link, snow-alerts.image]
     resourcebundle:messages: [Scotland in your inbox, 'https://beta.visitscotland.com/newsletter/',
       Get the Scotland newsletter, 'Subscribe to our newsletter and we''ll email you
-        every two weeks with unique attractions, exciting trip ideas and visitor offers.']
+        every two weeks with unique attractions, exciting trip ideas and visitor offers.',
+      assets/images/illustrations/newsletter.svg, Newsletter and Snow Alerts sign
+        up, Our newsletter is full of holiday inspiration and travel tips. We’ll also
+        send you up-to-date snow alerts during the snowsports season., Sign me up,
+      'https://www.visitscotland.com/see-do/active/skiing-snowsports/snow-alert-signup/',
+      assets/images/illustrations/ski-newletter.svg]
     resourcebundle:messages_de: [Schottland in Ihrem Posteingang, 'https://beta.visitscotland.com/de-de/newsletter/',
       Den Schottland-Newsletter abonnieren, 'Abonnieren Sie unseren Newsletter und
         erhalten Sie alle zwei Wochen einmalige Sehenswürdigkeiten, spannende Reisevorschläge
-        und Angebote für Besucher.']
+        und Angebote für Besucher.', assets/images/illustrations/newsletter.svg, Anmeldung
+        für Newsletter und Schneemeldungen, Unser Newsletter bietet Ihnen Anregungen
+        und Tipps für Ihre Reise. Währen der Wintersportsaison werden wir Ihnen außerdem
+        aktuelle Schneemeldungen senden., Jetzt anmelden, 'https://www.visitscotland.com/see-do/active/skiing-snowsports/snow-alert-signup/',
+      assets/images/illustrations/ski-newletter.svg]
     resourcebundle:messages_es: [Escocia en tu bandeja de entrada, 'https://beta.visitscotland.com/es-es/newsletter/',
       Suscríbete al boletín, 'Suscríbete a nuestro boletín para recibir emocionantes
-        sugerencias de viaje, atracciones únicas y ofertas de viaje cada dos semanas.']
+        sugerencias de viaje, atracciones únicas y ofertas de viaje cada dos semanas.',
+      assets/images/illustrations/newsletter.svg, Suscripción al boletín y  a las
+        alertas de nieve, Nuestro boletín está repleto de inspiración para las vacaciones
+        y consejos de viaje. También te enviaremos alertas de nieve actualizadas durante
+        la temporada de deportes de invierno., Darme de alta, 'https://www.visitscotland.com/see-do/active/skiing-snowsports/snow-alert-signup/',
+      assets/images/illustrations/ski-newletter.svg]
     resourcebundle:messages_fr: [L’Écosse dans un e-mail, 'https://beta.visitscotland.com/fr-fr/newsletter/',
       S’abonner à la newsletter, 'Abonnez-vous à notre newsletter et recevez toutes
         les deux semaines de l’inspiration, des idées et des offres de voyage par
-        e-mail.']
+        e-mail.', assets/images/illustrations/newsletter.svg, Abonnement à la Newsletter
+        et aux alertes neige, Notre newsletter regorge d’idées de vacances et de conseils
+        de voyage. Nous vous enverrons également les dernières alertes d’enneigement
+        pendant la saison des sports d’hiver., S’abonner, 'https://www.visitscotland.com/see-do/active/skiing-snowsports/snow-alert-signup/',
+      assets/images/illustrations/ski-newletter.svg]
     resourcebundle:messages_it: [La Scozia nella tua casella di posta, 'https://beta.visitscotland.com/it-it/newsletter/',
       Ricevi la newsletter della Scozia, 'Iscriviti alla nostra newsletter e ti invieremo
         un''e-mail ogni due settimane con attrazioni uniche, idee di viaggio entusiasmanti
-        e offerte per i visitatori.']
+        e offerte per i visitatori.', assets/images/illustrations/newsletter.svg,
+      Iscriviti alla newsletter e agli avvisi sulla neve, La nostra newsletter è ricca
+        di spunti per le vacanze e di consigli di viaggio. Ti invieremo anche avvisi
+        sulla  neve aggiornati durante la stagione degli sport invernali., Iscrivimi,
+      'https://www.visitscotland.com/see-do/active/skiing-snowsports/snow-alert-signup/',
+      assets/images/illustrations/ski-newletter.svg]
     resourcebundle:messages_nl: [Bekijk onze laatste reistips, 'https://beta.visitscotland.com/nl-nl/newsletter/',
       Op de nieuwsbrief abonneren, 'Als je je voor onze nieuwsbrief opgeeft, zullen
         we je elke twee weken een e-mail met unieke bezienswaardigheden, enerverende
-        bestemmingen en reisaanbiedingen sturen.']
+        bestemmingen en reisaanbiedingen sturen.', assets/images/illustrations/newsletter.svg,
+      Meld je aan voor de nieuwsbrief en sneeuwmeldingen, In onze nieuwsbrief vind
+        je inspiratie en tips voor je reis. We sturen je ook actuele sneeuwmeldingen
+        tijdens het wintersportseizoen., Meld me aan, 'https://www.visitscotland.com/see-do/active/skiing-snowsports/snow-alert-signup/',
+      assets/images/illustrations/ski-newletter.svg]
   /newsletter-signpost[2]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:versionable']
@@ -51,34 +79,62 @@
     hippostd:state: unpublished
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2021-05-17T15:10:33.190+01:00
-    hippostdpubwf:lastModificationDate: 2022-09-08T11:03:38.922+02:00
-    hippostdpubwf:lastModifiedBy: juanluis.hurtado
-    resourcebundle:descriptions: ['', '', '', '']
+    hippostdpubwf:lastModificationDate: 2023-02-10T09:42:56.758Z
+    hippostdpubwf:lastModifiedBy: admin
+    resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '', '']
     resourcebundle:id: newsletter-signpost
     resourcebundle:keys: [newsletter.title, newsletter.cta.link, newsletter.cta.text,
-      newsletter.copy]
+      newsletter.copy, newsletter.image, snow-alerts.title, snow-alerts.copy, snow-alerts.cta.text,
+      snow-alerts.cta.link, snow-alerts.image]
     resourcebundle:messages: [Scotland in your inbox, 'https://beta.visitscotland.com/newsletter/',
       Get the Scotland newsletter, 'Subscribe to our newsletter and we''ll email you
-        every two weeks with unique attractions, exciting trip ideas and visitor offers.']
+        every two weeks with unique attractions, exciting trip ideas and visitor offers.',
+      assets/images/illustrations/newsletter.svg, Newsletter and Snow Alerts sign
+        up, Our newsletter is full of holiday inspiration and travel tips. We’ll also
+        send you up-to-date snow alerts during the snowsports season., Sign me up,
+      'https://www.visitscotland.com/see-do/active/skiing-snowsports/snow-alert-signup/',
+      assets/images/illustrations/ski-newletter.svg]
     resourcebundle:messages_de: [Schottland in Ihrem Posteingang, 'https://beta.visitscotland.com/de-de/newsletter/',
       Den Schottland-Newsletter abonnieren, 'Abonnieren Sie unseren Newsletter und
         erhalten Sie alle zwei Wochen einmalige Sehenswürdigkeiten, spannende Reisevorschläge
-        und Angebote für Besucher.']
+        und Angebote für Besucher.', assets/images/illustrations/newsletter.svg, Anmeldung
+        für Newsletter und Schneemeldungen, Unser Newsletter bietet Ihnen Anregungen
+        und Tipps für Ihre Reise. Währen der Wintersportsaison werden wir Ihnen außerdem
+        aktuelle Schneemeldungen senden., Jetzt anmelden, 'https://www.visitscotland.com/see-do/active/skiing-snowsports/snow-alert-signup/',
+      assets/images/illustrations/ski-newletter.svg]
     resourcebundle:messages_es: [Escocia en tu bandeja de entrada, 'https://beta.visitscotland.com/es-es/newsletter/',
       Suscríbete al boletín, 'Suscríbete a nuestro boletín para recibir emocionantes
-        sugerencias de viaje, atracciones únicas y ofertas de viaje cada dos semanas.']
+        sugerencias de viaje, atracciones únicas y ofertas de viaje cada dos semanas.',
+      assets/images/illustrations/newsletter.svg, Suscripción al boletín y  a las
+        alertas de nieve, Nuestro boletín está repleto de inspiración para las vacaciones
+        y consejos de viaje. También te enviaremos alertas de nieve actualizadas durante
+        la temporada de deportes de invierno., Darme de alta, 'https://www.visitscotland.com/see-do/active/skiing-snowsports/snow-alert-signup/',
+      assets/images/illustrations/ski-newletter.svg]
     resourcebundle:messages_fr: [L’Écosse dans un e-mail, 'https://beta.visitscotland.com/fr-fr/newsletter/',
       S’abonner à la newsletter, 'Abonnez-vous à notre newsletter et recevez toutes
         les deux semaines de l’inspiration, des idées et des offres de voyage par
-        e-mail.']
+        e-mail.', assets/images/illustrations/newsletter.svg, Abonnement à la Newsletter
+        et aux alertes neige, Notre newsletter regorge d’idées de vacances et de conseils
+        de voyage. Nous vous enverrons également les dernières alertes d’enneigement
+        pendant la saison des sports d’hiver., S’abonner, 'https://www.visitscotland.com/see-do/active/skiing-snowsports/snow-alert-signup/',
+      assets/images/illustrations/ski-newletter.svg]
     resourcebundle:messages_it: [La Scozia nella tua casella di posta, 'https://beta.visitscotland.com/it-it/newsletter/',
       Ricevi la newsletter della Scozia, 'Iscriviti alla nostra newsletter e ti invieremo
         un''e-mail ogni due settimane con attrazioni uniche, idee di viaggio entusiasmanti
-        e offerte per i visitatori.']
+        e offerte per i visitatori.', assets/images/illustrations/newsletter.svg,
+      Iscriviti alla newsletter e agli avvisi sulla neve, La nostra newsletter è ricca
+        di spunti per le vacanze e di consigli di viaggio. Ti invieremo anche avvisi
+        sulla  neve aggiornati durante la stagione degli sport invernali., Iscrivimi,
+      'https://www.visitscotland.com/see-do/active/skiing-snowsports/snow-alert-signup/',
+      assets/images/illustrations/ski-newletter.svg]
     resourcebundle:messages_nl: [Bekijk onze laatste reistips, 'https://beta.visitscotland.com/nl-nl/newsletter/',
       Op de nieuwsbrief abonneren, 'Als je je voor onze nieuwsbrief opgeeft, zullen
         we je elke twee weken een e-mail met unieke bezienswaardigheden, enerverende
-        bestemmingen en reisaanbiedingen sturen.']
+        bestemmingen en reisaanbiedingen sturen.', assets/images/illustrations/newsletter.svg,
+      Meld je aan voor de nieuwsbrief en sneeuwmeldingen, In onze nieuwsbrief vind
+        je inspiratie en tips voor je reis. We sturen je ook actuele sneeuwmeldingen
+        tijdens het wintersportseizoen., Meld me aan, 'https://www.visitscotland.com/see-do/active/skiing-snowsports/snow-alert-signup/',
+      assets/images/illustrations/ski-newletter.svg]
   /newsletter-signpost[3]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:referenceable']
@@ -88,32 +144,60 @@
     hippostd:state: published
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2021-05-17T15:10:33.190+01:00
-    hippostdpubwf:lastModificationDate: 2022-09-08T11:03:38.922+02:00
-    hippostdpubwf:lastModifiedBy: juanluis.hurtado
-    hippostdpubwf:publicationDate: 2022-09-08T11:03:41.468+02:00
-    resourcebundle:descriptions: ['', '', '', '']
+    hippostdpubwf:lastModificationDate: 2023-02-10T09:42:56.758Z
+    hippostdpubwf:lastModifiedBy: admin
+    hippostdpubwf:publicationDate: 2023-02-10T09:43:01.144Z
+    resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '', '']
     resourcebundle:id: newsletter-signpost
     resourcebundle:keys: [newsletter.title, newsletter.cta.link, newsletter.cta.text,
-      newsletter.copy]
+      newsletter.copy, newsletter.image, snow-alerts.title, snow-alerts.copy, snow-alerts.cta.text,
+      snow-alerts.cta.link, snow-alerts.image]
     resourcebundle:messages: [Scotland in your inbox, 'https://beta.visitscotland.com/newsletter/',
       Get the Scotland newsletter, 'Subscribe to our newsletter and we''ll email you
-        every two weeks with unique attractions, exciting trip ideas and visitor offers.']
+        every two weeks with unique attractions, exciting trip ideas and visitor offers.',
+      assets/images/illustrations/newsletter.svg, Newsletter and Snow Alerts sign
+        up, Our newsletter is full of holiday inspiration and travel tips. We’ll also
+        send you up-to-date snow alerts during the snowsports season., Sign me up,
+      'https://www.visitscotland.com/see-do/active/skiing-snowsports/snow-alert-signup/',
+      assets/images/illustrations/ski-newletter.svg]
     resourcebundle:messages_de: [Schottland in Ihrem Posteingang, 'https://beta.visitscotland.com/de-de/newsletter/',
       Den Schottland-Newsletter abonnieren, 'Abonnieren Sie unseren Newsletter und
         erhalten Sie alle zwei Wochen einmalige Sehenswürdigkeiten, spannende Reisevorschläge
-        und Angebote für Besucher.']
+        und Angebote für Besucher.', assets/images/illustrations/newsletter.svg, Anmeldung
+        für Newsletter und Schneemeldungen, Unser Newsletter bietet Ihnen Anregungen
+        und Tipps für Ihre Reise. Währen der Wintersportsaison werden wir Ihnen außerdem
+        aktuelle Schneemeldungen senden., Jetzt anmelden, 'https://www.visitscotland.com/see-do/active/skiing-snowsports/snow-alert-signup/',
+      assets/images/illustrations/ski-newletter.svg]
     resourcebundle:messages_es: [Escocia en tu bandeja de entrada, 'https://beta.visitscotland.com/es-es/newsletter/',
       Suscríbete al boletín, 'Suscríbete a nuestro boletín para recibir emocionantes
-        sugerencias de viaje, atracciones únicas y ofertas de viaje cada dos semanas.']
+        sugerencias de viaje, atracciones únicas y ofertas de viaje cada dos semanas.',
+      assets/images/illustrations/newsletter.svg, Suscripción al boletín y  a las
+        alertas de nieve, Nuestro boletín está repleto de inspiración para las vacaciones
+        y consejos de viaje. También te enviaremos alertas de nieve actualizadas durante
+        la temporada de deportes de invierno., Darme de alta, 'https://www.visitscotland.com/see-do/active/skiing-snowsports/snow-alert-signup/',
+      assets/images/illustrations/ski-newletter.svg]
     resourcebundle:messages_fr: [L’Écosse dans un e-mail, 'https://beta.visitscotland.com/fr-fr/newsletter/',
       S’abonner à la newsletter, 'Abonnez-vous à notre newsletter et recevez toutes
         les deux semaines de l’inspiration, des idées et des offres de voyage par
-        e-mail.']
+        e-mail.', assets/images/illustrations/newsletter.svg, Abonnement à la Newsletter
+        et aux alertes neige, Notre newsletter regorge d’idées de vacances et de conseils
+        de voyage. Nous vous enverrons également les dernières alertes d’enneigement
+        pendant la saison des sports d’hiver., S’abonner, 'https://www.visitscotland.com/see-do/active/skiing-snowsports/snow-alert-signup/',
+      assets/images/illustrations/ski-newletter.svg]
     resourcebundle:messages_it: [La Scozia nella tua casella di posta, 'https://beta.visitscotland.com/it-it/newsletter/',
       Ricevi la newsletter della Scozia, 'Iscriviti alla nostra newsletter e ti invieremo
         un''e-mail ogni due settimane con attrazioni uniche, idee di viaggio entusiasmanti
-        e offerte per i visitatori.']
+        e offerte per i visitatori.', assets/images/illustrations/newsletter.svg,
+      Iscriviti alla newsletter e agli avvisi sulla neve, La nostra newsletter è ricca
+        di spunti per le vacanze e di consigli di viaggio. Ti invieremo anche avvisi
+        sulla  neve aggiornati durante la stagione degli sport invernali., Iscrivimi,
+      'https://www.visitscotland.com/see-do/active/skiing-snowsports/snow-alert-signup/',
+      assets/images/illustrations/ski-newletter.svg]
     resourcebundle:messages_nl: [Bekijk onze laatste reistips, 'https://beta.visitscotland.com/nl-nl/newsletter/',
       Op de nieuwsbrief abonneren, 'Als je je voor onze nieuwsbrief opgeeft, zullen
         we je elke twee weken een e-mail met unieke bezienswaardigheden, enerverende
-        bestemmingen en reisaanbiedingen sturen.']
+        bestemmingen en reisaanbiedingen sturen.', assets/images/illustrations/newsletter.svg,
+      Meld je aan voor de nieuwsbrief en sneeuwmeldingen, In onze nieuwsbrief vind
+        je inspiratie en tips voor je reis. We sturen je ook actuele sneeuwmeldingen
+        tijdens het wintersportseizoen., Meld me aan, 'https://www.visitscotland.com/see-do/active/skiing-snowsports/snow-alert-signup/',
+      assets/images/illustrations/ski-newletter.svg]
