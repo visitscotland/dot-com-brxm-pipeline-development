@@ -119,8 +119,7 @@ class ICentreFactoryTest {
         String location = "Edinburgh";
         JsonNode node = new ObjectMapper().readTree(MOCK_JSON);
 
-        ArgumentCaptor<ProductSearchBuilder> captor = ArgumentCaptor.forClass(ProductSearchBuilder.class);
-        doReturn(node).when(dmsData).legacyMapSearch(captor.capture());
+        when(dmsData.legacyMapSearch(any())).thenReturn(node);
 
         ICentreModule module = factory.getModule(mockBuilder.build().getICentre(), Locale.UK, location);
 
@@ -135,9 +134,7 @@ class ICentreFactoryTest {
     @DisplayName("ICentre Module - All fields are mapped correctly")
     void getModule_mapping() {
         // Verifies that all data coming from the document gets correctly mapped in the module
-        // The Product product doesn't get directly mapped.
-
-
+        // The Product doesn't get directly mapped.
         ICentre ti = mockBuilder.addICentreTitle("title").addICentreImage()
 //                .addQuoteText().addQuoteImage().addQuoteAuthor("Moo McCoo").addQuoteRole("Grass QA")
                 .build().getICentre();
