@@ -165,7 +165,7 @@ public class PageTemplateBuilder {
             numLinks += ((MultiImageLinksModule) al).getFeaturedLinks().size();
         }
         if (numLinks == 0) {
-            contentLogger.error("Megalinks module at {} contains no valid items", item.getPath());
+            contentLogger.warn("Megalinks module at {} contains no valid items", item.getPath());
             page.modules.add(previewFactory.createErrorModule(al));
             return;
         }
