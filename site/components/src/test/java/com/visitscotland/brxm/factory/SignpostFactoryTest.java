@@ -37,6 +37,7 @@ class SignpostFactoryTest {
         when(bundle.getResourceBundle(BUNDLE_ID, "newsletter.cta.text", Locale.UK)).thenReturn("cta.text");
         when(bundle.getResourceBundle(BUNDLE_ID, "newsletter.title", Locale.UK)).thenReturn("title");
         when(bundle.getResourceBundle(BUNDLE_ID, "newsletter.copy", Locale.UK)).thenReturn("copy");
+        when(bundle.getResourceBundle(BUNDLE_ID, "newsletter.image", Locale.UK)).thenReturn("image.jpeg");
 
         when(utils.createUrlFromNode(any(), anyBoolean())).thenReturn("cta.link");
 
@@ -47,6 +48,7 @@ class SignpostFactoryTest {
         Assertions.assertEquals(LinkType.INTERNAL, module.getCta().getType());
         Assertions.assertEquals("title", module.getTitle());
         Assertions.assertEquals("copy", module.getCopy().getContent());
+        Assertions.assertEquals("image.jpeg", module.getImage().getExternalImage());
     }
 
 }

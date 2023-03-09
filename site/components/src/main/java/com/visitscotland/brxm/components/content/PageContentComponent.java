@@ -133,12 +133,13 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
     protected void addNewsletterSignup(HstRequest request) {
         Page page = getDocument(request);
         if (!Contract.defaultIfNull(page.getHideNewsletter(), false)) {
+            SignpostModule signpost;
             if (request.getPathInfo().contains(properties.getSiteSkiSection())){
-                //TODO: SKi Section uses its own signup post
+                signpost = signpostFactory.createSnowAlertsModule(request.getLocale());
             } else {
-                SignpostModule signpost = signpostFactory.createNewsletterSignpostModule(request.getLocale());
-                request.setAttribute(NEWSLETTER_SIGNPOST, signpost);
+                signpost = signpostFactory.createNewsletterSignpostModule(request.getLocale());
             }
+            request.setAttribute(NEWSLETTER_SIGNPOST, signpost);
         }
     }
 
@@ -146,7 +147,7 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
      * Add the configuration related to the Product Search Widget for the page
      */
     private void addProductSearchWidget(HstRequest request){
-        if (!request.getPathInfo().contains(properties.getSiteSkiSection())){
+        if (!request.getPathInfo().contains(properties.getSiteSkiSection()) && !request.getPathInfo().contains(properties.getCampaignSection())){
             request.setAttribute(PSR_WIDGET, psrFactory.getWidget(request));
         }
     }
