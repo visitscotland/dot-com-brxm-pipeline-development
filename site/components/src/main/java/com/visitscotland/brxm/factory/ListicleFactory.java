@@ -85,9 +85,13 @@ public class ListicleFactory {
         for (HippoCompound compound : listicleItem.getExtraLinks()) {
             if (compound instanceof CMSLink) {
                 CMSLink cmsLink = (CMSLink) compound;
-                link = linksService.createSimpleLink((Linkable) cmsLink.getLink(),module, locale);
-                if(!Contract.isEmpty(cmsLink.getLabel())){
-                    link.setLabel(cmsLink.getLabel());
+                if (cmsLink.getLink() instanceof Linkable) {
+                    link = linksService.createSimpleLink((Linkable) cmsLink.getLink(), module, locale);
+                    if (!Contract.isEmpty(cmsLink.getLabel())) {
+                        link.setLabel(cmsLink.getLabel());
+                    }
+                }else{
+                    link = null;
                 }
             }else{
                 link = linksService.createFindOutMoreLink(module, locale, compound);
@@ -128,32 +132,34 @@ public class ListicleFactory {
             }
         } else if (link instanceof CMSLink) {
             CMSLink cmsLink = (CMSLink) link;
-            Optional<EnhancedLink> optionalLink = linksService.createEnhancedLink((Linkable) cmsLink.getLink(), module, locale,false);
-            if (!optionalLink.isPresent()) {
-                String linkPath = cmsLink.getLink() == null ? "" : cmsLink.getLink().getPath();
-                contentLogger.error("Failed to add main product link to listicle item {} - check link is valid and published", linkPath);
-                return null;
-            }
-            EnhancedLink eLink = optionalLink.get();
-            //Override default link label when the module has an override text
-            if (!Contract.isEmpty(cmsLink.getLabel())){
-                eLink.setCta(linksService.formatLabel(cmsLink.getLink(), cmsLink.getLabel(), module, locale));
-                eLink.setLabel(eLink.getCta());
-            }
+            if (cmsLink.getLink() instanceof Linkable){
+                Optional<EnhancedLink> optionalLink = linksService.createEnhancedLink((Linkable) cmsLink.getLink(), module, locale, false);
+                if (!optionalLink.isPresent()) {
+                    String linkPath = cmsLink.getLink() == null ? "" : cmsLink.getLink().getPath();
+                    contentLogger.warn("Failed to add main product link to listicle item {} - check link is valid and published", linkPath);
+                    return null;
+                }
+                EnhancedLink eLink = optionalLink.get();
+                //Override default link label when the module has an override text
+                if (!Contract.isEmpty(cmsLink.getLabel())) {
+                    eLink.setCta(linksService.formatLabel(cmsLink.getLink(), cmsLink.getLabel(), module, locale));
+                    eLink.setLabel(eLink.getCta());
+                }
 
-            if (module.getImage() == null) {
-                module.setImage(eLink.getImage());
+                if (module.getImage() == null) {
+                    module.setImage(eLink.getImage());
+                }
+                if (eLink.getLink() == null) {
+                    contentLogger.warn("There is no product with the id '{}', ({}) ", cmsLink.getLink(), cmsLink.getLink().getPath());
+                    module.addErrorMessage("Main Link: The DMS id is not valid, please review the document at: " + cmsLink.getLink().getPath());
+                    return null;
+                }
+                return eLink;
+            } else if (link instanceof ExternalLink || link instanceof ProductSearchLink) {
+                return linksService.createFindOutMoreLink(module, locale, link);
+            } else {
+                contentLogger.warn("The ListicleItem {} is pointing to a document that is not a page ", module.getHippoBean().getPath());
             }
-            if (eLink.getLink() == null){
-                contentLogger.warn("There is no product with the id '{}', ({}) ", cmsLink.getLink(), cmsLink.getLink().getPath());
-                module.addErrorMessage("Main Link: The DMS id is not valid, please review the document at: " + cmsLink.getLink().getPath());
-                return null;
-            }
-            return  eLink;
-        }  else if (link instanceof ExternalLink || link instanceof ProductSearchLink ) {
-                return linksService.createFindOutMoreLink(module, locale,link);
-        } else {
-            contentLogger.warn("The ListicleItem {} is pointing to a document that is not a page ", module.getHippoBean().getPath());
         }
 
         return null;
