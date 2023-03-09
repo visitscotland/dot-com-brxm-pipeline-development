@@ -16,9 +16,11 @@
   "scripts": {
     "build:ssr": "webpack --config webpack.config.js",
     "third-party": "webpack --config ./build/thirdparty.webpack.conf.js",
-    "ssr:serve": "nodemon ./ssr/server/index.js"
+    "ssr:serve": "nodemon ./ssr/server/index.js",
+    "partytown": "partytown copylib ../site/webapp/src/main/webapp/~partytown"
   },
   "dependencies": {
+    "@builder.io/partytown": "^0.7.5",
     "@visitscotland/vs-component-library": "0.8.13",
     "autoprefixer": "^10.4.2",
     "cheerio": "1.0.0-rc.3",
