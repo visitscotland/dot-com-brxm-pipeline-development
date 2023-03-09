@@ -2,7 +2,7 @@
 
 <#macro headContributions>
     <#compress>
-        <script src="/~partytown/partytown.js"></script>
+        <script src="/~partytown/partytown.js"/></script>
         <@gtm />
         <#if !integration>
             <!-- BEGIN HEAD CONTRIBUTIONS: seo -->
