@@ -21,7 +21,7 @@
             document.getElementById('counter').onclick = function() {
                 i++
 
-                for(let j=0;j<10000000000;j++){
+                for(let j=0;j<1000000;j++){
                     //
                 }
                 document.getElementById('counter').innerText = i;

@@ -1,9 +1,8 @@
 <#include "../macros/global/gtm.ftl">
-repository-data\webfiles\src\main\resources\site\freemarker\visitscotland\base\headerContributions.ftl
 
 <#macro headContributions>
     <#compress>
-        <script src="<@hst.webfile path='/~partytown/partytown.js'/>"></script>
+        <script src="/~partytown/partytown.js"></script>
         <@gtm />
         <#if !integration>
             <!-- BEGIN HEAD CONTRIBUTIONS: seo -->
