@@ -146,7 +146,7 @@ public class LinkService {
 
    public FlatLink createExternalLink(final Locale locale, final String url, final String label) {
         LinkType linkType = getType(url);
-        String localizedUrl = url.startsWith("#")? url: processURL(locale, url);
+        String localizedUrl = processURL(locale, url);
 
         if (!locale.equals(Locale.UK) && url != null && url.equals(localizedUrl) && linkType == LinkType.INTERNAL && !url.startsWith("#")) {
             logger.warn("The URL {} could not be localized", url);
@@ -160,6 +160,8 @@ public class LinkService {
             return null;
         } else if (url.startsWith("/")) {
             return localize(locale, "", url);
+        }else if (url.startsWith("#")) {
+            return url;
         }
 
         if (!Contract.isEmpty(properties.getInternalSites())) {
