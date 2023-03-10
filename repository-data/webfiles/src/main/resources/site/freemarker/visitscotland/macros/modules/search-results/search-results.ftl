@@ -11,7 +11,7 @@
                 no-cookies-required
                 no-cookie-text="You need cookies enabled to view this content"
                 error-text = "${label('essentials.global', 'third-party-error')}"
-                no-js-text="${module.noJsMessage}"
+                no-js-text="${label('search', 'no-js')}"
             >
                 <template slot="embedWidget">
                     <div class="row">
