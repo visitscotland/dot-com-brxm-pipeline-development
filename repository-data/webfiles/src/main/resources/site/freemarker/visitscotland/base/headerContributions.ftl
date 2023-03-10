@@ -1,6 +1,11 @@
 <#include "../macros/global/gtm.ftl">
 
 <#macro headContributions>
+        <script>
+            window.partytown = {
+                debug: true,
+            };
+        </script>
         <script src="/~partytown/partytown.js"></script>
     <#compress>
         <@gtm />
