@@ -24,6 +24,7 @@ const pathsToExcludeFromSSR = [
     "/site/binaries",
     "/site/autoreload",
     "/favicon.ico",
+    "/~partytown",
     "/cms",
 ];
 
