@@ -3,7 +3,7 @@
     Both versions (script and noscript) are supposed to be included in every page. The implementation
     has been done in the same macro so all future ammends will be done in on single point.
 -->
-<#macro gtm noscript=false >
+<#macro gtm noscript=false>
     <#assign id= property("gtm.container-id")>
     <#assign queryString = (property("gtm.is-production")?boolean)?then("", (property("gtm.preview-query-string"))) >
 
@@ -13,7 +13,7 @@
             <iframe src="https://www.googletagmanager.com/ns.html?id=${id}${queryString}" height="0" width="0" style="display:none;visibility:hidden"></iframe>
         </noscript>
     <#else>
-        <script>
+        <script type="text/partytown">
             (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
                     new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
                 j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=

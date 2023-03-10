@@ -4,6 +4,7 @@
         <script>
             window.partytown = {
                 debug: true,
+                forward: ["dataLayer.push"],
             };
         </script>
         <script src="/~partytown/partytown.js"></script>
