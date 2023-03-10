@@ -1,0 +1,11 @@
+definitions:
+  config:
+    /hippo:configuration/hippo:modules/diagnostics/hippo:moduleconfig:
+      enabled: true
+      thresholdMillisec: 2000
+      depth: 1
+      allowedAddresses:
+        operation: delete
+      allowedUsers:
+        operation: delete
+      unitThresholdMillisec: '5'
