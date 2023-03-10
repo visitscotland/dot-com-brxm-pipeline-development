@@ -15,18 +15,6 @@
         <@headContributions />
     </head>
     <body>
-        <div id="counter" style="font-size: 3rem; padding:2rem;">empty</div>
-        <script type="text/partytown">
-            let i = 0;
-            document.getElementById('counter').onclick = function() {
-                i++
-
-                for(let j=0;j<1000000;j++){
-                    //
-                }
-                document.getElementById('counter').innerText = i;
-            }
-        </script>
         <@gtm noscript=true />
         <div class="no-js" data-vue-app-init>
             <@hst.include ref="top"/>
