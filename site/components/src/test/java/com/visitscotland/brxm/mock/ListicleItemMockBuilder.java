@@ -36,9 +36,9 @@ public class ListicleItemMockBuilder {
         return this;
     }
     public ListicleItemMockBuilder extraSharedLink(String label){
-        CMSLink cmsLink = mock(CMSLink.class, withSettings().lenient());
-        when(cmsLink.getLabel()).thenReturn(label);
-        when(listicle.getExtraLinks()).thenReturn(Collections.singletonList(cmsLink));
+        DMSLink dmsLink = mock(DMSLink.class, withSettings().lenient());
+        when(dmsLink.getLabel()).thenReturn(label);
+        when(listicle.getExtraLinks()).thenReturn(Collections.singletonList(dmsLink));
         return this;
     }
 
