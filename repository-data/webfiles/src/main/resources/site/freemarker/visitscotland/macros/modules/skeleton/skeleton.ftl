@@ -7,13 +7,28 @@
             overflow: hidden;"
     >
         <div
-            style="height: 28px;;
+            style="height: 32px;
                 background-color: #700e57;"
-        ></div>
+        >
+            <div class="fake-container">
+                <div class="fake-link"
+                    style="height: 1.25em;
+                        margin-top: .25em;
+                        background-color: white;"
+                ></div>
+            </div>
+        </div>
         <div
             style="height: 45px;
                 background-color: #eeeeee"
-        ></div>
+        >
+            <div class="fake-container">
+                <div class="fake-link"></div>
+                <div class="fake-link"></div>
+                <div class="fake-link"></div>
+                <div class="fake-search"></div>
+            </div>
+        </div>
         <div
             style="height: 100vh;
                 background-color: #bbbbbb;
@@ -21,13 +36,42 @@
         >
         </div>
         <div
-            style="position: absolute;
-                bottom: 0;
-                left: 10%;
-                width: 80%;
+            class="fake-container"
+            style="bottom: 0;
                 height: 120px;
                 background-color: #ffffff;
-                z-index: 2;"
-        ></div>
+                z-index: 2;
+                padding: 1em 4em;"
+        >
+            <div class="fake-link"></div>
+        </div>
     </div>
+
+    <style>
+        .fake-container {
+            position: absolute;
+            width: 90%;
+            max-width: 1340px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .fake-link {
+            height: 1.5em;
+            width: 8em;
+            border-radius: 0.25em;
+            background-color: #bbbbbb;
+            display: inline-block;
+            margin: 0.5em 1em;
+        }
+
+        .fake-search {
+            position: absolute;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            width: 8em;
+            background-color: #af006e;
+        }
+    </style>
 </#macro>
