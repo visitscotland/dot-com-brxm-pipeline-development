@@ -23,21 +23,23 @@ public class FeaturedWidgetValidator implements Validator<Node> {
     public Optional<Violation> validate(ValidationContext validationContext, Node node) {
         try {
             NodeIterator itemIterator = node.getNodes("visitscotland:items");
-            Node firstNode = itemIterator.nextNode();
-            boolean isCmsLink = firstNode.isNodeType(CMS_LINK_TYPE);
-            if (!isCmsLink && itemIterator.getSize() > 1) {
-                // Can't have more than one featured event
-                return Optional.of(validationContext.createViolation("multipleFeaturedEvent"));
-            } else if (!isCmsLink) {
-                if (!firstNode.getProperty("visitscotland:productType").getString().equals("even")) {
-                    return Optional.of(validationContext.createViolation("notEvent"));
-                }
-            } else {
-                while (itemIterator.hasNext()) {
-                    Node itemNode = itemIterator.nextNode();
-                    if (!itemNode.isNodeType(CMS_LINK_TYPE)) {
-                        // Can not have ProductSearch mixed with CMSLink
-                        return Optional.of(validationContext.createViolation("mixedFeaturedWidget"));
+            if (itemIterator.hasNext()){
+                Node firstNode = itemIterator.nextNode();
+                boolean isCmsLink = firstNode.isNodeType(CMS_LINK_TYPE);
+                if (!isCmsLink && itemIterator.getSize() > 1) {
+                    // Can't have more than one featured event
+                    return Optional.of(validationContext.createViolation("multipleFeaturedEvent"));
+                } else if (!isCmsLink) {
+                    if (!firstNode.getProperty("visitscotland:productType").getString().equals("even")) {
+                        return Optional.of(validationContext.createViolation("notEvent"));
+                    }
+                } else {
+                    while (itemIterator.hasNext()) {
+                        Node itemNode = itemIterator.nextNode();
+                        if (!itemNode.isNodeType(CMS_LINK_TYPE)) {
+                            // Can not have ProductSearch mixed with CMSLink
+                            return Optional.of(validationContext.createViolation("mixedFeaturedWidget"));
+                        }
                     }
                 }
             }

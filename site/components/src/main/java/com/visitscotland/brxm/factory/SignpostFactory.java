@@ -8,6 +8,7 @@ import com.visitscotland.brxm.services.ResourceBundleService;
 import com.visitscotland.brxm.utils.HippoHtmlWrapper;
 import com.visitscotland.brxm.utils.HippoUtilsService;
 import com.visitscotland.brxm.utils.Properties;
+import com.visitscotland.utils.Contract;
 import org.springframework.stereotype.Component;
 
 import java.util.Locale;
@@ -29,17 +30,23 @@ public class SignpostFactory {
 
     public SignpostModule createNewsletterSignpostModule(Locale locale) {
         SignpostModule signpostModule = new SignpostModule();
-        FlatLink cta = new FlatLink(bundle.getResourceBundle(BUNDLE_ID, "newsletter.cta.text", locale),
-                hippoUtilsService.createUrlFromNode(properties.getSiteNewsletter(),true), LinkType.INTERNAL);
-        FlatImage image = new FlatImage();
-        image.setExternalImage(bundle.getResourceBundle(BUNDLE_ID, "newsletter.image", locale));
-        signpostModule.setCta(cta);
-        signpostModule.setImage(image);
-        signpostModule.setTitle(bundle.getResourceBundle(BUNDLE_ID, "newsletter.title", locale));
-        signpostModule.setCopy(new HippoHtmlWrapper(bundle.getResourceBundle(BUNDLE_ID, "newsletter.copy", locale)));
-        return signpostModule;
+        String newsletterUrl = hippoUtilsService.createUrlFromNode(properties.getSiteNewsletter(), true);
+        if (Contract.isNull(newsletterUrl)) {
+            return null;
+        } else{
+            FlatLink cta = new FlatLink(bundle.getResourceBundle(BUNDLE_ID, "newsletter.cta.text", locale),
+                    newsletterUrl, LinkType.INTERNAL);
+            FlatImage image = new FlatImage();
+            image.setExternalImage(bundle.getResourceBundle(BUNDLE_ID, "newsletter.image", locale));
+            signpostModule.setCta(cta);
+            signpostModule.setImage(image);
+            signpostModule.setTitle(bundle.getResourceBundle(BUNDLE_ID, "newsletter.title", locale));
+            signpostModule.setCopy(new HippoHtmlWrapper(bundle.getResourceBundle(BUNDLE_ID, "newsletter.copy", locale)));
+            return signpostModule;
+         }
     }
 
+    //TODO: use a property instead of "snow-alerts.cta.link" label, follow createNewsletterSignpostModule to avoid null link in section
     public SignpostModule createSnowAlertsModule(Locale locale) {
         SignpostModule signpostModule = new SignpostModule();
         FlatLink cta = new FlatLink(bundle.getResourceBundle(BUNDLE_ID, "snow-alerts.cta.text", locale),

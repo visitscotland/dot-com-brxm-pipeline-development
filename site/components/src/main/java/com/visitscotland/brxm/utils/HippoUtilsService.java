@@ -145,10 +145,14 @@ public class HippoUtilsService {
      */
     @NonTestable(NonTestable.Cause.BRIDGE)
     public <T extends HippoBean> T getDocumentFromNode(Node jcrNode) throws QueryException, ObjectBeanManagerException {
-        HippoBean bean = RequestContextProvider.get().getQueryManager()
-                .createQuery(jcrNode).execute().getHippoBeans().nextHippoBean();
+        HstQueryResult result = RequestContextProvider.get().getQueryManager().createQuery(jcrNode).execute();
 
-        return (T) bean.getObjectConverter().getObject(bean.getNode());
+        if (result.getSize() > 0){
+            HippoBean bean = result.getHippoBeans().nextHippoBean();
+            return (T) bean.getObjectConverter().getObject(bean.getNode());
+        }
+
+        return null;
     }
 
     /**
