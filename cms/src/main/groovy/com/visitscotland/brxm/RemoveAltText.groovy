@@ -18,32 +18,20 @@ import javax.jcr.query.QueryResult
  * Use the following XPATH /jcr:root
  *
  * @author jcalcines
- * @since August 2022
+ * @since August 2022 (Revised on March 2023)
  * @version 1.0.9
  */
 class RemoveAltText extends BaseNodeUpdateVisitor {
 
     void removeAltText(Session session){
-        NodeIterator it = query(session,"//content/gallery/visitscotland//element(*, visitscotland:Image)")
+        NodeIterator it = query(session,"//content/gallery/visitscotland//element(*)[visitscotland:altText != \"\"]")
 
         while (it.hasNext()){
             Node n = it.next()
-            log.debug n.getPath()
-            n.setProperty("visitscotland:altText", "")
-            if (n.hasNode("visitscotland:nl"))
-                n.getNode("visitscotland:nl").setProperty("visitscotland:altText", "")
-            if (n.hasNode("visitscotland:fr"))
-                n.getNode("visitscotland:fr").setProperty("visitscotland:altText", "")
-            if (n.hasNode("visitscotland:de"))
-                n.getNode("visitscotland:de").setProperty("visitscotland:altText", "")
-            if (n.hasNode("visitscotland:es"))
-                n.getNode("visitscotland:es").setProperty("visitscotland:altText", "")
-            if (n.hasNode("visitscotland:it"))
-                n.getNode("visitscotland:it").setProperty("visitscotland:altText", "")
+            log.debug "Removing alternative text from ${n.getPath()}"
+            n.getProperty("visitscotland:altText").remove()
         }
     }
-
-
 
     @Override
     boolean doUpdate(Node node) {
