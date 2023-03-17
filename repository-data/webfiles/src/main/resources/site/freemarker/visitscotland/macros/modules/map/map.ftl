@@ -34,7 +34,7 @@
             {
                 text: '${placesText?trim}',
                 value: 'places',
-                icon: 'pin'
+                icon: 'map-marker'
             },
             {
                 text: '${regionsText?trim}',
