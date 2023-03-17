@@ -4,7 +4,7 @@
   jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
   jcr:uuid: 767ac847-a632-4058-80eb-226bc9ed0f2f
   hippo:name: Search
-  hippo:versionHistory: 8fef4b3b-66e5-4626-a532-4d9608a37c63
+  hippo:versionHistory: 0c656ddf-15f1-4a4c-a5fd-168421379929
   /search[1]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:referenceable']
@@ -14,23 +14,24 @@
     hippostd:state: draft
     hippostdpubwf:createdBy: juanluis.hurtado
     hippostdpubwf:creationDate: 2022-07-12T14:24:26.429+02:00
-    hippostdpubwf:lastModificationDate: 2023-02-03T14:05:33.344+01:00
-    hippostdpubwf:lastModifiedBy: hkroes
-    resourcebundle:descriptions: ['', '', '', '']
+    hippostdpubwf:lastModificationDate: 2023-03-10T12:47:08.580Z
+    hippostdpubwf:lastModifiedBy: admin
+    resourcebundle:descriptions: ['', '', '', '', '']
     resourcebundle:id: search
-    resourcebundle:keys: [clear-form, close-form, search, search-label]
+    resourcebundle:keys: [clear-form, close-form, search, search-label, no-js]
     resourcebundle:messages: [Clear form, Close search form, Search, 'What are you
-        looking for?']
+        looking for?', JavaScript needs to be enabled to see search result. You can
+        turn this on in your browser settings.]
     resourcebundle:messages_de: [Suche löschen, Suche schließen, Suchen, 'Wonach suchen
-        Sie?']
+        Sie?', '']
     resourcebundle:messages_es: [Borrar formulario, Cerrar formulario de búsqueda,
-      Buscar, '¿Qué estás buscando?']
+      Buscar, '¿Qué estás buscando?', '']
     resourcebundle:messages_fr: [Effacer la recherche, Fermer la barre de recherche,
-      Rechercher, 'Que recherchez-vous ?']
+      Rechercher, 'Que recherchez-vous ?', '']
     resourcebundle:messages_it: [Campo di ricerca vuoto, Chiudere il campo di ricerca,
-      Cerca, 'Cosa stai cercando?']
+      Cerca, 'Cosa stai cercando?', '']
     resourcebundle:messages_nl: [Zoeken verwijderen, Zoeken sluiten, Zoeken, 'Waar
-        ben je naar op zoek?']
+        ben je naar op zoek?', '']
   /search[2]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:versionable']
@@ -40,23 +41,24 @@
     hippostd:state: unpublished
     hippostdpubwf:createdBy: juanluis.hurtado
     hippostdpubwf:creationDate: 2022-07-12T14:24:26.429+02:00
-    hippostdpubwf:lastModificationDate: 2023-02-03T14:07:53.141+01:00
-    hippostdpubwf:lastModifiedBy: hkroes
-    resourcebundle:descriptions: ['', '', '', '']
+    hippostdpubwf:lastModificationDate: 2023-03-10T12:49:26.218Z
+    hippostdpubwf:lastModifiedBy: admin
+    resourcebundle:descriptions: ['', '', '', '', '']
     resourcebundle:id: search
-    resourcebundle:keys: [clear-form, close-form, search, search-label]
+    resourcebundle:keys: [clear-form, close-form, search, search-label, no-js]
     resourcebundle:messages: [Clear form, Close search form, Search, 'What are you
-        looking for?']
+        looking for?', JavaScript needs to be enabled to see search result. You can
+        turn this on in your browser settings.]
     resourcebundle:messages_de: [Suche löschen, Suche schließen, Suchen, 'Wonach suchen
-        Sie?']
+        Sie?', '']
     resourcebundle:messages_es: [Borrar formulario, Cerrar formulario de búsqueda,
-      Buscar, '¿Qué estás buscando?']
+      Buscar, '¿Qué estás buscando?', '']
     resourcebundle:messages_fr: [Effacer la recherche, Fermer la barre de recherche,
-      Rechercher, 'Que recherchez-vous ?']
+      Rechercher, 'Que recherchez-vous ?', '']
     resourcebundle:messages_it: [Campo di ricerca vuoto, Chiudere il campo di ricerca,
-      Cerca, 'Cosa stai cercando?']
+      Cerca, 'Cosa stai cercando?', '']
     resourcebundle:messages_nl: [Zoeken verwijderen, Zoeken sluiten, Zoeken, 'Waar
-        ben je naar op zoek?']
+        ben je naar op zoek?', '']
   /search[3]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:referenceable']
@@ -66,21 +68,22 @@
     hippostd:state: published
     hippostdpubwf:createdBy: juanluis.hurtado
     hippostdpubwf:creationDate: 2022-07-12T14:24:26.429+02:00
-    hippostdpubwf:lastModificationDate: 2023-02-03T14:07:53.141+01:00
-    hippostdpubwf:lastModifiedBy: hkroes
-    hippostdpubwf:publicationDate: 2023-02-06T09:47:08.314+01:00
-    resourcebundle:descriptions: ['', '', '', '']
+    hippostdpubwf:lastModificationDate: 2023-03-10T12:49:26.218Z
+    hippostdpubwf:lastModifiedBy: admin
+    hippostdpubwf:publicationDate: 2023-03-10T12:49:28.294Z
+    resourcebundle:descriptions: ['', '', '', '', '']
     resourcebundle:id: search
-    resourcebundle:keys: [clear-form, close-form, search, search-label]
+    resourcebundle:keys: [clear-form, close-form, search, search-label, no-js]
     resourcebundle:messages: [Clear form, Close search form, Search, 'What are you
-        looking for?']
+        looking for?', JavaScript needs to be enabled to see search result. You can
+        turn this on in your browser settings.]
     resourcebundle:messages_de: [Suche löschen, Suche schließen, Suchen, 'Wonach suchen
-        Sie?']
+        Sie?', '']
     resourcebundle:messages_es: [Borrar formulario, Cerrar formulario de búsqueda,
-      Buscar, '¿Qué estás buscando?']
+      Buscar, '¿Qué estás buscando?', '']
     resourcebundle:messages_fr: [Effacer la recherche, Fermer la barre de recherche,
-      Rechercher, 'Que recherchez-vous ?']
+      Rechercher, 'Que recherchez-vous ?', '']
     resourcebundle:messages_it: [Campo di ricerca vuoto, Chiudere il campo di ricerca,
-      Cerca, 'Cosa stai cercando?']
+      Cerca, 'Cosa stai cercando?', '']
     resourcebundle:messages_nl: [Zoeken verwijderen, Zoeken sluiten, Zoeken, 'Waar
-        ben je naar op zoek?']
+        ben je naar op zoek?', '']

@@ -139,7 +139,9 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
             } else {
                 signpost = signpostFactory.createNewsletterSignpostModule(request.getLocale());
             }
-            request.setAttribute(NEWSLETTER_SIGNPOST, signpost);
+            if (signpost != null) {
+                request.setAttribute(NEWSLETTER_SIGNPOST, signpost);
+            }
         }
     }
 

@@ -160,6 +160,8 @@ public class LinkService {
             return null;
         } else if (url.startsWith("/")) {
             return localize(locale, "", url);
+        }else if (url.startsWith("#")) {
+            return url;
         }
 
         if (!Contract.isEmpty(properties.getInternalSites())) {

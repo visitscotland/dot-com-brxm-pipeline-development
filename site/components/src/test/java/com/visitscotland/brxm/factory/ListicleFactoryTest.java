@@ -229,7 +229,8 @@ class ListicleFactoryTest {
 
         when(documentUtils.getAllowedDocuments(page, ListicleItem.class)).thenReturn(Collections.singletonList(item));
         when(imageFactory.getImage(any(Image.class), any(), any())).thenReturn(moduleImage);
-        when(linksService.createSimpleLink(any(), any(), any())).thenReturn(link);
+        when(linksService.createFindOutMoreLink(any(), any(), any())).thenReturn(link);
+
 
         List<ListicleModule> items = factory.generateItems(Locale.UK, page);
 
@@ -252,7 +253,7 @@ class ListicleFactoryTest {
 
         when(documentUtils.getAllowedDocuments(page, ListicleItem.class)).thenReturn(Collections.singletonList(item));
         when(imageFactory.getImage(any(Image.class), any(), any())).thenReturn(moduleImage);
-        when(linksService.createSimpleLink(any(), any(), any())).thenReturn(link);
+        when(linksService.createFindOutMoreLink(any(), any(), any())).thenReturn(link);
 
         List<ListicleModule> items = factory.generateItems(Locale.UK, page);
 
@@ -261,7 +262,7 @@ class ListicleFactoryTest {
         FlatLink extraLink = module.getLinks().get(0);
 
         Assertions.assertEquals("www.visitspain.com", extraLink.getLink());
-        Assertions.assertEquals("Override text", extraLink.getLabel());
+        Assertions.assertEquals("Discover Spain", extraLink.getLabel());
         assertEquals(LinkType.EXTERNAL, extraLink.getType());
     }
 
