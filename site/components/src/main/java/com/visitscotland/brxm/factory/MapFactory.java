@@ -119,6 +119,10 @@ public class MapFactory {
      * @param features features information for mapcards
      */
     private void buildMapGeneralPages (HstRequest request, MapModule mapModuleDocument, MapsModule module, ArrayNode keys, ArrayNode features){
+
+        if (!Contract.isNull(mapModuleDocument.getFeaturedPlacesItem())) {
+            mapService.addFeaturePlacesNode(module, mapModuleDocument.getCategories(), request.getLocale(), keys, features);
+        }
         for (String taxonomy : mapModuleDocument.getKeys()) {
             //get all the Taxonomy information
             Taxonomy vsTaxonomyTree = hippoUtilsService.getTaxonomy();
@@ -134,9 +138,6 @@ public class MapFactory {
                     //find all the documents with a taxonomy/category
                     mapService.addMapDocumentsToJson(request, module, mainCategory, features);
                 }
-            }
-            if (!Contract.isNull(mapModuleDocument.getFeaturedPlacesItem())) {
-                mapService.addFeaturePlacesNode(module, mapModuleDocument.getCategories(), request.getLocale(), keys, features);
             }
         }
     }
