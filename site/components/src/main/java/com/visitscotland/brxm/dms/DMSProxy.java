@@ -102,14 +102,14 @@ public class DMSProxy {
                 HttpURLConnection.setFollowRedirects(true);
                 return requestContent(dmsConnection, properties.getDmsEncoding());
             }
-        } catch (SocketTimeoutException e) {
+        } catch (SocketTimeoutException | NoRouteToHostException e) {
             if (retries > 1) {
                 return request(path, retries - 1);
             } else {
                 logger.error("The DMS Service couldn't be reached at {}. Holding all subsequent connections for {} ms ", properties.getDmsDataHost(), properties.getDmsWaitTime());
                 DMSProxy.registerFailure();
             }
-        } catch (IOException e){
+        } catch (IOException e) {
             logger.error(e.getLocalizedMessage(), e);
         }
         return null;
