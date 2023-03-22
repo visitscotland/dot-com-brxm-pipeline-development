@@ -29,7 +29,7 @@ public class MainMenuComponent extends MenuComponent {
     @Override
     public void doBeforeRender(HstRequest request, HstResponse response) {
         super.doBeforeRender(request, response);
-        if (request.getRequestURI().startsWith(properties.getDmsInternalPath())) {
+        if (request.getPathInfo().startsWith(properties.getDmsInternalPath())) {
             request.setModel(LOCALIZED_URLS, Collections.emptyList());
         } else {
             request.setModel(LOCALIZED_URLS, utils.getLocalizedURLs(request));
