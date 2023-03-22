@@ -202,7 +202,7 @@ public class ItineraryFactory {
 
         if (externalLink.getCoordinates() != null) {
             module.setCoordinates(new Coordinates(externalLink.getCoordinates().getLatitude(), externalLink.getCoordinates().getLongitude()));
-        }else{
+        } else {
             String message = String.format("The DMS product added to '%s' does not have coordinates, please review the DMS Product id field at: %s ", module.getTitle(), externalLink.getPath());
             module.addErrorMessage(message);
             if (logger.isWarnEnabled()) {
