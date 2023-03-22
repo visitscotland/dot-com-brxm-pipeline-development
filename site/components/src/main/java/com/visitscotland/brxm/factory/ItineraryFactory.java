@@ -206,7 +206,7 @@ public class ItineraryFactory {
             String message = String.format("The DMS product added to '%s' does not have coordinates, please review the DMS Product id field at: %s ", module.getTitle(), externalLink.getPath());
             module.addErrorMessage(message);
             if (logger.isWarnEnabled()) {
-                contentLogger.warn(message);
+                contentLogger.error(message);
             }
         }
     }
