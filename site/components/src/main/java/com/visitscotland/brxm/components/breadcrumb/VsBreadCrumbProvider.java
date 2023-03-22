@@ -60,13 +60,11 @@ public class VsBreadCrumbProvider extends BreadcrumbProvider {
      */
     @Override
     protected BreadcrumbItem getBreadcrumbItem(HstRequest request, HstSiteMenuItem menuItem) {
-        if(menuItem.getHstLink()!=null){
+        if(menuItem.getHstLink() != null){
             if (menuItem.resolveToSiteMapItem() != null) {
                 HippoBean bean = getComponent().getBeanForResolvedSiteMapItem(request, menuItem.resolveToSiteMapItem());
                 if (bean != null) {
                     return new BreadcrumbItem(menuItem.getHstLink(), getBreadcrumbText(bean));
-                } else {
-                    return null;
                 }
             } else {
                 //If this warning message is logged and it is required that a menu item appears in the breadcrumb even though it
@@ -77,9 +75,8 @@ public class VsBreadCrumbProvider extends BreadcrumbProvider {
                 return new BreadcrumbItem(menuItem.getHstLink(), menuItem.getName());
             }
         }
-        else{
-            return null;
-        }
+
+        return null;
     }
 
     /**
