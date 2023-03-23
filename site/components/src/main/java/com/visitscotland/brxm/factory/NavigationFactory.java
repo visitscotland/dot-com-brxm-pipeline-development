@@ -25,6 +25,7 @@ import org.hippoecm.hst.core.sitemenu.HstSiteMenu;
 import org.hippoecm.hst.core.sitemenu.HstSiteMenuItem;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Component;
 
 import java.util.*;
@@ -58,6 +59,11 @@ public class NavigationFactory {
     /**
      * Builds a VisitScotland enhanced menu from the out of the box menu
      */
+    @Cacheable(
+            value = "navigation",
+            key = "{#request.locale, #hstSiteMenu.name}",
+            unless = "#request.getAttribute(\"editMode\")"
+    )
     public RootMenuItem buildMenu(HstRequest request, HstSiteMenu hstSiteMenu) {
         List<HstSiteMenuItem> enhancedMenu = new ArrayList<>();
         RootMenuItem root = new RootMenuItem(hstSiteMenu);
