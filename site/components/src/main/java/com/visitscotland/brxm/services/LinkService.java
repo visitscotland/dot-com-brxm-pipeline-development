@@ -149,7 +149,7 @@ public class LinkService {
         String localizedUrl = processURL(locale, url);
 
         if (!locale.equals(Locale.UK) && url != null && url.equals(localizedUrl) && linkType == LinkType.INTERNAL && !url.startsWith("#")) {
-            logger.warn("The URL {} could not be localized", url);
+            logger.warn("The URL {} could not be localized, the label for the link is {}", url, label);
         }
 
         return new FlatLink(label, localizedUrl, linkType);
