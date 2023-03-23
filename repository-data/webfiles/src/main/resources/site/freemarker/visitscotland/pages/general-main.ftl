@@ -31,7 +31,7 @@
 		<@pageIntro content=document heroDetails=heroImage lightBackground=psrWidget?has_content />
 		<@productSearchWidget psrWidget "top"/>
 	<#elseif standardTemplate>
-        <@pageIntro content=document lightBackground=psrWidget?has_content />
+        <@pageIntro content=document lightBackground=true />
 		<@introImage mainImage=heroImage />
 		<@productSearchWidget psrWidget "top"/>
 	<#else>
