@@ -60,8 +60,10 @@ public class ProductSearchWidgetFactory {
             General general = ((General) page);
             String pattern;
 
-            if (general.getTheme().equals(GeneralContentComponent.TOP_LEVEL) || general.getTheme().equals(GeneralContentComponent.STANDARD)) {
-                pattern = "^/((places-to-go)(/[\\w-]+)?|(things-to-do)(/[\\w-]+){2,}|(inspiration)(/[\\w-]+){1,})$";
+            if (general.getTheme().equals(GeneralContentComponent.TOP_LEVEL)) {
+                pattern = properties.getPsrPositionTopLevel();
+            } else if (general.getTheme().equals(GeneralContentComponent.STANDARD)) {
+                pattern = properties.getPsrPositionGeneralStandard();
             } else {
                 return POSITION_BOTTOM;
             }
