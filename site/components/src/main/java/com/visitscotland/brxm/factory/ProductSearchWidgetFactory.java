@@ -69,7 +69,7 @@ public class ProductSearchWidgetFactory {
             }
 
             Pattern p = Pattern.compile(pattern);
-            return p.matcher(request.getPathInfo()).matches()?POSITION_TOP:POSITION_BOTTOM;
+            return p.matcher(request.getPathInfo()).matches()?POSITION_BOTTOM:POSITION_TOP;
         } else if (page instanceof Destination){
             return POSITION_TOP;
         } else {
