@@ -13,7 +13,7 @@
     hippostd:state: unpublished
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2021-02-05T15:37:26.056Z
-    hippostdpubwf:lastModificationDate: 2023-03-30T12:06:07.683+01:00
+    hippostdpubwf:lastModificationDate: 2023-03-30T13:12:55.346+01:00
     hippostdpubwf:lastModifiedBy: admin
     resourcebundle:descriptions: [URL prefix for Instagram endpoints, '', Client Token
         for Instagram request, '', Encoding for requests made to dms data endpoints,
@@ -49,12 +49,12 @@
         \ retention period", "Retention time for the message in seconds\r\n\r\nContent\
         \ warnings will not be logged again until the retention time expires", '',
       '', '', '', '', '', '', '', '', '', "Default production Configuration:\r\n\r\
-        \n^/((places-to-go)(/[\\w-]+)?|(things-to-do)(/[\\w-]+){2,}|(travel-planning)(/[\\\
-        w-]+){1,})$\r\n\r\nWhere:\r\n- (places-to-go)(/[\\w-]+)?  -> Places to go\
-        \ Landing Page (Level 1)\r\n- (things-to-do)(/[\\w-]+){2,} -> Things to do\
-        \ Section Level 3 or more\r\n- (travel-planning)(/[\\w-]+){1,} -> Travel planning\
-        \ Section Level 2 or more", "Default Production configuration: \r\n\r\n^(?!/(accommodation|places-to-go)(/|$))(/[\\\
-        \\w-]+)+$\r\n\r\nWhere\r\n- (?!/(accommodation|places-to-go)(/|$)) - Negative\
+        \n^/((places-to-go)|(things-to-do)(/[\\w-]+){2,}|(travel-planning)(/[\\w-]+){1,})/?$\r\
+        \n\r\nWhere:\r\n- (places-to-go)  -> Places to go Landing Page (Level 1)\r\
+        \n- (things-to-do)(/[\\w-]+){2,} -> Things to do Section Level 3 or more\r\
+        \n- (travel-planning)(/[\\w-]+){1,} -> Travel planning Section Level 2 or\
+        \ more", "Default Production configuration: \r\n\r\n^(?!/(accommodation|places-to-go)(/|$))(/[\\\
+        w-]+)+(/)?$\r\n\r\nWhere\r\n- (?!/(accommodation|places-to-go)(/|$)) - Negative\
         \ lookup to exclude urls starting with accommodation or places-to-go"]
     resourcebundle:id: default.config
     resourcebundle:keys: [instagram.api, helpdesk-email, instagram.accesstoken, instagram.post-url,
@@ -80,8 +80,8 @@
       'true', 'false', /data/internal, /site-search-results, '12809', '1000', '3600',
       '30000', /site-search-results, /test/examples/snow-sports, 'https://api.visitscotland.com/dev/data/',
       'true', '10.0', /test/examples/about-us, /test/examples/icentres/content, /test/modules/form/content,
-      /test/examples/campaigns, '^/((things-to-do)(/[\w-]+)?|(things-to-do)(/[\w-]+){2,}|(travel-planning)(/[\w-]+){1,})$',
-      '^(?!/(accommodation|places-to-go)(/|$))(/[\\w-]+)+$']
+      /test/examples/campaigns, '^/((places-to-go)|(things-to-do)(/[\w-]+){2,}|(travel-planning)(/[\w-]+){1,})/?$',
+      '^(?!/(accommodation|places-to-go)(/|$))(/[\w-]+)+(/)?$']
     resourcebundle:messages_de: ['', '', '', '', '', '', '', '', '', '', '', '', '',
       '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
       /de-de/site-search-results, '12812', '', '', '', '', '', '', '', '', '', '',
@@ -111,7 +111,7 @@
     hippostd:state: draft
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2021-02-05T15:37:26.056Z
-    hippostdpubwf:lastModificationDate: 2023-03-30T11:54:45.431+01:00
+    hippostdpubwf:lastModificationDate: 2023-03-30T13:11:32.992+01:00
     hippostdpubwf:lastModifiedBy: admin
     resourcebundle:descriptions: [URL prefix for Instagram endpoints, '', Client Token
         for Instagram request, '', Encoding for requests made to dms data endpoints,
@@ -147,12 +147,12 @@
         \ retention period", "Retention time for the message in seconds\r\n\r\nContent\
         \ warnings will not be logged again until the retention time expires", '',
       '', '', '', '', '', '', '', '', '', "Default production Configuration:\r\n\r\
-        \n^/((places-to-go)(/[\\w-]+)?|(things-to-do)(/[\\w-]+){2,}|(travel-planning)(/[\\\
-        w-]+){1,})$\r\n\r\nWhere:\r\n- (places-to-go)(/[\\w-]+)?  -> Places to go\
-        \ Landing Page (Level 1)\r\n- (things-to-do)(/[\\w-]+){2,} -> Things to do\
-        \ Section Level 3 or more\r\n- (travel-planning)(/[\\w-]+){1,} -> Travel planning\
-        \ Section Level 2 or more", "Default Production configuration: \r\n\r\n^(?!/(accommodation|places-to-go)(/|$))(/[\\\
-        \\w-]+)+$\r\n\r\nWhere\r\n- (?!/(accommodation|places-to-go)(/|$)) - Negative\
+        \n^/((places-to-go)|(things-to-do)(/[\\w-]+){2,}|(travel-planning)(/[\\w-]+){1,})/?$\r\
+        \n\r\nWhere:\r\n- (places-to-go)  -> Places to go Landing Page (Level 1)\r\
+        \n- (things-to-do)(/[\\w-]+){2,} -> Things to do Section Level 3 or more\r\
+        \n- (travel-planning)(/[\\w-]+){1,} -> Travel planning Section Level 2 or\
+        \ more", "Default Production configuration: \r\n\r\n^(?!/(accommodation|places-to-go)(/|$))(/[\\\
+        w-]+)+(/)?$\r\n\r\nWhere\r\n- (?!/(accommodation|places-to-go)(/|$)) - Negative\
         \ lookup to exclude urls starting with accommodation or places-to-go"]
     resourcebundle:id: default.config
     resourcebundle:keys: [instagram.api, helpdesk-email, instagram.accesstoken, instagram.post-url,
@@ -178,8 +178,8 @@
       'true', 'false', /data/internal, /site-search-results, '12809', '1000', '3600',
       '30000', /site-search-results, /test/examples/snow-sports, 'https://api.visitscotland.com/dev/data/',
       'true', '10.0', /test/examples/about-us, /test/examples/icentres/content, /test/modules/form/content,
-      /test/examples/campaigns, '^/((things-to-do)(/[\w-]+)?|(things-to-do)(/[\w-]+){2,}|(travel-planning)(/[\w-]+){1,})$',
-      '^(?!/(accommodation|places-to-go)(/|$))(/[\\w-]+)+$']
+      /test/examples/campaigns, '^/((places-to-go)|(things-to-do)(/[\w-]+){2,}|(travel-planning)(/[\w-]+){1,})/?$',
+      '^(?!/(accommodation|places-to-go)(/|$))(/[\w-]+)+(/)?$']
     resourcebundle:messages_de: ['', '', '', '', '', '', '', '', '', '', '', '', '',
       '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
       /de-de/site-search-results, '12812', '', '', '', '', '', '', '', '', '', '',
@@ -209,9 +209,9 @@
     hippostd:state: published
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2021-02-05T15:37:26.056Z
-    hippostdpubwf:lastModificationDate: 2023-03-30T12:06:07.683+01:00
+    hippostdpubwf:lastModificationDate: 2023-03-30T12:11:20.863+01:00
     hippostdpubwf:lastModifiedBy: admin
-    hippostdpubwf:publicationDate: 2023-03-30T12:06:13.976+01:00
+    hippostdpubwf:publicationDate: 2023-03-30T12:11:24.213+01:00
     resourcebundle:descriptions: [URL prefix for Instagram endpoints, '', Client Token
         for Instagram request, '', Encoding for requests made to dms data endpoints,
       "Token that identifies calls made to vs-dms-products as internal calls giving\
@@ -277,8 +277,8 @@
       'true', 'false', /data/internal, /site-search-results, '12809', '1000', '3600',
       '30000', /site-search-results, /test/examples/snow-sports, 'https://api.visitscotland.com/dev/data/',
       'true', '10.0', /test/examples/about-us, /test/examples/icentres/content, /test/modules/form/content,
-      /test/examples/campaigns, '^/((things-to-do)(/[\w-]+)?|(things-to-do)(/[\w-]+){2,}|(travel-planning)(/[\w-]+){1,})$',
-      '^(?!/(accommodation|places-to-go)(/|$))(/[\\w-]+)+$']
+      /test/examples/campaigns, '^/((sandbox)(/[\w-]+)?|(test)(/[\w-]+){2,}|(travel-planning)(/[\w-]+){1,})$',
+      '^(?!/(sandbox|site)(/|$))(/[\\w-]+)+$']
     resourcebundle:messages_de: ['', '', '', '', '', '', '', '', '', '', '', '', '',
       '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
       /de-de/site-search-results, '12812', '', '', '', '', '', '', '', '', '', '',
