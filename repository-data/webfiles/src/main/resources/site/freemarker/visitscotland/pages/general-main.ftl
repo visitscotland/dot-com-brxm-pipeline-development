@@ -29,14 +29,16 @@
 
 	<#if topLevelTemplate>
 		<@pageIntro content=document heroDetails=heroImage lightBackground=psrWidget?has_content />
-		<@productSearchWidget psrWidget "top"/>
 	<#elseif standardTemplate>
         <@pageIntro content=document lightBackground=true />
 		<@introImage mainImage=heroImage />
-		<@productSearchWidget psrWidget "top"/>
 	<#else>
         <@pageIntro content=document lightBackground=true />
     </#if>
+
+	<#if psrWidget?? && psrWidget.position = "top">
+		<@productSearchWidget psrWidget/>
+	</#if>
 
 	<#if errorCode??>
 		<vs-html-error status-code="${errorCode}"></vs-html-error>
@@ -58,8 +60,8 @@
 
     <@socialShare nojs=true/>
 
-	<#if simpleTemplate>
-		<@productSearchWidget psrWidget />
+	<#if psrWidget?? && psrWidget.position = "bottom">
+		<@productSearchWidget psrWidget/>
 	</#if>
 
 	<#if otyml??>
