@@ -1,7 +1,6 @@
 package com.visitscotland.brxm.components.content;
 
 import com.visitscotland.brxm.components.navigation.info.GeneralPageComponentInfo;
-import com.visitscotland.brxm.components.navigation.info.MenuComponentInfo;
 import com.visitscotland.brxm.hippobeans.Destination;
 import com.visitscotland.brxm.config.VsComponentManager;
 import com.visitscotland.brxm.utils.PageTemplateBuilder;
@@ -18,6 +17,7 @@ public class GeneralContentComponent extends PageContentComponent<Destination> {
 
     public static final String SIMPLE = "Simple";
     public static final String STANDARD = "Standard";
+    public static final String TOP_LEVEL = "Top-Level";
     static final String ERROR_CODE = "errorCode";
 
     private PageTemplateBuilder builder;
