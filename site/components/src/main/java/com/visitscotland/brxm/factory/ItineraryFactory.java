@@ -237,6 +237,12 @@ public class ItineraryFactory {
 
         if (product.has(LATITUDE) && product.has(LONGITUDE)) {
             module.setCoordinates(new Coordinates(product.get(LATITUDE).asDouble(), product.get(LONGITUDE).asDouble()));
+        } else {
+            String message = String.format("The DMS product added to '%s' does not have coordinates, please review the DMS Product id field at: %s ", module.getTitle(), dmsLink.getPath());
+            module.addErrorMessage(message);
+            if (logger.isWarnEnabled()) {
+                contentLogger.error(message);
+            }
         }
 
         if (product.has(TIME_TO_EXPLORE)) {

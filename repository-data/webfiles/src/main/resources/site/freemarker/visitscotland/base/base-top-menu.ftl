@@ -32,7 +32,7 @@
             <@previewWarning editMode navigationWidget navigationWidget.errorMessages/>
         </#list>
     </#if>
-<#elseif integration??>
+<#elseif !integration??>
     <@log "The main navigation menu is not available" />
 </#if>
 

@@ -39,3 +39,7 @@ definitions:
     /hst:hst/hst:hosts:
       hst:defaultcontextpath: /site
       hst:locale: en_GB
+      hst:diagnosticsenabled: true
+      hst:diagnosticsthresholdmillisec: 1500
+      hst:diagnosticsunitthresholdmillisec: 5
+      hst:cacheable: true

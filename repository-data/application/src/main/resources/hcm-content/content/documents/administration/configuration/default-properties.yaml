@@ -3,7 +3,7 @@
   jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
   jcr:uuid: a8a8926f-e625-4162-98b4-29f3c3b819b8
   hippo:name: Default Properties
-  hippo:versionHistory: 45038684-f029-4567-bb7a-1e7cb582c639
+  hippo:versionHistory: f553d09e-4c15-4173-87e1-65b569ce12d5
   /default-properties[1]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:versionable']
@@ -13,7 +13,7 @@
     hippostd:state: unpublished
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2021-02-05T15:37:26.056Z
-    hippostdpubwf:lastModificationDate: 2023-02-28T09:44:12.616Z
+    hippostdpubwf:lastModificationDate: 2023-03-22T12:52:00.761Z
     hippostdpubwf:lastModifiedBy: admin
     resourcebundle:descriptions: [URL prefix for Instagram endpoints, '', Client Token
         for Instagram request, '', Encoding for requests made to dms data endpoints,
@@ -69,8 +69,8 @@
       'true', '', 'http://172.28.81.65:8089', /data, 'http://172.28.81.65:8089/data',
       www.visitscotland.com, $YOUTUBE_API_KEY, VisitScotland, '@VisitScotland', 'en,fr,de,nl,it,es',
       '| VisitScotland', VisitScotland, '@VisitScotland', 'false', GTM-WWKWV5K, '&gtm_auth=YWMt6gew5Au1PAnzyzMADQ&gtm_preview=env-3&gtm_cookies_win=x',
-      'true', 'false', /site/data/internal, /site-search-results, '12809', '1000',
-      '3600', '30000', /site-search-results, /test/examples/snow-sports, 'https://api.visitscotland.com/dev/data/',
+      'true', 'false', /data/internal, /site-search-results, '12809', '1000', '3600',
+      '30000', /site-search-results, /test/examples/snow-sports, 'https://api.visitscotland.com/dev/data/',
       'true', '10.0', /test/examples/about-us, /test/examples/icentres/content, /test/modules/form/content,
       /test/examples/campaigns]
     resourcebundle:messages_de: ['', '', '', '', '', '', '', '', '', '', '', '', '',
@@ -102,7 +102,7 @@
     hippostd:state: draft
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2021-02-05T15:37:26.056Z
-    hippostdpubwf:lastModificationDate: 2023-02-28T09:43:10.437Z
+    hippostdpubwf:lastModificationDate: 2023-03-22T12:49:20.783Z
     hippostdpubwf:lastModifiedBy: admin
     resourcebundle:descriptions: [URL prefix for Instagram endpoints, '', Client Token
         for Instagram request, '', Encoding for requests made to dms data endpoints,
@@ -158,8 +158,8 @@
       'true', '', 'http://172.28.81.65:8089', /data, 'http://172.28.81.65:8089/data',
       www.visitscotland.com, $YOUTUBE_API_KEY, VisitScotland, '@VisitScotland', 'en,fr,de,nl,it,es',
       '| VisitScotland', VisitScotland, '@VisitScotland', 'false', GTM-WWKWV5K, '&gtm_auth=YWMt6gew5Au1PAnzyzMADQ&gtm_preview=env-3&gtm_cookies_win=x',
-      'true', 'false', /site/data/internal, /site-search-results, '12809', '1000',
-      '3600', '30000', /site-search-results, /test/examples/snow-sports, 'https://api.visitscotland.com/dev/data/',
+      'true', 'false', /data/internal, /site-search-results, '12809', '1000', '3600',
+      '30000', /site-search-results, /test/examples/snow-sports, 'https://api.visitscotland.com/dev/data/',
       'true', '10.0', /test/examples/about-us, /test/examples/icentres/content, /test/modules/form/content,
       /test/examples/campaigns]
     resourcebundle:messages_de: ['', '', '', '', '', '', '', '', '', '', '', '', '',
@@ -191,9 +191,9 @@
     hippostd:state: published
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2021-02-05T15:37:26.056Z
-    hippostdpubwf:lastModificationDate: 2023-02-28T09:44:12.616Z
+    hippostdpubwf:lastModificationDate: 2023-03-22T12:52:00.761Z
     hippostdpubwf:lastModifiedBy: admin
-    hippostdpubwf:publicationDate: 2023-02-28T09:45:37.620Z
+    hippostdpubwf:publicationDate: 2023-03-22T12:52:06.153Z
     resourcebundle:descriptions: [URL prefix for Instagram endpoints, '', Client Token
         for Instagram request, '', Encoding for requests made to dms data endpoints,
       "Token that identifies calls made to vs-dms-products as internal calls giving\
@@ -248,8 +248,8 @@
       'true', '', 'http://172.28.81.65:8089', /data, 'http://172.28.81.65:8089/data',
       www.visitscotland.com, $YOUTUBE_API_KEY, VisitScotland, '@VisitScotland', 'en,fr,de,nl,it,es',
       '| VisitScotland', VisitScotland, '@VisitScotland', 'false', GTM-WWKWV5K, '&gtm_auth=YWMt6gew5Au1PAnzyzMADQ&gtm_preview=env-3&gtm_cookies_win=x',
-      'true', 'false', /site/data/internal, /site-search-results, '12809', '1000',
-      '3600', '30000', /site-search-results, /test/examples/snow-sports, 'https://api.visitscotland.com/dev/data/',
+      'true', 'false', /data/internal, /site-search-results, '12809', '1000', '3600',
+      '30000', /site-search-results, /test/examples/snow-sports, 'https://api.visitscotland.com/dev/data/',
       'true', '10.0', /test/examples/about-us, /test/examples/icentres/content, /test/modules/form/content,
       /test/examples/campaigns]
     resourcebundle:messages_de: ['', '', '', '', '', '', '', '', '', '', '', '', '',
