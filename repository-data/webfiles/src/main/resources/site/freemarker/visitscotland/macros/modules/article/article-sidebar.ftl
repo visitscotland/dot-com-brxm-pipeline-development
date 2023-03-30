@@ -49,6 +49,7 @@
                     videoId="${section.video.youtubeId}"
                     videoTitle="${videoTitle}"
                     smallPlayButton="true"
+                    showToggle="false"
                 />
             </template>
         <#elseif section.image??>
