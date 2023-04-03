@@ -392,10 +392,10 @@
     anymatch "^3.0.0"
     source-map "^0.6.0"
 
-"@visitscotland/vs-component-library@0.8.19":
-  version "0.8.19"
-  resolved "https://registry.yarnpkg.com/@visitscotland/vs-component-library/-/vs-component-library-0.8.19.tgz#28a5e81ebeee118ec86839cef0aa862f7df4111c"
-  integrity sha512-Mt0I/7ybZNrAjfH49+yEM/fyO7s/VU9vfRzX/yg0LHW2i/5BSzsZ6zoCC0uexK/K/dWT0V9tHzuVnuQqA7h4/A==
+"@visitscotland/vs-component-library@0.8.20":
+  version "0.8.20"
+  resolved "https://registry.yarnpkg.com/@visitscotland/vs-component-library/-/vs-component-library-0.8.20.tgz#7046f2817f75fae7d90d25bc42ff0f61a7297fd1"
+  integrity sha512-IXkieHKXSxPLKwucQL+09fVh/Enny0683+vEhqWeKuIXkSIh4oxQ2iOXW8N4L6MJyUb3cSntbZF202oZpNNJRA==
   dependencies:
     "@babel/runtime" "^7.15.4"
     "@mapbox/geojson-extent" "^1.0.1"
@@ -436,6 +436,7 @@
     tinycolor2 "^1.4.1"
     uuid "^9.0.0"
     vue "~2.6.14"
+    vue-lazy-hydration "^2.0.0-beta.4"
     vue-lodash "^2.1.2"
     vue-meta "^1.6.0"
     vue-recaptcha "^2.0.1"
@@ -7936,6 +7937,11 @@ vue-functional-data-merge@^3.1.0:
   version "3.1.0"
   resolved "https://registry.yarnpkg.com/vue-functional-data-merge/-/vue-functional-data-merge-3.1.0.tgz#08a7797583b7f35680587f8a1d51d729aa1dc657"
   integrity sha512-leT4kdJVQyeZNY1kmnS1xiUlQ9z1B/kdBFCILIjYYQDqZgLqCLa0UhjSSeRX6c3mUe6U5qYeM8LrEqkHJ1B4LA==
+
+vue-lazy-hydration@^2.0.0-beta.4:
+  version "2.0.0-beta.4"
+  resolved "https://registry.yarnpkg.com/vue-lazy-hydration/-/vue-lazy-hydration-2.0.0-beta.4.tgz#11e7021a9bac003ea6ed74f132dcd0d025fafc1f"
+  integrity sha512-bhr7AxzrSEPed4cOawIeCxJmR8pglberR78x1zs0886xR+47/EXE9s0Ezss90CPINo8ApzUfA/r+SbNffn+t9w==
 
 vue-lodash@^2.1.2:
   version "2.1.2"
