@@ -24,6 +24,7 @@ public class MenuItem implements HstSiteMenuItem {
     private Page page;
     private NavigationWidget widget;
     private String cta;
+    private String plainLink;
 
 
     public MenuItem(HstSiteMenuItem hstMenuItem) {
@@ -163,5 +164,13 @@ public class MenuItem implements HstSiteMenuItem {
 
     public void setPage(Page page) {
         this.page = page;
+    }
+
+    public String getPlainLink() {
+        return plainLink;
+    }
+
+    public void setPlainLink(String plainLink) {
+        this.plainLink = plainLink;
     }
 }
