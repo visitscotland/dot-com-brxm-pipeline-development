@@ -67,7 +67,6 @@ public class NavigationFactory {
     public RootMenuItem buildMenu(HstRequest request, HstSiteMenu hstSiteMenu) {
         List<HstSiteMenuItem> enhancedMenu = new ArrayList<>();
         RootMenuItem root = new RootMenuItem(hstSiteMenu);
-
         if (hstSiteMenu != null) {
             //Calculate the resource bundle id
             String resourceBundle = NAVIGATION_PREFIX + hstSiteMenu.getName();
@@ -101,7 +100,7 @@ public class NavigationFactory {
             HippoBean bean = utils.getBeanForResolvedSiteMapItem(request, hstItem.resolveToSiteMapItem());
             //if the document does not exist or is not published
             if (bean instanceof Page) {
-                createMenuItemFromPage(menuItem, (Page) bean, resourceBundle, request.getLocale());
+                createMenuItemFromPage(menuItem, (Page) bean, resourceBundle, request);
             } else if (bean != null) {
                 return createWidget(request, bean);
             }
@@ -213,8 +212,10 @@ public class NavigationFactory {
      * @param bundleId Resource Bundle where the labels of the menu item might come from
      * @param locale   Request Locale
      */
-    private void createMenuItemFromPage(MenuItem menuItem, Page document, String bundleId, Locale locale) {
+    private void createMenuItemFromPage(MenuItem menuItem, Page document, String bundleId, HstRequest request) {
+        Locale locale = request.getLocale();
         menuItem.setPage(document);
+        menuItem.setPlainLink(utils.createUrl(document));
 
         //If the menu hasn't been set we use the title coming from the document.
         if (Contract.isEmpty(menuItem.getTitle())) {

@@ -132,7 +132,9 @@ public class LocationLoader {
         LocationObject obj = navigateToRegion(location, lang, 5);
 
         if (obj == null){
-            logger.warn("The location '{}' doesn't seem to be contained in a region", location.getName());
+
+            // TODO: This warning wouldn't add any value until VSD-256 is implemented
+            // logger.warn("The location '{}' doesn't seem to be contained in a region", location.getName());
         }
 
         return obj;
