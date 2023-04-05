@@ -59,12 +59,12 @@ public class NavigationFactory {
     /**
      * Builds a VisitScotland enhanced menu from the out of the box menu
      */
-//    @Cacheable(
-//            value = "navigation",
-//            key = "{#request.locale, #hstSiteMenu.name}",
-//            unless = "#request.getAttribute(\"editMode\")"
-//    )
-    public RootMenuItem buildMenu(HstRequest request, HstSiteMenu hstSiteMenu) {
+    @Cacheable(
+            value = "navigation",
+            key = "{#request.locale, #hstSiteMenu.name, #cacheable}",
+            unless = "!#cacheable"
+    )
+    public RootMenuItem buildMenu(HstRequest request, HstSiteMenu hstSiteMenu, boolean cacheable) {
         List<HstSiteMenuItem> enhancedMenu = new ArrayList<>();
         RootMenuItem root = new RootMenuItem(hstSiteMenu);
         if (hstSiteMenu != null) {
@@ -100,7 +100,7 @@ public class NavigationFactory {
             HippoBean bean = utils.getBeanForResolvedSiteMapItem(request, hstItem.resolveToSiteMapItem());
             //if the document does not exist or is not published
             if (bean instanceof Page) {
-                createMenuItemFromPage(menuItem, (Page) bean, resourceBundle, request);
+                createMenuItemFromPage(menuItem, (Page) bean, resourceBundle, request.getLocale());
             } else if (bean != null) {
                 return createWidget(request, bean);
             }
@@ -212,8 +212,7 @@ public class NavigationFactory {
      * @param bundleId Resource Bundle where the labels of the menu item might come from
      * @param locale   Request Locale
      */
-    private void createMenuItemFromPage(MenuItem menuItem, Page document, String bundleId, HstRequest request) {
-        Locale locale = request.getLocale();
+    private void createMenuItemFromPage(MenuItem menuItem, Page document, String bundleId, Locale locale) {
         menuItem.setPage(document);
         menuItem.setPlainLink(utils.createUrl(document));
 
