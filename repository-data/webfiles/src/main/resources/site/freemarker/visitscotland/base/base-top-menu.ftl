@@ -23,7 +23,7 @@
         <@headerSkipTo />
         <header class="position-relative zindex-fixed">
             <@headerGlobalMenu />
-            <!-- Navigation generated at ... ${menu.time?string["yyyy-MM-dd HH:mm:ss"]} -->
+            <!-- Navigation generated at ${menu.timeStamp?string["yyyy-MM-dd HH:mm:ss"]} -->
             <@headerMegaNav menu=menu/>
 
         </header>
