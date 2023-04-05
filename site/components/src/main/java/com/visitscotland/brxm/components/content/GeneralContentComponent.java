@@ -42,10 +42,10 @@ public class GeneralContentComponent extends PageContentComponent<Destination> {
         }
     }
 
-    @Cacheable(
-            value = "component",
-            key = "{#request.getAttribute(\"errorCode\"), #request.locale}"
-    )
+//    @Cacheable(
+//            value = "component",
+//            key = "{#request.getAttribute(\"errorCode\"), #request.locale}"
+//    )
     public void cachePage(HstRequest request){
         builder.addModules(request);
     }
