@@ -5,7 +5,6 @@ import org.hippoecm.hst.core.sitemenu.HstSiteMenu;
 import org.hippoecm.hst.core.sitemenu.HstSiteMenuItem;
 import org.hippoecm.hst.core.sitemenu.HstSiteMenus;
 
-import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
