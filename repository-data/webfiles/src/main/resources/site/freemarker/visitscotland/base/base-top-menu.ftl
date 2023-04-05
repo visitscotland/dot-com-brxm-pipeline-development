@@ -25,7 +25,6 @@
             <@headerGlobalMenu />
             <!-- Navigation generated at ${menu.timeStamp?string["yyyy-MM-dd HH:mm:ss"]} -->
             <@headerMegaNav menu=menu/>
-
         </header>
         <@hst.cmseditmenu menu=menu />
     </div>
