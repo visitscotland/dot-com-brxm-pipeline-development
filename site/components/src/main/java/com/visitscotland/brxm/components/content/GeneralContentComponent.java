@@ -1,7 +1,6 @@
 package com.visitscotland.brxm.components.content;
 
 import com.visitscotland.brxm.components.navigation.info.GeneralPageComponentInfo;
-import com.visitscotland.brxm.components.navigation.info.MenuComponentInfo;
 import com.visitscotland.brxm.hippobeans.Destination;
 import com.visitscotland.brxm.config.VsComponentManager;
 import com.visitscotland.brxm.utils.PageTemplateBuilder;
@@ -10,6 +9,7 @@ import org.hippoecm.hst.core.component.HstResponse;
 import org.hippoecm.hst.core.parameters.ParametersInfo;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.cache.annotation.Cacheable;
 
 @ParametersInfo(type = GeneralPageComponentInfo.class)
 public class GeneralContentComponent extends PageContentComponent<Destination> {
@@ -18,6 +18,7 @@ public class GeneralContentComponent extends PageContentComponent<Destination> {
 
     public static final String SIMPLE = "Simple";
     public static final String STANDARD = "Standard";
+    public static final String TOP_LEVEL = "Top-Level";
     static final String ERROR_CODE = "errorCode";
 
     private PageTemplateBuilder builder;
@@ -35,10 +36,17 @@ public class GeneralContentComponent extends PageContentComponent<Destination> {
         response.setStatus(pageStatus);
         if (pageStatus >= 400){
             request.setAttribute(ERROR_CODE,pageStatus);
+            cachePage(request);
+        } else {
+            builder.addModules(request);
         }
-        builder.addModules(request);
-
-
     }
 
+//    @Cacheable(
+//            value = "component",
+//            key = "{#request.getAttribute(\"errorCode\"), #request.locale}"
+//    )
+    public void cachePage(HstRequest request){
+        builder.addModules(request);
+    }
 }

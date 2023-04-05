@@ -66,6 +66,11 @@ public class Properties {
     private static final String PATH_NEWSLETTER = "site.path.newsletter";
     private static final String PATH_ICENTRE = "site.path.icentre-landing";
 
+    // Components references
+    private static final String PSR_POSITION_TOP_LEVEL = "psr.position.general-top-level";
+    private static final String PSR_POSITION_GENERAL_STANDARD = "psr.position.general-standard";
+
+
     private final ResourceBundleService bundle;
 
     private final HippoUtilsService utils;
@@ -204,10 +209,16 @@ public class Properties {
         return readString(PATH_ICENTRE);
     }
 
+    public String getPsrPositionGeneralStandard(){
+        return readString(PSR_POSITION_GENERAL_STANDARD);
+    }
+    public String getPsrPositionTopLevel(){
+        return readString(PSR_POSITION_TOP_LEVEL);
+    }
+
     public Integer getContentCacheRetention() {
         //Note that the retention period is defined in seconds and java.util.Date measures the time in seconds
         return readInteger(CONTENT_CACHE_RETENTION_PERIOD) * 1000;
-
     }
 
     public boolean isContentCacheEnabled() {
