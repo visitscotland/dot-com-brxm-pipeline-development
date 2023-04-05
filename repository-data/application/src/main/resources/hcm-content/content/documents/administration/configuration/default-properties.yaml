@@ -3,7 +3,7 @@
   jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
   jcr:uuid: a8a8926f-e625-4162-98b4-29f3c3b819b8
   hippo:name: Default Properties
-  hippo:versionHistory: 52151819-0229-423a-8ebc-a744c162882f
+  hippo:versionHistory: f37fe683-7e81-4fc6-9d5d-6050d790c88c
   /default-properties[1]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:versionable']
@@ -13,7 +13,7 @@
     hippostd:state: unpublished
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2021-02-05T15:37:26.056Z
-    hippostdpubwf:lastModificationDate: 2023-04-05T14:23:37.894+01:00
+    hippostdpubwf:lastModificationDate: 2023-04-05T15:45:59.831+01:00
     hippostdpubwf:lastModifiedBy: admin
     resourcebundle:descriptions: [URL prefix for Instagram endpoints, '', Client Token
         for Instagram request, '', Encoding for requests made to dms data endpoints,
@@ -80,8 +80,7 @@
       'true', 'false', /data/internal, /site-search-results, '12809', '1000', '3600',
       '30000', /site-search-results, /test/examples/snow-sports, 'https://api.visitscotland.com/dev/data/',
       'true', '10.0', /test/examples/about-us, /test/examples/icentres/content, /test/modules/form/content,
-      /test/examples/campaigns, '^/((places-to-go)|(things-to-do)(/[\w-]+){2,}|(travel-planning)(/[\w-]+){1,})/?$',
-      '^(?!/(accommodation|places-to-go)(/|$))(/[\w-]+)+(/)?$', 'true']
+      /test/examples/campaigns, '/sandbox(/.*)?', '/sandbox(/.*)?', 'false']
     resourcebundle:messages_de: ['', '', '', '', '', '', '', '', '', '', '', '', '',
       '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
       /de-de/site-search-results, '12812', '', '', '', '', '', '', '', '', '', '',
@@ -111,7 +110,7 @@
     hippostd:state: draft
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2021-02-05T15:37:26.056Z
-    hippostdpubwf:lastModificationDate: 2023-04-05T14:23:14.190+01:00
+    hippostdpubwf:lastModificationDate: 2023-04-05T15:45:42.320+01:00
     hippostdpubwf:lastModifiedBy: admin
     resourcebundle:descriptions: [URL prefix for Instagram endpoints, '', Client Token
         for Instagram request, '', Encoding for requests made to dms data endpoints,
@@ -178,8 +177,7 @@
       'true', 'false', /data/internal, /site-search-results, '12809', '1000', '3600',
       '30000', /site-search-results, /test/examples/snow-sports, 'https://api.visitscotland.com/dev/data/',
       'true', '10.0', /test/examples/about-us, /test/examples/icentres/content, /test/modules/form/content,
-      /test/examples/campaigns, '^/((places-to-go)|(things-to-do)(/[\w-]+){2,}|(travel-planning)(/[\w-]+){1,})/?$',
-      '^(?!/(accommodation|places-to-go)(/|$))(/[\w-]+)+(/)?$', 'true']
+      /test/examples/campaigns, '/sandbox(/.*)?', '/sandbox(/.*)?', 'false']
     resourcebundle:messages_de: ['', '', '', '', '', '', '', '', '', '', '', '', '',
       '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
       /de-de/site-search-results, '12812', '', '', '', '', '', '', '', '', '', '',
@@ -209,9 +207,9 @@
     hippostd:state: published
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2021-02-05T15:37:26.056Z
-    hippostdpubwf:lastModificationDate: 2023-04-05T14:23:37.894+01:00
+    hippostdpubwf:lastModificationDate: 2023-04-05T15:45:59.831+01:00
     hippostdpubwf:lastModifiedBy: admin
-    hippostdpubwf:publicationDate: 2023-04-05T14:23:42.066+01:00
+    hippostdpubwf:publicationDate: 2023-04-05T15:46:06.416+01:00
     resourcebundle:descriptions: [URL prefix for Instagram endpoints, '', Client Token
         for Instagram request, '', Encoding for requests made to dms data endpoints,
       "Token that identifies calls made to vs-dms-products as internal calls giving\
@@ -277,8 +275,7 @@
       'true', 'false', /data/internal, /site-search-results, '12809', '1000', '3600',
       '30000', /site-search-results, /test/examples/snow-sports, 'https://api.visitscotland.com/dev/data/',
       'true', '10.0', /test/examples/about-us, /test/examples/icentres/content, /test/modules/form/content,
-      /test/examples/campaigns, '^/((places-to-go)|(things-to-do)(/[\w-]+){2,}|(travel-planning)(/[\w-]+){1,})/?$',
-      '^(?!/(accommodation|places-to-go)(/|$))(/[\w-]+)+(/)?$', 'true']
+      /test/examples/campaigns, '/sandbox(/.*)?', '/sandbox(/.*)?', 'false']
     resourcebundle:messages_de: ['', '', '', '', '', '', '', '', '', '', '', '', '',
       '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
       /de-de/site-search-results, '12812', '', '', '', '', '', '', '', '', '', '',
