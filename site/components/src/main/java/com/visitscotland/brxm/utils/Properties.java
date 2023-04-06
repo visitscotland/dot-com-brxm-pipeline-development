@@ -382,6 +382,8 @@ public class Properties {
             logger.info("The property {} hasn't been set in the resourceBundle {}", key, bundleId);
         } else if (value.startsWith("$")){
             return getEnvironmentVariable(value.substring(1));
+        } else if (value.startsWith("%")){
+            return getSystemProperty(value.substring(1));
         } else {
             return value;
         }
@@ -395,5 +397,9 @@ public class Properties {
         } catch (RuntimeException e){
             return null;
         }
+    }
+
+    String getSystemProperty(String name){
+        return System.getProperty(name, "");
     }
 }
