@@ -385,6 +385,6 @@ public class Properties {
     }
 
     String getSystemProperty(String name){
-        return System.getProperty(name);
+        return System.getProperty(name, "");
     }
 }
