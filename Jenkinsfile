@@ -235,9 +235,9 @@ pipeline {
         }
 
         stage('SonarQube FE scan') {
-//          when {
-//            branch 'develop' 
-//          }
+          when {
+            branch 'develop' 
+          }
           environment {
             scannerHome = tool 'SonarQube_4.0'
           }
