@@ -235,9 +235,9 @@ pipeline {
         }
 
         stage('SonarQube FE scan') {
-          when {
-            branch 'develop' 
-          }
+//          when {
+//            branch 'develop' 
+//          }
           environment {
             scannerHome = tool 'SonarQube_4.0'
           }
@@ -245,7 +245,7 @@ pipeline {
             withSonarQubeEnv(installationName: 'SonarQube', credentialsId: 'sonarqube') {
               sh '''
                 PATH=/usr/bin:$PATH; ${scannerHome}/bin/sonar-scanner \
-                -Dsonar.sources=./frontend \
+                -Dsonar.sources=./ui-integration \
                 -Dsonar.projectKey=VS2019-FE \
                 -Dsonar.host.url=http://172.28.87.209:9000 \
                 -Dsonar.login=9fa63cfd51d94fb8e437b536523c15a9b45ee2c1
@@ -407,7 +407,7 @@ pipeline {
             allowMissing: false,
             alwaysLinkToLastBuild: false,
             keepAll: false,
-            reportDir: 'frontend/.lighthouseci',
+            reportDir: 'ui-integration/.lighthouseci',
             reportFiles: 'lhr-**.html',
             reportName: "LH Report"
           ])
