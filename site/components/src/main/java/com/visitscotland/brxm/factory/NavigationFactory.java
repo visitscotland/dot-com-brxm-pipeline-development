@@ -59,15 +59,14 @@ public class NavigationFactory {
     /**
      * Builds a VisitScotland enhanced menu from the out of the box menu
      */
-//    @Cacheable(
-//            value = "navigation",
-//            key = "{#request.locale, #hstSiteMenu.name}",
-//            unless = "#request.getAttribute(\"editMode\")"
-//    )
-    public RootMenuItem buildMenu(HstRequest request, HstSiteMenu hstSiteMenu) {
+    @Cacheable(
+            value = "navigation",
+            key = "{#request.locale, #hstSiteMenu.name, #cacheable}",
+            unless = "!#cacheable"
+    )
+    public RootMenuItem buildMenu(HstRequest request, HstSiteMenu hstSiteMenu, boolean cacheable) {
         List<HstSiteMenuItem> enhancedMenu = new ArrayList<>();
         RootMenuItem root = new RootMenuItem(hstSiteMenu);
-
         if (hstSiteMenu != null) {
             //Calculate the resource bundle id
             String resourceBundle = NAVIGATION_PREFIX + hstSiteMenu.getName();
@@ -217,6 +216,7 @@ public class NavigationFactory {
      */
     private void createMenuItemFromPage(MenuItem menuItem, Page document, String bundleId, Locale locale) {
         menuItem.setPage(document);
+        menuItem.setPlainLink(utils.createUrl(document));
 
         //If the menu hasn't been set we use the title coming from the document.
         if (Contract.isEmpty(menuItem.getTitle())) {
