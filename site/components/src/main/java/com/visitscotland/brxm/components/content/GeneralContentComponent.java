@@ -9,7 +9,6 @@ import org.hippoecm.hst.core.component.HstResponse;
 import org.hippoecm.hst.core.parameters.ParametersInfo;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.cache.annotation.Cacheable;
 
 @ParametersInfo(type = GeneralPageComponentInfo.class)
 public class GeneralContentComponent extends PageContentComponent<Destination> {
@@ -34,19 +33,9 @@ public class GeneralContentComponent extends PageContentComponent<Destination> {
         GeneralPageComponentInfo pageInfo = getComponentParametersInfo(request);
         int pageStatus = Integer.parseInt(pageInfo.getStatus());
         response.setStatus(pageStatus);
-        if (pageStatus >= 400){
-            request.setAttribute(ERROR_CODE,pageStatus);
-            cachePage(request);
-        } else {
-            builder.addModules(request);
+        if (pageStatus >= 400) {
+            request.setAttribute(ERROR_CODE, pageStatus);
         }
-    }
-
-    @Cacheable(
-            value = "component",
-            key = "{#request.getAttribute(\"errorCode\"), #request.locale}"
-    )
-    public void cachePage(HstRequest request){
         builder.addModules(request);
     }
 }

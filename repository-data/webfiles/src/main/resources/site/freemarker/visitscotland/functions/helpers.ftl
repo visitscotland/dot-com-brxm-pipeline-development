@@ -57,8 +57,7 @@
 <#--  Usage: ${getUrl(navItem)} -->
 <#function getUrl item>
     <#if item.page??>
-        <#assign href><@hst.link hippobean=item.page fullyQualified=fullyQualifiedURLs/></#assign>
-        <#return href>
+        <#return item.plainLink>
     <#elseif item.hstLink??>
         <#return "pagenotfound">
     <#elseif item.externalLink??>
