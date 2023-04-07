@@ -28,7 +28,7 @@
 	<@hst.manageContent hippobean=document/>
 
 	<#if topLevelTemplate>
-		<@pageIntro content=document heroDetails=heroImage lightBackground=psrWidget?has_content />
+		<@pageIntro content=document heroDetails=heroImage lightBackground=(psrWidget?has_content && psrWidget.position = "top") />
 	<#elseif standardTemplate>
         <@pageIntro content=document lightBackground=true />
 		<@introImage mainImage=heroImage />
