@@ -21,7 +21,7 @@
 
     <@pageIntro content=document heroDetails=heroImage lightBackground=true/>
 
-    <@productSearchWidget psrWidget "top"/>
+    <@productSearchWidget psrWidget />
 
 	<#list pageItems as item>
         <@moduleBuilder item />

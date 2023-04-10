@@ -3,7 +3,7 @@
   jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
   jcr:uuid: a8a8926f-e625-4162-98b4-29f3c3b819b8
   hippo:name: Default Properties
-  hippo:versionHistory: f553d09e-4c15-4173-87e1-65b569ce12d5
+  hippo:versionHistory: f37fe683-7e81-4fc6-9d5d-6050d790c88c
   /default-properties[1]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:versionable']
@@ -13,7 +13,7 @@
     hippostd:state: unpublished
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2021-02-05T15:37:26.056Z
-    hippostdpubwf:lastModificationDate: 2023-03-22T12:52:00.761Z
+    hippostdpubwf:lastModificationDate: 2023-04-05T15:45:59.831+01:00
     hippostdpubwf:lastModifiedBy: admin
     resourcebundle:descriptions: [URL prefix for Instagram endpoints, '', Client Token
         for Instagram request, '', Encoding for requests made to dms data endpoints,
@@ -48,7 +48,14 @@
         \ will trigger cleaning any messages  that its last occurrence exceeds the\
         \ retention period", "Retention time for the message in seconds\r\n\r\nContent\
         \ warnings will not be logged again until the retention time expires", '',
-      '', '', '', '', '', '', '', '', '']
+      '', '', '', '', '', '', '', '', '', "Default production Configuration:\r\n\r\
+        \n^/((places-to-go)|(things-to-do)(/[\\w-]+){2,}|(travel-planning)(/[\\w-]+){1,})/?$\r\
+        \n\r\nWhere:\r\n- (places-to-go)  -> Places to go Landing Page (Level 1)\r\
+        \n- (things-to-do)(/[\\w-]+){2,} -> Things to do Section Level 3 or more\r\
+        \n- (travel-planning)(/[\\w-]+){1,} -> Travel planning Section Level 2 or\
+        \ more", "Default Production configuration: \r\n\r\n^(?!/(accommodation|places-to-go)(/|$))(/[\\\
+        w-]+)+(/)?$\r\n\r\nWhere\r\n- (?!/(accommodation|places-to-go)(/|$)) - Negative\
+        \ lookup to exclude urls starting with accommodation or places-to-go", '']
     resourcebundle:id: default.config
     resourcebundle:keys: [instagram.api, helpdesk-email, instagram.accesstoken, instagram.post-url,
       dms-data.encoding, dms-data.api-key, dms-data.timeout, dms-data.tries, dms-data.sleep-time,
@@ -61,7 +68,8 @@
       data-internal.path, global-search.path, global-search.engine-id, content-cache.max-elements,
       content-cache.retention-period, ski.timeout, site.path.global-search, site.path.ski-landing,
       api-data.backend-url, content-cache.enabled, dms.default-distance, site.path.about-us,
-      site.path.icentre-landing, site.path.newsletter, site.path.campaigns]
+      site.path.icentre-landing, site.path.newsletter, site.path.campaigns, psr.position.general-top-level,
+      psr.position.general-standard, snippet-cache.enable]
     resourcebundle:messages: ['https://graph.facebook.com/v9.0/instagram_oembed?url=http://instagr.am/p/',
       helpdesk@visitscotland.com, 0d41c47eaf42b43fe20de05201c798ec, 'https://www.instagram.com/p/',
       UTF-8, $VS_API_KEY, '2000', '3', '60000', 'https://community.visitscotland.com/',
@@ -72,27 +80,27 @@
       'true', 'false', /data/internal, /site-search-results, '12809', '1000', '3600',
       '30000', /site-search-results, /test/examples/snow-sports, 'https://api.visitscotland.com/dev/data/',
       'true', '10.0', /test/examples/about-us, /test/examples/icentres/content, /test/modules/form/content,
-      /test/examples/campaigns]
+      /test/examples/campaigns, '/sandbox(/.*)?', '/sandbox(/.*)?', 'false']
     resourcebundle:messages_de: ['', '', '', '', '', '', '', '', '', '', '', '', '',
       '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
       /de-de/site-search-results, '12812', '', '', '', '', '', '', '', '', '', '',
-      '', '']
+      '', '', '', '', '']
     resourcebundle:messages_es: ['', '', '', '', '', '', '', '', '', '', '', '', '',
       '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
       /es-es/site-search-results, '12814', '', '', '', '', '', '', '', '', '', '',
-      '', '']
+      '', '', '', '', '']
     resourcebundle:messages_fr: ['', '', '', '', '', '', '', '', '', '', '', '', '',
       '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
       /fr-fr/site-search-results, '12811', '', '', '', '', '', '', '', '', '', '',
-      '', '']
+      '', '', '', '', '']
     resourcebundle:messages_it: ['', '', '', '', '', '', '', '', '', '', '', '', '',
       '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
       /it-it/site-search-results, '12813', '', '', '', '', '', '', '', '', '', '',
-      '', '']
+      '', '', '', '', '']
     resourcebundle:messages_nl: ['', '', '', '', '', '', '', '', '', '', '', '', '',
       '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
       /nl-nl/site-search-results, '12810', '', '', '', '', '', '', '', '', '', '',
-      '', '']
+      '', '', '', '', '']
   /default-properties[2]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:referenceable']
@@ -102,7 +110,7 @@
     hippostd:state: draft
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2021-02-05T15:37:26.056Z
-    hippostdpubwf:lastModificationDate: 2023-03-22T12:49:20.783Z
+    hippostdpubwf:lastModificationDate: 2023-04-05T15:45:42.320+01:00
     hippostdpubwf:lastModifiedBy: admin
     resourcebundle:descriptions: [URL prefix for Instagram endpoints, '', Client Token
         for Instagram request, '', Encoding for requests made to dms data endpoints,
@@ -137,7 +145,14 @@
         \ will trigger cleaning any messages  that its last occurrence exceeds the\
         \ retention period", "Retention time for the message in seconds\r\n\r\nContent\
         \ warnings will not be logged again until the retention time expires", '',
-      '', '', '', '', '', '', '', '', '']
+      '', '', '', '', '', '', '', '', '', "Default production Configuration:\r\n\r\
+        \n^/((places-to-go)|(things-to-do)(/[\\w-]+){2,}|(travel-planning)(/[\\w-]+){1,})/?$\r\
+        \n\r\nWhere:\r\n- (places-to-go)  -> Places to go Landing Page (Level 1)\r\
+        \n- (things-to-do)(/[\\w-]+){2,} -> Things to do Section Level 3 or more\r\
+        \n- (travel-planning)(/[\\w-]+){1,} -> Travel planning Section Level 2 or\
+        \ more", "Default Production configuration: \r\n\r\n^(?!/(accommodation|places-to-go)(/|$))(/[\\\
+        w-]+)+(/)?$\r\n\r\nWhere\r\n- (?!/(accommodation|places-to-go)(/|$)) - Negative\
+        \ lookup to exclude urls starting with accommodation or places-to-go", '']
     resourcebundle:id: default.config
     resourcebundle:keys: [instagram.api, helpdesk-email, instagram.accesstoken, instagram.post-url,
       dms-data.encoding, dms-data.api-key, dms-data.timeout, dms-data.tries, dms-data.sleep-time,
@@ -150,7 +165,8 @@
       data-internal.path, global-search.path, global-search.engine-id, content-cache.max-elements,
       content-cache.retention-period, ski.timeout, site.path.global-search, site.path.ski-landing,
       api-data.backend-url, content-cache.enabled, dms.default-distance, site.path.about-us,
-      site.path.icentre-landing, site.path.newsletter, site.path.campaigns]
+      site.path.icentre-landing, site.path.newsletter, site.path.campaigns, psr.position.general-top-level,
+      psr.position.general-standard, snippet-cache.enable]
     resourcebundle:messages: ['https://graph.facebook.com/v9.0/instagram_oembed?url=http://instagr.am/p/',
       helpdesk@visitscotland.com, 0d41c47eaf42b43fe20de05201c798ec, 'https://www.instagram.com/p/',
       UTF-8, $VS_API_KEY, '2000', '3', '60000', 'https://community.visitscotland.com/',
@@ -161,27 +177,27 @@
       'true', 'false', /data/internal, /site-search-results, '12809', '1000', '3600',
       '30000', /site-search-results, /test/examples/snow-sports, 'https://api.visitscotland.com/dev/data/',
       'true', '10.0', /test/examples/about-us, /test/examples/icentres/content, /test/modules/form/content,
-      /test/examples/campaigns]
+      /test/examples/campaigns, '/sandbox(/.*)?', '/sandbox(/.*)?', 'false']
     resourcebundle:messages_de: ['', '', '', '', '', '', '', '', '', '', '', '', '',
       '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
       /de-de/site-search-results, '12812', '', '', '', '', '', '', '', '', '', '',
-      '', '']
+      '', '', '', '', '']
     resourcebundle:messages_es: ['', '', '', '', '', '', '', '', '', '', '', '', '',
       '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
       /es-es/site-search-results, '12814', '', '', '', '', '', '', '', '', '', '',
-      '', '']
+      '', '', '', '', '']
     resourcebundle:messages_fr: ['', '', '', '', '', '', '', '', '', '', '', '', '',
       '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
       /fr-fr/site-search-results, '12811', '', '', '', '', '', '', '', '', '', '',
-      '', '']
+      '', '', '', '', '']
     resourcebundle:messages_it: ['', '', '', '', '', '', '', '', '', '', '', '', '',
       '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
       /it-it/site-search-results, '12813', '', '', '', '', '', '', '', '', '', '',
-      '', '']
+      '', '', '', '', '']
     resourcebundle:messages_nl: ['', '', '', '', '', '', '', '', '', '', '', '', '',
       '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
       /nl-nl/site-search-results, '12810', '', '', '', '', '', '', '', '', '', '',
-      '', '']
+      '', '', '', '', '']
   /default-properties[3]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:referenceable']
@@ -191,9 +207,9 @@
     hippostd:state: published
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2021-02-05T15:37:26.056Z
-    hippostdpubwf:lastModificationDate: 2023-03-22T12:52:00.761Z
+    hippostdpubwf:lastModificationDate: 2023-04-05T15:45:59.831+01:00
     hippostdpubwf:lastModifiedBy: admin
-    hippostdpubwf:publicationDate: 2023-03-22T12:52:06.153Z
+    hippostdpubwf:publicationDate: 2023-04-05T15:46:06.416+01:00
     resourcebundle:descriptions: [URL prefix for Instagram endpoints, '', Client Token
         for Instagram request, '', Encoding for requests made to dms data endpoints,
       "Token that identifies calls made to vs-dms-products as internal calls giving\
@@ -227,7 +243,14 @@
         \ will trigger cleaning any messages  that its last occurrence exceeds the\
         \ retention period", "Retention time for the message in seconds\r\n\r\nContent\
         \ warnings will not be logged again until the retention time expires", '',
-      '', '', '', '', '', '', '', '', '']
+      '', '', '', '', '', '', '', '', '', "Default production Configuration:\r\n\r\
+        \n^/((places-to-go)|(things-to-do)(/[\\w-]+){2,}|(travel-planning)(/[\\w-]+){1,})/?$\r\
+        \n\r\nWhere:\r\n- (places-to-go)  -> Places to go Landing Page (Level 1)\r\
+        \n- (things-to-do)(/[\\w-]+){2,} -> Things to do Section Level 3 or more\r\
+        \n- (travel-planning)(/[\\w-]+){1,} -> Travel planning Section Level 2 or\
+        \ more", "Default Production configuration: \r\n\r\n^(?!/(accommodation|places-to-go)(/|$))(/[\\\
+        w-]+)+(/)?$\r\n\r\nWhere\r\n- (?!/(accommodation|places-to-go)(/|$)) - Negative\
+        \ lookup to exclude urls starting with accommodation or places-to-go", '']
     resourcebundle:id: default.config
     resourcebundle:keys: [instagram.api, helpdesk-email, instagram.accesstoken, instagram.post-url,
       dms-data.encoding, dms-data.api-key, dms-data.timeout, dms-data.tries, dms-data.sleep-time,
@@ -240,7 +263,8 @@
       data-internal.path, global-search.path, global-search.engine-id, content-cache.max-elements,
       content-cache.retention-period, ski.timeout, site.path.global-search, site.path.ski-landing,
       api-data.backend-url, content-cache.enabled, dms.default-distance, site.path.about-us,
-      site.path.icentre-landing, site.path.newsletter, site.path.campaigns]
+      site.path.icentre-landing, site.path.newsletter, site.path.campaigns, psr.position.general-top-level,
+      psr.position.general-standard, snippet-cache.enable]
     resourcebundle:messages: ['https://graph.facebook.com/v9.0/instagram_oembed?url=http://instagr.am/p/',
       helpdesk@visitscotland.com, 0d41c47eaf42b43fe20de05201c798ec, 'https://www.instagram.com/p/',
       UTF-8, $VS_API_KEY, '2000', '3', '60000', 'https://community.visitscotland.com/',
@@ -251,24 +275,24 @@
       'true', 'false', /data/internal, /site-search-results, '12809', '1000', '3600',
       '30000', /site-search-results, /test/examples/snow-sports, 'https://api.visitscotland.com/dev/data/',
       'true', '10.0', /test/examples/about-us, /test/examples/icentres/content, /test/modules/form/content,
-      /test/examples/campaigns]
+      /test/examples/campaigns, '/sandbox(/.*)?', '/sandbox(/.*)?', 'false']
     resourcebundle:messages_de: ['', '', '', '', '', '', '', '', '', '', '', '', '',
       '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
       /de-de/site-search-results, '12812', '', '', '', '', '', '', '', '', '', '',
-      '', '']
+      '', '', '', '', '']
     resourcebundle:messages_es: ['', '', '', '', '', '', '', '', '', '', '', '', '',
       '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
       /es-es/site-search-results, '12814', '', '', '', '', '', '', '', '', '', '',
-      '', '']
+      '', '', '', '', '']
     resourcebundle:messages_fr: ['', '', '', '', '', '', '', '', '', '', '', '', '',
       '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
       /fr-fr/site-search-results, '12811', '', '', '', '', '', '', '', '', '', '',
-      '', '']
+      '', '', '', '', '']
     resourcebundle:messages_it: ['', '', '', '', '', '', '', '', '', '', '', '', '',
       '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
       /it-it/site-search-results, '12813', '', '', '', '', '', '', '', '', '', '',
-      '', '']
+      '', '', '', '', '']
     resourcebundle:messages_nl: ['', '', '', '', '', '', '', '', '', '', '', '', '',
       '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
       /nl-nl/site-search-results, '12810', '', '', '', '', '', '', '', '', '', '',
-      '', '']
+      '', '', '', '', '']

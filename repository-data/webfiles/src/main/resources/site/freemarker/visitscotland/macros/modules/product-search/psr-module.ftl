@@ -19,9 +19,9 @@
             ]"
             no-js-message="${label('product-search-widget', 'no-js-message')}"
 
-            <#if position=="top" && themeCalculator(introTheme) != "light">
-                class="mb-9 mb-lg-12"
-            <#elseif position=="bottom">
+            <#if module.position=="top" && themeCalculator(introTheme) != "light">
+                class="mb-9 mb-lg-12 pt-9"
+            <#elseif module.position=="bottom">
                 class="mt-9 mt-lg-12"
             </#if>
         >
