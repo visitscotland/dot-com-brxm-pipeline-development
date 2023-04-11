@@ -21,6 +21,9 @@
         </template>
     </vs-mega-nav>
 
+    <@hst.headContribution category="htmlHeadStyles">
+        <link rel="stylesheet" href="<@hst.webfile path='/frontend/styles/third-party/_cludo-autocomplete.css'/>" type="text/css"/>
+    </@hst.headContribution>
     <@hst.headContribution category="htmlBodyLocalizedScripts">
         <script>
             var cludo_engineId = ${property("global-search.engine-id", locale)}; //Engine ID

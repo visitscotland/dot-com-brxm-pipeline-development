@@ -31,6 +31,10 @@
             </vs-embed-wrapper>
         </div>
     </div>
+
+    <@hst.headContribution category="htmlHeadStyles">
+        <link rel="stylesheet" href="<@hst.webfile path='/frontend/styles/third-party/_cludo-search-results.css'/>" type="text/css"/>
+    </@hst.headContribution>
 </#macro>
 
 
