@@ -193,6 +193,20 @@ public class LinkService {
         }
     }
 
+    public String localize(Locale locale, String url) {
+        if (isInternalDomain(url)){
+            try {
+                String authority = new URL(url).getAuthority();
+                String domain = url.substring(0, url.indexOf(authority)) + authority;
+                return localize(locale, domain, url.substring(domain.length()));
+            } catch (MalformedURLException e) {
+                //Note: this exception would never happen as isInternalDomain(url) does the same operation.
+                logger.error("Unexpected Exception. The link could not be localized");
+            }
+        }
+        return url;
+    }
+
     public FlatLink createDmsLink(Locale locale, DMSLink dmsLink, JsonNode dmsProductJson, String defaultCta) {
         String cta = Contract.isEmpty(dmsLink.getLabel()) ? defaultCta : dmsLink.getLabel();
         return new FlatLink(cta, getPlainLink(locale, dmsLink, dmsProductJson), LinkType.INTERNAL);

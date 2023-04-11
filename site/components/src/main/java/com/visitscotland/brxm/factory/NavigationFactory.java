@@ -104,6 +104,8 @@ public class NavigationFactory {
             } else if (bean != null) {
                 return createWidget(request, bean);
             }
+        } else if (!Contract.isEmpty(hstItem.getExternalLink())){
+            menuItem.setExternalLink(linkService.localize(request.getLocale(), hstItem.getExternalLink()));
         }
 
         if (menuItem.getTitle() != null) {
