@@ -15,7 +15,7 @@
             plural-minute-descriptor="${label('video', 'video.minutes-text')}"
             no-cookies-message="${label('video', 'video.no-cookies')}"
             no-js-message="${label('video', 'video.no-js')}"
-            cookie-link-text="${label('essentials.global', 'cookie.link-message')}"
+            cookie-btn-text="${label('essentials.global', 'cookie.link-message')}"
             error-message="${label('essentials.global', 'third-party-error')}"
         />
     </@modal>
