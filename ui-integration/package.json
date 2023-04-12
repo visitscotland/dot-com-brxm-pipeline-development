@@ -16,6 +16,7 @@
   "scripts": {
     "build:ssr": "webpack --config webpack.config.js",
     "third-party": "webpack --config ./build/thirdparty.webpack.conf.js",
+    "cookie-banner": "webpack --config ./build/cookiebanner.webpack.conf.js",
     "ssr:serve": "nodemon ./ssr/server/index.js"
   },
   "dependencies": {
