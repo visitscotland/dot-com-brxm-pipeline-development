@@ -34,6 +34,7 @@ public class Properties {
     static final String CHANNEL_ORDER = "seo.alternate-link-locale-order";
     static final String GLOBAL_SEARCH_PATH = "global-search.path";
     static final String ENGINE_ID = "global-search.engine-id";
+    static final String SNIPPET_CACHE = "snippet-cache.enable";
     static final String CONTENT_CACHE_ENABLED = "content-cache.enabled";
     static final String CONTENT_CACHE_RETENTION_PERIOD = "content-cache.retention-period";
     static final String CONTENT_CACHE_MAX_ELEMENTS = "content-cache.max-elements";
@@ -222,8 +223,11 @@ public class Properties {
     }
 
     public boolean isContentCacheEnabled() {
-        //Note that the retention period is defined in seconds and java.util.Date measures the time in seconds
         return readBoolean(CONTENT_CACHE_ENABLED);
+    }
+
+    public boolean isSnippetCacheEnabled() {
+        return readBoolean(SNIPPET_CACHE);
     }
 
     /**
@@ -378,6 +382,8 @@ public class Properties {
             logger.info("The property {} hasn't been set in the resourceBundle {}", key, bundleId);
         } else if (value.startsWith("$")){
             return getEnvironmentVariable(value.substring(1));
+        } else if (value.startsWith("%")){
+            return getSystemProperty(value.substring(1));
         } else {
             return value;
         }
@@ -391,5 +397,9 @@ public class Properties {
         } catch (RuntimeException e){
             return null;
         }
+    }
+
+    String getSystemProperty(String name){
+        return System.getProperty(name, "");
     }
 }

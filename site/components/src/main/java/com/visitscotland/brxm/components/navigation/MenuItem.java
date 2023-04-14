@@ -24,6 +24,8 @@ public class MenuItem implements HstSiteMenuItem {
     private Page page;
     private NavigationWidget widget;
     private String cta;
+    private String externalLink;
+    private String plainLink;
 
 
     public MenuItem(HstSiteMenuItem hstMenuItem) {
@@ -122,9 +124,18 @@ public class MenuItem implements HstSiteMenuItem {
         return hstMenuItem.getHstLink();
     }
 
+    public void setExternalLink(String externalLink){
+        this.externalLink = externalLink;
+    }
+
     @Override
     public String getExternalLink() {
-        return hstMenuItem.getExternalLink();
+        if (externalLink == null){
+            return hstMenuItem.getExternalLink();
+        } else {
+            return externalLink;
+        }
+
     }
 
     @Override
@@ -163,5 +174,13 @@ public class MenuItem implements HstSiteMenuItem {
 
     public void setPage(Page page) {
         this.page = page;
+    }
+
+    public String getPlainLink() {
+        return plainLink;
+    }
+
+    public void setPlainLink(String plainLink) {
+        this.plainLink = plainLink;
     }
 }

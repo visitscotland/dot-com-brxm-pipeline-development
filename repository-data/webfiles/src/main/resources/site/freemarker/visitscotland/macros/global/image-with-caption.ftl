@@ -2,7 +2,7 @@
 <#include "../../../frontend/components/vs-image-with-caption.ftl">
 <#include "../../../frontend/components/vs-caption.ftl">
 
-<#macro imageWithCaption imageSrc imageDetails variant="fullwidth" isHero="false" mobileOverlap="false" alignment="left" isVideo="false" videoId="" videoTitle="" videoBtn="" smallPlayButton="false" useLazyLoading="true" noAltText="false">
+<#macro imageWithCaption imageSrc imageDetails variant="fullwidth" isHero="false" mobileOverlap="false" alignment="left" isVideo="false" videoId="" videoTitle="" videoBtn="" smallPlayButton="false" useLazyLoading="true" noAltText="false" showToggle="true">
     <vs-image-with-caption
         latitude="<#if variant != 'fullwidth'>${(imageDetails.coordinates.latitude)!''}</#if>"
         longitude="<#if variant != 'fullwidth'>${(imageDetails.coordinates.longitude)!''}</#if>"
@@ -18,6 +18,7 @@
         cookie-link-text="${label('essentials.global', 'cookie.link-message')}"
         :use-lazy-loading="${useLazyLoading}"
         error-message="${label('essentials.global', 'third-party-error')}"
+        :show-toggle="${showToggle}"
         <#if videoBtn?? && videoBtn != "">
             play-button-text="${videoBtn}"
         <#else>

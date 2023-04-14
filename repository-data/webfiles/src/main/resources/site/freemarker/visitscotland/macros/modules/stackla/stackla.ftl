@@ -45,4 +45,8 @@
             </template>
         </vs-embed-wrapper>
     </vs-module-wrapper>
+
+    <@hst.headContribution category="htmlHeadStyles">
+        <link rel="stylesheet" href="<@hst.webfile path='/frontend/styles/third-party/_stackla-styles.css'/>" type="text/css"/>
+    </@hst.headContribution>
 </#macro>
