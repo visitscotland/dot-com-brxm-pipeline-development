@@ -6,7 +6,7 @@
 <#include "../../global/preview-warning.ftl">
 <#include "../../global/image-with-caption.ftl">
 
-<#macro listicleItem item>
+<#macro listicleItem item isFirstListicle>
 <#-- @ftlvariable name="listItem" type="com.visitscotland.brxm.hippobeans.ListicleItem" -->
 <#-- @ftlvariable name="item" type="com.visitscotland.brxm.model.ListicleModule" -->
 <#-- @ftlvariable name="cta" type="com.visitscotland.brxm.model.FlatLink" -->
@@ -31,7 +31,13 @@
 
         <#if item.image?? && item.image?has_content>
             <div slot="image-slot">
-                <@imageWithCaption imageSrc=image imageDetails=item.image variant="large" noAltText="true"/>
+                <@imageWithCaption 
+                    imageSrc=image 
+                    imageDetails=item.image 
+                    variant="large" 
+                    noAltText="true"
+                    useLazyLoading=isFirstListicle
+                />
             </div>
         </#if>
 
