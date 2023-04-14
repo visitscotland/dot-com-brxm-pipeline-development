@@ -9,6 +9,7 @@
 
     <#if legacy?? && (legacy != "false")>
         <link rel="stylesheet" href="<@hst.link fullyQualified=fullyQualifiedURLs path='/webfiles/static/third-party/embed/processed-styles/legacy.css' />" />
+        <link rel="stylesheet" href="<@hst.link fullyQualified=fullyQualifiedURLs path='/webfiles/static/third-party/embed/processed-styles/cookie-banner.css' />" />
     </#if>
 
     <@headContributions />
