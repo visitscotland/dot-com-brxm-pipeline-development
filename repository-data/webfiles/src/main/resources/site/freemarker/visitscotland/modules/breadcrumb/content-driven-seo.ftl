@@ -43,7 +43,9 @@
 
 
     <#-- OPEN GRAPH MARKUP  -->
-    <@hst.link var="ogImage" hippobean=document.heroImage.original fullyQualified=true/>
+    <#if document.heroImage?? >
+        <@hst.link var="ogImage" hippobean=document.heroImage.original fullyQualified=true/>
+    </#if>
     <@hst.headContribution category="opengraph">
         <meta property="og:title" content="${document.seoTitle?html}" />
     </@hst.headContribution>
@@ -62,9 +64,11 @@
     <@hst.headContribution category="opengraph">
         <meta property="og:locale" content="${document.locale.toLanguageTag()?lower_case}" />
     </@hst.headContribution>
-    <@hst.headContribution category="opengraph">
-        <meta property="og:image" content="${ogImage}" />
-    </@hst.headContribution>
+    <#if document.heroImage??>
+        <@hst.headContribution category="opengraph">
+            <meta property="og:image" content="${ogImage}" />
+        </@hst.headContribution>
+    </#if>
     <@hst.headContribution category="opengraph">
         <meta name="twitter:card" content="summary_large_image" />
     </@hst.headContribution>
@@ -77,7 +81,9 @@
     <@hst.headContribution category="opengraph">
         <meta name="twitter:description" content="${document.seoDescription?html}" />
     </@hst.headContribution>
-    <@hst.headContribution category="opengraph">
-        <meta property="twitter:image" content="${ogImage}" />
-    </@hst.headContribution>
+    <#if document.heroImage??>
+        <@hst.headContribution category="opengraph">
+            <meta property="twitter:image" content="${ogImage}" />
+        </@hst.headContribution>
+    </#if>
 </#if>
