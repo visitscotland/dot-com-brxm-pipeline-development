@@ -25,16 +25,21 @@
 </#compress>
 <div class="has-edit-button">
     <@hst.manageContent hippobean=document/>
-
+    
     <@pageIntro content=document />
 
     <vs-container class="mt-6">
         <vs-row>
             <vs-col cols="12">
                 <ol style="list-style:none; margin:0; padding:0;">
-                    <#if items?? && items?has_content >
+                    <#if items?? && items?has_content>
                         <#list items as listItem>
-                            <@listicleItem item=listItem />
+                            <#if listItem?is_first>
+                                <#assign firstListicle="false">
+                            <#else>
+                                <#assign firstListicle="true">
+                            </#if>
+                            <@listicleItem item=listItem isFirstListicle=firstListicle/>
                         </#list>
                     </#if>
                 </ol>
