@@ -162,13 +162,13 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
      * Return the document from the request
      *
      * @param request HstRequest
-     * @return the master document of
+     * @return the main document of
      */
     protected T getDocument(HstRequest request) {
         if (request.getAttribute(DOCUMENT) instanceof Page) {
             return (T) request.getAttribute(DOCUMENT);
         } else {
-            logger.error("The master document is not an instance of Page.", new ClassCastException());
+            logger.error("The main document is not an instance of Page.", new ClassCastException());
             return null;
         }
     }
