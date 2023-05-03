@@ -296,7 +296,7 @@
         <plugin>
           <groupId>com.amashchenko.maven.plugin</groupId>
           <artifactId>gitflow-maven-plugin</artifactId>
-          <version>1.14.0</version>
+          <version>1.19.0</version>
           <executions>
             <execution>
               <id>default-cli</id>
@@ -307,6 +307,11 @@
               <configuration>
                 <pushRemote>true</pushRemote>
                 <allowSnapshots>true</allowSnapshots>
+
+                <gitFlowConfig>
+                  <productionBranch>main</productionBranch>
+                </gitFlowConfig>
+
                 <commitMessages>
                   <releaseStartMessage>Created release branch @{version}</releaseStartMessage>
                   <releaseFinishMessage>Merged release branch and updated to next development version.</releaseFinishMessage>
