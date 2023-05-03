@@ -26,6 +26,7 @@ public class LinkValidator implements Validator<Node> {
     private SessionFactory sessionFactory;
 
     static final String DAY = "visitscotland:Day";
+    static final String BLOG = "visitscotland:Blog";
     static final String VIDEO = "visitscotland:VideoLink";
     static final String MAP = "visitscotland:MapCategory";
     static final String LINK_COORDINATES = "visitscotland:SpecialLinkCoordinates";
@@ -109,7 +110,12 @@ public class LinkValidator implements Validator<Node> {
             if (!childNode.isNodeType("visitscotland:Page") || childNode.isNodeType("visitscotland:Destination")){
                 return Optional.of(context.createViolation("mapcoordinates"));
             }
-        } else {
+        }else if (document.getParent().isNodeType(BLOG)) {
+            if (!childNode.isNodeType("visitscotland:Profile")){
+                return Optional.of(context.createViolation("author"));
+            }
+        }
+        else {
             if (!childNode.isNodeType("visitscotland:Page") && !childNode.isNodeType("visitscotland:SharedLink")){
                 return Optional.of(context.createViolation());
             }
