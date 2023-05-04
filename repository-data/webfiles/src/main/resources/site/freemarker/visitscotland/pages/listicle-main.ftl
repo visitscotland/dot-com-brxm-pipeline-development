@@ -25,8 +25,12 @@
 </#compress>
 <div class="has-edit-button">
     <@hst.manageContent hippobean=document/>
-    
-    <@pageIntro content=document />
+
+    <@pageIntro content=document blog=blog/>
+    <#-- TODO move this to pageIntro -->
+    <#if blog??>
+        <vs-heading thin level="4">${blog.authorName} - ${blog.publishDate?string["MMM dd, yyy"]} - ${blog.readingTime}</vs-heading>
+    </#if>
 
     <vs-container class="mt-6">
         <vs-row>

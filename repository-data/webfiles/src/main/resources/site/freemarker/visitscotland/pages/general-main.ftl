@@ -27,7 +27,11 @@
 <div class="has-edit-button">
 	<@hst.manageContent hippobean=document/>
 
-	<#if topLevelTemplate>
+	<#if blog??>
+		<@pageIntro content=document lightBackground=true blog=blog />
+		<#-- TODO move this to pageIntro -->
+		<vs-heading thin level="4">${blog.authorName} - ${blog.publishDate?string["MMM dd, yyy"]} - ${blog.readingTime}</vs-heading>
+	<#elseif topLevelTemplate>
 		<@pageIntro content=document heroDetails=heroImage lightBackground=(psrWidget?has_content && psrWidget.position = "top") />
 	<#elseif standardTemplate>
         <@pageIntro content=document lightBackground=true />

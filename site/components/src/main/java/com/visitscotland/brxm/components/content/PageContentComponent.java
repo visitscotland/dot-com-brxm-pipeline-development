@@ -1,11 +1,7 @@
 package com.visitscotland.brxm.components.content;
 
 import com.visitscotland.brxm.config.VsComponentManager;
-import com.visitscotland.brxm.factory.ImageFactory;
-import com.visitscotland.brxm.factory.MegalinkFactory;
-import com.visitscotland.brxm.factory.ProductSearchWidgetFactory;
-import com.visitscotland.brxm.factory.PreviewModeFactory;
-import com.visitscotland.brxm.factory.SignpostFactory;
+import com.visitscotland.brxm.factory.*;
 import com.visitscotland.brxm.hippobeans.Page;
 import com.visitscotland.brxm.hippobeans.VideoLink;
 import com.visitscotland.brxm.model.FlatImage;
@@ -22,6 +18,7 @@ import org.hippoecm.hst.core.component.HstResponse;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.util.ArrayList;
 import java.util.Collection;
 
 
@@ -33,6 +30,7 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
 
     public static final String DOCUMENT = "document";
     public static final String OTYML = "otyml";
+    public static final String BLOG = "blog";
     public static final String NEWSLETTER_SIGNPOST = "newsletterSignpost";
     public static final String PREVIEW_ALERTS = "alerts";
     public static final String HERO_IMAGE = "heroImage";
@@ -41,6 +39,7 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
 
     public static final String SEARCH_RESULTS = "searchResultsPage";
 
+    private final BlogFactory blogFactory;
     private final MegalinkFactory megalinkFactory;
     private final ImageFactory imageFactory;
     private final LinkService linksService;
@@ -51,6 +50,7 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
     private final Logger contentLogger;
 
     public PageContentComponent() {
+        blogFactory = VsComponentManager.get(BlogFactory.class);
         megalinkFactory = VsComponentManager.get(MegalinkFactory.class);
         imageFactory = VsComponentManager.get(ImageFactory.class);
         signpostFactory = VsComponentManager.get(SignpostFactory.class);
@@ -72,11 +72,11 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
         addProductSearchWidget(request);
         addLogging(request);
         addFlags(request);
+        addBlog(request);
     }
 
     /**
      * Add flags to the freekarker to indicate what type of page is being processed
-     * @param request
      */
     private void addFlags(HstRequest request){
         if (request.getPathInfo().contains(properties.getSiteGlobalSearch())){
@@ -88,11 +88,11 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
      * - Alerts are only used for issues related with the hero image at the moment
      * - Hero Image is not necessary for all document types. Is it better to add the field in order to keep consistency?
      */
-    private void addHeroImage(HstRequest request){
+    private void addHeroImage(HstRequest request) {
         Module<T> introModule = new Module<>();
 
         FlatImage heroImage = imageFactory.createImage(getDocument(request).getHeroImage(), introModule, request.getLocale());
-        if (getDocument(request).getHeroImage() == null){
+        if (getDocument(request).getHeroImage() == null) {
             String message = String.format("The image selected for '%s' is not available, please select a valid image for '%s' at: %s ",
                     getDocument(request).getTitle(), getDocument(request).getDisplayName(),getDocument(request).getPath());
             contentLogger.warn(message);
@@ -130,11 +130,23 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
         }
     }
 
+    /**
+     * Set the OTYML module if present
+     */
+    protected void addBlog(HstRequest request) {
+        Page page = getDocument(request);
+        if (page.getBlog() != null) {
+            Collection<String> errorMessages = new ArrayList<>();
+            request.setAttribute(BLOG, blogFactory.getBlog(page.getBlog(), request.getLocale(), errorMessages));
+            setErrorMessages(request, errorMessages);
+        }
+    }
+
     protected void addNewsletterSignup(HstRequest request) {
         Page page = getDocument(request);
         if (!Contract.defaultIfNull(page.getHideNewsletter(), false)) {
             SignpostModule signpost;
-            if (request.getPathInfo().contains(properties.getSiteSkiSection())){
+            if (request.getPathInfo().contains(properties.getSiteSkiSection())) {
                 signpost = signpostFactory.createSnowAlertsModule(request.getLocale());
             } else {
                 signpost = signpostFactory.createNewsletterSignpostModule(request.getLocale());
@@ -148,8 +160,8 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
     /**
      * Add the configuration related to the Product Search Widget for the page
      */
-    private void addProductSearchWidget(HstRequest request){
-        if (!request.getPathInfo().contains(properties.getSiteSkiSection()) && !request.getPathInfo().contains(properties.getCampaignSection())){
+    private void addProductSearchWidget(HstRequest request) {
+        if (!request.getPathInfo().contains(properties.getSiteSkiSection()) && !request.getPathInfo().contains(properties.getCampaignSection())) {
             request.setAttribute(PSR_WIDGET, psrFactory.getWidget(request));
         }
     }
@@ -174,7 +186,7 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
     }
 
     public static void setErrorMessages(HstRequest request, Collection<String> errorMessages) {
-        if (request.getAttribute(PREVIEW_ALERTS) != null){
+        if (request.getAttribute(PREVIEW_ALERTS) != null) {
             Collection<String> requestMessages = (Collection<String>) request.getAttribute(PREVIEW_ALERTS);
             requestMessages.addAll(errorMessages);
         } else {
