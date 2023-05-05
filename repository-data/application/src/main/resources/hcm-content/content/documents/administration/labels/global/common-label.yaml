@@ -3,7 +3,7 @@
   jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
   jcr:uuid: ffa7b86c-fc0c-42ec-81a6-adedf369e401
   hippo:name: Global
-  hippo:versionHistory: e35d9aab-9970-4c3e-895a-e064266a3ed1
+  hippo:versionHistory: abc9f15c-9de5-4d0f-9a04-98965ce0be19
   /common-label[1]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:referenceable']
@@ -13,9 +13,9 @@
     hippostd:state: published
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2014-08-21T22:10:13.443+02:00
-    hippostdpubwf:lastModificationDate: 2023-05-04T16:54:21.384+01:00
+    hippostdpubwf:lastModificationDate: 2023-05-05T10:24:11.746+01:00
     hippostdpubwf:lastModifiedBy: admin
-    hippostdpubwf:publicationDate: 2023-05-04T16:55:06.960+01:00
+    hippostdpubwf:publicationDate: 2023-05-05T10:24:14.115+01:00
     resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '', '', '', '',
       '', '', '', '', '']
     resourcebundle:id: essentials.global
@@ -32,12 +32,12 @@
       Startseite, Beschreibung einblenden, Kein Urheber verfügbar, Bild, Schließen,
       Artikel ansehen, /content/gallery/visitscotland/static/placeholder-logo.jpg,
       Erfahren Sie mehr über, Cookies verwalten, 'Es tut uns leid, etwas ist schiefgegangen.
-        Wir können diesen Inhalt momentan nicht anzeigen', Minuten, Minute, 'Lesedauer:']
+        Wir können diesen Inhalt momentan nicht anzeigen', Minute, Minuten, 'Lesedauer:']
     resourcebundle:messages_es: [Más información, Sin título, Descargar, Instalaciones
         destacadas, Inicio, Información adicional, No hay crédito disponible, Imagen,
       Cerrar, Ver el artículo, /content/gallery/visitscotland/static/placeholder-logo.jpg,
       'Descubre más sobre:', Administrar cookies, 'Lo siento, algo salió mal. No podemos
-        mostrar este contenido en este momento', minutos, minuto, 'Tiempo de lectura:']
+        mostrar este contenido en este momento', minuto, minutos, 'Tiempo de lectura:']
     resourcebundle:messages_fr: [En savoir plus, Aucune légende, Télécharger, Infrastructures,
       Accueil, Afficher la légende, Aucune mention disponible, Image, Fermer, Afficher
         l’article, /content/gallery/visitscotland/static/placeholder-logo.jpg, 'Plus
@@ -48,13 +48,13 @@
       Servizi chiave, Home, Informazioni sulla didascalia, Nessun autore disponibile,
       Immagine, Chiudi, Vedi l'articolo, /content/gallery/visitscotland/static/placeholder-logo.jpg,
       'Scopri di più su:', Gestione dei cookies, 'Spiacenti, qualcosa è andato storto.
-        Al momento non possiamo mostrare questo contenuto.', minuti, minuto, 'Tempo
+        Al momento non possiamo mostrare questo contenuto.', minuto, minuti, 'Tempo
         di lettura:']
     resourcebundle:messages_nl: [Meer info, Geen beschrijving, Download, Faciliteiten,
       Startpagina, Beschrijving tonen, Geen auteur beschikbaar, Foto, Sluiten, Artikel
         bekijken, /content/gallery/visitscotland/static/placeholder-logo.jpg, Meer
         info over, Cookies beheren, 'Sorry, er is iets misgegaan. We kunnen deze inhoud
-        momenteel niet weergeven.', minuten, minuut, 'Leestijd:']
+        momenteel niet weergeven.', minuut, minuten, 'Leestijd:']
   /common-label[2]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:versionable']
@@ -64,7 +64,7 @@
     hippostd:state: unpublished
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2014-08-21T22:10:13.443+02:00
-    hippostdpubwf:lastModificationDate: 2023-05-04T16:54:21.384+01:00
+    hippostdpubwf:lastModificationDate: 2023-05-05T10:24:11.746+01:00
     hippostdpubwf:lastModifiedBy: admin
     resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '', '', '', '',
       '', '', '', '', '']
@@ -82,12 +82,12 @@
       Startseite, Beschreibung einblenden, Kein Urheber verfügbar, Bild, Schließen,
       Artikel ansehen, /content/gallery/visitscotland/static/placeholder-logo.jpg,
       Erfahren Sie mehr über, Cookies verwalten, 'Es tut uns leid, etwas ist schiefgegangen.
-        Wir können diesen Inhalt momentan nicht anzeigen', Minuten, Minute, 'Lesedauer:']
+        Wir können diesen Inhalt momentan nicht anzeigen', Minute, Minuten, 'Lesedauer:']
     resourcebundle:messages_es: [Más información, Sin título, Descargar, Instalaciones
         destacadas, Inicio, Información adicional, No hay crédito disponible, Imagen,
       Cerrar, Ver el artículo, /content/gallery/visitscotland/static/placeholder-logo.jpg,
       'Descubre más sobre:', Administrar cookies, 'Lo siento, algo salió mal. No podemos
-        mostrar este contenido en este momento', minutos, minuto, 'Tiempo de lectura:']
+        mostrar este contenido en este momento', minuto, minutos, 'Tiempo de lectura:']
     resourcebundle:messages_fr: [En savoir plus, Aucune légende, Télécharger, Infrastructures,
       Accueil, Afficher la légende, Aucune mention disponible, Image, Fermer, Afficher
         l’article, /content/gallery/visitscotland/static/placeholder-logo.jpg, 'Plus
@@ -98,13 +98,13 @@
       Servizi chiave, Home, Informazioni sulla didascalia, Nessun autore disponibile,
       Immagine, Chiudi, Vedi l'articolo, /content/gallery/visitscotland/static/placeholder-logo.jpg,
       'Scopri di più su:', Gestione dei cookies, 'Spiacenti, qualcosa è andato storto.
-        Al momento non possiamo mostrare questo contenuto.', minuti, minuto, 'Tempo
+        Al momento non possiamo mostrare questo contenuto.', minuto, minuti, 'Tempo
         di lettura:']
     resourcebundle:messages_nl: [Meer info, Geen beschrijving, Download, Faciliteiten,
       Startpagina, Beschrijving tonen, Geen auteur beschikbaar, Foto, Sluiten, Artikel
         bekijken, /content/gallery/visitscotland/static/placeholder-logo.jpg, Meer
         info over, Cookies beheren, 'Sorry, er is iets misgegaan. We kunnen deze inhoud
-        momenteel niet weergeven.', minuten, minuut, 'Leestijd:']
+        momenteel niet weergeven.', minuut, minuten, 'Leestijd:']
   /common-label[3]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:referenceable']
@@ -114,7 +114,7 @@
     hippostd:state: draft
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2014-08-21T22:10:13.443+02:00
-    hippostdpubwf:lastModificationDate: 2023-05-04T16:54:11.949+01:00
+    hippostdpubwf:lastModificationDate: 2023-05-05T10:18:24.292+01:00
     hippostdpubwf:lastModifiedBy: admin
     resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '', '', '', '',
       '', '', '', '', '']
@@ -132,12 +132,12 @@
       Startseite, Beschreibung einblenden, Kein Urheber verfügbar, Bild, Schließen,
       Artikel ansehen, /content/gallery/visitscotland/static/placeholder-logo.jpg,
       Erfahren Sie mehr über, Cookies verwalten, 'Es tut uns leid, etwas ist schiefgegangen.
-        Wir können diesen Inhalt momentan nicht anzeigen', Minuten, Minute, 'Lesedauer:']
+        Wir können diesen Inhalt momentan nicht anzeigen', Minute, Minuten, 'Lesedauer:']
     resourcebundle:messages_es: [Más información, Sin título, Descargar, Instalaciones
         destacadas, Inicio, Información adicional, No hay crédito disponible, Imagen,
       Cerrar, Ver el artículo, /content/gallery/visitscotland/static/placeholder-logo.jpg,
       'Descubre más sobre:', Administrar cookies, 'Lo siento, algo salió mal. No podemos
-        mostrar este contenido en este momento', minutos, minuto, 'Tiempo de lectura:']
+        mostrar este contenido en este momento', minuto, minutos, 'Tiempo de lectura:']
     resourcebundle:messages_fr: [En savoir plus, Aucune légende, Télécharger, Infrastructures,
       Accueil, Afficher la légende, Aucune mention disponible, Image, Fermer, Afficher
         l’article, /content/gallery/visitscotland/static/placeholder-logo.jpg, 'Plus
@@ -148,10 +148,10 @@
       Servizi chiave, Home, Informazioni sulla didascalia, Nessun autore disponibile,
       Immagine, Chiudi, Vedi l'articolo, /content/gallery/visitscotland/static/placeholder-logo.jpg,
       'Scopri di più su:', Gestione dei cookies, 'Spiacenti, qualcosa è andato storto.
-        Al momento non possiamo mostrare questo contenuto.', minuti, minuto, 'Tempo
+        Al momento non possiamo mostrare questo contenuto.', minuto, minuti, 'Tempo
         di lettura:']
     resourcebundle:messages_nl: [Meer info, Geen beschrijving, Download, Faciliteiten,
       Startpagina, Beschrijving tonen, Geen auteur beschikbaar, Foto, Sluiten, Artikel
         bekijken, /content/gallery/visitscotland/static/placeholder-logo.jpg, Meer
         info over, Cookies beheren, 'Sorry, er is iets misgegaan. We kunnen deze inhoud
-        momenteel niet weergeven.', minuten, minuut, 'Leestijd:']
+        momenteel niet weergeven.', minuut, minuten, 'Leestijd:']
