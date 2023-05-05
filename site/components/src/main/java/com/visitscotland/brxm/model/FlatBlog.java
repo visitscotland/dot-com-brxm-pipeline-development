@@ -1,11 +1,9 @@
 package com.visitscotland.brxm.model;
 
-import java.util.Date;
-
 public class FlatBlog {
 
     private String authorName;
-    private Date publishDate;
+    private String publishDate;
 
     private String readingTime;
     public String getAuthorName() {
@@ -16,11 +14,11 @@ public class FlatBlog {
         this.authorName = authorName;
     }
 
-    public Date getPublishDate() {
+    public String getPublishDate() {
         return publishDate;
     }
 
-    public void setPublishDate(Date publishDate) {
+    public void setPublishDate(String publishDate) {
         this.publishDate = publishDate;
     }
 

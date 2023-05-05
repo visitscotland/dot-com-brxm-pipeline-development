@@ -6,6 +6,7 @@ import com.visitscotland.brxm.model.FlatBlog;
 import com.visitscotland.brxm.services.ResourceBundleService;
 import org.springframework.stereotype.Component;
 
+import java.text.SimpleDateFormat;
 import java.util.Collection;
 import java.util.Locale;
 
@@ -26,7 +27,8 @@ public class BlogFactory {
         if (doc.getAuthor() instanceof Profile) {
             blog.setAuthorName(doc.getAuthor().getName());
         }
-        blog.setPublishDate(doc.getPublishDate().getTime());
+        SimpleDateFormat sdf = new SimpleDateFormat("MMMM dd, yyy", locale);
+        blog.setPublishDate(sdf.format(doc.getPublishDate().getTime()));
         if (doc.getReadingTime() > 0) {
             //TODO consider moving the labels to modules in the future depending on the next phases
             String readTime = bundle.getResourceBundle(BLOG_LABELS,"read-time.plural", locale);
