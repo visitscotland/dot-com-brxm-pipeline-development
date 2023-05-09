@@ -11,7 +11,7 @@ definitions:
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:uuid: 366078b4-eb77-416e-8c2b-ccf451e59311
+          jcr:uuid: 268917e0-353d-424c-991a-af7d0ac1e4b4
           hipposysedit:node: true
           hipposysedit:supertype: ['hippo:compound', 'hippostd:relaxed']
           hipposysedit:uri: http://www.visitscotland.com/visitscotland/nt/1.0
@@ -81,7 +81,7 @@ definitions:
               jcr:primaryType: frontend:pluginconfig
           /readingTime:
             jcr:primaryType: frontend:plugin
-            caption: Read Time
+            caption: Reading Time
             field: timeToRead
             hint: Use an online tool to calculate the read time in minutes based on
               the length of your page.

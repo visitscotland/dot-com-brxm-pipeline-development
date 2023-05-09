@@ -35,7 +35,7 @@ public class BlogFactory {
             if (doc.getReadingTime() < 2) {
                 readTime = bundle.getResourceBundle(BLOG_LABELS,"read-time.singular", locale);
             }
-            blog.setReadingTime(bundle.getResourceBundle(BLOG_LABELS,"read-time", locale) + "" +doc.getReadingTime().toString() + " " + readTime);
+            blog.setReadingTime(String.format(readTime, doc.getReadingTime().toString()));
         } else {
             errorMessages.add("The Read Time for the blog should be greater than 0 minutes.");
         }
