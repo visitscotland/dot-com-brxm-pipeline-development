@@ -5,6 +5,8 @@
 <#include "headerContributions.ftl">
 <#include "footerContributions.ftl">
 
+<#include "../../frontend/components/vs-button.ftl">
+
 <html data-version="${version}" lang="${locale}">
     <head>
         <#if hstRequest.requestContext.channelManagerPreviewRequest>
@@ -16,20 +18,13 @@
         <@headContributions />
     </head>
     <body>
-        <@gtm noscript=true />
-        <@skeleton />
-        <div class="no-js hydrate" data-vue-app-init>
-            <@hst.include ref="top"/>
-
-            <@hst.include ref="menu"/>
-
-            <main id="main">
-                <@hst.include ref="main"/>
-            </main>
-
-            <@hst.include ref="footer"/>
+        <div data-vue-app-init>
+            <vs-button
+                href="#"
+            >
+                Test button
+            </vs-button>
         </div>
-
         <@footerContributions />
     </body>
 </html>

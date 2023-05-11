@@ -111,11 +111,10 @@ function generateTemplateContentApp(appMountTarget) {
             initApp: ${appModuleName}.initApp
         }
         Vue = ${appModuleName}.Vue
+        const app = vs.initApp()
   `
   const initScriptContent = `
-        vs.initApp({
-          el: "[data-vue-app-init]"
-        })
+        app.mount("[data-vue-app-init]");
   `
 
   return generateTemplateContentScript(setupScriptContent, null, "htmlBodyEndScriptsFirst") +
@@ -123,13 +122,13 @@ function generateTemplateContentApp(appMountTarget) {
 }
 
 function generateTemplateContentStoreScript(moduleName) {
-  let scriptText = `vs.stores.${moduleName} = ${moduleName}.default`
+  let scriptText = `app.stores.${moduleName} = ${moduleName}.default`
 
   return generateTemplateContentScript(scriptText)
 }
 
 function generateTemplateContentRegisterScript(moduleName) {
-  let scriptText = `Vue.component('${kebabCase(moduleName)}', ${moduleName}.default)`
+  let scriptText = `app.component('${kebabCase(moduleName)}', ${moduleName}.default)`
 
   return generateTemplateContentScript(scriptText)
 }
