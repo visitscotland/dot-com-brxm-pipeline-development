@@ -27,10 +27,6 @@
     <@hst.manageContent hippobean=document/>
 
     <@pageIntro content=document blog=blog/>
-    <#-- TODO move this to pageIntro -->
-    <#if blog??>
-        <vs-heading thin level="4">${blog.authorName} - ${blog.publishDate} - ${blog.readingTime}</vs-heading>
-    </#if>
 
     <vs-container class="mt-6">
         <vs-row>
