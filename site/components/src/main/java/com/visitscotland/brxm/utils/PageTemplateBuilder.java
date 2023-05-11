@@ -138,7 +138,6 @@ public class PageTemplateBuilder {
 
     /**
      * Convert a LongCopy into a LongCopy module and adds it to the list of modules
-     *
      * Note: Consider to create a factory if the creation of the Module requires more logic.
      */
     private void processLongCopy(HstRequest request, PageConfiguration config, LongCopy document){
@@ -158,7 +157,7 @@ public class PageTemplateBuilder {
     /**
      * Creates a LinkModule from a Megalinks document
      */
-    private void processMegalinks(HstRequest request, PageConfiguration page, Megalinks item){
+    private void processMegalinks(HstRequest request, PageConfiguration page, Megalinks item) {
         LinksModule<?> al = linksFactory.getMegalinkModule(item, request.getLocale());
         int numLinks = al.getLinks().size();
         if (al instanceof MultiImageLinksModule) {
@@ -173,14 +172,39 @@ public class PageTemplateBuilder {
         if (al.getType().equalsIgnoreCase(SingleImageLinksModule.class.getSimpleName())) {
             al.setAlignment(alignment[page.alignment++ % alignment.length]);
         }
+
         if (Contract.isEmpty(al.getTitle()) && page.style > 0) {
             page.style--;
         }
-
         al.setThemeIndex(page.style++ % THEMES);
         al.setHippoBean(item);
 
-        page.modules.add(al);
+        if (!item.getPersonalization().isEmpty()) {
+            PersonalisationModule personalisationModule = new PersonalisationModule();
+            List<Module> personalisationList = new ArrayList<>();
+            al.setMarketoId("default");
+            personalisationList.add(al);
+            for (Personalization personalisationMegalink : item.getPersonalization()){
+                personalisationList.add(processPersonalisation(request, (Megalinks)personalisationMegalink.getModule(), personalisationMegalink.getId(), al));
+            }
+            personalisationModule.setModules(personalisationList);
+            page.modules.add(personalisationModule);
+        }else{
+            page.modules.add(al);
+        }
+    }
+    private Module<Megalinks> processPersonalisation(HstRequest request, Megalinks item, String marketoId, LinksModule<?> parent) {
+        LinksModule<?> al = linksFactory.getMegalinkModule(item, request.getLocale());
+
+        al.setThemeIndex(parent.getThemeIndex());
+        al.setHippoBean(item);
+
+        if (!Contract.isEmpty(marketoId)) {
+            al.setMarketoId(marketoId);
+        }
+
+        return al;
+
     }
 
     private boolean isICentreLanding(HstRequest request){
@@ -218,10 +242,9 @@ public class PageTemplateBuilder {
 
     /**
      * Controls the configuration of the page.
-     *
      * It handles the list of modules as well as the memory for style and the alignment
      */
-    class PageConfiguration {
+    static class PageConfiguration {
         List<Module<?>> modules = new ArrayList<>();
 
         int style = 0;

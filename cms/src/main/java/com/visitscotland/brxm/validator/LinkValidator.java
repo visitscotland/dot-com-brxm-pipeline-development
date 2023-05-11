@@ -1,7 +1,6 @@
 package com.visitscotland.brxm.validator;
 
 import com.visitscotland.brxm.translation.SessionFactory;
-import com.visitscotland.brxm.translation.plugin.JcrDocument;
 import org.onehippo.cms.services.validation.api.ValidationContext;
 import org.onehippo.cms.services.validation.api.Validator;
 import org.onehippo.cms.services.validation.api.Violation;
@@ -9,7 +8,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import javax.jcr.*;
-import java.util.Locale;
 import java.util.Optional;
 
 import static org.hippoecm.repository.api.HippoNodeType.HIPPO_DOCBASE;
@@ -28,6 +26,7 @@ public class LinkValidator implements Validator<Node> {
     static final String DAY = "visitscotland:Day";
     static final String VIDEO = "visitscotland:VideoLink";
     static final String MAP = "visitscotland:MapCategory";
+    static final String PERSONALISATION = "visitscotland:Personalization";
     static final String LINK_COORDINATES = "visitscotland:SpecialLinkCoordinates";
 
     public LinkValidator() {
@@ -108,6 +107,10 @@ public class LinkValidator implements Validator<Node> {
         }else if (document.getParent().isNodeType(LINK_COORDINATES)) {
             if (!childNode.isNodeType("visitscotland:Page") || childNode.isNodeType("visitscotland:Destination")){
                 return Optional.of(context.createViolation("mapcoordinates"));
+            }
+        } else if (document.getParent().isNodeType(PERSONALISATION)) {
+            if (!childNode.isNodeType("visitscotland:Megalinks")){
+                return Optional.of(context.createViolation("personalisation"));
             }
         } else {
             if (!childNode.isNodeType("visitscotland:Page") && !childNode.isNodeType("visitscotland:SharedLink")){
