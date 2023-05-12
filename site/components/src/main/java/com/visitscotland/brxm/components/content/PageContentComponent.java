@@ -131,7 +131,7 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
     }
 
     /**
-     * Set the OTYML module if present
+     * Set the blog if present
      */
     protected void addBlog(HstRequest request) {
         Page page = getDocument(request);
