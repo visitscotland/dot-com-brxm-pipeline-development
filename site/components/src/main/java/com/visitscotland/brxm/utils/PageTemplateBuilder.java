@@ -27,7 +27,7 @@ public class PageTemplateBuilder {
     //Static Constant
     static final String INTRO_THEME = "introTheme";
     static final String PAGE_ITEMS = "pageItems";
-
+    static final String DEFAULT = "default";
 
     static final String[] alignment = {"right", "left"};
 
@@ -182,7 +182,7 @@ public class PageTemplateBuilder {
         if (!item.getPersonalization().isEmpty()) {
             PersonalisationModule personalisationModule = new PersonalisationModule();
             List<Module> personalisationList = new ArrayList<>();
-            al.setMarketoId("default");
+            al.setMarketoId(DEFAULT);
             personalisationList.add(al);
             for (Personalization personalisationMegalink : item.getPersonalization()){
                 personalisationList.add(processPersonalisation(request, (Megalinks)personalisationMegalink.getModule(), personalisationMegalink.getId(), al));
