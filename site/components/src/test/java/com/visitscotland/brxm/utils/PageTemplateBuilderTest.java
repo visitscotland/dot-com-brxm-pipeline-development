@@ -15,7 +15,6 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
-import javax.annotation.Resource;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
@@ -63,7 +62,6 @@ class PageTemplateBuilderTest {
     @Mock
     ContentLogger logger;
 
-    @Resource
     @InjectMocks
     PageTemplateBuilder builder;
 
