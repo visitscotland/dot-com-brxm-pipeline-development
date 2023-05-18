@@ -12921,7 +12921,7 @@
         jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
         jcr:uuid: 17a3588b-6cee-439b-acd8-186ceb2067aa
         hippo:name: 12 Iconic Scottish Views
-        hippo:versionHistory: d023b29e-1cea-417a-a1f7-5e82a4339ded
+        hippo:versionHistory: babe7500-1d62-4447-9bb1-9a888fbe4706
         /content[1]:
           jcr:primaryType: visitscotland:Listicle
           jcr:mixinTypes: ['mix:referenceable']
@@ -12931,12 +12931,13 @@
           hippostd:state: draft
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2020-03-17T11:17:48.546Z
-          hippostdpubwf:lastModificationDate: 2021-05-21T21:07:56.526+01:00
+          hippostdpubwf:lastModificationDate: 2023-05-11T12:13:48.209+01:00
           hippostdpubwf:lastModifiedBy: admin
           hippotranslation:id: aced74d3-03f8-4ed2-9592-dd31975f29cf
           hippotranslation:locale: en
           visitscotland:breadcrumb: ''
           visitscotland:descOrder: true
+          visitscotland:hideNewsletter: false
           visitscotland:newsletter: true
           visitscotland:seoDescription: Find some of the most beautiful places in
             Scotland, including iconic viewpoints and lesser known gems, alongside
@@ -12987,6 +12988,13 @@
             /visitscotland:links[5]:
               jcr:primaryType: hippo:mirror
               hippo:docbase: 191da414-2b36-40eb-85bc-0a1730f5a5da
+          /visitscotland:blog:
+            jcr:primaryType: visitscotland:Blog
+            visitscotland:publishDate: 2023-05-11T12:14:00+01:00
+            visitscotland:readingTime: 3
+            /visitscotland:author:
+              jcr:primaryType: hippo:mirror
+              hippo:docbase: 35a5e0fa-6c66-41d8-bd15-31a06da50d10
         /content[2]:
           jcr:primaryType: visitscotland:Listicle
           jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
@@ -12996,12 +13004,13 @@
           hippostd:state: unpublished
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2020-03-17T11:17:48.546Z
-          hippostdpubwf:lastModificationDate: 2021-05-21T21:09:23.617+01:00
+          hippostdpubwf:lastModificationDate: 2023-05-11T12:14:04.973+01:00
           hippostdpubwf:lastModifiedBy: admin
           hippotranslation:id: aced74d3-03f8-4ed2-9592-dd31975f29cf
           hippotranslation:locale: en
           visitscotland:breadcrumb: ''
           visitscotland:descOrder: true
+          visitscotland:hideNewsletter: false
           visitscotland:newsletter: true
           visitscotland:seoDescription: Find some of the most beautiful places in
             Scotland, including iconic viewpoints and lesser known gems, alongside
@@ -13052,6 +13061,13 @@
             /visitscotland:links[5]:
               jcr:primaryType: hippo:mirror
               hippo:docbase: 191da414-2b36-40eb-85bc-0a1730f5a5da
+          /visitscotland:blog:
+            jcr:primaryType: visitscotland:Blog
+            visitscotland:publishDate: 2023-05-11T12:14:00+01:00
+            visitscotland:readingTime: 3
+            /visitscotland:author:
+              jcr:primaryType: hippo:mirror
+              hippo:docbase: 35a5e0fa-6c66-41d8-bd15-31a06da50d10
         /content[3]:
           jcr:primaryType: visitscotland:Listicle
           jcr:mixinTypes: ['mix:referenceable']
@@ -13061,13 +13077,14 @@
           hippostd:state: published
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2020-03-17T11:17:48.546Z
-          hippostdpubwf:lastModificationDate: 2021-05-21T21:09:23.617+01:00
+          hippostdpubwf:lastModificationDate: 2023-05-11T12:14:04.973+01:00
           hippostdpubwf:lastModifiedBy: admin
-          hippostdpubwf:publicationDate: 2021-05-21T21:09:25.895+01:00
+          hippostdpubwf:publicationDate: 2023-05-11T12:14:07.930+01:00
           hippotranslation:id: aced74d3-03f8-4ed2-9592-dd31975f29cf
           hippotranslation:locale: en
           visitscotland:breadcrumb: ''
           visitscotland:descOrder: true
+          visitscotland:hideNewsletter: false
           visitscotland:newsletter: true
           visitscotland:seoDescription: Find some of the most beautiful places in
             Scotland, including iconic viewpoints and lesser known gems, alongside
@@ -13118,6 +13135,13 @@
             /visitscotland:links[5]:
               jcr:primaryType: hippo:mirror
               hippo:docbase: 191da414-2b36-40eb-85bc-0a1730f5a5da
+          /visitscotland:blog:
+            jcr:primaryType: visitscotland:Blog
+            visitscotland:publishDate: 2023-05-11T12:14:00+01:00
+            visitscotland:readingTime: 3
+            /visitscotland:author:
+              jcr:primaryType: hippo:mirror
+              hippo:docbase: 35a5e0fa-6c66-41d8-bd15-31a06da50d10
       /sumburgh-head-shetland:
         jcr:primaryType: hippo:handle
         jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
@@ -15742,7 +15766,7 @@
         jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
         jcr:uuid: ca93dea2-4771-4c6c-8cd2-d90246a97684
         hippo:name: Ben Nevis Page
-        hippo:versionHistory: ca7dcd86-2880-4db6-8807-58574754f85c
+        hippo:versionHistory: 39ce1c36-1349-4a82-b93e-73f9e2030bfa
         /content[1]:
           jcr:primaryType: visitscotland:General
           jcr:mixinTypes: ['mix:referenceable']
@@ -15752,11 +15776,12 @@
           hippostd:state: draft
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2021-01-11T14:11:21.745Z
-          hippostdpubwf:lastModificationDate: 2021-06-25T15:01:25.560+01:00
+          hippostdpubwf:lastModificationDate: 2023-05-11T12:17:36.242+01:00
           hippostdpubwf:lastModifiedBy: admin
           hippotranslation:id: df63baaa-d0e0-4a04-9662-a418f720bd1d
           hippotranslation:locale: en
           visitscotland:breadcrumb: Ben Nevis
+          visitscotland:hideNewsletter: false
           visitscotland:newsletter: true
           visitscotland:seoDescription: Scotland's landscape is scattered with Munros
             and mist-shrouded hills...
@@ -15784,6 +15809,13 @@
               attracts 125k walkers a year. Whether you're an avid ambler or you just
               love beautiful landscapes, bagging 'the Ben' is likely to feature near
               the top of your Scottish bucket list.</p>
+          /visitscotland:blog:
+            jcr:primaryType: visitscotland:Blog
+            visitscotland:publishDate: 2023-05-11T12:17:00+01:00
+            visitscotland:readingTime: 5
+            /visitscotland:author:
+              jcr:primaryType: hippo:mirror
+              hippo:docbase: 1a59d780-8b75-4ddf-aca6-5dd32d6092ac
         /content[2]:
           jcr:primaryType: visitscotland:General
           jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
@@ -15793,11 +15825,12 @@
           hippostd:state: unpublished
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2021-01-11T14:11:21.745Z
-          hippostdpubwf:lastModificationDate: 2021-06-07T11:04:01.918+01:00
+          hippostdpubwf:lastModificationDate: 2023-05-11T12:17:46.475+01:00
           hippostdpubwf:lastModifiedBy: admin
           hippotranslation:id: df63baaa-d0e0-4a04-9662-a418f720bd1d
           hippotranslation:locale: en
           visitscotland:breadcrumb: Ben Nevis
+          visitscotland:hideNewsletter: false
           visitscotland:newsletter: true
           visitscotland:seoDescription: Scotland's landscape is scattered with Munros
             and mist-shrouded hills...
@@ -15825,6 +15858,13 @@
               attracts 125k walkers a year. Whether you're an avid ambler or you just
               love beautiful landscapes, bagging 'the Ben' is likely to feature near
               the top of your Scottish bucket list.</p>
+          /visitscotland:blog:
+            jcr:primaryType: visitscotland:Blog
+            visitscotland:publishDate: 2023-05-11T12:17:00+01:00
+            visitscotland:readingTime: 5
+            /visitscotland:author:
+              jcr:primaryType: hippo:mirror
+              hippo:docbase: 1a59d780-8b75-4ddf-aca6-5dd32d6092ac
         /content[3]:
           jcr:primaryType: visitscotland:General
           jcr:mixinTypes: ['mix:referenceable']
@@ -15834,12 +15874,13 @@
           hippostd:state: published
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2021-01-11T14:11:21.745Z
-          hippostdpubwf:lastModificationDate: 2021-06-07T11:04:01.918+01:00
+          hippostdpubwf:lastModificationDate: 2023-05-11T12:17:46.475+01:00
           hippostdpubwf:lastModifiedBy: admin
-          hippostdpubwf:publicationDate: 2021-06-07T11:04:03.890+01:00
+          hippostdpubwf:publicationDate: 2023-05-11T12:17:49.904+01:00
           hippotranslation:id: df63baaa-d0e0-4a04-9662-a418f720bd1d
           hippotranslation:locale: en
           visitscotland:breadcrumb: Ben Nevis
+          visitscotland:hideNewsletter: false
           visitscotland:newsletter: true
           visitscotland:seoDescription: Scotland's landscape is scattered with Munros
             and mist-shrouded hills...
@@ -15867,6 +15908,13 @@
               attracts 125k walkers a year. Whether you're an avid ambler or you just
               love beautiful landscapes, bagging 'the Ben' is likely to feature near
               the top of your Scottish bucket list.</p>
+          /visitscotland:blog:
+            jcr:primaryType: visitscotland:Blog
+            visitscotland:publishDate: 2023-05-11T12:17:00+01:00
+            visitscotland:readingTime: 5
+            /visitscotland:author:
+              jcr:primaryType: hippo:mirror
+              hippo:docbase: 1a59d780-8b75-4ddf-aca6-5dd32d6092ac
       /experiencing-ben-nevis:
         jcr:primaryType: hippo:handle
         jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']

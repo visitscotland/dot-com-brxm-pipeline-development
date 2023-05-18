@@ -60,7 +60,9 @@ public class ProductSearchWidgetFactory {
             General general = ((General) page);
             String pattern;
 
-            if (general.getTheme().equals(GeneralContentComponent.TOP_LEVEL)) {
+            if (general.getBlog() != null){
+                return POSITION_BOTTOM;
+            } else if (general.getTheme().equals(GeneralContentComponent.TOP_LEVEL)) {
                 pattern = properties.getPsrPositionTopLevel();
             } else if (general.getTheme().equals(GeneralContentComponent.STANDARD)) {
                 pattern = properties.getPsrPositionGeneralStandard();
