@@ -26,7 +26,7 @@
             <@hst.manageContent hippobean=module.hippoBean />
         </#if>
         <#if moduleType == "PersonalisationModule">
-        <div data-personalization>
+        <div data-personalisation>
             <#list module.modules as personalisedModule>
                 <@moduleBuilder personalisedModule colourScheme />
             </#list>
