@@ -55,7 +55,7 @@
 
             callbackFunction(fakeApiResponse); -->
 
-            <#--  rtp('get', 'visitor', callbackFunction);  -->
+            rtp('get', 'visitor', callbackFunction);
         </script>
     </@hst.headContribution>
 </#macro>
