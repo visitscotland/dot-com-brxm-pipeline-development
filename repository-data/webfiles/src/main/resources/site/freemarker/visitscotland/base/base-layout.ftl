@@ -6,6 +6,8 @@
 <#include "footerContributions.ftl">
 
 <#include "../../frontend/components/vs-button.ftl">
+<#include "../../frontend/components/vs-heading.ftl">
+<#include "../../frontend/components/vs-loading-spinner.ftl">
 
 <html data-version="${version}" lang="${locale}">
     <head>
@@ -24,6 +26,8 @@
             >
                 Test button
             </vs-button>
+            <vs-heading>VisitScotland</vs-heading>
+            <vs-loading-spinner></vs-loading-spinner>
         </div>
         <@footerContributions />
     </body>

@@ -59,7 +59,7 @@ const postProxyHandler = async (proxyRes, proxyResData, userReq) => {
     const pathAndParams = getRequestPathAndParams(userReq);
 
     if (excludePathFromSSR(userReq.path)) {
-        console.log(`Proxying request to ${pathAndParams}`);
+        // console.log(`Proxying request to ${pathAndParams}`);
     } else {
         console.log(`Attempting SSR on request to ${pathAndParams}`);
 

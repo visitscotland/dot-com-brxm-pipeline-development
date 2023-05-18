@@ -2,7 +2,7 @@ const cheerio = require("cheerio");
 const { renderToString } = require('@vue/server-renderer');
 const { html: beautifyHtml } = require("js-beautify");
 
-const { createSSRApp } = require('storybook-component-library');
+const { VsSSR } = require('storybook-component-library');
 
 const appAttributeName = "data-vue-app-init";
 const templatePlaceholderAttrName = "vue-ssr-outlet";
@@ -79,7 +79,7 @@ const renderPage = async (pageHtml) => {
 
     prepSsrTemplate($page, formattedAppHtml);
 
-    app = createSSRApp({
+    app = VsSSR.createSSRApp({
         template: formattedAppHtml,
     });
 
