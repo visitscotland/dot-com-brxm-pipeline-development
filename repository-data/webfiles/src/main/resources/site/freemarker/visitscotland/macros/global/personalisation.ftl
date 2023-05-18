@@ -14,46 +14,26 @@
     </@hst.headContribution>
     <@hst.headContribution category="htmlBodyEndScripts">
         <script type="text/javascript">
-            console.log('personalisation');
-
             function callbackFunction(response) {
-                console.log(response);
                 const personalisationContainers = document.querySelectorAll('[data-personalisation]');
-                console.log(personalisationContainers);
 
                 [...personalisationContainers].forEach(function(el) {
                     const personalisationSections = (el.querySelectorAll('[data-personalisation-type]'));
 
+                    let personalisationMatch = false;
                     [...personalisationSections].forEach(function(section) {
                         if (section.dataset.personalisationType === response.results.location.country) {
+                            personalisationMatch = true;
                             section.classList.remove('personalisation--hidden');
                         }
                     });
+
+                    if (!personalisationMatch) {
+                        const defaultEl = el.querySelectorAll('[data-personalisation-type="default"]')[0];
+                        defaultEl.classList.remove('personalisation--hidden');
+                    }
                 });
             }
-
-            // fake api response
-            <#--  const fakeApiResponse = {
-                "status": 200,
-                "results": {
-                "org": "Virgin Media Limited",
-                "location": {
-                "country": "United States",
-                "city": "Bartley",
-                "state": null
-                },
-                "industries": [
-                "Telecommunications"
-                ],
-                "isp": true,
-                "matchedSegments": [],
-                "abm": [],
-                "category": "ENTERPRISE",
-                "group": null
-                }
-            };  
-
-            callbackFunction(fakeApiResponse); -->
 
             rtp('get', 'visitor', callbackFunction);
         </script>
