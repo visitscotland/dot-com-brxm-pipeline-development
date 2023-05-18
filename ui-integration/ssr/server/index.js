@@ -25,6 +25,7 @@ const pathsToExcludeFromSSR = [
     "/site/autoreload",
     "/favicon.ico",
     "/cms",
+    "/site/manifest.webmanifest",
 ];
 
 /**
@@ -89,6 +90,3 @@ app.use(proxy(process.env.VS_SSR_PROXY_TARGET_HOST, {
 
     app.listen(port, () => console.log(`Listening on: ${port}`));
 })();
-
-
-initRenderer(app);
