@@ -19,13 +19,14 @@
 <#include "../../../../frontend/components/vs-description-list-item.ftl">
 <#include "../../../../frontend/components/vs-alert.ftl">
 <#include "../../../../frontend/components/vs-tag-manager-wrapper.ftl">
+<#include "../../../../frontend/components/vs-blog-details.ftl">
 
 <#-- @ftlvariable name="content" type="com.visitscotland.brxm.hippobeans.Page" -->
 <#-- @ftlvariable name="heroDetails" type="com.visitscotland.brxm.model.FlatImage" -->
 <#-- @ftlvariable name="itinerary" type="com.visitscotland.brxm.model.ItineraryPage" -->
 <#-- @ftlvariable name="introTheme" type="int" -->
 
-<#macro pageIntro content heroDetails="" itinerary="" lightBackground=false >
+<#macro pageIntro content heroDetails="" itinerary="" lightBackground=false blog="">
     <@previewWarning editMode content alerts!"" />
     <#if lightBackground>
         <#assign themeName = themeCalculator(1)>
@@ -107,6 +108,16 @@
             <template slot="vsIntroBreadcrumb">
                 <@hst.include ref="breadcrumb"/>
             </template>
+
+            <#if blog?? & blog?has_content>
+                <template slot="vsBlogData">
+                    <vs-blog-details
+                        blog-author="${blog.authorName}"
+                        blog-publish-date="${blog.publishDate}"
+                        blog-read-time="${blog.readingTime}"
+                    ></vs-blog-details>
+                </template>
+            </#if>
 
             <template slot="vsIntroHeading">
                 ${content.title}
