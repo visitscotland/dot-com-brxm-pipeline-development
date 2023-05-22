@@ -21,6 +21,7 @@
     </head>
     <body>
         <div data-vue-app-init>
+            <p>Test para</p>
             <vs-button
                 href="#"
             >

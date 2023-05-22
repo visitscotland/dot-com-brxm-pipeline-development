@@ -1,5 +1,4 @@
 const cheerio = require("cheerio");
-const { renderToString } = require('@vue/server-renderer');
 const { html: beautifyHtml } = require("js-beautify");
 
 const { VsSSR } = require('storybook-component-library');
@@ -8,8 +7,6 @@ const appAttributeName = "data-vue-app-init";
 const templatePlaceholderAttrName = "vue-ssr-outlet";
 const templatePlaceholderHtml = `<span ${templatePlaceholderAttrName}></span>`;
 const xTemplateId = "app-template";
-
-let app;
 
 const parsePageParts = (pageHtml) => {
     const $page = cheerio.load(pageHtml, {
@@ -79,11 +76,11 @@ const renderPage = async (pageHtml) => {
 
     prepSsrTemplate($page, formattedAppHtml);
 
-    app = VsSSR.createSSRApp({
+    const app = VsSSR.createSSRApp({
         template: formattedAppHtml,
     });
 
-    return renderToString(app).then((html) => {
+    return VsSSR.renderToString(app).then((html) => {
         return completeSsrTemplate(html);
     });
 }
