@@ -11,7 +11,7 @@ definitions:
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:uuid: 37969b58-81b3-49eb-b6da-a88f51c45c4b
+          jcr:uuid: 9f0a7093-484b-44f3-bf5a-f217fc42d3cf
           hipposysedit:node: true
           hipposysedit:supertype: ['hippo:compound', 'hippostd:relaxed']
           hipposysedit:uri: http://www.visitscotland.com/visitscotland/nt/1.0
@@ -37,7 +37,7 @@ definitions:
         jcr:primaryType: hipposysedit:prototypeset
         /hipposysedit:prototype:
           jcr:primaryType: visitscotland:Personalization
-          visitscotland:id: ''
+          visitscotland:id: United States Of America
           /visitscotland:module:
             jcr:primaryType: hippo:mirror
             hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
@@ -54,7 +54,7 @@ definitions:
             plugin.class: org.hippoecm.frontend.service.render.ListViewPlugin
           /id:
             jcr:primaryType: frontend:plugin
-            caption: Marketo ID
+            caption: Marketo Segment
             field: id
             hint: Country
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin

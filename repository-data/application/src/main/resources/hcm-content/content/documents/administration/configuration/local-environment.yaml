@@ -3,7 +3,7 @@
   jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
   jcr:uuid: 45278688-f372-4427-8e15-6b177cf51cc1
   hippo:name: Properties (Local Environment)
-  hippo:versionHistory: c9e82438-ad16-479b-880c-5ac0cbc56652
+  hippo:versionHistory: 98771c23-74ba-43a7-b8ca-754704b463c7
   /local-environment[1]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:referenceable']
@@ -11,10 +11,9 @@
     hippo:availability: []
     hippostd:retainable: false
     hippostd:state: draft
-    hippostd:transferable: false
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2021-02-05T15:37:26.056Z
-    hippostdpubwf:lastModificationDate: 2023-04-05T15:17:02.942+01:00
+    hippostdpubwf:lastModificationDate: 2023-05-22T09:06:29.215+01:00
     hippostdpubwf:lastModifiedBy: admin
     resourcebundle:descriptions: [Client Token for Instagram request, "Token that\
         \ identifies calls made to vs-dms-products as internal calls giving access\
@@ -32,28 +31,28 @@
         \ able to process the override locale parameter (vs-locale-ctx)\r\n\r\nOverriding\
         \ the locale parameter allows to use a different language for the labels\r\
         \n\r\nTHE VALUE OF THIS PROPERTY DOES NOT CHANGE THE PATH OF THE ENDPOINTS",
-      '', '', '', '', '']
+      '', '', '', '', '', '']
     resourcebundle:id: environment.local
     resourcebundle:keys: [instagram.accesstoken, dms-data.api-key, instagram.app-id,
       links.use-relative-urls, links.cms-base-path.url, links.vs-dms-products.url,
       dms-data.public-url, dms-data.private-url, youtube.api-key, data-internal.path,
       global-search.path, site.path.global-search, site.path.ski-landing, dms.default-distance,
-      snippet-cache.enable]
+      snippet-cache.enable, marketo.environment]
     resourcebundle:messages: [0d41c47eaf42b43fe20de05201c798ec, $VS_DMS_PRODUCT_KEY,
       '1293271387429443', 'false', 'http://localhost:8080/site', 'http://172.28.81.65:8089',
       'http://172.28.81.65:8089/data', 'http://172.28.81.65:8089/data', $YOUTUBE_API_KEY,
       /site/data/internal, /site/site-search-results, /site-search-results, /test/examples/snow-sports,
-      '10.0', 'false']
+      '10.0', 'false', visitscotland1]
     resourcebundle:messages_de: ['', '', '', '', '', '', '', '', '', '', /site/de-de/site-search-results,
-      '', '', '', '']
+      '', '', '', '', visitscotland1]
     resourcebundle:messages_es: ['', '', '', '', '', '', '', '', '', '', /site/es-es/site-search-results,
-      '', '', '', '']
+      '', '', '', '', visitscotland1]
     resourcebundle:messages_fr: ['', '', '', '', '', '', '', '', '', '', /site/fr-fr/site-search-results,
-      '', '', '', '']
+      '', '', '', '', visitscotland1]
     resourcebundle:messages_it: ['', '', '', '', '', '', '', '', '', '', /site/it-it/site-search-results,
-      '', '', '', '']
+      '', '', '', '', visitscotland1]
     resourcebundle:messages_nl: ['', '', '', '', '', '', '', '', '', '', /site/nl-nl/site-search-results,
-      '', '', '', '']
+      '', '', '', '', visitscotland1]
   /local-environment[2]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:versionable']
@@ -63,7 +62,7 @@
     hippostd:state: unpublished
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2021-02-05T15:37:26.056Z
-    hippostdpubwf:lastModificationDate: 2023-04-05T14:23:57.555+01:00
+    hippostdpubwf:lastModificationDate: 2023-05-22T09:06:51.133+01:00
     hippostdpubwf:lastModifiedBy: admin
     resourcebundle:descriptions: [Client Token for Instagram request, "Token that\
         \ identifies calls made to vs-dms-products as internal calls giving access\
@@ -81,28 +80,28 @@
         \ able to process the override locale parameter (vs-locale-ctx)\r\n\r\nOverriding\
         \ the locale parameter allows to use a different language for the labels\r\
         \n\r\nTHE VALUE OF THIS PROPERTY DOES NOT CHANGE THE PATH OF THE ENDPOINTS",
-      '', '', '', '', '']
+      '', '', '', '', '', '']
     resourcebundle:id: environment.local
     resourcebundle:keys: [instagram.accesstoken, dms-data.api-key, instagram.app-id,
       links.use-relative-urls, links.cms-base-path.url, links.vs-dms-products.url,
       dms-data.public-url, dms-data.private-url, youtube.api-key, data-internal.path,
       global-search.path, site.path.global-search, site.path.ski-landing, dms.default-distance,
-      snippet-cache.enable]
+      snippet-cache.enable, marketo.environment]
     resourcebundle:messages: [0d41c47eaf42b43fe20de05201c798ec, $VS_DMS_PRODUCT_KEY,
       '1293271387429443', 'false', 'http://localhost:8080/site', 'http://172.28.81.65:8089',
       'http://172.28.81.65:8089/data', 'http://172.28.81.65:8089/data', $YOUTUBE_API_KEY,
       /site/data/internal, /site/site-search-results, /site-search-results, /test/examples/snow-sports,
-      '10.0', 'false']
+      '10.0', 'false', visitscotland1]
     resourcebundle:messages_de: ['', '', '', '', '', '', '', '', '', '', /site/de-de/site-search-results,
-      '', '', '', '']
+      '', '', '', '', visitscotland1]
     resourcebundle:messages_es: ['', '', '', '', '', '', '', '', '', '', /site/es-es/site-search-results,
-      '', '', '', '']
+      '', '', '', '', visitscotland1]
     resourcebundle:messages_fr: ['', '', '', '', '', '', '', '', '', '', /site/fr-fr/site-search-results,
-      '', '', '', '']
+      '', '', '', '', visitscotland1]
     resourcebundle:messages_it: ['', '', '', '', '', '', '', '', '', '', /site/it-it/site-search-results,
-      '', '', '', '']
+      '', '', '', '', visitscotland1]
     resourcebundle:messages_nl: ['', '', '', '', '', '', '', '', '', '', /site/nl-nl/site-search-results,
-      '', '', '', '']
+      '', '', '', '', visitscotland1]
   /local-environment[3]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:referenceable']
@@ -112,9 +111,9 @@
     hippostd:state: published
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2021-02-05T15:37:26.056Z
-    hippostdpubwf:lastModificationDate: 2023-04-05T14:23:57.555+01:00
+    hippostdpubwf:lastModificationDate: 2023-05-22T09:06:51.133+01:00
     hippostdpubwf:lastModifiedBy: admin
-    hippostdpubwf:publicationDate: 2023-04-05T14:24:34.030+01:00
+    hippostdpubwf:publicationDate: 2023-05-22T09:06:55.487+01:00
     resourcebundle:descriptions: [Client Token for Instagram request, "Token that\
         \ identifies calls made to vs-dms-products as internal calls giving access\
         \ to wider data\r\n\r\nThis token is configured by the environment variable\
@@ -131,25 +130,25 @@
         \ able to process the override locale parameter (vs-locale-ctx)\r\n\r\nOverriding\
         \ the locale parameter allows to use a different language for the labels\r\
         \n\r\nTHE VALUE OF THIS PROPERTY DOES NOT CHANGE THE PATH OF THE ENDPOINTS",
-      '', '', '', '', '']
+      '', '', '', '', '', '']
     resourcebundle:id: environment.local
     resourcebundle:keys: [instagram.accesstoken, dms-data.api-key, instagram.app-id,
       links.use-relative-urls, links.cms-base-path.url, links.vs-dms-products.url,
       dms-data.public-url, dms-data.private-url, youtube.api-key, data-internal.path,
       global-search.path, site.path.global-search, site.path.ski-landing, dms.default-distance,
-      snippet-cache.enable]
+      snippet-cache.enable, marketo.environment]
     resourcebundle:messages: [0d41c47eaf42b43fe20de05201c798ec, $VS_DMS_PRODUCT_KEY,
       '1293271387429443', 'false', 'http://localhost:8080/site', 'http://172.28.81.65:8089',
       'http://172.28.81.65:8089/data', 'http://172.28.81.65:8089/data', $YOUTUBE_API_KEY,
       /site/data/internal, /site/site-search-results, /site-search-results, /test/examples/snow-sports,
-      '10.0', 'false']
+      '10.0', 'false', visitscotland1]
     resourcebundle:messages_de: ['', '', '', '', '', '', '', '', '', '', /site/de-de/site-search-results,
-      '', '', '', '']
+      '', '', '', '', visitscotland1]
     resourcebundle:messages_es: ['', '', '', '', '', '', '', '', '', '', /site/es-es/site-search-results,
-      '', '', '', '']
+      '', '', '', '', visitscotland1]
     resourcebundle:messages_fr: ['', '', '', '', '', '', '', '', '', '', /site/fr-fr/site-search-results,
-      '', '', '', '']
+      '', '', '', '', visitscotland1]
     resourcebundle:messages_it: ['', '', '', '', '', '', '', '', '', '', /site/it-it/site-search-results,
-      '', '', '', '']
+      '', '', '', '', visitscotland1]
     resourcebundle:messages_nl: ['', '', '', '', '', '', '', '', '', '', /site/nl-nl/site-search-results,
-      '', '', '', '']
+      '', '', '', '', visitscotland1]

@@ -219,7 +219,7 @@
     jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
     jcr:uuid: 17f57fe1-bd0c-4c54-9bc0-c9e31e74dc10
     hippo:name: Links to itineries
-    hippo:versionHistory: e85d246e-02e2-4fe9-9349-817081d2da47
+    hippo:versionHistory: 661115a8-6afc-4aa7-9290-d3bf643c22fd
     /links-to-itineries[1]:
       jcr:primaryType: visitscotland:Megalinks
       jcr:mixinTypes: ['mix:referenceable']
@@ -229,7 +229,7 @@
       hippostd:state: draft
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2021-05-05T08:35:34.459+01:00
-      hippostdpubwf:lastModificationDate: 2023-02-24T10:07:05.290Z
+      hippostdpubwf:lastModificationDate: 2023-05-22T09:11:57.961+01:00
       hippostdpubwf:lastModifiedBy: admin
       hippotranslation:id: 85dbbd57-b66d-4e36-b9ee-a5473102db82
       hippotranslation:locale: en
@@ -276,6 +276,12 @@
         /visitscotland:links:
           jcr:primaryType: hippo:mirror
           hippo:docbase: 23d70711-bab2-4981-a696-c24599ad3f29
+      /visitscotland:personalization:
+        jcr:primaryType: visitscotland:Personalization
+        visitscotland:id: United States Of America
+        /visitscotland:module:
+          jcr:primaryType: hippo:mirror
+          hippo:docbase: 1a46f104-2665-4150-8623-4b77c1632729
     /links-to-itineries[2]:
       jcr:primaryType: visitscotland:Megalinks
       jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
@@ -285,7 +291,7 @@
       hippostd:state: unpublished
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2021-05-05T08:35:34.459+01:00
-      hippostdpubwf:lastModificationDate: 2023-02-24T10:07:20.162Z
+      hippostdpubwf:lastModificationDate: 2023-05-22T09:12:21.043+01:00
       hippostdpubwf:lastModifiedBy: admin
       hippotranslation:id: 85dbbd57-b66d-4e36-b9ee-a5473102db82
       hippotranslation:locale: en
@@ -332,6 +338,12 @@
         /visitscotland:links:
           jcr:primaryType: hippo:mirror
           hippo:docbase: 23d70711-bab2-4981-a696-c24599ad3f29
+      /visitscotland:personalization:
+        jcr:primaryType: visitscotland:Personalization
+        visitscotland:id: United States Of America
+        /visitscotland:module:
+          jcr:primaryType: hippo:mirror
+          hippo:docbase: 1a46f104-2665-4150-8623-4b77c1632729
     /links-to-itineries[3]:
       jcr:primaryType: visitscotland:Megalinks
       jcr:mixinTypes: ['mix:referenceable']
@@ -341,9 +353,9 @@
       hippostd:state: published
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2021-05-05T08:35:34.459+01:00
-      hippostdpubwf:lastModificationDate: 2023-02-24T10:07:20.162Z
+      hippostdpubwf:lastModificationDate: 2023-05-22T09:12:21.043+01:00
       hippostdpubwf:lastModifiedBy: admin
-      hippostdpubwf:publicationDate: 2023-02-24T10:07:25.978Z
+      hippostdpubwf:publicationDate: 2023-05-22T09:12:24.835+01:00
       hippotranslation:id: 85dbbd57-b66d-4e36-b9ee-a5473102db82
       hippotranslation:locale: en
       visitscotland:layout: Default
@@ -389,6 +401,12 @@
         /visitscotland:links:
           jcr:primaryType: hippo:mirror
           hippo:docbase: 23d70711-bab2-4981-a696-c24599ad3f29
+      /visitscotland:personalization:
+        jcr:primaryType: visitscotland:Personalization
+        visitscotland:id: United States Of America
+        /visitscotland:module:
+          jcr:primaryType: hippo:mirror
+          hippo:docbase: 1a46f104-2665-4150-8623-4b77c1632729
   /examples-for-listicles:
     jcr:primaryType: hippo:handle
     jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
