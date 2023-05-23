@@ -2,6 +2,7 @@ package com.visitscotland.brxm.utils;
 
 import com.visitscotland.brxm.hippobeans.*;
 import com.visitscotland.brxm.mock.LinksModuleMockBuilder;
+import com.visitscotland.brxm.model.Module;
 import com.visitscotland.brxm.model.*;
 import com.visitscotland.brxm.model.megalinks.*;
 import com.visitscotland.brxm.factory.*;
