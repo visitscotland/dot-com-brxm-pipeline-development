@@ -5,7 +5,7 @@
   <parent>
     <groupId>com.onehippo.cms7</groupId>
     <artifactId>hippo-cms7-enterprise-release</artifactId>
-    <version>14.7.8</version>
+    <version>15.0.0</version>
     <!--Remember to upgrade essentials when this versions is updated -->
   </parent>
 
@@ -26,9 +26,11 @@
 
     <!-- BloomReach Dependencies -->
 
-    <essentials.version>14.7.8</essentials.version>
-    <forge.exdocpickerbase.version>7.0.0</forge.exdocpickerbase.version>
-    <forge.breadcrumb.version>3.0.0</forge.breadcrumb.version>
+    <essentials.version>15.0.0</essentials.version>
+    <!-- https://bloomreach-forge.github.io/external-document-picker/index.html -->
+    <forge.exdocpickerbase.version>8.0.0</forge.exdocpickerbase.version>
+    <!-- https://bloomreach-forge.github.io/breadcrumb/ -->
+    <forge.breadcrumb.version>5.0.0</forge.breadcrumb.version>
 <!--    <bloomreach.forge.ipfilter.version>3.1.0</bloomreach.forge.ipfilter.version>-->
 
     <!-- Other dependencies -->
