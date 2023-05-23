@@ -4,7 +4,7 @@ import org.apache.wicket.markup.ComponentTag;
 import org.apache.wicket.markup.html.basic.Label;
 import org.apache.wicket.markup.repeater.Item;
 import org.apache.wicket.markup.repeater.data.DataView;
-import org.apache.wicket.model.AbstractReadOnlyModel;
+import org.apache.wicket.model.IModel;
 import org.apache.wicket.request.resource.ResourceReference;
 import org.hippoecm.frontend.dialog.Dialog;
 import org.hippoecm.frontend.plugins.standards.image.CachingImage;
@@ -17,13 +17,25 @@ public class SameNameSiblingDialog extends Dialog {
     public static final String ID_URL = "url";
 
     public SameNameSiblingDialog(SameNameSiblingProvider folderProvider) {
-        setTitle(new AbstractReadOnlyModel<String>() {
 
+        final IModel<String> titleModel = new IModel<String>() {
             @Override
             public String getObject() {
                 return "Same Name Sibling Exception";
             }
-        });
+
+            @Override
+            public void setObject(String s) {
+
+            }
+
+            @Override
+            public void detach() {
+
+            }
+        };
+
+        setTitle(titleModel);
         add(new DataView<SameNameSiblingProvider.Entry>("sibling", folderProvider) {
             {
                 onPopulate();

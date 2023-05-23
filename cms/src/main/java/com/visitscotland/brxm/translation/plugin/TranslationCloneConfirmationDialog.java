@@ -4,7 +4,7 @@ import org.apache.wicket.markup.html.basic.Label;
 import org.apache.wicket.markup.repeater.Item;
 import org.apache.wicket.markup.repeater.data.DataView;
 import org.apache.wicket.markup.repeater.data.IDataProvider;
-import org.apache.wicket.model.AbstractReadOnlyModel;
+import org.apache.wicket.model.IModel;
 import org.apache.wicket.request.resource.ResourceReference;
 import org.hippoecm.addon.workflow.IWorkflowInvoker;
 import org.hippoecm.addon.workflow.WorkflowDialog;
@@ -25,13 +25,24 @@ public class TranslationCloneConfirmationDialog extends WorkflowDialog<Void> {
                                               IDataProvider<DocumentChangeProvider.Entry> linksChangeSetProvider) {
         super(invoker);
 
-        setTitle(new AbstractReadOnlyModel<String>() {
-
+        final IModel<String> titleModel = new IModel<String>() {
             @Override
             public String getObject() {
                 return "Translation Clone Document";
             }
-        });
+
+            @Override
+            public void setObject(String s) {
+
+            }
+
+            @Override
+            public void detach() {
+
+            }
+        };
+
+        setTitle(titleModel);
 
         add(new DataView<DocumentChangeProvider.Entry>(ID_CHANGE, changeSetProvider) {
             {
