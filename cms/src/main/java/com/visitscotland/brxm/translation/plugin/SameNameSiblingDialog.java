@@ -4,14 +4,13 @@ import org.apache.wicket.markup.ComponentTag;
 import org.apache.wicket.markup.html.basic.Label;
 import org.apache.wicket.markup.repeater.Item;
 import org.apache.wicket.markup.repeater.data.DataView;
-import org.apache.wicket.model.IModel;
 import org.apache.wicket.request.resource.ResourceReference;
 import org.hippoecm.frontend.dialog.Dialog;
 import org.hippoecm.frontend.plugins.standards.image.CachingImage;
 import org.hippoecm.frontend.service.IconSize;
 import org.hippoecm.frontend.translation.ILocaleProvider;
 
-public class SameNameSiblingDialog extends Dialog {
+public class SameNameSiblingDialog extends Dialog<String> {
     public static final String ID_IMG = "img";
     public static final String ID_DISPLAY_NAME = "display-name";
     public static final String ID_URL = "url";
@@ -19,8 +18,7 @@ public class SameNameSiblingDialog extends Dialog {
     public SameNameSiblingDialog(SameNameSiblingProvider folderProvider) {
 
         setTitle(() -> "Same Name Sibling Exception");
-
-        add(new DataView<SameNameSiblingProvider.Entry>("sibling", folderProvider) {
+        add(new DataView<>("sibling", folderProvider) {
             {
                 onPopulate();
             }
