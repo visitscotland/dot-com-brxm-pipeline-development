@@ -18,24 +18,8 @@ public class SameNameSiblingDialog extends Dialog {
 
     public SameNameSiblingDialog(SameNameSiblingProvider folderProvider) {
 
-        final IModel<String> titleModel = new IModel<String>() {
-            @Override
-            public String getObject() {
-                return "Same Name Sibling Exception";
-            }
+        setTitle(() -> "Same Name Sibling Exception");
 
-            @Override
-            public void setObject(String s) {
-
-            }
-
-            @Override
-            public void detach() {
-
-            }
-        };
-
-        setTitle(titleModel);
         add(new DataView<SameNameSiblingProvider.Entry>("sibling", folderProvider) {
             {
                 onPopulate();

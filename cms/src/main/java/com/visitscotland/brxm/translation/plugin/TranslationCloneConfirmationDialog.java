@@ -25,24 +25,9 @@ public class TranslationCloneConfirmationDialog extends WorkflowDialog<Void> {
                                               IDataProvider<DocumentChangeProvider.Entry> linksChangeSetProvider) {
         super(invoker);
 
-        final IModel<String> titleModel = new IModel<String>() {
-            @Override
-            public String getObject() {
-                return "Translation Clone Document";
-            }
+        final IModel<String> titleModel = () ->"Translation Clone Document";
 
-            @Override
-            public void setObject(String s) {
-
-            }
-
-            @Override
-            public void detach() {
-
-            }
-        };
-
-        setTitle(titleModel);
+        setTitle(()-> "Translation Clone Document");
 
         add(new DataView<DocumentChangeProvider.Entry>(ID_CHANGE, changeSetProvider) {
             {
