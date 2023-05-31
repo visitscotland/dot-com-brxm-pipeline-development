@@ -2,6 +2,7 @@ package com.visitscotland.brxm.hippobeans;
 
 import org.hippoecm.hst.content.beans.Node;
 import org.onehippo.cms7.essentials.dashboard.annotations.HippoEssentialsGenerated;
+import com.visitscotland.brxm.hippobeans.Blog;
 
 @HippoEssentialsGenerated(internalName = "visitscotland:General")
 @Node(jcrType = "visitscotland:General")
@@ -14,17 +15,12 @@ public class General extends Page {
     @Override
     public String[] getChildJcrTypes() {
         return new String[] { "visitscotland:Megalinks",
-                "visitscotland:TourismInformation",
-                "visitscotland:LongCopy",
-                "visitscotland:Article",
-                "visitscotland:Stackla",
+                "visitscotland:TourismInformation", "visitscotland:LongCopy",
+                "visitscotland:Article", "visitscotland:Stackla",
                 "visitscotland:CannedSearchTours",
-                "visitscotland:CannedSearch",
-                "visitscotland:MapModule",
-                "visitscotland:DevModule",
-                "visitscotland:MarketoForm",
-                "visitscotland:SkiCentre",
-                "visitscotland:SkiCentreList"};
+                "visitscotland:CannedSearch", "visitscotland:MapModule",
+                "visitscotland:DevModule", "visitscotland:MarketoForm",
+                "visitscotland:SkiCentre", "visitscotland:SkiCentreList" };
     }
 
     @HippoEssentialsGenerated(internalName = "visitscotland:otherThings")
@@ -45,5 +41,10 @@ public class General extends Page {
     @HippoEssentialsGenerated(internalName = "visitscotland:heroVideo")
     public VideoLink getHeroVideo() {
         return getBean("visitscotland:heroVideo", VideoLink.class);
+    }
+
+    @HippoEssentialsGenerated(internalName = "visitscotland:blog")
+    public Blog getBlog() {
+        return getBean("visitscotland:blog", Blog.class);
     }
 }

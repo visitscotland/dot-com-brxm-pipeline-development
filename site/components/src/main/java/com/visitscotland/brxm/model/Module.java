@@ -13,6 +13,8 @@ public class Module<T extends HippoBean> {
 
     private List<String> errorMessages;
 
+    private String marketoId;
+
     public String getType(){
         return getClass().getSimpleName();
     }
@@ -47,4 +49,13 @@ public class Module<T extends HippoBean> {
         }
         errorMessages.add(message);
     }
+
+    public String getMarketoId() {
+        return marketoId;
+    }
+
+    public void setMarketoId(String marketoId) {
+        this.marketoId = marketoId;
+    }
+
 }

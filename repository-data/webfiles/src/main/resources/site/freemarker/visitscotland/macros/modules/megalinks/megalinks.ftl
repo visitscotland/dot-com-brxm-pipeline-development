@@ -19,7 +19,11 @@
     </#if>
 
     <@previewWarning editMode item item.errorMessages/>
-    <vs-megalinks 
+    <vs-megalinks
+        <#if item.marketoId??>
+            data-personalisation-type="${item.marketoId}"
+            class="personalisation--hidden"
+        </#if>        
         variant="${variant}"
         title="${item.title}"
         theme="${theme}"
