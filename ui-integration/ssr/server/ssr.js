@@ -59,7 +59,11 @@ const completeSsrTemplate = (appHtml) => {
     $template(`[${templatePlaceholderAttrName}]`).replaceWith(appHtml);
 
     // const pageHtml = transformHtml($template.html());
-    const pageHtml = $template.html();
+    let pageHtml = $template.html();
+
+    // The app must be initiated in SSR mode for it to hydrate already rendered
+    // vue code
+    pageHtml = pageHtml.replace('initApp', 'initSSRApp');
 
     return pageHtml;
 
