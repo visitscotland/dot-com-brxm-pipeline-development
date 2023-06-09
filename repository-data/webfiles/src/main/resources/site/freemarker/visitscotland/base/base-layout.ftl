@@ -20,16 +20,9 @@
         <@headContributions />
     </head>
     <body>
-        <div data-vue-app-init>
-            <p>Test para</p>
-            <vs-button
-                href="#"
-            >
-                Test button
-            </vs-button>
-            <vs-heading>VisitScotland</vs-heading>
-            <vs-loading-spinner></vs-loading-spinner>
-        </div>
+        <div data-vue-hydration-init><div data-vue-app-init>
+            <vs-recaptcha></vs-recaptcha>
+        </div></div>
         <@footerContributions />
     </body>
 </html>
