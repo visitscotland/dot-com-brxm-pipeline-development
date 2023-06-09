@@ -5,9 +5,7 @@
 <#include "headerContributions.ftl">
 <#include "footerContributions.ftl">
 
-<#include "../../frontend/components/vs-button.ftl">
-<#include "../../frontend/components/vs-heading.ftl">
-<#include "../../frontend/components/vs-loading-spinner.ftl">
+<#include "../../frontend/components/vs-recaptcha.ftl">
 
 <html data-version="${version}" lang="${locale}">
     <head>
@@ -20,16 +18,9 @@
         <@headContributions />
     </head>
     <body>
-        <div data-vue-app-init>
-            <p>Test para</p>
-            <vs-button
-                href="#"
-            >
-                Test button
-            </vs-button>
-            <vs-heading>VisitScotland</vs-heading>
-            <vs-loading-spinner></vs-loading-spinner>
-        </div>
+        <div data-vue-hydration-init><div data-vue-app-init>
+            <vs-recaptcha></vs-recaptcha>
+        </div></div>
         <@footerContributions />
     </body>
 </html>
