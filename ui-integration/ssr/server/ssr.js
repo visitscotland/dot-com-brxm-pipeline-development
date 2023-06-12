@@ -1,7 +1,7 @@
 const cheerio = require("cheerio");
 const { html: beautifyHtml } = require("js-beautify");
 
-const { VsSSR } = require('storybook-component-library');
+const { VsSSR } = require('vs-component-library');
 
 const hydrationAttributeName = "data-vue-hydration-init";
 const hydrationPlaceholderAttrName = "vue-template-outlet";
@@ -81,7 +81,7 @@ const renderPage = async (pageHtml) => {
     const { $appNode, $page } = parsePageParts(pageHtml)
 
     // HTML is formatted before rendering to ensure successful hydration
-    let formattedAppHtml = formatHtml(cheerio.html($appNode, { decodeEntities: false }))
+    let formattedAppHtml = cheerio.html($appNode, { decodeEntities: false })
 
     prepSsrTemplate($page, formattedAppHtml);
 

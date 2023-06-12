@@ -5,7 +5,7 @@
 <#include "headerContributions.ftl">
 <#include "footerContributions.ftl">
 
-<#include "../../frontend/components/vs-recaptcha.ftl">
+<#include "../../frontend/components/vs-heading.ftl">
 
 <html data-version="${version}" lang="${locale}">
     <head>
@@ -19,7 +19,7 @@
     </head>
     <body>
         <div data-vue-hydration-init><div data-vue-app-init>
-            <vs-recaptcha></vs-recaptcha>
+            <vs-heading>Test</vs-heading>
         </div></div>
         <@footerContributions />
     </body>
