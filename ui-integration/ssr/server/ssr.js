@@ -1,7 +1,7 @@
 const cheerio = require("cheerio");
 const { html: beautifyHtml } = require("js-beautify");
 
-const { VsSSR } = require('storybook-component-library');
+const { VsSSR } = require('vs-component-library');
 
 const hydrationAttributeName = "data-vue-hydration-init";
 const hydrationPlaceholderAttrName = "vue-template-outlet";
