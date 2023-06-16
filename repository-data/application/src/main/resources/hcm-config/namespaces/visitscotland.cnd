@@ -101,6 +101,9 @@
 [visitscotland:LongCopy] > hippostd:relaxed, hippotranslation:translated, visitscotland:basedocument, visitscotland:translatable
   orderable
 
+[visitscotland:Blog] > hippo:compound, hippostd:relaxed
+  orderable
+
 [visitscotland:MapCategory] > hippo:compound, hippostd:relaxed
   orderable
 
@@ -119,10 +122,16 @@
 [visitscotland:OTYML] > hippo:compound, hippostd:relaxed
   orderable
 
+[visitscotland:Personalization] > hippo:compound, hippostd:relaxed
+  orderable
+
 [visitscotland:ProductSearchLink] > hippo:compound, hippostd:relaxed
   orderable
 
 [visitscotland:ProductsSearch] > hippo:compound, hippostd:relaxed
+  orderable
+
+[visitscotland:Profile] > hippostd:relaxed, hippotranslation:translated, visitscotland:basedocument
   orderable
 
 [visitscotland:Quote] > hippo:compound, hippostd:relaxed

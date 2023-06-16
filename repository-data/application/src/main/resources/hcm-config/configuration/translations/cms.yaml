@@ -43,12 +43,16 @@ definitions:
       visitscotland:otyml-unique-link-validator: OTYML links must be unique.
       visitscotland:megalinks-unique-link-validator: Megalinks links must be unique.
       visitscotland:travel-tab-transport-validator: Travel type must be unique.
+      visitscotland:link-validator#author: You can’t link to that type of document.
+        Choose an Author Profile document.
       visitscotland:link-validator#video: You can’t link to that type of document.
         Choose a Video document.
       visitscotland:link-validator#map: You can’t link to that type of document.
         Choose a Destination Page or Stop.
       visitscotland:link-validator#mapcoordinates: You can’t link to that type of document.
         Choose a General, Listicle or Itinerary page.
+      visitscotland:link-validator#personalisation: You can’t link to that type of document.
+        Choose a megalink module.
       visitscotland:map-module-validator: Either Title or Map Main Tab Title must be populated.
       visitscotland:map-module-validator#bespokeMap: You can't select Map Category for Bespoke maps.
       visitscotland:map-page-validator#generalPage: You can only select a parent with child categories or a bespoke map.

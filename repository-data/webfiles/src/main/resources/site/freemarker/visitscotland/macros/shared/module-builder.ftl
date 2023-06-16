@@ -25,7 +25,13 @@
         <#if module.hippoBean?? >
             <@hst.manageContent hippobean=module.hippoBean />
         </#if>
-        <#if moduleType == "megalinks">
+        <#if moduleType == "PersonalisationModule">
+        <div data-personalisation>
+            <#list module.modules as personalisedModule>
+                <@moduleBuilder personalisedModule colourScheme />
+            </#list>
+        </div>
+        <#elseif moduleType == "megalinks">
             <@includeOnce "../modules/megalinks/megalinks.ftl" />
             <#-- all Megalinks modules except HorizontalListLinksModule -->
             <@megalinks item=module type=module.getType() theme=themeName />
