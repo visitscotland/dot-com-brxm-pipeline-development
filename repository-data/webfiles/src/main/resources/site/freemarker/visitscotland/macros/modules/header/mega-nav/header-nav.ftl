@@ -22,16 +22,17 @@
                             <vs-mega-nav-list 
                                 list-heading="${childItem.title}"
                             >
-                                <#list childItem.childMenuItems as thirdChildItem>
-                                    <#if thirdChildItem.title??>
-                                        <vs-mega-nav-list-item
-                                            v-slot:nav-list-items
-                                            href="${getUrl(thirdChildItem)}"
-                                        >
-                                            ${thirdChildItem.title}
-                                        </vs-mega-nav-list-item>
-                                    </#if>
-                                </#list>
+                                <template v-slot:nav-list-items>
+                                    <#list childItem.childMenuItems as thirdChildItem>
+                                        <#if thirdChildItem.title??>
+                                            <vs-mega-nav-list-item
+                                                href="${getUrl(thirdChildItem)}"
+                                            >
+                                                ${thirdChildItem.title}
+                                            </vs-mega-nav-list-item>
+                                        </#if>
+                                    </#list>
+                                </template>
                                 <#if childItem.cta?? && childItem.hstLink??>
                                     <vs-mega-nav-list-item
                                         href="${getUrl(childItem)}"
