@@ -24,13 +24,15 @@
             title="${item.title?html}"
             sub-title="${item.subtitle!''}"
     >
-        <div slot="hippo-details" class="has-edit-button">
-            <@hst.manageContent hippobean=item.hippoBean/>
-            <@previewWarning editMode item item.errorMessages />
-        </div>
+        <template v-slot:hippo-details>
+            <div class="has-edit-button">
+                <@hst.manageContent hippobean=item.hippoBean/>
+                <@previewWarning editMode item item.errorMessages />
+            </div>
+        </template>
 
-        <#if item.image?? && item.image?has_content>
-            <div slot="image-slot">
+        <#--  <#if item.image?? && item.image?has_content>
+            <div v-slot:image-slot>
                 <@imageWithCaption 
                     imageSrc=image 
                     imageDetails=item.image 
@@ -39,31 +41,35 @@
                     useLazyLoading=isFirstListicle
                 />
             </div>
-        </#if>
+        </#if>  -->
 
-        <div slot="description-slot">
-            <@hst.html hippohtml=item.description />
+        <template v-slot:description-slot>
+            <div>
+                <@hst.html hippohtml=item.description />
 
-            <#if item.links?has_content>
-                <#list item.links as cta>
-					<#if cta?has_content>
-                        <div class="mb-2">
-                            <vs-link
-                                href="${cta.link}"
-                                <#if cta.type != "internal">type="${cta.type}"</#if>
-                            >
-                                ${cta.label}<span class="sr-only">: ${item.title}</span>
-                            </vs-link>
-                        </div>
-					</#if>
-				</#list>
-			</#if>
-		</div>
+                <#if item.links?has_content>
+                    <#list item.links as cta>
+                        <#if cta?has_content>
+                            <div class="mb-2">
+                                <vs-link
+                                    href="${cta.link}"
+                                    <#if cta.type != "internal">type="${cta.type}"</#if>
+                                >
+                                    ${cta.label}<span class="sr-only">: ${item.title}</span>
+                                </vs-link>
+                            </div>
+                        </#if>
+                    </#list>
+                </#if>
+            </div>
+        </template>
 
         <#if item.facilities?? && item.facilities?size gt 1>
-			<div slot="facilities-slot">
-				<@keyFacilities facilitiesList=item.facilities />
-			</div>
+            <template v-slot:facilities-slot>
+                <div>
+                    <@keyFacilities facilitiesList=item.facilities />
+                </div>
+            </template>
 		</#if>
 	</vs-listicle-item>
 </#macro>

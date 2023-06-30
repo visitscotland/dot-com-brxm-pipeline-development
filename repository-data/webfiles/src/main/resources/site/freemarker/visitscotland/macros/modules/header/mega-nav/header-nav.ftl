@@ -12,11 +12,11 @@
                     href="${getUrl(item)}"
                     cta-text="<#if item.cta??>${item.cta}<#else></#if>"
             >
-                <template slot="buttonContent">
+                <template v-slot:button-content>
                     ${item.title}
                 </template>
 
-                <template slot="dropdownContent">
+                <template v-slot:dropdown-content>
                     <#list item.childMenuItems as childItem>
                         <#if childItem.title??>
                             <vs-mega-nav-list 
@@ -25,7 +25,7 @@
                                 <#list childItem.childMenuItems as thirdChildItem>
                                     <#if thirdChildItem.title??>
                                         <vs-mega-nav-list-item
-                                            slot="navListItems"
+                                            v-slot:nav-list-items
                                             href="${getUrl(thirdChildItem)}"
                                         >
                                             ${thirdChildItem.title}
@@ -36,7 +36,7 @@
                                     <vs-mega-nav-list-item
                                         href="${getUrl(childItem)}"
                                         subheading-link
-                                        slot="navHeadingCtaLink"
+                                        v-slot:nav-heading-cta-link
                                     >
                                         ${childItem.cta}
                                     </vs-mega-nav-list-item>

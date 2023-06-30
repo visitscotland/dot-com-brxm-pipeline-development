@@ -30,7 +30,6 @@
     </#if>
 
     <vs-itinerary-stop
-        slot="stops"
         stop-number="${stop.index}"
         stop-label="${stop.title}"
         stop-title="${stop.subTitle!''}"
@@ -43,7 +42,7 @@
         </#if>
 
         <#if stop?? && stop.description?? && stop.description?has_content>
-            <template slot="stop-description">
+            <template v-slot:stop-description>
                 <@hst.html hippohtml=stop.description/>
                 <#if stop.ctaLink?? && stop.ctaLink.link?? && stop.ctaLink.link?has_content>
                     <vs-link
@@ -56,7 +55,7 @@
                 </#if>
 
                 <#if stop.timeToExplore?? && stop.timeToExplore?has_content>
-                    <vs-description-list class="mb-4 justify-content-start" inline slot="stop">
+                    <vs-description-list class="mb-4 justify-content-start" inline v-slot:stop>
                         <vs-description-list-item title class="mb-0 mr-0 pr-1 col-auto">${label("itinerary", "stop.time-to-explore")}</vs-description-list-item>
                         <vs-description-list-item class="mb-0 col-auto px-0">${stop.timeToExplore}</vs-description-list-item>
                     </vs-description-list>
@@ -64,11 +63,13 @@
 
                 <#if (stop.tipsTitle?? && stop.tipsTitle?has_content)>
                     <vs-itinerary-tips>
-                        <div slot="text">
-                            <strong>${stop.tipsTitle}</strong>
-                            <@hst.html hippohtml=stop.tipsBody/>
-                        </div>
-                        <vs-svg slot="svg" path="highland-cow" />
+                        <template v-slot:text>
+                            <div>
+                                <strong>${stop.tipsTitle}</strong>
+                                <@hst.html hippohtml=stop.tipsBody/>
+                            </div>
+                        </template>
+                        <vs-svg v-slot:svg path="highland-cow" />
                     </vs-itinerary-tips>
                 </#if>
             </template>
@@ -76,7 +77,7 @@
 
         <#if stop??>
             <#if stop.address??>
-                <vs-address slot="stop-address">
+                <vs-address v-slot:stop-address>
                     <#assign addressArr = [
                         stop.address.line1!"",
                         stop.address.line2!"",
@@ -115,7 +116,7 @@
             </#if>
             
             <#if stop.opening??>
-                <#--  <template slot="stop-info">
+                <#--  <template v-slot:stop-info>
                     <vs-itinerary-stop-info
                         opening-hours="${escapeJSON(stop.opening, false)}"
                         opening-times-link='${stop.openLink.link}'
@@ -128,12 +129,12 @@
                         to-text='${label("itinerary", "stop.to")}'
                         and-text='${label("itinerary", "stop.and")}'
                     >
-                        <template slot="stop-link-text">
+                        <template v-slot:stop-link-text>
                             <span class="sr-only">${stop.title}: </span>${label("itinerary", "stop.opening")}
                         </template>
 
                         <#if stop.price??>
-                            <template slot="stop-charge-text">
+                            <template v-slot:stop-charge-text>
                                 ${stop.price}
                             </template>
                         </#if>
@@ -142,7 +143,7 @@
             </#if>
 
             <#if stop.facilities?? && stop.facilities?size gt 1>
-                <template slot="stop-facilities">
+                <template v-slot:stop-facilities>
                     <@keyFacilities facilitiesList=stop.facilities />
                 </template>
             </#if>
@@ -151,7 +152,7 @@
             <#if isLastStop == 'true'>
                 <#assign nearbyEatsUrl = productSearch(locale, "cate", stop.coordinates.latitude, stop.coordinates.longitude, 5)>
                 <#assign nearbyStayUrl = productSearch(locale, "acco", stop.coordinates.latitude, stop.coordinates.longitude, 5)>
-                <vs-itinerary-border-overlap-wrapper slot="stop-buttons">
+                <vs-itinerary-border-overlap-wrapper v-slot:stop-buttons>
                     <vs-button
                         class="mb-3"
                         variant="secondary"

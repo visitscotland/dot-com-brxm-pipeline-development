@@ -5,8 +5,6 @@
 <#include "headerContributions.ftl">
 <#include "footerContributions.ftl">
 
-<#include "../../frontend/components/vs-heading.ftl">
-
 <html data-version="${version}" lang="${locale}">
     <head>
         <#if hstRequest.requestContext.channelManagerPreviewRequest>
@@ -18,8 +16,18 @@
         <@headContributions />
     </head>
     <body>
+        <@gtm noscript=true />
+        <@skeleton />
         <div data-vue-hydration-init><div data-vue-app-init>
-            <vs-heading>Test</vs-heading>
+            <@hst.include ref="top"/>
+
+            <@hst.include ref="menu"/>
+
+            <main id="main">
+                <@hst.include ref="main"/>
+            </main>
+
+            <@hst.include ref="footer"/>
         </div></div>
         <@footerContributions />
     </body>
