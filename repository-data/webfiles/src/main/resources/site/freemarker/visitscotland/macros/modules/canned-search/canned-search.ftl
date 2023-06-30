@@ -20,11 +20,11 @@
         carousel-previous-text="${label('essentials.pagination', 'page.previous')}"
         heading="${module.title}"
     >
-        <template slot="vsCannedSearchIntro">
+        <template v-slot:vsCannedSearchIntro>
             <@hst.html hippohtml=module.description/>
         </template>
 
-        <template slot="vsCannedSearchButtons">
+        <template v-slot:vsCannedSearchButtons>
             <vs-button
                 href="${module.viewAllLink.link}">
                 ${module.viewAllLink.label}
@@ -32,12 +32,12 @@
         </template>
 
         <#if module.credit??>
-            <template slot="vsCannedSearchCredit">
+            <template v-slot:vsCannedSearchCredit>
                 ${module.credit}
             </template>
         </#if>
 
-        <template slot="vsCannedSearchOf">
+        <template v-slot:vsCannedSearchOf>
             ${label('essentials.pagination', 'page.of')}
         </template>
     </vs-canned-search>

@@ -22,7 +22,7 @@
     <@previewWarning editMode module module.errorMessages />
 
     <vs-module-wrapper theme="<#if themeName?has_content>${themeName}<#else>light</#if>">
-        <template slot="vsModuleWrapperHeading">
+        <template v-slot:vs-module-wrapper-heading>
             ${module.title}
         </template>
         <vs-embed-wrapper
@@ -30,17 +30,17 @@
             error-text = "${label('essentials.global', 'third-party-error')}"
             no-js-text="${module.noJsMessage}"
         >
-            <template slot="embedIntroCopy">
+            <template v-slot:embed-intro-copy>
                 <@hst.html hippohtml=module.copy/>
             </template>
 
-            <template slot="embedWidget">
+            <template v-slot:embed-widget>
                 <div class="stackla-widget" data-ct="" data-hash="${module.dataHash}"
                     data-id="${module.dataId}" data-title="social_vs.org_IGfeed" data-ttl="60"
                     style="width: 100%; overflow: hidden;"></div>
             </template>
 
-            <template slot="embedButtonText">
+            <template v-slot:embed-button-text>
                 ${label('essentials.global', 'cookie.link-message')}
             </template>
         </vs-embed-wrapper>

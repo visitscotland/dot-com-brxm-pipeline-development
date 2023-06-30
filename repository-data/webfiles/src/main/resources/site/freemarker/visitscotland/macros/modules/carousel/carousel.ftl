@@ -44,17 +44,17 @@
                     days-label="${label('itinerary', 'day')}"
                 </#if>
             >
-                <template slot="vsCarouselSlideHeading">
+                <template v-slot:vsCarouselSlideHeading>
                     ${carouselItem.label}
                 </template>
             </vs-carousel-slide>
         </#list>
 
-        <template slot="vsCarouselNavigate">
+        <template v-slot:vsCarouselNavigate>
             ${label("essentials.pagination", "page.navigate-to-page")}
         </template>
 
-        <template slot="vsCarouselOf">
+        <template v-slot:vsCarouselOf>
             ${label("essentials.pagination", "page.of")}
         </template>
     </vs-carousel>

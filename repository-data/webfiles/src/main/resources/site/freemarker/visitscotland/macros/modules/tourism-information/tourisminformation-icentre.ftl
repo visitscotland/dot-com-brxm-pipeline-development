@@ -20,7 +20,7 @@
     </#if>
 
     <vs-module-wrapper theme="<#if themeName?has_content>${themeName}<#else>light</#if>">
-        <template slot="vsModuleWrapperHeading">
+        <template v-slot:vs-module-wrapper-heading>
             ${module.title}
         </template>
         <vs-container>

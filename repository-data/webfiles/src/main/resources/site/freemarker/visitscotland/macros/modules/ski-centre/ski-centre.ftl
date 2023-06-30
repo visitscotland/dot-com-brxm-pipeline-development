@@ -17,11 +17,11 @@
     <@previewWarning editMode module module.errorMessages />
 
     <vs-module-wrapper theme="light">
-        <template slot="vsModuleWrapperHeading">
+        <template v-slot:vs-module-wrapper-heading>
             ${module.title}
         </template>
 
-        <template slot="vsModuleWrapperIntro">
+        <template v-slot:vs-module-wrapper-intro>
             <@hst.html hippohtml=module.introduction/>
         </template>
 

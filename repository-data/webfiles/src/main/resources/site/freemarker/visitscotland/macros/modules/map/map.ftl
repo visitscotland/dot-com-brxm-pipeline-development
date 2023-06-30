@@ -72,11 +72,11 @@
     </#if>
 
     <vs-module-wrapper>
-        <template slot="vsModuleWrapperHeading">
+        <template v-slot:vs-module-wrapper-heading>
             ${module.title}
         </template>
 
-        <template slot="vsModuleWrapperIntro">
+        <template v-slot:vs-module-wrapper-intro>
             <@hst.html hippohtml=module.introduction/>
         </template>
         <vs-main-map-wrapper

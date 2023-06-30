@@ -6,7 +6,7 @@
         href="<@hst.link fullyQualified=fullyQualifiedURLs siteMapItemRefId='root'/>"
         link-alt-text="${label('navigation.static', 'footer.logo-alt-text')}"
     >
-        <span slot="copyright">
+        <span v-slot:copyright>
             ${label('navigation.static', 'footer.text')}
         </span>
     </vs-footer-copyright>
