@@ -25,11 +25,11 @@
         </template>
         <vs-container>
             <vs-icentre>
-                <template slot="icentreImageWithCaption">
+                <template v-slot:icentre-image-with-caption>
                     <@imageWithCaption imageSrc=image imageDetails=module.image noAltText="true" />
                 </template>
 
-                <template slot="icentreLinks">
+                <template v-slot:icentre-links>
                     ${module.description}
                     <#list module.links as iCentre>
                         <vs-link href="${iCentre.link}">${iCentre.label}</vs-link><#t>
@@ -43,7 +43,7 @@
                 </template>
                 
                 <#if module.quote??>
-                    <template slot="icentreQuote">
+                    <template v-slot:icentre-quote>
                         <@quote quoteItem=module.quote variant="wide"/>
                     </template>
                 </#if>

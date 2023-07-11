@@ -34,7 +34,7 @@
         anchor-link="<#if module.anchor?has_content>${module.anchor}</#if>"
     >
         <#if module.video?? >
-            <template slot="vsArticleImg">
+            <template v-slot:vs-article-img>
                 <@video video=module.video />
                 <vs-video-caption
                     video-id="${module.video.youtubeId}"
@@ -44,18 +44,18 @@
                     <#else>
                         <#assign videoTitle = label('video', 'video.play-btn') />
                     </#if>
-                    <template slot="video-title">
+                    <template v-slot:video-title>
                         ${videoTitle}
                     </template>?
                 </vs-video-caption>
             </template>
         <#elseif image?? && image?has_content>
-            <template slot="vsArticleImg">
+            <template v-slot:vs-article-img>
                 <@imageWithCaption imageSrc=image imageDetails=module.image />
             </template>
         </#if>
 
-        <template slot="vsArticleIntro">
+        <template v-slot:vs-article-intro>
             <@hst.html hippohtml=module.introduction/>
         </template>
 

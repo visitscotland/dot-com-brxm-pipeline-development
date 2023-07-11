@@ -28,7 +28,7 @@
         cookie-link-text="${label('essentials.global', 'cookie.link-message')}"
         no-js-message="${label('video', 'video.no-js')}"
     >
-        <template slot="vsMegalinksIntro">
+        <template v-slot:vs-megalinks-intro>
             <@hst.html hippohtml=item.introduction/>
         </template>
 
@@ -43,7 +43,7 @@
         </#if>
 
         <#if item.cta?? >     
-            <template slot="vsMegalinksButton">
+            <template v-slot:vs-megalinks-button>
                 ${item.cta.label}
             </template>
         </#if>

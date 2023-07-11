@@ -32,15 +32,17 @@
         </template>
 
         <#--  <#if item.image?? && item.image?has_content>
-            <div v-slot:image-slot>
-                <@imageWithCaption 
-                    imageSrc=image 
-                    imageDetails=item.image 
-                    variant="large" 
-                    noAltText="true"
-                    useLazyLoading=isFirstListicle
-                />
-            </div>
+            <template v-slot:image-slot>
+                <div>
+                    <@imageWithCaption 
+                        imageSrc=image 
+                        imageDetails=item.image 
+                        variant="large" 
+                        noAltText="true"
+                        useLazyLoading=isFirstListicle
+                    />
+                </div>
+            </template>
         </#if>  -->
 
         <template v-slot:description-slot>
