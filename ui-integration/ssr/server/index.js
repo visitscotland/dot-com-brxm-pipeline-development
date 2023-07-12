@@ -4,7 +4,7 @@ const { some, startsWith, get } = require("lodash");
 const getPort = require("get-port");
 const proxy = require("express-http-proxy");
 
-const { renderPage, initRenderer } = require("./ssr");
+const { renderPage } = require("./ssr");
 
 if (!process.env.VS_SSR_PROXY_TARGET_HOST) {
     require("dotenv").config();
