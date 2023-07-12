@@ -1,0 +1,48 @@
+name: Call the reusable template that finishes the release proces (gitflow-like)
+run-name: ${{ github.actor }} launched call-gitflow-release-finish script 🚀
+
+on:
+  # trigger manually from Actions UI, or via http POST, or via using the "with" keyword when run as a template
+  workflow_dispatch:
+    permissions:
+      contents: read
+    inputs:
+      # can be commented out and use a hard-coded response in job: call_template
+      increase_version_yes_or_no:
+        description: 'Request a version increment (yes/no) (defaults to no)?'
+        required: false
+        type: string
+
+env:
+  GH_TOKEN: ${{ secrets.VS_POC_GITHUB_ACTIONS_BACKEND_FG_PAT_SEC }}
+
+jobs:
+  print_message:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Print the params
+        id: print_params
+        # The secrets keyword cannot be directly accessed within the reusable workflow file itself
+        run: |
+          echo "Called gitflow release finish template with params:"
+          echo "vanguard_repository: ${{ github.repository }}"
+          echo "           enforcer: ${{ github.actor }}"
+          echo "  increment_version: ${{ inputs.increase_version_yes_or_no }}"
+          echo "       env.GH_TOKEN: ${{ env.GH_TOKEN }}"
+
+  call_template:
+    needs: print_message
+    uses: visitscotland/vs-automations-armoury/.github/workflows/gitflow-release-finish.yml@trunk
+    secrets: inherit
+    with:
+      vanguard_repository: ${{ github.repository }}
+      enforcer: ${{ github.actor }}
+      increment_version: ${{ inputs.increase_version_yes_or_no }}
+
+  completion_message:
+    needs: call_template
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print a completion message
+        run: echo "Job done"
