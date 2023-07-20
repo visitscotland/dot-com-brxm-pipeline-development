@@ -2,6 +2,7 @@
 <#include "../../include/imports.ftl">
 <#include "../macros/global/gtm.ftl">
 <#include "../macros/modules/skeleton/skeleton.ftl">
+<#include "../macros/global/personalisation.ftl">
 <#include "headerContributions.ftl">
 <#include "footerContributions.ftl">
 
@@ -18,6 +19,7 @@
     <body>
         <@gtm noscript=true />
         <@skeleton />
+        <@personalisation />
         <div data-vue-hydration-init><div class="no-js" data-vue-app-init>
             <@hst.include ref="top"/>
 

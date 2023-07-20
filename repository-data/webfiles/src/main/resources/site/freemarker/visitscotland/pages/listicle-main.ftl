@@ -25,8 +25,8 @@
 </#compress>
 <div class="has-edit-button">
     <@hst.manageContent hippobean=document/>
-    
-    <@pageIntro content=document />
+
+    <@pageIntro content=document blog=blog/>
 
     <vs-container class="mt-6">
         <vs-row>

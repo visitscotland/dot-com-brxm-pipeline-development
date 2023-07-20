@@ -47,7 +47,9 @@
                 >
                     <vs-img
                         src="<@hst.webfile path='${module.image.externalImage}'/>"
-                        class="mt-10 mt-sm-2 w-100">
+                        class="mt-10 mt-sm-2 w-100 h-auto"
+                        style="aspect-ratio:267/206"
+                    >
                     </vs-img>
                 </vs-col>
             </vs-row>
