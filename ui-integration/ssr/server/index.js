@@ -4,6 +4,8 @@ const { some, startsWith, get } = require("lodash");
 const getPort = require("get-port");
 const proxy = require("express-http-proxy");
 
+const BootstrapVue = require('bootstrap-vue-next');
+
 const { renderPage } = require("./ssr");
 
 if (!process.env.VS_SSR_PROXY_TARGET_HOST) {
