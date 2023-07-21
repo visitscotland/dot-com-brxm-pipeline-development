@@ -4,7 +4,7 @@
 <#include "../../../../frontend/components/vs-social-share-item.ftl">
 
 <#macro socialShare nojs>
-    <vs-social-share 
+    <#--  <vs-social-share 
         id="<#if nojs == false>default<#else>nojs</#if>"
         :no-js="${nojs?c}"
         page-url="<@hst.link hippobean=document canonical=true fullyQualified=true/>" 
@@ -43,5 +43,5 @@
                 ></vs-social-share-item>
             </#if>
         </template>
-    </vs-social-share>
+    </vs-social-share>  -->
 </#macro>
