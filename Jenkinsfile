@@ -71,6 +71,7 @@ pipeline {
     VS_BRC_ENV = 'demo'
     VS_BRC_STACK_URL = "https://api-${VS_BRC_STACK_URI}.onehippo.io"
     VS_BRC_STACK_API_VERSION = 'v3'
+    VS_DOCKER_IMAGE_NAME = 'vs/vs-brxm15:node16'
   }
 
   tools {
