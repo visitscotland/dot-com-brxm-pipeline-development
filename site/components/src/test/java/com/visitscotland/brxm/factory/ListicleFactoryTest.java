@@ -24,7 +24,6 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
-import javax.annotation.Resource;
 import java.util.*;
 
 import static com.visitscotland.brxm.dms.DMSConstants.DMSProduct.LATITUDE;
@@ -48,7 +47,6 @@ class ListicleFactoryTest {
     @Mock
     ContentLogger logger;
 
-    @Resource
     @InjectMocks
     ListicleFactory factory;
 

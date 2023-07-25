@@ -30,6 +30,24 @@ or
 
     mvn clean verify -P !fed-build -DskipTests && mvn -P cargo.run
 
+## Debug the project
+
+### IntelliJ IDEA
+
+To define the configuration follow the next steps:
+
+1. Create a new running configuration by clicking *Edit Configuration...* in the drop down next to the *Run* Button
+2. Click on Add new Configuration ("+" Button)
+3. Select the type Remote JVM Debug
+4. Change the port to 8000
+5. Apply Changes
+6. Click the Debug button next to the Run button in the bar.(The CMS needs to be running for this configuration to work)
+
+### Other tips
+
+Run the debugger in a different port:
+
+    mvn -P cargo.run -Dcargo.debug.address=9000
     
 ### SpringBoot Actuators
 
@@ -62,6 +80,8 @@ Windows Based Console
 or
 
     mvn clean verify -P !fed-build -DskipTests &&mvn -P cargo.run
+
+
     
 ## Troubleshooting
 **I get the following error when I try to clone the message: _fatal: cannot create directory at '{some big path}': Filename too long_**
@@ -75,6 +95,22 @@ Git has a limit of 260 characters for a filename in Windows when Git is compiled
 To be documented
 
 _QuickFix: Install NPM and Yarn manually with the versions specified in ui-integration/pom.xml_
+
+Verify integrity of the Configuration
+===============================
+The Bloomreach Experience Manager Configuration Verifier, brXM CV or just CV in short, is a tool to support projects and developers during the upgrade between major Bloomreach Experience Manager releases, and is available to Bloomreach Experience Manager customers and partners.
+
+## Steps
+1. Execute the following commands:
+         
+       mvn -P create-configuration-verifier-config
+       mvn -P cargo.run,verify-configuration
+2. 
+
+## References
+- https://xmdocumentation.bloomreach.com/library/enterprise/enterprise-features/enterprise-configuration-management/configuration-verifier.html
+
+
 
 
 

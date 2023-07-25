@@ -27,7 +27,6 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
-import javax.annotation.Resource;
 import javax.jcr.RepositoryException;
 import java.io.IOException;
 import java.util.Locale;
@@ -38,7 +37,6 @@ import static org.junit.jupiter.api.Assertions.*;
 @ExtendWith(MockitoExtension.class)
 class ImageFactoryTest {
 
-    @Resource
     @InjectMocks
     ImageFactory imageFactory;
 
