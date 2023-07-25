@@ -16,7 +16,6 @@ const parsePageParts = (pageHtml) => {
         script: true,
         style: true,
         pre: true,
-        comment: true,
     });
 
     const $appNode = $page(`[${appAttributeName}]`).replaceWith(templatePlaceholderHtml);
