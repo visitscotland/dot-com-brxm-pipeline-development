@@ -69,7 +69,9 @@
                                 <@hst.html hippohtml=stop.tipsBody/>
                             </div>
                         </template>
-                        <vs-svg v-slot:svg path="highland-cow" />
+                        <template v-slot:svg>
+                            <vs-svg path="highland-cow" />
+                        </template>
                     </vs-itinerary-tips>
                 </#if>
             </template>
