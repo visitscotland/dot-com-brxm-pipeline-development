@@ -46,9 +46,11 @@
             <template v-slot:vs-multi-image-heading>
                 ${feature.label}</template>
             <#if feature.teaser?? && feature.label??>
-                <p v-slot:vs-multi-image-content>
-                    ${feature.teaser}
-                </p>
+                <template v-slot:vs-multi-image-content>
+                    <p>
+                        ${feature.teaser}
+                    </p>
+                </template>
             </#if>
         </vs-megalink-multi-image>
     </vs-col>

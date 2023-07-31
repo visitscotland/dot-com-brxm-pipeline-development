@@ -112,8 +112,9 @@
 
             <template v-slot:vs-intro-heading>
                 <#if blog?? & blog?has_content>
-                    <template v-slot:vs-blog-data>
+                    <template>
                         <vs-blog-details
+                            v-slot:vs-blog-data
                             blog-author="${blog.authorName}"
                             blog-publish-date="${blog.publishDate}"
                             blog-read-time="${blog.readingTime}"
