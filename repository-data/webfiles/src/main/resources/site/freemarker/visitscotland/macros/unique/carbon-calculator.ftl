@@ -1,24 +1,14 @@
 <#macro carbonCalculator >
-    lable ${ResourceBundle.getResourceBundle("carbon-calculator", "next", locale, false)}
-    <#if ResourceBundle.getAllLabels("carbon-calculator", label)?keys>
-fdsal
-    </#if>
-    <#assign labels =  ResourceBundle.getAllLabels("forms", null) />
-    forms
-
+    <#assign labels =  ResourceBundle.getAllLabels("carbon-calculator", null) />
+    <VsCarbonForm
+            dataUrl="fixtures/carbon-calculator/example-form.json"
+            messagingUrl="fixtures/carbon-calculator/messaging.json"
+            countryListUrl="fixtures/carbon-calculator/countries.json"
+            labelsMap={
                 <#list labels?keys as key>
-                    x
-                    "${key}" : "${labels.get(key)}",
+                    "${key}" : "${labels[key]}",
                 </#list>
-<#--    <VsCarbonForm-->
-<#--            dataUrl="fixtures/carbon-calculator/example-form.json"-->
-<#--            messagingUrl="fixtures/carbon-calculator/messaging.json"-->
-<#--            countryListUrl="fixtures/carbon-calculator/countries.json"-->
-<#--            labelsMap={-->
-<#--                <#list labels?keys as key>-->
-<#--                    "${key}" : "${labels.get(key)}",-->
-<#--                </#list>-->
-<#--            }-->
-<#--    >-->
-<#--    </VsCarbonForm>-->
+            }
+    >
+    </VsCarbonForm>
 </#macro>
