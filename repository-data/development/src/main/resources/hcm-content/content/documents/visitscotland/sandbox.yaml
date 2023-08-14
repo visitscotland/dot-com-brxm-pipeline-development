@@ -1885,9 +1885,10 @@
           hippo:availability: []
           hippostd:retainable: false
           hippostd:state: draft
+          hippostd:transferable: false
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2019-12-11T12:39:11.963Z
-          hippostdpubwf:lastModificationDate: 2022-10-13T08:19:22.967+01:00
+          hippostdpubwf:lastModificationDate: 2023-08-14T14:03:15.480+01:00
           hippostdpubwf:lastModifiedBy: admin
           hippotaxonomy:keys: [cities]
           hippotranslation:id: a162f1f0-ac2e-41a0-b9b5-ce1c6a4cb1a7
@@ -2382,7 +2383,7 @@
         jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
         jcr:uuid: 98ec3739-fc67-45b3-bbdb-e21478facbb7
         hippo:name: Old Town
-        hippo:versionHistory: e8bbf7a5-4416-4bbb-a79b-12d43bb158fa
+        hippo:versionHistory: 88f4411f-d442-4480-be67-221c20da66c2
         /old-town[1]:
           jcr:primaryType: visitscotland:Stop
           jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
@@ -2392,8 +2393,10 @@
           hippostd:state: draft
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2020-02-10T09:30:38.918Z
-          hippostdpubwf:lastModificationDate: 2022-06-16T09:45:41.604+01:00
+          hippostdpubwf:lastModificationDate: 2023-08-14T14:03:42.214+01:00
           hippostdpubwf:lastModifiedBy: admin
+          hippotaxonomy:keys: [outlander-city-town-village, outlander-season-1, outlander-season-3,
+            outlander-season-4]
           hippotranslation:id: ddabe0ef-dc56-44cb-94bf-e820df329d7a
           hippotranslation:locale: en
           visitscotland:subtitle: ''
@@ -2435,8 +2438,10 @@
           hippostd:state: unpublished
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2020-02-10T09:30:38.918Z
-          hippostdpubwf:lastModificationDate: 2022-06-16T09:45:41.538+01:00
+          hippostdpubwf:lastModificationDate: 2023-08-14T14:03:42.148+01:00
           hippostdpubwf:lastModifiedBy: admin
+          hippotaxonomy:keys: [outlander-city-town-village, outlander-season-1, outlander-season-3,
+            outlander-season-4]
           hippotranslation:id: ddabe0ef-dc56-44cb-94bf-e820df329d7a
           hippotranslation:locale: en
           visitscotland:subtitle: ''
@@ -2478,9 +2483,11 @@
           hippostd:state: published
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2020-02-10T09:30:38.918Z
-          hippostdpubwf:lastModificationDate: 2022-06-16T09:45:41.538+01:00
+          hippostdpubwf:lastModificationDate: 2023-08-14T14:03:42.148+01:00
           hippostdpubwf:lastModifiedBy: admin
-          hippostdpubwf:publicationDate: 2022-06-16T09:45:45.474+01:00
+          hippostdpubwf:publicationDate: 2023-08-14T14:03:45.207+01:00
+          hippotaxonomy:keys: [outlander-city-town-village, outlander-season-1, outlander-season-3,
+            outlander-season-4]
           hippotranslation:id: ddabe0ef-dc56-44cb-94bf-e820df329d7a
           hippotranslation:locale: en
           visitscotland:subtitle: ''
@@ -2733,7 +2740,7 @@
         jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
         jcr:uuid: f0c435ec-14f2-48a0-81b7-05507be62018
         hippo:name: LINLITHGOW PALACE
-        hippo:versionHistory: 9a664c82-bfb2-4aad-a262-0838dc3cc204
+        hippo:versionHistory: 0528f667-e01f-474d-a5c5-3c381630ddbb
         /linlithgow-palace[1]:
           jcr:primaryType: visitscotland:Stop
           jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
@@ -2743,8 +2750,9 @@
           hippostd:state: draft
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2020-02-10T09:32:08.607Z
-          hippostdpubwf:lastModificationDate: 2022-06-16T09:46:54.689+01:00
+          hippostdpubwf:lastModificationDate: 2023-08-14T14:01:35.355+01:00
           hippostdpubwf:lastModifiedBy: admin
+          hippotaxonomy:keys: [outlander-palace-house, outlander-season-1]
           hippotranslation:id: 30a66265-08b2-4cf9-9c8e-5a438d1b56db
           hippotranslation:locale: en
           visitscotland:subtitle: ''
@@ -2796,8 +2804,9 @@
           hippostd:state: unpublished
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2020-02-10T09:32:08.607Z
-          hippostdpubwf:lastModificationDate: 2022-06-16T09:46:59.979+01:00
+          hippostdpubwf:lastModificationDate: 2023-08-14T14:01:48.328+01:00
           hippostdpubwf:lastModifiedBy: admin
+          hippotaxonomy:keys: [outlander-palace-house, outlander-season-1]
           hippotranslation:id: 30a66265-08b2-4cf9-9c8e-5a438d1b56db
           hippotranslation:locale: en
           visitscotland:subtitle: ''
@@ -2849,9 +2858,10 @@
           hippostd:state: published
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2020-02-10T09:32:08.607Z
-          hippostdpubwf:lastModificationDate: 2022-06-16T09:46:59.979+01:00
+          hippostdpubwf:lastModificationDate: 2023-08-14T14:01:48.328+01:00
           hippostdpubwf:lastModifiedBy: admin
-          hippostdpubwf:publicationDate: 2022-06-16T09:47:01.907+01:00
+          hippostdpubwf:publicationDate: 2023-08-14T14:01:50.283+01:00
+          hippotaxonomy:keys: [outlander-palace-house, outlander-season-1]
           hippotranslation:id: 30a66265-08b2-4cf9-9c8e-5a438d1b56db
           hippotranslation:locale: en
           visitscotland:subtitle: ''
@@ -3298,7 +3308,7 @@
         jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
         jcr:uuid: 9830f174-d0eb-47bf-9b1a-02f86f43e17f
         hippo:name: Edinburgh castle
-        hippo:versionHistory: 010633f2-47e0-48de-8930-5ce4338780fa
+        hippo:versionHistory: 6bfb6a03-e71b-467e-89f4-19a34910b34b
         /edinburgh-castle[1]:
           jcr:primaryType: visitscotland:Stop
           jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
@@ -3308,8 +3318,9 @@
           hippostd:state: draft
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2019-12-10T13:29:39.541Z
-          hippostdpubwf:lastModificationDate: 2022-06-16T09:47:51.314+01:00
+          hippostdpubwf:lastModificationDate: 2023-08-14T14:01:53.443+01:00
           hippostdpubwf:lastModifiedBy: admin
+          hippotaxonomy:keys: [outlander-castle, outlander-season-1, outlander-season-3]
           hippotranslation:id: 031ee49b-b582-4764-b4f6-da2121ddecb8
           hippotranslation:locale: en
           visitscotland:subtitle: ''
@@ -3355,8 +3366,9 @@
           hippostd:state: unpublished
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2019-12-10T13:29:39.541Z
-          hippostdpubwf:lastModificationDate: 2022-06-16T09:48:01.204+01:00
+          hippostdpubwf:lastModificationDate: 2023-08-14T14:02:07.653+01:00
           hippostdpubwf:lastModifiedBy: admin
+          hippotaxonomy:keys: [outlander-castle, outlander-season-1, outlander-season-3]
           hippotranslation:id: 031ee49b-b582-4764-b4f6-da2121ddecb8
           hippotranslation:locale: en
           visitscotland:subtitle: ''
@@ -3402,9 +3414,10 @@
           hippostd:state: published
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2019-12-10T13:29:39.541Z
-          hippostdpubwf:lastModificationDate: 2022-06-16T09:48:01.204+01:00
+          hippostdpubwf:lastModificationDate: 2023-08-14T14:02:07.653+01:00
           hippostdpubwf:lastModifiedBy: admin
-          hippostdpubwf:publicationDate: 2022-06-16T09:48:04.824+01:00
+          hippostdpubwf:publicationDate: 2023-08-14T14:02:11.286+01:00
+          hippotaxonomy:keys: [outlander-castle, outlander-season-1, outlander-season-3]
           hippotranslation:id: 031ee49b-b582-4764-b4f6-da2121ddecb8
           hippotranslation:locale: en
           visitscotland:subtitle: ''
@@ -3792,7 +3805,7 @@
         jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
         jcr:uuid: 178cc6ee-9b6a-4095-80b2-9026263d173e
         hippo:name: National musseum - free example
-        hippo:versionHistory: bac07ff4-ea15-476c-86e9-bc1a44a55f40
+        hippo:versionHistory: ee180e60-6162-4256-96bf-db6b3ef9d586
         /national-musseum---free-example[1]:
           jcr:primaryType: visitscotland:Stop
           jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
@@ -3802,8 +3815,9 @@
           hippostd:state: draft
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2021-05-05T08:34:12.475+01:00
-          hippostdpubwf:lastModificationDate: 2022-11-16T16:11:00.512Z
+          hippostdpubwf:lastModificationDate: 2023-08-14T14:02:51.671+01:00
           hippostdpubwf:lastModifiedBy: admin
+          hippotaxonomy:keys: [outlander-heritage, outlander-season-1, outlander-season-3]
           hippotranslation:id: e6433e3e-29d9-485c-b409-fff4ee7307a9
           hippotranslation:locale: en
           visitscotland:subtitle: ''
@@ -3831,8 +3845,9 @@
           hippostd:state: unpublished
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2021-05-05T08:34:12.475+01:00
-          hippostdpubwf:lastModificationDate: 2022-11-16T16:11:08.176Z
+          hippostdpubwf:lastModificationDate: 2023-08-14T14:02:51.624+01:00
           hippostdpubwf:lastModifiedBy: admin
+          hippotaxonomy:keys: [outlander-heritage, outlander-season-1, outlander-season-3]
           hippotranslation:id: e6433e3e-29d9-485c-b409-fff4ee7307a9
           hippotranslation:locale: en
           visitscotland:subtitle: ''
@@ -3860,9 +3875,10 @@
           hippostd:state: published
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2021-05-05T08:34:12.475+01:00
-          hippostdpubwf:lastModificationDate: 2022-11-16T16:11:08.176Z
+          hippostdpubwf:lastModificationDate: 2023-08-14T14:02:51.624+01:00
           hippostdpubwf:lastModifiedBy: admin
-          hippostdpubwf:publicationDate: 2022-11-16T16:11:12.056Z
+          hippostdpubwf:publicationDate: 2023-08-14T14:02:54.858+01:00
+          hippotaxonomy:keys: [outlander-heritage, outlander-season-1, outlander-season-3]
           hippotranslation:id: e6433e3e-29d9-485c-b409-fff4ee7307a9
           hippotranslation:locale: en
           visitscotland:subtitle: ''
@@ -4306,7 +4322,7 @@
         jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
         jcr:uuid: 56d04a55-ae5b-4357-a8fd-b20bebbe91c5
         hippo:name: Inverness Botanic Gardens
-        hippo:versionHistory: 5428fe91-3482-4d39-aeb6-7bbd23b3254c
+        hippo:versionHistory: ceacdfb6-3fd7-4f13-93fa-785d588d0dbf
         /inverness-botanic-gardens[1]:
           jcr:primaryType: visitscotland:Stop
           jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
@@ -4316,8 +4332,9 @@
           hippostd:state: draft
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2020-10-20T13:43:16.322Z
-          hippostdpubwf:lastModificationDate: 2022-11-16T16:12:05.317Z
+          hippostdpubwf:lastModificationDate: 2023-08-14T14:01:04.736+01:00
           hippostdpubwf:lastModifiedBy: admin
+          hippotaxonomy:keys: [outlander-landscape-park, outlander-season-1]
           hippotranslation:id: ff9e6db9-2526-4683-8006-d7df8d831d94
           hippotranslation:locale: en
           visitscotland:subtitle: ''
@@ -4346,8 +4363,9 @@
           hippostd:state: unpublished
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2020-10-20T13:43:16.322Z
-          hippostdpubwf:lastModificationDate: 2022-11-16T16:12:13.095Z
+          hippostdpubwf:lastModificationDate: 2023-08-14T14:01:04.653+01:00
           hippostdpubwf:lastModifiedBy: admin
+          hippotaxonomy:keys: [outlander-landscape-park, outlander-season-1]
           hippotranslation:id: ff9e6db9-2526-4683-8006-d7df8d831d94
           hippotranslation:locale: en
           visitscotland:subtitle: ''
@@ -4376,9 +4394,10 @@
           hippostd:state: published
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2020-10-20T13:43:16.322Z
-          hippostdpubwf:lastModificationDate: 2022-11-16T16:12:13.095Z
+          hippostdpubwf:lastModificationDate: 2023-08-14T14:01:04.653+01:00
           hippostdpubwf:lastModifiedBy: admin
-          hippostdpubwf:publicationDate: 2022-11-16T16:12:15.802Z
+          hippostdpubwf:publicationDate: 2023-08-14T14:01:08.220+01:00
+          hippotaxonomy:keys: [outlander-landscape-park, outlander-season-1]
           hippotranslation:id: ff9e6db9-2526-4683-8006-d7df8d831d94
           hippotranslation:locale: en
           visitscotland:subtitle: ''
@@ -4752,7 +4771,7 @@
         jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
         jcr:uuid: fc1a1f69-c51a-4b65-8bef-3ba62452b6be
         hippo:name: Cameron House
-        hippo:versionHistory: 6acd1323-59c7-407b-9901-1cab92c6003d
+        hippo:versionHistory: e3ae0a42-e1df-469d-b167-6b2d18413994
         /cameron-house[1]:
           jcr:primaryType: visitscotland:Stop
           jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
@@ -4762,8 +4781,9 @@
           hippostd:state: draft
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2022-11-18T12:54:47.065Z
-          hippostdpubwf:lastModificationDate: 2022-11-18T12:54:47.065Z
+          hippostdpubwf:lastModificationDate: 2023-08-14T13:59:35.801+01:00
           hippostdpubwf:lastModifiedBy: admin
+          hippotaxonomy:keys: [outlander-palace-house, outlander-season-2, outlander-season-4]
           hippotranslation:id: a9105769-1564-4058-ae7e-84561072afea
           hippotranslation:locale: en
           visitscotland:subtitle: ''
@@ -4794,8 +4814,9 @@
           hippostd:state: unpublished
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2022-11-18T12:54:47.065Z
-          hippostdpubwf:lastModificationDate: 2022-11-18T12:55:16.390Z
+          hippostdpubwf:lastModificationDate: 2023-08-14T13:59:51.984+01:00
           hippostdpubwf:lastModifiedBy: admin
+          hippotaxonomy:keys: [outlander-palace-house, outlander-season-2, outlander-season-4]
           hippotranslation:id: a9105769-1564-4058-ae7e-84561072afea
           hippotranslation:locale: en
           visitscotland:subtitle: ''
@@ -4826,9 +4847,10 @@
           hippostd:state: published
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2022-11-18T12:54:47.065Z
-          hippostdpubwf:lastModificationDate: 2022-11-18T12:55:16.390Z
+          hippostdpubwf:lastModificationDate: 2023-08-14T13:59:51.984+01:00
           hippostdpubwf:lastModifiedBy: admin
-          hippostdpubwf:publicationDate: 2022-11-18T12:55:19.801Z
+          hippostdpubwf:publicationDate: 2023-08-14T13:59:59.128+01:00
+          hippotaxonomy:keys: [outlander-palace-house, outlander-season-2, outlander-season-4]
           hippotranslation:id: a9105769-1564-4058-ae7e-84561072afea
           hippotranslation:locale: en
           visitscotland:subtitle: ''

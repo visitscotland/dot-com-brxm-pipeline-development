@@ -228,7 +228,7 @@ public class MapFactory {
                 String name = jsonNode.has(NAME) ? jsonNode.get(NAME).asText() : null;
                 String description = jsonNode.has(DESCRIPTION) ? jsonNode.get(DESCRIPTION).asText() : null;
                 String id = jsonNode.has(ID) ? jsonNode.get(ID).asText() : null;
-                data.set(PROPERTIES, mapService.getPropertyNode(name, description, image, filter, link, id));
+                data.set(PROPERTIES, mapService.getPropertyNode(name, description,null, image,filter, link, id, locale));
                 data.set(GEOMETRY, mapService.getGeometryNode(mapService.getCoordinates(jsonNode.get("longitude").asDouble(), jsonNode.get("latitude").asDouble()), POINT));
 
                 features.add(data);

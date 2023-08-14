@@ -71,7 +71,9 @@ public class MapService {
         if (!child.getChildren().isEmpty()){
             ArrayNode childrenArray = mapper.createArrayNode();
             for (Category children : child.getChildren()) {
-                childrenArray.add(buildCategoryNode(children.getKey(),children.getInfo(locale).getName()));
+                String categoryLabel = bundle.getResourceBundle("bespoke-maps",children.getKey() ,locale) != null?
+                        bundle.getResourceBundle("bespoke-maps",children.getKey() ,locale) : children.getInfo(locale).getName();
+                childrenArray.add(buildCategoryNode(children.getKey(),categoryLabel));
             }
             filter.set(SUBCATEGORY,childrenArray);
         }
@@ -185,8 +187,14 @@ public class MapService {
                 if (description.startsWith("<p>") && description.endsWith("</p>")) {
                     description = description.substring(3, description.length() - 4);
                 }
-                feature.set(PROPERTIES, getPropertyNode(stop.getTitle(), description,
-                        image, category, flatLink, stop.getCanonicalUUID()));
+                List<String> listKeys = null;
+                if (stop.getKeys()!=null && stop.getKeys().length>0) {
+                    listKeys = new ArrayList<>(Arrays.asList(stop.getKeys()));
+                    listKeys.remove(category.get("id").asText());
+                }
+
+                feature.set(PROPERTIES, getPropertyNode(stop.getTitle(), description, listKeys,
+                        image, category, flatLink, stop.getCanonicalUUID(), locale));
                 feature.set(GEOMETRY, getGeometryNode(getCoordinates(longitude,latitude),POINT));
             }else{
                 String errorMessage = String.format("Failed to create map card '%s', please review the document attached at: %s", item.getDisplayName(), item.getPath() );
@@ -209,9 +217,9 @@ public class MapService {
     private void buildPageNode(Locale locale, ObjectNode category, MapsModule module, Page page, ObjectNode feature){
         FlatLink flatLink = linkService.createSimpleLink(page, module, locale);
         flatLink.setLabel(bundle.getResourceBundle(MAP, DISCOVER, locale));
-        ObjectNode properties = getPropertyNode(page.getTitle(), page.getTeaser(),
+        ObjectNode properties = getPropertyNode(page.getTitle(), page.getTeaser(), null,
                 imageFactory.createImage(page.getImage(), module, locale), category,
-                flatLink, page.getCanonicalUUID());
+                flatLink, page.getCanonicalUUID(), locale);
         if (page instanceof Destination){
             Destination destination = (Destination) page;
             LocationObject location = locationLoader.getLocation(destination.getLocation(), Locale.UK);
@@ -240,9 +248,23 @@ public class MapService {
      * @param link Mapcard link to the page
      * @return ObjectNode with the right format to be consumed by the front end team
      */
-    public ObjectNode getPropertyNode(String title, String description, FlatImage image, ObjectNode category, FlatLink link, String id) {
+    public ObjectNode getPropertyNode(String title, String description, List<String> subcategory, FlatImage image, ObjectNode category, FlatLink link, String id , Locale locale) {
         ObjectNode rootNode = mapper.createObjectNode();
         rootNode.set("category", category);
+        if (subcategory != null && !subcategory.isEmpty()){
+            ArrayNode subcategoryArrayNode = mapper.createArrayNode();
+            String jsonNodeName = null;
+            for (String categoryKey : subcategory) {
+                Category mainCategory = hippoUtilsService.getTaxonomy().getCategoryByKey(categoryKey);
+                ObjectNode subcategoryNode = mapper.createObjectNode();
+                jsonNodeName =  bundle.getResourceBundle("bespoke-maps",mainCategory.getParent().getKey() ,locale);
+                subcategoryNode.put(ID, mainCategory.getKey().split("-", 2)[1]);
+                subcategoryNode.put(LABEL,bundle.getResourceBundle("bespoke-maps", mainCategory.getKey(),locale));
+                subcategoryArrayNode.add(subcategoryNode);
+            }
+            rootNode.put(jsonNodeName, subcategoryArrayNode);
+        }
+
         rootNode.put(ID, id);
         rootNode.put("title", title);
         rootNode.put(DESCRIPTION, description);
@@ -324,11 +346,13 @@ public class MapService {
         ObjectNode feature = null;
         if (!Contract.isNull(bean)) {
             feature = mapper.createObjectNode();
+            String categoryLabel = bundle.getResourceBundle("bespoke-maps",category.getKey() ,locale) != null?
+                    bundle.getResourceBundle("bespoke-maps",category.getKey() ,locale) : category.getInfo(locale).getName();
             if (bean instanceof Destination) {
                 feature.put(TYPE, FEATURE);
-                buildPageNode(locale, buildCategoryNode(category.getKey(),category.getInfo(locale).getName()), module,((Destination) bean), feature);
+                buildPageNode(locale, buildCategoryNode(category.getKey(),categoryLabel), module,((Destination) bean), feature);
             } else {
-               boolean valid = buildStopNode(locale, buildCategoryNode(category.getKey(),category.getInfo(locale).getName()),module, ((Stop) bean), feature);
+                buildStopNode(locale, buildCategoryNode(category.getKey(),categoryLabel),module, ((Stop) bean), feature);
             }
         }
         return feature;

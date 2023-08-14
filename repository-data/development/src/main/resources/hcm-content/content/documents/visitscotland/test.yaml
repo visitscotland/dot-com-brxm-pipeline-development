@@ -22174,6 +22174,193 @@
           visitscotland:tabTitle: ''
           visitscotland:title: Map
           visitscotland:translation: ''
+    /outlander:
+      jcr:primaryType: hippostd:folder
+      jcr:mixinTypes: ['hippo:named', 'hippotranslation:translated', 'mix:versionable']
+      jcr:uuid: 2699edc5-c412-49dd-aa9d-272a3a4103d2
+      hippo:name: Outlander
+      hippostd:foldertype: [new-translated-folder-test, new-document]
+      hippotranslation:id: d03c81ce-7153-453d-bc1d-a27d859c7e29
+      hippotranslation:locale: en
+      /content:
+        jcr:primaryType: hippo:handle
+        jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+        jcr:uuid: b72e7bfe-605f-427c-ac32-852e2980f48d
+        hippo:name: Outlander Filming Locations
+        hippo:versionHistory: 949b215d-4904-4ceb-9219-33b0a9dc55c2
+        /content[1]:
+          jcr:primaryType: visitscotland:General
+          jcr:mixinTypes: ['mix:referenceable']
+          jcr:uuid: 6839e1a2-e044-4538-b755-cc0093f8ed7f
+          hippo:availability: []
+          hippostd:retainable: false
+          hippostd:state: draft
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2023-08-14T13:56:51.517+01:00
+          hippostdpubwf:lastModificationDate: 2023-08-14T13:57:56.706+01:00
+          hippostdpubwf:lastModifiedBy: admin
+          hippotranslation:id: 64555c8c-ffc6-461c-8fa5-b6e3df13fe5b
+          hippotranslation:locale: en
+          visitscotland:breadcrumb: ''
+          visitscotland:hideNewsletter: false
+          visitscotland:seoDescription: Outlander Filming Locations
+          visitscotland:seoNoIndex: false
+          visitscotland:seoTitle: Outlander Filming Locations
+          visitscotland:teaser: Outlander Filming Locations
+          visitscotland:theme: Standard
+          visitscotland:title: Outlander Filming Locations
+          visitscotland:translation: ''
+          /visitscotland:heroImage:
+            jcr:primaryType: hippogallerypicker:imagelink
+            hippo:docbase: ea857cd5-2d45-4f7c-9da9-503b2be8f382
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+          /visitscotland:introduction:
+            jcr:primaryType: hippostd:html
+            hippostd:content: <p>If you have found yourself caught in the mystical
+              and spell-binding&nbsp;<em>Outlander</em>&nbsp;saga and wish to be swept
+              away to Claire and Jamie's world, come and experience the land that
+              inspired the writer Diana Gabaldon and the TV series producers. From
+              ancient and mysterious standing stones to dramatic castles, magnificent
+              stately homes and breathtaking landscapes, visit Scotland and embark
+              on an inspiring journey.</p>
+        /content[2]:
+          jcr:primaryType: visitscotland:General
+          jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+          jcr:uuid: cfe98410-ce47-4cdc-bae5-9b07def708fa
+          hippo:availability: [preview]
+          hippostd:retainable: false
+          hippostd:state: unpublished
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2023-08-14T13:56:51.517+01:00
+          hippostdpubwf:lastModificationDate: 2023-08-14T13:57:56.103+01:00
+          hippostdpubwf:lastModifiedBy: admin
+          hippotranslation:id: 64555c8c-ffc6-461c-8fa5-b6e3df13fe5b
+          hippotranslation:locale: en
+          visitscotland:breadcrumb: ''
+          visitscotland:hideNewsletter: false
+          visitscotland:seoDescription: Outlander Filming Locations
+          visitscotland:seoNoIndex: false
+          visitscotland:seoTitle: Outlander Filming Locations
+          visitscotland:teaser: Outlander Filming Locations
+          visitscotland:theme: Standard
+          visitscotland:title: Outlander Filming Locations
+          visitscotland:translation: ''
+          /visitscotland:heroImage:
+            jcr:primaryType: hippogallerypicker:imagelink
+            hippo:docbase: ea857cd5-2d45-4f7c-9da9-503b2be8f382
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+          /visitscotland:introduction:
+            jcr:primaryType: hippostd:html
+            hippostd:content: <p>If you have found yourself caught in the mystical
+              and spell-binding&nbsp;<em>Outlander</em>&nbsp;saga and wish to be swept
+              away to Claire and Jamie's world, come and experience the land that
+              inspired the writer Diana Gabaldon and the TV series producers. From
+              ancient and mysterious standing stones to dramatic castles, magnificent
+              stately homes and breathtaking landscapes, visit Scotland and embark
+              on an inspiring journey.</p>
+        /content[3]:
+          jcr:primaryType: visitscotland:General
+          jcr:mixinTypes: ['mix:referenceable']
+          jcr:uuid: 179239cb-47d4-4adf-b2ea-8cb18ab5abf2
+          hippo:availability: [live]
+          hippostd:retainable: false
+          hippostd:state: published
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2023-08-14T13:56:51.517+01:00
+          hippostdpubwf:lastModificationDate: 2023-08-14T13:57:56.103+01:00
+          hippostdpubwf:lastModifiedBy: admin
+          hippostdpubwf:publicationDate: 2023-08-14T13:59:17.024+01:00
+          hippotranslation:id: 64555c8c-ffc6-461c-8fa5-b6e3df13fe5b
+          hippotranslation:locale: en
+          visitscotland:breadcrumb: ''
+          visitscotland:hideNewsletter: false
+          visitscotland:seoDescription: Outlander Filming Locations
+          visitscotland:seoNoIndex: false
+          visitscotland:seoTitle: Outlander Filming Locations
+          visitscotland:teaser: Outlander Filming Locations
+          visitscotland:theme: Standard
+          visitscotland:title: Outlander Filming Locations
+          visitscotland:translation: ''
+          /visitscotland:heroImage:
+            jcr:primaryType: hippogallerypicker:imagelink
+            hippo:docbase: ea857cd5-2d45-4f7c-9da9-503b2be8f382
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+          /visitscotland:introduction:
+            jcr:primaryType: hippostd:html
+            hippostd:content: <p>If you have found yourself caught in the mystical
+              and spell-binding&nbsp;<em>Outlander</em>&nbsp;saga and wish to be swept
+              away to Claire and Jamie's world, come and experience the land that
+              inspired the writer Diana Gabaldon and the TV series producers. From
+              ancient and mysterious standing stones to dramatic castles, magnificent
+              stately homes and breathtaking landscapes, visit Scotland and embark
+              on an inspiring journey.</p>
+      /outlander-filming-locations:
+        jcr:primaryType: hippo:handle
+        jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+        jcr:uuid: 9800eb85-c4b8-45f3-9dc1-1987318b67e3
+        hippo:name: OUTLANDER FILMING LOCATIONS
+        hippo:versionHistory: ec607c0b-7484-4e6f-b2be-56d0c1afd146
+        /outlander-filming-locations[1]:
+          jcr:primaryType: visitscotland:MapModule
+          jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
+          jcr:uuid: dc87346b-803d-4d18-ba16-c0cce8e6bfc5
+          hippo:availability: []
+          hippostd:retainable: false
+          hippostd:state: draft
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2023-08-14T13:58:31.150+01:00
+          hippostdpubwf:lastModificationDate: 2023-08-14T13:58:31.150+01:00
+          hippostdpubwf:lastModifiedBy: admin
+          hippotaxonomy:keys: [outlander-category]
+          hippotranslation:id: 17354a1b-3c5e-401f-a10c-c572d604d603
+          hippotranslation:locale: en
+          visitscotland:mapType: ''
+          visitscotland:tabTitle: ''
+          visitscotland:title: OUTLANDER FILMING LOCATIONS
+          visitscotland:translation: ''
+        /outlander-filming-locations[2]:
+          jcr:primaryType: visitscotland:MapModule
+          jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable', 'mix:versionable']
+          jcr:uuid: 0687cf62-4b2e-4b46-bc55-b04811b8ce3f
+          hippo:availability: [preview]
+          hippostd:retainable: false
+          hippostd:state: unpublished
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2023-08-14T13:58:31.150+01:00
+          hippostdpubwf:lastModificationDate: 2023-08-14T13:59:00.403+01:00
+          hippostdpubwf:lastModifiedBy: admin
+          hippotaxonomy:keys: [outlander-category]
+          hippotranslation:id: 17354a1b-3c5e-401f-a10c-c572d604d603
+          hippotranslation:locale: en
+          visitscotland:mapType: ''
+          visitscotland:tabTitle: ''
+          visitscotland:title: OUTLANDER FILMING LOCATIONS
+          visitscotland:translation: ''
+        /outlander-filming-locations[3]:
+          jcr:primaryType: visitscotland:MapModule
+          jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
+          jcr:uuid: ebed5882-a5ea-41f7-b678-6eeb447354c6
+          hippo:availability: [live]
+          hippostd:retainable: false
+          hippostd:state: published
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2023-08-14T13:58:31.150+01:00
+          hippostdpubwf:lastModificationDate: 2023-08-14T13:59:00.403+01:00
+          hippostdpubwf:lastModifiedBy: admin
+          hippostdpubwf:publicationDate: 2023-08-14T13:59:17.358+01:00
+          hippotaxonomy:keys: [outlander-category]
+          hippotranslation:id: 17354a1b-3c5e-401f-a10c-c572d604d603
+          hippotranslation:locale: en
+          visitscotland:mapType: ''
+          visitscotland:tabTitle: ''
+          visitscotland:title: OUTLANDER FILMING LOCATIONS
+          visitscotland:translation: ''
   /automation:
     jcr:primaryType: hippostd:folder
     jcr:mixinTypes: ['hippo:named', 'hippotranslation:translated', 'mix:versionable']
