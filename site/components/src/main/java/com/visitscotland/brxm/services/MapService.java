@@ -67,13 +67,13 @@ public class MapService {
      * @return ObjectNode with the filters to be used
      */
     public ObjectNode addFilterNode(Category child, Locale locale) {
-        ObjectNode filter = buildCategoryNode(child.getKey(), child.getInfo(locale).getName());
+        String categoryLabel = bundle.getResourceBundle("bespoke-maps",child.getKey() ,locale) != null?
+                bundle.getResourceBundle("bespoke-maps",child.getKey() ,locale) : child.getInfo(locale).getName();
+        ObjectNode filter = buildCategoryNode(child.getKey(), categoryLabel);
         if (!child.getChildren().isEmpty()){
             ArrayNode childrenArray = mapper.createArrayNode();
             for (Category children : child.getChildren()) {
-                String categoryLabel = bundle.getResourceBundle("bespoke-maps",children.getKey() ,locale) != null?
-                        bundle.getResourceBundle("bespoke-maps",children.getKey() ,locale) : children.getInfo(locale).getName();
-                childrenArray.add(buildCategoryNode(children.getKey(),categoryLabel));
+                childrenArray.add(buildCategoryNode(children.getKey(), children.getInfo(locale).getName()));
             }
             filter.set(SUBCATEGORY,childrenArray);
         }
