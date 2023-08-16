@@ -380,7 +380,7 @@ public class MapService {
                 concatenatedSubCategories = jsonNodeName.replace(concatenatedSubCategories.lastIndexOf(","), concatenatedSubCategories.lastIndexOf(",") + 1, " &" ).toString();
             }
             rootNode.put ("subtitle", concatenatedSubCategories);
-            rootNode.put("subcategory", subcategoryArrayNode);
+            rootNode.put("alternativeCategories", subcategoryArrayNode);
 
         }
     }
