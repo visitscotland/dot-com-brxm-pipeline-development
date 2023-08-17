@@ -39,7 +39,7 @@ public class MapService {
     static final String BESPOKEMAP = "bespoke-maps";
     static final String TYPE = "type";
     static final String POINT = "Point";
-    static final String SUBCATEGORY = "subCategory";
+    static final String ALTERNATIVE_CATEGORIES = "alternativeCategories";
     private static final Logger logger = LoggerFactory.getLogger(MapService.class);
 
     private final ObjectMapper mapper;
@@ -74,7 +74,7 @@ public class MapService {
             for (Category children : child.getChildren()) {
                 childrenArray.add(buildCategoryNode(children.getKey(), children.getInfo(locale).getName()));
             }
-            filter.set(SUBCATEGORY,childrenArray);
+            filter.set(ALTERNATIVE_CATEGORIES,childrenArray);
         }
         return filter;
     }
