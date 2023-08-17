@@ -36,67 +36,76 @@
 <div class="has-edit-button">
     <@hst.manageContent hippobean=document/>
 
-    <@pageIntro content=document heroDetails=heroImage itinerary=itinerary />
+    <#--  <@pageIntro content=document heroDetails=heroImage itinerary=itinerary />  -->
 
     <vs-itinerary
         list-view-text="${label('itinerary', 'list-view')}"
         map-view-text="${label('itinerary', 'map-view')}"
     >
-        <@itineraryMap itinerary />
-        <#list itinerary.days as day>
-            <#assign dayNumber++>
+        <template v-slot:map>
+            <@itineraryMap itinerary />
+        </template>
+        <template v-slot:list>
+            <#list itinerary.days as day>
+                <#assign dayNumber++>
 
-            <vs-itinerary-day 
-                slot="list"
-                :default-show="${(dayNumber < 3)?c}"
-                day-number="${dayNumber}"
-                day-label="${label("itinerary", "day")}"
-                day-title="${day.title}"
+                <vs-itinerary-day
+                    :default-show="${(dayNumber < 3)?c}"
+                    day-number="${dayNumber}"
+                    day-label="${label("itinerary", "day")}"
+                    day-title="${day.title}"
                 >
-                <#if day.transports?has_content>
-                    <#assign dayTransport = day.transports[0]>
-                    <vs-description-list class="text-center justify-content-center align-items-center has-edit-button" slot="day-transport">
-                         <@hst.manageContent hippobean=day />
-                        <#-- 
-                            Note - can't use vs-description-list-item
-                            here yet as font style and layout are different 
-                            #VS-2985
-                        -->
-                        <dt class="list-inline-item">${label("itinerary", "transport")}:</dt>
-                        <#list day.transports as transport>
-                            <dd class="list-inline-item">
-                                <vs-tooltip
-                                    title="${label('transports', '${transport}')}"
-                                    href="#"
-                                    icon="${transport}"
-                                    size="lg"
-                                    icon-only
-                                    variant="transparent"
-                                >
-                                    <span class="sr-only">
-                                        ${label("transports", "${transport}")}
-                                    </span>
-                                </vs-tooltip>
-                            </dd>
+                    <#if day.transports?has_content>
+                        <#assign dayTransport = day.transports[0]>
+                        <vs-description-list
+                            class="text-center justify-content-center align-items-center has-edit-button"
+                            v-slot:day-transport
+                        >
+                            <@hst.manageContent hippobean=day />
+                            <#-- 
+                                Note - can't use vs-description-list-item
+                                here yet as font style and layout are different 
+                                #VS-2985
+                            -->
+                            <dt class="list-inline-item">${label("itinerary", "transport")}:</dt>
+                            <#list day.transports as transport>
+                                <dd class="list-inline-item">
+                                    <vs-tooltip
+                                        title="${label('transports', '${transport}')}"
+                                        href="#"
+                                        icon="${transport}"
+                                        size="lg"
+                                        icon-only
+                                        variant="transparent"
+                                    >
+                                        <span class="sr-only">
+                                            ${label("transports", "${transport}")}
+                                        </span>
+                                    </vs-tooltip>
+                                </dd>
+                            </#list>
+                        </vs-description-list>
+
+                    <#else>
+                        <#assign dayTransport = "">
+                    </#if>
+
+                    <template v-slot:day-introduction>
+                        <@hst.html hippohtml=day.introduction/>
+                    </template>
+                    
+                    <template v-slot:stops>
+                        <!-- STOP STARTS HERE -->
+                        <#assign lastStop = lastStop + day.stops?size>
+                        <#list day.stops as stop>
+                            <#assign stopModule = itinerary.stops[stop.identifier]>
+                            <@itineraryStop stop=stopModule isLastStop=(stopModule.index==lastStop)?c/>
                         </#list>
-                    </vs-description-list>
-                <#else>
-                    <#assign dayTransport = "">
-                </#if>
-
-                <div slot="day-introduction">
-                    <@hst.html hippohtml=day.introduction/>
-                </div>
-
-                <!-- STOP STARTS HERE -->
-                <#assign lastStop = lastStop + day.stops?size>
-                <#list day.stops as stop>
-                    <#assign stopModule = itinerary.stops[stop.identifier]>
-                    <@itineraryStop stop=stopModule isLastStop=(stopModule.index==lastStop)?c/>
-                </#list>
-                <!-- STOP ENDS HERE -->
-            </vs-itinerary-day>
-        </#list>
+                        <!-- STOP ENDS HERE -->
+                    </template>
+                </vs-itinerary-day>
+            </#list>
+        </template>
     </vs-itinerary>
 
     <@socialShare nojs=true/>

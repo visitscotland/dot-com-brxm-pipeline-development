@@ -30,7 +30,6 @@
     </#if>
 
     <vs-itinerary-stop
-        slot="stops"
         stop-number="${stop.index}"
         stop-label="${stop.title}"
         stop-title="${stop.subTitle!''}"
@@ -43,7 +42,7 @@
         </#if>
 
         <#if stop?? && stop.description?? && stop.description?has_content>
-            <template slot="stop-description">
+            <template v-slot:stop-description>
                 <@hst.html hippohtml=stop.description/>
                 <#if stop.ctaLink?? && stop.ctaLink.link?? && stop.ctaLink.link?has_content>
                     <vs-link
@@ -56,7 +55,7 @@
                 </#if>
 
                 <#if stop.timeToExplore?? && stop.timeToExplore?has_content>
-                    <vs-description-list class="mb-4 justify-content-start" inline slot="stop">
+                    <vs-description-list class="mb-4 justify-content-start" inline v-slot:stop>
                         <vs-description-list-item title class="mb-0 mr-0 pr-1 col-auto">${label("itinerary", "stop.time-to-explore")}</vs-description-list-item>
                         <vs-description-list-item class="mb-0 col-auto px-0">${stop.timeToExplore}</vs-description-list-item>
                     </vs-description-list>
@@ -64,11 +63,15 @@
 
                 <#if (stop.tipsTitle?? && stop.tipsTitle?has_content)>
                     <vs-itinerary-tips>
-                        <div slot="text">
-                            <strong>${stop.tipsTitle}</strong>
-                            <@hst.html hippohtml=stop.tipsBody/>
-                        </div>
-                        <vs-svg slot="svg" path="highland-cow" />
+                        <template v-slot:text>
+                            <div>
+                                <strong>${stop.tipsTitle}</strong>
+                                <@hst.html hippohtml=stop.tipsBody/>
+                            </div>
+                        </template>
+                        <template v-slot:svg>
+                            <vs-svg path="highland-cow" />
+                        </template>
                     </vs-itinerary-tips>
                 </#if>
             </template>
@@ -76,46 +79,48 @@
 
         <#if stop??>
             <#if stop.address??>
-                <vs-address slot="stop-address">
-                    <#assign addressArr = [
-                        stop.address.line1!"",
-                        stop.address.line2!"",
-                        stop.address.line3!"",
-                        stop.address.city!"",
-                        stop.address.postCode!""
-                    ]/>
+                <template v-slot:stop-address>
+                    <vs-address>
+                        <#assign addressArr = [
+                            stop.address.line1!"",
+                            stop.address.line2!"",
+                            stop.address.line3!"",
+                            stop.address.city!"",
+                            stop.address.postCode!""
+                        ]/>
 
-                    <#--
-                        Filter out empty strings in address
+                        <#--
+                            Filter out empty strings in address
 
-                        It would be tidier to do this within the loop below, but that
-                        causes <#sep> to incorrectly assume that the postCode is always
-                        a value that needs a comma before it, even if it is an empty
-                        string. The ideal solution would be to iterate over
+                            It would be tidier to do this within the loop below, but that
+                            causes <#sep> to incorrectly assume that the postCode is always
+                            a value that needs a comma before it, even if it is an empty
+                            string. The ideal solution would be to iterate over
 
-                        addressArr?filter()
+                            addressArr?filter()
 
-                        rather than constructing a whole filtered copy of the array
-                        for readability but that is not doable until we reach a future
-                        version of freemarker (2.3.29).
+                            rather than constructing a whole filtered copy of the array
+                            for readability but that is not doable until we reach a future
+                            version of freemarker (2.3.29).
 
-                        TODO: Upgrade to freemarker version 2.3.29.
-                    -->
-                    <#assign filterAddressArr = [] />
-                    <#list addressArr as addrLine>
-                        <#if addrLine != "">
-                            <#assign filterAddressArr = filterAddressArr + [ addrLine ] />
-                        </#if>
-                    </#list>
+                            TODO: Upgrade to freemarker version 2.3.29.
+                        -->
+                        <#assign filterAddressArr = [] />
+                        <#list addressArr as addrLine>
+                            <#if addrLine != "">
+                                <#assign filterAddressArr = filterAddressArr + [ addrLine ] />
+                            </#if>
+                        </#list>
 
-                    <#list filterAddressArr as addressLine>
-                        <span>${addressLine?eval}<#sep>,</span>
-                    </#list>
-                </vs-address>
+                        <#list filterAddressArr as addressLine>
+                            <span>${addressLine?eval}<#sep>,</span>
+                        </#list>
+                    </vs-address>
+                </template>
             </#if>
             
             <#if stop.opening??>
-                <#--  <template slot="stop-info">
+                <#--  <template v-slot:stop-info>
                     <vs-itinerary-stop-info
                         opening-hours="${escapeJSON(stop.opening, false)}"
                         opening-times-link='${stop.openLink.link}'
@@ -128,12 +133,12 @@
                         to-text='${label("itinerary", "stop.to")}'
                         and-text='${label("itinerary", "stop.and")}'
                     >
-                        <template slot="stop-link-text">
+                        <template v-slot:stop-link-text>
                             <span class="sr-only">${stop.title}: </span>${label("itinerary", "stop.opening")}
                         </template>
 
                         <#if stop.price??>
-                            <template slot="stop-charge-text">
+                            <template v-slot:stop-charge-text>
                                 ${stop.price}
                             </template>
                         </#if>
@@ -142,7 +147,7 @@
             </#if>
 
             <#if stop.facilities?? && stop.facilities?size gt 1>
-                <template slot="stop-facilities">
+                <template v-slot:stop-facilities>
                     <@keyFacilities facilitiesList=stop.facilities />
                 </template>
             </#if>
@@ -151,7 +156,7 @@
             <#if isLastStop == 'true'>
                 <#assign nearbyEatsUrl = productSearch(locale, "cate", stop.coordinates.latitude, stop.coordinates.longitude, 5)>
                 <#assign nearbyStayUrl = productSearch(locale, "acco", stop.coordinates.latitude, stop.coordinates.longitude, 5)>
-                <vs-itinerary-border-overlap-wrapper slot="stop-buttons">
+                <vs-itinerary-border-overlap-wrapper v-slot:stop-buttons>
                     <vs-button
                         class="mb-3"
                         variant="secondary"

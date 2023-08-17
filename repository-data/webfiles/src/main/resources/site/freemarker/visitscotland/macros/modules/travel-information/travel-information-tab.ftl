@@ -16,16 +16,16 @@
                         control-id="accordion-item-${row.transport.key}-${row?index}"
                         class="<#if row?is_first>border-0</#if>"
                     >
-                        <template slot="title">
+                        <template v-slot:title>
                             <vs-icon name="${row.transport.key}" variant="dark" size="sm" class="mr-2"></vs-icon> 
                             ${row.transport.label}
                         </template>
 
-                        <template slot="icon-open">
+                        <template v-slot:icon-open>
                             <vs-icon name="chevron" variant="dark" size="sm" />
                         </template>
 
-                        <template slot="icon-closed">
+                        <template v-slot:icon-closed>
                             <vs-icon name="chevron" orientation="down" variant="dark" size="sm" />
                         </template>
 

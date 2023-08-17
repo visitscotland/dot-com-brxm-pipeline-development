@@ -27,15 +27,15 @@
             <#if item.alignment == 'left'>alternate</#if>
             theme="${theme}"
         >
-            <template slot="vsSingleImage">
+            <template v-slot:vs-single-image>
                 <@imageWithCaption imageSrc=image imageDetails=item.image mobileOverlap="true" alignment=item.alignment/>
             </template>
 
-            <template slot="vsSingleImageContent">
+            <template v-slot:vs-single-image-content>
                 <@hst.html hippohtml=item.innerIntroduction/>
             </template>
 
-            <template slot="vsSingleImageLinks">
+            <template v-slot:vs-single-image-links>
                 <#list item.links as listItem>
                     <vs-link-list-item
                         variant="${linkVariant}"
@@ -60,7 +60,7 @@
             </template>
             
             <#if (item.cta.link)??>
-                <template slot="vsSingleImageButtonText">
+                <template v-slot:vs-single-image-button-text>
                     ${item.cta.label}
                 </template>
             </#if>            

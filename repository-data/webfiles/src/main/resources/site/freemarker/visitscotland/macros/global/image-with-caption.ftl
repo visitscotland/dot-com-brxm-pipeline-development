@@ -25,7 +25,7 @@
             play-button-text="${label('video', 'video.play-btn')}"
         </#if>
     >
-        <template slot="video-title">
+        <template v-slot:video-title>
             ${videoTitle}
         </template>
 
@@ -45,38 +45,41 @@
             :use-lazy-loading="${useLazyLoading}"
         >
         </vs-img>
-
-        <vs-caption
-            slot="img-caption"
-            latitude="<#if variant != 'fullwidth'>${(imageDetails.coordinates.latitude)!''}</#if>"
-            longitude="<#if variant != 'fullwidth'>${(imageDetails.coordinates.longitude)!''}</#if>"
-            variant="${variant}"
-            text-align="${alignment}"
+        
+        <template
+            v-slot:img-caption
         >
-            <template slot="caption">
-                <#if isVideo == "true">${label('essentials.global', 'image.title')}: </#if>${(imageDetails.description)!''}
-            </template>
+            <vs-caption
+                latitude="<#if variant != 'fullwidth'>${(imageDetails.coordinates.latitude)!''}</#if>"
+                longitude="<#if variant != 'fullwidth'>${(imageDetails.coordinates.longitude)!''}</#if>"
+                variant="${variant}"
+                text-align="${alignment}"
+            >
+                <template v-slot:caption>
+                    <#if isVideo == "true">${label('essentials.global', 'image.title')}: </#if>${(imageDetails.description)!''}
+                </template>
 
-            <#if imageDetails.source?has_content>
-                <vs-icon
-                    slot="toggle-icon"
-                    name="${imageDetails.source + '-filled'}"
-                    size="md"
-                ></vs-icon>
+                <#if imageDetails.source?has_content>
+                    <vs-icon
+                        v-slot:toggle-icon
+                        name="${imageDetails.source + '-filled'}"
+                        size="md"
+                    ></vs-icon>
 
-                <vs-social-credit-link
-                    slot="credit"
-                    credit="<#if imageDetails.credit??>${imageDetails.credit}<#else>${label('essentials.global', 'image.no.credit')}</#if>"
-                    social-post-url="${imageDetails.postUrl}"
-                    source="${imageDetails.source}"
-                ></vs-social-credit-link>
-            <#else>
-                <#if imageDetails.credit?has_content>
-                    <template slot="credit">
-                        &copy; ${imageDetails.credit}
-                    </template>
+                    <vs-social-credit-link
+                        v-slot:credit
+                        credit="<#if imageDetails.credit??>${imageDetails.credit}<#else>${label('essentials.global', 'image.no.credit')}</#if>"
+                        social-post-url="${imageDetails.postUrl}"
+                        source="${imageDetails.source}"
+                    ></vs-social-credit-link>
+                <#else>
+                    <#if imageDetails.credit?has_content>
+                        <template v-slot:credit>
+                            &copy; ${imageDetails.credit}
+                        </template>
+                    </#if>
                 </#if>
-            </#if>
-        </vs-caption>
+            </vs-caption>
+        </template>
     </vs-image-with-caption>
 </#macro>	

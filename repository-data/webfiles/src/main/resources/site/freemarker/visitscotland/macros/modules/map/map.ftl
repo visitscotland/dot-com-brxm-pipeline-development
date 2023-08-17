@@ -72,11 +72,11 @@
     </#if>
 
     <vs-module-wrapper>
-        <template slot="vsModuleWrapperHeading">
+        <template v-slot:vs-module-wrapper-heading>
             ${module.title}
         </template>
 
-        <template slot="vsModuleWrapperIntro">
+        <template v-slot:vs-module-wrapper-intro>
             <@hst.html hippohtml=module.introduction/>
         </template>
         <vs-main-map-wrapper
@@ -103,36 +103,36 @@
             :hide-mobile-toggle="${hideToggle}"
         >
 
-            <template slot="closeSidePanelText">
+            <template v-slot:close-side-panel-text>
                 <span class="sr-only">
                     ${label('map', 'map.close-panel')}
                 </span>
             </template>
-            <template slot="openSidePanelText">
+            <template v-slot:open-side-panel-text>
                 ${label('map', 'map.open-panel')}
             </template>
-            <template slot="backBtnText">
+            <template v-slot:back-btn-text>
                 ${label('map', 'map.step-back')}
             </template>
-            <template slot="resetSidePanelText">
+            <template v-slot:reset-side-panel-text>
                 ${label('map', 'map.reset-filters')}
             </template>
-            <template slot="loadMoreText">
+            <template v-slot:load-more-text>
                 ${label('map', 'map.load-more')}
             </template>
-            <template slot="noJs">
+            <template v-slot:no-js>
                 ${label('map', 'map.no-js')}
             </template>
-            <template slot="mapLoadingText">
+            <template v-slot:map-loading-text>
                 ${label('map', 'map.loading')}
             </template>
-            <template slot="panelLoadingMessage">
+            <template v-slot:panel-loading-message>
                 ${label('map', 'map.loading-results')}
             </template>
-            <template slot="zoomTooClose">
+            <template v-slot:zoom-too-close>
                 ${label('map', 'map.zoom-too-close')}
             </template>
-            <template slot="zoomTooFar">
+            <template v-slot:zoom-too-far>
                 ${label('map', 'map.zoom-too-far')}
             </template>
         </vs-main-map-wrapper>

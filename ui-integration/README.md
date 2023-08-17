@@ -24,7 +24,7 @@ The integration build:
    - Copies all assets contained in one of the frontend package's dist folders into the parent Hippo site's webfiles folder (at `/repository-data/webfiles/src/main/resources/site/frontend`).
    - Generates Freemarker templates for all Vue component modules, VueX store modules and the core VsApp module listed in the `manifest.json` file to the `components` subfolder, `stores` subfolder, and root, respectively, of the `frontend` Freemarker directory (`/repository-data/webfiles/src/main/resources/site/freemarker/frontend`).
 
-By default, the assets are copied from the `./node_modules/@visitscotland/vs-component-library/dist/ssr/client` folder. Passing the `src-path` flag to `yarn build:ssr` informs webpack to use a different root path for the source of the frontend assets if needed.
+By default, the assets are copied from the `./node_modules/@visitscotland/component-library/dist/ssr/client` folder. Passing the `src-path` flag to `yarn build:ssr` informs webpack to use a different root path for the source of the frontend assets if needed.
 
 
 

@@ -25,11 +25,11 @@
                 class="mt-9 mt-lg-12"
             </#if>
         >
-            <template slot="vsModuleHeading">
+            <template v-slot:vs-module-heading>
                 ${module.title}
             </template>
 
-            <template slot="vsModuleIntro">
+            <template v-slot:vs-module-intro>
                 ${module.description}
             </template>
         </vs-product-search>
