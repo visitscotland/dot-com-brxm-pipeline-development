@@ -210,7 +210,7 @@ public class MapFactory {
     }
 
 
-    private void buildDMSMapPages (String prodTypeId, String prodTypeLabel, String location, MapsModule module,ArrayNode keys,ArrayNode features, String category, Locale locale) {
+    private void buildDMSMapPages (String prodTypeId, String prodTypeLabel, String location, MapsModule module, ArrayNode keys,ArrayNode features, String category, Locale locale) {
         ObjectNode regionFilters = this.addFilters(prodTypeId, prodTypeLabel, locale);
         keys.add(regionFilters);
         this.addDmsData(this.buildProductSearch(location, prodTypeId, category, locale, DMSConstants.SORT_ALPHA, 100),
@@ -228,7 +228,11 @@ public class MapFactory {
                 String name = jsonNode.has(NAME) ? jsonNode.get(NAME).asText() : null;
                 String description = jsonNode.has(DESCRIPTION) ? jsonNode.get(DESCRIPTION).asText() : null;
                 String id = jsonNode.has(ID) ? jsonNode.get(ID).asText() : null;
-                data.set(PROPERTIES, mapService.getPropertyNode(name, description, image, filter, link, id));
+                ObjectNode properties = mapService.getPropertyNode(name, description, image,filter, link, id);
+                properties.put(ID, id);
+                properties.put("title", name);
+                properties.put(DESCRIPTION, description);
+                data.set(PROPERTIES, properties );
                 data.set(GEOMETRY, mapService.getGeometryNode(mapService.getCoordinates(jsonNode.get("longitude").asDouble(), jsonNode.get("latitude").asDouble()), POINT));
 
                 features.add(data);
