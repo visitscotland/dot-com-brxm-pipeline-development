@@ -39,7 +39,7 @@ public class MapService {
     static final String BESPOKEMAP = "bespoke-maps";
     static final String TYPE = "type";
     static final String POINT = "Point";
-    static final String ALTERNATIVE_CATEGORIES = "alternativeCategories";
+    static final String SUBCATEGORY = "subCategory";
     private static final Logger logger = LoggerFactory.getLogger(MapService.class);
 
     private final ObjectMapper mapper;
@@ -74,7 +74,7 @@ public class MapService {
             for (Category children : child.getChildren()) {
                 childrenArray.add(buildCategoryNode(children.getKey(), children.getInfo(locale).getName()));
             }
-            filter.set(ALTERNATIVE_CATEGORIES,childrenArray);
+            filter.set(SUBCATEGORY,childrenArray);
         }
         return filter;
     }
@@ -380,7 +380,7 @@ public class MapService {
                 concatenatedSubCategories = jsonNodeName.replace(concatenatedSubCategories.lastIndexOf(","), concatenatedSubCategories.lastIndexOf(",") + 1, " &" ).toString();
             }
             rootNode.put ("subtitle", concatenatedSubCategories);
-            rootNode.put("alternativeCategories", subcategoryArrayNode);
+            rootNode.put(SUBCATEGORY, subcategoryArrayNode);
 
         }
     }

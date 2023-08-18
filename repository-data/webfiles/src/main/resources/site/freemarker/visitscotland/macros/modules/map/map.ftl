@@ -62,12 +62,12 @@
     </#if>
 
     <#assign hideToggle>
-        false
+        true
     </#assign>
 
-    <#if module.mapType = 'cities' || module.mapType = 'towns'>
+    <#if module.mapType = 'destinations'>
         <#assign hideToggle>
-            true
+            false
         </#assign>
     </#if>
 

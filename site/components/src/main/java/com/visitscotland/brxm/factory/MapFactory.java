@@ -83,9 +83,9 @@ public class MapFactory {
         }else{
             module.setDetailsEndpoint("");
             module.setMapPosition(mapper.createObjectNode());
-            module.setMapType(MapType.GENERAL.getMapType());
             //bespoke maps data and pins coming from DMS
             if (!Contract.isEmpty(mapModuleDocument.getMapType())){
+                module.setMapType(mapModuleDocument.getMapType());
                 //Feature places on top of these maps
                 if (!Contract.isNull(mapModuleDocument.getFeaturedPlacesItem())) {
                     mapService.addFeaturePlacesNode(module, mapModuleDocument.getCategories(), request.getLocale(), keys, features);
@@ -126,6 +126,7 @@ public class MapFactory {
         for (String taxonomy : mapModuleDocument.getKeys()) {
             //get all the Taxonomy information
             Taxonomy vsTaxonomyTree = hippoUtilsService.getTaxonomy();
+            module.setMapType(vsTaxonomyTree.getCategoryByKey(taxonomy).getKey());
             for (Category mainCategory : vsTaxonomyTree.getCategoryByKey(taxonomy).getChildren()) {
                 keys.add(mapService.addFilterNode(mainCategory, request.getLocale()));
                 //if the map has 2 levels, the parent wont be a category for the mapcards, so pick sons
@@ -139,6 +140,7 @@ public class MapFactory {
                     mapService.addMapDocumentsToJson(request, module, mainCategory, features);
                 }
             }
+
         }
     }
 

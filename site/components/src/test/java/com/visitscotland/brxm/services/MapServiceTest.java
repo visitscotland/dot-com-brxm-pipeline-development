@@ -90,7 +90,7 @@ class MapServiceTest {
 
         assertNotNull(categoryNode);
 
-        assertTrue(categoryNode.has(MapService.ALTERNATIVE_CATEGORIES));
+        assertTrue(categoryNode.has(MapService.SUBCATEGORY));
     }
 
     @Test
@@ -111,7 +111,7 @@ class MapServiceTest {
 
         assertNotNull(categoryNode);
         assertEquals(expected, categoryNode);
-        assertFalse(categoryNode.has(MapService.ALTERNATIVE_CATEGORIES));
+        assertFalse(categoryNode.has(MapService.SUBCATEGORY));
     }*/
 
     private ObjectNode mockCategory(String id, String label){
