@@ -2391,9 +2391,10 @@
           hippo:availability: []
           hippostd:retainable: false
           hippostd:state: draft
+          hippostd:transferable: false
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2020-02-10T09:30:38.918Z
-          hippostdpubwf:lastModificationDate: 2023-08-18T12:13:31.846+01:00
+          hippostdpubwf:lastModificationDate: 2023-08-18T12:27:49.957+01:00
           hippostdpubwf:lastModifiedBy: admin
           hippotaxonomy:keys: [outlander-city-town-village, outlander-season-1, outlander-season-3,
             outlander-season-4]
@@ -3310,9 +3311,10 @@
           hippo:availability: []
           hippostd:retainable: false
           hippostd:state: draft
+          hippostd:transferable: false
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2019-12-10T13:29:39.541Z
-          hippostdpubwf:lastModificationDate: 2023-08-14T14:01:53.443+01:00
+          hippostdpubwf:lastModificationDate: 2023-08-18T15:11:26.808+01:00
           hippostdpubwf:lastModifiedBy: admin
           hippotaxonomy:keys: [outlander-castle, outlander-season-1, outlander-season-3]
           hippotranslation:id: 031ee49b-b582-4764-b4f6-da2121ddecb8
@@ -4866,6 +4868,139 @@
             hippo:facets: []
             hippo:modes: []
             hippo:values: []
+      /glencorse-old-kirk:
+        jcr:primaryType: hippo:handle
+        jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+        jcr:uuid: f55ff5bb-5588-476e-9597-21220c6c0b7d
+        hippo:name: Glencorse Old Kirk
+        hippo:versionHistory: ecc56722-83f9-42cb-a1ce-69e571d51e99
+        /glencorse-old-kirk[1]:
+          jcr:primaryType: visitscotland:Stop
+          jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
+          jcr:uuid: aedc4c8b-d281-4d16-9489-42229c247d7d
+          hippo:availability: []
+          hippostd:retainable: false
+          hippostd:state: draft
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2023-08-18T15:03:13.061+01:00
+          hippostdpubwf:lastModificationDate: 2023-08-18T15:03:13.061+01:00
+          hippostdpubwf:lastModifiedBy: admin
+          hippotaxonomy:keys: [outlander-church-abbey, outlander-season-1]
+          hippotranslation:id: 7bbff70d-7787-412c-8925-04776282a4db
+          hippotranslation:locale: en
+          visitscotland:subtitle: Glencorse
+          visitscotland:title: Glencorse Old Kirk
+          visitscotland:translation: ''
+          /visitscotland:description:
+            jcr:primaryType: hippostd:html
+            hippostd:content: <p>The charming Glencorse Old Kirk near Edinburgh, nestled
+              in the grounds of Glencorse House in the foothills of the Pentland Hills,
+              is where Claire and Jamie tied the knot. With its lush parkland, lake
+              and splendid garden, it’s a wonderfully atmospheric venue, if not one
+              of the most romantic wedding venues imaginable for any&nbsp;<em>Outlander</em>&nbsp;fan.
+              Please note that visits to the Kirk are by appointment only by contacting
+              Glencorse House.</p>
+          /visitscotland:media:
+            jcr:primaryType: hippogallerypicker:imagelink
+            hippo:docbase: 75b15b04-502a-4eaa-b71e-973b76eaac71
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+          /visitscotland:product:
+            jcr:primaryType: visitscotland:ItineraryExternalLink
+            /visitscotland:Coordinates:
+              jcr:primaryType: visitscotland:Coordinates
+              visitscotland:latitude: 55.9616125
+              visitscotland:longitude: -3.4822927
+            /visitscotland:ExternalLink:
+              jcr:primaryType: visitscotland:ExternalLink
+              visitscotland:label: ''
+              visitscotland:link: http://glencorsehouse.co.uk
+        /glencorse-old-kirk[2]:
+          jcr:primaryType: visitscotland:Stop
+          jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable', 'mix:versionable']
+          jcr:uuid: 6b3693c0-a64c-4fed-9c2c-1b53d14861d6
+          hippo:availability: [preview]
+          hippostd:retainable: false
+          hippostd:state: unpublished
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2023-08-18T15:03:13.061+01:00
+          hippostdpubwf:lastModificationDate: 2023-08-18T15:08:14.153+01:00
+          hippostdpubwf:lastModifiedBy: admin
+          hippotaxonomy:keys: [outlander-church-abbey, outlander-season-1]
+          hippotranslation:id: 7bbff70d-7787-412c-8925-04776282a4db
+          hippotranslation:locale: en
+          visitscotland:subtitle: Glencorse
+          visitscotland:title: Glencorse Old Kirk
+          visitscotland:translation: ''
+          /visitscotland:description:
+            jcr:primaryType: hippostd:html
+            hippostd:content: <p>The charming Glencorse Old Kirk near Edinburgh, nestled
+              in the grounds of Glencorse House in the foothills of the Pentland Hills,
+              is where Claire and Jamie tied the knot. With its lush parkland, lake
+              and splendid garden, it’s a wonderfully atmospheric venue, if not one
+              of the most romantic wedding venues imaginable for any&nbsp;<em>Outlander</em>&nbsp;fan.
+              Please note that visits to the Kirk are by appointment only by contacting
+              Glencorse House.</p>
+          /visitscotland:media:
+            jcr:primaryType: hippogallerypicker:imagelink
+            hippo:docbase: 75b15b04-502a-4eaa-b71e-973b76eaac71
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+          /visitscotland:product:
+            jcr:primaryType: visitscotland:ItineraryExternalLink
+            /visitscotland:Coordinates:
+              jcr:primaryType: visitscotland:Coordinates
+              visitscotland:latitude: 55.9616125
+              visitscotland:longitude: -3.4822927
+            /visitscotland:ExternalLink:
+              jcr:primaryType: visitscotland:ExternalLink
+              visitscotland:label: ''
+              visitscotland:link: http://glencorsehouse.co.uk
+        /glencorse-old-kirk[3]:
+          jcr:primaryType: visitscotland:Stop
+          jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
+          jcr:uuid: b6208ad9-e221-4bf8-834f-f2812e241cbb
+          hippo:availability: [live]
+          hippostd:retainable: false
+          hippostd:state: published
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2023-08-18T15:03:13.061+01:00
+          hippostdpubwf:lastModificationDate: 2023-08-18T15:08:14.153+01:00
+          hippostdpubwf:lastModifiedBy: admin
+          hippostdpubwf:publicationDate: 2023-08-18T15:08:26.091+01:00
+          hippotaxonomy:keys: [outlander-church-abbey, outlander-season-1]
+          hippotranslation:id: 7bbff70d-7787-412c-8925-04776282a4db
+          hippotranslation:locale: en
+          visitscotland:subtitle: Glencorse
+          visitscotland:title: Glencorse Old Kirk
+          visitscotland:translation: ''
+          /visitscotland:description:
+            jcr:primaryType: hippostd:html
+            hippostd:content: <p>The charming Glencorse Old Kirk near Edinburgh, nestled
+              in the grounds of Glencorse House in the foothills of the Pentland Hills,
+              is where Claire and Jamie tied the knot. With its lush parkland, lake
+              and splendid garden, it’s a wonderfully atmospheric venue, if not one
+              of the most romantic wedding venues imaginable for any&nbsp;<em>Outlander</em>&nbsp;fan.
+              Please note that visits to the Kirk are by appointment only by contacting
+              Glencorse House.</p>
+          /visitscotland:media:
+            jcr:primaryType: hippogallerypicker:imagelink
+            hippo:docbase: 75b15b04-502a-4eaa-b71e-973b76eaac71
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+          /visitscotland:product:
+            jcr:primaryType: visitscotland:ItineraryExternalLink
+            /visitscotland:Coordinates:
+              jcr:primaryType: visitscotland:Coordinates
+              visitscotland:latitude: 55.9616125
+              visitscotland:longitude: -3.4822927
+            /visitscotland:ExternalLink:
+              jcr:primaryType: visitscotland:ExternalLink
+              visitscotland:label: ''
+              visitscotland:link: http://glencorsehouse.co.uk
     /links:
       jcr:primaryType: hippostd:folder
       jcr:mixinTypes: ['frontend:orderChildFolders', 'hippo:named', 'hippotranslation:translated',
