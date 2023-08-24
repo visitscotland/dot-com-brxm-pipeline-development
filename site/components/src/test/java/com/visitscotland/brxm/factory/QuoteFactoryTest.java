@@ -17,7 +17,6 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
-import javax.annotation.Resource;
 import java.util.Locale;
 import java.util.Optional;
 
@@ -33,7 +32,6 @@ class QuoteFactoryTest {
     LinkService linkService;
 
     @InjectMocks
-    @Resource
     QuoteFactory embedder;
 
     /** TODO Break down this test case in several parts */

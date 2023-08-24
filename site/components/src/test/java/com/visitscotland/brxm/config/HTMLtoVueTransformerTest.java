@@ -15,7 +15,6 @@ import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
 
-import javax.annotation.Resource;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -28,7 +27,6 @@ class HTMLtoVueTransformerTest {
     @Mock
     LinkService linkService;
 
-    @Resource
     @InjectMocks
     HTMLtoVueTransformer transformer;
 
