@@ -62,18 +62,16 @@ public class ProductSearchWidgetFactory {
         if (page instanceof General){
             General general = ((General) page);
 
-            if (general.getBlog() != null){
+            if (general.getBlog() != null || general.getTheme().equals(GeneralContentComponent.SIMPLE)) {
                 return POSITION_BOTTOM;
             } else if (!Contract.isEmpty(general.getPswPosition())) {
                 return general.getPswPosition();
-            } else {
-                return POSITION_BOTTOM;
             }
         } else if (page instanceof Destination){
             return POSITION_TOP;
-        } else {
-            return POSITION_BOTTOM;
         }
+
+        return POSITION_BOTTOM;
     }
 
     /**

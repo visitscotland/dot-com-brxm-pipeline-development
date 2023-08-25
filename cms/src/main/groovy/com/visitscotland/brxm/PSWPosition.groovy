@@ -21,8 +21,8 @@ import java.util.regex.Pattern
 class PSWPosition extends BaseNodeUpdateVisitor {
 
 
-    def STANDARD_REGEX = "/sandbox(/.*)?"
-    def TOP_LEVEL_REGEX = "/sandbox(/.*)?"
+    def STANDARD_REGEX = "^(?!/(accommodation|places-to-go)(/|\$))(/[\\w-]+)+(/)?\$"
+    def TOP_LEVEL_REGEX = "^(/..-..)?/(()|(places-to-go)|(ux-testing)|(inspiration/island-hopping)|(things-to-do)((/(research-your-ancestry|passes-offers|itineraries))|(/[\\w-]+){2,})|travel-planning((?!/(getting-around|travelling-to-scotland)(/|\$))(/[\\w-]+)+|/travelling-to-scotland(/[\\w-]+)+|/getting-around((?!/(driving)(/|\$))(/[\\w-]+)+|/driving(/[\\w-]+)+)))/?\$"
     def ROOT_NODE = "/content/documents/visitscotland/"
 
     @Override
@@ -39,13 +39,13 @@ class PSWPosition extends BaseNodeUpdateVisitor {
 
         while (it.hasNext()){
             Node n = it.next()
-            if (!n.hasProperty("visitscotland:pswPosition") || n.getProperty("visitscotland:pswPosition") == "Default") {
+            if (!n.hasProperty("visitscotland:pswPosition") || n.getProperty("visitscotland:pswPosition").string == "Default") {
                 String path = n.path.substring(ROOT_NODE.length()-1, n.path.indexOf("/content/content"))
                 def matcher = path =~ pattern
                 n.setProperty("visitscotland:pswPosition", matcher.find()?"Top":"Bottom")
                 log.info "Path = ${path}, Position = ${matcher.find()?"Top":"Bottom"}"
             } else{
-
+                counter++
             }
         }
 
