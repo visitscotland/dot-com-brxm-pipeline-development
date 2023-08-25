@@ -61,22 +61,14 @@ public class ProductSearchWidgetFactory {
         Page page = (Page) request.getAttribute(PageContentComponent.DOCUMENT);
         if (page instanceof General){
             General general = ((General) page);
-            String pattern;
 
             if (general.getBlog() != null){
                 return POSITION_BOTTOM;
-            } else if (!Contract.isEmpty(general.getPswPosition()) && !general.getPswPosition().equals(POSITION_DEFAULT)) {
+            } else if (!Contract.isEmpty(general.getPswPosition())) {
                 return general.getPswPosition();
-            } else if (general.getTheme().equals(GeneralContentComponent.TOP_LEVEL)) {
-                pattern = properties.getPsrPositionTopLevel();
-            } else if (general.getTheme().equals(GeneralContentComponent.STANDARD)) {
-                pattern = properties.getPsrPositionGeneralStandard();
             } else {
                 return POSITION_BOTTOM;
             }
-
-            Pattern p = Pattern.compile(pattern);
-            return p.matcher(request.getPathInfo()).matches()?POSITION_BOTTOM:POSITION_TOP;
         } else if (page instanceof Destination){
             return POSITION_TOP;
         } else {
