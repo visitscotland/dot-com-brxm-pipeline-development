@@ -1,0 +1,49 @@
+definitions:
+  config:
+    /hippo:configuration/hippo:update/hippo:registry/v2.0.1 - PSW Position:
+      jcr:primaryType: hipposys:updaterinfo
+      hipposys:batchsize: 10
+      hipposys:description: ''
+      hipposys:dryrun: false
+      hipposys:loglevel: DEBUG
+      hipposys:logtarget: REPOSITORY
+      hipposys:parameters: ''
+      hipposys:query: /jcr:root
+      hipposys:script: "package com.visitscotland.brxm\r\n\r\nimport org.hippoecm.repository.api.HippoWorkspace\r\
+        \nimport org.onehippo.repository.update.BaseNodeUpdateVisitor\r\n\r\nimport\
+        \ javax.jcr.Node\r\nimport javax.jcr.NodeIterator\r\nimport javax.jcr.RepositoryException\r\
+        \nimport javax.jcr.Session\r\nimport javax.jcr.query.Query\r\nimport javax.jcr.query.QueryResult\r\
+        \nimport java.util.regex.Pattern\r\n\r\n/**\r\n *\r\n *\r\n * @author jcalcines\r\
+        \n * @since August 2023\r\n * @version 2.0.1\r\n */\r\nclass PSWPosition extends\
+        \ BaseNodeUpdateVisitor {\r\n\r\n\r\n    def STANDARD_REGEX = \"/sandbox(/.*)?\"\
+        \r\n    def TOP_LEVEL_REGEX = \"/sandbox(/.*)?\"\r\n    def ROOT_NODE = \"\
+        /content/documents/visitscotland/\"\r\n\r\n    @Override\r\n    boolean doUpdate(Node\
+        \ node) {\r\n        applyRule(node.session, \"Top-Level\", TOP_LEVEL_REGEX)\r\
+        \n        applyRule(node.session, \"Standard\", STANDARD_REGEX)\r\n      \
+        \  return true\r\n    }\r\n\r\n    void applyRule(session, pageType, regex){\r\
+        \n        NodeIterator it = query(session,\"//content/documents//element(*,\
+        \ visitscotland:General)[visitscotland:theme = \\\"${pageType}\\\"]\")\r\n\
+        \        def pattern = Pattern.compile(regex)\r\n        int counter = 0\r\
+        \n\r\n        while (it.hasNext()){\r\n            Node n = it.next()\r\n\
+        \            if (!n.hasProperty(\"visitscotland:pswPosition\") || n.getProperty(\"\
+        visitscotland:pswPosition\") == \"Default\") {\r\n                String path\
+        \ = n.path.substring(ROOT_NODE.length()-1, n.path.indexOf(\"/content/content\"\
+        ))\r\n                def matcher = path =~ pattern\r\n                n.setProperty(\"\
+        visitscotland:pswPosition\", matcher.find()?\"Top\":\"Bottom\")\r\n      \
+        \          log.info \"Path = ${path}, Position = ${matcher.find()?\"Top\"\
+        :\"Bottom\"}\"\r\n            } else{\r\n                \r\n            }\r\
+        \n        }\r\n        \r\n        if (counter > 0) {\r\n            log.info\
+        \ \"A total of ${counter} ${pageType} pages have been skipped\"\r\n      \
+        \  }\r\n    }\r\n\r\n    /**\r\n     * Executes a query and log when no results\
+        \ are returned\r\n     * @param session\r\n     * @param query\r\n     * @return\r\
+        \n     */\r\n    NodeIterator query(def session, def query){\r\n        QueryResult\
+        \ results = ((HippoWorkspace) session.getWorkspace()).getQueryManager().createQuery(query,\
+        \ Query.XPATH).execute();\r\n        if (!results.getNodes().hasNext()){\r\
+        \n            log.warn \"No query results for ${query}\"\r\n        } else\
+        \ {\r\n            // Note that the method size. Moves the pointer for the\
+        \ iterator at the end. That is why we need to\r\n            // invoke .getNodes()\
+        \ for getting the size\r\n            log.info \"Matches = ${results.getNodes().size()}\"\
+        \r\n        }\r\n        return results.getNodes()\r\n    }\r\n\r\n    @Override\r\
+        \n    boolean undoUpdate(Node node) throws RepositoryException, UnsupportedOperationException\
+        \ {\r\n        return false\r\n    }\r\n}"
+      hipposys:throttle: 1000
