@@ -172,6 +172,9 @@ public class MapService {
                         latitude = dmsNode.get(LATITUDE).asDouble();
                         longitude = dmsNode.get(LONGITUDE).asDouble();
                     }
+                    if (dmsNode.has(ADDRESS)) {
+                        JsonNode address = dmsNode.get(ADDRESS);
+                     }
                 }
             } else if (item instanceof ItineraryExternalLink) {
                 validPoint = true;
@@ -189,6 +192,7 @@ public class MapService {
 
                 ObjectNode properties = getPropertyNode(stop.getTitle(), description,
                         image, category, flatLink, stop.getCanonicalUUID());
+                
 
                 if (stop.getKeys() != null && stop.getKeys().length>0) {
                     List<String> listKeys = new ArrayList<>(Arrays.asList(stop.getKeys()));

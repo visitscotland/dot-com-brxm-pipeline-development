@@ -77,7 +77,6 @@ public class MapFactory {
         ArrayNode features = mapper.createArrayNode();
         ArrayNode keys = mapper.createArrayNode();
 
-
         if (page instanceof Destination){
             buildDestinationMapPages(request.getLocale(),(Destination)page, mapModuleDocument, module, keys, features);
         }else{
@@ -90,9 +89,8 @@ public class MapFactory {
                 if (!Contract.isNull(mapModuleDocument.getFeaturedPlacesItem())) {
                     mapService.addFeaturePlacesNode(module, mapModuleDocument.getCategories(), request.getLocale(), keys, features);
                 }
-                //TODO for each new map a new enum is needed, create the logic to identify which enum is needed based on mapModuleDocument.getMapType() value
-                for (ICentresMapTab prodType : ICentresMapTab.values()) {
-                    buildDMSMapPages(prodType.getProdTypeId(), prodType.getLabel(), "", module, keys, features, prodType.getCategory(), request.getLocale());
+                for (BespokeDmsMap bespokeMap : getValues(mapModuleDocument.getMapType())) {
+                    buildDMSMapPages(bespokeMap, module, keys, features, request.getLocale());
                 }
             }else {
                 // CMS maps, data and pins coming from CMS
@@ -195,8 +193,8 @@ public class MapFactory {
                 geometryNode = dmsDataService.getLocationBorders(location.getId(),true);
             }
 
-            for (RegionsMapTab prodType: RegionsMapTab.values()) {
-                buildDMSMapPages(prodType.getProdTypeId(), prodType.getLabel(), destinationPage.getLocation(), module, keys, features, prodType.getCategory(), locale);
+            for (RegionsMapTab regionMap: RegionsMapTab.values()) {
+                buildDMSMapPages(regionMap, module, keys, features, locale);
             }
         }
         module.setDetailsEndpoint(propertiesService.getDmsDataPublicHost() + DMSConstants.VS_DMS_PRODUCT_MAP_CARD+"locale="+locale.toLanguageTag()+"&id=");
@@ -207,17 +205,18 @@ public class MapFactory {
         }
     }
 
-    private ObjectNode addFilters (String prodTypeId, String prodTypelabel, Locale locale){
-        return  mapService.buildCategoryNode(prodTypeId,bundle.getResourceBundle(MAP,prodTypelabel,locale));
+    private ObjectNode addFilters (String prodTypeId, String prodTypelabel){
+        return  mapService.buildCategoryNode(prodTypeId, prodTypelabel);
     }
 
 
-    private void buildDMSMapPages (String prodTypeId, String prodTypeLabel, String location, MapsModule module, ArrayNode keys,ArrayNode features, String category, Locale locale) {
-        ObjectNode regionFilters = this.addFilters(prodTypeId, prodTypeLabel, locale);
+    private void buildDMSMapPages (BespokeDmsMap bespokeMap, MapsModule module, ArrayNode keys, ArrayNode features, Locale locale) {
+        String label = !Contract.isNull(bundle.getResourceBundle(MAP,bespokeMap.getLabel(),locale))?
+                bundle.getResourceBundle(MAP,bespokeMap.getLabel(),locale):locationLoader.getLocation(bespokeMap.getLocation(), locale).getName();
+        ObjectNode regionFilters = this.addFilters(bespokeMap.getCategory(), label);
         keys.add(regionFilters);
-        this.addDmsData(this.buildProductSearch(location, prodTypeId, category, locale, DMSConstants.SORT_ALPHA, 100),
+        this.addDmsData(this.buildProductSearch(bespokeMap.getLocation(), bespokeMap.getProdTypeId(), bespokeMap.getDmsCategory(), locale, DMSConstants.SORT_ALPHA, 100),
                 module, regionFilters, features, locale);
-
     }
 
     private void addDmsData (ProductSearchBuilder dmsQuery, MapsModule module, ObjectNode filter, ArrayNode features, Locale locale){
@@ -230,7 +229,7 @@ public class MapFactory {
                 String name = jsonNode.has(NAME) ? jsonNode.get(NAME).asText() : null;
                 String description = jsonNode.has(DESCRIPTION) ? jsonNode.get(DESCRIPTION).asText() : null;
                 String id = jsonNode.has(ID) ? jsonNode.get(ID).asText() : null;
-                ObjectNode properties = mapService.getPropertyNode(name, description, image,filter, link, id);
+                ObjectNode properties = mapService.getPropertyNode(name, description, image, filter, link, id);
                 properties.put(ID, id);
                 properties.put("title", name);
                 properties.put(DESCRIPTION, description);
@@ -244,6 +243,17 @@ public class MapFactory {
 
     private ProductSearchBuilder buildProductSearch (String location, String prodType, String category, Locale locale, String order, int size){
         return VsComponentManager.get(ProductSearchBuilder.class).location(location).productTypes(prodType).category(category).sortBy(order).size(size).locale(locale);
+    }
+
+    private BespokeDmsMap[] getValues(String mapType){
+        switch(mapType) {
+            case "IcentresMap":
+                return ICentresMapTab.values();
+            case "DistilleriesMap":
+                return DistilleryMapTab.values();
+            default:
+                return null;
+        }
     }
 }
 
