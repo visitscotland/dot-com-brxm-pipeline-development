@@ -13,6 +13,7 @@ import com.visitscotland.brxm.model.PSModule;
 import com.visitscotland.brxm.services.ResourceBundleService;
 import com.visitscotland.brxm.utils.Language;
 import com.visitscotland.brxm.utils.Properties;
+import com.visitscotland.utils.Contract;
 import org.hippoecm.hst.core.component.HstRequest;
 import org.jetbrains.annotations.NotNull;
 import org.springframework.stereotype.Component;
@@ -28,8 +29,10 @@ public class ProductSearchWidgetFactory {
     final LocationLoader locationLoader;
     final Properties properties;
 
-    public static final String POSITION_TOP = "top";
-    public static final String POSITION_BOTTOM = "bottom";
+    public static final String POSITION_TOP = "Top";
+    public static final String POSITION_BOTTOM = "Bottom";
+    //TODO: This option will dissappear after the regular expresions are removed
+    public static final String POSITION_DEFAULT = "Default";
 
     public ProductSearchWidgetFactory(ResourceBundleService bundle, LocationLoader locationLoader, Properties properties) {
         this.bundle = bundle;
@@ -62,6 +65,8 @@ public class ProductSearchWidgetFactory {
 
             if (general.getBlog() != null){
                 return POSITION_BOTTOM;
+            } else if (!Contract.isEmpty(general.getPswPosition()) && !general.getPswPosition().equals(POSITION_DEFAULT)) {
+                return general.getPswPosition();
             } else if (general.getTheme().equals(GeneralContentComponent.TOP_LEVEL)) {
                 pattern = properties.getPsrPositionTopLevel();
             } else if (general.getTheme().equals(GeneralContentComponent.STANDARD)) {
