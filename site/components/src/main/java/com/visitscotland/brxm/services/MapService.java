@@ -31,6 +31,8 @@ public class MapService {
     static final String LABEL = "label";
     static final String DISCOVER = "map.discover";
     static final String PROPERTIES = "properties";
+    static final String CATEGORY = "category";
+    static final String LINK = "link";
     static final String DESCRIPTION = "description";
     static final String FEATURE = "feature";
     static final String ID = "id";
@@ -172,9 +174,10 @@ public class MapService {
                         latitude = dmsNode.get(LATITUDE).asDouble();
                         longitude = dmsNode.get(LONGITUDE).asDouble();
                     }
-                    if (dmsNode.has(ADDRESS)) {
+                    //TODO add for future iterations
+                    /*if (dmsNode.has(ADDRESS)) {
                         JsonNode address = dmsNode.get(ADDRESS);
-                     }
+                     }*/
                 }
             } else if (item instanceof ItineraryExternalLink) {
                 validPoint = true;
@@ -196,7 +199,7 @@ public class MapService {
 
                 if (stop.getKeys() != null && stop.getKeys().length>0) {
                     List<String> listKeys = new ArrayList<>(Arrays.asList(stop.getKeys()));
-                    listKeys.remove(category.get("id").asText());
+                    listKeys.remove(category.get(ID).asText());
                     addSubcategories(properties, listKeys, locale);
                 }
 
@@ -260,7 +263,7 @@ public class MapService {
         rootNode.put(ID, id);
         rootNode.put("title", title);
         rootNode.put(DESCRIPTION, description);
-        rootNode.set("category", category);
+        rootNode.set(CATEGORY, category);
 
         if (!Contract.isNull(image)){
             rootNode.put("image", !Contract.isNull(image.getCmsImage())? HippoUtilsService.createUrl(image.getCmsImage()) : image.getExternalImage());
@@ -268,9 +271,9 @@ public class MapService {
         if (!Contract.isNull(link)){
             ObjectNode linkNode = mapper.createObjectNode();
             linkNode.put(LABEL, link.getLabel() + " " + title);
-            linkNode.put("link", link.getLink());
+            linkNode.put(LINK, link.getLink());
             linkNode.put(TYPE, link.getType().name());
-            rootNode.set("link", linkNode);
+            rootNode.set(LINK, linkNode);
         }
 
         return rootNode;

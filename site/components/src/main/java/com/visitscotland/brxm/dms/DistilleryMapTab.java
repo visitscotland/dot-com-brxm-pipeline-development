@@ -4,11 +4,11 @@ package com.visitscotland.brxm.dms;
 public enum DistilleryMapTab implements BespokeDmsMap {
 
 //    DISTILLERIES(DMSConstants.TYPE_SEE_DO, DMSConstants.DISTILLERIES,DMSConstants.DISTILLERIES,"map.distillery", ""),
-    CAMPBELTOWN(DMSConstants.TYPE_SEE_DO, DMSConstants.DISTILLERIES,"Campbeltown", "Campbeltown", "Campbeltown Whisky"),
+    CAMPBELTOWN(DMSConstants.TYPE_SEE_DO, DMSConstants.DISTILLERIES,"campbeltown", "Campbeltown", "Campbeltown Whisky"),
     HIGHLANDS(DMSConstants.TYPE_SEE_DO, DMSConstants.DISTILLERIES,"highlands","highlands", "Highlands Whisky"),
     ISLAY(DMSConstants.TYPE_SEE_DO, DMSConstants.DISTILLERIES,"islay", "islay", "Islay Whisky"),
     LOWLANDS(DMSConstants.TYPE_SEE_DO, DMSConstants.DISTILLERIES,"lowlands","lowlands", "Lowlands Whisky"),
-    SPEYSIDE(DMSConstants.TYPE_SEE_DO, DMSConstants.DISTILLERIES,"Speyside","Speyside", "Speyside Whisky");
+    SPEYSIDE(DMSConstants.TYPE_SEE_DO, DMSConstants.DISTILLERIES,"speyside","Speyside", "Speyside Whisky");
 
     private final String prodTypeId;
     private final String dmscategory;
