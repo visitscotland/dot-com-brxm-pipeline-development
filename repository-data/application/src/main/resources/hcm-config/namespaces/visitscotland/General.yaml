@@ -11,7 +11,7 @@ definitions:
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:uuid: ff957867-2145-4fee-9e9d-4dc84800216b
+          jcr:uuid: 9c143509-0bac-4bfa-b544-ac4cb1c05c33
           hipposysedit:node: true
           hipposysedit:supertype: ['visitscotland:Page', 'hippostd:relaxed', 'hippotranslation:translated']
           hipposysedit:uri: http://www.visitscotland.com/visitscotland/nt/1.0
@@ -50,7 +50,7 @@ definitions:
           visitscotland:title: ''
           visitscotland:seoTitle: ''
           jcr:mixinTypes: ['mix:referenceable']
-          jcr:uuid: 4c32d16d-5e30-408e-8b39-6f6d06e92419
+          jcr:uuid: dcc716f5-8b32-47ad-abae-58e88b1d139a
           hippostdpubwf:lastModificationDate: 2020-09-25T13:13:22.744+01:00
           hippostdpubwf:creationDate: 2020-09-25T13:13:22.744+01:00
           visitscotland:theme: Standard
@@ -232,7 +232,7 @@ definitions:
             jcr:primaryType: frontend:plugin
             caption: Product Search Position
             field: pswPosition
-            hint: This field does not affect Blog Pages
+            hint: This field does not affect Blog or Simple pages
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.right.item
             /cluster.options:
