@@ -2327,10 +2327,10 @@
     hookable "^5.5.3"
     unhead "1.2.2"
 
-"@visitscotland/component-library@1.0.14":
-  version "1.0.14"
-  resolved "https://registry.yarnpkg.com/@visitscotland/component-library/-/component-library-1.0.14.tgz#8d0b3bfb213effc86e68d6663264f97c662cdfaf"
-  integrity sha512-vBbJrDh7M5rQkCT7RDQ+8FRaUUw8i40zL2n1DaskarnDf6Wd5HIYS2NB2iS3PSaTwd/KkPO9WH5eLQ62nFdZwQ==
+"@visitscotland/component-library@1.0.15":
+  version "1.0.15"
+  resolved "https://registry.yarnpkg.com/@visitscotland/component-library/-/component-library-1.0.15.tgz#f2e91fd03dc054dda3978ee0370eed61b11736be"
+  integrity sha512-AhIW+D03AhlZYak/HdmC8rtY1am71Ru7RGP6SjXerZQ/vxMlzsJ80e7P21a9XX7kz4qsub1iqARlK2AilD7zCA==
   dependencies:
     "@mapbox/geojson-extent" "^1.0.1"
     "@storybook/addon-a11y" "^7.0.18"
@@ -2354,6 +2354,7 @@
     storybook-addon-pseudo-states "^2.0.1"
     theo "^8.1.5"
     ts-loader "^9.4.3"
+    upgrade "^1.1.0"
     uuid "^9.0.0"
     vue "^3.3.4"
     vue-recaptcha "^2.0.1"
@@ -10228,6 +10229,11 @@ update-browserslist-db@^1.0.11:
   dependencies:
     escalade "^3.1.1"
     picocolors "^1.0.0"
+
+upgrade@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/upgrade/-/upgrade-1.1.0.tgz#4a50875ec5c715d19379799f0590a0e796958f61"
+  integrity sha512-NtkVvqVCqsJo5U3mYRum2Tw6uCltOxfIJ/AfTZeTmw6U39IB5X23xF+kRZ9aiPaORqeiQQ7Q209/ibhOvxzwHA==
 
 uri-js@^4.2.2:
   version "4.4.1"
