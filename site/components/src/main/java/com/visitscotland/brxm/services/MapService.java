@@ -378,7 +378,9 @@ public class MapService {
                 subcategoryNode.put(ID, nodeLabel);
                 String categoryLabel = getTaxonomyLabel(mainCategory, locale);
                 if (Contract.isEmpty(jsonNodeName.toString())){
-                    jsonNodeName.append(bundle.getResourceBundle(BESPOKEMAP, mainCategory.getParent().getKey(), locale));
+                    if (!Contract.isEmpty(bundle.getResourceBundle(BESPOKEMAP, mainCategory.getParent().getKey(), locale))) {
+                        jsonNodeName.append(bundle.getResourceBundle(BESPOKEMAP, mainCategory.getParent().getKey(), locale));
+                    }
                 }else{
                     jsonNodeName.append(",");
                 }
