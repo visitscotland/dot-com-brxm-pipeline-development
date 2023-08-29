@@ -33,20 +33,19 @@ definitions:
         \ path = n.path.substring(ROOT_NODE.length()-1, n.path.indexOf(\"/content/content\"\
         ))\r\n                def matcher = path =~ pattern\r\n                n.setProperty(\"\
         visitscotland:pswPosition\", matcher.find()?\"Top\":\"Bottom\")\r\n      \
-        \          log.info \"Path = ${path}, Position = ${matcher.find()?\"Top\"\
-        :\"Bottom\"}\"\r\n            } else{\r\n                counter++\r\n   \
-        \         }\r\n        }\r\n\r\n        if (counter > 0) {\r\n           \
-        \ log.info \"A total of ${counter} ${pageType} pages have been skipped\"\r\
-        \n        }\r\n    }\r\n\r\n    /**\r\n     * Executes a query and log when\
-        \ no results are returned\r\n     * @param session\r\n     * @param query\r\
-        \n     * @return\r\n     */\r\n    NodeIterator query(def session, def query){\r\
-        \n        QueryResult results = ((HippoWorkspace) session.getWorkspace()).getQueryManager().createQuery(query,\
-        \ Query.XPATH).execute();\r\n        if (!results.getNodes().hasNext()){\r\
-        \n            log.warn \"No query results for ${query}\"\r\n        } else\
-        \ {\r\n            // Note that the method size. Moves the pointer for the\
-        \ iterator at the end. That is why we need to\r\n            // invoke .getNodes()\
-        \ for getting the size\r\n            log.info \"Matches = ${results.getNodes().size()}\"\
-        \r\n        }\r\n        return results.getNodes()\r\n    }\r\n\r\n    @Override\r\
+        \      } else{\r\n                counter++\r\n            }\r\n        }\r\
+        \n\r\n        if (counter > 0) {\r\n            log.info \"A total of ${counter}\
+        \ ${pageType} pages have been skipped\"\r\n        }\r\n    }\r\n\r\n    /**\r\
+        \n     * Executes a query and log when no results are returned\r\n     * @param\
+        \ session\r\n     * @param query\r\n     * @return\r\n     */\r\n    NodeIterator\
+        \ query(def session, def query){\r\n        QueryResult results = ((HippoWorkspace)\
+        \ session.getWorkspace()).getQueryManager().createQuery(query, Query.XPATH).execute();\r\
+        \n        if (!results.getNodes().hasNext()){\r\n            log.warn \"No\
+        \ query results for ${query}\"\r\n        } else {\r\n            // Note\
+        \ that the method size. Moves the pointer for the iterator at the end. That\
+        \ is why we need to\r\n            // invoke .getNodes() for getting the size\r\
+        \n            log.info \"Matches = ${results.getNodes().size()}\"\r\n    \
+        \    }\r\n        return results.getNodes()\r\n    }\r\n\r\n    @Override\r\
         \n    boolean undoUpdate(Node node) throws RepositoryException, UnsupportedOperationException\
         \ {\r\n        return false\r\n    }\r\n}"
       hipposys:throttle: 1000
