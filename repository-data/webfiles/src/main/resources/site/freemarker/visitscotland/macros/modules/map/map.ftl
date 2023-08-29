@@ -65,7 +65,7 @@
         true
     </#assign>
 
-    <#if module.mapType = 'general'>
+    <#if module.mapType = 'destinations'>
         <#assign hideToggle>
             false
         </#assign>

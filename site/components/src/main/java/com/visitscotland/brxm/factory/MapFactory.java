@@ -95,7 +95,6 @@ public class MapFactory {
                 }
             }else {
                 // CMS maps, data and pins coming from CMS
-                module.setMapType(MapType.GENERAL.getMapType());
                 buildMapGeneralPages(request, mapModuleDocument, module, keys, features);
             }
         }
@@ -126,7 +125,7 @@ public class MapFactory {
         for (String taxonomy : mapModuleDocument.getKeys()) {
             //get all the Taxonomy information
             Taxonomy vsTaxonomyTree = hippoUtilsService.getTaxonomy();
-            /*module.setMapType(vsTaxonomyTree.getCategoryByKey(taxonomy).getKey());*/
+            module.setMapType(vsTaxonomyTree.getCategoryByKey(taxonomy).getKey());
             for (Category mainCategory : vsTaxonomyTree.getCategoryByKey(taxonomy).getChildren()) {
                 keys.add(mapService.addFilterNode(mainCategory, request.getLocale()));
                 //if the map has 2 levels, the parent wont be a category for the mapcards, so pick sons
