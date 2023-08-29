@@ -5,14 +5,14 @@ public enum MapType {
     CITIES("cities"),
     GENERAL("general");
 
-    private final String mapType;
+    private final String type;
 
     MapType(String mapType) {
-        this.mapType = mapType;
+        this.type = mapType;
     }
 
     public String getMapType() {
-        return mapType;
+        return type;
     }
 
     @Override

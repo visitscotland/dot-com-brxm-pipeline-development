@@ -24,7 +24,7 @@ are expected.
 
 Unix Based Console
 
-    mvn clean verify -P \!fed-build -DskipTests && mvn -P cargo.run
+    mvn clean verify -P \!fed-build -DskipTests && mvn -P cargo.runpull
 
 or
 
@@ -40,7 +40,7 @@ The database actuator can be activated by adding the variable `cliOptions=dbActu
 ## Navigating through the CMS
 
 #### Useful URLs
-This is a bunch useful URLs for local development 
+This is a bunch of useful URLs for local development 
 
 - http://localhost:8080/site: Display the site that would be presented to the final Internet User. Unpublished documents
 will not be available.
@@ -88,7 +88,7 @@ From the project root folder, execute:
     mvn clean verify
     mvn -P cargo.run
 
-By default this includes and bootstraps repository data from the repository-data/development module,
+By default, this includes and bootstraps repository data from the repository-data/development module,
 which is deployed by cargo to the Tomcat shared/lib.
 If you want or need to start *without* bootstrapping the development data, for example when testing
 against an existing repository, you can specify the *additional* Maven profile without-development-data to do so:
@@ -148,7 +148,7 @@ Distributing Additional Site Projects
 =====================================
 
 Note that if your organization is using multiple site projects, you must configure the assembly of a distribution to
-include all of the separate site webapps for deployment. This project is designed for stand-alone use and does not
+include all the separate site webapps for deployment. This project is designed for stand-alone use and does not
 automatically include any additional, externally-maintained site webapps.
 
 
