@@ -197,7 +197,7 @@ public class MapService {
                         image, category, flatLink, stop.getCanonicalUUID());
                 
 
-                if (stop.getKeys() != null && stop.getKeys().length>0) {
+                if (stop.getKeys() != null && stop.getKeys().length > 1) {
                     List<String> listKeys = new ArrayList<>(Arrays.asList(stop.getKeys()));
                     listKeys.remove(category.get(ID).asText());
                     addSubcategories(properties, listKeys, locale);
@@ -363,6 +363,7 @@ public class MapService {
                bundle.getResourceBundle(BESPOKEMAP,category.getKey() ,locale) : category.getInfo(locale).getName();
     }
 
+    //TODO is this only needed for Outlander? avoid coming if it's the case
     private void addSubcategories (ObjectNode rootNode, List<String> subcategory, Locale locale) {
         if (subcategory != null && !subcategory.isEmpty()) {
             ArrayNode subcategoryArrayNode = mapper.createArrayNode();
@@ -371,14 +372,17 @@ public class MapService {
                 Category mainCategory = hippoUtilsService.getTaxonomy().getCategoryByKey(categoryKey);
 
                 ObjectNode subcategoryNode = mapper.createObjectNode();
-                subcategoryNode.put(ID, mainCategory.getKey().split("-", 2)[1]);
+
+                //TODO review sub categories, avoid nulls
+                String nodeLabel = mainCategory.getKey().contains("-")?mainCategory.getKey().split("-", 2)[1] : mainCategory.getKey();
+                subcategoryNode.put(ID, nodeLabel);
                 String categoryLabel = getTaxonomyLabel(mainCategory, locale);
                 if (Contract.isEmpty(jsonNodeName.toString())){
                     jsonNodeName.append(bundle.getResourceBundle(BESPOKEMAP, mainCategory.getParent().getKey(), locale));
                 }else{
                     jsonNodeName.append(",");
                 }
-                jsonNodeName.append(" ").append(categoryLabel.split(" ", 2)[1]);
+                jsonNodeName.append(" ").append(categoryLabel.contains(" ")? categoryLabel.split(" ", 2)[1] : categoryLabel);
                 subcategoryNode.put(LABEL,categoryLabel);
                 subcategoryArrayNode.add(subcategoryNode);
             }
