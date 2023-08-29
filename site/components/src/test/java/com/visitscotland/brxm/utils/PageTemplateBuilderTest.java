@@ -2,6 +2,7 @@ package com.visitscotland.brxm.utils;
 
 import com.visitscotland.brxm.hippobeans.*;
 import com.visitscotland.brxm.mock.LinksModuleMockBuilder;
+import com.visitscotland.brxm.model.Module;
 import com.visitscotland.brxm.model.*;
 import com.visitscotland.brxm.model.megalinks.*;
 import com.visitscotland.brxm.factory.*;
@@ -15,7 +16,6 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
-import javax.annotation.Resource;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
@@ -63,7 +63,6 @@ class PageTemplateBuilderTest {
     @Mock
     ContentLogger logger;
 
-    @Resource
     @InjectMocks
     PageTemplateBuilder builder;
 

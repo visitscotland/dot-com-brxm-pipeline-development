@@ -71,11 +71,13 @@ pipeline {
     VS_BRC_ENV = 'demo'
     VS_BRC_STACK_URL = "https://api-${VS_BRC_STACK_URI}.onehippo.io"
     VS_BRC_STACK_API_VERSION = 'v3'
+    // -- 20230705: VS_DOCKER_IMAGE_NAME updated for brxm15 compatible container, remove below line to build a v14 container
+    VS_DOCKER_IMAGE_NAME = 'vs/vs-brxm15:node10'
   }
 
   tools {
-    maven 'Maven 3.5.0'
-    jdk 'jdk1.8.0'
+    maven 'Maven 3.5.4'
+    jdk 'jdk11'
   }
 
   stages {

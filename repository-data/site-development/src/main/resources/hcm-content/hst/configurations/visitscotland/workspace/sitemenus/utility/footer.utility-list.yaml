@@ -1,6 +1,10 @@
 /hst:hst/hst:configurations/visitscotland/hst:workspace/hst:sitemenus/utility/footer.utility-list:
   jcr:primaryType: hst:sitemenuitem
   hst:repobased: false
+  /footer.about-us:
+    jcr:primaryType: hst:sitemenuitem
+    hst:referencesitemapitem: pagenotfound
+    hst:repobased: false
   /footer.accessibility:
     jcr:primaryType: hst:sitemenuitem
     hst:referencesitemapitem: pagenotfound
@@ -9,15 +13,7 @@
     jcr:primaryType: hst:sitemenuitem
     hst:referencesitemapitem: pagenotfound
     hst:repobased: false
-  /footer.privacy:
-    jcr:primaryType: hst:sitemenuitem
-    hst:referencesitemapitem: pagenotfound
-    hst:repobased: false
   /footer.cookies:
-    jcr:primaryType: hst:sitemenuitem
-    hst:referencesitemapitem: pagenotfound
-    hst:repobased: false
-  /footer.social-media:
     jcr:primaryType: hst:sitemenuitem
     hst:referencesitemapitem: pagenotfound
     hst:repobased: false
@@ -25,11 +21,15 @@
     jcr:primaryType: hst:sitemenuitem
     hst:referencesitemapitem: pagenotfound
     hst:repobased: false
-  /footer.terms-of-use:
+  /footer.privacy:
     jcr:primaryType: hst:sitemenuitem
     hst:referencesitemapitem: pagenotfound
     hst:repobased: false
-  /footer.about-us:
+  /footer.social-media:
+    jcr:primaryType: hst:sitemenuitem
+    hst:referencesitemapitem: pagenotfound
+    hst:repobased: false
+  /footer.terms-of-use:
     jcr:primaryType: hst:sitemenuitem
     hst:referencesitemapitem: pagenotfound
     hst:repobased: false

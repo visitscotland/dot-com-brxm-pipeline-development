@@ -5,7 +5,7 @@
   <parent>
     <groupId>com.onehippo.cms7</groupId>
     <artifactId>hippo-cms7-enterprise-release</artifactId>
-    <version>14.7.8</version>
+    <version>15.2.3</version>
     <!--Remember to upgrade essentials when this versions is updated -->
   </parent>
 
@@ -13,7 +13,7 @@
   <description>www.visitscotland.com CMS Pages</description>
   <groupId>com.visitscotland</groupId>
   <artifactId>dot-com-brxm</artifactId>
-  <version>1.2.9</version>
+  <version>2.0.0</version>
   <packaging>pom</packaging>
 
   <properties>
@@ -26,9 +26,11 @@
 
     <!-- BloomReach Dependencies -->
 
-    <essentials.version>14.7.8</essentials.version>
-    <forge.exdocpickerbase.version>7.0.0</forge.exdocpickerbase.version>
-    <forge.breadcrumb.version>3.0.0</forge.breadcrumb.version>
+    <essentials.version>15.2.3</essentials.version>
+    <!-- Documentation: https://bloomreach-forge.github.io/external-document-picker/index.html -->
+    <forge.exdocpickerbase.version>8.0.0</forge.exdocpickerbase.version>
+    <!-- Documentation: https://bloomreach-forge.github.io/breadcrumb/ -->
+    <forge.breadcrumb.version>5.0.0</forge.breadcrumb.version>
 <!--    <bloomreach.forge.ipfilter.version>3.1.0</bloomreach.forge.ipfilter.version>-->
 
     <!-- Other dependencies -->
@@ -156,6 +158,12 @@
         <groupId>com.fasterxml.jackson.module</groupId>
         <artifactId>jackson-module-jaxb-annotations</artifactId>
         <version>${jackson-core.version}</version>
+      </dependency>
+
+      <dependency>
+        <groupId>com.zaxxer</groupId>
+        <artifactId>HikariCP</artifactId>
+        <version>5.0.1</version>
       </dependency>
 
       <!-- Test Dependencies -->
@@ -520,7 +528,36 @@
       <properties>
         <!-- Already defined in the cms project POM. Override here for your project, if necessary -->
         <!-- <repo.bootstrap>true</repo.bootstrap> -->
+
+        <!-- Note: Wicket can be debugged by using the following CLI parameter -Dwicket.js.debug=true -->
       </properties>
+      <dependencies>
+        <dependency>
+          <groupId>jakarta.xml.bind</groupId>
+          <artifactId>jakarta.xml.bind-api</artifactId>
+          <scope>compile</scope>
+        </dependency>
+        <dependency>
+          <groupId>jakarta.xml.ws</groupId>
+          <artifactId>jakarta.xml.ws-api</artifactId>
+          <scope>compile</scope>
+        </dependency>
+        <dependency>
+          <groupId>javax.annotation</groupId>
+          <artifactId>javax.annotation-api</artifactId>
+          <scope>compile</scope>
+        </dependency>
+        <dependency>
+          <groupId>jakarta.activation</groupId>
+          <artifactId>jakarta.activation-api</artifactId>
+          <scope>runtime</scope>
+        </dependency>
+        <dependency>
+          <groupId>org.glassfish.jaxb</groupId>
+          <artifactId>jaxb-runtime</artifactId>
+          <scope>runtime</scope>
+        </dependency>
+      </dependencies>
       <build>
         <plugins>
           <plugin>
@@ -621,6 +658,31 @@
         <dependency>
           <groupId>org.apache.logging.log4j</groupId>
           <artifactId>log4j-core</artifactId>
+          <scope>provided</scope>
+        </dependency>
+        <dependency>
+          <groupId>jakarta.xml.bind</groupId>
+          <artifactId>jakarta.xml.bind-api</artifactId>
+          <scope>provided</scope>
+        </dependency>
+        <dependency>
+          <groupId>jakarta.xml.ws</groupId>
+          <artifactId>jakarta.xml.ws-api</artifactId>
+          <scope>provided</scope>
+        </dependency>
+        <dependency>
+          <groupId>javax.annotation</groupId>
+          <artifactId>javax.annotation-api</artifactId>
+          <scope>provided</scope>
+        </dependency>
+        <dependency>
+          <groupId>jakarta.activation</groupId>
+          <artifactId>jakarta.activation-api</artifactId>
+          <scope>provided</scope>
+        </dependency>
+        <dependency>
+          <groupId>org.glassfish.jaxb</groupId>
+          <artifactId>jaxb-runtime</artifactId>
           <scope>provided</scope>
         </dependency>
       </dependencies>
