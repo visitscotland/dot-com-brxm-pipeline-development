@@ -14638,16 +14638,17 @@
         hippo:availability: []
         hippostd:retainable: false
         hippostd:state: draft
-        hippostd:transferable: false
         hippostdpubwf:createdBy: admin
         hippostdpubwf:creationDate: 2022-06-16T09:40:19.973+01:00
-        hippostdpubwf:lastModificationDate: 2022-11-16T14:36:24.319Z
+        hippostdpubwf:lastModificationDate: 2023-08-30T08:41:27.887+01:00
         hippostdpubwf:lastModifiedBy: admin
         hippotaxonomy:keys: []
         hippotranslation:id: 5c1c7d42-9e51-44f3-8c7e-8c78fe05ca34
         hippotranslation:locale: en
+        visitscotland:mapType: DistilleriesMap
         visitscotland:tabTitle: Explore places to go
         visitscotland:title: Map of Scotland
+        visitscotland:translation: ''
         /visitscotland:copy:
           jcr:primaryType: hippostd:html
           hippostd:content: <p>This is an example of a map.&nbsp;&nbsp;Suspendisse
@@ -14663,31 +14664,15 @@
         hippostd:state: unpublished
         hippostdpubwf:createdBy: admin
         hippostdpubwf:creationDate: 2022-06-16T09:40:19.973+01:00
-        hippostdpubwf:lastModificationDate: 2022-10-25T10:36:13.225+01:00
+        hippostdpubwf:lastModificationDate: 2023-08-30T08:42:29.931+01:00
         hippostdpubwf:lastModifiedBy: admin
-        hippotaxonomy:keys: [destinations]
+        hippotaxonomy:keys: []
         hippotranslation:id: 5c1c7d42-9e51-44f3-8c7e-8c78fe05ca34
         hippotranslation:locale: en
+        visitscotland:mapType: DistilleriesMap
         visitscotland:tabTitle: Explore places to go
         visitscotland:title: Map of Scotland
-        /visitscotland:categories:
-          jcr:primaryType: visitscotland:MapCategory
-          visitscotland:title: ''
-          /visitscotland:mapPins[1]:
-            jcr:primaryType: hippo:mirror
-            hippo:docbase: af7bc15d-bc33-4b84-ad01-e77eb5acde61
-          /visitscotland:mapPins[2]:
-            jcr:primaryType: hippo:mirror
-            hippo:docbase: 178cc6ee-9b6a-4095-80b2-9026263d173e
-          /visitscotland:mapPins[3]:
-            jcr:primaryType: visitscotland:SpecialLinkCoordinates
-            /visitscotland:link:
-              jcr:primaryType: hippo:mirror
-              hippo:docbase: 7d2653e5-8068-49d1-9c1e-8aad6d951985
-            /visitscotland:coordinates:
-              jcr:primaryType: visitscotland:Coordinates
-              visitscotland:latitude: 56.797394
-              visitscotland:longitude: -5.003361
+        visitscotland:translation: ''
         /visitscotland:copy:
           jcr:primaryType: hippostd:html
           hippostd:content: <p>This is an example of a map.&nbsp;&nbsp;Suspendisse
