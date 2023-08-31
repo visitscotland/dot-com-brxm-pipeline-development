@@ -15,30 +15,33 @@ definitions:
         \nimport javax.jcr.Session\r\nimport javax.jcr.query.Query\r\nimport javax.jcr.query.QueryResult\r\
         \nimport java.util.regex.Pattern\r\n\r\n/**\r\n *\r\n *\r\n * @author jcalcines\r\
         \n * @since August 2023\r\n * @version 2.0.1\r\n */\r\nclass PSWPosition extends\
-        \ BaseNodeUpdateVisitor {\r\n\r\n\r\n    def STANDARD_REGEX = \"^(?!/(accommodation|places-to-go)(/|\\\
-        $))(/[\\\\w-]+)+(/)?\\$\"\r\n    def TOP_LEVEL_REGEX = \"^(/..-..)?/(()|(places-to-go)|(ux-testing)|(inspiration/island-hopping)|(things-to-do)((/(research-your-ancestry|passes-offers|itineraries))|(/[\\\
+        \ BaseNodeUpdateVisitor {\r\n\r\n\r\n    def STANDARD_REGEX = \"^(?!/(test|places-to-go)(/|\\\
+        $))(/[\\\\w-]+)+(/)?\\$\"\r\n    def TOP_LEVEL_REGEX = \"^(/..-..)?/(()|(test)|(ux-testing)|(inspiration/island-hopping)|(things-to-do)((/(research-your-ancestry|passes-offers|itineraries))|(/[\\\
         \\w-]+){2,})|travel-planning((?!/(getting-around|travelling-to-scotland)(/|\\\
         $))(/[\\\\w-]+)+|/travelling-to-scotland(/[\\\\w-]+)+|/getting-around((?!/(driving)(/|\\\
-        $))(/[\\\\w-]+)+|/driving(/[\\\\w-]+)+)))/?\\$\"\r\n    def ROOT_NODE = \"\
-        /content/documents/visitscotland/\"\r\n\r\n    @Override\r\n    boolean doUpdate(Node\
-        \ node) {\r\n        applyRule(node.session, \"Top-Level\", TOP_LEVEL_REGEX)\r\
-        \n        applyRule(node.session, \"Standard\", STANDARD_REGEX)\r\n      \
-        \  return true\r\n    }\r\n\r\n    void applyRule(session, pageType, regex){\r\
-        \n        NodeIterator it = query(session,\"//content/documents//element(*,\
-        \ visitscotland:General)[visitscotland:theme = \\\"${pageType}\\\"]\")\r\n\
-        \        def pattern = Pattern.compile(regex)\r\n        int counter = 0\r\
-        \n\r\n        while (it.hasNext()){\r\n            Node n = it.next()\r\n\
-        \            if (!n.hasProperty(\"visitscotland:pswPosition\") || n.getProperty(\"\
-        visitscotland:pswPosition\").string == \"Default\") {\r\n                String\
-        \ path = n.path.substring(ROOT_NODE.length()-1, n.path.indexOf(\"/content/content\"\
-        ))\r\n                def matcher = path =~ pattern\r\n                n.setProperty(\"\
-        visitscotland:pswPosition\", matcher.find()?\"Top\":\"Bottom\")\r\n      \
-        \      } else{\r\n                counter++\r\n            }\r\n        }\r\
-        \n\r\n        if (counter > 0) {\r\n            log.info \"A total of ${counter}\
-        \ ${pageType} pages have been skipped\"\r\n        }\r\n    }\r\n\r\n    /**\r\
-        \n     * Executes a query and log when no results are returned\r\n     * @param\
-        \ session\r\n     * @param query\r\n     * @return\r\n     */\r\n    NodeIterator\
-        \ query(def session, def query){\r\n        QueryResult results = ((HippoWorkspace)\
+        $))(/[\\\\w-]+)+|/driving(/[\\\\w-]+)+)))/?\\$\"\r\n    def BASE_NODE = \"\
+        /visitscotland/\"\r\n\r\n    @Override\r\n    boolean doUpdate(Node node)\
+        \ {\r\n        applyRule(node.session, \"Top-Level\", TOP_LEVEL_REGEX)\r\n\
+        \        applyRule(node.session, \"Standard\", STANDARD_REGEX)\r\n       \
+        \ applyRule(node.session, \"Simple\", \"^\\$\")\r\n        return true\r\n\
+        \    }\r\n\r\n    void applyRule(session, pageType, regex){\r\n        NodeIterator\
+        \ it = query(session,\"//content/documents//element(*, visitscotland:General)[visitscotland:theme\
+        \ = \\\"${pageType}\\\"]\")\r\n        def pattern = Pattern.compile(regex)\r\
+        \n        int counter = 0\r\n\r\n\r\n        while (it.hasNext()){\r\n   \
+        \         Node n = it.next()\r\n            int start_substring = n.path.indexOf(BASE_NODE)\
+        \ + BASE_NODE.length() - 1\r\n            if (!n.hasProperty(\"visitscotland:pswPosition\"\
+        ) || n.getProperty(\"visitscotland:pswPosition\").string == \"Default\") {\r\
+        \n                String path = n.path.substring(start_substring, n.path.indexOf(\"\
+        /content/content\"))\r\n                def matcher = path =~ pattern\r\n\
+        \                n.setProperty(\"visitscotland:pswPosition\", matcher.find()?\"\
+        Top\":\"Default\")\r\n                log.info \"Path = ${path}, Position\
+        \ = ${matcher.find()?\"Top\":\"Default\"}\"\r\n            } else{\r\n   \
+        \             counter++\r\n            }\r\n        }\r\n\r\n        if (counter\
+        \ > 0) {\r\n            log.info \"A total of ${counter} ${pageType} pages\
+        \ have been skipped\"\r\n        }\r\n    }\r\n\r\n    /**\r\n     * Executes\
+        \ a query and log when no results are returned\r\n     * @param session\r\n\
+        \     * @param query\r\n     * @return\r\n     */\r\n    NodeIterator query(def\
+        \ session, def query){\r\n        QueryResult results = ((HippoWorkspace)\
         \ session.getWorkspace()).getQueryManager().createQuery(query, Query.XPATH).execute();\r\
         \n        if (!results.getNodes().hasNext()){\r\n            log.warn \"No\
         \ query results for ${query}\"\r\n        } else {\r\n            // Note\

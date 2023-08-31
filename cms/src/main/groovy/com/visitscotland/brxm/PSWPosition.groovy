@@ -23,27 +23,31 @@ class PSWPosition extends BaseNodeUpdateVisitor {
 
     def STANDARD_REGEX = "^(?!/(accommodation|places-to-go)(/|\$))(/[\\w-]+)+(/)?\$"
     def TOP_LEVEL_REGEX = "^(/..-..)?/(()|(places-to-go)|(ux-testing)|(inspiration/island-hopping)|(things-to-do)((/(research-your-ancestry|passes-offers|itineraries))|(/[\\w-]+){2,})|travel-planning((?!/(getting-around|travelling-to-scotland)(/|\$))(/[\\w-]+)+|/travelling-to-scotland(/[\\w-]+)+|/getting-around((?!/(driving)(/|\$))(/[\\w-]+)+|/driving(/[\\w-]+)+)))/?\$"
-    def ROOT_NODE = "/content/documents/visitscotland/"
+    def BASE_NODE = "/visitscotland/"
 
     @Override
     boolean doUpdate(Node node) {
         applyRule(node.session, "Top-Level", TOP_LEVEL_REGEX)
         applyRule(node.session, "Standard", STANDARD_REGEX)
+        applyRule(node.session, "Simple", "^\$")
         return true
     }
 
     void applyRule(session, pageType, regex){
+        log.info "Processing ${pageType} Pages"
         NodeIterator it = query(session,"//content/documents//element(*, visitscotland:General)[visitscotland:theme = \"${pageType}\"]")
         def pattern = Pattern.compile(regex)
         int counter = 0
 
+
         while (it.hasNext()){
             Node n = it.next()
+            int start_substring = n.path.indexOf(BASE_NODE) + BASE_NODE.length() - 1
             if (!n.hasProperty("visitscotland:pswPosition") || n.getProperty("visitscotland:pswPosition").string == "Default") {
-                String path = n.path.substring(ROOT_NODE.length()-1, n.path.indexOf("/content/content"))
+                String path = n.path.substring(start_substring, n.path.indexOf("/content/content"))
                 def matcher = path =~ pattern
-                n.setProperty("visitscotland:pswPosition", matcher.find()?"Top":"Bottom")
-                log.info "Path = ${path}, Position = ${matcher.find()?"Top":"Bottom"}"
+                n.setProperty("visitscotland:pswPosition", matcher.find()?"Top":"Default")
+                log.info "Path = ${path}, Position = ${matcher.find()?"Top":"Default"}"
             } else{
                 counter++
             }
@@ -61,7 +65,7 @@ class PSWPosition extends BaseNodeUpdateVisitor {
      * @return
      */
     NodeIterator query(def session, def query){
-        QueryResult results = ((HippoWorkspace) session.getWorkspace()).getQueryManager().createQuery(query, Query.XPATH).execute();
+        QueryResult results = ((HippoWorkspace) session.getWorkspace()).getQueryManager().createQuery(query, Query.XPATH).execute()
         if (!results.getNodes().hasNext()){
             log.warn "No query results for ${query}"
         } else {

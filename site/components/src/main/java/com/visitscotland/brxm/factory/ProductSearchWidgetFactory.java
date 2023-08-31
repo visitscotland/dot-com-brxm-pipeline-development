@@ -18,8 +18,6 @@ import org.hippoecm.hst.core.component.HstRequest;
 import org.jetbrains.annotations.NotNull;
 import org.springframework.stereotype.Component;
 
-import java.util.regex.Pattern;
-
 @Component
 public class ProductSearchWidgetFactory {
 
@@ -62,10 +60,12 @@ public class ProductSearchWidgetFactory {
         if (page instanceof General){
             General general = ((General) page);
 
-            if (general.getBlog() != null || general.getTheme().equals(GeneralContentComponent.SIMPLE)) {
+            if (general.getBlog() != null) {
                 return POSITION_BOTTOM;
-            } else if (!Contract.isEmpty(general.getPswPosition())) {
+            } else if (!Contract.isEmpty(general.getPswPosition()) && !general.getPswPosition().equals(POSITION_DEFAULT)) {
                 return general.getPswPosition();
+            } else if (!general.getTheme().equals(GeneralContentComponent.SIMPLE)) {
+                return POSITION_TOP;
             }
         } else if (page instanceof Destination){
             return POSITION_TOP;

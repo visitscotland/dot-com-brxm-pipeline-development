@@ -11,7 +11,7 @@ definitions:
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:uuid: 9c143509-0bac-4bfa-b544-ac4cb1c05c33
+          jcr:uuid: 6e55b518-bee1-4e39-b0a2-fc9ab8121a59
           hipposysedit:node: true
           hipposysedit:supertype: ['visitscotland:Page', 'hippostd:relaxed', 'hippotranslation:translated']
           hipposysedit:uri: http://www.visitscotland.com/visitscotland/nt/1.0
@@ -50,13 +50,13 @@ definitions:
           visitscotland:title: ''
           visitscotland:seoTitle: ''
           jcr:mixinTypes: ['mix:referenceable']
-          jcr:uuid: dcc716f5-8b32-47ad-abae-58e88b1d139a
+          jcr:uuid: e0b8d0f4-ac11-4c9d-94da-f374a516ef9f
           hippostdpubwf:lastModificationDate: 2020-09-25T13:13:22.744+01:00
           hippostdpubwf:creationDate: 2020-09-25T13:13:22.744+01:00
           visitscotland:theme: Standard
           visitscotland:translation: ''
           visitscotland:hideNewsletter: false
-          visitscotland:pswPosition: Top
+          visitscotland:pswPosition: Default
           /visitscotland:heroImage:
             jcr:primaryType: hippogallerypicker:imagelink
             hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
@@ -237,4 +237,4 @@ definitions:
             wicket.id: ${cluster.id}.right.item
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-              selectable.options: Top,Bottom,Hidden
+              selectable.options: Default,Top,Bottom,Hidden
