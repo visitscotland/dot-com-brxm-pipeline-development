@@ -19,7 +19,6 @@ import org.onehippo.taxonomy.api.Taxonomy;
 import org.onehippo.taxonomy.api.TaxonomyException;
 import org.onehippo.taxonomy.impl.TaxonomyImpl;
 
-import javax.annotation.Resource;
 import javax.jcr.RepositoryException;
 
 import java.util.*;
@@ -39,7 +38,6 @@ class MapServiceTest {
     @Mock
     ContentLogger logger;
 
-    @Resource
     @InjectMocks
     MapService service;
 
