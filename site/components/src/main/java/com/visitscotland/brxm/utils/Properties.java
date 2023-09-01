@@ -257,8 +257,7 @@ public class Properties {
     public List<String> getInternalSites() {
         String sites = readString(INTERNAL_SITES);
         if (!Contract.isEmpty(sites)){
-            //TODO: Java 10 -> toUnmodifiableList()
-            //TODO: Java 11 -> Predicate.not(String::isEmpty)
+            // TODO Java 11: Replace & Test: Arrays.stream(sites.trim().split("\\s*,\\s*")).filter(Predicate.not(String::isEmpty)).collect(Collectors.toUnmodifiableList());
             return Arrays.stream(sites.trim().split("\\s*,\\s*")).filter(((Predicate<String>) String::isEmpty).negate()).collect(Collectors.toList());
         }
         return Collections.emptyList();

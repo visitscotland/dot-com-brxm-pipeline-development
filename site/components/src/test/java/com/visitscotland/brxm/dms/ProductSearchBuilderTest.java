@@ -14,7 +14,6 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
-import javax.annotation.Resource;
 import java.util.Locale;
 
 import static org.mockito.Mockito.*;
@@ -32,7 +31,6 @@ class ProductSearchBuilderTest {
     @Mock
     LocationLoader locationLoader;
 
-    @Resource
     @InjectMocks
     ProductSearchBuilder builder;
 
