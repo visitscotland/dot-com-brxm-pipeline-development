@@ -53,28 +53,29 @@
                         ${stop.ctaLink.label}
                     </vs-link>
                 </#if>
-
-                <#if stop.timeToExplore?? && stop.timeToExplore?has_content>
-                    <vs-description-list class="mb-4 justify-content-start" inline v-slot:stop>
+            </template>
+            <#if stop.timeToExplore?? && stop.timeToExplore?has_content>
+                <template v-slot:stop>
+                    <vs-description-list class="mb-4 justify-content-start" inline>
                         <vs-description-list-item title class="mb-0 mr-0 pr-1 col-auto">${label("itinerary", "stop.time-to-explore")}</vs-description-list-item>
                         <vs-description-list-item class="mb-0 col-auto px-0">${stop.timeToExplore}</vs-description-list-item>
                     </vs-description-list>
-                </#if>
+                </template>
+            </#if>
 
-                <#if (stop.tipsTitle?? && stop.tipsTitle?has_content)>
-                    <vs-itinerary-tips>
-                        <template v-slot:text>
-                            <div>
-                                <strong>${stop.tipsTitle}</strong>
-                                <@hst.html hippohtml=stop.tipsBody/>
-                            </div>
-                        </template>
-                        <template v-slot:svg>
-                            <vs-svg path="highland-cow" />
-                        </template>
-                    </vs-itinerary-tips>
-                </#if>
-            </template>
+            <#if (stop.tipsTitle?? && stop.tipsTitle?has_content)>
+                <vs-itinerary-tips>
+                    <template v-slot:text>
+                        <div>
+                            <strong>${stop.tipsTitle}</strong>
+                            <@hst.html hippohtml=stop.tipsBody/>
+                        </div>
+                    </template>
+                    <template v-slot:svg>
+                        <vs-svg path="highland-cow" />
+                    </template>
+                </vs-itinerary-tips>
+            </#if>
         </#if>
 
         <#if stop??>
@@ -156,23 +157,25 @@
             <#if isLastStop == 'true'>
                 <#assign nearbyEatsUrl = productSearch(locale, "cate", stop.coordinates.latitude, stop.coordinates.longitude, 5)>
                 <#assign nearbyStayUrl = productSearch(locale, "acco", stop.coordinates.latitude, stop.coordinates.longitude, 5)>
-                <vs-itinerary-border-overlap-wrapper v-slot:stop-buttons>
-                    <vs-button
-                        class="mb-3"
-                        variant="secondary"
-                        icon="food"
-                        href="${nearbyEatsUrl}"
-                    >
-                        ${label("itinerary", "stop.nearby-eat")}
-                    </vs-button>
-                    <vs-button
-                        variant="secondary"
-                        icon="product-accommodation"
-                        href="${nearbyStayUrl}"
-                    >
-                        ${label("itinerary", "stop.nearby-stay")}
-                    </vs-button>
-                </vs-itinerary-border-overlap-wrapper>
+                <template v-slot:stop-buttons>
+                    <vs-itinerary-border-overlap-wrapper>
+                        <vs-button
+                            class="mb-3"
+                            variant="secondary"
+                            icon="food"
+                            href="${nearbyEatsUrl}"
+                        >
+                            ${label("itinerary", "stop.nearby-eat")}
+                        </vs-button>
+                        <vs-button
+                            variant="secondary"
+                            icon="product-accommodation"
+                            href="${nearbyStayUrl}"
+                        >
+                            ${label("itinerary", "stop.nearby-stay")}
+                        </vs-button>
+                    </vs-itinerary-border-overlap-wrapper>
+                </template>
             </#if>
             
         </#if>        
