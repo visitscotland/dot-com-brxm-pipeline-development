@@ -25,5 +25,7 @@ What are the criteria for signing off this work?
 ### Miro board
 Miro board link if applicable
 
+### Please remember to update Confluence acceptance criteria where applicable
+
 ### Additional context
 Add any other context or screenshots about the feature request here.
