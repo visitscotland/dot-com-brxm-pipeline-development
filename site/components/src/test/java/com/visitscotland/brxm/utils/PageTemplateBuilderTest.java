@@ -274,6 +274,25 @@ class PageTemplateBuilderTest {
         assertEquals(ti, items.get(0).getHippoBean());
     }
 
+    /**
+     * Verifies that is able to hide an iKnowModule when boolean is set to false
+     */
+    @Test
+    void hideTouristInformation_iKnowModule() {
+        TourismInformation ti = new TouristInformationMockBuilder().build();
+
+        when(utils.getAllowedDocuments(page)).thenReturn(Collections.singletonList(ti));
+        when (properties.isIknowEnabled()).thenReturn(false);
+
+        when(properties.getSiteICentre()).thenReturn("/icentre-landing");
+        request.setPathInfo("/destination/edinburgh");
+
+        builder.addModules(request);
+
+        List<Module> items = (List<Module>) request.getAttribute(PageTemplateBuilder.PAGE_ITEMS);
+        assertEquals(0, items.size());
+    }
+
     @Test
     @DisplayName("VS-4404 -  The iCentre module should not appear on the iCentre landing page")
     void getModule_iCentreLanding(){
