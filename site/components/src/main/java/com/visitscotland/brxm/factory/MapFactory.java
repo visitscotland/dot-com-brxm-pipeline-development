@@ -188,10 +188,10 @@ public class MapFactory {
             }
         }else{
             module.setMapType(MapType.REGIONAL.getMapType());
-            geometryNode = dmsDataService.getLocationBorders(location.getId(),false);
-            //for multipolygon regions we need the bounds, if geometryNode is empty means it is a polygon
+            geometryNode = dmsDataService.getLocationBorders(location.getId(),true);
+            //for multipolygon regions we need the bounds, if geometryNode is empty means it is not a polygon
             if (geometryNode == null || geometryNode.isEmpty()) {
-                geometryNode = dmsDataService.getLocationBorders(location.getId(),true);
+                geometryNode = dmsDataService.getLocationBorders(location.getId(),false);
             }
 
             for (RegionsMapTab regionMap: RegionsMapTab.values()) {
