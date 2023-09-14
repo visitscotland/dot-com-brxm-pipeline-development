@@ -34,7 +34,7 @@
                                     <#list childItem.childMenuItems as thirdChildItem>
                                         <#if thirdChildItem.title??>
                                             <vs-mega-nav-list-item
-                                                slot="navListItems"
+                                                v-slot:nav-list-items
                                                 href="${getUrl(thirdChildItem)}"                                                
                                             >   
                                                 ${thirdChildItem.title}
@@ -46,7 +46,7 @@
                                         <vs-mega-nav-list-item
                                             href="${getUrl(childItem)}"
                                             subheading-link
-                                            slot="navHeadingCtaLink"
+                                            v-slot:nav-heading-cta-link
                                         >
                                             ${childItem.cta}
                                         </vs-mega-nav-list-item>

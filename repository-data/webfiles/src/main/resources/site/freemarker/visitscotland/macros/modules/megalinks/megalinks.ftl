@@ -32,9 +32,11 @@
         cookie-link-text="${label('essentials.global', 'cookie.link-message')}"
         no-js-message="${label('video', 'video.no-js')}"
     >
-        <template slot="vsMegalinksIntro">
-            <@hst.html hippohtml=item.introduction/>
-        </template>
+        <#if item.introduction>
+            <template v-slot:vs-megalinks-intro>
+                <@hst.html hippohtml=item.introduction/>
+            </template>
+        </#if>
 
         <#if type == "MultiImageLinksModule">
             <@multiImage item=item showTeaser=showTeaser theme=theme />
@@ -47,7 +49,7 @@
         </#if>
 
         <#if item.cta?? >     
-            <template slot="vsMegalinksButton">
+            <template v-slot:vs-megalinks-button>
                 ${item.cta.label}
             </template>
         </#if>

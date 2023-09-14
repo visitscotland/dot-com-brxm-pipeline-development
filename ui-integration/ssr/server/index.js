@@ -4,7 +4,9 @@ const { some, startsWith, get } = require("lodash");
 const getPort = require("get-port");
 const proxy = require("express-http-proxy");
 
-const { renderPage, initRenderer } = require("./ssr");
+const { BTableSimple } = require('bootstrap-vue-next');
+
+const { renderPage } = require("./ssr");
 
 if (!process.env.VS_SSR_PROXY_TARGET_HOST) {
     require("dotenv").config();
@@ -25,6 +27,7 @@ const pathsToExcludeFromSSR = [
     "/site/autoreload",
     "/favicon.ico",
     "/cms",
+    "/site/manifest.webmanifest",
 ];
 
 /**
@@ -58,7 +61,7 @@ const postProxyHandler = async (proxyRes, proxyResData, userReq) => {
     const pathAndParams = getRequestPathAndParams(userReq);
 
     if (excludePathFromSSR(userReq.path)) {
-        console.log(`Proxying request to ${pathAndParams}`);
+        // console.log(`Proxying request to ${pathAndParams}`);
     } else {
         console.log(`Attempting SSR on request to ${pathAndParams}`);
 
@@ -89,6 +92,3 @@ app.use(proxy(process.env.VS_SSR_PROXY_TARGET_HOST, {
 
     app.listen(port, () => console.log(`Listening on: ${port}`));
 })();
-
-
-initRenderer(app);
