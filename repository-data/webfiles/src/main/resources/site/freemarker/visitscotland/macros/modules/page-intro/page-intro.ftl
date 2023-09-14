@@ -148,35 +148,37 @@
                 </template>
 
                 <#if itinerary.document.areas?has_content>
-                    <vs-container v-slot:vs-intro-lower>
-                        <vs-row>
-                            <vs-col cols="12" lg="5" xl="6" offset-lg="1">
-                                <vs-description-list class="mb-6">
-                                    <vs-description-list-item title>
-                                        ${label("itinerary", "highlights")}
-                                    </vs-description-list-item>
-                                    
-                                    <#list itinerary.document.highlights as highlight>
-                                        <vs-description-list-item>
-                                            ${highlight}
+                    <template v-slot:vs-intro-lower>
+                        <vs-container >
+                            <vs-row>
+                                <vs-col cols="12" lg="5" xl="6" offset-lg="1">
+                                    <vs-description-list class="mb-6">
+                                        <vs-description-list-item title>
+                                            ${label("itinerary", "highlights")}
                                         </vs-description-list-item>
-                                    </#list>
-                                </vs-description-list>
+                                        
+                                        <#list itinerary.document.highlights as highlight>
+                                            <vs-description-list-item>
+                                                ${highlight}
+                                            </vs-description-list-item>
+                                        </#list>
+                                    </vs-description-list>
 
-                                <vs-description-list class="mb-8">
-                                    <vs-description-list-item title>
-                                        ${label("itinerary", "areas-covered")}
-                                    </vs-description-list-item>
-
-                                    <#list  itinerary.document.areas as area>
-                                        <vs-description-list-item>
-                                            ${label("areas", "${area}")}
+                                    <vs-description-list class="mb-8">
+                                        <vs-description-list-item title>
+                                            ${label("itinerary", "areas-covered")}
                                         </vs-description-list-item>
-                                    </#list>
-                                </vs-description-list>
-                            </vs-col>
-                        </vs-row>
-                    </vs-container>
+
+                                        <#list  itinerary.document.areas as area>
+                                            <vs-description-list-item>
+                                                ${label("areas", "${area}")}
+                                            </vs-description-list-item>
+                                        </#list>
+                                    </vs-description-list>
+                                </vs-col>
+                            </vs-row>
+                        </vs-container>
+                    </template>
                 </#if>
             </#if>
         </vs-page-intro>
