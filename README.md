@@ -24,7 +24,7 @@ are expected.
 
 Unix Based Console
 
-    mvn clean verify -P \!fed-build -DskipTests && mvn -P cargo.runpull
+    mvn clean verify -P \!fed-build -DskipTests && mvn -P cargo.run
 
 or
 
