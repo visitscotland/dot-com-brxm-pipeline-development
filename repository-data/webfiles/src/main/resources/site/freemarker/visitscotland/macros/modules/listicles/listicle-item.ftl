@@ -31,7 +31,7 @@
             </div>
         </template>
 
-        <#--  <#if item.image?? && item.image?has_content>
+        <#if item.image?? && item.image?has_content>
             <template v-slot:image-slot>
                 <div>
                     <@imageWithCaption 
@@ -43,7 +43,7 @@
                     />
                 </div>
             </template>
-        </#if>  -->
+        </#if>
 
         <template v-slot:description-slot>
             <div>
