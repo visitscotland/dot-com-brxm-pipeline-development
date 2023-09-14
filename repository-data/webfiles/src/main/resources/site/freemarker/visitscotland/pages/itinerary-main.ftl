@@ -36,7 +36,7 @@
 <div class="has-edit-button">
     <@hst.manageContent hippobean=document/>
 
-    <#--  <@pageIntro content=document heroDetails=heroImage itinerary=itinerary />  -->
+    <@pageIntro content=document heroDetails=heroImage itinerary=itinerary />
 
     <vs-itinerary
         list-view-text="${label('itinerary', 'list-view')}"
@@ -57,35 +57,33 @@
                 >
                     <#if day.transports?has_content>
                         <#assign dayTransport = day.transports[0]>
-                        <vs-description-list
-                            class="text-center justify-content-center align-items-center has-edit-button"
-                            v-slot:day-transport
-                        >
-                            <@hst.manageContent hippobean=day />
-                            <#-- 
-                                Note - can't use vs-description-list-item
-                                here yet as font style and layout are different 
-                                #VS-2985
-                            -->
-                            <dt class="list-inline-item">${label("itinerary", "transport")}:</dt>
-                            <#list day.transports as transport>
-                                <dd class="list-inline-item">
-                                    <vs-tooltip
-                                        title="${label('transports', '${transport}')}"
-                                        href="#"
-                                        icon="${transport}"
-                                        size="lg"
-                                        icon-only
-                                        variant="transparent"
-                                    >
-                                        <span class="sr-only">
-                                            ${label("transports", "${transport}")}
-                                        </span>
-                                    </vs-tooltip>
-                                </dd>
-                            </#list>
-                        </vs-description-list>
-
+                        <template v-slot:day-transport> 
+                            <vs-description-list class="text-center justify-content-center align-items-center has-edit-button">
+                                <@hst.manageContent hippobean=day />
+                                <#-- 
+                                    Note - can't use vs-description-list-item
+                                    here yet as font style and layout are different 
+                                    #VS-2985
+                                -->
+                                <dt class="list-inline-item">${label("itinerary", "transport")}:</dt>
+                                <#list day.transports as transport>
+                                    <dd class="list-inline-item">
+                                        <vs-tooltip
+                                            title="${label('transports', '${transport}')}"
+                                            href="#"
+                                            icon="${transport}"
+                                            size="lg"
+                                            icon-only
+                                            variant="transparent"
+                                        >
+                                            <span class="sr-only">
+                                                ${label("transports", "${transport}")}
+                                            </span>
+                                        </vs-tooltip>
+                                    </dd>
+                                </#list>
+                            </vs-description-list>
+                        </template>
                     <#else>
                         <#assign dayTransport = "">
                     </#if>

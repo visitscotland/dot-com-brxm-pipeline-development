@@ -24501,7 +24501,7 @@
         jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
         jcr:uuid: bc391924-de66-46b8-bffd-57fce114456e
         hippo:name: Autumn
-        hippo:versionHistory: 6253b297-996a-4b35-915f-85d55fe36508
+        hippo:versionHistory: d4dfac00-25c3-407b-b96a-15197b6dc379
         /content[1]:
           jcr:primaryType: visitscotland:General
           jcr:mixinTypes: ['mix:referenceable']
@@ -24511,7 +24511,7 @@
           hippostd:state: draft
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2023-03-14T16:49:32.030Z
-          hippostdpubwf:lastModificationDate: 2023-03-14T17:03:31.290Z
+          hippostdpubwf:lastModificationDate: 2023-09-14T17:14:18.718+01:00
           hippostdpubwf:lastModifiedBy: admin
           hippotranslation:id: 32bbae41-8427-4a53-87bd-afbd04ec83d6
           hippotranslation:locale: en
@@ -24539,11 +24539,6 @@
             hippostd:content: <p>Autumn in Scotland is beautiful. It's the perfect
               destination for an autumn break with beautiful landscapes, leafy cities,
               mild temperatures and dark starry skies.</p>
-          /visitscotland:heroVideo:
-            jcr:primaryType: visitscotland:VideoLink
-            /visitscotland:videoLink:
-              jcr:primaryType: hippo:mirror
-              hippo:docbase: 531e8256-dfdc-4af0-b2ff-4835fe3aef10
           /visitscotland:otherThings:
             jcr:primaryType: visitscotland:OTYML
             visitscotland:title: ''
@@ -24565,6 +24560,11 @@
             /visitscotland:introduction:
               jcr:primaryType: hippostd:html
               hippostd:content: ''
+          /visitscotland:heroVideo:
+            jcr:primaryType: visitscotland:VideoLink
+            /visitscotland:videoLink:
+              jcr:primaryType: hippo:mirror
+              hippo:docbase: 27faea1f-b49a-49ec-a0d8-a58a614d1c82
         /content[2]:
           jcr:primaryType: visitscotland:General
           jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
@@ -24574,7 +24574,7 @@
           hippostd:state: unpublished
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2023-03-14T16:49:32.030Z
-          hippostdpubwf:lastModificationDate: 2023-03-14T17:03:35.873Z
+          hippostdpubwf:lastModificationDate: 2023-09-14T17:14:31.154+01:00
           hippostdpubwf:lastModifiedBy: admin
           hippotranslation:id: 32bbae41-8427-4a53-87bd-afbd04ec83d6
           hippotranslation:locale: en
@@ -24602,11 +24602,6 @@
             hippostd:content: <p>Autumn in Scotland is beautiful. It's the perfect
               destination for an autumn break with beautiful landscapes, leafy cities,
               mild temperatures and dark starry skies.</p>
-          /visitscotland:heroVideo:
-            jcr:primaryType: visitscotland:VideoLink
-            /visitscotland:videoLink:
-              jcr:primaryType: hippo:mirror
-              hippo:docbase: 531e8256-dfdc-4af0-b2ff-4835fe3aef10
           /visitscotland:otherThings:
             jcr:primaryType: visitscotland:OTYML
             visitscotland:title: ''
@@ -24628,6 +24623,11 @@
             /visitscotland:introduction:
               jcr:primaryType: hippostd:html
               hippostd:content: ''
+          /visitscotland:heroVideo:
+            jcr:primaryType: visitscotland:VideoLink
+            /visitscotland:videoLink:
+              jcr:primaryType: hippo:mirror
+              hippo:docbase: 27faea1f-b49a-49ec-a0d8-a58a614d1c82
         /content[3]:
           jcr:primaryType: visitscotland:General
           jcr:mixinTypes: ['mix:referenceable']
@@ -24637,9 +24637,9 @@
           hippostd:state: published
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2023-03-14T16:49:32.030Z
-          hippostdpubwf:lastModificationDate: 2023-03-14T17:03:35.873Z
+          hippostdpubwf:lastModificationDate: 2023-09-14T17:14:31.154+01:00
           hippostdpubwf:lastModifiedBy: admin
-          hippostdpubwf:publicationDate: 2023-03-14T17:03:38.596Z
+          hippostdpubwf:publicationDate: 2023-09-14T17:14:39.862+01:00
           hippotranslation:id: 32bbae41-8427-4a53-87bd-afbd04ec83d6
           hippotranslation:locale: en
           visitscotland:breadcrumb: Autumn
@@ -24666,11 +24666,6 @@
             hippostd:content: <p>Autumn in Scotland is beautiful. It's the perfect
               destination for an autumn break with beautiful landscapes, leafy cities,
               mild temperatures and dark starry skies.</p>
-          /visitscotland:heroVideo:
-            jcr:primaryType: visitscotland:VideoLink
-            /visitscotland:videoLink:
-              jcr:primaryType: hippo:mirror
-              hippo:docbase: 531e8256-dfdc-4af0-b2ff-4835fe3aef10
           /visitscotland:otherThings:
             jcr:primaryType: visitscotland:OTYML
             visitscotland:title: ''
@@ -24692,6 +24687,11 @@
             /visitscotland:introduction:
               jcr:primaryType: hippostd:html
               hippostd:content: ''
+          /visitscotland:heroVideo:
+            jcr:primaryType: visitscotland:VideoLink
+            /visitscotland:videoLink:
+              jcr:primaryType: hippo:mirror
+              hippo:docbase: 27faea1f-b49a-49ec-a0d8-a58a614d1c82
       /find-the-perfect-autumn-break:
         jcr:primaryType: hippo:handle
         jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']

@@ -7029,6 +7029,88 @@
             hippo:facets: []
             hippo:modes: []
             hippo:values: []
+      /dark-skies:
+        jcr:primaryType: hippo:handle
+        jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+        jcr:uuid: 27faea1f-b49a-49ec-a0d8-a58a614d1c82
+        hippo:name: Dark Skies
+        hippo:versionHistory: 537cddc8-7581-4952-8a8c-a20a1343a1e3
+        /dark-skies[1]:
+          jcr:primaryType: visitscotland:Video
+          jcr:mixinTypes: ['mix:referenceable']
+          jcr:uuid: 2ffdd7f6-0029-433e-bcaa-4fa4543a1b86
+          hippo:availability: []
+          hippostd:retainable: false
+          hippostd:state: draft
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2023-09-14T17:13:21.649+01:00
+          hippostdpubwf:lastModificationDate: 2023-09-14T17:13:21.650+01:00
+          hippostdpubwf:lastModifiedBy: admin
+          hippotranslation:id: ad93ad83-e5c1-4798-a673-e61dede23bc6
+          hippotranslation:locale: en
+          visitscotland:label: ''
+          visitscotland:teaser: Scotland enjoys some of the darkest skies in Europe.
+            You might even be lucky enough to spot the mesmerising Northern Lights!
+          visitscotland:title: Dark Skies
+          visitscotland:translation: ''
+          visitscotland:url: https://www.youtube.com/watch?v=v8IQAUvopnI
+          /visitscotland:image:
+            jcr:primaryType: hippogallerypicker:imagelink
+            hippo:docbase: f0fe0f26-489b-4a2e-b6c5-605df1abbdcb
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+        /dark-skies[2]:
+          jcr:primaryType: visitscotland:Video
+          jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+          jcr:uuid: 337f6e90-c03c-456c-aeb2-ededf3449204
+          hippo:availability: [preview]
+          hippostd:retainable: false
+          hippostd:state: unpublished
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2023-09-14T17:13:21.649+01:00
+          hippostdpubwf:lastModificationDate: 2023-09-14T17:14:08.457+01:00
+          hippostdpubwf:lastModifiedBy: admin
+          hippotranslation:id: ad93ad83-e5c1-4798-a673-e61dede23bc6
+          hippotranslation:locale: en
+          visitscotland:label: ''
+          visitscotland:teaser: Scotland enjoys some of the darkest skies in Europe.
+            You might even be lucky enough to spot the mesmerising Northern Lights!
+          visitscotland:title: Dark Skies
+          visitscotland:translation: ''
+          visitscotland:url: https://www.youtube.com/watch?v=v8IQAUvopnI
+          /visitscotland:image:
+            jcr:primaryType: hippogallerypicker:imagelink
+            hippo:docbase: f0fe0f26-489b-4a2e-b6c5-605df1abbdcb
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+        /dark-skies[3]:
+          jcr:primaryType: visitscotland:Video
+          jcr:mixinTypes: ['mix:referenceable']
+          jcr:uuid: bd2aa42c-602d-48f5-968e-3628cc396fab
+          hippo:availability: [live]
+          hippostd:retainable: false
+          hippostd:state: published
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2023-09-14T17:13:21.649+01:00
+          hippostdpubwf:lastModificationDate: 2023-09-14T17:14:08.457+01:00
+          hippostdpubwf:lastModifiedBy: admin
+          hippostdpubwf:publicationDate: 2023-09-14T17:14:10.878+01:00
+          hippotranslation:id: ad93ad83-e5c1-4798-a673-e61dede23bc6
+          hippotranslation:locale: en
+          visitscotland:label: ''
+          visitscotland:teaser: Scotland enjoys some of the darkest skies in Europe.
+            You might even be lucky enough to spot the mesmerising Northern Lights!
+          visitscotland:title: Dark Skies
+          visitscotland:translation: ''
+          visitscotland:url: https://www.youtube.com/watch?v=v8IQAUvopnI
+          /visitscotland:image:
+            jcr:primaryType: hippogallerypicker:imagelink
+            hippo:docbase: f0fe0f26-489b-4a2e-b6c5-605df1abbdcb
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
   /itinerary:
     jcr:primaryType: hippostd:folder
     jcr:mixinTypes: ['hippotranslation:translated', 'mix:versionable']
