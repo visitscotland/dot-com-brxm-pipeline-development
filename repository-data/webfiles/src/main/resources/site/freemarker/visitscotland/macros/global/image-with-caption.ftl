@@ -60,18 +60,20 @@
                 </template>
 
                 <#if imageDetails.source?has_content>
-                    <vs-icon
-                        v-slot:toggle-icon
-                        name="${imageDetails.source + '-filled'}"
-                        size="md"
-                    ></vs-icon>
+                    <template v-slot:toggle-icon>
+                        <vs-icon
+                            name="${imageDetails.source + '-filled'}"
+                            size="md"
+                        ></vs-icon>
+                    </template>
 
-                    <vs-social-credit-link
-                        v-slot:credit
-                        credit="<#if imageDetails.credit??>${imageDetails.credit}<#else>${label('essentials.global', 'image.no.credit')}</#if>"
-                        social-post-url="${imageDetails.postUrl}"
-                        source="${imageDetails.source}"
-                    ></vs-social-credit-link>
+                    <template v-slot:credit>
+                        <vs-social-credit-link
+                            credit="<#if imageDetails.credit??>${imageDetails.credit}<#else>${label('essentials.global', 'image.no.credit')}</#if>"
+                            social-post-url="${imageDetails.postUrl}"
+                            source="${imageDetails.source}"
+                        ></vs-social-credit-link>
+                    </template>
                 <#else>
                     <#if imageDetails.credit?has_content>
                         <template v-slot:credit>

@@ -71,6 +71,9 @@ public class Properties {
     private static final String PSR_POSITION_TOP_LEVEL = "psr.position.general-top-level";
     private static final String PSR_POSITION_GENERAL_STANDARD = "psr.position.general-standard";
 
+    //Modules References
+    static final String ENABLE_IKNOW_MODULE = "iknow-module.enabled";
+
 
     private final ResourceBundleService bundle;
 
@@ -230,6 +233,9 @@ public class Properties {
         return readBoolean(SNIPPET_CACHE);
     }
 
+    public boolean isIknowEnabled() {
+        return readBoolean(ENABLE_IKNOW_MODULE);
+    }
     /**
      * Max number of elements cached. If the property is not defined in the CMS, there is no maximum
      */
