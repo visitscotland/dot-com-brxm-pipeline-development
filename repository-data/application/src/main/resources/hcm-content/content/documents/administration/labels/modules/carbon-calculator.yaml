@@ -3,7 +3,7 @@
   jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
   jcr:uuid: 0c11ad86-1ffe-469f-a02c-ef78a166ef4d
   hippo:name: Carbon Calculator
-  hippo:versionHistory: 2de29a11-22e9-45d8-ba7c-e6269d1a1aa0
+  hippo:versionHistory: 925d7900-7fa3-466b-af42-f5d5a16d0c89
   /carbon-calculator[1]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:referenceable']
@@ -13,24 +13,58 @@
     hippostd:state: draft
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2023-08-09T17:31:48.480+01:00
-    hippostdpubwf:lastModificationDate: 2023-08-09T17:46:05.701+01:00
+    hippostdpubwf:lastModificationDate: 2023-09-14T17:51:09.861+01:00
     hippostdpubwf:lastModifiedBy: admin
-    resourcebundle:descriptions: ['', '', '', '', '', '', '', '']
+    resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '', '', '', '',
+      '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
+      '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
+      '']
     resourcebundle:id: carbon-calculator
-    resourcebundle:keys: [page-1.title, page-1.question, page-1.option-1, page-1.option-2,
-      page-1.option-3, page-1.option-2.tip, next, previous]
-    resourcebundle:messages: [Transport, How are you travelling to Scotland, I'm already
-        here!, Plane, Car (Petrol), 'If you''re travelling from within the UK, travelling
-        by train instead of flying could save up to x tonnes of emissions per 100
-        miles!', Next, Previous]
-    resourcebundle:messages_de: ['', '', '', '', '', '', '', '']
-    resourcebundle:messages_es: [Transporte, '¿Cómo piensas viajar a Escocia?', ¡Ya
-        estoy en Escocia!, Avión, Coche de gasolina, 'Si viajas desde el Reino Unido,
-        puedes reducir considerablemente el impacto ecológico si viajas en tren.',
-      Siguiente, Anterior]
-    resourcebundle:messages_fr: ['', '', '', '', '', '', '', '']
-    resourcebundle:messages_it: ['', '', '', '', '', '', '', '']
-    resourcebundle:messages_nl: ['', '', '', '', '', '', '', '']
+    resourcebundle:keys: [next, previous, results, resultsIntro, chartTitle, comparison,
+      kilos, begin, introHeading, introContent, perDayTarget, perDaySuccess, topTip,
+      allTips, soFar, kgsOf, kgsPerDay, transport, accommodation, food, restart, section-1.title,
+      section-2.title, section-3.title, section-4.title, page-1.question, page-1.option-1,
+      page-1.option-2, page-1.option-3, page-1.option-4, page-1.option-5, page-1.option-6,
+      page-1.option-7, page-1.option-8, page-1.option-9, page-1.option-10, page-1.option-11,
+      page-1.option-12, page-2.question, page-3.question, page-4.question, page-4.option-1,
+      page-4.option-2, page-4.option-3, page-4.option-4, page-4.option-5, page-4.option-6,
+      page-4.hint, form-url, formUrl, noJsMessage]
+    resourcebundle:messages: [Next, Previous, Results, Your estimated total carbon
+        emission for your trip is, Your emissions breakdown, 'That\''s the equivalent
+        of xxx kms in a medium-sized petrol car, which would take you from Edinburgh
+        to London yyy times!', kilos, Start Questionnaire, Calculate Your Carbon,
+      'From transport to food and drink, answer 4 simple questions about your trip
+        to Scotland and we\''ll calculate your emissions.', '30', 'Congratulations!
+        You\''re emitting less than xxx KGs of CO₂e per day on your trip, which is
+        below average. We like to think this makes you a Sustainability Unicorn -
+        Scotland\''s national animal, which cares deeply about protecting our environment.',
+      Top Tip!, Test, 'Your calculation so far:', KGs of CO₂e, Thats about xxx KGs
+        of CO₂e per day., Transport, Accommodation, Food, Restart, Transport, Transport,
+      Accommodation, Food, How are you travelling to Scotland, I live in Scotland,
+      Domestic Flight, Short-Haul Flight, Long-Haul Flight, Car (Petrol), Car (Diesel),
+      Car (Electric), Train, Coach, Ferry, Campervan/Motorhome (Petrol), Camperval/Motorhome
+        (Diesel), 'How many hours will your journey take?', 'How many nights are you
+        staying for?', 'How would you describe your diet?', Frequent meat-eater, Moderate
+        meat-eater, Infrequent meat-eater, Pescatarian, Vegetarian, Vegan, 'Frequent
+        meat eater: 5 times a week, moderate meat eater: 3 times a week, infrequent
+        meat eater: 1 - 2 times a week', 'http://localhost:3000/carbon-calculator/carbon-calculator-fields.json',
+      'http://localhost:3000/carbon-calculator/carbon-calculator-fields.json', You
+        need Javascript enabled to use this calculator]
+    resourcebundle:messages_de: ['', '', '', '', '', '', '', '', '', '', '', '', '',
+      '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
+      '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '']
+    resourcebundle:messages_es: ['', '', '', '', '', '', '', '', '', '', '', '', '',
+      '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
+      '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '']
+    resourcebundle:messages_fr: ['', '', '', '', '', '', '', '', '', '', '', '', '',
+      '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
+      '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '']
+    resourcebundle:messages_it: ['', '', '', '', '', '', '', '', '', '', '', '', '',
+      '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
+      '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '']
+    resourcebundle:messages_nl: ['', '', '', '', '', '', '', '', '', '', '', '', '',
+      '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
+      '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '']
   /carbon-calculator[2]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
@@ -40,24 +74,58 @@
     hippostd:state: unpublished
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2023-08-09T17:31:48.480+01:00
-    hippostdpubwf:lastModificationDate: 2023-08-09T17:56:47.113+01:00
+    hippostdpubwf:lastModificationDate: 2023-09-14T17:51:45.462+01:00
     hippostdpubwf:lastModifiedBy: admin
-    resourcebundle:descriptions: ['', '', '', '', '', '', '', '']
+    resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '', '', '', '',
+      '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
+      '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
+      '']
     resourcebundle:id: carbon-calculator
-    resourcebundle:keys: [page-1.title, page-1.question, page-1.option-1, page-1.option-2,
-      page-1.option-3, page-1.option-2.tip, next, previous]
-    resourcebundle:messages: [Transport, How are you travelling to Scotland, I'm already
-        here!, Plane, Car (Petrol), 'If you''re travelling from within the UK, travelling
-        by train instead of flying could save up to x tonnes of emissions per 100
-        miles!', Next, Previous]
-    resourcebundle:messages_de: ['', '', '', '', '', '', '', '']
-    resourcebundle:messages_es: [Transporte, '¿Cómo piensas viajar a Escocia?', ¡Ya
-        estoy en Escocia!, Avión, Coche de gasolina, 'Si viajas desde el Reino Unido,
-        puedes reducir considerablemente el impacto ecológico si viajas en tren.',
-      Siguiente, Anterior]
-    resourcebundle:messages_fr: ['', '', '', '', '', '', '', '']
-    resourcebundle:messages_it: ['', '', '', '', '', '', '', '']
-    resourcebundle:messages_nl: ['', '', '', '', '', '', '', '']
+    resourcebundle:keys: [next, previous, results, resultsIntro, chartTitle, comparison,
+      kilos, begin, introHeading, introContent, perDayTarget, perDaySuccess, topTip,
+      allTips, soFar, kgsOf, kgsPerDay, transport, accommodation, food, restart, section-1.title,
+      section-2.title, section-3.title, section-4.title, page-1.question, page-1.option-1,
+      page-1.option-2, page-1.option-3, page-1.option-4, page-1.option-5, page-1.option-6,
+      page-1.option-7, page-1.option-8, page-1.option-9, page-1.option-10, page-1.option-11,
+      page-1.option-12, page-2.question, page-3.question, page-4.question, page-4.option-1,
+      page-4.option-2, page-4.option-3, page-4.option-4, page-4.option-5, page-4.option-6,
+      page-4.hint, form-url, formUrl, noJsMessage]
+    resourcebundle:messages: [Next, Previous, Results, Your estimated total carbon
+        emission for your trip is, Your emissions breakdown, 'That\''s the equivalent
+        of xxx kms in a medium-sized petrol car, which would take you from Edinburgh
+        to London yyy times!', kilos, Start Questionnaire, Calculate Your Carbon,
+      'From transport to food and drink, answer 4 simple questions about your trip
+        to Scotland and we\''ll calculate your emissions.', '30', 'Congratulations!
+        You\''re emitting less than xxx KGs of CO₂e per day on your trip, which is
+        below average. We like to think this makes you a Sustainability Unicorn -
+        Scotland\''s national animal, which cares deeply about protecting our environment.',
+      Top Tip!, Test, 'Your calculation so far:', KGs of CO₂e, Thats about xxx KGs
+        of CO₂e per day., Transport, Accommodation, Food, Restart, Transport, Transport,
+      Accommodation, Food, How are you travelling to Scotland, I live in Scotland,
+      Domestic Flight, Short-Haul Flight, Long-Haul Flight, Car (Petrol), Car (Diesel),
+      Car (Electric), Train, Coach, Ferry, Campervan/Motorhome (Petrol), Camperval/Motorhome
+        (Diesel), 'How many hours will your journey take?', 'How many nights are you
+        staying for?', 'How would you describe your diet?', Frequent meat-eater, Moderate
+        meat-eater, Infrequent meat-eater, Pescatarian, Vegetarian, Vegan, 'Frequent
+        meat eater: 5 times a week, moderate meat eater: 3 times a week, infrequent
+        meat eater: 1 - 2 times a week', 'http://localhost:3000/carbon-calculator/carbon-calculator-fields.json',
+      'http://localhost:3000/carbon-calculator/carbon-calculator-fields.json', You
+        need Javascript enabled to use this calculator]
+    resourcebundle:messages_de: ['', '', '', '', '', '', '', '', '', '', '', '', '',
+      '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
+      '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '']
+    resourcebundle:messages_es: ['', '', '', '', '', '', '', '', '', '', '', '', '',
+      '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
+      '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '']
+    resourcebundle:messages_fr: ['', '', '', '', '', '', '', '', '', '', '', '', '',
+      '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
+      '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '']
+    resourcebundle:messages_it: ['', '', '', '', '', '', '', '', '', '', '', '', '',
+      '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
+      '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '']
+    resourcebundle:messages_nl: ['', '', '', '', '', '', '', '', '', '', '', '', '',
+      '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
+      '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '']
   /carbon-calculator[3]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:referenceable']
@@ -67,22 +135,56 @@
     hippostd:state: published
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2023-08-09T17:31:48.480+01:00
-    hippostdpubwf:lastModificationDate: 2023-08-09T17:56:47.113+01:00
+    hippostdpubwf:lastModificationDate: 2023-09-14T17:51:45.462+01:00
     hippostdpubwf:lastModifiedBy: admin
-    hippostdpubwf:publicationDate: 2023-08-09T17:56:51.892+01:00
-    resourcebundle:descriptions: ['', '', '', '', '', '', '', '']
+    hippostdpubwf:publicationDate: 2023-09-14T17:51:48.945+01:00
+    resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '', '', '', '',
+      '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
+      '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
+      '']
     resourcebundle:id: carbon-calculator
-    resourcebundle:keys: [page-1.title, page-1.question, page-1.option-1, page-1.option-2,
-      page-1.option-3, page-1.option-2.tip, next, previous]
-    resourcebundle:messages: [Transport, How are you travelling to Scotland, I'm already
-        here!, Plane, Car (Petrol), 'If you''re travelling from within the UK, travelling
-        by train instead of flying could save up to x tonnes of emissions per 100
-        miles!', Next, Previous]
-    resourcebundle:messages_de: ['', '', '', '', '', '', '', '']
-    resourcebundle:messages_es: [Transporte, '¿Cómo piensas viajar a Escocia?', ¡Ya
-        estoy en Escocia!, Avión, Coche de gasolina, 'Si viajas desde el Reino Unido,
-        puedes reducir considerablemente el impacto ecológico si viajas en tren.',
-      Siguiente, Anterior]
-    resourcebundle:messages_fr: ['', '', '', '', '', '', '', '']
-    resourcebundle:messages_it: ['', '', '', '', '', '', '', '']
-    resourcebundle:messages_nl: ['', '', '', '', '', '', '', '']
+    resourcebundle:keys: [next, previous, results, resultsIntro, chartTitle, comparison,
+      kilos, begin, introHeading, introContent, perDayTarget, perDaySuccess, topTip,
+      allTips, soFar, kgsOf, kgsPerDay, transport, accommodation, food, restart, section-1.title,
+      section-2.title, section-3.title, section-4.title, page-1.question, page-1.option-1,
+      page-1.option-2, page-1.option-3, page-1.option-4, page-1.option-5, page-1.option-6,
+      page-1.option-7, page-1.option-8, page-1.option-9, page-1.option-10, page-1.option-11,
+      page-1.option-12, page-2.question, page-3.question, page-4.question, page-4.option-1,
+      page-4.option-2, page-4.option-3, page-4.option-4, page-4.option-5, page-4.option-6,
+      page-4.hint, form-url, formUrl, noJsMessage]
+    resourcebundle:messages: [Next, Previous, Results, Your estimated total carbon
+        emission for your trip is, Your emissions breakdown, 'That\''s the equivalent
+        of xxx kms in a medium-sized petrol car, which would take you from Edinburgh
+        to London yyy times!', kilos, Start Questionnaire, Calculate Your Carbon,
+      'From transport to food and drink, answer 4 simple questions about your trip
+        to Scotland and we\''ll calculate your emissions.', '30', 'Congratulations!
+        You\''re emitting less than xxx KGs of CO₂e per day on your trip, which is
+        below average. We like to think this makes you a Sustainability Unicorn -
+        Scotland\''s national animal, which cares deeply about protecting our environment.',
+      Top Tip!, Test, 'Your calculation so far:', KGs of CO₂e, Thats about xxx KGs
+        of CO₂e per day., Transport, Accommodation, Food, Restart, Transport, Transport,
+      Accommodation, Food, How are you travelling to Scotland, I live in Scotland,
+      Domestic Flight, Short-Haul Flight, Long-Haul Flight, Car (Petrol), Car (Diesel),
+      Car (Electric), Train, Coach, Ferry, Campervan/Motorhome (Petrol), Camperval/Motorhome
+        (Diesel), 'How many hours will your journey take?', 'How many nights are you
+        staying for?', 'How would you describe your diet?', Frequent meat-eater, Moderate
+        meat-eater, Infrequent meat-eater, Pescatarian, Vegetarian, Vegan, 'Frequent
+        meat eater: 5 times a week, moderate meat eater: 3 times a week, infrequent
+        meat eater: 1 - 2 times a week', 'http://localhost:3000/carbon-calculator/carbon-calculator-fields.json',
+      'http://localhost:3000/carbon-calculator/carbon-calculator-fields.json', You
+        need Javascript enabled to use this calculator]
+    resourcebundle:messages_de: ['', '', '', '', '', '', '', '', '', '', '', '', '',
+      '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
+      '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '']
+    resourcebundle:messages_es: ['', '', '', '', '', '', '', '', '', '', '', '', '',
+      '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
+      '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '']
+    resourcebundle:messages_fr: ['', '', '', '', '', '', '', '', '', '', '', '', '',
+      '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
+      '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '']
+    resourcebundle:messages_it: ['', '', '', '', '', '', '', '', '', '', '', '', '',
+      '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
+      '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '']
+    resourcebundle:messages_nl: ['', '', '', '', '', '', '', '', '', '', '', '', '',
+      '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
+      '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '']
