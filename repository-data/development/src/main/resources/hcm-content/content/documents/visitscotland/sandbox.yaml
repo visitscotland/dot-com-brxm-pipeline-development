@@ -7029,6 +7029,88 @@
             hippo:facets: []
             hippo:modes: []
             hippo:values: []
+      /dark-skies:
+        jcr:primaryType: hippo:handle
+        jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+        jcr:uuid: 27faea1f-b49a-49ec-a0d8-a58a614d1c82
+        hippo:name: Dark Skies
+        hippo:versionHistory: 537cddc8-7581-4952-8a8c-a20a1343a1e3
+        /dark-skies[1]:
+          jcr:primaryType: visitscotland:Video
+          jcr:mixinTypes: ['mix:referenceable']
+          jcr:uuid: 2ffdd7f6-0029-433e-bcaa-4fa4543a1b86
+          hippo:availability: []
+          hippostd:retainable: false
+          hippostd:state: draft
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2023-09-14T17:13:21.649+01:00
+          hippostdpubwf:lastModificationDate: 2023-09-14T17:13:21.650+01:00
+          hippostdpubwf:lastModifiedBy: admin
+          hippotranslation:id: ad93ad83-e5c1-4798-a673-e61dede23bc6
+          hippotranslation:locale: en
+          visitscotland:label: ''
+          visitscotland:teaser: Scotland enjoys some of the darkest skies in Europe.
+            You might even be lucky enough to spot the mesmerising Northern Lights!
+          visitscotland:title: Dark Skies
+          visitscotland:translation: ''
+          visitscotland:url: https://www.youtube.com/watch?v=v8IQAUvopnI
+          /visitscotland:image:
+            jcr:primaryType: hippogallerypicker:imagelink
+            hippo:docbase: f0fe0f26-489b-4a2e-b6c5-605df1abbdcb
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+        /dark-skies[2]:
+          jcr:primaryType: visitscotland:Video
+          jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+          jcr:uuid: 337f6e90-c03c-456c-aeb2-ededf3449204
+          hippo:availability: [preview]
+          hippostd:retainable: false
+          hippostd:state: unpublished
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2023-09-14T17:13:21.649+01:00
+          hippostdpubwf:lastModificationDate: 2023-09-14T17:14:08.457+01:00
+          hippostdpubwf:lastModifiedBy: admin
+          hippotranslation:id: ad93ad83-e5c1-4798-a673-e61dede23bc6
+          hippotranslation:locale: en
+          visitscotland:label: ''
+          visitscotland:teaser: Scotland enjoys some of the darkest skies in Europe.
+            You might even be lucky enough to spot the mesmerising Northern Lights!
+          visitscotland:title: Dark Skies
+          visitscotland:translation: ''
+          visitscotland:url: https://www.youtube.com/watch?v=v8IQAUvopnI
+          /visitscotland:image:
+            jcr:primaryType: hippogallerypicker:imagelink
+            hippo:docbase: f0fe0f26-489b-4a2e-b6c5-605df1abbdcb
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+        /dark-skies[3]:
+          jcr:primaryType: visitscotland:Video
+          jcr:mixinTypes: ['mix:referenceable']
+          jcr:uuid: bd2aa42c-602d-48f5-968e-3628cc396fab
+          hippo:availability: [live]
+          hippostd:retainable: false
+          hippostd:state: published
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2023-09-14T17:13:21.649+01:00
+          hippostdpubwf:lastModificationDate: 2023-09-14T17:14:08.457+01:00
+          hippostdpubwf:lastModifiedBy: admin
+          hippostdpubwf:publicationDate: 2023-09-14T17:14:10.878+01:00
+          hippotranslation:id: ad93ad83-e5c1-4798-a673-e61dede23bc6
+          hippotranslation:locale: en
+          visitscotland:label: ''
+          visitscotland:teaser: Scotland enjoys some of the darkest skies in Europe.
+            You might even be lucky enough to spot the mesmerising Northern Lights!
+          visitscotland:title: Dark Skies
+          visitscotland:translation: ''
+          visitscotland:url: https://www.youtube.com/watch?v=v8IQAUvopnI
+          /visitscotland:image:
+            jcr:primaryType: hippogallerypicker:imagelink
+            hippo:docbase: f0fe0f26-489b-4a2e-b6c5-605df1abbdcb
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
   /itinerary:
     jcr:primaryType: hippostd:folder
     jcr:mixinTypes: ['hippotranslation:translated', 'mix:versionable']
@@ -12643,7 +12725,7 @@
         jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
         jcr:uuid: ab8d2643-1517-4a6a-aa86-f5a9c8b5e2c3
         hippo:name: The Outer Hebrides
-        hippo:versionHistory: 744f31c0-fffe-4c27-b4f7-d7ffcde61467
+        hippo:versionHistory: ead36de5-e9bf-4b2d-a564-9fb5f275c2ae
         /content[1]:
           jcr:primaryType: visitscotland:Destination
           jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
@@ -12653,9 +12735,9 @@
           hippostd:state: draft
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2020-07-10T14:38:03.350+01:00
-          hippostdpubwf:lastModificationDate: 2023-02-06T10:49:47.646Z
+          hippostdpubwf:lastModificationDate: 2023-08-29T14:22:26.634+01:00
           hippostdpubwf:lastModifiedBy: admin
-          hippotaxonomy:keys: [cities]
+          hippotaxonomy:keys: [regions]
           hippotranslation:id: 5efd7ec5-59aa-475a-8faa-19c718f02501
           hippotranslation:locale: en
           visitscotland:breadcrumb: ''
@@ -12718,9 +12800,9 @@
           hippostd:state: unpublished
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2020-07-10T14:38:03.350+01:00
-          hippostdpubwf:lastModificationDate: 2023-02-06T10:49:57.096Z
+          hippostdpubwf:lastModificationDate: 2023-08-29T14:22:26.175+01:00
           hippostdpubwf:lastModifiedBy: admin
-          hippotaxonomy:keys: [cities]
+          hippotaxonomy:keys: [regions]
           hippotranslation:id: 5efd7ec5-59aa-475a-8faa-19c718f02501
           hippotranslation:locale: en
           visitscotland:breadcrumb: ''
@@ -12783,10 +12865,10 @@
           hippostd:state: published
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2020-07-10T14:38:03.350+01:00
-          hippostdpubwf:lastModificationDate: 2023-02-06T10:49:57.096Z
+          hippostdpubwf:lastModificationDate: 2023-08-29T14:22:26.175+01:00
           hippostdpubwf:lastModifiedBy: admin
-          hippostdpubwf:publicationDate: 2023-02-06T10:50:15.742Z
-          hippotaxonomy:keys: [cities]
+          hippostdpubwf:publicationDate: 2023-08-29T14:22:33.251+01:00
+          hippotaxonomy:keys: [regions]
           hippotranslation:id: 5efd7ec5-59aa-475a-8faa-19c718f02501
           hippotranslation:locale: en
           visitscotland:breadcrumb: ''
@@ -14408,8 +14490,8 @@
       jcr:primaryType: hippo:handle
       jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
       jcr:uuid: 88deb6dd-d2cd-4d01-85d5-20f756d17dd0
-      hippo:name: Destinatios and map
-      hippo:versionHistory: 4aa55032-923b-4bbd-bbed-b50b847cb87b
+      hippo:name: Places to go
+      hippo:versionHistory: ffb8587e-1b9d-4e58-9c74-ab88d1837f28
       /content[1]:
         jcr:primaryType: visitscotland:General
         jcr:mixinTypes: ['mix:referenceable']
@@ -14489,7 +14571,7 @@
         hippostdpubwf:creationDate: 2021-06-25T10:03:42.014+01:00
         hippostdpubwf:lastModificationDate: 2023-03-30T12:23:04.406+01:00
         hippostdpubwf:lastModifiedBy: admin
-        hippostdpubwf:publicationDate: 2023-03-30T12:23:07.980+01:00
+        hippostdpubwf:publicationDate: 2023-08-29T14:23:17.101+01:00
         hippotranslation:id: 6b2f6fc5-802f-4be9-8506-eceeb17049cf
         hippotranslation:locale: en
         visitscotland:breadcrumb: Places to go
@@ -14630,7 +14712,7 @@
       jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
       jcr:uuid: 8422f473-6a53-4d9e-bd22-a3efa115d1f8
       hippo:name: Main map
-      hippo:versionHistory: 10351320-0f28-492d-92c4-14fdae1aec39
+      hippo:versionHistory: 4f57f883-72a8-413e-a158-9e0913cddb82
       /main-map[1]:
         jcr:primaryType: visitscotland:MapModule
         jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
@@ -14638,22 +14720,35 @@
         hippo:availability: []
         hippostd:retainable: false
         hippostd:state: draft
-        hippostd:transferable: false
         hippostdpubwf:createdBy: admin
         hippostdpubwf:creationDate: 2022-06-16T09:40:19.973+01:00
-        hippostdpubwf:lastModificationDate: 2022-11-16T14:36:24.319Z
+        hippostdpubwf:lastModificationDate: 2023-08-30T09:52:07.249+01:00
         hippostdpubwf:lastModifiedBy: admin
-        hippotaxonomy:keys: []
+        hippotaxonomy:keys: [destinations]
         hippotranslation:id: 5c1c7d42-9e51-44f3-8c7e-8c78fe05ca34
         hippotranslation:locale: en
+        visitscotland:mapType: ''
         visitscotland:tabTitle: Explore places to go
         visitscotland:title: Map of Scotland
+        visitscotland:translation: ''
         /visitscotland:copy:
           jcr:primaryType: hippostd:html
           hippostd:content: <p>This is an example of a map.&nbsp;&nbsp;Suspendisse
             nec bibendum mauris. Maecenas nulla nibh, gravida non risus quis, sollicitudin
             pulvinar purus. Pellentesque lacus massa, rhoncus et mollis semper, tempus
             a diam.&nbsp;</p>
+        /visitscotland:categories:
+          jcr:primaryType: visitscotland:MapCategory
+          visitscotland:title: ''
+          /visitscotland:mapPins[1]:
+            jcr:primaryType: hippo:mirror
+            hippo:docbase: 030dde79-74ad-441b-b7f2-731cb0312e3c
+          /visitscotland:mapPins[2]:
+            jcr:primaryType: hippo:mirror
+            hippo:docbase: f0c435ec-14f2-48a0-81b7-05507be62018
+          /visitscotland:mapPins[3]:
+            jcr:primaryType: hippo:mirror
+            hippo:docbase: 56d04a55-ae5b-4357-a8fd-b20bebbe91c5
       /main-map[2]:
         jcr:primaryType: visitscotland:MapModule
         jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable', 'mix:versionable']
@@ -14663,37 +14758,33 @@
         hippostd:state: unpublished
         hippostdpubwf:createdBy: admin
         hippostdpubwf:creationDate: 2022-06-16T09:40:19.973+01:00
-        hippostdpubwf:lastModificationDate: 2022-10-25T10:36:13.225+01:00
+        hippostdpubwf:lastModificationDate: 2023-08-30T09:53:00.301+01:00
         hippostdpubwf:lastModifiedBy: admin
         hippotaxonomy:keys: [destinations]
         hippotranslation:id: 5c1c7d42-9e51-44f3-8c7e-8c78fe05ca34
         hippotranslation:locale: en
+        visitscotland:mapType: ''
         visitscotland:tabTitle: Explore places to go
         visitscotland:title: Map of Scotland
-        /visitscotland:categories:
-          jcr:primaryType: visitscotland:MapCategory
-          visitscotland:title: ''
-          /visitscotland:mapPins[1]:
-            jcr:primaryType: hippo:mirror
-            hippo:docbase: af7bc15d-bc33-4b84-ad01-e77eb5acde61
-          /visitscotland:mapPins[2]:
-            jcr:primaryType: hippo:mirror
-            hippo:docbase: 178cc6ee-9b6a-4095-80b2-9026263d173e
-          /visitscotland:mapPins[3]:
-            jcr:primaryType: visitscotland:SpecialLinkCoordinates
-            /visitscotland:link:
-              jcr:primaryType: hippo:mirror
-              hippo:docbase: 7d2653e5-8068-49d1-9c1e-8aad6d951985
-            /visitscotland:coordinates:
-              jcr:primaryType: visitscotland:Coordinates
-              visitscotland:latitude: 56.797394
-              visitscotland:longitude: -5.003361
+        visitscotland:translation: ''
         /visitscotland:copy:
           jcr:primaryType: hippostd:html
           hippostd:content: <p>This is an example of a map.&nbsp;&nbsp;Suspendisse
             nec bibendum mauris. Maecenas nulla nibh, gravida non risus quis, sollicitudin
             pulvinar purus. Pellentesque lacus massa, rhoncus et mollis semper, tempus
             a diam.&nbsp;</p>
+        /visitscotland:categories:
+          jcr:primaryType: visitscotland:MapCategory
+          visitscotland:title: ''
+          /visitscotland:mapPins[1]:
+            jcr:primaryType: hippo:mirror
+            hippo:docbase: 030dde79-74ad-441b-b7f2-731cb0312e3c
+          /visitscotland:mapPins[2]:
+            jcr:primaryType: hippo:mirror
+            hippo:docbase: f0c435ec-14f2-48a0-81b7-05507be62018
+          /visitscotland:mapPins[3]:
+            jcr:primaryType: hippo:mirror
+            hippo:docbase: 56d04a55-ae5b-4357-a8fd-b20bebbe91c5
       /main-map[3]:
         jcr:primaryType: visitscotland:MapModule
         jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
@@ -14703,38 +14794,34 @@
         hippostd:state: published
         hippostdpubwf:createdBy: admin
         hippostdpubwf:creationDate: 2022-06-16T09:40:19.973+01:00
-        hippostdpubwf:lastModificationDate: 2022-10-25T10:36:13.225+01:00
+        hippostdpubwf:lastModificationDate: 2023-08-30T09:53:00.301+01:00
         hippostdpubwf:lastModifiedBy: admin
-        hippostdpubwf:publicationDate: 2022-10-25T10:36:16.966+01:00
+        hippostdpubwf:publicationDate: 2023-08-30T09:53:02.992+01:00
         hippotaxonomy:keys: [destinations]
         hippotranslation:id: 5c1c7d42-9e51-44f3-8c7e-8c78fe05ca34
         hippotranslation:locale: en
+        visitscotland:mapType: ''
         visitscotland:tabTitle: Explore places to go
         visitscotland:title: Map of Scotland
-        /visitscotland:categories:
-          jcr:primaryType: visitscotland:MapCategory
-          visitscotland:title: ''
-          /visitscotland:mapPins[1]:
-            jcr:primaryType: hippo:mirror
-            hippo:docbase: af7bc15d-bc33-4b84-ad01-e77eb5acde61
-          /visitscotland:mapPins[2]:
-            jcr:primaryType: hippo:mirror
-            hippo:docbase: 178cc6ee-9b6a-4095-80b2-9026263d173e
-          /visitscotland:mapPins[3]:
-            jcr:primaryType: visitscotland:SpecialLinkCoordinates
-            /visitscotland:link:
-              jcr:primaryType: hippo:mirror
-              hippo:docbase: 7d2653e5-8068-49d1-9c1e-8aad6d951985
-            /visitscotland:coordinates:
-              jcr:primaryType: visitscotland:Coordinates
-              visitscotland:latitude: 56.797394
-              visitscotland:longitude: -5.003361
+        visitscotland:translation: ''
         /visitscotland:copy:
           jcr:primaryType: hippostd:html
           hippostd:content: <p>This is an example of a map.&nbsp;&nbsp;Suspendisse
             nec bibendum mauris. Maecenas nulla nibh, gravida non risus quis, sollicitudin
             pulvinar purus. Pellentesque lacus massa, rhoncus et mollis semper, tempus
             a diam.&nbsp;</p>
+        /visitscotland:categories:
+          jcr:primaryType: visitscotland:MapCategory
+          visitscotland:title: ''
+          /visitscotland:mapPins[1]:
+            jcr:primaryType: hippo:mirror
+            hippo:docbase: 030dde79-74ad-441b-b7f2-731cb0312e3c
+          /visitscotland:mapPins[2]:
+            jcr:primaryType: hippo:mirror
+            hippo:docbase: f0c435ec-14f2-48a0-81b7-05507be62018
+          /visitscotland:mapPins[3]:
+            jcr:primaryType: hippo:mirror
+            hippo:docbase: 56d04a55-ae5b-4357-a8fd-b20bebbe91c5
   /general-pages:
     jcr:primaryType: hippostd:folder
     jcr:mixinTypes: ['hippo:named', 'hippotranslation:translated', 'mix:versionable']
