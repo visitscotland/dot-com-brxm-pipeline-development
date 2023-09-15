@@ -8,7 +8,9 @@
 <#macro carbonCalculator >
     <#assign labels =  ResourceBundle.getAllLabels("carbon-calculator", null) />
 
-    <vs-module-wrapper>
+    <vs-module-wrapper
+        class="text-left"
+    >
         <vs-carbon-calculator
             :labels-map="{
                 <#list labels?keys as key>
