@@ -29,20 +29,22 @@
         </#assign>
     </#if>
 
-    <#assign toggleValues>
-        [
-            {
-                text: '${placesText?trim}',
-                value: 'places',
-                icon: 'map-marker'
-            },
-            {
-                text: '${regionsText?trim}',
-                value: 'regions',
-                icon: 'map',
-            },
-        ]
-    </#assign>
+    <#if module.mapType = 'destinations'>
+        <#assign toggleValues>
+            [
+                {
+                    text: '${placesText?trim}',
+                    value: 'places',
+                    icon: 'map-marker'
+                },
+                {
+                    text: '${regionsText?trim}',
+                    value: 'regions',
+                    icon: 'map',
+                },
+            ]
+        </#assign>
+    </#if>
 
     <#if module.mapType = 'regional'>
         <#assign toggleValues>
@@ -61,16 +63,6 @@
         </#assign>
     </#if>
 
-    <#assign hideToggle>
-        false
-    </#assign>
-
-    <#if module.mapType = 'cities' || module.mapType = 'towns'>
-        <#assign hideToggle>
-            true
-        </#assign>
-    </#if>
-
     <vs-module-wrapper>
         <template v-slot:vs-module-wrapper-heading>
             ${module.title}
@@ -85,13 +77,15 @@
             :filters="${escapeJSON(module.filters,true)}"
             :places-data="${escapeJSON(module.geoJson.features,true)}"
             map-id="vs-map-${module.id}"
-            :toggle-data="${toggleValues}"
             buttons-label="${label('map', 'map.buttons-label')}"
             clear-selection-text="${label('map', 'map.clear')}"
             apply-filters-text="${label('map', 'map.show-results')}"
             filters-applied-text="${label('map', 'map.filters-applied')}"
             clear-filters-text="${label('map', 'map.clear')}"
             :region-bounds="${escapeJSON(module.mapPosition,true)}"
+            <#if toggleValues??>
+                :toggle-data="${toggleValues}"
+            </#if>
             <#if module.detailsEndpoint??>
                 details-endpoint="${module.detailsEndpoint}"
             </#if>
@@ -100,9 +94,8 @@
             </#if>
             map-filter-message="${label('map', 'map.apply-filters')}"
             map-no-results-message="${label('map', 'map.no-results')}"
-            :hide-mobile-toggle="${hideToggle}"
-        >
 
+        >
             <template v-slot:close-side-panel-text>
                 <span class="sr-only">
                     ${label('map', 'map.close-panel')}
