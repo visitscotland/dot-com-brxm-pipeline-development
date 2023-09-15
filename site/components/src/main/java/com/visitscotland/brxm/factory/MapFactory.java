@@ -83,9 +83,9 @@ public class MapFactory {
         }else{
             module.setDetailsEndpoint("");
             module.setMapPosition(mapper.createObjectNode());
-            module.setMapType(MapType.GENERAL.getMapType());
             //bespoke maps data and pins coming from DMS
             if (!Contract.isEmpty(mapModuleDocument.getMapType())){
+                module.setMapType(mapModuleDocument.getMapType());
                 //Feature places on top of these maps
                 if (!Contract.isNull(mapModuleDocument.getFeaturedPlacesItem())) {
                     mapService.addFeaturePlacesNode(module, mapModuleDocument.getCategories(), request.getLocale(), keys, features);
@@ -126,6 +126,7 @@ public class MapFactory {
         for (String taxonomy : mapModuleDocument.getKeys()) {
             //get all the Taxonomy information
             Taxonomy vsTaxonomyTree = hippoUtilsService.getTaxonomy();
+            module.setMapType(vsTaxonomyTree.getCategoryByKey(taxonomy).getKey());
             for (Category mainCategory : vsTaxonomyTree.getCategoryByKey(taxonomy).getChildren()) {
                 keys.add(mapService.addFilterNode(mainCategory, request.getLocale()));
                 //if the map has 2 levels, the parent wont be a category for the mapcards, so pick sons
@@ -139,6 +140,7 @@ public class MapFactory {
                     mapService.addMapDocumentsToJson(request, module, mainCategory, features);
                 }
             }
+
         }
     }
 
@@ -210,7 +212,7 @@ public class MapFactory {
     }
 
 
-    private void buildDMSMapPages (String prodTypeId, String prodTypeLabel, String location, MapsModule module,ArrayNode keys,ArrayNode features, String category, Locale locale) {
+    private void buildDMSMapPages (String prodTypeId, String prodTypeLabel, String location, MapsModule module, ArrayNode keys,ArrayNode features, String category, Locale locale) {
         ObjectNode regionFilters = this.addFilters(prodTypeId, prodTypeLabel, locale);
         keys.add(regionFilters);
         this.addDmsData(this.buildProductSearch(location, prodTypeId, category, locale, DMSConstants.SORT_ALPHA, 100),
@@ -228,7 +230,11 @@ public class MapFactory {
                 String name = jsonNode.has(NAME) ? jsonNode.get(NAME).asText() : null;
                 String description = jsonNode.has(DESCRIPTION) ? jsonNode.get(DESCRIPTION).asText() : null;
                 String id = jsonNode.has(ID) ? jsonNode.get(ID).asText() : null;
-                data.set(PROPERTIES, mapService.getPropertyNode(name, description, image, filter, link, id));
+                ObjectNode properties = mapService.getPropertyNode(name, description, image,filter, link, id);
+                properties.put(ID, id);
+                properties.put("title", name);
+                properties.put(DESCRIPTION, description);
+                data.set(PROPERTIES, properties );
                 data.set(GEOMETRY, mapService.getGeometryNode(mapService.getCoordinates(jsonNode.get("longitude").asDouble(), jsonNode.get("latitude").asDouble()), POINT));
 
                 features.add(data);
