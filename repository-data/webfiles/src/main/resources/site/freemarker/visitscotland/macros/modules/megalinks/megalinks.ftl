@@ -32,7 +32,7 @@
         cookie-link-text="${label('essentials.global', 'cookie.link-message')}"
         no-js-message="${label('video', 'video.no-js')}"
     >
-        <#if item.introduction>
+        <#if item.introduction??>
             <template v-slot:vs-megalinks-intro>
                 <@hst.html hippohtml=item.introduction/>
             </template>

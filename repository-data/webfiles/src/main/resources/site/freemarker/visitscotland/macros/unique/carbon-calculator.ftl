@@ -1,9 +1,6 @@
-<#include "../../../../include/imports.ftl">
+<#include "../../../include/imports.ftl">
 <#include "../../../frontend/components/vs-carbon-calculator.ftl">
-<#include "../../../../frontend/components/vs-module-wrapper.ftl">
-<#include "../../../../frontend/components/vs-container.ftl">
-<#include "../../../../frontend/components/vs-col.ftl">
-<#include "../../../../frontend/components/vs-row.ftl">
+<#include "../../../frontend/components/vs-module-wrapper.ftl">
 
 <#macro carbonCalculator >
     <#assign labels =  ResourceBundle.getAllLabels("carbon-calculator", null) />

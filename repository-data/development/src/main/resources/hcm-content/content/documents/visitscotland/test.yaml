@@ -2390,7 +2390,7 @@
         hippostd:transferable: false
         hippostdpubwf:createdBy: admin
         hippostdpubwf:creationDate: 2021-05-20T13:44:04.913+01:00
-        hippostdpubwf:lastModificationDate: 2023-09-15T13:11:22.861+01:00
+        hippostdpubwf:lastModificationDate: 2023-08-17T12:54:14.906+01:00
         hippostdpubwf:lastModifiedBy: admin
         hippotranslation:id: d6bf75cb-c7f4-4f9f-8471-7b897ade0923
         hippotranslation:locale: en
@@ -7992,29 +7992,29 @@
     /carbon-calculator:
       jcr:primaryType: hippostd:folder
       jcr:mixinTypes: ['hippo:named', 'hippotranslation:translated', 'mix:versionable']
-      jcr:uuid: 8d59aef7-36f6-4ecd-8233-0b80d0dd6963
+      jcr:uuid: 91adbc86-2c36-4ed3-92d1-d32d07725ca1
       hippo:name: Carbon Calculator
       hippostd:foldertype: [new-translated-folder-test, new-document]
-      hippotranslation:id: 2e3ea0bf-2a06-4d1f-a202-4fdc47c9b1a1
+      hippotranslation:id: 4d75b7a0-ed05-4e66-aee0-14140a925e3d
       hippotranslation:locale: en
       /content:
         jcr:primaryType: hippo:handle
-        jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
-        jcr:uuid: 8db9f578-3b41-4b89-b721-16cba4faba6e
-        hippo:name: Content
-        hippo:versionHistory: 2bd201d6-278a-4f59-84b1-ced113ab19d3
+        jcr:mixinTypes: ['hippo:versionInfo', 'mix:referenceable']
+        jcr:uuid: 5656f3af-8602-4ff4-9856-f91597036fc1
+        hippo:versionHistory: 691f4c86-523c-4272-b666-a72585b1002e
         /content[1]:
           jcr:primaryType: visitscotland:General
           jcr:mixinTypes: ['mix:referenceable']
-          jcr:uuid: 0fceb6fe-9886-466f-9142-397d407b5258
+          jcr:uuid: c6b16bb3-3a21-49d4-ba06-2d4a84de209f
           hippo:availability: []
+          hippostd:holder: admin
           hippostd:retainable: false
           hippostd:state: draft
           hippostdpubwf:createdBy: admin
-          hippostdpubwf:creationDate: 2023-09-14T16:50:45.688+01:00
-          hippostdpubwf:lastModificationDate: 2023-09-14T16:50:45.690+01:00
+          hippostdpubwf:creationDate: 2023-08-17T12:52:41.193+01:00
+          hippostdpubwf:lastModificationDate: 2023-08-17T12:55:58.998+01:00
           hippostdpubwf:lastModifiedBy: admin
-          hippotranslation:id: 1e782bcb-d2d5-487e-8823-d1399f58c444
+          hippotranslation:id: f43562e5-fcc3-47a8-9f79-a6108418ae61
           hippotranslation:locale: en
           visitscotland:breadcrumb: ''
           visitscotland:hideNewsletter: false
@@ -8033,19 +8033,19 @@
             hippo:values: []
           /visitscotland:introduction:
             jcr:primaryType: hippostd:html
-            hippostd:content: <p>This is a carbon calculator</p>
+            hippostd:content: <p>Carbon Calculator</p>
         /content[2]:
           jcr:primaryType: visitscotland:General
           jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
-          jcr:uuid: c2d84dcd-dc75-4edb-ba85-00edf981a5f0
+          jcr:uuid: 62f43c06-df2a-4b3a-ac02-db730d5a1297
           hippo:availability: [preview]
           hippostd:retainable: false
           hippostd:state: unpublished
           hippostdpubwf:createdBy: admin
-          hippostdpubwf:creationDate: 2023-09-14T16:50:45.688+01:00
-          hippostdpubwf:lastModificationDate: 2023-09-14T16:55:36.998+01:00
+          hippostdpubwf:creationDate: 2023-08-17T12:52:41.193+01:00
+          hippostdpubwf:lastModificationDate: 2023-08-17T12:53:35.643+01:00
           hippostdpubwf:lastModifiedBy: admin
-          hippotranslation:id: 1e782bcb-d2d5-487e-8823-d1399f58c444
+          hippotranslation:id: f43562e5-fcc3-47a8-9f79-a6108418ae61
           hippotranslation:locale: en
           visitscotland:breadcrumb: ''
           visitscotland:hideNewsletter: false
@@ -8064,20 +8064,20 @@
             hippo:values: []
           /visitscotland:introduction:
             jcr:primaryType: hippostd:html
-            hippostd:content: <p>This is a carbon calculator</p>
+            hippostd:content: <p>Carbon Calculator</p>
         /content[3]:
           jcr:primaryType: visitscotland:General
           jcr:mixinTypes: ['mix:referenceable']
-          jcr:uuid: bd6d4a81-de10-450b-99d8-e8e7eccb54ff
+          jcr:uuid: 6ade7267-28ee-4751-9cd4-ada306cf112c
           hippo:availability: [live]
           hippostd:retainable: false
           hippostd:state: published
           hippostdpubwf:createdBy: admin
-          hippostdpubwf:creationDate: 2023-09-14T16:50:45.688+01:00
-          hippostdpubwf:lastModificationDate: 2023-09-14T16:55:36.998+01:00
+          hippostdpubwf:creationDate: 2023-08-17T12:52:41.193+01:00
+          hippostdpubwf:lastModificationDate: 2023-08-17T12:53:35.643+01:00
           hippostdpubwf:lastModifiedBy: admin
-          hippostdpubwf:publicationDate: 2023-09-14T16:56:07.843+01:00
-          hippotranslation:id: 1e782bcb-d2d5-487e-8823-d1399f58c444
+          hippostdpubwf:publicationDate: 2023-08-17T12:53:53.136+01:00
+          hippotranslation:id: f43562e5-fcc3-47a8-9f79-a6108418ae61
           hippotranslation:locale: en
           visitscotland:breadcrumb: ''
           visitscotland:hideNewsletter: false
@@ -8096,144 +8096,68 @@
             hippo:values: []
           /visitscotland:introduction:
             jcr:primaryType: hippostd:html
-            hippostd:content: <p>This is a carbon calculator</p>
-      /cc:
+            hippostd:content: <p>Carbon Calculator</p>
+      /calculator:
         jcr:primaryType: hippo:handle
         jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
-        jcr:uuid: b6841eff-1422-466e-a87c-a540d513021d
-        hippo:name: CC
-        hippo:versionHistory: edf1fcbe-2fee-4d88-904b-68c13803fb78
-        /cc[1]:
+        jcr:uuid: 0b71bcbd-d8cc-401d-96e1-4972dba3d890
+        hippo:name: Calculator
+        hippo:versionHistory: ede21e18-3b9b-436e-99c3-39c375ce332b
+        /calculator[1]:
           jcr:primaryType: visitscotland:DevModule
           jcr:mixinTypes: ['mix:referenceable']
-          jcr:uuid: ceb514b4-39a3-4106-9eaa-f9ded8c9456b
+          jcr:uuid: c3fdffa8-e01b-41da-9eee-7491c541798b
           hippo:availability: []
           hippostd:retainable: false
           hippostd:state: draft
           hippostdpubwf:createdBy: admin
-          hippostdpubwf:creationDate: 2023-09-14T16:56:28.602+01:00
-          hippostdpubwf:lastModificationDate: 2023-09-14T16:56:28.602+01:00
+          hippostdpubwf:creationDate: 2023-08-17T12:56:22.998+01:00
+          hippostdpubwf:lastModificationDate: 2023-08-17T12:56:22.998+01:00
           hippostdpubwf:lastModifiedBy: admin
-          hippotranslation:id: e3db6b34-0567-4241-bb0d-d66134568d45
+          hippotranslation:id: bd1ae9d4-862d-4b61-a68f-fc695c60dc4b
           hippotranslation:locale: en
           visitscotland:footerContributions: []
           visitscotland:freemarkerId: Carbon Calculator
           visitscotland:headContributions: []
           visitscotland:html: ''
           visitscotland:notes: ''
-        /cc[2]:
+        /calculator[2]:
           jcr:primaryType: visitscotland:DevModule
           jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
-          jcr:uuid: 3794f632-6a5c-44c7-94f3-2b22a41ddb0e
+          jcr:uuid: b6c6dffc-e532-467d-b5a9-e13e4fe83120
           hippo:availability: [preview]
           hippostd:retainable: false
           hippostd:state: unpublished
           hippostdpubwf:createdBy: admin
-          hippostdpubwf:creationDate: 2023-09-14T16:56:28.602+01:00
-          hippostdpubwf:lastModificationDate: 2023-09-14T16:56:44.184+01:00
+          hippostdpubwf:creationDate: 2023-08-17T12:56:22.998+01:00
+          hippostdpubwf:lastModificationDate: 2023-08-17T12:56:28.688+01:00
           hippostdpubwf:lastModifiedBy: admin
-          hippotranslation:id: e3db6b34-0567-4241-bb0d-d66134568d45
+          hippotranslation:id: bd1ae9d4-862d-4b61-a68f-fc695c60dc4b
           hippotranslation:locale: en
           visitscotland:footerContributions: []
           visitscotland:freemarkerId: Carbon Calculator
           visitscotland:headContributions: []
           visitscotland:html: ''
           visitscotland:notes: ''
-        /cc[3]:
+        /calculator[3]:
           jcr:primaryType: visitscotland:DevModule
           jcr:mixinTypes: ['mix:referenceable']
-          jcr:uuid: 26970d53-baf9-486e-bd4a-064bba31638f
+          jcr:uuid: 278939a6-8acb-4969-97c8-c2725e6f991b
           hippo:availability: [live]
           hippostd:retainable: false
           hippostd:state: published
           hippostdpubwf:createdBy: admin
-          hippostdpubwf:creationDate: 2023-09-14T16:56:28.602+01:00
-          hippostdpubwf:lastModificationDate: 2023-09-14T16:56:44.184+01:00
+          hippostdpubwf:creationDate: 2023-08-17T12:56:22.998+01:00
+          hippostdpubwf:lastModificationDate: 2023-08-17T12:56:28.688+01:00
           hippostdpubwf:lastModifiedBy: admin
-          hippostdpubwf:publicationDate: 2023-09-14T17:02:43.777+01:00
-          hippotranslation:id: e3db6b34-0567-4241-bb0d-d66134568d45
+          hippostdpubwf:publicationDate: 2023-08-17T12:56:31.746+01:00
+          hippotranslation:id: bd1ae9d4-862d-4b61-a68f-fc695c60dc4b
           hippotranslation:locale: en
           visitscotland:footerContributions: []
           visitscotland:freemarkerId: Carbon Calculator
           visitscotland:headContributions: []
           visitscotland:html: ''
           visitscotland:notes: ''
-    /modules-list-2:
-      jcr:primaryType: hippo:handle
-      jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
-      jcr:uuid: c1ab2d39-bee7-46fe-8c35-56adb366b2dc
-      hippo:name: Modules list 2
-      hippo:versionHistory: 3747edb5-26be-41fd-b927-0296549605cd
-      /modules-list-2[1]:
-        jcr:primaryType: visitscotland:Megalinks
-        jcr:mixinTypes: ['mix:referenceable']
-        jcr:uuid: 6caa2835-3257-4f8c-bb16-3871fb3494ef
-        hippo:availability: []
-        hippostd:retainable: false
-        hippostd:state: draft
-        hippostdpubwf:createdBy: admin
-        hippostdpubwf:creationDate: 2023-09-15T13:13:34.585+01:00
-        hippostdpubwf:lastModificationDate: 2023-09-15T13:13:34.586+01:00
-        hippostdpubwf:lastModifiedBy: admin
-        hippotranslation:id: 090f9a0d-d594-4bea-be59-9819ecafa9fc
-        hippotranslation:locale: en
-        visitscotland:layout: List
-        visitscotland:teaserVisible: true
-        visitscotland:title: ''
-        visitscotland:translation: ''
-        /visitscotland:megalinkItems:
-          jcr:primaryType: visitscotland:MegalinkItem
-          visitscotland:feature: false
-          /visitscotland:links:
-            jcr:primaryType: hippo:mirror
-            hippo:docbase: 8db9f578-3b41-4b89-b721-16cba4faba6e
-      /modules-list-2[2]:
-        jcr:primaryType: visitscotland:Megalinks
-        jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
-        jcr:uuid: a4fbe9b3-da5f-4eb5-9853-d7a414591faa
-        hippo:availability: [preview]
-        hippostd:retainable: false
-        hippostd:state: unpublished
-        hippostdpubwf:createdBy: admin
-        hippostdpubwf:creationDate: 2023-09-15T13:13:34.585+01:00
-        hippostdpubwf:lastModificationDate: 2023-09-15T13:14:15.207+01:00
-        hippostdpubwf:lastModifiedBy: admin
-        hippotranslation:id: 090f9a0d-d594-4bea-be59-9819ecafa9fc
-        hippotranslation:locale: en
-        visitscotland:layout: List
-        visitscotland:teaserVisible: true
-        visitscotland:title: ''
-        visitscotland:translation: ''
-        /visitscotland:megalinkItems:
-          jcr:primaryType: visitscotland:MegalinkItem
-          visitscotland:feature: false
-          /visitscotland:links:
-            jcr:primaryType: hippo:mirror
-            hippo:docbase: 8db9f578-3b41-4b89-b721-16cba4faba6e
-      /modules-list-2[3]:
-        jcr:primaryType: visitscotland:Megalinks
-        jcr:mixinTypes: ['mix:referenceable']
-        jcr:uuid: 4f4b3238-6c18-4bc8-af28-b66da0472ddf
-        hippo:availability: [live]
-        hippostd:retainable: false
-        hippostd:state: published
-        hippostdpubwf:createdBy: admin
-        hippostdpubwf:creationDate: 2023-09-15T13:13:34.585+01:00
-        hippostdpubwf:lastModificationDate: 2023-09-15T13:14:15.207+01:00
-        hippostdpubwf:lastModifiedBy: admin
-        hippostdpubwf:publicationDate: 2023-09-15T13:16:39.637+01:00
-        hippotranslation:id: 090f9a0d-d594-4bea-be59-9819ecafa9fc
-        hippotranslation:locale: en
-        visitscotland:layout: List
-        visitscotland:teaserVisible: true
-        visitscotland:title: ''
-        visitscotland:translation: ''
-        /visitscotland:megalinkItems:
-          jcr:primaryType: visitscotland:MegalinkItem
-          visitscotland:feature: false
-          /visitscotland:links:
-            jcr:primaryType: hippo:mirror
-            hippo:docbase: 8db9f578-3b41-4b89-b721-16cba4faba6e
   /pages:
     jcr:primaryType: hippostd:folder
     jcr:mixinTypes: ['hippo:named', 'hippotranslation:translated', 'mix:versionable']
@@ -18010,6 +17934,7 @@
         hippo:availability: []
         hippostd:retainable: false
         hippostd:state: draft
+        hippostd:transferable: false
         hippostdpubwf:createdBy: admin
         hippostdpubwf:creationDate: 2023-08-30T17:22:37.177+01:00
         hippostdpubwf:lastModificationDate: 2023-08-30T17:34:31.296+01:00
@@ -18040,7 +17965,7 @@
           visitscotland:feature: false
           /visitscotland:links:
             jcr:primaryType: hippo:mirror
-            hippo:docbase: e8f7af33-b75d-481c-87f6-26a08fc65542
+            hippo:docbase: 20fc02f2-a71e-47b4-be0e-c120c0c50616
         /visitscotland:megalinkItems[4]:
           jcr:primaryType: visitscotland:MegalinkItem
           visitscotland:feature: false
@@ -18279,7 +18204,7 @@
         jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
         jcr:uuid: 17a3588b-6cee-439b-acd8-186ceb2067aa
         hippo:name: 12 Iconic Scottish Views
-        hippo:versionHistory: ba71c929-2c43-484d-aed5-585ccacb0fe4
+        hippo:versionHistory: 5ffc67bb-ebbe-4d8d-ab4a-c2e08579c101
         /content[1]:
           jcr:primaryType: visitscotland:Listicle
           jcr:mixinTypes: ['mix:referenceable']
@@ -18430,14 +18355,14 @@
           jcr:primaryType: visitscotland:Listicle
           jcr:mixinTypes: ['mix:referenceable']
           jcr:uuid: 35621165-abfa-4629-9591-55a8bd71066c
-          hippo:availability: []
+          hippo:availability: [live]
           hippostd:retainable: false
           hippostd:state: published
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2020-03-17T11:17:48.546Z
           hippostdpubwf:lastModificationDate: 2023-05-11T12:14:04.973+01:00
           hippostdpubwf:lastModifiedBy: admin
-          hippostdpubwf:publicationDate: 2023-05-11T12:14:07.930+01:00
+          hippostdpubwf:publicationDate: 2023-09-18T13:53:24.235+01:00
           hippotranslation:id: aced74d3-03f8-4ed2-9592-dd31975f29cf
           hippotranslation:locale: en
           visitscotland:breadcrumb: ''
@@ -18505,7 +18430,7 @@
         jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
         jcr:uuid: 0d89b75f-32bc-4f4e-93f0-b1514be23a0d
         hippo:name: Sumburgh Head, Shetland
-        hippo:versionHistory: a93fcfd4-6944-4103-8fab-ce341cc98409
+        hippo:versionHistory: 87fbbb4c-3db3-43c5-b1c6-5be36f8e56c8
         /sumburgh-head-shetland[1]:
           jcr:primaryType: visitscotland:ListicleItem
           jcr:mixinTypes: ['mix:referenceable']
@@ -18580,13 +18505,13 @@
           jcr:primaryType: visitscotland:ListicleItem
           jcr:mixinTypes: ['mix:referenceable']
           jcr:uuid: 116aa47b-02a4-4446-8e1d-6467841e1a95
-          hippo:availability: []
+          hippo:availability: [live]
           hippostd:state: published
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2020-03-17T14:46:45.172Z
           hippostdpubwf:lastModificationDate: 2020-04-08T16:34:29.746+01:00
           hippostdpubwf:lastModifiedBy: admin
-          hippostdpubwf:publicationDate: 2020-06-12T09:01:04.556+01:00
+          hippostdpubwf:publicationDate: 2023-09-18T13:53:23.814+01:00
           hippotranslation:id: 3a46d97d-2a76-4c61-b139-742c4e58cc22
           hippotranslation:locale: en
           visitscotland:subtitle: ''
@@ -18617,7 +18542,7 @@
         jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
         jcr:uuid: 8ebe58c3-71a8-4c3a-b427-b14f94f80a78
         hippo:name: Scott's View Scottish Borders
-        hippo:versionHistory: 7e8a15b7-b727-40a4-86b8-d2e0ae326bce
+        hippo:versionHistory: de1f9783-91e6-46f9-bdf7-7a11ecc2c266
         /scotts-view-scottish-borders[1]:
           jcr:primaryType: visitscotland:ListicleItem
           jcr:mixinTypes: ['mix:referenceable']
@@ -18682,13 +18607,13 @@
           jcr:primaryType: visitscotland:ListicleItem
           jcr:mixinTypes: ['mix:referenceable']
           jcr:uuid: 13bdf56b-df9d-4b4b-b1ca-af366391214c
-          hippo:availability: []
+          hippo:availability: [live]
           hippostd:state: published
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2020-03-17T11:26:00.217Z
           hippostdpubwf:lastModificationDate: 2020-04-08T16:46:35.743+01:00
           hippostdpubwf:lastModifiedBy: admin
-          hippostdpubwf:publicationDate: 2020-06-12T09:01:06.256+01:00
+          hippostdpubwf:publicationDate: 2023-09-18T13:53:25.175+01:00
           hippotranslation:id: b5a43011-6ee7-495c-862c-49cacb71d3eb
           hippotranslation:locale: en
           visitscotland:subtitle: ''
@@ -18714,7 +18639,7 @@
         jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
         jcr:uuid: 9081956a-5d14-4478-8c8a-5591e7334d48
         hippo:name: Isle of Arran from Ayr Beach
-        hippo:versionHistory: cf870a49-0cac-4636-af98-8cfd6271b5e2
+        hippo:versionHistory: 09f455a6-dee8-453b-a621-8b4fc570f0f4
         /isle-of-arran-from-ayr-beach[1]:
           jcr:primaryType: visitscotland:ListicleItem
           jcr:mixinTypes: ['mix:referenceable']
@@ -18781,13 +18706,13 @@
           jcr:primaryType: visitscotland:ListicleItem
           jcr:mixinTypes: ['mix:referenceable']
           jcr:uuid: 2e089bf8-a34e-4bd2-bfe2-e2e9d6511913
-          hippo:availability: []
+          hippo:availability: [live]
           hippostd:state: published
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2020-03-17T13:44:28.926Z
           hippostdpubwf:lastModificationDate: 2020-04-08T16:46:47.881+01:00
           hippostdpubwf:lastModifiedBy: admin
-          hippostdpubwf:publicationDate: 2020-06-12T09:01:08.083+01:00
+          hippostdpubwf:publicationDate: 2023-09-18T13:53:25.080+01:00
           hippotranslation:id: a223577b-73c9-4ec4-883b-7e17edfe075f
           hippotranslation:locale: en
           visitscotland:subtitle: ''
@@ -18814,7 +18739,7 @@
         jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
         jcr:uuid: 73299104-7187-4665-b8f6-89921a4a82ad
         hippo:name: Edinburgh Castle from the Vennel
-        hippo:versionHistory: bfd7ffe5-dba8-4217-a3dc-4ae69456d7e6
+        hippo:versionHistory: 21e67701-8e4a-496b-9d1b-7f0a973be33c
         /edinburgh-castle-from-the-vennel[1]:
           jcr:primaryType: visitscotland:ListicleItem
           jcr:mixinTypes: ['mix:referenceable']
@@ -18891,13 +18816,13 @@
           jcr:primaryType: visitscotland:ListicleItem
           jcr:mixinTypes: ['mix:referenceable']
           jcr:uuid: fef107e3-f37a-4f41-94c1-6dd4ecc0f327
-          hippo:availability: []
+          hippo:availability: [live]
           hippostd:state: published
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2020-03-17T13:52:21.421Z
           hippostdpubwf:lastModificationDate: 2020-04-08T16:47:05.398+01:00
           hippostdpubwf:lastModifiedBy: admin
-          hippostdpubwf:publicationDate: 2020-06-12T09:01:10.004+01:00
+          hippostdpubwf:publicationDate: 2023-09-18T13:53:24.102+01:00
           hippotranslation:id: f322cbcb-774f-4131-892f-f1122d6d86b5
           hippotranslation:locale: en
           visitscotland:subtitle: ''
@@ -18929,7 +18854,7 @@
         jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
         jcr:uuid: 10e91799-71b8-4a4a-a0dd-4878d31669c5
         hippo:name: Forth Bridge, North Queensferry
-        hippo:versionHistory: 40e82e2d-7e75-47e5-a224-3cadb5df8ffd
+        hippo:versionHistory: 6a321337-5c90-465e-9478-955e8f062987
         /forth-bridge-north-queensferry[1]:
           jcr:primaryType: visitscotland:ListicleItem
           jcr:mixinTypes: ['mix:referenceable']
@@ -18994,13 +18919,13 @@
           jcr:primaryType: visitscotland:ListicleItem
           jcr:mixinTypes: ['mix:referenceable']
           jcr:uuid: 20da49c0-d202-4449-ab02-bf5ba4db92a1
-          hippo:availability: []
+          hippo:availability: [live]
           hippostd:state: published
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2020-03-17T14:15:54.539Z
           hippostdpubwf:lastModificationDate: 2020-04-08T09:09:33.111+01:00
           hippostdpubwf:lastModifiedBy: admin
-          hippostdpubwf:publicationDate: 2020-06-12T09:01:11.773+01:00
+          hippostdpubwf:publicationDate: 2023-09-18T13:53:23.905+01:00
           hippotranslation:id: 3c8175a2-1914-4870-8ee9-1b18ffe4277c
           hippotranslation:locale: en
           visitscotland:subtitle: ''
@@ -19026,7 +18951,7 @@
         jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
         jcr:uuid: c2f82616-192f-4307-81b0-b4945d1daaed
         hippo:name: Loch Katrine from Ben A'an
-        hippo:versionHistory: bf76da50-fc33-43d0-92f7-5c4388fce43b
+        hippo:versionHistory: 9295a8e0-9c44-48b0-ad07-01b2008accaa
         /loch-katrine-from-ben-aan[1]:
           jcr:primaryType: visitscotland:ListicleItem
           jcr:mixinTypes: ['mix:referenceable']
@@ -19105,13 +19030,13 @@
           jcr:primaryType: visitscotland:ListicleItem
           jcr:mixinTypes: ['mix:referenceable']
           jcr:uuid: 37319313-ba81-46db-83a8-8f84fd1f1170
-          hippo:availability: []
+          hippo:availability: [live]
           hippostd:state: published
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2020-03-17T14:21:47.263Z
           hippostdpubwf:lastModificationDate: 2020-04-08T16:48:15.610+01:00
           hippostdpubwf:lastModifiedBy: admin
-          hippostdpubwf:publicationDate: 2020-06-12T09:01:14.099+01:00
+          hippostdpubwf:publicationDate: 2023-09-18T13:53:24.426+01:00
           hippotranslation:id: e5ed7831-d7d0-472c-8472-8896aad7c8bf
           hippotranslation:locale: en
           visitscotland:subtitle: ''
@@ -19144,7 +19069,7 @@
         jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
         jcr:uuid: 4aaa8022-5afe-4b30-8d9a-a2e358a05515
         hippo:name: Queen's View, Perthshire
-        hippo:versionHistory: 25bc0f52-b9bd-4a89-8edd-77b24e295ac3
+        hippo:versionHistory: 0f3695af-87c2-4587-b463-622e69e32a9e
         /queens-view-perthshire[1]:
           jcr:primaryType: visitscotland:ListicleItem
           jcr:mixinTypes: ['mix:referenceable']
@@ -19223,13 +19148,13 @@
           jcr:primaryType: visitscotland:ListicleItem
           jcr:mixinTypes: ['mix:referenceable']
           jcr:uuid: a08c4c67-6222-44b2-8844-ec33a09b59fc
-          hippo:availability: []
+          hippo:availability: [live]
           hippostd:state: published
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2020-03-17T14:29:28.032Z
           hippostdpubwf:lastModificationDate: 2020-04-08T16:48:29.447+01:00
           hippostdpubwf:lastModifiedBy: admin
-          hippostdpubwf:publicationDate: 2020-06-12T09:01:17.142+01:00
+          hippostdpubwf:publicationDate: 2023-09-18T13:53:24.665+01:00
           hippotranslation:id: 08234810-1faa-4913-8cc3-9ebe0681b3b9
           hippotranslation:locale: en
           visitscotland:subtitle: ''
@@ -19262,7 +19187,7 @@
         jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
         jcr:uuid: 14915bbd-5e55-4fab-ae5d-5d6ce9e9ef87
         hippo:name: Glenfinnan Viaduct and Loch Shiel, Highlands
-        hippo:versionHistory: 1c98418a-41c3-43fb-a36b-839badf19312
+        hippo:versionHistory: d5189dea-c93f-448d-9df3-7acaabf13275
         /glenfinnan-viaduct-and-loch-shiel-highlands[1]:
           jcr:primaryType: visitscotland:ListicleItem
           jcr:mixinTypes: ['mix:referenceable']
@@ -19321,13 +19246,13 @@
           jcr:primaryType: visitscotland:ListicleItem
           jcr:mixinTypes: ['mix:referenceable']
           jcr:uuid: d75bae15-98e5-46b4-894d-f1dd8568b863
-          hippo:availability: []
+          hippo:availability: [live]
           hippostd:state: published
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2020-03-17T14:35:17.001Z
           hippostdpubwf:lastModificationDate: 2020-04-08T16:48:39.972+01:00
           hippostdpubwf:lastModifiedBy: admin
-          hippostdpubwf:publicationDate: 2020-06-12T09:01:19.147+01:00
+          hippostdpubwf:publicationDate: 2023-09-18T13:53:24.012+01:00
           hippotranslation:id: 6df55976-5d22-4567-b4bc-56a6900d3cb7
           hippotranslation:locale: en
           visitscotland:subtitle: ''
@@ -19350,7 +19275,7 @@
         jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
         jcr:uuid: 1bb6c0f9-68f8-4a19-8aef-b8e72c0b0e2d
         hippo:name: Isle of Barra
-        hippo:versionHistory: 44382da0-57ab-44b5-8443-bc792a3ef3d8
+        hippo:versionHistory: 5dc3deda-3e2a-473f-bf42-79200a54df95
         /isle-of-barra[1]:
           jcr:primaryType: visitscotland:ListicleItem
           jcr:mixinTypes: ['mix:referenceable']
@@ -19409,13 +19334,13 @@
           jcr:primaryType: visitscotland:ListicleItem
           jcr:mixinTypes: ['mix:referenceable']
           jcr:uuid: 1010583a-b853-45f3-a5da-8c0c6aa5ca5a
-          hippo:availability: []
+          hippo:availability: [live]
           hippostd:state: published
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2020-03-17T14:37:45.338Z
           hippostdpubwf:lastModificationDate: 2020-03-17T14:38:08.679Z
           hippostdpubwf:lastModifiedBy: admin
-          hippostdpubwf:publicationDate: 2020-06-12T09:01:21.262+01:00
+          hippostdpubwf:publicationDate: 2023-09-18T13:53:24.820+01:00
           hippotranslation:id: 07ac2f4d-26fa-4b6c-a557-9b4d5482f60e
           hippotranslation:locale: en
           visitscotland:subtitle: ''
@@ -19438,7 +19363,7 @@
         jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
         jcr:uuid: 5ca0af89-71ce-4fa9-90fe-6a3d548d73c4
         hippo:name: Bow Fiddle Rock, Moray
-        hippo:versionHistory: 66d83b1d-aaf6-4faa-b931-3374a183c778
+        hippo:versionHistory: e344b0ea-7b55-4bc0-bfe4-7f9e865245a9
         /bow-fiddle-rock-moray[1]:
           jcr:primaryType: visitscotland:ListicleItem
           jcr:mixinTypes: ['mix:referenceable']
@@ -19523,13 +19448,13 @@
           jcr:primaryType: visitscotland:ListicleItem
           jcr:mixinTypes: ['mix:referenceable']
           jcr:uuid: ac282f29-14c0-45ff-85cc-39ace4c88d65
-          hippo:availability: []
+          hippo:availability: [live]
           hippostd:state: published
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2020-03-17T14:39:58.282Z
           hippostdpubwf:lastModificationDate: 2020-04-08T14:19:42.503+01:00
           hippostdpubwf:lastModifiedBy: admin
-          hippostdpubwf:publicationDate: 2020-06-12T09:02:31.784+01:00
+          hippostdpubwf:publicationDate: 2023-09-18T13:53:23.627+01:00
           hippotranslation:id: e2e53cb6-3c68-4037-bb25-9b0d0cd69133
           hippotranslation:locale: en
           visitscotland:subtitle: ''
@@ -19559,7 +19484,7 @@
         jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
         jcr:uuid: da8f4fac-3c69-45e1-9c3a-6cc1b36110d9
         hippo:name: Bealach na Bà, Highlands
-        hippo:versionHistory: e43b534e-9a86-46fd-9954-c1a83734c34d
+        hippo:versionHistory: d564ed6b-a412-4be2-99b8-4d37983bf353
         /bealach-na-ba-highlands[1]:
           jcr:primaryType: visitscotland:ListicleItem
           jcr:mixinTypes: ['mix:referenceable']
@@ -19634,13 +19559,13 @@
           jcr:primaryType: visitscotland:ListicleItem
           jcr:mixinTypes: ['mix:referenceable']
           jcr:uuid: 4fa44d67-96e7-49fb-a2b2-904d32a76b7c
-          hippo:availability: []
+          hippo:availability: [live]
           hippostd:state: published
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2020-03-17T14:42:58.009Z
           hippostdpubwf:lastModificationDate: 2020-04-09T18:13:27.226+01:00
           hippostdpubwf:lastModifiedBy: admin
-          hippostdpubwf:publicationDate: 2020-06-12T09:02:34.409+01:00
+          hippostdpubwf:publicationDate: 2023-09-18T13:53:25.274+01:00
           hippotranslation:id: be5314ff-512f-4e59-b544-5a4dc83d1af0
           hippotranslation:locale: en
           visitscotland:subtitle: ''
@@ -19671,7 +19596,7 @@
         jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
         jcr:uuid: f4c485f6-d6b5-4661-8d68-26953a6f78a3
         hippo:name: Loch Maree from Glen Docherty, NC500, Highlands
-        hippo:versionHistory: e8a63498-756f-455e-ba22-272df565b31d
+        hippo:versionHistory: 349ddd5e-bd40-4630-a8d4-103bf78525c7
         /loch-maree-from-glen-docherty-nc500-highlands[1]:
           jcr:primaryType: visitscotland:ListicleItem
           jcr:mixinTypes: ['mix:referenceable']
@@ -19746,13 +19671,13 @@
           jcr:primaryType: visitscotland:ListicleItem
           jcr:mixinTypes: ['mix:referenceable']
           jcr:uuid: 753400fa-931f-46a2-979f-c31366bf2f9b
-          hippo:availability: []
+          hippo:availability: [live]
           hippostd:state: published
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2020-03-17T14:44:40.323Z
           hippostdpubwf:lastModificationDate: 2020-04-09T18:12:44.456+01:00
           hippostdpubwf:lastModifiedBy: admin
-          hippostdpubwf:publicationDate: 2020-06-12T09:02:36.693+01:00
+          hippostdpubwf:publicationDate: 2023-09-18T13:53:24.947+01:00
           hippotranslation:id: 1afadbad-6d9c-42f6-99ff-52d74ddf3918
           hippotranslation:locale: en
           visitscotland:subtitle: The Highlands
@@ -27424,7 +27349,7 @@
           jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
           jcr:uuid: 9800eb85-c4b8-45f3-9dc1-1987318b67e3
           hippo:name: OUTLANDER FILMING LOCATIONS
-          hippo:versionHistory: 9520ab01-dd3f-4ab7-baca-bd3f0c875562
+          hippo:versionHistory: e2ed82af-2403-41eb-aa95-72e53af77c14
           /outlander-filming-locations[1]:
             jcr:primaryType: visitscotland:MapModule
             jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
@@ -27434,7 +27359,7 @@
             hippostd:state: draft
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2023-08-14T13:58:31.150+01:00
-            hippostdpubwf:lastModificationDate: 2023-08-30T17:25:29.796+01:00
+            hippostdpubwf:lastModificationDate: 2023-09-18T15:18:44.468+01:00
             hippostdpubwf:lastModifiedBy: admin
             hippotaxonomy:keys: [outlander-category]
             hippotranslation:id: 17354a1b-3c5e-401f-a10c-c572d604d603
@@ -27443,6 +27368,12 @@
             visitscotland:tabTitle: categories
             visitscotland:title: Outlander Filming Locations
             visitscotland:translation: ''
+            /visitscotland:categories:
+              jcr:primaryType: visitscotland:MapCategory
+              visitscotland:title: ''
+              /visitscotland:mapPins:
+                jcr:primaryType: hippo:mirror
+                hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
           /outlander-filming-locations[2]:
             jcr:primaryType: visitscotland:MapModule
             jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable', 'mix:versionable']
@@ -27452,7 +27383,7 @@
             hippostd:state: unpublished
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2023-08-14T13:58:31.150+01:00
-            hippostdpubwf:lastModificationDate: 2023-09-19T14:03:26.308+01:00
+            hippostdpubwf:lastModificationDate: 2023-09-18T15:18:31.386+01:00
             hippostdpubwf:lastModifiedBy: admin
             hippotaxonomy:keys: [outlander-category]
             hippotranslation:id: 17354a1b-3c5e-401f-a10c-c572d604d603
@@ -27465,7 +27396,7 @@
             jcr:primaryType: visitscotland:MapModule
             jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
             jcr:uuid: ebed5882-a5ea-41f7-b678-6eeb447354c6
-            hippo:availability: [live]
+            hippo:availability: []
             hippostd:retainable: false
             hippostd:state: published
             hippostdpubwf:createdBy: admin
@@ -27607,7 +27538,7 @@
           jcr:primaryType: hippo:handle
           jcr:mixinTypes: ['hippo:versionInfo', 'mix:referenceable']
           jcr:uuid: 20fc02f2-a71e-47b4-be0e-c120c0c50616
-          hippo:versionHistory: 7d031c4c-47f0-4c4c-abf4-77a1551c7cc3
+          hippo:versionHistory: 96c64bb9-7f8b-4eb7-b422-86bd6359c39f
           /map[1]:
             jcr:primaryType: visitscotland:MapModule
             jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
@@ -27617,11 +27548,11 @@
             hippostd:state: draft
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2023-03-30T12:28:16.609+01:00
-            hippostdpubwf:lastModificationDate: 2023-08-21T16:01:18.075+01:00
+            hippostdpubwf:lastModificationDate: 2023-09-18T12:31:09.119+01:00
             hippostdpubwf:lastModifiedBy: admin
             hippotranslation:id: 6bc4c9ba-6cba-4afc-a4a2-74c84214cd49
             hippotranslation:locale: en
-            visitscotland:mapType: RegionsMapTab
+            visitscotland:mapType: IcentresMap
             visitscotland:tabTitle: ''
             visitscotland:title: Find your nearest iCentre
             visitscotland:translation: ''
@@ -27638,11 +27569,11 @@
             hippostd:state: unpublished
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2023-03-30T12:28:16.609+01:00
-            hippostdpubwf:lastModificationDate: 2023-08-21T16:01:38.062+01:00
+            hippostdpubwf:lastModificationDate: 2023-09-18T12:31:25.420+01:00
             hippostdpubwf:lastModifiedBy: admin
             hippotranslation:id: 6bc4c9ba-6cba-4afc-a4a2-74c84214cd49
             hippotranslation:locale: en
-            visitscotland:mapType: RegionsMapTab
+            visitscotland:mapType: IcentresMap
             visitscotland:tabTitle: ''
             visitscotland:title: Find your nearest iCentre
             visitscotland:translation: ''
@@ -27659,12 +27590,12 @@
             hippostd:state: published
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2023-03-30T12:28:16.609+01:00
-            hippostdpubwf:lastModificationDate: 2023-08-21T16:01:38.062+01:00
+            hippostdpubwf:lastModificationDate: 2023-09-18T12:31:25.420+01:00
             hippostdpubwf:lastModifiedBy: admin
-            hippostdpubwf:publicationDate: 2023-08-30T17:14:33.356+01:00
+            hippostdpubwf:publicationDate: 2023-09-18T12:31:28.075+01:00
             hippotranslation:id: 6bc4c9ba-6cba-4afc-a4a2-74c84214cd49
             hippotranslation:locale: en
-            visitscotland:mapType: RegionsMapTab
+            visitscotland:mapType: IcentresMap
             visitscotland:tabTitle: ''
             visitscotland:title: Find your nearest iCentre
             visitscotland:translation: ''
@@ -27999,12 +27930,14 @@
             jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
             jcr:uuid: 8de00bda-4760-4980-9f5d-cd009c119de8
             hippo:availability: []
+            hippostd:holder: admin
             hippostd:retainable: false
             hippostd:state: draft
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2023-08-30T09:01:16.710+01:00
-            hippostdpubwf:lastModificationDate: 2023-08-30T09:04:33.304+01:00
+            hippostdpubwf:lastModificationDate: 2023-09-18T12:42:11.762+01:00
             hippostdpubwf:lastModifiedBy: admin
+            hippotaxonomy:keys: [regions]
             hippotranslation:id: d8308d48-82e2-4bc1-860b-2c8e5746d124
             hippotranslation:locale: en
             visitscotland:mapType: ''
