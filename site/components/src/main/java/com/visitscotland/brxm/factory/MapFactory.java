@@ -92,7 +92,7 @@ public class MapFactory {
                 }
                 for (BespokeDmsMap bespokeMap : getValues(mapModuleDocument.getMapType())) {
                     buildDMSMapPages(bespokeMap, module, keys, features, request.getLocale());
-                    module.setMapType(bespokeMap.getDmsCategory());
+                    module.setMapType(bespokeMap.getCategory());
                 }
             }else {
                 // CMS maps, data and pins coming from CMS
