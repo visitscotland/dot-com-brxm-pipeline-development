@@ -2,7 +2,7 @@ package com.visitscotland.brxm.dms;
 
 
 public enum RegionsMapTab implements BespokeDmsMap {
-    TOWNS(DMSConstants.TYPE_TOWN,"","","map.places", ""),
+    TOWNS(DMSConstants.TYPE_TOWN,"",DMSConstants.TYPE_TOWN,"map.places", ""),
     ICENTRE(DMSConstants.TYPE_SERVICES, DMSConstants.CAT_ICENTRE,DMSConstants.CAT_ICENTRE,"map.serv", "");
 
     private final String prodTypeId;
