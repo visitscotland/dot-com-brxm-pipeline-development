@@ -2385,9 +2385,9 @@
         jcr:mixinTypes: ['mix:referenceable']
         jcr:uuid: ef8adc90-7ce8-41f4-b6c1-c82f4222766d
         hippo:availability: []
-        hippostd:holder: admin
         hippostd:retainable: false
         hippostd:state: draft
+        hippostd:transferable: false
         hippostdpubwf:createdBy: admin
         hippostdpubwf:creationDate: 2021-05-20T13:44:04.913+01:00
         hippostdpubwf:lastModificationDate: 2023-09-15T13:11:22.861+01:00
@@ -9672,118 +9672,6 @@
         hippostd:foldertype: [new-translated-folder-test, new-document]
         hippotranslation:id: 6f59aed6-94af-4bd8-be2b-d889053bd42d
         hippotranslation:locale: en
-        /aberdeen-city-shire (old):
-          jcr:primaryType: hippostd:folder
-          jcr:mixinTypes: ['hippo:named', 'hippotranslation:translated', 'mix:versionable']
-          jcr:uuid: dd565deb-98e1-4240-b910-42ffbe440eea
-          hippo:name: Aberdeen city shire
-          hippostd:foldertype: [new-translated-folder-test, new-document]
-          hippotranslation:id: e52fb740-9eee-4866-80bb-bf08a26af1d7
-          hippotranslation:locale: en
-          /content:
-            jcr:primaryType: hippo:handle
-            jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
-            jcr:uuid: c22131ac-2773-4e38-9e39-08ab3e756f27
-            hippo:name: Aberdeen city shire
-            hippo:versionHistory: 35541a2b-c6d7-4e1c-8110-7d1ddd9242e5
-            /content[1]:
-              jcr:primaryType: visitscotland:Destination
-              jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
-              jcr:uuid: 5ad17ce7-f323-451d-b08d-46bb6ae715c0
-              hippo:availability: []
-              hippostd:retainable: false
-              hippostd:state: draft
-              hippostdpubwf:createdBy: admin
-              hippostdpubwf:creationDate: 2022-11-22T14:16:20.008Z
-              hippostdpubwf:lastModificationDate: 2023-08-29T12:40:28.662+01:00
-              hippostdpubwf:lastModifiedBy: admin
-              hippotaxonomy:keys: []
-              hippotranslation:id: 7bce2042-49fb-42c6-b673-61bac04c2a35
-              hippotranslation:locale: en
-              visitscotland:breadcrumb: ''
-              visitscotland:hideNewsletter: false
-              visitscotland:location: Aberdeen & Aberdeenshire
-              visitscotland:seoDescription: Aberdeen city shire
-              visitscotland:seoNoIndex: false
-              visitscotland:seoTitle: Aberdeen city shire
-              visitscotland:teaser: Aberdeen city shire teaser
-              visitscotland:title: Aberdeen City Shire
-              visitscotland:translation: ''
-              /visitscotland:heroImage:
-                jcr:primaryType: hippogallerypicker:imagelink
-                hippo:docbase: a5b5922e-d0d5-420c-af2d-670768cf7bd6
-                hippo:facets: []
-                hippo:modes: []
-                hippo:values: []
-              /visitscotland:introduction:
-                jcr:primaryType: hippostd:html
-                hippostd:content: <p>Aberdeen city shire introduction</p>
-            /content[2]:
-              jcr:primaryType: visitscotland:Destination
-              jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable',
-                'mix:versionable']
-              jcr:uuid: a352e854-1b43-476f-8082-0c04b70ceeb7
-              hippo:availability: [preview]
-              hippostd:retainable: false
-              hippostd:state: unpublished
-              hippostdpubwf:createdBy: admin
-              hippostdpubwf:creationDate: 2022-11-22T14:16:20.008Z
-              hippostdpubwf:lastModificationDate: 2023-08-29T12:40:33.797+01:00
-              hippostdpubwf:lastModifiedBy: admin
-              hippotaxonomy:keys: []
-              hippotranslation:id: 7bce2042-49fb-42c6-b673-61bac04c2a35
-              hippotranslation:locale: en
-              visitscotland:breadcrumb: ''
-              visitscotland:hideNewsletter: false
-              visitscotland:location: Aberdeen & Aberdeenshire
-              visitscotland:seoDescription: Aberdeen city shire
-              visitscotland:seoNoIndex: false
-              visitscotland:seoTitle: Aberdeen city shire
-              visitscotland:teaser: Aberdeen city shire teaser
-              visitscotland:title: Aberdeen City Shire
-              visitscotland:translation: ''
-              /visitscotland:heroImage:
-                jcr:primaryType: hippogallerypicker:imagelink
-                hippo:docbase: a5b5922e-d0d5-420c-af2d-670768cf7bd6
-                hippo:facets: []
-                hippo:modes: []
-                hippo:values: []
-              /visitscotland:introduction:
-                jcr:primaryType: hippostd:html
-                hippostd:content: <p>Aberdeen city shire introduction</p>
-            /content[3]:
-              jcr:primaryType: visitscotland:Destination
-              jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
-              jcr:uuid: 573abb8d-d2a6-46c3-b9ac-f68c5a238af1
-              hippo:availability: [live]
-              hippostd:retainable: false
-              hippostd:state: published
-              hippostdpubwf:createdBy: admin
-              hippostdpubwf:creationDate: 2022-11-22T14:16:20.008Z
-              hippostdpubwf:lastModificationDate: 2022-11-23T10:36:43.977Z
-              hippostdpubwf:lastModifiedBy: admin
-              hippostdpubwf:publicationDate: 2022-11-23T10:36:48.374Z
-              hippotaxonomy:keys: [regions]
-              hippotranslation:id: 7bce2042-49fb-42c6-b673-61bac04c2a35
-              hippotranslation:locale: en
-              visitscotland:breadcrumb: ''
-              visitscotland:hideNewsletter: false
-              visitscotland:location: Aberdeen & Aberdeenshire
-              visitscotland:seoDescription: Aberdeen city shire
-              visitscotland:seoNoIndex: false
-              visitscotland:seoTitle: Aberdeen city shire
-              visitscotland:teaser: Aberdeen city shire teaser
-              visitscotland:title: Aberdeen City Shire
-              visitscotland:translation: ''
-              /visitscotland:heroImage:
-                jcr:primaryType: hippogallerypicker:imagelink
-                hippo:docbase: a5b5922e-d0d5-420c-af2d-670768cf7bd6
-                hippo:facets: []
-                hippo:modes: []
-                hippo:values: []
-              /visitscotland:introduction:
-                jcr:primaryType: hippostd:html
-                hippostd:content: <p>Aberdeen city shire introduction</p>
         /arguill:
           jcr:primaryType: hippostd:folder
           jcr:mixinTypes: ['hippo:named', 'hippotranslation:translated', 'mix:versionable']
@@ -18120,7 +18008,6 @@
         jcr:mixinTypes: ['mix:referenceable']
         jcr:uuid: 4454979a-b55a-4c40-8e08-8d17748169a3
         hippo:availability: []
-        hippostd:holder: admin
         hippostd:retainable: false
         hippostd:state: draft
         hippostdpubwf:createdBy: admin
@@ -27537,13 +27424,12 @@
           jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
           jcr:uuid: 9800eb85-c4b8-45f3-9dc1-1987318b67e3
           hippo:name: OUTLANDER FILMING LOCATIONS
-          hippo:versionHistory: b7f73ac2-3a34-4f62-b069-1bf5369a4cec
+          hippo:versionHistory: 9520ab01-dd3f-4ab7-baca-bd3f0c875562
           /outlander-filming-locations[1]:
             jcr:primaryType: visitscotland:MapModule
             jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
             jcr:uuid: dc87346b-803d-4d18-ba16-c0cce8e6bfc5
             hippo:availability: []
-            hippostd:holder: admin
             hippostd:retainable: false
             hippostd:state: draft
             hippostdpubwf:createdBy: admin
@@ -27566,14 +27452,14 @@
             hippostd:state: unpublished
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2023-08-14T13:58:31.150+01:00
-            hippostdpubwf:lastModificationDate: 2023-08-14T14:57:46.285+01:00
+            hippostdpubwf:lastModificationDate: 2023-09-19T14:03:26.308+01:00
             hippostdpubwf:lastModifiedBy: admin
             hippotaxonomy:keys: [outlander-category]
             hippotranslation:id: 17354a1b-3c5e-401f-a10c-c572d604d603
             hippotranslation:locale: en
             visitscotland:mapType: ''
             visitscotland:tabTitle: categories
-            visitscotland:title: OUTLANDER FILMING LOCATIONS
+            visitscotland:title: Outlander Filming Locations
             visitscotland:translation: ''
           /outlander-filming-locations[3]:
             jcr:primaryType: visitscotland:MapModule
@@ -27584,15 +27470,15 @@
             hippostd:state: published
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2023-08-14T13:58:31.150+01:00
-            hippostdpubwf:lastModificationDate: 2023-08-14T14:57:46.285+01:00
+            hippostdpubwf:lastModificationDate: 2023-09-19T14:03:26.308+01:00
             hippostdpubwf:lastModifiedBy: admin
-            hippostdpubwf:publicationDate: 2023-08-30T17:12:15.546+01:00
+            hippostdpubwf:publicationDate: 2023-09-19T14:03:31.806+01:00
             hippotaxonomy:keys: [outlander-category]
             hippotranslation:id: 17354a1b-3c5e-401f-a10c-c572d604d603
             hippotranslation:locale: en
             visitscotland:mapType: ''
             visitscotland:tabTitle: categories
-            visitscotland:title: OUTLANDER FILMING LOCATIONS
+            visitscotland:title: Outlander Filming Locations
             visitscotland:translation: ''
       /icentres:
         jcr:primaryType: hippostd:folder
@@ -27980,7 +27866,7 @@
           jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
           jcr:uuid: fcd8bf63-e0b2-4df7-965a-02c29c817057
           hippo:name: Highlands
-          hippo:versionHistory: 34e59ae3-28ee-4bc5-bfbd-a459fe196600
+          hippo:versionHistory: dcf059e9-ac98-4317-a388-b2942232921a
           /content[1]:
             jcr:primaryType: visitscotland:Destination
             jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
@@ -27990,8 +27876,9 @@
             hippostd:state: draft
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2023-08-30T09:00:10.326+01:00
-            hippostdpubwf:lastModificationDate: 2023-08-30T09:00:10.326+01:00
+            hippostdpubwf:lastModificationDate: 2023-09-19T14:04:31.183+01:00
             hippostdpubwf:lastModifiedBy: admin
+            hippotaxonomy:keys: [regions]
             hippotranslation:id: a6bd4d63-341c-41f7-a461-7427671663ed
             hippotranslation:locale: en
             visitscotland:breadcrumb: ''
@@ -28029,8 +27916,9 @@
             hippostd:state: unpublished
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2023-08-30T09:00:10.326+01:00
-            hippostdpubwf:lastModificationDate: 2023-08-30T09:00:56.703+01:00
+            hippostdpubwf:lastModificationDate: 2023-09-19T14:04:35.108+01:00
             hippostdpubwf:lastModifiedBy: admin
+            hippotaxonomy:keys: [regions]
             hippotranslation:id: a6bd4d63-341c-41f7-a461-7427671663ed
             hippotranslation:locale: en
             visitscotland:breadcrumb: ''
@@ -28068,9 +27956,10 @@
             hippostd:state: published
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2023-08-30T09:00:10.326+01:00
-            hippostdpubwf:lastModificationDate: 2023-08-30T09:00:56.703+01:00
+            hippostdpubwf:lastModificationDate: 2023-09-19T14:04:35.108+01:00
             hippostdpubwf:lastModifiedBy: admin
-            hippostdpubwf:publicationDate: 2023-08-30T17:20:21.742+01:00
+            hippostdpubwf:publicationDate: 2023-09-19T14:04:37.869+01:00
+            hippotaxonomy:keys: [regions]
             hippotranslation:id: a6bd4d63-341c-41f7-a461-7427671663ed
             hippotranslation:locale: en
             visitscotland:breadcrumb: ''
