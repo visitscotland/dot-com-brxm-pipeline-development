@@ -85,14 +85,13 @@ public class MapFactory {
             module.setMapPosition(mapper.createObjectNode());
             //bespoke maps data and pins coming from DMS
             if (!Contract.isEmpty(mapModuleDocument.getMapType())){
-
+                module.setMapType(mapModuleDocument.getMapType());
                 //Feature places on top of these maps
                 if (!Contract.isNull(mapModuleDocument.getFeaturedPlacesItem())) {
                     mapService.addFeaturePlacesNode(module, mapModuleDocument.getCategories(), request.getLocale(), keys, features);
                 }
                 for (BespokeDmsMap bespokeMap : getValues(mapModuleDocument.getMapType())) {
                     buildDMSMapPages(bespokeMap, module, keys, features, request.getLocale(), null);
-                    module.setMapType(bespokeMap.getCategory());
                 }
             }else {
                 // CMS maps, data and pins coming from CMS
