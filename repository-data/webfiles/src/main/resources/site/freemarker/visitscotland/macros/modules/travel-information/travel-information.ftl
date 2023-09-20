@@ -10,11 +10,11 @@
 
 <#macro travelInformation module>
     <vs-module-wrapper theme="dark">
-        <template slot="vsModuleWrapperHeading">
+        <template v-slot:vs-module-wrapper-heading>
             ${module.title}
         </template>
 
-        <template slot="vsModuleWrapperIntro">
+        <template v-slot:vs-module-wrapper-intro>
             <@hst.html hippohtml=module.copy/>
         </template>
 

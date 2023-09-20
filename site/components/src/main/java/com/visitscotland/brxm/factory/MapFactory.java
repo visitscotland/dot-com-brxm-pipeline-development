@@ -33,6 +33,7 @@ public class MapFactory {
     static final String DESCRIPTION = "description";
     static final String NAME = "name";
     static final String REGIONS = "regions";
+    static final String TITLE = "title";
     static final String MAP = "map";
     static final String POINT = "Point";
 
@@ -77,22 +78,20 @@ public class MapFactory {
         ArrayNode features = mapper.createArrayNode();
         ArrayNode keys = mapper.createArrayNode();
 
-
         if (page instanceof Destination){
             buildDestinationMapPages(request.getLocale(),(Destination)page, mapModuleDocument, module, keys, features);
         }else{
             module.setDetailsEndpoint("");
             module.setMapPosition(mapper.createObjectNode());
-            module.setMapType(MapType.GENERAL.getMapType());
             //bespoke maps data and pins coming from DMS
             if (!Contract.isEmpty(mapModuleDocument.getMapType())){
+                module.setMapType(mapModuleDocument.getMapType());
                 //Feature places on top of these maps
                 if (!Contract.isNull(mapModuleDocument.getFeaturedPlacesItem())) {
                     mapService.addFeaturePlacesNode(module, mapModuleDocument.getCategories(), request.getLocale(), keys, features);
                 }
-                //TODO for each new map a new enum is needed, create the logic to identify which enum is needed based on mapModuleDocument.getMapType() value
-                for (ICentresMapTab prodType : ICentresMapTab.values()) {
-                    buildDMSMapPages(prodType.getProdTypeId(), prodType.getLabel(), "", module, keys, features, prodType.getCategory(), request.getLocale());
+                for (BespokeDmsMap bespokeMap : getValues(mapModuleDocument.getMapType())) {
+                    buildDMSMapPages(bespokeMap, module, keys, features, request.getLocale(), null);
                 }
             }else {
                 // CMS maps, data and pins coming from CMS
@@ -126,6 +125,7 @@ public class MapFactory {
         for (String taxonomy : mapModuleDocument.getKeys()) {
             //get all the Taxonomy information
             Taxonomy vsTaxonomyTree = hippoUtilsService.getTaxonomy();
+            module.setMapType(vsTaxonomyTree.getCategoryByKey(taxonomy).getKey());
             for (Category mainCategory : vsTaxonomyTree.getCategoryByKey(taxonomy).getChildren()) {
                 keys.add(mapService.addFilterNode(mainCategory, request.getLocale()));
                 //if the map has 2 levels, the parent wont be a category for the mapcards, so pick sons
@@ -139,6 +139,7 @@ public class MapFactory {
                     mapService.addMapDocumentsToJson(request, module, mainCategory, features);
                 }
             }
+
         }
     }
 
@@ -193,8 +194,8 @@ public class MapFactory {
                 geometryNode = dmsDataService.getLocationBorders(location.getId(),true);
             }
 
-            for (RegionsMapTab prodType: RegionsMapTab.values()) {
-                buildDMSMapPages(prodType.getProdTypeId(), prodType.getLabel(), destinationPage.getLocation(), module, keys, features, prodType.getCategory(), locale);
+            for (RegionsMapTab regionMap: RegionsMapTab.values()) {
+                buildDMSMapPages(regionMap, module, keys, features, locale, destinationPage);
             }
         }
         module.setDetailsEndpoint(propertiesService.getDmsDataPublicHost() + DMSConstants.VS_DMS_PRODUCT_MAP_CARD+"locale="+locale.toLanguageTag()+"&id=");
@@ -205,17 +206,18 @@ public class MapFactory {
         }
     }
 
-    private ObjectNode addFilters (String prodTypeId, String prodTypelabel, Locale locale){
-        return  mapService.buildCategoryNode(prodTypeId,bundle.getResourceBundle(MAP,prodTypelabel,locale));
+    private ObjectNode addFilters (String prodTypeId, String prodTypelabel){
+        return  mapService.buildCategoryNode(prodTypeId, prodTypelabel);
     }
 
 
-    private void buildDMSMapPages (String prodTypeId, String prodTypeLabel, String location, MapsModule module,ArrayNode keys,ArrayNode features, String category, Locale locale) {
-        ObjectNode regionFilters = this.addFilters(prodTypeId, prodTypeLabel, locale);
+    private void buildDMSMapPages (BespokeDmsMap bespokeMap, MapsModule module, ArrayNode keys, ArrayNode features, Locale locale, Destination destinationPage) {
+        String label = !Contract.isNull(bundle.getResourceBundle(MAP,bespokeMap.getLabel(),locale))?
+                bundle.getResourceBundle(MAP,bespokeMap.getLabel(),locale):locationLoader.getLocation(bespokeMap.getLocation(), locale).getName();
+        ObjectNode regionFilters = this.addFilters(bespokeMap.getCategory(), label);
         keys.add(regionFilters);
-        this.addDmsData(this.buildProductSearch(location, prodTypeId, category, locale, DMSConstants.SORT_ALPHA, 100),
+        this.addDmsData(this.buildProductSearch(destinationPage != null? destinationPage.getLocation():bespokeMap.getLocation(), bespokeMap.getProdTypeId(), bespokeMap.getDmsCategory(), locale, DMSConstants.SORT_ALPHA, 100),
                 module, regionFilters, features, locale);
-
     }
 
     private void addDmsData (ProductSearchBuilder dmsQuery, MapsModule module, ObjectNode filter, ArrayNode features, Locale locale){
@@ -228,7 +230,11 @@ public class MapFactory {
                 String name = jsonNode.has(NAME) ? jsonNode.get(NAME).asText() : null;
                 String description = jsonNode.has(DESCRIPTION) ? jsonNode.get(DESCRIPTION).asText() : null;
                 String id = jsonNode.has(ID) ? jsonNode.get(ID).asText() : null;
-                data.set(PROPERTIES, mapService.getPropertyNode(name, description, image, filter, link, id));
+                ObjectNode properties = mapService.getPropertyNode(name, description, image, filter, link, id);
+                properties.put(ID, id);
+                properties.put(TITLE, name);
+                properties.put(DESCRIPTION, description);
+                data.set(PROPERTIES, properties );
                 data.set(GEOMETRY, mapService.getGeometryNode(mapService.getCoordinates(jsonNode.get("longitude").asDouble(), jsonNode.get("latitude").asDouble()), POINT));
 
                 features.add(data);
@@ -238,6 +244,17 @@ public class MapFactory {
 
     private ProductSearchBuilder buildProductSearch (String location, String prodType, String category, Locale locale, String order, int size){
         return VsComponentManager.get(ProductSearchBuilder.class).location(location).productTypes(prodType).category(category).sortBy(order).size(size).locale(locale);
+    }
+
+    private BespokeDmsMap[] getValues(String mapType){
+        switch(mapType) {
+            case "IcentresMap":
+                return ICentresMapTab.values();
+            case "DistilleriesMap":
+                return DistilleryMapTab.values();
+            default:
+                return null;
+        }
     }
 }
 

@@ -5,9 +5,9 @@
 
 <#macro footerSocialMenu>
     <vs-footer-social-menu>
-        <span slot="title">
+        <template v-slot:title>
             ${label('navigation.static', 'footer.find-us-on')}
-        </span>
+        </template>
 
         <vs-footer-social-item
             href="${optionalLabel('navigation.social-media', 'facebook')}"

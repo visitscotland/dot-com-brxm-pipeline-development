@@ -4,7 +4,7 @@
   jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
   jcr:uuid: ac89a8cf-a2c8-4cd6-bf14-91afb3d68e3e
   hippo:name: Map
-  hippo:versionHistory: c8ee34da-0764-44fd-bdcd-c903e8e182e5
+  hippo:versionHistory: 4eb03d13-335f-4252-be84-a198dcba6106
   /map[1]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:referenceable']
@@ -14,11 +14,11 @@
     hippostd:state: draft
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2020-03-02T10:09:34.350Z
-    hippostdpubwf:lastModificationDate: 2023-03-17T10:43:42.723Z
+    hippostdpubwf:lastModificationDate: 2023-08-24T09:46:24.303+01:00
     hippostdpubwf:lastModifiedBy: admin
     resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '', '', '', '',
       '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
-      '', '', '', '', '']
+      '', '', '', '', '', '']
     resourcebundle:id: map
     resourcebundle:keys: [map.fullscreen, map.exitfullscreen, map.reset, map.zoomin,
       map.zoomout, map.feature-default-title, map.discover, map.close-panel, map.open-panel,
@@ -26,7 +26,7 @@
       map.reta, map.twnv, map.serv, map.regions, map.places, map.no-js, map.clear,
       map.show-results, map.filters-applied, map.buttons-label, map.load-more, map.loading-results,
       map.loading, map.apply-filters, map-no-results, map.panel-bottom-msg, map.no-results,
-      map.zoom-too-far, map.zoom-too-close, map.explore]
+      map.zoom-too-far, map.zoom-too-close, map.explore, map.distillery]
     resourcebundle:messages: [Show fullscreen, Exit fullscreen, Reset angle, Zoom
         in, Zoom out, Featured Places, Discover, Close search and filter panel, Open
         search & filter, Go back one step, Reset filters, Accommodation, Activities,
@@ -36,7 +36,7 @@
         to refine results, 'No results found, please apply filter(s)', Get friendly
         and helpful advice for your trip at our iCentres., 'No results found, please
         apply filter(s).', 'We''re sorry, you can''t zoom out any more', 'We''re sorry,
-        you can''t zoom in any more', Explore]
+        you can''t zoom in any more', Explore, Distilleries]
     resourcebundle:messages_de: [Vollbild anzeigen, Vollbild schließen, Zurücksetzen,
       Vergrößern, Verkleinern, Besondere Orte, 'Jetzt entdecken:', Suche und Filter
         schließen , Open zoeken en filteren, Einen Schritt zurückgehen , Filter zurücksetzen ,
@@ -49,7 +49,7 @@
         unseren iCentres erhalten Sie eine freundliche Beratung für Ihre Reise., 'Keine
         Ergebnisse gefunden, bitte wählen Sie einen oder mehrere Filter aus.', Sie
         können die Karte nicht weiter verkleinern., Sie können die Karte nicht weiter
-        vergrößern., Entdecken Sie]
+        vergrößern., Entdecken Sie, '']
     resourcebundle:messages_es: [Mostrar pantalla completa, Cerrar pantalla completa,
       Restablecer ángulo, Ampliar, Reducir, Lugares destacados, Descubre, Cerrar panel
         de búsqueda y filtro, Abrir búsqueda y filtro, Retroceder un paso, Restablecer
@@ -60,7 +60,7 @@
         para refinar los resultados, 'No se encontraron resultados, por favor aplique
         filtro(s)', Obtén consejos amables y útiles para tu viaje en nuestros iCentres.,
       'No se encontraron resultados, por favor aplica filtro(s).', 'Lo sentimos, ya
-        no puedes alejarte', 'Lo sentimos, ya no puedes hacer zoom', Explora]
+        no puedes alejarte', 'Lo sentimos, ya no puedes hacer zoom', Explora, '']
     resourcebundle:messages_fr: [Afficher en mode plein écran, Quitter le mode plein
         écran, Réinitialiser, Zoomer, Dézoomer, Lieux d’intérêt, 'Découvrez:', Fermer
         l’outil de recherche et les filtres, Ouvrir la recherche et filtrer, Revenir
@@ -72,7 +72,7 @@
       'Aucun résultat, veuillez appliquer un filtre', Obtenez des conseils et astuces
         de voyage dans nos iCentres., 'Aucun résultat, veuillez appliquer un filtre.',
       'Désolé, vous ne pouvez pas dézoomer davantage', 'Désolé, vous ne pouvez pas
-        zoomer davantage', Explorez]
+        zoomer davantage', Explorez, '']
     resourcebundle:messages_it: [Mostra a schermo intero, Esci dallo schermo intero,
       Reset, Ingrandisci, Riduci, Luoghi in primo piano, 'Scopri ora:', Chiudi il
         pannello di ricerca e filtri, Apro ricerca e filtro, Torna indietro, Reimposta
@@ -84,7 +84,7 @@
         il/i filtro/i', Ottieni consigli utili per il tuo viaggio presso i nostri
         iCentres., 'Nessun risultato trovato, si prega di applicare il/i filtro/i.',
       'Siamo spiacenti, non è più possibile rimpicciolire', 'Siamo spiacenti, non
-        è più possibile ingrandire', Esplora]
+        è più possibile ingrandire', Esplora, '']
     resourcebundle:messages_nl: [Volledig scherm tonen, Volledig scherm sluiten, Heroriënteren,
       Inzoomen, Uitzoomen, Bijzondere plaatsen, Ontdek, Sluit het zoek- en filterpaneel,
       Zoeken en filters openen, Een stap terug, Filters resetten, Accommodatie, Activiteiten,
@@ -94,7 +94,7 @@
         laden, Laden, Pas filter(s) toe om de resultaten te verfijnen, 'Geen resultaten
         gevonden, pas filter(s) toe', Krijg in onze iCentres vriendelijk en nuttig
         advies voor je reis., 'Geen resultaten gevonden, pas filter(s) toe.', '',
-      '', Ontdek]
+      '', Ontdek, '']
   /map[2]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:versionable']
@@ -104,11 +104,11 @@
     hippostd:state: unpublished
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2020-03-02T10:09:34.350Z
-    hippostdpubwf:lastModificationDate: 2023-03-17T10:45:03.803Z
+    hippostdpubwf:lastModificationDate: 2023-08-24T09:50:55.254+01:00
     hippostdpubwf:lastModifiedBy: admin
     resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '', '', '', '',
       '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
-      '', '', '', '', '']
+      '', '', '', '', '', '']
     resourcebundle:id: map
     resourcebundle:keys: [map.fullscreen, map.exitfullscreen, map.reset, map.zoomin,
       map.zoomout, map.feature-default-title, map.discover, map.close-panel, map.open-panel,
@@ -116,7 +116,7 @@
       map.reta, map.twnv, map.serv, map.regions, map.places, map.no-js, map.clear,
       map.show-results, map.filters-applied, map.buttons-label, map.load-more, map.loading-results,
       map.loading, map.apply-filters, map-no-results, map.panel-bottom-msg, map.no-results,
-      map.zoom-too-far, map.zoom-too-close, map.explore]
+      map.zoom-too-far, map.zoom-too-close, map.explore, map.distillery]
     resourcebundle:messages: [Show fullscreen, Exit fullscreen, Reset angle, Zoom
         in, Zoom out, Featured Places, Discover, Close search and filter panel, Open
         search & filter, Go back one step, Reset filters, Accommodation, Activities,
@@ -126,7 +126,7 @@
         to refine results, 'No results found, please apply filter(s)', Get friendly
         and helpful advice for your trip at our iCentres., 'No results found, please
         apply filter(s).', 'We''re sorry, you can''t zoom out any more', 'We''re sorry,
-        you can''t zoom in any more', Explore]
+        you can''t zoom in any more', Explore, Distilleries]
     resourcebundle:messages_de: [Vollbild anzeigen, Vollbild schließen, Zurücksetzen,
       Vergrößern, Verkleinern, Besondere Orte, 'Jetzt entdecken:', Suche und Filter
         schließen , Open zoeken en filteren, Einen Schritt zurückgehen , Filter zurücksetzen ,
@@ -139,7 +139,7 @@
         unseren iCentres erhalten Sie eine freundliche Beratung für Ihre Reise., 'Keine
         Ergebnisse gefunden, bitte wählen Sie einen oder mehrere Filter aus.', Sie
         können die Karte nicht weiter verkleinern., Sie können die Karte nicht weiter
-        vergrößern., Entdecken Sie]
+        vergrößern., Entdecken Sie, '']
     resourcebundle:messages_es: [Mostrar pantalla completa, Cerrar pantalla completa,
       Restablecer ángulo, Ampliar, Reducir, Lugares destacados, Descubre, Cerrar panel
         de búsqueda y filtro, Abrir búsqueda y filtro, Retroceder un paso, Restablecer
@@ -150,7 +150,7 @@
         para refinar los resultados, 'No se encontraron resultados, por favor aplique
         filtro(s)', Obtén consejos amables y útiles para tu viaje en nuestros iCentres.,
       'No se encontraron resultados, por favor aplica filtro(s).', 'Lo sentimos, ya
-        no puedes alejarte', 'Lo sentimos, ya no puedes hacer zoom', Explora]
+        no puedes alejarte', 'Lo sentimos, ya no puedes hacer zoom', Explora, '']
     resourcebundle:messages_fr: [Afficher en mode plein écran, Quitter le mode plein
         écran, Réinitialiser, Zoomer, Dézoomer, Lieux d’intérêt, 'Découvrez:', Fermer
         l’outil de recherche et les filtres, Ouvrir la recherche et filtrer, Revenir
@@ -162,7 +162,7 @@
       'Aucun résultat, veuillez appliquer un filtre', Obtenez des conseils et astuces
         de voyage dans nos iCentres., 'Aucun résultat, veuillez appliquer un filtre.',
       'Désolé, vous ne pouvez pas dézoomer davantage', 'Désolé, vous ne pouvez pas
-        zoomer davantage', Explorez]
+        zoomer davantage', Explorez, '']
     resourcebundle:messages_it: [Mostra a schermo intero, Esci dallo schermo intero,
       Reset, Ingrandisci, Riduci, Luoghi in primo piano, 'Scopri ora:', Chiudi il
         pannello di ricerca e filtri, Apro ricerca e filtro, Torna indietro, Reimposta
@@ -174,7 +174,7 @@
         il/i filtro/i', Ottieni consigli utili per il tuo viaggio presso i nostri
         iCentres., 'Nessun risultato trovato, si prega di applicare il/i filtro/i.',
       'Siamo spiacenti, non è più possibile rimpicciolire', 'Siamo spiacenti, non
-        è più possibile ingrandire', Esplora]
+        è più possibile ingrandire', Esplora, '']
     resourcebundle:messages_nl: [Volledig scherm tonen, Volledig scherm sluiten, Heroriënteren,
       Inzoomen, Uitzoomen, Bijzondere plaatsen, Ontdek, Sluit het zoek- en filterpaneel,
       Zoeken en filters openen, Een stap terug, Filters resetten, Accommodatie, Activiteiten,
@@ -184,7 +184,7 @@
         laden, Laden, Pas filter(s) toe om de resultaten te verfijnen, 'Geen resultaten
         gevonden, pas filter(s) toe', Krijg in onze iCentres vriendelijk en nuttig
         advies voor je reis., 'Geen resultaten gevonden, pas filter(s) toe.', '',
-      '', Ontdek]
+      '', Ontdek, '']
   /map[3]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:referenceable']
@@ -194,12 +194,12 @@
     hippostd:state: published
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2020-03-02T10:09:34.350Z
-    hippostdpubwf:lastModificationDate: 2023-03-17T10:45:03.803Z
+    hippostdpubwf:lastModificationDate: 2023-08-24T09:50:55.254+01:00
     hippostdpubwf:lastModifiedBy: admin
-    hippostdpubwf:publicationDate: 2023-03-17T10:45:11.415Z
+    hippostdpubwf:publicationDate: 2023-08-24T09:50:58.861+01:00
     resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '', '', '', '',
       '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
-      '', '', '', '', '']
+      '', '', '', '', '', '']
     resourcebundle:id: map
     resourcebundle:keys: [map.fullscreen, map.exitfullscreen, map.reset, map.zoomin,
       map.zoomout, map.feature-default-title, map.discover, map.close-panel, map.open-panel,
@@ -207,7 +207,7 @@
       map.reta, map.twnv, map.serv, map.regions, map.places, map.no-js, map.clear,
       map.show-results, map.filters-applied, map.buttons-label, map.load-more, map.loading-results,
       map.loading, map.apply-filters, map-no-results, map.panel-bottom-msg, map.no-results,
-      map.zoom-too-far, map.zoom-too-close, map.explore]
+      map.zoom-too-far, map.zoom-too-close, map.explore, map.distillery]
     resourcebundle:messages: [Show fullscreen, Exit fullscreen, Reset angle, Zoom
         in, Zoom out, Featured Places, Discover, Close search and filter panel, Open
         search & filter, Go back one step, Reset filters, Accommodation, Activities,
@@ -217,7 +217,7 @@
         to refine results, 'No results found, please apply filter(s)', Get friendly
         and helpful advice for your trip at our iCentres., 'No results found, please
         apply filter(s).', 'We''re sorry, you can''t zoom out any more', 'We''re sorry,
-        you can''t zoom in any more', Explore]
+        you can''t zoom in any more', Explore, Distilleries]
     resourcebundle:messages_de: [Vollbild anzeigen, Vollbild schließen, Zurücksetzen,
       Vergrößern, Verkleinern, Besondere Orte, 'Jetzt entdecken:', Suche und Filter
         schließen , Open zoeken en filteren, Einen Schritt zurückgehen , Filter zurücksetzen ,
@@ -230,7 +230,7 @@
         unseren iCentres erhalten Sie eine freundliche Beratung für Ihre Reise., 'Keine
         Ergebnisse gefunden, bitte wählen Sie einen oder mehrere Filter aus.', Sie
         können die Karte nicht weiter verkleinern., Sie können die Karte nicht weiter
-        vergrößern., Entdecken Sie]
+        vergrößern., Entdecken Sie, '']
     resourcebundle:messages_es: [Mostrar pantalla completa, Cerrar pantalla completa,
       Restablecer ángulo, Ampliar, Reducir, Lugares destacados, Descubre, Cerrar panel
         de búsqueda y filtro, Abrir búsqueda y filtro, Retroceder un paso, Restablecer
@@ -241,7 +241,7 @@
         para refinar los resultados, 'No se encontraron resultados, por favor aplique
         filtro(s)', Obtén consejos amables y útiles para tu viaje en nuestros iCentres.,
       'No se encontraron resultados, por favor aplica filtro(s).', 'Lo sentimos, ya
-        no puedes alejarte', 'Lo sentimos, ya no puedes hacer zoom', Explora]
+        no puedes alejarte', 'Lo sentimos, ya no puedes hacer zoom', Explora, '']
     resourcebundle:messages_fr: [Afficher en mode plein écran, Quitter le mode plein
         écran, Réinitialiser, Zoomer, Dézoomer, Lieux d’intérêt, 'Découvrez:', Fermer
         l’outil de recherche et les filtres, Ouvrir la recherche et filtrer, Revenir
@@ -253,7 +253,7 @@
       'Aucun résultat, veuillez appliquer un filtre', Obtenez des conseils et astuces
         de voyage dans nos iCentres., 'Aucun résultat, veuillez appliquer un filtre.',
       'Désolé, vous ne pouvez pas dézoomer davantage', 'Désolé, vous ne pouvez pas
-        zoomer davantage', Explorez]
+        zoomer davantage', Explorez, '']
     resourcebundle:messages_it: [Mostra a schermo intero, Esci dallo schermo intero,
       Reset, Ingrandisci, Riduci, Luoghi in primo piano, 'Scopri ora:', Chiudi il
         pannello di ricerca e filtri, Apro ricerca e filtro, Torna indietro, Reimposta
@@ -265,7 +265,7 @@
         il/i filtro/i', Ottieni consigli utili per il tuo viaggio presso i nostri
         iCentres., 'Nessun risultato trovato, si prega di applicare il/i filtro/i.',
       'Siamo spiacenti, non è più possibile rimpicciolire', 'Siamo spiacenti, non
-        è più possibile ingrandire', Esplora]
+        è più possibile ingrandire', Esplora, '']
     resourcebundle:messages_nl: [Volledig scherm tonen, Volledig scherm sluiten, Heroriënteren,
       Inzoomen, Uitzoomen, Bijzondere plaatsen, Ontdek, Sluit het zoek- en filterpaneel,
       Zoeken en filters openen, Een stap terug, Filters resetten, Accommodatie, Activiteiten,
@@ -275,4 +275,4 @@
         laden, Laden, Pas filter(s) toe om de resultaten te verfijnen, 'Geen resultaten
         gevonden, pas filter(s) toe', Krijg in onze iCentres vriendelijk en nuttig
         advies voor je reis., 'Geen resultaten gevonden, pas filter(s) toe.', '',
-      '', Ontdek]
+      '', Ontdek, '']
