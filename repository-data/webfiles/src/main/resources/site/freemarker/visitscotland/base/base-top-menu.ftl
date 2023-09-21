@@ -19,9 +19,9 @@
         <@devEnvMenu />
     </#if>
 
-    <div class="has-edit-button">
+    <div class="has-edit-button position-sticky zindex-fixed" style="top: 0;">
         <@headerSkipTo />
-        <header class="position-relative zindex-fixed">
+        <header>
             <@headerGlobalMenu />
             <!-- Navigation generated at ${menu.timeStamp?string["yyyy-MM-dd HH:mm:ss"]} -->
             <@headerMegaNav menu=menu/>
