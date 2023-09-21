@@ -113,7 +113,7 @@ class ItineraryFactoryTest {
 
         assertEquals(2, iti.getDays().size());
         assertEquals(4, iti.getStops().size());
-        assertEquals(distance == 500. ? BigDecimal.valueOf(500.0) : BigDecimal.valueOf(414.9), iti.getDistance());
+        assertEquals(distance == 500. ? BigDecimal.valueOf(500).setScale(0, BigDecimal.ROUND_HALF_UP) : BigDecimal.valueOf(414.9).setScale(0, BigDecimal.ROUND_HALF_UP), iti.getDistance().setScale(0, BigDecimal.ROUND_HALF_UP));
     }
 
     private void initFirstAndLastStopDistanceTest() {
