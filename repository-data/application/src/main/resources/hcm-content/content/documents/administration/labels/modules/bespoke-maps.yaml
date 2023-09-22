@@ -3,7 +3,7 @@
   jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
   jcr:uuid: 6bdb32f2-80b5-40ed-900c-c26cc66152ff
   hippo:name: Bespoke maps
-  hippo:versionHistory: b5fc96c6-6b6e-419b-a531-0eff7c676132
+  hippo:versionHistory: 4d6624fb-a065-4206-883e-e03a398b4003
   /bespoke-maps[1]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:referenceable']
@@ -13,8 +13,8 @@
     hippostd:state: draft
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2023-08-11T13:27:26.706+01:00
-    hippostdpubwf:lastModificationDate: 2023-08-30T08:50:28.166+01:00
-    hippostdpubwf:lastModifiedBy: admin
+    hippostdpubwf:lastModificationDate: 2023-09-22T11:28:57.623+02:00
+    hippostdpubwf:lastModifiedBy: juanluis.hurtado
     resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '', '', '']
     resourcebundle:id: bespoke-maps
     resourcebundle:keys: [outlander-castle, outlander-church-abbey, outlander-city-town-village,
@@ -23,11 +23,15 @@
     resourcebundle:messages: [Castles, Churches & Abbeys, 'Cities, Towns & Villages',
       Heritage sites, Landscapes & parks, Palaces & Houses, Season, Season 1, Season
         2, Season 3, Season 4]
-    resourcebundle:messages_de-de: ['', '', '', '', '', '', '', '', '', '', '']
-    resourcebundle:messages_es-es: ['', '', '', '', '', '', '', '', '', '', '']
-    resourcebundle:messages_fr-fr: ['', '', '', '', '', '', '', '', '', '', '']
-    resourcebundle:messages_it-it: ['', '', '', '', '', '', '', '', '', '', '']
-    resourcebundle:messages_nl-nl: ['', '', '', '', '', '', '', '', '', '', '']
+    resourcebundle:messages_de: [Burgen & Schlösser, Kirchen & Klöster, Städte & Dörfer,
+      Geschichte & Kultur, Landschaften & Parks, Paläste & Häuser, Staffel, Staffel
+        1, Staffel 2, Staffel 3, Staffel 4]
+    resourcebundle:messages_es: ['', '', '', '', '', '', '', '', '', '', '']
+    resourcebundle:messages_fr: ['', '', '', '', '', '', '', '', '', '', '']
+    resourcebundle:messages_it: ['', '', '', '', '', '', '', '', '', '', '']
+    resourcebundle:messages_nl: [Kasteel, Kerk & Abdij, Stad & Dorp, Erfgoedlocatie,
+      Landschap & Park, Paleis & Huis, Seizoen, Seizoen 1, Seizoen 2, Seizoen 3, Seizoen
+        4]
   /bespoke-maps[2]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
@@ -37,8 +41,8 @@
     hippostd:state: unpublished
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2023-08-11T13:27:26.706+01:00
-    hippostdpubwf:lastModificationDate: 2023-08-30T08:52:16.617+01:00
-    hippostdpubwf:lastModifiedBy: admin
+    hippostdpubwf:lastModificationDate: 2023-09-22T11:31:34.518+02:00
+    hippostdpubwf:lastModifiedBy: juanluis.hurtado
     resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '', '', '']
     resourcebundle:id: bespoke-maps
     resourcebundle:keys: [outlander-castle, outlander-church-abbey, outlander-city-town-village,
@@ -47,11 +51,15 @@
     resourcebundle:messages: [Castles, Churches & Abbeys, 'Cities, Towns & Villages',
       Heritage sites, Landscapes & parks, Palaces & Houses, Season, Season 1, Season
         2, Season 3, Season 4]
-    resourcebundle:messages_de-de: ['', '', '', '', '', '', '', '', '', '', '']
-    resourcebundle:messages_es-es: ['', '', '', '', '', '', '', '', '', '', '']
-    resourcebundle:messages_fr-fr: ['', '', '', '', '', '', '', '', '', '', '']
-    resourcebundle:messages_it-it: ['', '', '', '', '', '', '', '', '', '', '']
-    resourcebundle:messages_nl-nl: ['', '', '', '', '', '', '', '', '', '', '']
+    resourcebundle:messages_de: [Burgen & Schlösser, Kirchen & Klöster, Städte & Dörfer,
+      Geschichte & Kultur, Landschaften & Parks, Paläste & Häuser, Staffel, Staffel
+        1, Staffel 2, Staffel 3, Staffel 4]
+    resourcebundle:messages_es: ['', '', '', '', '', '', '', '', '', '', '']
+    resourcebundle:messages_fr: ['', '', '', '', '', '', '', '', '', '', '']
+    resourcebundle:messages_it: ['', '', '', '', '', '', '', '', '', '', '']
+    resourcebundle:messages_nl: [Kasteel, Kerk & Abdij, Stad & Dorp, Erfgoedlocatie,
+      Landschap & Park, Paleis & Huis, Seizoen, Seizoen 1, Seizoen 2, Seizoen 3, Seizoen
+        4]
   /bespoke-maps[3]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:referenceable']
@@ -61,9 +69,9 @@
     hippostd:state: published
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2023-08-11T13:27:26.706+01:00
-    hippostdpubwf:lastModificationDate: 2023-08-30T08:52:16.617+01:00
-    hippostdpubwf:lastModifiedBy: admin
-    hippostdpubwf:publicationDate: 2023-08-30T08:52:19.592+01:00
+    hippostdpubwf:lastModificationDate: 2023-09-22T11:31:34.518+02:00
+    hippostdpubwf:lastModifiedBy: juanluis.hurtado
+    hippostdpubwf:publicationDate: 2023-09-22T11:31:36.616+02:00
     resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '', '', '']
     resourcebundle:id: bespoke-maps
     resourcebundle:keys: [outlander-castle, outlander-church-abbey, outlander-city-town-village,
@@ -72,8 +80,12 @@
     resourcebundle:messages: [Castles, Churches & Abbeys, 'Cities, Towns & Villages',
       Heritage sites, Landscapes & parks, Palaces & Houses, Season, Season 1, Season
         2, Season 3, Season 4]
-    resourcebundle:messages_de-de: ['', '', '', '', '', '', '', '', '', '', '']
-    resourcebundle:messages_es-es: ['', '', '', '', '', '', '', '', '', '', '']
-    resourcebundle:messages_fr-fr: ['', '', '', '', '', '', '', '', '', '', '']
-    resourcebundle:messages_it-it: ['', '', '', '', '', '', '', '', '', '', '']
-    resourcebundle:messages_nl-nl: ['', '', '', '', '', '', '', '', '', '', '']
+    resourcebundle:messages_de: [Burgen & Schlösser, Kirchen & Klöster, Städte & Dörfer,
+      Geschichte & Kultur, Landschaften & Parks, Paläste & Häuser, Staffel, Staffel
+        1, Staffel 2, Staffel 3, Staffel 4]
+    resourcebundle:messages_es: ['', '', '', '', '', '', '', '', '', '', '']
+    resourcebundle:messages_fr: ['', '', '', '', '', '', '', '', '', '', '']
+    resourcebundle:messages_it: ['', '', '', '', '', '', '', '', '', '', '']
+    resourcebundle:messages_nl: [Kasteel, Kerk & Abdij, Stad & Dorp, Erfgoedlocatie,
+      Landschap & Park, Paleis & Huis, Seizoen, Seizoen 1, Seizoen 2, Seizoen 3, Seizoen
+        4]
