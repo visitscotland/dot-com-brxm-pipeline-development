@@ -91,7 +91,7 @@ public class MapFactory {
                     mapService.addFeaturePlacesNode(module, mapModuleDocument.getCategories(), request.getLocale(), keys, features);
                 }
                 for (BespokeDmsMap bespokeMap : getValues(mapModuleDocument.getMapType())) {
-                    buildDMSMapPages(bespokeMap, module, keys, features, request.getLocale());
+                    buildDMSMapPages(bespokeMap, module, keys, features, request.getLocale(), null);
                 }
             }else {
                 // CMS maps, data and pins coming from CMS
@@ -195,7 +195,7 @@ public class MapFactory {
             }
 
             for (RegionsMapTab regionMap: RegionsMapTab.values()) {
-                buildDMSMapPages(regionMap, module, keys, features, locale);
+                buildDMSMapPages(regionMap, module, keys, features, locale, destinationPage);
             }
         }
         module.setDetailsEndpoint(propertiesService.getDmsDataPublicHost() + DMSConstants.VS_DMS_PRODUCT_MAP_CARD+"locale="+locale.toLanguageTag()+"&id=");
@@ -211,12 +211,12 @@ public class MapFactory {
     }
 
 
-    private void buildDMSMapPages (BespokeDmsMap bespokeMap, MapsModule module, ArrayNode keys, ArrayNode features, Locale locale) {
+    private void buildDMSMapPages (BespokeDmsMap bespokeMap, MapsModule module, ArrayNode keys, ArrayNode features, Locale locale, Destination destinationPage) {
         String label = !Contract.isNull(bundle.getResourceBundle(MAP,bespokeMap.getLabel(),locale))?
                 bundle.getResourceBundle(MAP,bespokeMap.getLabel(),locale):locationLoader.getLocation(bespokeMap.getLocation(), locale).getName();
         ObjectNode regionFilters = this.addFilters(bespokeMap.getCategory(), label);
         keys.add(regionFilters);
-        this.addDmsData(this.buildProductSearch(bespokeMap.getLocation(), bespokeMap.getProdTypeId(), bespokeMap.getDmsCategory(), locale, DMSConstants.SORT_ALPHA, 100),
+        this.addDmsData(this.buildProductSearch(destinationPage != null? destinationPage.getLocation():bespokeMap.getLocation(), bespokeMap.getProdTypeId(), bespokeMap.getDmsCategory(), locale, DMSConstants.SORT_ALPHA, 100),
                 module, regionFilters, features, locale);
     }
 
