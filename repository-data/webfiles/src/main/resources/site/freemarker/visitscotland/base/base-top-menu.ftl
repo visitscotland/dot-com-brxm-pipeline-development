@@ -19,7 +19,7 @@
         <@devEnvMenu />
     </#if>
 
-    <div class="has-edit-button position-sticky zindex-fixed" style="top: 0;">
+    <div class="has-edit-button vs-sticky-nav">
         <@headerSkipTo />
         <header>
             <@headerGlobalMenu />
