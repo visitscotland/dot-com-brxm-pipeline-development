@@ -13,7 +13,7 @@
     <#-- @ftlvariable name="hero" type="com.visitscotland.brxm.hippobeans.Image" -->
     <#-- @ftlvariable name="module" type="com.visitscotland.brxm.model.megalinks.LinksModule" -->
 </#compress>
-<#macro moduleBuilder module colourScheme=[]>
+<#macro moduleBuilder module pageIndex="" colourScheme=[]>
     <#assign themeName = themeCalculator(module.themeIndex, module, colourScheme)>
     <#if module.getType() == "MultiImageLinksModule" ||  module.getType() == "SingleImageLinksModule" || module.getType() == "ListLinksModule">
         <#assign moduleType = "megalinks">
@@ -21,7 +21,12 @@
         <#assign moduleType = module.getType()>
     </#if>
 
-    <div class="has-edit-button vs-module-wrapper__outer--${themeName}">
+    <div
+        class="has-edit-button vs-module-wrapper__outer--${themeName}"
+        <#if pageIndex?? >
+            id="section-${pageIndex}"
+        </#if>
+    >
         <#if module.hippoBean?? >
             <@hst.manageContent hippobean=module.hippoBean />
         </#if>
