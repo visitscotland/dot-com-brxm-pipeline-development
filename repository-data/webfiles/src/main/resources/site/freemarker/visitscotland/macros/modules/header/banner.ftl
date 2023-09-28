@@ -11,11 +11,11 @@
     <vs-banner
         close-btn-text="${label('essentials.global', 'close')}"
     >
-        <template slot="bannerText">
+        <template v-slot:banner-text>
             <@hst.html hippohtml=module.copy />
         </template>
 
-        <template slot="bannerCta">
+        <template v-slot:banner-cta>
             <vs-link 
                 href="${module.ctaLink.link}"
                 <#if module.ctaLink.type != "internal">type="${module.ctaLink.type}"</#if>

@@ -3,7 +3,7 @@
 <#include "../../../frontend/components/vs-list.ftl">
 
 <#macro previewWarning editMode module errorMessages=[] hidden=false message="">
-    <#if editMode && errorMessages?has_content >
+    <#if editMode && (errorMessages?has_content || message?has_content) >
         <vs-container
             class="py-4"
         >

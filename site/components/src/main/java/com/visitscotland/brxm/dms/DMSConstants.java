@@ -29,6 +29,7 @@ public class DMSConstants {
 
     public static final String CAT_ICENTRE = "vics";
     public static final String AWARD_IKNOW = "qaiknowscotland";
+    public static final String DISTILLERIES = "distilleries";
 
     public static final String SORT_ALPHA = "ALPHA";
 

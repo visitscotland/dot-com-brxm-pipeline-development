@@ -12,31 +12,32 @@
                     href="${getUrl(item)}"
                     cta-text="<#if item.cta??>${item.cta}<#else></#if>"
             >
-                <template slot="buttonContent">
+                <template v-slot:button-content>
                     ${item.title}
                 </template>
 
-                <template slot="dropdownContent">
+                <template v-slot:dropdown-content>
                     <#list item.childMenuItems as childItem>
                         <#if childItem.title??>
                             <vs-mega-nav-list 
                                 list-heading="${childItem.title}"
                             >
-                                <#list childItem.childMenuItems as thirdChildItem>
-                                    <#if thirdChildItem.title??>
-                                        <vs-mega-nav-list-item
-                                            slot="navListItems"
-                                            href="${getUrl(thirdChildItem)}"
-                                        >
-                                            ${thirdChildItem.title}
-                                        </vs-mega-nav-list-item>
-                                    </#if>
-                                </#list>
+                                <template v-slot:nav-list-items>
+                                    <#list childItem.childMenuItems as thirdChildItem>
+                                        <#if thirdChildItem.title??>
+                                            <vs-mega-nav-list-item
+                                                href="${getUrl(thirdChildItem)}"
+                                            >
+                                                ${thirdChildItem.title}
+                                            </vs-mega-nav-list-item>
+                                        </#if>
+                                    </#list>
+                                </template>
                                 <#if childItem.cta?? && childItem.hstLink??>
                                     <vs-mega-nav-list-item
                                         href="${getUrl(childItem)}"
                                         subheading-link
-                                        slot="navHeadingCtaLink"
+                                        v-slot:nav-heading-cta-link
                                     >
                                         ${childItem.cta}
                                     </vs-mega-nav-list-item>

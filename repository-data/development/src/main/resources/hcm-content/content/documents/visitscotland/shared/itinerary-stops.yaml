@@ -63,6 +63,84 @@
     hippostd:foldertype: [new-translated-folder-stops, new-stop]
     hippotranslation:id: 96001dbc-e372-4f8e-bbd7-2580ac981278
     hippotranslation:locale: en
+    /glen-coe-outlander:
+      jcr:primaryType: hippo:handle
+      jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+      jcr:uuid: db85c76d-fab0-4806-8a65-54bb06ce2f04
+      hippo:name: Glen coe Outlander
+      /glen-coe-outlander[1]:
+        jcr:primaryType: visitscotland:Stop
+        jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
+        jcr:uuid: dac3d889-f887-49d8-9483-909d9cb27fbb
+        hippo:availability: []
+        hippostd:retainable: false
+        hippostd:state: draft
+        hippostd:transferable: false
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2023-08-14T14:42:15.584+01:00
+        hippostdpubwf:lastModificationDate: 2023-08-14T14:47:05.466+01:00
+        hippostdpubwf:lastModifiedBy: admin
+        hippotaxonomy:keys: [outlander-landscape-park, outlander-season-1]
+        hippotranslation:id: 4f02eb3c-ae3c-48c5-a963-bdfd19be7268
+        hippotranslation:locale: en
+        visitscotland:subtitle: ''
+        visitscotland:title: Glen coe
+        visitscotland:translation: ''
+        /visitscotland:description:
+          jcr:primaryType: hippostd:html
+          hippostd:content: <p>One of the highlights of any trip to Scotland, the
+            spectacular valley of Glen Coe is a world-famous Scottish location of
+            high mountain peaks, ridges, rushing rivers and waterfalls and features
+            in&nbsp;<em>Outlander’s</em>&nbsp;opening credits. Just beyond nearby
+            Fort William is the legendary&nbsp;<a rel="noopener noreferrer" href="https://www.visitscotland.com/info/towns-villages/glenfinnan-p236571"
+            target="_blank">Glenfinnan</a>&nbsp;Monument where Bonnie Prince Charlie
+            raised his standard and started the second Jacobite Rising in 1745.</p>
+        /visitscotland:product:
+          jcr:primaryType: visitscotland:DMSLink
+          visitscotland:label: ''
+          visitscotland:product: '484091'
+        /visitscotland:media:
+          jcr:primaryType: hippogallerypicker:imagelink
+          hippo:docbase: ea857cd5-2d45-4f7c-9da9-503b2be8f382
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+      /glen-coe-outlander[2]:
+        jcr:primaryType: visitscotland:Stop
+        jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable', 'mix:versionable']
+        jcr:uuid: bab59acb-b963-44c6-adb5-c009bb18653a
+        hippo:availability: [preview]
+        hippostd:retainable: false
+        hippostd:state: unpublished
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2023-08-14T14:42:15.584+01:00
+        hippostdpubwf:lastModificationDate: 2023-08-14T14:46:47.276+01:00
+        hippostdpubwf:lastModifiedBy: admin
+        hippotaxonomy:keys: [outlander-landscape-park, outlander-season-1]
+        hippotranslation:id: 4f02eb3c-ae3c-48c5-a963-bdfd19be7268
+        hippotranslation:locale: en
+        visitscotland:subtitle: ''
+        visitscotland:title: Glen coe
+        visitscotland:translation: ''
+        /visitscotland:description:
+          jcr:primaryType: hippostd:html
+          hippostd:content: <p>One of the highlights of any trip to Scotland, the
+            spectacular valley of Glen Coe is a world-famous Scottish location of
+            high mountain peaks, ridges, rushing rivers and waterfalls and features
+            in&nbsp;<em>Outlander’s</em>&nbsp;opening credits. Just beyond nearby
+            Fort William is the legendary&nbsp;<a rel="noopener noreferrer" href="https://www.visitscotland.com/info/towns-villages/glenfinnan-p236571"
+            target="_blank">Glenfinnan</a>&nbsp;Monument where Bonnie Prince Charlie
+            raised his standard and started the second Jacobite Rising in 1745.</p>
+        /visitscotland:product:
+          jcr:primaryType: visitscotland:DMSLink
+          visitscotland:label: ''
+          visitscotland:product: '484091'
+        /visitscotland:media:
+          jcr:primaryType: hippogallerypicker:imagelink
+          hippo:docbase: ea857cd5-2d45-4f7c-9da9-503b2be8f382
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
   /h:
     jcr:primaryType: hippostd:folder
     jcr:mixinTypes: ['hippo:named', 'hippotranslation:translated', 'mix:versionable']

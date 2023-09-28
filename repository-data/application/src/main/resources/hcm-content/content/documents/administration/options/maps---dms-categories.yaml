@@ -10,7 +10,11 @@
     hippo:availability: [live, preview]
     hippotranslation:id: eba6910c-9c03-4b0b-b8c0-8a529fae564e
     hippotranslation:locale: inherited - from query
-    /selection:listitem:
+    /selection:listitem[1]:
       jcr:primaryType: selection:listitem
-      selection:key: RegionsMapTab
+      selection:key: IcentresMap
       selection:label: iCentres
+    /selection:listitem[2]:
+      jcr:primaryType: selection:listitem
+      selection:key: DistilleriesMap
+      selection:label: Distilleries

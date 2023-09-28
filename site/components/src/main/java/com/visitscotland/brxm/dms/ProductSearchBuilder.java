@@ -409,7 +409,7 @@ public class ProductSearchBuilder {
     }
 
     /**
-     * Add one parameter to a url, provided the parameter has a value
+     * Add one parameter to an url, provided the parameter has a value
      *
      * @param url URL where the parameter will be added to
      * @param param name of the parameter to be added

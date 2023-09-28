@@ -49,11 +49,11 @@
                                 video-btn-text="${label('video', 'video.play-btn')}"
                             </#if>
                         >
-                            <template slot="vsLinkListHeading">
+                            <template v-slot:vs-link-list-heading>
                                 ${listItem.label}
                             </template>
                             <#if showTeaser == 'true'>
-                                <template slot="vsLinkListContent">
+                                <template v-slot:vs-link-list-content>
                                     <p>${listItem.teaser}</p>
                                 </template>
                             </#if>
