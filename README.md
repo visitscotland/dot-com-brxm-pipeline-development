@@ -30,6 +30,24 @@ or
 
     mvn clean verify -P !fed-build -DskipTests && mvn -P cargo.run
 
+## Debug the project
+
+### IntelliJ IDEA
+
+To define the configuration follow the next steps:
+
+1. Create a new running configuration by clicking *Edit Configuration...* in the drop down next to the *Run* Button
+2. Click on Add new Configuration ("+" Button)
+3. Select the type Remote JVM Debug
+4. Change the port to 8000
+5. Apply Changes
+6. Click the Debug button next to the Run button in the bar.(The CMS needs to be running for this configuration to work)
+
+### Other tips
+
+Run the debugger in a different port:
+
+    mvn -P cargo.run -Dcargo.debug.address=9000
     
 ### SpringBoot Actuators
 
@@ -40,7 +58,7 @@ The database actuator can be activated by adding the variable `cliOptions=dbActu
 ## Navigating through the CMS
 
 #### Useful URLs
-This is a bunch useful URLs for local development 
+This is a bunch of useful URLs for local development 
 
 - http://localhost:8080/site: Display the site that would be presented to the final Internet User. Unpublished documents
 will not be available.
@@ -62,6 +80,8 @@ Windows Based Console
 or
 
     mvn clean verify -P !fed-build -DskipTests &&mvn -P cargo.run
+
+
     
 ## Troubleshooting
 **I get the following error when I try to clone the message: _fatal: cannot create directory at '{some big path}': Filename too long_**
@@ -76,6 +96,22 @@ To be documented
 
 _QuickFix: Install NPM and Yarn manually with the versions specified in ui-integration/pom.xml_
 
+Verify integrity of the Configuration
+===============================
+The Bloomreach Experience Manager Configuration Verifier, brXM CV or just CV in short, is a tool to support projects and developers during the upgrade between major Bloomreach Experience Manager releases, and is available to Bloomreach Experience Manager customers and partners.
+
+## Steps
+1. Execute the following commands:
+         
+       mvn -P create-configuration-verifier-config
+       mvn -P cargo.run,verify-configuration
+2. 
+
+## References
+- https://xmdocumentation.bloomreach.com/library/enterprise/enterprise-features/enterprise-configuration-management/configuration-verifier.html
+
+
+
 
 
 BloomReach Instruction (Legacy) 
@@ -88,7 +124,7 @@ From the project root folder, execute:
     mvn clean verify
     mvn -P cargo.run
 
-By default this includes and bootstraps repository data from the repository-data/development module,
+By default, this includes and bootstraps repository data from the repository-data/development module,
 which is deployed by cargo to the Tomcat shared/lib.
 If you want or need to start *without* bootstrapping the development data, for example when testing
 against an existing repository, you can specify the *additional* Maven profile without-development-data to do so:
@@ -148,7 +184,7 @@ Distributing Additional Site Projects
 =====================================
 
 Note that if your organization is using multiple site projects, you must configure the assembly of a distribution to
-include all of the separate site webapps for deployment. This project is designed for stand-alone use and does not
+include all the separate site webapps for deployment. This project is designed for stand-alone use and does not
 automatically include any additional, externally-maintained site webapps.
 
 

@@ -16,7 +16,7 @@
         dropdown-label="${label('navigation.static', 'uninav.our-sites')}"
         active-site="https://www.visitscotland.com/"
     >
-        <template slot="third-menu-item">
+        <template v-slot:third-menu-item>
             <vs-global-menu-language 
                 language="${locale}"
                 language-label="${label('navigation.static', 'universal.language')}"

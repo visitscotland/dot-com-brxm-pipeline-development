@@ -33,7 +33,6 @@ import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
 
-import javax.annotation.Resource;
 import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -76,7 +75,6 @@ class LinkServiceTest {
     @Mock
     ContentLogger logger;
 
-    @Resource
     @InjectMocks
     LinkService service;
 

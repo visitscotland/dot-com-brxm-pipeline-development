@@ -3,7 +3,7 @@
   jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
   jcr:uuid: b7d3af6f-ea38-4337-94fb-93bd7c2d8812
   hippo:name: Footer Links
-  hippo:versionHistory: 4be4f914-8757-47b0-9019-c6cbabeae461
+  hippo:versionHistory: 12602e2c-d3e2-47fd-8ba8-eaf26414ac3e
   /footer[1]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:referenceable']
@@ -13,34 +13,37 @@
     hippostd:state: draft
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2019-11-07T18:38:44.678Z
-    hippostdpubwf:lastModificationDate: 2023-02-03T16:05:14.139+01:00
-    hippostdpubwf:lastModifiedBy: brieuc.botte
-    resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '', '']
+    hippostdpubwf:lastModificationDate: 2023-07-20T14:55:21.059+01:00
+    hippostdpubwf:lastModifiedBy: admin
+    resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '', '', '']
     resourcebundle:id: navigation.footer
     resourcebundle:keys: [footer.visitor-information, footer.get-touch, footer.media-centre,
       footer.business-events, footer.corporate, footer.other-sites, footer.scotland-is-now,
-      footer.travel-trade, footer.complaints, footer.free-business]
+      footer.travel-trade, footer.complaints, footer.free-business, footer.toolkit]
     resourcebundle:messages: [Visitor information, Get in touch, Media Centre, Business
         Events, Corporate, Our other sites, Scotland is Now, Travel Trade, Feedback
-        & Complaints, Get a free business listing]
+        & Complaints, Get a free business listing, Toolkit]
     resourcebundle:messages_de: [Besucherinformationen, Kontaktieren Sie uns, Mediencenter,
       Geschäftliche Veranstaltungen, Unternehmen, Unsere anderen Webseiten, Scotland
-        is Now, Reisevertrieb, Feedback & Beschwerden, Kostenlose Einträge für Unternehmen]
+        is Now, Reisevertrieb, Feedback & Beschwerden, Kostenlose Einträge für Unternehmen,
+      Toolkit]
     resourcebundle:messages_es: [Información para visitantes, Contacta con nosotros,
       Sala mediática, Eventos de negocios, Empresas, Nuestras otras páginas web, Scotland
         is Now, Industria turística, Comentarios y reclamaciones, Obtén un listado
-        gratuito de empresas]
+        gratuito de empresas, Toolkit]
+    resourcebundle:messages_footer.toolkit: ['', '', '', '', '', '', '', '', '', '',
+      Toolkit]
     resourcebundle:messages_fr: [Infos visiteurs, Nous contacter, Media Centre, Événements
         professionnels, Entreprises, Nos autres sites, Scotland is Now, L’industrie
         du tourisme, Commentaires et plaintes, Obtenir une page gratuite pour votre
-        entreprise]
+        entreprise, Toolkit]
     resourcebundle:messages_it: [Informazioni per i visitatori, Mettiti in contatto,
       Centro Multimediale, Eventi Aziendali, Aziendale, Altri nostri siti, Scotland
         is Now, Industria turistica, Feedback e reclami, Ottenere un'inserzione commerciale
-        gratuita]
+        gratuita, Toolkit]
     resourcebundle:messages_nl: [Bezoekersinfo, Neem contact met ons op, Mediacentrum,
       Branche-evenementen, Ondernemingen, Onze andere websites, Scotland is Now, Reisbranche,
-      Feedback & klachten, Gratis vermelding voor bedrijven]
+      Feedback & klachten, Gratis vermelding voor bedrijven, Toolkit]
   /footer[2]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:versionable']
@@ -50,34 +53,37 @@
     hippostd:state: unpublished
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2019-11-07T18:38:44.678Z
-    hippostdpubwf:lastModificationDate: 2023-02-03T16:12:20.159+01:00
-    hippostdpubwf:lastModifiedBy: brieuc.botte
-    resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '', '']
+    hippostdpubwf:lastModificationDate: 2023-07-20T14:58:58.954+01:00
+    hippostdpubwf:lastModifiedBy: admin
+    resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '', '', '']
     resourcebundle:id: navigation.footer
     resourcebundle:keys: [footer.visitor-information, footer.get-touch, footer.media-centre,
       footer.business-events, footer.corporate, footer.other-sites, footer.scotland-is-now,
-      footer.travel-trade, footer.complaints, footer.free-business]
+      footer.travel-trade, footer.complaints, footer.free-business, footer.toolkit]
     resourcebundle:messages: [Visitor information, Get in touch, Media Centre, Business
         Events, Corporate, Our other sites, Scotland is Now, Travel Trade, Feedback
-        & Complaints, Get a free business listing]
+        & Complaints, Get a free business listing, Toolkit]
     resourcebundle:messages_de: [Besucherinformationen, Kontaktieren Sie uns, Mediencenter,
       Geschäftliche Veranstaltungen, Unternehmen, Unsere anderen Webseiten, Scotland
-        is Now, Reisevertrieb, Feedback & Beschwerden, Kostenlose Einträge für Unternehmen]
+        is Now, Reisevertrieb, Feedback & Beschwerden, Kostenlose Einträge für Unternehmen,
+      Toolkit]
     resourcebundle:messages_es: [Información para visitantes, Contacta con nosotros,
       Sala mediática, Eventos de negocios, Empresas, Nuestras otras páginas web, Scotland
         is Now, Industria turística, Comentarios y reclamaciones, Obtén un listado
-        gratuito de empresas]
+        gratuito de empresas, Toolkit]
+    resourcebundle:messages_footer.toolkit: ['', '', '', '', '', '', '', '', '', '',
+      Toolkit]
     resourcebundle:messages_fr: [Infos visiteurs, Nous contacter, Media Centre, Événements
         professionnels, Entreprises, Nos autres sites, Scotland is Now, L’industrie
         du tourisme, Commentaires et plaintes, Obtenir une page gratuite pour votre
-        entreprise]
+        entreprise, Toolkit]
     resourcebundle:messages_it: [Informazioni per i visitatori, Mettiti in contatto,
       Centro Multimediale, Eventi Aziendali, Aziendale, Altri nostri siti, Scotland
         is Now, Industria turistica, Feedback e reclami, Ottenere un'inserzione commerciale
-        gratuita]
+        gratuita, Toolkit]
     resourcebundle:messages_nl: [Bezoekersinfo, Neem contact met ons op, Mediacentrum,
       Branche-evenementen, Ondernemingen, Onze andere websites, Scotland is Now, Reisbranche,
-      Feedback & klachten, Gratis vermelding voor bedrijven]
+      Feedback & klachten, Gratis vermelding voor bedrijven, Toolkit]
   /footer[3]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:referenceable']
@@ -87,32 +93,35 @@
     hippostd:state: published
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2019-11-07T18:38:44.678Z
-    hippostdpubwf:lastModificationDate: 2023-02-03T16:12:20.159+01:00
-    hippostdpubwf:lastModifiedBy: brieuc.botte
-    hippostdpubwf:publicationDate: 2023-02-06T09:45:46.191+01:00
-    resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '', '']
+    hippostdpubwf:lastModificationDate: 2023-07-20T14:58:58.954+01:00
+    hippostdpubwf:lastModifiedBy: admin
+    hippostdpubwf:publicationDate: 2023-07-20T14:59:03.693+01:00
+    resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '', '', '']
     resourcebundle:id: navigation.footer
     resourcebundle:keys: [footer.visitor-information, footer.get-touch, footer.media-centre,
       footer.business-events, footer.corporate, footer.other-sites, footer.scotland-is-now,
-      footer.travel-trade, footer.complaints, footer.free-business]
+      footer.travel-trade, footer.complaints, footer.free-business, footer.toolkit]
     resourcebundle:messages: [Visitor information, Get in touch, Media Centre, Business
         Events, Corporate, Our other sites, Scotland is Now, Travel Trade, Feedback
-        & Complaints, Get a free business listing]
+        & Complaints, Get a free business listing, Toolkit]
     resourcebundle:messages_de: [Besucherinformationen, Kontaktieren Sie uns, Mediencenter,
       Geschäftliche Veranstaltungen, Unternehmen, Unsere anderen Webseiten, Scotland
-        is Now, Reisevertrieb, Feedback & Beschwerden, Kostenlose Einträge für Unternehmen]
+        is Now, Reisevertrieb, Feedback & Beschwerden, Kostenlose Einträge für Unternehmen,
+      Toolkit]
     resourcebundle:messages_es: [Información para visitantes, Contacta con nosotros,
       Sala mediática, Eventos de negocios, Empresas, Nuestras otras páginas web, Scotland
         is Now, Industria turística, Comentarios y reclamaciones, Obtén un listado
-        gratuito de empresas]
+        gratuito de empresas, Toolkit]
+    resourcebundle:messages_footer.toolkit: ['', '', '', '', '', '', '', '', '', '',
+      Toolkit]
     resourcebundle:messages_fr: [Infos visiteurs, Nous contacter, Media Centre, Événements
         professionnels, Entreprises, Nos autres sites, Scotland is Now, L’industrie
         du tourisme, Commentaires et plaintes, Obtenir une page gratuite pour votre
-        entreprise]
+        entreprise, Toolkit]
     resourcebundle:messages_it: [Informazioni per i visitatori, Mettiti in contatto,
       Centro Multimediale, Eventi Aziendali, Aziendale, Altri nostri siti, Scotland
         is Now, Industria turistica, Feedback e reclami, Ottenere un'inserzione commerciale
-        gratuita]
+        gratuita, Toolkit]
     resourcebundle:messages_nl: [Bezoekersinfo, Neem contact met ons op, Mediacentrum,
       Branche-evenementen, Ondernemingen, Onze andere websites, Scotland is Now, Reisbranche,
-      Feedback & klachten, Gratis vermelding voor bedrijven]
+      Feedback & klachten, Gratis vermelding voor bedrijven, Toolkit]

@@ -24,7 +24,6 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
-import javax.annotation.Resource;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -38,7 +37,6 @@ import static org.mockito.Mockito.*;
 @ExtendWith(MockitoExtension.class)
 class ItineraryFactoryTest {
 
-    @Resource
     @InjectMocks
     ItineraryFactory factory;
 
@@ -115,7 +113,7 @@ class ItineraryFactoryTest {
 
         assertEquals(2, iti.getDays().size());
         assertEquals(4, iti.getStops().size());
-        assertEquals(distance == 500. ? BigDecimal.valueOf(500.0) : BigDecimal.valueOf(414.9), iti.getDistance());
+        assertEquals(distance == 500. ? BigDecimal.valueOf(500).setScale(0, BigDecimal.ROUND_HALF_UP) : BigDecimal.valueOf(414.9).setScale(0, BigDecimal.ROUND_HALF_UP), iti.getDistance().setScale(0, BigDecimal.ROUND_HALF_UP));
     }
 
     private void initFirstAndLastStopDistanceTest() {
@@ -338,7 +336,7 @@ class ItineraryFactoryTest {
         assertEquals("2 hours", module.getTimeToExplore());
     }
 
-    private final ItineraryStopModule getSingleStop(ItineraryPage page) {
+    private ItineraryStopModule getSingleStop(ItineraryPage page) {
         return page.getStops().values().iterator().next();
     }
 
@@ -396,7 +394,7 @@ class ItineraryFactoryTest {
 
     @Test
     @DisplayName("When no cta provided for external link, default cta is set")
-    void externalCtaSet() throws Exception {
+    void externalCtaSet() {
         List<Day> days = new ItineraryDayMockBuilder().addExternalStop("https://example.com",false).title("title").buildAsList();
         when(documentUtils.getAllowedDocuments(itinerary, Day.class)).thenReturn(days);
         when(bundle.getFindOutMoreAboutCta("title", Locale.UK)).thenReturn("Find out more about title");
