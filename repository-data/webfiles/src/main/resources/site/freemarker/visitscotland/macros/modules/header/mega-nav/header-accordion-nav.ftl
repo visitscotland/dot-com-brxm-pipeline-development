@@ -31,22 +31,23 @@
                                 @click.native="$root.$emit('navAccordionClick', `${item.title}`)"
                             >
                                 <vs-mega-nav-list>
-                                    <#list childItem.childMenuItems as thirdChildItem>
-                                        <#if thirdChildItem.title??>
-                                            <vs-mega-nav-list-item
-                                                slot="navListItems"
-                                                href="${getUrl(thirdChildItem)}"                                                
-                                            >   
-                                                ${thirdChildItem.title}
-                                            </vs-mega-nav-list-item>
-                                        </#if>
-                                    </#list>
+                                    <template v-slot:nav-list-items>
+                                        <#list childItem.childMenuItems as thirdChildItem>
+                                            <#if thirdChildItem.title??>
+                                                <vs-mega-nav-list-item
+                                                    href="${getUrl(thirdChildItem)}"                                                
+                                                >   
+                                                    ${thirdChildItem.title}
+                                                </vs-mega-nav-list-item>
+                                            </#if>
+                                        </#list>
+                                    </template>
 
                                     <#if childItem.cta?? && childItem.hstLink??>
                                         <vs-mega-nav-list-item
                                             href="${getUrl(childItem)}"
                                             subheading-link
-                                            slot="navHeadingCtaLink"
+                                            v-slot:nav-heading-cta-link
                                         >
                                             ${childItem.cta}
                                         </vs-mega-nav-list-item>

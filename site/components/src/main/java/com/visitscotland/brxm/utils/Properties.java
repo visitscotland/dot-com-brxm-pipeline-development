@@ -71,6 +71,9 @@ public class Properties {
     private static final String PSR_POSITION_TOP_LEVEL = "psr.position.general-top-level";
     private static final String PSR_POSITION_GENERAL_STANDARD = "psr.position.general-standard";
 
+    //Modules References
+    static final String ENABLE_IKNOW_MODULE = "iknow-module.enabled";
+
 
     private final ResourceBundleService bundle;
 
@@ -230,6 +233,9 @@ public class Properties {
         return readBoolean(SNIPPET_CACHE);
     }
 
+    public boolean isIknowEnabled() {
+        return readBoolean(ENABLE_IKNOW_MODULE);
+    }
     /**
      * Max number of elements cached. If the property is not defined in the CMS, there is no maximum
      */
@@ -257,8 +263,7 @@ public class Properties {
     public List<String> getInternalSites() {
         String sites = readString(INTERNAL_SITES);
         if (!Contract.isEmpty(sites)){
-            //TODO: Java 10 -> toUnmodifiableList()
-            //TODO: Java 11 -> Predicate.not(String::isEmpty)
+            // TODO Java 11: Replace & Test: Arrays.stream(sites.trim().split("\\s*,\\s*")).filter(Predicate.not(String::isEmpty)).collect(Collectors.toUnmodifiableList());
             return Arrays.stream(sites.trim().split("\\s*,\\s*")).filter(((Predicate<String>) String::isEmpty).negate()).collect(Collectors.toList());
         }
         return Collections.emptyList();

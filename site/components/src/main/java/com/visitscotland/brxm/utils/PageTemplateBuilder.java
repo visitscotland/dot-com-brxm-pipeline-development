@@ -4,6 +4,7 @@ import com.visitscotland.brxm.components.content.GeneralContentComponent;
 import com.visitscotland.brxm.factory.*;
 import com.visitscotland.brxm.hippobeans.*;
 import com.visitscotland.brxm.model.*;
+import com.visitscotland.brxm.model.Module;
 import com.visitscotland.brxm.model.megalinks.LinksModule;
 import com.visitscotland.brxm.model.megalinks.MultiImageLinksModule;
 import com.visitscotland.brxm.model.megalinks.SingleImageLinksModule;
@@ -222,11 +223,12 @@ public class PageTemplateBuilder {
                 page.modules.add(iCentreModule);
             }
         }
+        if (properties.isIknowEnabled()) {
+            IKnowModule iKnowModule = iKnowFactory.getIKnowModule(touristInfo.getIKnow(), location, request.getLocale());
+            iKnowModule.setHippoBean(touristInfo);
 
-        IKnowModule iKnowModule = iKnowFactory.getIKnowModule(touristInfo.getIKnow(), location, request.getLocale());
-        iKnowModule.setHippoBean(touristInfo);
-
-        page.modules.add(iKnowModule);
+            page.modules.add(iKnowModule);
+        }
     }
 
     /**
