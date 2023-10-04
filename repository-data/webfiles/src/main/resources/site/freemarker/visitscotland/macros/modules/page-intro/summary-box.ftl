@@ -18,7 +18,7 @@
         </vs-summary-box-list-item>
         <vs-summary-box-distance-list-item
             miles="${itinerary.distance}"
-            kilometres="${(itinerary.distance*1.6)}"
+            kilometres="${(itinerary.distance*1.6)?round}"
             miles-label="${label("itinerary", "miles")}"
             kilometres-label="${label("itinerary", "kilometres-abbreviation")}"
             distance-label="${label("itinerary", "distance")}"

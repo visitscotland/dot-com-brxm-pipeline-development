@@ -1,4 +1,5 @@
 <#include "../../../include/imports.ftl">
+<#include "../../functions/helpers.ftl">
 <#include "../../../frontend/components/vs-carbon-calculator.ftl">
 <#include "../../../frontend/components/vs-module-wrapper.ftl">
 
@@ -11,7 +12,7 @@
         <vs-carbon-calculator
             :labels-map="{
                 <#list labels?keys as key>
-                    '${key}': '${labels[key]}',
+                    '${key}': '${escapeJSON(labels[key], false)}',
                 </#list>
             }"
         >
