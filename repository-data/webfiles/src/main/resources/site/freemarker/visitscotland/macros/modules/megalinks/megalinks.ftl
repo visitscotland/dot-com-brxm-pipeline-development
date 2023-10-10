@@ -20,7 +20,7 @@
 
     <@previewWarning editMode item item.errorMessages/>
     <vs-megalinks
-        <#if item.marketoId??>
+        <#if item.marketoId?? && item.marketoId != "default">
             data-personalisation-type="${item.marketoId}"
             class="personalisation--hidden"
         </#if>        
