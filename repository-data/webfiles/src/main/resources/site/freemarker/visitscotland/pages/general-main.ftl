@@ -51,9 +51,9 @@
 	<#list pageItems as module>
 		<#--TODO Colour should be only added to Megalinks, add this code to macros or create a common macro to control it-->
 		<#if standardTemplate || topLevelTemplate >
-			<@moduleBuilder module />
+			<@moduleBuilder module=module pageIndex="${module?index + 1}" />
 		<#else>
-			<@moduleBuilder module=module colourScheme=["light", "light", "light"] />
+			<@moduleBuilder module=module pageIndex="${module?index + 1}" colourScheme=["light", "light", "light"] />
 		</#if>
 	</#list>
 
