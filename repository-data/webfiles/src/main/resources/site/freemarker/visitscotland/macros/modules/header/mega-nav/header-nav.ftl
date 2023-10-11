@@ -34,13 +34,16 @@
                                     </#list>
                                 </template>
                                 <#if childItem.cta?? && childItem.hstLink??>
-                                    <vs-mega-nav-list-item
-                                        href="${getUrl(childItem)}"
-                                        subheading-link
+                                    <template
                                         v-slot:nav-heading-cta-link
                                     >
-                                        ${childItem.cta}
-                                    </vs-mega-nav-list-item>
+                                        <vs-mega-nav-list-item
+                                            href="${getUrl(childItem)}"
+                                            subheading-link
+                                        >
+                                            ${childItem.cta}
+                                        </vs-mega-nav-list-item>
+                                    </template>
                                 </#if>
                             </vs-mega-nav-list>
                         </#if>
