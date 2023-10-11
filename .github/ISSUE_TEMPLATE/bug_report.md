@@ -32,5 +32,9 @@ Browser where the bug was seen
 ### Device and version
 If applicable, device the bug was seen on
 
+### Impact on end user
+
+### Impact on product development
+
 ### Additional context
 Add any other context about the problem here.
