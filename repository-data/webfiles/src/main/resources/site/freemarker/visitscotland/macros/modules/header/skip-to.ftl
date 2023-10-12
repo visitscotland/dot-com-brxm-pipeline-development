@@ -4,16 +4,16 @@
     <vs-skip-to
         skip-to-text="${label('skip-to', 'skip-to.label')}"
     >
-        <template slot="mainMenuText">
+        <template v-slot:main-menu-text>
             ${label('skip-to', 'skip-to.main-menu')}
         </template>
-        <template slot="mainContentText">
+        <template v-slot:main-content-text>
             ${label('skip-to', 'skip-to.main-content')}
         </template>
-        <template slot="searchText">
+        <template v-slot:search-text>
             ${label('skip-to', 'skip-to.search')}
         </template>
-        <template slot="footerText">
+        <template v-slot:footer-text>
             ${label('skip-to', 'skip-to.footer')}
         </template>
     </vs-skip-to>

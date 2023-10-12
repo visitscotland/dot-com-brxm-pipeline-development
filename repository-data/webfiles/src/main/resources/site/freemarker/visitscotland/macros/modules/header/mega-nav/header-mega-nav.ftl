@@ -12,11 +12,11 @@
             search-clear-button-text="${label('search', 'clear-form')}"
             search-close-button-text="${label('search', 'close-form')}"
     >
-        <template slot="megaNavTopMenuItems">
+        <template v-slot:mega-nav-top-menu-items>
             <@headerDesktopNav menu=menu/>
         </template>
 
-        <template slot="megaNavAccordionItems">
+        <template v-slot:mega-nav-accordion-items>
             <@headerAccordionNav menu=menu/>
         </template>
     </vs-mega-nav>

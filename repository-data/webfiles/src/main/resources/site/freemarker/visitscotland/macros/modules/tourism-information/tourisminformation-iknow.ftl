@@ -12,9 +12,9 @@
     <@previewWarning editMode module module.errorMessages />
 
     <vs-module-wrapper theme="<#if themeName?has_content>${themeName}<#else>light</#if>">
-        <span slot="vsModuleWrapperHeading">
+        <template v-slot:vs-module-wrapper-heading>
             ${module.title}
-        </span>
+        </template>
          <vs-container>
             <vs-row>
                 <vs-col

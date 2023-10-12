@@ -6,8 +6,8 @@ const path = require("path");
 const webpackHotMiddleware = require("webpack-hot-middleware");
 const webpackDevMiddleware = require("webpack-dev-middleware");
 
-const clientConfig = require("../../node_modules/@visitscotland/vs-component-library/build/ssr.client.webpack.conf");
-const serverConfig = require("../../node_modules/@visitscotland/vs-component-library/build/ssr.server.webpack.conf");
+const clientConfig = require("../../node_modules/@visitscotland/component-library/build/ssr.client.webpack.conf");
+const serverConfig = require("../../node_modules/@visitscotland/component-library/build/ssr.server.webpack.conf");
 
 /**
  * Setup webpack-dev-middleware and webpack-hot-middleware.

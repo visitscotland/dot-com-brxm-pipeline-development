@@ -3,7 +3,7 @@
   /Visitscotland-categories:
     jcr:primaryType: hippo:handle
     jcr:mixinTypes: ['hippo:versionInfo']
-    hippo:versionHistory: 836086cf-b9ea-4a44-9639-ec231b9af7c5
+    hippo:versionHistory: 69ada3e4-008a-4fc9-9482-3e6a3a85273a
     /Visitscotland-categories[1]:
       jcr:primaryType: hippotaxonomy:taxonomy
       jcr:mixinTypes: ['hippostd:publishableSummary', 'mix:versionable']
@@ -14,9 +14,9 @@
       hippostd:state: published
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2022-06-10T13:52:12.043+01:00
-      hippostdpubwf:lastModificationDate: 2023-02-10T13:43:42.145Z
+      hippostdpubwf:lastModificationDate: 2023-08-11T11:10:44.858+01:00
       hippostdpubwf:lastModifiedBy: admin
-      hippostdpubwf:publicationDate: 2023-02-10T13:43:49.189Z
+      hippostdpubwf:publicationDate: 2023-08-11T11:15:40.453+01:00
       hippotaxonomy:locales: [en, fr, de, es, it, nl]
       /destinations:
         jcr:primaryType: hippotaxonomy:category
@@ -133,6 +133,110 @@
             /fr:
               jcr:primaryType: hippotaxonomy:categoryinfo
               hippotaxonomy:name: Régions
+      /outlander:
+        jcr:primaryType: hippotaxonomy:category
+        hippotaxonomy:key: outlander
+        /hippotaxonomy:categoryinfos:
+          jcr:primaryType: hippotaxonomy:categoryinfos
+          /en:
+            jcr:primaryType: hippotaxonomy:categoryinfo
+            hippotaxonomy:name: Outlander
+        /outlander-category:
+          jcr:primaryType: hippotaxonomy:category
+          hippotaxonomy:key: outlander-category
+          /hippotaxonomy:categoryinfos:
+            jcr:primaryType: hippotaxonomy:categoryinfos
+            /en:
+              jcr:primaryType: hippotaxonomy:categoryinfo
+              hippotaxonomy:name: Outlander Category
+          /outlander-castle:
+            jcr:primaryType: hippotaxonomy:category
+            hippotaxonomy:key: outlander-castle
+            /hippotaxonomy:categoryinfos:
+              jcr:primaryType: hippotaxonomy:categoryinfos
+              /en:
+                jcr:primaryType: hippotaxonomy:categoryinfo
+                hippotaxonomy:name: Outlander Castle
+          /outlander-church-abbey:
+            jcr:primaryType: hippotaxonomy:category
+            hippotaxonomy:key: outlander-church-abbey
+            /hippotaxonomy:categoryinfos:
+              jcr:primaryType: hippotaxonomy:categoryinfos
+              /en:
+                jcr:primaryType: hippotaxonomy:categoryinfo
+                hippotaxonomy:name: Outlander Church-Abbey
+          /outlander-city-town-village:
+            jcr:primaryType: hippotaxonomy:category
+            hippotaxonomy:key: outlander-city-town-village
+            /hippotaxonomy:categoryinfos:
+              jcr:primaryType: hippotaxonomy:categoryinfos
+              /en:
+                jcr:primaryType: hippotaxonomy:categoryinfo
+                hippotaxonomy:name: Outlander City-Town-Village
+          /outlander-heritage:
+            jcr:primaryType: hippotaxonomy:category
+            hippotaxonomy:key: outlander-heritage
+            /hippotaxonomy:categoryinfos:
+              jcr:primaryType: hippotaxonomy:categoryinfos
+              /en:
+                jcr:primaryType: hippotaxonomy:categoryinfo
+                hippotaxonomy:name: Outlander Heritage
+          /outlander-landscape-park:
+            jcr:primaryType: hippotaxonomy:category
+            hippotaxonomy:key: outlander-landscape-park
+            /hippotaxonomy:categoryinfos:
+              jcr:primaryType: hippotaxonomy:categoryinfos
+              /en:
+                jcr:primaryType: hippotaxonomy:categoryinfo
+                hippotaxonomy:name: Outlander Landscape-Park
+          /outlander-palace-house:
+            jcr:primaryType: hippotaxonomy:category
+            hippotaxonomy:key: outlander-palace-house
+            /hippotaxonomy:categoryinfos:
+              jcr:primaryType: hippotaxonomy:categoryinfos
+              /en:
+                jcr:primaryType: hippotaxonomy:categoryinfo
+                hippotaxonomy:name: Outlander Palace-House
+        /outlander-season:
+          jcr:primaryType: hippotaxonomy:category
+          hippotaxonomy:key: outlander-season
+          /hippotaxonomy:categoryinfos:
+            jcr:primaryType: hippotaxonomy:categoryinfos
+            /en:
+              jcr:primaryType: hippotaxonomy:categoryinfo
+              hippotaxonomy:name: Outlander Season
+          /outlander-season-1:
+            jcr:primaryType: hippotaxonomy:category
+            hippotaxonomy:key: outlander-season-1
+            /hippotaxonomy:categoryinfos:
+              jcr:primaryType: hippotaxonomy:categoryinfos
+              /en:
+                jcr:primaryType: hippotaxonomy:categoryinfo
+                hippotaxonomy:name: Outlander Season 1
+          /outlander-season-2:
+            jcr:primaryType: hippotaxonomy:category
+            hippotaxonomy:key: outlander-season-2
+            /hippotaxonomy:categoryinfos:
+              jcr:primaryType: hippotaxonomy:categoryinfos
+              /en:
+                jcr:primaryType: hippotaxonomy:categoryinfo
+                hippotaxonomy:name: Outlander Season 2
+          /outlander-season-3:
+            jcr:primaryType: hippotaxonomy:category
+            hippotaxonomy:key: outlander-season-3
+            /hippotaxonomy:categoryinfos:
+              jcr:primaryType: hippotaxonomy:categoryinfos
+              /en:
+                jcr:primaryType: hippotaxonomy:categoryinfo
+                hippotaxonomy:name: Outlander Season 3
+          /outlander-season-4:
+            jcr:primaryType: hippotaxonomy:category
+            hippotaxonomy:key: outlander-season-4
+            /hippotaxonomy:categoryinfos:
+              jcr:primaryType: hippotaxonomy:categoryinfos
+              /en:
+                jcr:primaryType: hippotaxonomy:categoryinfo
+                hippotaxonomy:name: Outlander Season 4
     /Visitscotland-categories[2]:
       jcr:primaryType: hippotaxonomy:taxonomy
       jcr:mixinTypes: ['hippostd:publishableSummary', 'mix:referenceable', 'mix:versionable']
@@ -142,7 +246,7 @@
       hippostd:state: unpublished
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2022-06-10T13:52:12.043+01:00
-      hippostdpubwf:lastModificationDate: 2023-02-10T13:43:42.145Z
+      hippostdpubwf:lastModificationDate: 2023-08-11T11:10:44.858+01:00
       hippostdpubwf:lastModifiedBy: admin
       hippotaxonomy:locales: [en, fr, de, es, it, nl]
       /destinations:
@@ -260,6 +364,110 @@
             /fr:
               jcr:primaryType: hippotaxonomy:categoryinfo
               hippotaxonomy:name: Régions
+      /outlander:
+        jcr:primaryType: hippotaxonomy:category
+        hippotaxonomy:key: outlander
+        /hippotaxonomy:categoryinfos:
+          jcr:primaryType: hippotaxonomy:categoryinfos
+          /en:
+            jcr:primaryType: hippotaxonomy:categoryinfo
+            hippotaxonomy:name: Outlander
+        /outlander-category:
+          jcr:primaryType: hippotaxonomy:category
+          hippotaxonomy:key: outlander-category
+          /hippotaxonomy:categoryinfos:
+            jcr:primaryType: hippotaxonomy:categoryinfos
+            /en:
+              jcr:primaryType: hippotaxonomy:categoryinfo
+              hippotaxonomy:name: Outlander Category
+          /outlander-castle:
+            jcr:primaryType: hippotaxonomy:category
+            hippotaxonomy:key: outlander-castle
+            /hippotaxonomy:categoryinfos:
+              jcr:primaryType: hippotaxonomy:categoryinfos
+              /en:
+                jcr:primaryType: hippotaxonomy:categoryinfo
+                hippotaxonomy:name: Outlander Castle
+          /outlander-church-abbey:
+            jcr:primaryType: hippotaxonomy:category
+            hippotaxonomy:key: outlander-church-abbey
+            /hippotaxonomy:categoryinfos:
+              jcr:primaryType: hippotaxonomy:categoryinfos
+              /en:
+                jcr:primaryType: hippotaxonomy:categoryinfo
+                hippotaxonomy:name: Outlander Church-Abbey
+          /outlander-city-town-village:
+            jcr:primaryType: hippotaxonomy:category
+            hippotaxonomy:key: outlander-city-town-village
+            /hippotaxonomy:categoryinfos:
+              jcr:primaryType: hippotaxonomy:categoryinfos
+              /en:
+                jcr:primaryType: hippotaxonomy:categoryinfo
+                hippotaxonomy:name: Outlander City-Town-Village
+          /outlander-heritage:
+            jcr:primaryType: hippotaxonomy:category
+            hippotaxonomy:key: outlander-heritage
+            /hippotaxonomy:categoryinfos:
+              jcr:primaryType: hippotaxonomy:categoryinfos
+              /en:
+                jcr:primaryType: hippotaxonomy:categoryinfo
+                hippotaxonomy:name: Outlander Heritage
+          /outlander-landscape-park:
+            jcr:primaryType: hippotaxonomy:category
+            hippotaxonomy:key: outlander-landscape-park
+            /hippotaxonomy:categoryinfos:
+              jcr:primaryType: hippotaxonomy:categoryinfos
+              /en:
+                jcr:primaryType: hippotaxonomy:categoryinfo
+                hippotaxonomy:name: Outlander Landscape-Park
+          /outlander-palace-house:
+            jcr:primaryType: hippotaxonomy:category
+            hippotaxonomy:key: outlander-palace-house
+            /hippotaxonomy:categoryinfos:
+              jcr:primaryType: hippotaxonomy:categoryinfos
+              /en:
+                jcr:primaryType: hippotaxonomy:categoryinfo
+                hippotaxonomy:name: Outlander Palace-House
+        /outlander-season:
+          jcr:primaryType: hippotaxonomy:category
+          hippotaxonomy:key: outlander-season
+          /hippotaxonomy:categoryinfos:
+            jcr:primaryType: hippotaxonomy:categoryinfos
+            /en:
+              jcr:primaryType: hippotaxonomy:categoryinfo
+              hippotaxonomy:name: Outlander Season
+          /outlander-season-1:
+            jcr:primaryType: hippotaxonomy:category
+            hippotaxonomy:key: outlander-season-1
+            /hippotaxonomy:categoryinfos:
+              jcr:primaryType: hippotaxonomy:categoryinfos
+              /en:
+                jcr:primaryType: hippotaxonomy:categoryinfo
+                hippotaxonomy:name: Outlander Season 1
+          /outlander-season-2:
+            jcr:primaryType: hippotaxonomy:category
+            hippotaxonomy:key: outlander-season-2
+            /hippotaxonomy:categoryinfos:
+              jcr:primaryType: hippotaxonomy:categoryinfos
+              /en:
+                jcr:primaryType: hippotaxonomy:categoryinfo
+                hippotaxonomy:name: Outlander Season 2
+          /outlander-season-3:
+            jcr:primaryType: hippotaxonomy:category
+            hippotaxonomy:key: outlander-season-3
+            /hippotaxonomy:categoryinfos:
+              jcr:primaryType: hippotaxonomy:categoryinfos
+              /en:
+                jcr:primaryType: hippotaxonomy:categoryinfo
+                hippotaxonomy:name: Outlander Season 3
+          /outlander-season-4:
+            jcr:primaryType: hippotaxonomy:category
+            hippotaxonomy:key: outlander-season-4
+            /hippotaxonomy:categoryinfos:
+              jcr:primaryType: hippotaxonomy:categoryinfos
+              /en:
+                jcr:primaryType: hippotaxonomy:categoryinfo
+                hippotaxonomy:name: Outlander Season 4
     /Visitscotland-categories[3]:
       jcr:primaryType: hippotaxonomy:taxonomy
       jcr:mixinTypes: ['hippostd:publishableSummary', 'mix:referenceable']
@@ -269,7 +477,7 @@
       hippostd:state: draft
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2022-06-10T13:52:12.043+01:00
-      hippostdpubwf:lastModificationDate: 2023-02-10T13:06:17.345Z
+      hippostdpubwf:lastModificationDate: 2023-08-11T13:36:11.325+01:00
       hippostdpubwf:lastModifiedBy: admin
       hippotaxonomy:locales: [en, fr, de, es, it, nl]
       /destinations:
@@ -387,3 +595,107 @@
             /fr:
               jcr:primaryType: hippotaxonomy:categoryinfo
               hippotaxonomy:name: Régions
+      /outlander:
+        jcr:primaryType: hippotaxonomy:category
+        hippotaxonomy:key: outlander
+        /hippotaxonomy:categoryinfos:
+          jcr:primaryType: hippotaxonomy:categoryinfos
+          /en:
+            jcr:primaryType: hippotaxonomy:categoryinfo
+            hippotaxonomy:name: Outlander
+        /outlander-category:
+          jcr:primaryType: hippotaxonomy:category
+          hippotaxonomy:key: outlander-category
+          /hippotaxonomy:categoryinfos:
+            jcr:primaryType: hippotaxonomy:categoryinfos
+            /en:
+              jcr:primaryType: hippotaxonomy:categoryinfo
+              hippotaxonomy:name: Outlander Category
+          /outlander-castle:
+            jcr:primaryType: hippotaxonomy:category
+            hippotaxonomy:key: outlander-castle
+            /hippotaxonomy:categoryinfos:
+              jcr:primaryType: hippotaxonomy:categoryinfos
+              /en:
+                jcr:primaryType: hippotaxonomy:categoryinfo
+                hippotaxonomy:name: Outlander Castle
+          /outlander-church-abbey:
+            jcr:primaryType: hippotaxonomy:category
+            hippotaxonomy:key: outlander-church-abbey
+            /hippotaxonomy:categoryinfos:
+              jcr:primaryType: hippotaxonomy:categoryinfos
+              /en:
+                jcr:primaryType: hippotaxonomy:categoryinfo
+                hippotaxonomy:name: Outlander Church-Abbey
+          /outlander-city-town-village:
+            jcr:primaryType: hippotaxonomy:category
+            hippotaxonomy:key: outlander-city-town-village
+            /hippotaxonomy:categoryinfos:
+              jcr:primaryType: hippotaxonomy:categoryinfos
+              /en:
+                jcr:primaryType: hippotaxonomy:categoryinfo
+                hippotaxonomy:name: Outlander City-Town-Village
+          /outlander-heritage:
+            jcr:primaryType: hippotaxonomy:category
+            hippotaxonomy:key: outlander-heritage
+            /hippotaxonomy:categoryinfos:
+              jcr:primaryType: hippotaxonomy:categoryinfos
+              /en:
+                jcr:primaryType: hippotaxonomy:categoryinfo
+                hippotaxonomy:name: Outlander Heritage
+          /outlander-landscape-park:
+            jcr:primaryType: hippotaxonomy:category
+            hippotaxonomy:key: outlander-landscape-park
+            /hippotaxonomy:categoryinfos:
+              jcr:primaryType: hippotaxonomy:categoryinfos
+              /en:
+                jcr:primaryType: hippotaxonomy:categoryinfo
+                hippotaxonomy:name: Outlander Landscape-Park
+          /outlander-palace-house:
+            jcr:primaryType: hippotaxonomy:category
+            hippotaxonomy:key: outlander-palace-house
+            /hippotaxonomy:categoryinfos:
+              jcr:primaryType: hippotaxonomy:categoryinfos
+              /en:
+                jcr:primaryType: hippotaxonomy:categoryinfo
+                hippotaxonomy:name: Outlander Palace-House
+        /outlander-season:
+          jcr:primaryType: hippotaxonomy:category
+          hippotaxonomy:key: outlander-season
+          /hippotaxonomy:categoryinfos:
+            jcr:primaryType: hippotaxonomy:categoryinfos
+            /en:
+              jcr:primaryType: hippotaxonomy:categoryinfo
+              hippotaxonomy:name: Outlander Season
+          /outlander-season-1:
+            jcr:primaryType: hippotaxonomy:category
+            hippotaxonomy:key: outlander-season-1
+            /hippotaxonomy:categoryinfos:
+              jcr:primaryType: hippotaxonomy:categoryinfos
+              /en:
+                jcr:primaryType: hippotaxonomy:categoryinfo
+                hippotaxonomy:name: Outlander Season 1
+          /outlander-season-2:
+            jcr:primaryType: hippotaxonomy:category
+            hippotaxonomy:key: outlander-season-2
+            /hippotaxonomy:categoryinfos:
+              jcr:primaryType: hippotaxonomy:categoryinfos
+              /en:
+                jcr:primaryType: hippotaxonomy:categoryinfo
+                hippotaxonomy:name: Outlander Season 2
+          /outlander-season-3:
+            jcr:primaryType: hippotaxonomy:category
+            hippotaxonomy:key: outlander-season-3
+            /hippotaxonomy:categoryinfos:
+              jcr:primaryType: hippotaxonomy:categoryinfos
+              /en:
+                jcr:primaryType: hippotaxonomy:categoryinfo
+                hippotaxonomy:name: Outlander Season 3
+          /outlander-season-4:
+            jcr:primaryType: hippotaxonomy:category
+            hippotaxonomy:key: outlander-season-4
+            /hippotaxonomy:categoryinfos:
+              jcr:primaryType: hippotaxonomy:categoryinfos
+              /en:
+                jcr:primaryType: hippotaxonomy:categoryinfo
+                hippotaxonomy:name: Outlander Season 4

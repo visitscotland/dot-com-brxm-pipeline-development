@@ -8,8 +8,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
-import java.util.Locale;
-import java.util.ResourceBundle;
+import java.util.*;
 
 @Component
 public class ResourceBundleService {
@@ -199,5 +198,13 @@ public class ResourceBundleService {
 
     public String getFindOutMoreAboutCta(String title, Locale locale) {
         return String.format("%s %s", getResourceBundle(GLOBAL_BUNDLE_FILE, "find-out-more-about", locale), title);
+    }
+
+    public Map<String, String> getAllLabels(String bundleName, String locale){
+        Map<String, String> labels = new HashMap<>();
+        for (String key : getResourceBundle(bundleName, toLocale(locale)).keySet()){
+            labels.put(key, getResourceBundle(bundleName, key, locale));
+        }
+        return labels;
     }
 }
