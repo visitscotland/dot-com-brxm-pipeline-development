@@ -2,8 +2,6 @@ package com.visitscotland.brxm.hippobeans;
 
 import org.onehippo.cms7.essentials.dashboard.annotations.HippoEssentialsGenerated;
 import org.hippoecm.hst.content.beans.Node;
-import java.util.Calendar;
-
 @HippoEssentialsGenerated(internalName = "visitscotland:DevModule")
 @Node(jcrType = "visitscotland:DevModule")
 public class DevModule extends BaseDocument {

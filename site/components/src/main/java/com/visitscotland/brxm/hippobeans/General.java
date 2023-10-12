@@ -2,7 +2,6 @@ package com.visitscotland.brxm.hippobeans;
 
 import org.hippoecm.hst.content.beans.Node;
 import org.onehippo.cms7.essentials.dashboard.annotations.HippoEssentialsGenerated;
-import com.visitscotland.brxm.hippobeans.Blog;
 
 @HippoEssentialsGenerated(internalName = "visitscotland:General")
 @Node(jcrType = "visitscotland:General")
@@ -46,5 +45,10 @@ public class General extends Page {
     @HippoEssentialsGenerated(internalName = "visitscotland:blog")
     public Blog getBlog() {
         return getBean("visitscotland:blog", Blog.class);
+    }
+
+    @HippoEssentialsGenerated(internalName = "visitscotland:pswPosition")
+    public String getPswPosition() {
+        return getSingleProperty("visitscotland:pswPosition");
     }
 }

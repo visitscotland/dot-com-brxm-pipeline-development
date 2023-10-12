@@ -31,7 +31,7 @@
 		<@pageIntro content=document lightBackground=true blog=blog />
 		<@introImage mainImage=heroImage />
 	<#elseif topLevelTemplate>
-		<@pageIntro content=document heroDetails=heroImage lightBackground=(psrWidget?has_content && psrWidget.position = "top") />
+		<@pageIntro content=document heroDetails=heroImage lightBackground=(psrWidget?has_content && psrWidget.position = "Top") />
 	<#elseif standardTemplate>
         <@pageIntro content=document lightBackground=true />
 		<@introImage mainImage=heroImage />
@@ -39,7 +39,7 @@
         <@pageIntro content=document lightBackground=true />
     </#if>
 
-	<#if psrWidget?? && psrWidget.position = "top">
+	<#if psrWidget?? && psrWidget.position = "Top">
 		<@productSearchWidget psrWidget/>
 	</#if>
 
@@ -63,7 +63,7 @@
 
     <@socialShare nojs=true/>
 
-	<#if psrWidget?? && psrWidget.position = "bottom">
+	<#if psrWidget?? && psrWidget.position = "Bottom">
 		<@productSearchWidget psrWidget/>
 	</#if>
 
