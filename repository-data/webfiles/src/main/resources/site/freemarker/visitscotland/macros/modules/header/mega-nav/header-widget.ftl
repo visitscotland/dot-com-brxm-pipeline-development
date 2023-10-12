@@ -13,7 +13,7 @@
             <#if accordion=true>
                 <template>
             <#else>
-                <template slot="navFeaturedEvent">
+                <template v-slot:nav-featured-event>
             </#if>
                 <vs-mega-nav-featured-event
                     source-url="${menu.apiUrl}"

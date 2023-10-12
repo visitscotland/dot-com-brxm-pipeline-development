@@ -16,11 +16,11 @@
 
 <#if menu??>
     <vs-footer class="has-edit-button">
-        <template slot="accordion-items">
+        <template v-slot:accordion-items>
             <@footerAccordionItem footerMenuItems=menu.siteMenuItems />
         </template>
 
-        <template slot="social-menu">
+        <template v-slot:social-menu>
             <@footerSocialMenu />
         </template>
 

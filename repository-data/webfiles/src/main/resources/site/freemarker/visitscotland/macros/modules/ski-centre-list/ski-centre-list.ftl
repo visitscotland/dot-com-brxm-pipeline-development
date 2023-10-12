@@ -11,11 +11,11 @@
     <@previewWarning editMode module module.errorMessages />
 
     <vs-module-wrapper theme="light">
-        <template slot="vsModuleWrapperHeading">
+        <template v-slot:vs-module-wrapper-heading>
             ${module.title}
         </template>
 
-        <template slot="vsModuleWrapperIntro">
+        <template v-slot:vs-module-wrapper-intro>
             <@hst.html hippohtml=module.introduction/>
         </template>
 
@@ -52,16 +52,22 @@
                             piste-map-label="${label('ski', 'ski-centre.view-piste-map')}"
                             more-details-label="${label('ski', 'ski-centre.more-details')}"
                         >
-                            <template slot="centre-name">${centre.title}</template>
-                            <div slot="data-loading">
-                                ${label("ski", "ski-data.loading")}
-                            </div>
-                            <div slot="data-unavailable">
-                                ${label("ski", "ski-data.unavailable")}
-                            </div>
-                            <div slot="js-required">
-                                ${label("ski", "ski-data.no-js")}
-                            </div>
+                            <template v-slot:centre-name>${centre.title}</template>
+                            <template v-slot:data-loading>
+                                <div>
+                                    ${label("ski", "ski-data.loading")}
+                                </div>
+                            </template>
+                            <template v-slot:data-unavailable>
+                                <div>
+                                    ${label("ski", "ski-data.unavailable")}
+                                </div>
+                            </template>
+                            <template v-slot:js-required>
+                                <div>
+                                    ${label("ski", "ski-data.no-js")}
+                                </div>
+                            </template>
                         </vs-ski-scotland-card>
                     </vs-col>
                 </#list>

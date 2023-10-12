@@ -20,7 +20,7 @@
         <@gtm noscript=true />
         <@skeleton />
         <@personalisation />
-        <div class="no-js hydrate" data-vue-app-init>
+        <div data-vue-hydration-init><div class="no-js" data-vue-app-init>
             <@hst.include ref="top"/>
 
             <@hst.include ref="menu"/>
@@ -30,8 +30,7 @@
             </main>
 
             <@hst.include ref="footer"/>
-        </div>
-
+        </div></div>
         <@footerContributions />
     </body>
 </html>

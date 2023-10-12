@@ -40,10 +40,10 @@
                 video-btn-text="${label('video', 'video.play-btn')}"
             </#if>
         >
-            <template slot="vsMultiImageHeading">
+            <template v-slot:vs-multi-image-heading>
                 ${megalink.label}</template>
             <#if showTeaser == 'true'>
-                <template slot="vsMultiImageContent">
+                <template v-slot:vs-multi-image-content>
                     <p>${megalink.teaser}</p>
                 </template>
             </#if>

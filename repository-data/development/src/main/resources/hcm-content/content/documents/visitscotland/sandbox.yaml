@@ -1885,9 +1885,10 @@
           hippo:availability: []
           hippostd:retainable: false
           hippostd:state: draft
+          hippostd:transferable: false
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2019-12-11T12:39:11.963Z
-          hippostdpubwf:lastModificationDate: 2022-10-13T08:19:22.967+01:00
+          hippostdpubwf:lastModificationDate: 2023-08-14T14:03:15.480+01:00
           hippostdpubwf:lastModifiedBy: admin
           hippotaxonomy:keys: [cities]
           hippotranslation:id: a162f1f0-ac2e-41a0-b9b5-ce1c6a4cb1a7
@@ -2382,7 +2383,7 @@
         jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
         jcr:uuid: 98ec3739-fc67-45b3-bbdb-e21478facbb7
         hippo:name: Old Town
-        hippo:versionHistory: e8bbf7a5-4416-4bbb-a79b-12d43bb158fa
+        hippo:versionHistory: 33c8a75e-11f8-4aa2-a7c5-6e737f383724
         /old-town[1]:
           jcr:primaryType: visitscotland:Stop
           jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
@@ -2390,10 +2391,13 @@
           hippo:availability: []
           hippostd:retainable: false
           hippostd:state: draft
+          hippostd:transferable: false
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2020-02-10T09:30:38.918Z
-          hippostdpubwf:lastModificationDate: 2022-06-16T09:45:41.604+01:00
+          hippostdpubwf:lastModificationDate: 2023-08-18T12:27:49.957+01:00
           hippostdpubwf:lastModifiedBy: admin
+          hippotaxonomy:keys: [outlander-city-town-village, outlander-season-1, outlander-season-3,
+            outlander-season-4]
           hippotranslation:id: ddabe0ef-dc56-44cb-94bf-e820df329d7a
           hippotranslation:locale: en
           visitscotland:subtitle: ''
@@ -2403,8 +2407,6 @@
           /visitscotland:description:
             jcr:primaryType: hippostd:html
             hippostd:content: |-
-              <p>Book location and filming location – season 3</p>
-
               <p>Edinburgh's Old Town is part of a <a rel="noopener noreferrer" href="http://www.ewht.org.uk/" target="_blank">UNESCO World Heritage Site</a>, together with the Georgian era New Town on the north side of the city centre. The buildings you’ll see remain largely unchanged from how they would have looked centuries ago.</p>
 
               <p>The Old Town and Royal Mile is home to three filming locations from <em>Outlander</em>. If you’re looking for a memorable souvenir while you’re there, pop into <a rel="noopener noreferrer" href="http://www.hamiltonandyoung.co.uk/" title="Hamilton &amp; Young Jewellery Designers" target="_blank">Hamilton &amp; Young Jewellery Designers</a> on the Royal Mile to browse Celtic and Outlander inspired items.</p>
@@ -2435,8 +2437,10 @@
           hippostd:state: unpublished
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2020-02-10T09:30:38.918Z
-          hippostdpubwf:lastModificationDate: 2022-06-16T09:45:41.538+01:00
+          hippostdpubwf:lastModificationDate: 2023-08-18T12:14:16.275+01:00
           hippostdpubwf:lastModifiedBy: admin
+          hippotaxonomy:keys: [outlander-city-town-village, outlander-season-1, outlander-season-3,
+            outlander-season-4]
           hippotranslation:id: ddabe0ef-dc56-44cb-94bf-e820df329d7a
           hippotranslation:locale: en
           visitscotland:subtitle: ''
@@ -2446,8 +2450,6 @@
           /visitscotland:description:
             jcr:primaryType: hippostd:html
             hippostd:content: |-
-              <p>Book location and filming location – season 3</p>
-
               <p>Edinburgh's Old Town is part of a <a rel="noopener noreferrer" href="http://www.ewht.org.uk/" target="_blank">UNESCO World Heritage Site</a>, together with the Georgian era New Town on the north side of the city centre. The buildings you’ll see remain largely unchanged from how they would have looked centuries ago.</p>
 
               <p>The Old Town and Royal Mile is home to three filming locations from <em>Outlander</em>. If you’re looking for a memorable souvenir while you’re there, pop into <a rel="noopener noreferrer" href="http://www.hamiltonandyoung.co.uk/" title="Hamilton &amp; Young Jewellery Designers" target="_blank">Hamilton &amp; Young Jewellery Designers</a> on the Royal Mile to browse Celtic and Outlander inspired items.</p>
@@ -2478,9 +2480,11 @@
           hippostd:state: published
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2020-02-10T09:30:38.918Z
-          hippostdpubwf:lastModificationDate: 2022-06-16T09:45:41.538+01:00
+          hippostdpubwf:lastModificationDate: 2023-08-18T12:14:16.275+01:00
           hippostdpubwf:lastModifiedBy: admin
-          hippostdpubwf:publicationDate: 2022-06-16T09:45:45.474+01:00
+          hippostdpubwf:publicationDate: 2023-08-18T12:14:21.213+01:00
+          hippotaxonomy:keys: [outlander-city-town-village, outlander-season-1, outlander-season-3,
+            outlander-season-4]
           hippotranslation:id: ddabe0ef-dc56-44cb-94bf-e820df329d7a
           hippotranslation:locale: en
           visitscotland:subtitle: ''
@@ -2490,8 +2494,6 @@
           /visitscotland:description:
             jcr:primaryType: hippostd:html
             hippostd:content: |-
-              <p>Book location and filming location – season 3</p>
-
               <p>Edinburgh's Old Town is part of a <a rel="noopener noreferrer" href="http://www.ewht.org.uk/" target="_blank">UNESCO World Heritage Site</a>, together with the Georgian era New Town on the north side of the city centre. The buildings you’ll see remain largely unchanged from how they would have looked centuries ago.</p>
 
               <p>The Old Town and Royal Mile is home to three filming locations from <em>Outlander</em>. If you’re looking for a memorable souvenir while you’re there, pop into <a rel="noopener noreferrer" href="http://www.hamiltonandyoung.co.uk/" title="Hamilton &amp; Young Jewellery Designers" target="_blank">Hamilton &amp; Young Jewellery Designers</a> on the Royal Mile to browse Celtic and Outlander inspired items.</p>
@@ -2733,7 +2735,7 @@
         jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
         jcr:uuid: f0c435ec-14f2-48a0-81b7-05507be62018
         hippo:name: LINLITHGOW PALACE
-        hippo:versionHistory: 9a664c82-bfb2-4aad-a262-0838dc3cc204
+        hippo:versionHistory: 0528f667-e01f-474d-a5c5-3c381630ddbb
         /linlithgow-palace[1]:
           jcr:primaryType: visitscotland:Stop
           jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
@@ -2743,8 +2745,9 @@
           hippostd:state: draft
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2020-02-10T09:32:08.607Z
-          hippostdpubwf:lastModificationDate: 2022-06-16T09:46:54.689+01:00
+          hippostdpubwf:lastModificationDate: 2023-08-14T14:01:35.355+01:00
           hippostdpubwf:lastModifiedBy: admin
+          hippotaxonomy:keys: [outlander-palace-house, outlander-season-1]
           hippotranslation:id: 30a66265-08b2-4cf9-9c8e-5a438d1b56db
           hippotranslation:locale: en
           visitscotland:subtitle: ''
@@ -2796,8 +2799,9 @@
           hippostd:state: unpublished
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2020-02-10T09:32:08.607Z
-          hippostdpubwf:lastModificationDate: 2022-06-16T09:46:59.979+01:00
+          hippostdpubwf:lastModificationDate: 2023-08-14T14:01:48.328+01:00
           hippostdpubwf:lastModifiedBy: admin
+          hippotaxonomy:keys: [outlander-palace-house, outlander-season-1]
           hippotranslation:id: 30a66265-08b2-4cf9-9c8e-5a438d1b56db
           hippotranslation:locale: en
           visitscotland:subtitle: ''
@@ -2849,9 +2853,10 @@
           hippostd:state: published
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2020-02-10T09:32:08.607Z
-          hippostdpubwf:lastModificationDate: 2022-06-16T09:46:59.979+01:00
+          hippostdpubwf:lastModificationDate: 2023-08-14T14:01:48.328+01:00
           hippostdpubwf:lastModifiedBy: admin
-          hippostdpubwf:publicationDate: 2022-06-16T09:47:01.907+01:00
+          hippostdpubwf:publicationDate: 2023-08-14T14:01:50.283+01:00
+          hippotaxonomy:keys: [outlander-palace-house, outlander-season-1]
           hippotranslation:id: 30a66265-08b2-4cf9-9c8e-5a438d1b56db
           hippotranslation:locale: en
           visitscotland:subtitle: ''
@@ -3298,7 +3303,7 @@
         jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
         jcr:uuid: 9830f174-d0eb-47bf-9b1a-02f86f43e17f
         hippo:name: Edinburgh castle
-        hippo:versionHistory: 010633f2-47e0-48de-8930-5ce4338780fa
+        hippo:versionHistory: 6bfb6a03-e71b-467e-89f4-19a34910b34b
         /edinburgh-castle[1]:
           jcr:primaryType: visitscotland:Stop
           jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
@@ -3306,10 +3311,12 @@
           hippo:availability: []
           hippostd:retainable: false
           hippostd:state: draft
+          hippostd:transferable: false
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2019-12-10T13:29:39.541Z
-          hippostdpubwf:lastModificationDate: 2022-06-16T09:47:51.314+01:00
+          hippostdpubwf:lastModificationDate: 2023-08-18T15:11:26.808+01:00
           hippostdpubwf:lastModifiedBy: admin
+          hippotaxonomy:keys: [outlander-castle, outlander-season-1, outlander-season-3]
           hippotranslation:id: 031ee49b-b582-4764-b4f6-da2121ddecb8
           hippotranslation:locale: en
           visitscotland:subtitle: ''
@@ -3355,8 +3362,9 @@
           hippostd:state: unpublished
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2019-12-10T13:29:39.541Z
-          hippostdpubwf:lastModificationDate: 2022-06-16T09:48:01.204+01:00
+          hippostdpubwf:lastModificationDate: 2023-08-14T14:02:07.653+01:00
           hippostdpubwf:lastModifiedBy: admin
+          hippotaxonomy:keys: [outlander-castle, outlander-season-1, outlander-season-3]
           hippotranslation:id: 031ee49b-b582-4764-b4f6-da2121ddecb8
           hippotranslation:locale: en
           visitscotland:subtitle: ''
@@ -3402,9 +3410,10 @@
           hippostd:state: published
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2019-12-10T13:29:39.541Z
-          hippostdpubwf:lastModificationDate: 2022-06-16T09:48:01.204+01:00
+          hippostdpubwf:lastModificationDate: 2023-08-14T14:02:07.653+01:00
           hippostdpubwf:lastModifiedBy: admin
-          hippostdpubwf:publicationDate: 2022-06-16T09:48:04.824+01:00
+          hippostdpubwf:publicationDate: 2023-08-14T14:02:11.286+01:00
+          hippotaxonomy:keys: [outlander-castle, outlander-season-1, outlander-season-3]
           hippotranslation:id: 031ee49b-b582-4764-b4f6-da2121ddecb8
           hippotranslation:locale: en
           visitscotland:subtitle: ''
@@ -3792,7 +3801,7 @@
         jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
         jcr:uuid: 178cc6ee-9b6a-4095-80b2-9026263d173e
         hippo:name: National musseum - free example
-        hippo:versionHistory: bac07ff4-ea15-476c-86e9-bc1a44a55f40
+        hippo:versionHistory: ee180e60-6162-4256-96bf-db6b3ef9d586
         /national-musseum---free-example[1]:
           jcr:primaryType: visitscotland:Stop
           jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
@@ -3802,8 +3811,9 @@
           hippostd:state: draft
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2021-05-05T08:34:12.475+01:00
-          hippostdpubwf:lastModificationDate: 2022-11-16T16:11:00.512Z
+          hippostdpubwf:lastModificationDate: 2023-08-14T14:02:51.671+01:00
           hippostdpubwf:lastModifiedBy: admin
+          hippotaxonomy:keys: [outlander-heritage, outlander-season-1, outlander-season-3]
           hippotranslation:id: e6433e3e-29d9-485c-b409-fff4ee7307a9
           hippotranslation:locale: en
           visitscotland:subtitle: ''
@@ -3831,8 +3841,9 @@
           hippostd:state: unpublished
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2021-05-05T08:34:12.475+01:00
-          hippostdpubwf:lastModificationDate: 2022-11-16T16:11:08.176Z
+          hippostdpubwf:lastModificationDate: 2023-08-14T14:02:51.624+01:00
           hippostdpubwf:lastModifiedBy: admin
+          hippotaxonomy:keys: [outlander-heritage, outlander-season-1, outlander-season-3]
           hippotranslation:id: e6433e3e-29d9-485c-b409-fff4ee7307a9
           hippotranslation:locale: en
           visitscotland:subtitle: ''
@@ -3860,9 +3871,10 @@
           hippostd:state: published
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2021-05-05T08:34:12.475+01:00
-          hippostdpubwf:lastModificationDate: 2022-11-16T16:11:08.176Z
+          hippostdpubwf:lastModificationDate: 2023-08-14T14:02:51.624+01:00
           hippostdpubwf:lastModifiedBy: admin
-          hippostdpubwf:publicationDate: 2022-11-16T16:11:12.056Z
+          hippostdpubwf:publicationDate: 2023-08-14T14:02:54.858+01:00
+          hippotaxonomy:keys: [outlander-heritage, outlander-season-1, outlander-season-3]
           hippotranslation:id: e6433e3e-29d9-485c-b409-fff4ee7307a9
           hippotranslation:locale: en
           visitscotland:subtitle: ''
@@ -4306,7 +4318,7 @@
         jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
         jcr:uuid: 56d04a55-ae5b-4357-a8fd-b20bebbe91c5
         hippo:name: Inverness Botanic Gardens
-        hippo:versionHistory: 5428fe91-3482-4d39-aeb6-7bbd23b3254c
+        hippo:versionHistory: ceacdfb6-3fd7-4f13-93fa-785d588d0dbf
         /inverness-botanic-gardens[1]:
           jcr:primaryType: visitscotland:Stop
           jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
@@ -4316,8 +4328,9 @@
           hippostd:state: draft
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2020-10-20T13:43:16.322Z
-          hippostdpubwf:lastModificationDate: 2022-11-16T16:12:05.317Z
+          hippostdpubwf:lastModificationDate: 2023-08-14T14:01:04.736+01:00
           hippostdpubwf:lastModifiedBy: admin
+          hippotaxonomy:keys: [outlander-landscape-park, outlander-season-1]
           hippotranslation:id: ff9e6db9-2526-4683-8006-d7df8d831d94
           hippotranslation:locale: en
           visitscotland:subtitle: ''
@@ -4346,8 +4359,9 @@
           hippostd:state: unpublished
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2020-10-20T13:43:16.322Z
-          hippostdpubwf:lastModificationDate: 2022-11-16T16:12:13.095Z
+          hippostdpubwf:lastModificationDate: 2023-08-14T14:01:04.653+01:00
           hippostdpubwf:lastModifiedBy: admin
+          hippotaxonomy:keys: [outlander-landscape-park, outlander-season-1]
           hippotranslation:id: ff9e6db9-2526-4683-8006-d7df8d831d94
           hippotranslation:locale: en
           visitscotland:subtitle: ''
@@ -4376,9 +4390,10 @@
           hippostd:state: published
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2020-10-20T13:43:16.322Z
-          hippostdpubwf:lastModificationDate: 2022-11-16T16:12:13.095Z
+          hippostdpubwf:lastModificationDate: 2023-08-14T14:01:04.653+01:00
           hippostdpubwf:lastModifiedBy: admin
-          hippostdpubwf:publicationDate: 2022-11-16T16:12:15.802Z
+          hippostdpubwf:publicationDate: 2023-08-14T14:01:08.220+01:00
+          hippotaxonomy:keys: [outlander-landscape-park, outlander-season-1]
           hippotranslation:id: ff9e6db9-2526-4683-8006-d7df8d831d94
           hippotranslation:locale: en
           visitscotland:subtitle: ''
@@ -4752,7 +4767,7 @@
         jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
         jcr:uuid: fc1a1f69-c51a-4b65-8bef-3ba62452b6be
         hippo:name: Cameron House
-        hippo:versionHistory: 6acd1323-59c7-407b-9901-1cab92c6003d
+        hippo:versionHistory: e3ae0a42-e1df-469d-b167-6b2d18413994
         /cameron-house[1]:
           jcr:primaryType: visitscotland:Stop
           jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
@@ -4762,8 +4777,9 @@
           hippostd:state: draft
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2022-11-18T12:54:47.065Z
-          hippostdpubwf:lastModificationDate: 2022-11-18T12:54:47.065Z
+          hippostdpubwf:lastModificationDate: 2023-08-14T13:59:35.801+01:00
           hippostdpubwf:lastModifiedBy: admin
+          hippotaxonomy:keys: [outlander-palace-house, outlander-season-2, outlander-season-4]
           hippotranslation:id: a9105769-1564-4058-ae7e-84561072afea
           hippotranslation:locale: en
           visitscotland:subtitle: ''
@@ -4794,8 +4810,9 @@
           hippostd:state: unpublished
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2022-11-18T12:54:47.065Z
-          hippostdpubwf:lastModificationDate: 2022-11-18T12:55:16.390Z
+          hippostdpubwf:lastModificationDate: 2023-08-14T13:59:51.984+01:00
           hippostdpubwf:lastModifiedBy: admin
+          hippotaxonomy:keys: [outlander-palace-house, outlander-season-2, outlander-season-4]
           hippotranslation:id: a9105769-1564-4058-ae7e-84561072afea
           hippotranslation:locale: en
           visitscotland:subtitle: ''
@@ -4826,9 +4843,10 @@
           hippostd:state: published
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2022-11-18T12:54:47.065Z
-          hippostdpubwf:lastModificationDate: 2022-11-18T12:55:16.390Z
+          hippostdpubwf:lastModificationDate: 2023-08-14T13:59:51.984+01:00
           hippostdpubwf:lastModifiedBy: admin
-          hippostdpubwf:publicationDate: 2022-11-18T12:55:19.801Z
+          hippostdpubwf:publicationDate: 2023-08-14T13:59:59.128+01:00
+          hippotaxonomy:keys: [outlander-palace-house, outlander-season-2, outlander-season-4]
           hippotranslation:id: a9105769-1564-4058-ae7e-84561072afea
           hippotranslation:locale: en
           visitscotland:subtitle: ''
@@ -4850,6 +4868,139 @@
             hippo:facets: []
             hippo:modes: []
             hippo:values: []
+      /glencorse-old-kirk:
+        jcr:primaryType: hippo:handle
+        jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+        jcr:uuid: f55ff5bb-5588-476e-9597-21220c6c0b7d
+        hippo:name: Glencorse Old Kirk
+        hippo:versionHistory: b29adc3f-27ee-4eb0-a703-4f0cbd91e3e1
+        /glencorse-old-kirk[1]:
+          jcr:primaryType: visitscotland:Stop
+          jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
+          jcr:uuid: aedc4c8b-d281-4d16-9489-42229c247d7d
+          hippo:availability: []
+          hippostd:retainable: false
+          hippostd:state: draft
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2023-08-18T15:03:13.061+01:00
+          hippostdpubwf:lastModificationDate: 2023-08-21T11:59:45.113+01:00
+          hippostdpubwf:lastModifiedBy: admin
+          hippotaxonomy:keys: [outlander-church-abbey, outlander-season-1]
+          hippotranslation:id: 7bbff70d-7787-412c-8925-04776282a4db
+          hippotranslation:locale: en
+          visitscotland:subtitle: Glencorse
+          visitscotland:title: Glencorse Old Kirk
+          visitscotland:translation: ''
+          /visitscotland:description:
+            jcr:primaryType: hippostd:html
+            hippostd:content: <p>The charming Glencorse Old Kirk near Edinburgh, nestled
+              in the grounds of Glencorse House in the foothills of the Pentland Hills,
+              is where Claire and Jamie tied the knot. With its lush parkland, lake
+              and splendid garden, it’s a wonderfully atmospheric venue, if not one
+              of the most romantic wedding venues imaginable for any&nbsp;<em>Outlander</em>&nbsp;fan.
+              Please note that visits to the Kirk are by appointment only by contacting
+              Glencorse House.</p>
+          /visitscotland:media:
+            jcr:primaryType: hippogallerypicker:imagelink
+            hippo:docbase: d117b4c8-e5ef-4918-ae01-c6f5f0adf7fd
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+          /visitscotland:product:
+            jcr:primaryType: visitscotland:ItineraryExternalLink
+            /visitscotland:Coordinates:
+              jcr:primaryType: visitscotland:Coordinates
+              visitscotland:latitude: 55.9616125
+              visitscotland:longitude: -3.4822927
+            /visitscotland:ExternalLink:
+              jcr:primaryType: visitscotland:ExternalLink
+              visitscotland:label: ''
+              visitscotland:link: http://glencorsehouse.co.uk
+        /glencorse-old-kirk[2]:
+          jcr:primaryType: visitscotland:Stop
+          jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable', 'mix:versionable']
+          jcr:uuid: 6b3693c0-a64c-4fed-9c2c-1b53d14861d6
+          hippo:availability: [preview]
+          hippostd:retainable: false
+          hippostd:state: unpublished
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2023-08-18T15:03:13.061+01:00
+          hippostdpubwf:lastModificationDate: 2023-08-21T12:00:07.419+01:00
+          hippostdpubwf:lastModifiedBy: admin
+          hippotaxonomy:keys: [outlander-church-abbey, outlander-season-1]
+          hippotranslation:id: 7bbff70d-7787-412c-8925-04776282a4db
+          hippotranslation:locale: en
+          visitscotland:subtitle: Glencorse
+          visitscotland:title: Glencorse Old Kirk
+          visitscotland:translation: ''
+          /visitscotland:description:
+            jcr:primaryType: hippostd:html
+            hippostd:content: <p>The charming Glencorse Old Kirk near Edinburgh, nestled
+              in the grounds of Glencorse House in the foothills of the Pentland Hills,
+              is where Claire and Jamie tied the knot. With its lush parkland, lake
+              and splendid garden, it’s a wonderfully atmospheric venue, if not one
+              of the most romantic wedding venues imaginable for any&nbsp;<em>Outlander</em>&nbsp;fan.
+              Please note that visits to the Kirk are by appointment only by contacting
+              Glencorse House.</p>
+          /visitscotland:media:
+            jcr:primaryType: hippogallerypicker:imagelink
+            hippo:docbase: d117b4c8-e5ef-4918-ae01-c6f5f0adf7fd
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+          /visitscotland:product:
+            jcr:primaryType: visitscotland:ItineraryExternalLink
+            /visitscotland:Coordinates:
+              jcr:primaryType: visitscotland:Coordinates
+              visitscotland:latitude: 55.9616125
+              visitscotland:longitude: -3.4822927
+            /visitscotland:ExternalLink:
+              jcr:primaryType: visitscotland:ExternalLink
+              visitscotland:label: ''
+              visitscotland:link: http://glencorsehouse.co.uk
+        /glencorse-old-kirk[3]:
+          jcr:primaryType: visitscotland:Stop
+          jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
+          jcr:uuid: b6208ad9-e221-4bf8-834f-f2812e241cbb
+          hippo:availability: [live]
+          hippostd:retainable: false
+          hippostd:state: published
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2023-08-18T15:03:13.061+01:00
+          hippostdpubwf:lastModificationDate: 2023-08-21T12:00:07.419+01:00
+          hippostdpubwf:lastModifiedBy: admin
+          hippostdpubwf:publicationDate: 2023-08-21T12:00:13.735+01:00
+          hippotaxonomy:keys: [outlander-church-abbey, outlander-season-1]
+          hippotranslation:id: 7bbff70d-7787-412c-8925-04776282a4db
+          hippotranslation:locale: en
+          visitscotland:subtitle: Glencorse
+          visitscotland:title: Glencorse Old Kirk
+          visitscotland:translation: ''
+          /visitscotland:description:
+            jcr:primaryType: hippostd:html
+            hippostd:content: <p>The charming Glencorse Old Kirk near Edinburgh, nestled
+              in the grounds of Glencorse House in the foothills of the Pentland Hills,
+              is where Claire and Jamie tied the knot. With its lush parkland, lake
+              and splendid garden, it’s a wonderfully atmospheric venue, if not one
+              of the most romantic wedding venues imaginable for any&nbsp;<em>Outlander</em>&nbsp;fan.
+              Please note that visits to the Kirk are by appointment only by contacting
+              Glencorse House.</p>
+          /visitscotland:media:
+            jcr:primaryType: hippogallerypicker:imagelink
+            hippo:docbase: d117b4c8-e5ef-4918-ae01-c6f5f0adf7fd
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+          /visitscotland:product:
+            jcr:primaryType: visitscotland:ItineraryExternalLink
+            /visitscotland:Coordinates:
+              jcr:primaryType: visitscotland:Coordinates
+              visitscotland:latitude: 55.9616125
+              visitscotland:longitude: -3.4822927
+            /visitscotland:ExternalLink:
+              jcr:primaryType: visitscotland:ExternalLink
+              visitscotland:label: ''
+              visitscotland:link: http://glencorsehouse.co.uk
     /links:
       jcr:primaryType: hippostd:folder
       jcr:mixinTypes: ['frontend:orderChildFolders', 'hippo:named', 'hippotranslation:translated',
@@ -6875,6 +7026,88 @@
           /visitscotland:image:
             jcr:primaryType: hippogallerypicker:imagelink
             hippo:docbase: c3eafb5b-6c18-4caa-9c9a-63279b816630
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+      /dark-skies:
+        jcr:primaryType: hippo:handle
+        jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+        jcr:uuid: 27faea1f-b49a-49ec-a0d8-a58a614d1c82
+        hippo:name: Dark Skies
+        hippo:versionHistory: 537cddc8-7581-4952-8a8c-a20a1343a1e3
+        /dark-skies[1]:
+          jcr:primaryType: visitscotland:Video
+          jcr:mixinTypes: ['mix:referenceable']
+          jcr:uuid: 2ffdd7f6-0029-433e-bcaa-4fa4543a1b86
+          hippo:availability: []
+          hippostd:retainable: false
+          hippostd:state: draft
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2023-09-14T17:13:21.649+01:00
+          hippostdpubwf:lastModificationDate: 2023-09-14T17:13:21.650+01:00
+          hippostdpubwf:lastModifiedBy: admin
+          hippotranslation:id: ad93ad83-e5c1-4798-a673-e61dede23bc6
+          hippotranslation:locale: en
+          visitscotland:label: ''
+          visitscotland:teaser: Scotland enjoys some of the darkest skies in Europe.
+            You might even be lucky enough to spot the mesmerising Northern Lights!
+          visitscotland:title: Dark Skies
+          visitscotland:translation: ''
+          visitscotland:url: https://www.youtube.com/watch?v=v8IQAUvopnI
+          /visitscotland:image:
+            jcr:primaryType: hippogallerypicker:imagelink
+            hippo:docbase: f0fe0f26-489b-4a2e-b6c5-605df1abbdcb
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+        /dark-skies[2]:
+          jcr:primaryType: visitscotland:Video
+          jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+          jcr:uuid: 337f6e90-c03c-456c-aeb2-ededf3449204
+          hippo:availability: [preview]
+          hippostd:retainable: false
+          hippostd:state: unpublished
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2023-09-14T17:13:21.649+01:00
+          hippostdpubwf:lastModificationDate: 2023-09-14T17:14:08.457+01:00
+          hippostdpubwf:lastModifiedBy: admin
+          hippotranslation:id: ad93ad83-e5c1-4798-a673-e61dede23bc6
+          hippotranslation:locale: en
+          visitscotland:label: ''
+          visitscotland:teaser: Scotland enjoys some of the darkest skies in Europe.
+            You might even be lucky enough to spot the mesmerising Northern Lights!
+          visitscotland:title: Dark Skies
+          visitscotland:translation: ''
+          visitscotland:url: https://www.youtube.com/watch?v=v8IQAUvopnI
+          /visitscotland:image:
+            jcr:primaryType: hippogallerypicker:imagelink
+            hippo:docbase: f0fe0f26-489b-4a2e-b6c5-605df1abbdcb
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+        /dark-skies[3]:
+          jcr:primaryType: visitscotland:Video
+          jcr:mixinTypes: ['mix:referenceable']
+          jcr:uuid: bd2aa42c-602d-48f5-968e-3628cc396fab
+          hippo:availability: [live]
+          hippostd:retainable: false
+          hippostd:state: published
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2023-09-14T17:13:21.649+01:00
+          hippostdpubwf:lastModificationDate: 2023-09-14T17:14:08.457+01:00
+          hippostdpubwf:lastModifiedBy: admin
+          hippostdpubwf:publicationDate: 2023-09-14T17:14:10.878+01:00
+          hippotranslation:id: ad93ad83-e5c1-4798-a673-e61dede23bc6
+          hippotranslation:locale: en
+          visitscotland:label: ''
+          visitscotland:teaser: Scotland enjoys some of the darkest skies in Europe.
+            You might even be lucky enough to spot the mesmerising Northern Lights!
+          visitscotland:title: Dark Skies
+          visitscotland:translation: ''
+          visitscotland:url: https://www.youtube.com/watch?v=v8IQAUvopnI
+          /visitscotland:image:
+            jcr:primaryType: hippogallerypicker:imagelink
+            hippo:docbase: f0fe0f26-489b-4a2e-b6c5-605df1abbdcb
             hippo:facets: []
             hippo:modes: []
             hippo:values: []
@@ -12492,7 +12725,7 @@
         jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
         jcr:uuid: ab8d2643-1517-4a6a-aa86-f5a9c8b5e2c3
         hippo:name: The Outer Hebrides
-        hippo:versionHistory: 744f31c0-fffe-4c27-b4f7-d7ffcde61467
+        hippo:versionHistory: ead36de5-e9bf-4b2d-a564-9fb5f275c2ae
         /content[1]:
           jcr:primaryType: visitscotland:Destination
           jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
@@ -12502,9 +12735,9 @@
           hippostd:state: draft
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2020-07-10T14:38:03.350+01:00
-          hippostdpubwf:lastModificationDate: 2023-02-06T10:49:47.646Z
+          hippostdpubwf:lastModificationDate: 2023-08-29T14:22:26.634+01:00
           hippostdpubwf:lastModifiedBy: admin
-          hippotaxonomy:keys: [cities]
+          hippotaxonomy:keys: [regions]
           hippotranslation:id: 5efd7ec5-59aa-475a-8faa-19c718f02501
           hippotranslation:locale: en
           visitscotland:breadcrumb: ''
@@ -12567,9 +12800,9 @@
           hippostd:state: unpublished
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2020-07-10T14:38:03.350+01:00
-          hippostdpubwf:lastModificationDate: 2023-02-06T10:49:57.096Z
+          hippostdpubwf:lastModificationDate: 2023-08-29T14:22:26.175+01:00
           hippostdpubwf:lastModifiedBy: admin
-          hippotaxonomy:keys: [cities]
+          hippotaxonomy:keys: [regions]
           hippotranslation:id: 5efd7ec5-59aa-475a-8faa-19c718f02501
           hippotranslation:locale: en
           visitscotland:breadcrumb: ''
@@ -12632,10 +12865,10 @@
           hippostd:state: published
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2020-07-10T14:38:03.350+01:00
-          hippostdpubwf:lastModificationDate: 2023-02-06T10:49:57.096Z
+          hippostdpubwf:lastModificationDate: 2023-08-29T14:22:26.175+01:00
           hippostdpubwf:lastModifiedBy: admin
-          hippostdpubwf:publicationDate: 2023-02-06T10:50:15.742Z
-          hippotaxonomy:keys: [cities]
+          hippostdpubwf:publicationDate: 2023-08-29T14:22:33.251+01:00
+          hippotaxonomy:keys: [regions]
           hippotranslation:id: 5efd7ec5-59aa-475a-8faa-19c718f02501
           hippotranslation:locale: en
           visitscotland:breadcrumb: ''
@@ -14257,8 +14490,8 @@
       jcr:primaryType: hippo:handle
       jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
       jcr:uuid: 88deb6dd-d2cd-4d01-85d5-20f756d17dd0
-      hippo:name: Destinatios and map
-      hippo:versionHistory: 4aa55032-923b-4bbd-bbed-b50b847cb87b
+      hippo:name: Places to go
+      hippo:versionHistory: ffb8587e-1b9d-4e58-9c74-ab88d1837f28
       /content[1]:
         jcr:primaryType: visitscotland:General
         jcr:mixinTypes: ['mix:referenceable']
@@ -14338,7 +14571,7 @@
         hippostdpubwf:creationDate: 2021-06-25T10:03:42.014+01:00
         hippostdpubwf:lastModificationDate: 2023-03-30T12:23:04.406+01:00
         hippostdpubwf:lastModifiedBy: admin
-        hippostdpubwf:publicationDate: 2023-03-30T12:23:07.980+01:00
+        hippostdpubwf:publicationDate: 2023-08-29T14:23:17.101+01:00
         hippotranslation:id: 6b2f6fc5-802f-4be9-8506-eceeb17049cf
         hippotranslation:locale: en
         visitscotland:breadcrumb: Places to go
@@ -14479,7 +14712,7 @@
       jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
       jcr:uuid: 8422f473-6a53-4d9e-bd22-a3efa115d1f8
       hippo:name: Main map
-      hippo:versionHistory: 10351320-0f28-492d-92c4-14fdae1aec39
+      hippo:versionHistory: 4f57f883-72a8-413e-a158-9e0913cddb82
       /main-map[1]:
         jcr:primaryType: visitscotland:MapModule
         jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
@@ -14487,22 +14720,35 @@
         hippo:availability: []
         hippostd:retainable: false
         hippostd:state: draft
-        hippostd:transferable: false
         hippostdpubwf:createdBy: admin
         hippostdpubwf:creationDate: 2022-06-16T09:40:19.973+01:00
-        hippostdpubwf:lastModificationDate: 2022-11-16T14:36:24.319Z
+        hippostdpubwf:lastModificationDate: 2023-08-30T09:52:07.249+01:00
         hippostdpubwf:lastModifiedBy: admin
-        hippotaxonomy:keys: []
+        hippotaxonomy:keys: [destinations]
         hippotranslation:id: 5c1c7d42-9e51-44f3-8c7e-8c78fe05ca34
         hippotranslation:locale: en
+        visitscotland:mapType: ''
         visitscotland:tabTitle: Explore places to go
         visitscotland:title: Map of Scotland
+        visitscotland:translation: ''
         /visitscotland:copy:
           jcr:primaryType: hippostd:html
           hippostd:content: <p>This is an example of a map.&nbsp;&nbsp;Suspendisse
             nec bibendum mauris. Maecenas nulla nibh, gravida non risus quis, sollicitudin
             pulvinar purus. Pellentesque lacus massa, rhoncus et mollis semper, tempus
             a diam.&nbsp;</p>
+        /visitscotland:categories:
+          jcr:primaryType: visitscotland:MapCategory
+          visitscotland:title: ''
+          /visitscotland:mapPins[1]:
+            jcr:primaryType: hippo:mirror
+            hippo:docbase: 030dde79-74ad-441b-b7f2-731cb0312e3c
+          /visitscotland:mapPins[2]:
+            jcr:primaryType: hippo:mirror
+            hippo:docbase: f0c435ec-14f2-48a0-81b7-05507be62018
+          /visitscotland:mapPins[3]:
+            jcr:primaryType: hippo:mirror
+            hippo:docbase: 56d04a55-ae5b-4357-a8fd-b20bebbe91c5
       /main-map[2]:
         jcr:primaryType: visitscotland:MapModule
         jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable', 'mix:versionable']
@@ -14512,37 +14758,33 @@
         hippostd:state: unpublished
         hippostdpubwf:createdBy: admin
         hippostdpubwf:creationDate: 2022-06-16T09:40:19.973+01:00
-        hippostdpubwf:lastModificationDate: 2022-10-25T10:36:13.225+01:00
+        hippostdpubwf:lastModificationDate: 2023-08-30T09:53:00.301+01:00
         hippostdpubwf:lastModifiedBy: admin
         hippotaxonomy:keys: [destinations]
         hippotranslation:id: 5c1c7d42-9e51-44f3-8c7e-8c78fe05ca34
         hippotranslation:locale: en
+        visitscotland:mapType: ''
         visitscotland:tabTitle: Explore places to go
         visitscotland:title: Map of Scotland
-        /visitscotland:categories:
-          jcr:primaryType: visitscotland:MapCategory
-          visitscotland:title: ''
-          /visitscotland:mapPins[1]:
-            jcr:primaryType: hippo:mirror
-            hippo:docbase: af7bc15d-bc33-4b84-ad01-e77eb5acde61
-          /visitscotland:mapPins[2]:
-            jcr:primaryType: hippo:mirror
-            hippo:docbase: 178cc6ee-9b6a-4095-80b2-9026263d173e
-          /visitscotland:mapPins[3]:
-            jcr:primaryType: visitscotland:SpecialLinkCoordinates
-            /visitscotland:link:
-              jcr:primaryType: hippo:mirror
-              hippo:docbase: 7d2653e5-8068-49d1-9c1e-8aad6d951985
-            /visitscotland:coordinates:
-              jcr:primaryType: visitscotland:Coordinates
-              visitscotland:latitude: 56.797394
-              visitscotland:longitude: -5.003361
+        visitscotland:translation: ''
         /visitscotland:copy:
           jcr:primaryType: hippostd:html
           hippostd:content: <p>This is an example of a map.&nbsp;&nbsp;Suspendisse
             nec bibendum mauris. Maecenas nulla nibh, gravida non risus quis, sollicitudin
             pulvinar purus. Pellentesque lacus massa, rhoncus et mollis semper, tempus
             a diam.&nbsp;</p>
+        /visitscotland:categories:
+          jcr:primaryType: visitscotland:MapCategory
+          visitscotland:title: ''
+          /visitscotland:mapPins[1]:
+            jcr:primaryType: hippo:mirror
+            hippo:docbase: 030dde79-74ad-441b-b7f2-731cb0312e3c
+          /visitscotland:mapPins[2]:
+            jcr:primaryType: hippo:mirror
+            hippo:docbase: f0c435ec-14f2-48a0-81b7-05507be62018
+          /visitscotland:mapPins[3]:
+            jcr:primaryType: hippo:mirror
+            hippo:docbase: 56d04a55-ae5b-4357-a8fd-b20bebbe91c5
       /main-map[3]:
         jcr:primaryType: visitscotland:MapModule
         jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
@@ -14552,38 +14794,34 @@
         hippostd:state: published
         hippostdpubwf:createdBy: admin
         hippostdpubwf:creationDate: 2022-06-16T09:40:19.973+01:00
-        hippostdpubwf:lastModificationDate: 2022-10-25T10:36:13.225+01:00
+        hippostdpubwf:lastModificationDate: 2023-08-30T09:53:00.301+01:00
         hippostdpubwf:lastModifiedBy: admin
-        hippostdpubwf:publicationDate: 2022-10-25T10:36:16.966+01:00
+        hippostdpubwf:publicationDate: 2023-08-30T09:53:02.992+01:00
         hippotaxonomy:keys: [destinations]
         hippotranslation:id: 5c1c7d42-9e51-44f3-8c7e-8c78fe05ca34
         hippotranslation:locale: en
+        visitscotland:mapType: ''
         visitscotland:tabTitle: Explore places to go
         visitscotland:title: Map of Scotland
-        /visitscotland:categories:
-          jcr:primaryType: visitscotland:MapCategory
-          visitscotland:title: ''
-          /visitscotland:mapPins[1]:
-            jcr:primaryType: hippo:mirror
-            hippo:docbase: af7bc15d-bc33-4b84-ad01-e77eb5acde61
-          /visitscotland:mapPins[2]:
-            jcr:primaryType: hippo:mirror
-            hippo:docbase: 178cc6ee-9b6a-4095-80b2-9026263d173e
-          /visitscotland:mapPins[3]:
-            jcr:primaryType: visitscotland:SpecialLinkCoordinates
-            /visitscotland:link:
-              jcr:primaryType: hippo:mirror
-              hippo:docbase: 7d2653e5-8068-49d1-9c1e-8aad6d951985
-            /visitscotland:coordinates:
-              jcr:primaryType: visitscotland:Coordinates
-              visitscotland:latitude: 56.797394
-              visitscotland:longitude: -5.003361
+        visitscotland:translation: ''
         /visitscotland:copy:
           jcr:primaryType: hippostd:html
           hippostd:content: <p>This is an example of a map.&nbsp;&nbsp;Suspendisse
             nec bibendum mauris. Maecenas nulla nibh, gravida non risus quis, sollicitudin
             pulvinar purus. Pellentesque lacus massa, rhoncus et mollis semper, tempus
             a diam.&nbsp;</p>
+        /visitscotland:categories:
+          jcr:primaryType: visitscotland:MapCategory
+          visitscotland:title: ''
+          /visitscotland:mapPins[1]:
+            jcr:primaryType: hippo:mirror
+            hippo:docbase: 030dde79-74ad-441b-b7f2-731cb0312e3c
+          /visitscotland:mapPins[2]:
+            jcr:primaryType: hippo:mirror
+            hippo:docbase: f0c435ec-14f2-48a0-81b7-05507be62018
+          /visitscotland:mapPins[3]:
+            jcr:primaryType: hippo:mirror
+            hippo:docbase: 56d04a55-ae5b-4357-a8fd-b20bebbe91c5
   /general-pages:
     jcr:primaryType: hippostd:folder
     jcr:mixinTypes: ['hippo:named', 'hippotranslation:translated', 'mix:versionable']

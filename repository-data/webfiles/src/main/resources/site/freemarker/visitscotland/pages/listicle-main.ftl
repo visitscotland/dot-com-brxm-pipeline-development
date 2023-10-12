@@ -53,7 +53,7 @@
                 <vs-col cols="12">
                     <vs-panel>
                         <#if document.listicleClosing.title?has_content>
-                            <template slot="vs-panel-title">
+                            <template v-slot:vs-panel-title>
                                 <vs-heading thin level="4">${document.listicleClosing.title}</vs-heading>
                             </template>
                         </#if>

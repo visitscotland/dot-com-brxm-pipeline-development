@@ -16,13 +16,13 @@
                 control-id="footer_accordion_item_${menuItem?index}" 
                 class="<#if menuItem?is_first>border-left-0 pl-md-0</#if> <#if menuItem?is_last>border-bottom-0</#if>"
             >
-                <span slot="icon-open">
+                <template v-slot:icon-open>
                     <vs-icon name="chevron" variant="light" size="xs"></vs-icon>
-                </span>
+                </template>
 
-                <span slot="icon-closed">
+                <template v-slot:icon-closed>
                     <vs-icon name="chevron" orientation="down" variant="light" size="xs"></vs-icon>
-                </span>
+                </template>
 
                 <#if menuItem.childMenuItems?size gt 0>
                     <vs-list

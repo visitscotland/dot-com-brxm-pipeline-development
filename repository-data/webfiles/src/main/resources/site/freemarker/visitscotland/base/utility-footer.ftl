@@ -29,4 +29,3 @@
     <@log "The utility footer menu is not available" />
 </#if>
 
-

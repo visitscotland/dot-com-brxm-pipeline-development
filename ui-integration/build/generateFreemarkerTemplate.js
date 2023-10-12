@@ -105,17 +105,33 @@ function generateTemplateContent(moduleName, mod, configPaths, appMountTarget) {
 // - Call the `initApp` function to bootstrap the app 
 function generateTemplateContentApp(appMountTarget) {
   const setupScriptContent = `
-        // initialise global vs object
-        vs = {
-            stores: {},
-            initApp: ${appModuleName}.initApp
+        const SSRed = false;
+        let app;
+
+        if (SSRed) {
+          // initialise global vs object
+          vs = {
+              stores: {},
+              initApp: ${appModuleName}.initSSRApp,
+          }
+          Vue = ${appModuleName}.Vue
+          app = vs.initApp({})
+        } else {
+          // initialise global vs object
+          vs = {
+              stores: {},
+              initApp: ${appModuleName}.initApp,
+          }
+          Vue = ${appModuleName}.Vue;
+          app = vs.initApp();
         }
-        Vue = ${appModuleName}.Vue
   `
   const initScriptContent = `
-        vs.initApp({
-          el: "[data-vue-app-init]"
-        })
+        if (SSRed) {
+          app.mount("[data-vue-hydration-init]");
+        } else {
+          app.mount("[data-vue-app-init]");
+        }
   `
 
   return generateTemplateContentScript(setupScriptContent, null, "htmlBodyEndScriptsFirst") +
@@ -123,13 +139,13 @@ function generateTemplateContentApp(appMountTarget) {
 }
 
 function generateTemplateContentStoreScript(moduleName) {
-  let scriptText = `vs.stores.${moduleName} = ${moduleName}.default`
+  let scriptText = `app.stores.${moduleName} = ${moduleName}.default`
 
   return generateTemplateContentScript(scriptText)
 }
 
 function generateTemplateContentRegisterScript(moduleName) {
-  let scriptText = `Vue.component('${kebabCase(moduleName)}', ${moduleName}.default)`
+  let scriptText = `app.component('${kebabCase(moduleName)}', ${moduleName}.default)`
 
   return generateTemplateContentScript(scriptText)
 }

@@ -14,7 +14,7 @@
     <#-- THIS MODULE IS NOT CURRENTLY IN USE, CONSIDER REMOVING IT -->
     <@previewWarning editMode module module.errorMessages />
     <vs-module-wrapper theme="<#if themeName?has_content>${themeName}<#else>light</#if>">
-        <template slot="vsModuleWrapperHeading">
+        <template v-slot:vs-module-wrapper-heading>
             ${module.title}
         </template>
         <vs-container>

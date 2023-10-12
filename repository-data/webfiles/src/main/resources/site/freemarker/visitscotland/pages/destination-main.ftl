@@ -24,7 +24,7 @@
     <@productSearchWidget psrWidget />
 
 	<#list pageItems as item>
-        <@moduleBuilder item />
+        <@moduleBuilder module=item pageIndex="${item?index + 1}" />
 	</#list>
 
     <@socialShare nojs=true/>

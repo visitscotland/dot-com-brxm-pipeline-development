@@ -31,11 +31,14 @@ public class MapService {
     static final String LABEL = "label";
     static final String DISCOVER = "map.discover";
     static final String PROPERTIES = "properties";
+    static final String CATEGORY = "category";
+    static final String LINK = "link";
     static final String DESCRIPTION = "description";
     static final String FEATURE = "feature";
     static final String ID = "id";
     static final String REGIONS = "regions";
     static final String MAP = "map";
+    static final String BESPOKEMAP = "bespoke-maps";
     static final String TYPE = "type";
     static final String POINT = "Point";
     static final String SUBCATEGORY = "subCategory";
@@ -67,11 +70,11 @@ public class MapService {
      * @return ObjectNode with the filters to be used
      */
     public ObjectNode addFilterNode(Category child, Locale locale) {
-        ObjectNode filter = buildCategoryNode(child.getKey(), child.getInfo(locale).getName());
+        ObjectNode filter = buildCategoryNode(child.getKey(), getTaxonomyLabel(child, locale));
         if (!child.getChildren().isEmpty()){
             ArrayNode childrenArray = mapper.createArrayNode();
             for (Category children : child.getChildren()) {
-                childrenArray.add(buildCategoryNode(children.getKey(),children.getInfo(locale).getName()));
+                childrenArray.add(buildCategoryNode(children.getKey(), children.getInfo(locale).getName()));
             }
             filter.set(SUBCATEGORY,childrenArray);
         }
@@ -171,6 +174,10 @@ public class MapService {
                         latitude = dmsNode.get(LATITUDE).asDouble();
                         longitude = dmsNode.get(LONGITUDE).asDouble();
                     }
+                    //TODO add for future iterations
+                    /*if (dmsNode.has(ADDRESS)) {
+                        JsonNode address = dmsNode.get(ADDRESS);
+                     }*/
                 }
             } else if (item instanceof ItineraryExternalLink) {
                 validPoint = true;
@@ -185,8 +192,18 @@ public class MapService {
                 if (description.startsWith("<p>") && description.endsWith("</p>")) {
                     description = description.substring(3, description.length() - 4);
                 }
-                feature.set(PROPERTIES, getPropertyNode(stop.getTitle(), description,
-                        image, category, flatLink, stop.getCanonicalUUID()));
+
+                ObjectNode properties = getPropertyNode(stop.getTitle(), description,
+                        image, category, flatLink, stop.getCanonicalUUID());
+                
+
+                if (stop.getKeys() != null && stop.getKeys().length > 1) {
+                    List<String> listKeys = new ArrayList<>(Arrays.asList(stop.getKeys()));
+                    listKeys.remove(category.get(ID).asText());
+                    addSubcategories(properties, listKeys, locale);
+                }
+
+                feature.set(PROPERTIES, properties);
                 feature.set(GEOMETRY, getGeometryNode(getCoordinates(longitude,latitude),POINT));
             }else{
                 String errorMessage = String.format("Failed to create map card '%s', please review the document attached at: %s", item.getDisplayName(), item.getPath() );
@@ -242,10 +259,11 @@ public class MapService {
      */
     public ObjectNode getPropertyNode(String title, String description, FlatImage image, ObjectNode category, FlatLink link, String id) {
         ObjectNode rootNode = mapper.createObjectNode();
-        rootNode.set("category", category);
+
         rootNode.put(ID, id);
         rootNode.put("title", title);
         rootNode.put(DESCRIPTION, description);
+        rootNode.set(CATEGORY, category);
 
         if (!Contract.isNull(image)){
             rootNode.put("image", !Contract.isNull(image.getCmsImage())? HippoUtilsService.createUrl(image.getCmsImage()) : image.getExternalImage());
@@ -253,9 +271,9 @@ public class MapService {
         if (!Contract.isNull(link)){
             ObjectNode linkNode = mapper.createObjectNode();
             linkNode.put(LABEL, link.getLabel() + " " + title);
-            linkNode.put("link", link.getLink());
+            linkNode.put(LINK, link.getLink());
             linkNode.put(TYPE, link.getType().name());
-            rootNode.set("link", linkNode);
+            rootNode.set(LINK, linkNode);
         }
 
         return rootNode;
@@ -326,12 +344,56 @@ public class MapService {
             feature = mapper.createObjectNode();
             if (bean instanceof Destination) {
                 feature.put(TYPE, FEATURE);
-                buildPageNode(locale, buildCategoryNode(category.getKey(),category.getInfo(locale).getName()), module,((Destination) bean), feature);
+                buildPageNode(locale, buildCategoryNode(category.getKey(), getTaxonomyLabel (category, locale)), module,((Destination) bean), feature);
             } else {
-               boolean valid = buildStopNode(locale, buildCategoryNode(category.getKey(),category.getInfo(locale).getName()),module, ((Stop) bean), feature);
+                buildStopNode(locale, buildCategoryNode(category.getKey(),getTaxonomyLabel (category, locale)),module, ((Stop) bean), feature);
             }
         }
         return feature;
     }
+    /**
+     *
+     * @param locale the locale/language
+     * @param category the category/taxonomy selected
+     *
+     * @return String with the right label for the final user
+     */
+    private String getTaxonomyLabel (Category category, Locale locale){
+        return bundle.getResourceBundle(BESPOKEMAP,category.getKey() ,locale) != null?
+               bundle.getResourceBundle(BESPOKEMAP,category.getKey() ,locale) : category.getInfo(locale).getName();
+    }
 
+    //TODO is this only needed for Outlander? avoid coming if it's the case
+    private void addSubcategories (ObjectNode rootNode, List<String> subcategory, Locale locale) {
+        if (subcategory != null && !subcategory.isEmpty()) {
+            ArrayNode subcategoryArrayNode = mapper.createArrayNode();
+            StringBuilder jsonNodeName = new  StringBuilder();
+            for (String categoryKey : subcategory) {
+                Category mainCategory = hippoUtilsService.getTaxonomy().getCategoryByKey(categoryKey);
+
+                ObjectNode subcategoryNode = mapper.createObjectNode();
+
+                //TODO review sub categories, avoid nulls
+                String nodeLabel = mainCategory.getKey().contains("-")?mainCategory.getKey().split("-", 2)[1] : mainCategory.getKey();
+                subcategoryNode.put(ID, nodeLabel);
+                String categoryLabel = getTaxonomyLabel(mainCategory, locale);
+                if (Contract.isEmpty(jsonNodeName.toString())){
+                    if (!Contract.isEmpty(bundle.getResourceBundle(BESPOKEMAP, mainCategory.getParent().getKey(), locale)))
+                    jsonNodeName.append(bundle.getResourceBundle(BESPOKEMAP, mainCategory.getParent().getKey(), locale));
+                }else{
+                    jsonNodeName.append(",");
+                }
+                jsonNodeName.append(" ").append(categoryLabel.contains(" ")? categoryLabel.split(" ", 2)[1] : categoryLabel);
+                subcategoryNode.put(LABEL,categoryLabel);
+                subcategoryArrayNode.add(subcategoryNode);
+            }
+            String concatenatedSubCategories = jsonNodeName.toString();
+            if (concatenatedSubCategories.contains(",")){
+                concatenatedSubCategories = jsonNodeName.replace(concatenatedSubCategories.lastIndexOf(","), concatenatedSubCategories.lastIndexOf(",") + 1, " &" ).toString();
+            }
+            rootNode.put ("subtitle", concatenatedSubCategories);
+            rootNode.put(SUBCATEGORY, subcategoryArrayNode);
+
+        }
+    }
 }

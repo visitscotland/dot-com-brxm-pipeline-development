@@ -13,24 +13,24 @@
     <#if accordion=true>
         <template>
     <#elseif index = 0>
-        <template slot="navFeaturedItem">
+        <template v-slot:nav-featured-item>
     <#else>
-        <template slot="navFeaturedItemLeft">
+        <template v-slot:nav-featured-item-left>
     </#if>
         <vs-mega-nav-featured-item
             link="${item.link}"
             img-url="${imageSrc}"
             alt="${item.image.altText}"
         >
-            <template slot="vsFeaturedItemHeader">
+            <template v-slot:vs-featured-item-header>
                 ${item.label}
             </template>
 
-            <template slot="vsFeaturedItemContent">
+            <template v-slot:vs-featured-item-content>
                 ${item.teaser}
             </template>
 
-            <template slot="vsFeaturedItemLink">
+            <template v-slot:vs-featured-item-link>
                 ${item.cta}
             </template>
 
