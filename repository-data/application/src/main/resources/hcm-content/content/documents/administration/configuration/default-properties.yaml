@@ -48,14 +48,7 @@
         \ will trigger cleaning any messages  that its last occurrence exceeds the\
         \ retention period", "Retention time for the message in seconds\r\n\r\nContent\
         \ warnings will not be logged again until the retention time expires", '',
-      '', '', '', '', '', '', '', '', '', "Default production Configuration:\r\n\r\
-        \n^/((places-to-go)|(things-to-do)(/[\\w-]+){2,}|(travel-planning)(/[\\w-]+){1,})/?$\r\
-        \n\r\nWhere:\r\n- (places-to-go)  -> Places to go Landing Page (Level 1)\r\
-        \n- (things-to-do)(/[\\w-]+){2,} -> Things to do Section Level 3 or more\r\
-        \n- (travel-planning)(/[\\w-]+){1,} -> Travel planning Section Level 2 or\
-        \ more", "Default Production configuration: \r\n\r\n^(?!/(accommodation|places-to-go)(/|$))(/[\\\
-        w-]+)+(/)?$\r\n\r\nWhere\r\n- (?!/(accommodation|places-to-go)(/|$)) - Negative\
-        \ lookup to exclude urls starting with accommodation or places-to-go", '',
+      '', '', '', '', '', '', '', '', '', '',
       '']
     resourcebundle:id: default.config
     resourcebundle:keys: [instagram.api, helpdesk-email, instagram.accesstoken, instagram.post-url,
@@ -69,8 +62,7 @@
       data-internal.path, global-search.path, global-search.engine-id, content-cache.max-elements,
       content-cache.retention-period, ski.timeout, site.path.global-search, site.path.ski-landing,
       api-data.backend-url, content-cache.enabled, dms.default-distance, site.path.about-us,
-      site.path.icentre-landing, site.path.newsletter, site.path.campaigns, psr.position.general-top-level,
-      psr.position.general-standard, snippet-cache.enable, iknow-module.enabled]
+      site.path.icentre-landing, site.path.newsletter, site.path.campaigns, snippet-cache.enable, iknow-module.enabled]
     resourcebundle:messages: ['https://graph.facebook.com/v9.0/instagram_oembed?url=http://instagr.am/p/',
       helpdesk@visitscotland.com, 0d41c47eaf42b43fe20de05201c798ec, 'https://www.instagram.com/p/',
       UTF-8, $VS_API_KEY, '2000', '3', '60000', 'https://community.visitscotland.com/',
@@ -81,7 +73,7 @@
       'true', 'false', /data/internal, /site-search-results, '12809', '1000', '3600',
       '30000', /site-search-results, /test/examples/snow-sports, 'https://api.visitscotland.com/dev/data/',
       'true', '10.0', /test/examples/about-us, /test/examples/icentres/content, /test/modules/form/content,
-      /test/examples/campaigns, '/sandbox(/.*)?', '/sandbox(/.*)?', 'false', 'false']
+      /test/examples/campaigns, 'false', 'false']
     resourcebundle:messages_de: ['', '', '', '', '', '', '', '', '', '', '', '', '',
       '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
       /de-de/site-search-results, '12812', '', '', '', '', '', '', '', '', '', '',
@@ -112,7 +104,7 @@
     hippostd:transferable: false
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2021-02-05T15:37:26.056Z
-    hippostdpubwf:lastModificationDate: 2023-09-06T15:48:42.198+01:00
+    hippostdpubwf:lastModificationDate: 2023-04-05T15:45:42.320+01:00
     hippostdpubwf:lastModifiedBy: admin
     resourcebundle:descriptions: [URL prefix for Instagram endpoints, '', Client Token
         for Instagram request, '', Encoding for requests made to dms data endpoints,
@@ -147,14 +139,7 @@
         \ will trigger cleaning any messages  that its last occurrence exceeds the\
         \ retention period", "Retention time for the message in seconds\r\n\r\nContent\
         \ warnings will not be logged again until the retention time expires", '',
-      '', '', '', '', '', '', '', '', '', "Default production Configuration:\r\n\r\
-        \n^/((places-to-go)|(things-to-do)(/[\\w-]+){2,}|(travel-planning)(/[\\w-]+){1,})/?$\r\
-        \n\r\nWhere:\r\n- (places-to-go)  -> Places to go Landing Page (Level 1)\r\
-        \n- (things-to-do)(/[\\w-]+){2,} -> Things to do Section Level 3 or more\r\
-        \n- (travel-planning)(/[\\w-]+){1,} -> Travel planning Section Level 2 or\
-        \ more", "Default Production configuration: \r\n\r\n^(?!/(accommodation|places-to-go)(/|$))(/[\\\
-        w-]+)+(/)?$\r\n\r\nWhere\r\n- (?!/(accommodation|places-to-go)(/|$)) - Negative\
-        \ lookup to exclude urls starting with accommodation or places-to-go", '',
+      '', '', '', '', '', '', '', '', '', '',
       '']
     resourcebundle:id: default.config
     resourcebundle:keys: [instagram.api, helpdesk-email, instagram.accesstoken, instagram.post-url,
@@ -168,8 +153,7 @@
       data-internal.path, global-search.path, global-search.engine-id, content-cache.max-elements,
       content-cache.retention-period, ski.timeout, site.path.global-search, site.path.ski-landing,
       api-data.backend-url, content-cache.enabled, dms.default-distance, site.path.about-us,
-      site.path.icentre-landing, site.path.newsletter, site.path.campaigns, psr.position.general-top-level,
-      psr.position.general-standard, snippet-cache.enable, iknow-module.enabled]
+      site.path.icentre-landing, site.path.newsletter, site.path.campaigns, snippet-cache.enable, iknow-module.enabled]
     resourcebundle:messages: ['https://graph.facebook.com/v9.0/instagram_oembed?url=http://instagr.am/p/',
       helpdesk@visitscotland.com, 0d41c47eaf42b43fe20de05201c798ec, 'https://www.instagram.com/p/',
       UTF-8, $VS_API_KEY, '2000', '3', '60000', 'https://community.visitscotland.com/',
@@ -180,7 +164,7 @@
       'true', 'false', /data/internal, /site-search-results, '12809', '1000', '3600',
       '30000', /site-search-results, /test/examples/snow-sports, 'https://api.visitscotland.com/dev/data/',
       'true', '10.0', /test/examples/about-us, /test/examples/icentres/content, /test/modules/form/content,
-      /test/examples/campaigns, '/sandbox(/.*)?', '/sandbox(/.*)?', 'false', 'false']
+      /test/examples/campaigns, 'false', 'false']
     resourcebundle:messages_de: ['', '', '', '', '', '', '', '', '', '', '', '', '',
       '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
       /de-de/site-search-results, '12812', '', '', '', '', '', '', '', '', '', '',
@@ -246,14 +230,7 @@
         \ will trigger cleaning any messages  that its last occurrence exceeds the\
         \ retention period", "Retention time for the message in seconds\r\n\r\nContent\
         \ warnings will not be logged again until the retention time expires", '',
-      '', '', '', '', '', '', '', '', '', "Default production Configuration:\r\n\r\
-        \n^/((places-to-go)|(things-to-do)(/[\\w-]+){2,}|(travel-planning)(/[\\w-]+){1,})/?$\r\
-        \n\r\nWhere:\r\n- (places-to-go)  -> Places to go Landing Page (Level 1)\r\
-        \n- (things-to-do)(/[\\w-]+){2,} -> Things to do Section Level 3 or more\r\
-        \n- (travel-planning)(/[\\w-]+){1,} -> Travel planning Section Level 2 or\
-        \ more", "Default Production configuration: \r\n\r\n^(?!/(accommodation|places-to-go)(/|$))(/[\\\
-        w-]+)+(/)?$\r\n\r\nWhere\r\n- (?!/(accommodation|places-to-go)(/|$)) - Negative\
-        \ lookup to exclude urls starting with accommodation or places-to-go", '',
+      '', '', '', '', '', '', '', '', '', '',
       '']
     resourcebundle:id: default.config
     resourcebundle:keys: [instagram.api, helpdesk-email, instagram.accesstoken, instagram.post-url,
@@ -267,8 +244,7 @@
       data-internal.path, global-search.path, global-search.engine-id, content-cache.max-elements,
       content-cache.retention-period, ski.timeout, site.path.global-search, site.path.ski-landing,
       api-data.backend-url, content-cache.enabled, dms.default-distance, site.path.about-us,
-      site.path.icentre-landing, site.path.newsletter, site.path.campaigns, psr.position.general-top-level,
-      psr.position.general-standard, snippet-cache.enable, iknow-module.enabled]
+      site.path.icentre-landing, site.path.newsletter, site.path.campaigns, snippet-cache.enable, iknow-module.enabled]
     resourcebundle:messages: ['https://graph.facebook.com/v9.0/instagram_oembed?url=http://instagr.am/p/',
       helpdesk@visitscotland.com, 0d41c47eaf42b43fe20de05201c798ec, 'https://www.instagram.com/p/',
       UTF-8, $VS_API_KEY, '2000', '3', '60000', 'https://community.visitscotland.com/',
@@ -279,7 +255,7 @@
       'true', 'false', /data/internal, /site-search-results, '12809', '1000', '3600',
       '30000', /site-search-results, /test/examples/snow-sports, 'https://api.visitscotland.com/dev/data/',
       'true', '10.0', /test/examples/about-us, /test/examples/icentres/content, /test/modules/form/content,
-      /test/examples/campaigns, '/sandbox(/.*)?', '/sandbox(/.*)?', 'false', 'false']
+      /test/examples/campaigns, 'false', 'false']
     resourcebundle:messages_de: ['', '', '', '', '', '', '', '', '', '', '', '', '',
       '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
       /de-de/site-search-results, '12812', '', '', '', '', '', '', '', '', '', '',
