@@ -111,19 +111,21 @@
             </template>
 
             <template v-slot:vs-intro-heading>
-                <#if blog?? & blog?has_content>
-                    <template>
-                        <vs-blog-details
-                            v-slot:vs-blog-data
-                            blog-author="${blog.authorName}"
-                            blog-publish-date="${blog.publishDate}"
-                            blog-read-time="${blog.readingTime}"
-                        ></vs-blog-details>
-                    </template>
-                </#if>
-
                 ${content.title}
             </template>
+
+            
+            <#if blog?? & blog?has_content>
+                <template
+                    v-slot:vs-blog-data
+                >
+                    <vs-blog-details
+                        blog-author="${blog.authorName}"
+                        blog-publish-date="${blog.publishDate}"
+                        blog-read-time="${blog.readingTime}"
+                    ></vs-blog-details>
+                </template>
+            </#if>
 
             <template v-slot:vs-share-button>
                 <@socialShare nojs=false />

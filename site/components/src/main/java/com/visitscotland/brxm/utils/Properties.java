@@ -67,11 +67,7 @@ public class Properties {
     private static final String PATH_NEWSLETTER = "site.path.newsletter";
     private static final String PATH_ICENTRE = "site.path.icentre-landing";
 
-    // Components references
-    private static final String PSR_POSITION_TOP_LEVEL = "psr.position.general-top-level";
-    private static final String PSR_POSITION_GENERAL_STANDARD = "psr.position.general-standard";
-
-    //Modules References
+   //Modules References
     static final String ENABLE_IKNOW_MODULE = "iknow-module.enabled";
 
 
@@ -211,13 +207,6 @@ public class Properties {
 
     public String getSiteICentre() {
         return readString(PATH_ICENTRE);
-    }
-
-    public String getPsrPositionGeneralStandard(){
-        return readString(PSR_POSITION_GENERAL_STANDARD);
-    }
-    public String getPsrPositionTopLevel(){
-        return readString(PSR_POSITION_TOP_LEVEL);
     }
 
     public Integer getContentCacheRetention() {

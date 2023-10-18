@@ -8294,12 +8294,12 @@
           jcr:mixinTypes: ['mix:referenceable']
           jcr:uuid: 16aee119-1f2d-46b1-8cd1-9ae02c824fb4
           hippo:availability: []
+          hippostd:holder: admin
           hippostd:retainable: false
           hippostd:state: draft
-          hippostd:transferable: false
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2022-09-23T11:10:37.268+01:00
-          hippostdpubwf:lastModificationDate: 2022-10-03T16:19:27.395+01:00
+          hippostdpubwf:lastModificationDate: 2023-10-04T14:57:57.755+01:00
           hippostdpubwf:lastModifiedBy: admin
           hippotranslation:id: 8c8b0230-5cef-43a7-a24a-6a5a0abdb85a
           hippotranslation:locale: en
@@ -8741,6 +8741,100 @@
               visitscotland:productType: acti,attr,reta
               visitscotland:producttype: ''
               visitscotland:safeTravels: false
+      /megalinks:
+        jcr:primaryType: hippo:handle
+        jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+        jcr:uuid: fa905dd5-ffab-4af1-8639-0da99bc08a71
+        hippo:name: Megalinks
+        hippo:versionHistory: e625a6e3-91df-4714-ba5e-8da7efeb83ec
+        /megalinks[1]:
+          jcr:primaryType: visitscotland:Megalinks
+          jcr:mixinTypes: ['mix:referenceable']
+          jcr:uuid: e133a276-f479-4403-803e-66ce84759dda
+          hippo:availability: []
+          hippostd:retainable: false
+          hippostd:state: draft
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2023-10-04T14:58:31.458+01:00
+          hippostdpubwf:lastModificationDate: 2023-10-04T14:58:31.458+01:00
+          hippostdpubwf:lastModifiedBy: admin
+          hippotranslation:id: ff2038a4-f589-48bf-bf7a-43039324fdfc
+          hippotranslation:locale: en
+          visitscotland:layout: Default
+          visitscotland:teaserVisible: true
+          visitscotland:title: ''
+          visitscotland:translation: ''
+          /visitscotland:megalinkItems:
+            jcr:primaryType: visitscotland:MegalinkItem
+            visitscotland:feature: false
+            /visitscotland:links:
+              jcr:primaryType: hippo:mirror
+              hippo:docbase: 17a3588b-6cee-439b-acd8-186ceb2067aa
+          /visitscotland:personalization:
+            jcr:primaryType: visitscotland:Personalization
+            visitscotland:id: United States Of America
+            /visitscotland:module:
+              jcr:primaryType: hippo:mirror
+              hippo:docbase: 1a46f104-2665-4150-8623-4b77c1632729
+        /megalinks[2]:
+          jcr:primaryType: visitscotland:Megalinks
+          jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+          jcr:uuid: 9bed3f5a-3a4b-4303-84ae-d6e8a10472fb
+          hippo:availability: [preview]
+          hippostd:retainable: false
+          hippostd:state: unpublished
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2023-10-04T14:58:31.458+01:00
+          hippostdpubwf:lastModificationDate: 2023-10-04T14:59:05.586+01:00
+          hippostdpubwf:lastModifiedBy: admin
+          hippotranslation:id: ff2038a4-f589-48bf-bf7a-43039324fdfc
+          hippotranslation:locale: en
+          visitscotland:layout: Default
+          visitscotland:teaserVisible: true
+          visitscotland:title: ''
+          visitscotland:translation: ''
+          /visitscotland:megalinkItems:
+            jcr:primaryType: visitscotland:MegalinkItem
+            visitscotland:feature: false
+            /visitscotland:links:
+              jcr:primaryType: hippo:mirror
+              hippo:docbase: 17a3588b-6cee-439b-acd8-186ceb2067aa
+          /visitscotland:personalization:
+            jcr:primaryType: visitscotland:Personalization
+            visitscotland:id: United States Of America
+            /visitscotland:module:
+              jcr:primaryType: hippo:mirror
+              hippo:docbase: 1a46f104-2665-4150-8623-4b77c1632729
+        /megalinks[3]:
+          jcr:primaryType: visitscotland:Megalinks
+          jcr:mixinTypes: ['mix:referenceable']
+          jcr:uuid: 06320b95-f5ba-4091-8a69-20627d542952
+          hippo:availability: [live]
+          hippostd:retainable: false
+          hippostd:state: published
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2023-10-04T14:58:31.458+01:00
+          hippostdpubwf:lastModificationDate: 2023-10-04T14:59:05.586+01:00
+          hippostdpubwf:lastModifiedBy: admin
+          hippostdpubwf:publicationDate: 2023-10-04T14:59:15.925+01:00
+          hippotranslation:id: ff2038a4-f589-48bf-bf7a-43039324fdfc
+          hippotranslation:locale: en
+          visitscotland:layout: Default
+          visitscotland:teaserVisible: true
+          visitscotland:title: ''
+          visitscotland:translation: ''
+          /visitscotland:megalinkItems:
+            jcr:primaryType: visitscotland:MegalinkItem
+            visitscotland:feature: false
+            /visitscotland:links:
+              jcr:primaryType: hippo:mirror
+              hippo:docbase: 17a3588b-6cee-439b-acd8-186ceb2067aa
+          /visitscotland:personalization:
+            jcr:primaryType: visitscotland:Personalization
+            visitscotland:id: United States Of America
+            /visitscotland:module:
+              jcr:primaryType: hippo:mirror
+              hippo:docbase: 1a46f104-2665-4150-8623-4b77c1632729
     /general-simple:
       jcr:primaryType: hippostd:folder
       jcr:mixinTypes: ['hippo:named', 'hippotranslation:translated', 'mix:versionable']
@@ -8762,6 +8856,7 @@
           hippo:availability: []
           hippostd:retainable: false
           hippostd:state: draft
+          hippostd:transferable: false
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2021-05-24T12:32:03.187+01:00
           hippostdpubwf:lastModificationDate: 2021-06-25T14:54:10.831+01:00

@@ -101,7 +101,9 @@
                                                 size="xs"
                                                 class="mr-2"
                                             ></vs-icon>
-                                            ${module.phone}
+                                            <span>
+                                                ${module.phone}
+                                            </span>
                                         </li>
                                     </#if>
                                     <#if module.website.link??>
@@ -126,7 +128,9 @@
                                                 size="xs"
                                                 class="mr-2"
                                             ></vs-icon>
-                                            <@address module.address true />
+                                            <span>
+                                                <@address module.address true />
+                                            </span>
                                         </li>
                                     </#if>
                                     <#if module.pisteMap??>

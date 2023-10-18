@@ -180,7 +180,7 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
         if (request.getAttribute(DOCUMENT) instanceof Page) {
             return (T) request.getAttribute(DOCUMENT);
         } else {
-            logger.error("The main document is not an instance of Page.", new ClassCastException());
+            logger.error("The main document is not an instance of Page. Requested URL = {}", request.getRequestURI(), new ClassCastException());
             return null;
         }
     }
