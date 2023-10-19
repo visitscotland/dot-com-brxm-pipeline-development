@@ -1,5 +1,15 @@
 {
+  "scripts": {
+    "commit": "cz"
+  },
   "dependencies": {
+    "commitizen": "^4.3.0",
+    "cz-conventional-changelog": "^3.3.0",
     "moxios": "^0.4.0"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
   }
 }
