@@ -17,9 +17,11 @@
         <@headContributions />
     </head>
     <body>
-        <@gtm noscript=true />
-        <@skeleton />
-        <@personalisation />
+        <#if !hstRequestContext.isPreview()>
+            <@gtm noscript=true />
+            <@skeleton />
+            <@personalisation />
+        </#if>
         <div data-vue-hydration-init><div class="no-js" data-vue-app-init>
             <@hst.include ref="top"/>
 

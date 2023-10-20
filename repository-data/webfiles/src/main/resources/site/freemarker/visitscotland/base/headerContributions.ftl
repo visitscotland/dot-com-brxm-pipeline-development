@@ -31,7 +31,9 @@
         <link rel="apple-touch-icon" href="<@hst.webfile path="/assets/favicons/apple-touch-icon-180-180.svg"/>">
         <link rel="manifest" href="<@hst.link path="manifest.webmanifest"/>">
 
-        <link rel="preconnect" href="https://cdn4.userzoom.com">
+        <#if !hstRequestContext.isPreview()>
+            <link rel="preconnect" href="https://cdn4.userzoom.com">
+        </#if>
         <link rel="preconnect" href="https://api.visitscotland.com">
         <link rel="preconnect" href="https://www.visitscotland.com">
 
