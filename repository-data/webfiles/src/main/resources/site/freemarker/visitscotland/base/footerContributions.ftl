@@ -26,7 +26,7 @@
 
 
         <link rel="stylesheet" href="<@hst.webfile path='/assets/css/fouc.css'/>" type="text/css"/>
-        <#if !hstRequestContext.isPreview()>
+        <#if (!hstRequest.requestContext.preview && !hstRequest.requestContext.channelManagerPreviewRequest) >
             <link rel="stylesheet" href="<@hst.webfile path='/assets/css/personalisation.css'/>" type="text/css"/>
         </#if>
     </#compress>

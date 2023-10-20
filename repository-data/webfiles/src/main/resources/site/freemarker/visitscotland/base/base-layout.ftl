@@ -17,7 +17,7 @@
         <@headContributions />
     </head>
     <body>
-        <#if !hstRequestContext.isPreview()>
+        <#if (!hstRequest.requestContext.preview && !hstRequest.requestContext.channelManagerPreviewRequest) >
             <@gtm noscript=true />
             <@skeleton />
             <@personalisation />
