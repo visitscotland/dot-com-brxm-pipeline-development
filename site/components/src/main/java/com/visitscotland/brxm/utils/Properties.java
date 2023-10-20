@@ -69,6 +69,7 @@ public class Properties {
 
    //Modules References
     static final String ENABLE_IKNOW_MODULE = "iknow-module.enabled";
+    static final String MAP_MULTIPOLYGONS = "map.multipolygon.regions";
 
 
     private final ResourceBundleService bundle;
@@ -208,6 +209,11 @@ public class Properties {
     public String getSiteICentre() {
         return readString(PATH_ICENTRE);
     }
+
+    public String getMapMultipolygons() {
+        return readString(MAP_MULTIPOLYGONS);
+    }
+
 
     public Integer getContentCacheRetention() {
         //Note that the retention period is defined in seconds and java.util.Date measures the time in seconds
