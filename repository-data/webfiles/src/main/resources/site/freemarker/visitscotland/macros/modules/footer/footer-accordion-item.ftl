@@ -5,6 +5,7 @@
 <#include "../../../../frontend/components/vs-list.ftl">
 
 <#macro footerAccordionItem footerMenuItems>
+    <@hst.cmseditmenu menu=menu/>
     <#list footerMenuItems as menuItem>
         <vs-col cols="12" md="4" lg="3">
             <#if menuItem.title?has_content>
