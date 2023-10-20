@@ -188,11 +188,8 @@ public class MapFactory {
             }
         }else{
             module.setMapType(MapType.REGIONAL.getMapType());
-            geometryNode = dmsDataService.getLocationBorders(location.getId(),true);
-            //for multipolygon regions we need the bounds, if geometryNode is empty means it is not a polygon
-            if (geometryNode == null || geometryNode.isEmpty()) {
-                geometryNode = dmsDataService.getLocationBorders(location.getId(),false);
-            }
+            //for multipolygon regions we need the bounds to get the zoom level.
+            geometryNode = dmsDataService.getLocationBorders(location.getId(), !bundle.getResourceBundle("default.config","map.multipolygon.regions",Locale.ENGLISH).contains(location.getId()));
 
             for (RegionsMapTab regionMap: RegionsMapTab.values()) {
                 buildDMSMapPages(regionMap, module, keys, features, locale, destinationPage);
