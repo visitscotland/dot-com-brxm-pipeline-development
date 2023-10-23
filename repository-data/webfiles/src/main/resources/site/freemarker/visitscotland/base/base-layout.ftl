@@ -9,7 +9,7 @@
 
 <html data-version="${version}" lang="${locale}">
     <head>
-        <#if hstRequest.requestContext.channelManagerPreviewRequest>
+        <#if hstRequestContext.channelManagerPreviewRequest>
             <link rel="stylesheet" href="<@hst.webfile path='/assets/css/cms-request.css'/>" type="text/css"/>
         </#if>
         <meta charset="utf-8"/>
