@@ -5,6 +5,7 @@
 <#include "../macros/global/personalisation.ftl">
 <#include "headerContributions.ftl">
 <#include "footerContributions.ftl">
+<#-- @ftlvariable name="hstRequestContext" type="org.hippoecm.hst.core.request.HstRequestContext" -->
 
 <html data-version="${version}" lang="${locale}">
     <head>
@@ -17,9 +18,9 @@
         <@headContributions />
     </head>
     <body>
-        <@log "hstRequest.requestContext.preview: " + hstRequest.requestContext.preview  />
-        <@log "hstRequest.requestContext.channelManagerPreviewRequest: " + hstRequest.requestContext.channelManagerPreviewRequest  />
-        <#if (!hstRequest.requestContext.preview && !hstRequest.requestContext.channelManagerPreviewRequest) >
+        <@log "hstRequest.requestContext.preview: " + hstRequestContext.preview  />
+        <@log "hstRequest.requestContext.channelManagerPreviewRequest: " + hstRequestContext.channelManagerPreviewRequest  />
+        <#if (!hstRequestContext.preview && !hstRequestContext.channelManagerPreviewRequest) >
             <@gtm noscript=true />
             <@skeleton />
             <@personalisation />
