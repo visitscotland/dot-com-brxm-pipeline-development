@@ -17,6 +17,8 @@
         <@headContributions />
     </head>
     <body>
+        <@log "hstRequest.requestContext.preview: " + hstRequest.requestContext.preview  />
+        <@log "hstRequest.requestContext.channelManagerPreviewRequest: " + hstRequest.requestContext.channelManagerPreviewRequest  />
         <#if (!hstRequest.requestContext.preview && !hstRequest.requestContext.channelManagerPreviewRequest) >
             <@gtm noscript=true />
             <@skeleton />
