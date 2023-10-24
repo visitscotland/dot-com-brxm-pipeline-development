@@ -1,4 +1,3 @@
-<#include "../../../../frontend/components/b-tab.ftl">
 <#include "../../../../frontend/components/vs-tab-item.ftl">
 <#include "../../../../frontend/components/vs-accordion.ftl">
 <#include "../../../../frontend/components/vs-accordion-item.ftl">
