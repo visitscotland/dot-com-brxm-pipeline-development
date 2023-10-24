@@ -20,11 +20,10 @@
     <body>
         <@log "hstRequest.requestContext.preview: " + hstRequestContext.preview?string("yes", "no")  />
         <@log "editMode: " + editMode?string("yes", "no") />
-        <#if (!editMode) >
+
             <@gtm noscript=true />
             <@skeleton />
             <@personalisation />
-        </#if>
         <div data-vue-hydration-init><div class="no-js" data-vue-app-init>
             <@hst.include ref="top"/>
 
