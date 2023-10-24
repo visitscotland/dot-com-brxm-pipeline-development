@@ -67,6 +67,8 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
         super.doBeforeRender(request, response);
         if (request.getRequestContext().isPreview() || request.getRequestContext().isChannelManagerPreviewRequest()){
             request.setAttribute(PREVIEW_MODE, true);
+        }else{
+            request.setAttribute(PREVIEW_MODE, false);
         }
 
         addHeroImage(request);
