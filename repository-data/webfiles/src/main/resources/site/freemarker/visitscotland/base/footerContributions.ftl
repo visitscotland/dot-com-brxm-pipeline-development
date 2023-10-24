@@ -1,4 +1,3 @@
-<#-- @ftlvariable name="hstRequestContext" type="org.hippoecm.hst.core.request.HstRequestContext" -->
 <#macro footerContributions integration=false>
     <#compress>
         <#if !integration>
@@ -26,7 +25,7 @@
 
 
         <link rel="stylesheet" href="<@hst.webfile path='/assets/css/fouc.css'/>" type="text/css"/>
-        <#if (!hstRequest.requestContext.preview && !hstRequest.requestContext.channelManagerPreviewRequest) >
+        <#if (!previewMode) >
             <link rel="stylesheet" href="<@hst.webfile path='/assets/css/personalisation.css'/>" type="text/css"/>
         </#if>
     </#compress>

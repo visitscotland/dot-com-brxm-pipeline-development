@@ -21,7 +21,7 @@
         </template>
     </vs-mega-nav>
 
-    <#if (!hstRequest.requestContext.preview && !hstRequest.requestContext.channelManagerPreviewRequest) >
+    <#if (!previewMode) >
         <@hst.headContribution category="htmlHeadStyles">
             <link rel="stylesheet" href="<@hst.webfile path='/frontend/styles/third-party/_cludo-autocomplete.css'/>" type="text/css"/>
         </@hst.headContribution>
