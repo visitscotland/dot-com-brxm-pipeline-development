@@ -5,10 +5,11 @@
 <#include "../macros/global/personalisation.ftl">
 <#include "headerContributions.ftl">
 <#include "footerContributions.ftl">
+<#-- @ftlvariable name="hstRequestContext" type="org.hippoecm.hst.core.request.HstRequestContext" -->
 
 <html data-version="${version}" lang="${locale}">
     <head>
-        <#if previewMode>
+        <#if hstRequestContext.channelManagerPreviewRequest>
             <link rel="stylesheet" href="<@hst.webfile path='/assets/css/cms-request.css'/>" type="text/css"/>
         </#if>
         <meta charset="utf-8"/>
@@ -17,8 +18,9 @@
         <@headContributions />
     </head>
     <body>
-        <@log "hstRequest.requestContext.previewMode: " + previewMode  />
-        <#if (!previewMode) >
+        <@log "hstRequest.requestContext.preview: " + hstRequestContext.preview?string("yes", "no")  />
+        <@log "editMode: " + editMode?string("yes", "no") />
+        <#if (!editMode) >
             <@gtm noscript=true />
             <@skeleton />
             <@personalisation />
