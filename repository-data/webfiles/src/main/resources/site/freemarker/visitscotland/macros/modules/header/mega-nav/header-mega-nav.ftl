@@ -11,6 +11,7 @@
             search-label-text="${label('search', 'search-label')}"
             search-clear-button-text="${label('search', 'clear-form')}"
             search-close-button-text="${label('search', 'close-form')}"
+            logo-alt-text="${label('navigation.static', 'meganav.logo-alt-text')}"
     >
         <template v-slot:mega-nav-top-menu-items>
             <@headerDesktopNav menu=menu/>
