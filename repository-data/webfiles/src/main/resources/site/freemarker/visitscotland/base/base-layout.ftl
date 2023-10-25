@@ -18,12 +18,9 @@
         <@headContributions />
     </head>
     <body>
-        <@log "hstRequest.requestContext.preview: " + hstRequestContext.preview?string("yes", "no")  />
-        <@log "editMode: " + editMode?string("yes", "no") />
-
-            <@gtm noscript=true />
-            <@skeleton />
-            <@personalisation />
+        <@gtm noscript=true />
+        <@skeleton />
+        <@personalisation />
         <div data-vue-hydration-init><div class="no-js" data-vue-app-init>
             <@hst.include ref="top"/>
 
