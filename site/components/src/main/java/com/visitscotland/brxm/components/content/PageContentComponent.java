@@ -38,8 +38,6 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
     public static final String PSR_WIDGET = "psrWidget";
 
     public static final String SEARCH_RESULTS = "searchResultsPage";
-    public static final String PREVIEW_MODE = "previewMode";
-
     private final BlogFactory blogFactory;
     private final MegalinkFactory megalinkFactory;
     private final ImageFactory imageFactory;
@@ -65,11 +63,6 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
     @Override
     public void doBeforeRender(HstRequest request, HstResponse response) {
         super.doBeforeRender(request, response);
-        if (request.getRequestContext().isPreview() || request.getRequestContext().isChannelManagerPreviewRequest()){
-            request.setAttribute(PREVIEW_MODE, true);
-        }else{
-            request.setAttribute(PREVIEW_MODE, false);
-        }
 
         addHeroImage(request);
 

@@ -25,8 +25,6 @@
 
 
         <link rel="stylesheet" href="<@hst.webfile path='/assets/css/fouc.css'/>" type="text/css"/>
-        <#if (!previewMode) >
-            <link rel="stylesheet" href="<@hst.webfile path='/assets/css/personalisation.css'/>" type="text/css"/>
-        </#if>
+        <link rel="stylesheet" href="<@hst.webfile path='/assets/css/personalisation.css'/>" type="text/css"/>
     </#compress>
 </#macro>
