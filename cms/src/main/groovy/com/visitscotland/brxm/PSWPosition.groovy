@@ -21,41 +21,40 @@ import java.util.regex.Pattern
 class PSWPosition extends BaseNodeUpdateVisitor {
 
 
-    def STANDARD_REGEX = "^(?!/(accommodation|places-to-go)(/|\$))(/[\\w-]+)+(/)?\$"
-    def TOP_LEVEL_REGEX = "^(/..-..)?/(()|(places-to-go)|(ux-testing)|(inspiration/island-hopping)|(things-to-do)((/(research-your-ancestry|passes-offers|itineraries))|(/[\\w-]+){2,})|travel-planning((?!/(getting-around|travelling-to-scotland)(/|\$))(/[\\w-]+)+|/travelling-to-scotland(/[\\w-]+)+|/getting-around((?!/(driving)(/|\$))(/[\\w-]+)+|/driving(/[\\w-]+)+)))/?\$"
-    def BASE_NODE = "/visitscotland/"
+    def STANDARD_REGEX = "^(?!/(test|places-to-go)(/|\$))(/[\\w-]+)+(/)?\$"
+    def TOP_LEVEL_REGEX = "^(/..-..)?/(()|(test)|(ux-testing)|(inspiration/island-hopping)|(things-to-do)((/(research-your-ancestry|passes-offers|itineraries))|(/[\\w-]+){2,})|travel-planning((?!/(getting-around|travelling-to-scotland)(/|\$))(/[\\w-]+)+|/travelling-to-scotland(/[\\w-]+)+|/getting-around((?!/(driving)(/|\$))(/[\\w-]+)+|/driving(/[\\w-]+)+)))/?\$"
+    def BASE_NODE = "/site/"
 
     @Override
     boolean doUpdate(Node node) {
-        applyRule(node.session, "Top-Level", TOP_LEVEL_REGEX)
-        applyRule(node.session, "Standard", STANDARD_REGEX)
-        applyRule(node.session, "Simple", "^\$")
+        applyRule(node.session, "Top-Level", TOP_LEVEL_REGEX, "Bottom", "Default")
+        applyRule(node.session, "Standard", STANDARD_REGEX, "Bottom", "Default")
+        applyRule(node.session, "Simple", "^\$", "Default", "Default")
         return true
     }
 
-    void applyRule(session, pageType, regex){
-        log.info "Processing ${pageType} Pages"
+    void applyRule(session, pageType, regex, vMatch, vNoMatch){
         NodeIterator it = query(session,"//content/documents//element(*, visitscotland:General)[visitscotland:theme = \"${pageType}\"]")
         def pattern = Pattern.compile(regex)
         int counter = 0
 
-
         while (it.hasNext()){
             Node n = it.next()
             int start_substring = n.path.indexOf(BASE_NODE) + BASE_NODE.length() - 1
-            if (!n.hasProperty("visitscotland:pswPosition") || n.getProperty("visitscotland:pswPosition").string == "Default") {
+            if (n.path.indexOf("/content/content") > 0) {
                 String path = n.path.substring(start_substring, n.path.indexOf("/content/content"))
                 def matcher = path =~ pattern
-                n.setProperty("visitscotland:pswPosition", matcher.find()?"Top":"Default")
-                log.info "Path = ${path}, Position = ${matcher.find()?"Top":"Default"}"
-            } else{
-                counter++
+                String position = matcher.find()?vMatch:vNoMatch
+                n.setProperty("visitscotland:pswPosition", position)
+                log.info "Path = ${path}, Position = ${position} (${pageType})"
+            } else {
+                log.info "The following document could not be processed ${n.path}"
             }
         }
 
-        if (counter > 0) {
-            log.info "A total of ${counter} ${pageType} pages have been skipped"
-        }
+
+        log.info "A total of ${counter} ${pageType} pages have been skipped"
+
     }
 
     /**
@@ -65,7 +64,7 @@ class PSWPosition extends BaseNodeUpdateVisitor {
      * @return
      */
     NodeIterator query(def session, def query){
-        QueryResult results = ((HippoWorkspace) session.getWorkspace()).getQueryManager().createQuery(query, Query.XPATH).execute()
+        QueryResult results = ((HippoWorkspace) session.getWorkspace()).getQueryManager().createQuery(query, Query.XPATH).execute();
         if (!results.getNodes().hasNext()){
             log.warn "No query results for ${query}"
         } else {
