@@ -128,7 +128,7 @@ public class MapFactory {
             module.setMapType(vsTaxonomyTree.getCategoryByKey(taxonomy).getKey());
             for (Category mainCategory : vsTaxonomyTree.getCategoryByKey(taxonomy).getChildren()) {
                 keys.add(mapService.addFilterNode(mainCategory, request.getLocale()));
-                //if the map has 2 levels, the parent wont be a category for the mapcards, so pick sons
+                //if the map has 2 levels, the parent won't be a category for the mapcards, so pick sons
                 if (!mainCategory.getChildren().isEmpty()) {
                     for(Category child : mainCategory.getChildren()){
                         //find all the documents with a taxonomy/category
@@ -188,11 +188,8 @@ public class MapFactory {
             }
         }else{
             module.setMapType(MapType.REGIONAL.getMapType());
-            geometryNode = dmsDataService.getLocationBorders(location.getId(),false);
-            //for multipolygon regions we need the bounds, if geometryNode is empty means it is a polygon
-            if (geometryNode == null || geometryNode.isEmpty()) {
-                geometryNode = dmsDataService.getLocationBorders(location.getId(),true);
-            }
+            //for multipolygon regions we need the bounds to get the zoom level.
+            geometryNode = dmsDataService.getLocationBorders(location.getId(), !propertiesService.getMapMultipolygons().contains(location.getId()));
 
             for (RegionsMapTab regionMap: RegionsMapTab.values()) {
                 buildDMSMapPages(regionMap, module, keys, features, locale, destinationPage);
