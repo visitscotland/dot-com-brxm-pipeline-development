@@ -1,4 +1,5 @@
 <#macro personalisation>
+    <#if (!editMode) >
     <@hst.headContribution category="htmlBodyEndScripts">
         <!-- Marketo RTP tag --> 
         <script type='text/javascript'>
@@ -35,4 +36,5 @@
             rtp('get', 'visitor', callbackFunction);
         </script>
     </@hst.headContribution>
+    </#if>
 </#macro>
