@@ -3,7 +3,7 @@
   jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
   jcr:uuid: 0c11ad86-1ffe-469f-a02c-ef78a166ef4d
   hippo:name: Carbon Calculator
-  hippo:versionHistory: c528cedb-2fd3-48e7-9925-ea328b7f59f3
+  hippo:versionHistory: fd98a829-8c17-4d2b-96f5-1a7eb6893762
   /carbon-calculator[1]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:referenceable']
@@ -13,12 +13,12 @@
     hippostd:state: draft
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2023-08-09T17:31:48.480+01:00
-    hippostdpubwf:lastModificationDate: 2023-09-26T16:27:29.460+01:00
+    hippostdpubwf:lastModificationDate: 2023-11-03T13:13:03.827Z
     hippostdpubwf:lastModifiedBy: admin
     resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '', '', '', '',
       '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
       '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
-      '']
+      '', '']
     resourcebundle:id: carbon-calculator
     resourcebundle:keys: [next, previous, results, resultsIntro, chartTitle, comparison,
       kilos, begin, introHeading, introContent, perDayTarget, perDaySuccess, topTip,
@@ -28,7 +28,7 @@
       page-1.option-7, page-1.option-8, page-1.option-9, page-1.option-10, page-1.option-11,
       page-1.option-12, page-2.question, page-3.question, page-4.question, page-4.option-1,
       page-4.option-2, page-4.option-3, page-4.option-4, page-4.option-5, page-4.option-6,
-      page-4.hint, form-url, formUrl, noJsMessage]
+      page-4.hint, form-url, formUrl, noJsMessage, progress]
     resourcebundle:messages: [Next, Previous, Results, Your estimated total carbon
         emission for your trip is, Your emissions breakdown, 'That''s the equivalent
         of xxx kms in a medium-sized petrol car, which would take you from Edinburgh
@@ -50,22 +50,31 @@
         5 times a week, moderate meat eater: 3 times a week, infrequent meat eater:
         1 - 2 times a week', 'https://static.visitscotland.com/forms/carbon-calculator/carbon-calculator-fields.json',
       'https://static.visitscotland.com/forms/carbon-calculator/carbon-calculator-fields.json',
-      You need Javascript enabled to use this calculator]
+      You need Javascript enabled to use this calculator, Step xxx of yyy]
     resourcebundle:messages_de: ['', '', '', '', '', '', '', '', '', '', '', '', '',
       '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
-      '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '']
+      '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
+      '']
     resourcebundle:messages_es: ['', '', '', '', '', '', '', '', '', '', '', '', '',
       '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
-      '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '']
+      '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
+      '']
     resourcebundle:messages_fr: ['', '', '', '', '', '', '', '', '', '', '', '', '',
       '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
-      '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '']
+      '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
+      '']
     resourcebundle:messages_it: ['', '', '', '', '', '', '', '', '', '', '', '', '',
       '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
-      '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '']
+      '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
+      '']
     resourcebundle:messages_nl: ['', '', '', '', '', '', '', '', '', '', '', '', '',
       '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
-      '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '']
+      '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
+      '']
+    resourcebundle:messages_progress: ['', '', '', '', '', '', '', '', '', '', '',
+      '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
+      '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
+      '', '', '']
   /carbon-calculator[2]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
@@ -75,12 +84,12 @@
     hippostd:state: unpublished
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2023-08-09T17:31:48.480+01:00
-    hippostdpubwf:lastModificationDate: 2023-09-26T16:28:44.112+01:00
+    hippostdpubwf:lastModificationDate: 2023-11-03T13:15:35.947Z
     hippostdpubwf:lastModifiedBy: admin
     resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '', '', '', '',
       '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
       '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
-      '']
+      '', '']
     resourcebundle:id: carbon-calculator
     resourcebundle:keys: [next, previous, results, resultsIntro, chartTitle, comparison,
       kilos, begin, introHeading, introContent, perDayTarget, perDaySuccess, topTip,
@@ -90,7 +99,7 @@
       page-1.option-7, page-1.option-8, page-1.option-9, page-1.option-10, page-1.option-11,
       page-1.option-12, page-2.question, page-3.question, page-4.question, page-4.option-1,
       page-4.option-2, page-4.option-3, page-4.option-4, page-4.option-5, page-4.option-6,
-      page-4.hint, form-url, formUrl, noJsMessage]
+      page-4.hint, form-url, formUrl, noJsMessage, progress]
     resourcebundle:messages: [Next, Previous, Results, Your estimated total carbon
         emission for your trip is, Your emissions breakdown, 'That''s the equivalent
         of xxx kms in a medium-sized petrol car, which would take you from Edinburgh
@@ -112,22 +121,31 @@
         5 times a week, moderate meat eater: 3 times a week, infrequent meat eater:
         1 - 2 times a week', 'https://static.visitscotland.com/forms/carbon-calculator/carbon-calculator-fields.json',
       'https://static.visitscotland.com/forms/carbon-calculator/carbon-calculator-fields.json',
-      You need Javascript enabled to use this calculator]
+      You need Javascript enabled to use this calculator, Step xxx of yyy]
     resourcebundle:messages_de: ['', '', '', '', '', '', '', '', '', '', '', '', '',
       '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
-      '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '']
+      '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
+      '']
     resourcebundle:messages_es: ['', '', '', '', '', '', '', '', '', '', '', '', '',
       '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
-      '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '']
+      '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
+      '']
     resourcebundle:messages_fr: ['', '', '', '', '', '', '', '', '', '', '', '', '',
       '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
-      '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '']
+      '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
+      '']
     resourcebundle:messages_it: ['', '', '', '', '', '', '', '', '', '', '', '', '',
       '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
-      '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '']
+      '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
+      '']
     resourcebundle:messages_nl: ['', '', '', '', '', '', '', '', '', '', '', '', '',
       '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
-      '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '']
+      '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
+      '']
+    resourcebundle:messages_progress: ['', '', '', '', '', '', '', '', '', '', '',
+      '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
+      '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
+      '', '', '']
   /carbon-calculator[3]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:referenceable']
@@ -137,13 +155,13 @@
     hippostd:state: published
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2023-08-09T17:31:48.480+01:00
-    hippostdpubwf:lastModificationDate: 2023-09-26T16:28:44.112+01:00
+    hippostdpubwf:lastModificationDate: 2023-11-03T13:15:35.947Z
     hippostdpubwf:lastModifiedBy: admin
-    hippostdpubwf:publicationDate: 2023-09-26T16:28:47.816+01:00
+    hippostdpubwf:publicationDate: 2023-11-03T13:15:46.483Z
     resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '', '', '', '',
       '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
       '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
-      '']
+      '', '']
     resourcebundle:id: carbon-calculator
     resourcebundle:keys: [next, previous, results, resultsIntro, chartTitle, comparison,
       kilos, begin, introHeading, introContent, perDayTarget, perDaySuccess, topTip,
@@ -153,7 +171,7 @@
       page-1.option-7, page-1.option-8, page-1.option-9, page-1.option-10, page-1.option-11,
       page-1.option-12, page-2.question, page-3.question, page-4.question, page-4.option-1,
       page-4.option-2, page-4.option-3, page-4.option-4, page-4.option-5, page-4.option-6,
-      page-4.hint, form-url, formUrl, noJsMessage]
+      page-4.hint, form-url, formUrl, noJsMessage, progress]
     resourcebundle:messages: [Next, Previous, Results, Your estimated total carbon
         emission for your trip is, Your emissions breakdown, 'That''s the equivalent
         of xxx kms in a medium-sized petrol car, which would take you from Edinburgh
@@ -175,19 +193,28 @@
         5 times a week, moderate meat eater: 3 times a week, infrequent meat eater:
         1 - 2 times a week', 'https://static.visitscotland.com/forms/carbon-calculator/carbon-calculator-fields.json',
       'https://static.visitscotland.com/forms/carbon-calculator/carbon-calculator-fields.json',
-      You need Javascript enabled to use this calculator]
+      You need Javascript enabled to use this calculator, Step xxx of yyy]
     resourcebundle:messages_de: ['', '', '', '', '', '', '', '', '', '', '', '', '',
       '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
-      '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '']
+      '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
+      '']
     resourcebundle:messages_es: ['', '', '', '', '', '', '', '', '', '', '', '', '',
       '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
-      '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '']
+      '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
+      '']
     resourcebundle:messages_fr: ['', '', '', '', '', '', '', '', '', '', '', '', '',
       '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
-      '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '']
+      '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
+      '']
     resourcebundle:messages_it: ['', '', '', '', '', '', '', '', '', '', '', '', '',
       '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
-      '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '']
+      '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
+      '']
     resourcebundle:messages_nl: ['', '', '', '', '', '', '', '', '', '', '', '', '',
       '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
-      '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '']
+      '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
+      '']
+    resourcebundle:messages_progress: ['', '', '', '', '', '', '', '', '', '', '',
+      '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
+      '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
+      '', '', '']
