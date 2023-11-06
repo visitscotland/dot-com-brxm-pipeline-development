@@ -46,6 +46,7 @@ public class Properties {
     static final String CONVERT_TO_RELATIVE = "links.convert-to-relative";
     static final String SERVE_LECAGY_CSS = "data-internal.serve-legacy-css";
     static final String DMS_INTERNAL_PATH = "data-internal.path";
+    static final String NAVIGATION_CACHE= "navigation.cms.cache";
 
     // DMS Properties
     public static final String API_DATA_BACKEND_HOST = "api-data.backend-url";
@@ -184,6 +185,9 @@ public class Properties {
 
     public String getDmsInternalPath() {
         return readString(DMS_INTERNAL_PATH);
+    }
+    public Boolean getNavigationCache() {
+        return readBoolean(NAVIGATION_CACHE);
     }
 
     public String getSiteSkiSection() {
