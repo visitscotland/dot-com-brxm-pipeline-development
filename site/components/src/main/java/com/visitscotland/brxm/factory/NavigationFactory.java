@@ -67,6 +67,7 @@ public class NavigationFactory {
     public RootMenuItem buildMenu(HstRequest request, HstSiteMenu hstSiteMenu, boolean cacheable) {
         List<HstSiteMenuItem> enhancedMenu = new ArrayList<>();
         RootMenuItem root = new RootMenuItem(hstSiteMenu);
+        root.setCmsCached(cacheable);
         if (hstSiteMenu != null) {
             //Calculate the resource bundle id
             String resourceBundle = NAVIGATION_PREFIX + hstSiteMenu.getName();
