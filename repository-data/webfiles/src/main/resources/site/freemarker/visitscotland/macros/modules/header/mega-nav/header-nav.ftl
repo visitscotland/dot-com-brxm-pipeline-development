@@ -15,7 +15,7 @@
                 <template v-slot:button-content>
                     ${item.title}
                 </template>
-            <#if !menu.cmsCached>
+            <#if (!menu.cmsCached)>
                 <template v-slot:dropdown-content>
                     <#list item.childMenuItems as childItem>
                         <#if childItem.title??>
