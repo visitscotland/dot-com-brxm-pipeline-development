@@ -115,7 +115,7 @@
             </template>
 
             
-            <#if blog?? & blog?has_content>
+            <#if blog?? && blog?has_content>
                 <template
                     v-slot:vs-blog-data
                 >
