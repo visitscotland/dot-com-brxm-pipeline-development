@@ -10,16 +10,19 @@
             <#assign imageQuote="" />
         </#if>
         <#if imageQuote?has_content>
+            <#assign imageParameter>
+                ${getParameter(imageQuote)}
+            </#assign>
             <template v-slot:quote-image>
                 <vs-img
                     alt=""
                     src="${imageQuote}"
                     sizes="25vw"
-                    srcset="${imageQuote}?size=xs 300w, 
-                        ${imageQuote}?size=sm 600w,
-                        ${imageQuote}?size=md 1200w, 
-                        ${imageQuote}?size=lg 2048w"
-                    low-res-image="${imageQuote}?size=xxs"
+                    srcset="${imageQuote}${imageParameter}size=xs 300w,
+                        ${imageQuote}${imageParameter}size=sm 600w,
+                        ${imageQuote}${imageParameter}size=md 1200w,
+                        ${imageQuote}${imageParameter}size=lg 2048w"
+                    low-res-image="${imageQuote}${imageParameter}size=xxs"
                 >
                 </vs-img>
             </template>
