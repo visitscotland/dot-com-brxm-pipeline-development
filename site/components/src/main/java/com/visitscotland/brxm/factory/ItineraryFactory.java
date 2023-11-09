@@ -77,8 +77,10 @@ public class ItineraryFactory {
                 ItineraryStopModule module = generateStop(locale, stop, itinerary, index++);
 
                 if (module.getCoordinates() == null){
-                    contentLogger.error("The Itinerary {} located at {} has a stop without coordinates," +
+                    String message = String.format("The Itinerary {} located at {} has a stop without coordinates," +
                             " the stop affected is {} located at {}", itinerary.getName(), itinerary.getPath(), stop.getName(), stop.getPath());
+                    contentLogger.error(message);
+                    page.addErrorMessage(message);
                 }
 
                 lastStop = module;
