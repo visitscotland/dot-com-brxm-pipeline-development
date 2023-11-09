@@ -81,7 +81,7 @@
 
 <#--  Get correct parameter depending on the number of paramters existing -->
 <#--  Usage: ${getParameter(imageURL)} -->
-<#function getParameter url>
+<#function addParameter url>
     <#if url?contains("?")>
         <#return "&">
     <#else>

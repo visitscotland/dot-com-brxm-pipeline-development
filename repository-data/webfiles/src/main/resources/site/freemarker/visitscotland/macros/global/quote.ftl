@@ -11,7 +11,7 @@
         </#if>
         <#if imageQuote?has_content>
             <#assign imageParameter>
-                ${getParameter(imageQuote)}
+                ${addParameter(imageQuote)}
             </#assign>
             <template v-slot:quote-image>
                 <vs-img

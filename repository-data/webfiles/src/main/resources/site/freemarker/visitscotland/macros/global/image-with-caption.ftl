@@ -30,7 +30,7 @@
             ${videoTitle}
         </template>
         <#assign imageParameter>
-            ${getParameter(imageSrc)}
+            ${addParameter(imageSrc)}
         </#assign>
 
         <vs-img
