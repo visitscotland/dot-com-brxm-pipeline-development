@@ -16,6 +16,8 @@ public class RootMenuItem implements HstSiteMenu {
 
     private Date timeStamp;
 
+    private Boolean cmsCached;
+
     public RootMenuItem(HstSiteMenu hstMenu) {
         this.hstMenu = hstMenu;
         timeStamp = new Date();
@@ -66,5 +68,13 @@ public class RootMenuItem implements HstSiteMenu {
 
     public Date getTimeStamp(){
         return timeStamp;
+    }
+
+    public Boolean getCmsCached() {
+        return cmsCached;
+    }
+
+    public void setCmsCached(Boolean cmsCached) {
+        this.cmsCached = cmsCached;
     }
 }
