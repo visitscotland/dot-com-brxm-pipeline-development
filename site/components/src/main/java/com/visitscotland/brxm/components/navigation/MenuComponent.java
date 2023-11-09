@@ -57,8 +57,12 @@ public class MenuComponent extends EssentialsMenuComponent {
                 requestContext.setPreferredLocale(language.getLocale());
             }
         }
-        boolean cacheable = properties.isSnippetCacheEnabled() && Boolean.FALSE.equals(request.getAttribute("editMode"));
+        boolean editModeCache = (Boolean.TRUE.equals(request.getAttribute("editMode")) && Boolean.TRUE.equals(properties.getNavigationCache()));
+        boolean cacheable = (properties.isSnippetCacheEnabled() && Boolean.FALSE.equals(request.getAttribute("editMode"))) || editModeCache;
 
-        request.setModel(MENU, factory.buildMenu(request, request.getModel(MENU), cacheable));
+        RootMenuItem rootMenuItem = factory.buildMenu(request, request.getModel(MENU), cacheable);
+        rootMenuItem.setCmsCached(editModeCache);
+
+        request.setModel(MENU, rootMenuItem);
     }
 }
