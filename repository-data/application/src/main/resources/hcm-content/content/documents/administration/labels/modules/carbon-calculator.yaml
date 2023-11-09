@@ -3,7 +3,7 @@
   jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
   jcr:uuid: 2ac010d5-8d44-4860-bff0-78e39097f417
   hippo:name: Carbon Calculator
-  hippo:versionHistory: 24f9110a-31d0-4ae7-8494-4d2b110ed392
+  hippo:versionHistory: 8e2d416c-70bc-4ebc-85c7-1b5c93c179b1
   /carbon-calculator[1]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:referenceable']
@@ -13,22 +13,27 @@
     hippostd:state: draft
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2023-08-09T17:31:48.480+01:00
-    hippostdpubwf:lastModificationDate: 2023-11-06T10:06:53.099+01:00
-    hippostdpubwf:lastModifiedBy: juanluis.hurtado
+    hippostdpubwf:lastModificationDate: 2023-11-08T16:46:11.188Z
+    hippostdpubwf:lastModifiedBy: admin
     resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '', '', '', '',
       '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
       '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
-      '', '']
+      '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '']
     resourcebundle:id: carbon-calculator
     resourcebundle:keys: [next, previous, results, resultsIntro, chartTitle, comparison,
       kilos, begin, introHeading, introContent, perDayTarget, perDaySuccess, topTip,
-      allTips, soFar, kgsOf, kgsPerDay, transport, accommodation, food, restart, section-1.title,
-      section-2.title, section-3.title, section-4.title, page-1.question, page-1.option-1,
-      page-1.option-2, page-1.option-3, page-1.option-4, page-1.option-5, page-1.option-6,
-      page-1.option-7, page-1.option-8, page-1.option-9, page-1.option-10, page-1.option-11,
-      page-1.option-12, page-2.question, page-3.question, page-4.question, page-4.option-1,
-      page-4.option-2, page-4.option-3, page-4.option-4, page-4.option-5, page-4.option-6,
-      page-4.hint, form-url, formUrl, noJsMessage, progress]
+      allTips, soFar, kgsOf, kgsPerDay, transport, accommodation, food, restart, stage-1.title,
+      stage-2.title, stage-3.title, stage-4.title, question-1.question, question-1.option-1,
+      question-1.option-2, question-1.option-3, question-1.option-4, question-1.option-5,
+      question-1.option-6, question-1.option-7, question-1.option-8, question-1.option-9,
+      question-1.option-10, question-1.option-11, question-1.option-12, question-2.question,
+      question-3.question, question-5.question, question-5.option-1, question-5.option-2,
+      question-5.option-3, question-5.option-4, question-5.option-5, question-5.option-6,
+      question-5.hint, form-url, formUrl, noJsMessage, progress, question-1.hint,
+      stage-1.tip, stage-2.tip, stage-3.tip, stage-4.tip, question-4.question, question-4.option-1,
+      question-4.option-2, question-4.option-3, question-4.option-4, question-4.option-5,
+      question-4.option-6, question-4.option-7, question-4.option-8, question-4.option-9,
+      question-4.option-10]
     resourcebundle:messages: [Next, Previous, Results, Your estimated total carbon
         emission for your trip is, Your emissions breakdown, 'That''s the equivalent
         of xxx kms in a medium-sized petrol car, which would take you from Edinburgh
@@ -55,9 +60,13 @@
       'How would you describe your diet?', Frequent meat-eater, Moderate meat-eater,
       Infrequent meat-eater, Pescatarian, Vegetarian, Vegan, 'Frequent meat eater:
         5 times a week, moderate meat eater: 3 times a week, infrequent meat eater:
-        1 - 2 times a week', 'https://static.visitscotland.com/forms/carbon-calculator/carbon-calculator-fields.json',
-      'https://static.visitscotland.com/forms/carbon-calculator/carbon-calculator-fields.json',
-      You need Javascript enabled to use this calculator, Step xxx of yyy]
+        1 - 2 times a week', 'https://static.visitscotland.com/forms/carbon-calculator/carbon-calculator-form-v-2.json',
+      'https://static.visitscotland.com/forms/carbon-calculator/carbon-calculator-form-v-2.json',
+      You need Javascript enabled to use this calculator, Step xxx of yyy, '', '',
+      '', '', '', 'What will be your main mode of transport while travelling around
+        Scotland?', Car (Petrol), Car (Diesel), Car (Electric), Campervan/Motorhome
+        (Petrol), Campervan/Motorhome (Diesel), Coach, Bus, Train, Motorbike, Walking
+        / Cycling]
     resourcebundle:messages_de: [Weiter, Zurück, Ergebnis, 'Ihr geschätzter CO₂-Ausstoß
         für diese Reise ist:', Aufschlüsselung Ihrer Emissionen, Das entspricht einer
         Fahrt von xxx km in einem mittelgroßen Auto - damit könnten Sie yyy Mal von
@@ -87,7 +96,8 @@
       'Ich esse kein Fleisch, aber Fisch', Ich ernähre mich vegetarisch, Ich ernähre
         mich vegan, 'Regelmäßiger Fleischkonsum: 5 Mal pro Woche, gelegentlicher Fleischkonsum:
         3 Mal pro Woche, seltener Fleischkonsum: 1-2 Mal pro Woche', '', '', 'Sie
-        müssen JavaScript aktivieren, um diesen Rechner zu benutzen.', '']
+        müssen JavaScript aktivieren, um diesen Rechner zu benutzen.', '', '', '',
+      '', '', '', '', '', '', '', '', '', '', '', '', '', '']
     resourcebundle:messages_es: [Siguiente, Anterior, Resultados, 'Tus emisiones de
         CO₂ estimadas para este viaje son:', Desglose de tus emisiones, 'Esto equivale
         a un trayecto de xx kilómetros en un coche de tamaño medio: ¡podrías viajar
@@ -117,7 +127,8 @@
         (o pescatariana), Sigo una dieta vegetariana, Sigo una dieta vegana, 'Como
         carne habitualmente: 5 veces a la semana, como carne de vez en cuando: 3 veces
         a la semana, como poca carne: 1-2 veces a la semana', '', '', Debes activar
-        JavaScript para poder utilizar esta calculadora., '']
+        JavaScript para poder utilizar esta calculadora., '', '', '', '', '', '',
+      '', '', '', '', '', '', '', '', '', '', '']
     resourcebundle:messages_fr: [Suivant, Précédent, Résultats, 'Le total estimé de
         vos émissions de carbone pour ce voyage s’élève à :', Le détail de vos émissions,
       'Cela équivaut à xxx kilomètres dans une voiture de taille moyenne, ce qui vous
@@ -142,7 +153,8 @@
         (pesco-végétarien), Végétarien, Végane, 'Je mange de la viande régulièrement
         : 5 fois par semaine, de temps à autre : 3 fois par semaine, très peu souvent
         : 1 à 2 fois par semaine', '', '', Vous devez activer JavaScript afin de pouvoir
-        utiliser ce Calculateur., '']
+        utiliser ce Calculateur., '', '', '', '', '', '', '', '', '', '', '', '',
+      '', '', '', '', '']
     resourcebundle:messages_it: [Avanti, Indietro, Risultato, 'Le tue emissioni di
         CO₂ stimate per questo viaggio sono:', Ripartizione delle tue emissioni, 'È
         l''equivalente di percorrere xxx kilometri in un''auto di medie dimensioni:
@@ -172,11 +184,11 @@
         dieta vegana, 'Consumo regolare di carne: 5 volte a settimana, consumo occasionale
         di carne: 3 volte a settimana, consumo raramente di carne: 1-2 volte a settimana',
       '', '', Per utilizzare questa calcolatrice è necessario abilitare Javascript.,
-      '']
+      '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '']
     resourcebundle:messages_nl: ['', '', '', '', '', '', '', '', '', '', '', '', '',
       '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
       '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
-      '']
+      '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '']
   /carbon-calculator[2]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
@@ -186,22 +198,27 @@
     hippostd:state: unpublished
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2023-08-09T17:31:48.480+01:00
-    hippostdpubwf:lastModificationDate: 2023-11-06T10:07:17.634+01:00
-    hippostdpubwf:lastModifiedBy: juanluis.hurtado
+    hippostdpubwf:lastModificationDate: 2023-11-08T16:49:39.543Z
+    hippostdpubwf:lastModifiedBy: admin
     resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '', '', '', '',
       '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
       '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
-      '', '']
+      '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '']
     resourcebundle:id: carbon-calculator
     resourcebundle:keys: [next, previous, results, resultsIntro, chartTitle, comparison,
       kilos, begin, introHeading, introContent, perDayTarget, perDaySuccess, topTip,
-      allTips, soFar, kgsOf, kgsPerDay, transport, accommodation, food, restart, section-1.title,
-      section-2.title, section-3.title, section-4.title, page-1.question, page-1.option-1,
-      page-1.option-2, page-1.option-3, page-1.option-4, page-1.option-5, page-1.option-6,
-      page-1.option-7, page-1.option-8, page-1.option-9, page-1.option-10, page-1.option-11,
-      page-1.option-12, page-2.question, page-3.question, page-4.question, page-4.option-1,
-      page-4.option-2, page-4.option-3, page-4.option-4, page-4.option-5, page-4.option-6,
-      page-4.hint, form-url, formUrl, noJsMessage, progress]
+      allTips, soFar, kgsOf, kgsPerDay, transport, accommodation, food, restart, stage-1.title,
+      stage-2.title, stage-3.title, stage-4.title, question-1.question, question-1.option-1,
+      question-1.option-2, question-1.option-3, question-1.option-4, question-1.option-5,
+      question-1.option-6, question-1.option-7, question-1.option-8, question-1.option-9,
+      question-1.option-10, question-1.option-11, question-1.option-12, question-2.question,
+      question-3.question, question-5.question, question-5.option-1, question-5.option-2,
+      question-5.option-3, question-5.option-4, question-5.option-5, question-5.option-6,
+      question-5.hint, form-url, formUrl, noJsMessage, progress, question-1.hint,
+      stage-1.tip, stage-2.tip, stage-3.tip, stage-4.tip, question-4.question, question-4.option-1,
+      question-4.option-2, question-4.option-3, question-4.option-4, question-4.option-5,
+      question-4.option-6, question-4.option-7, question-4.option-8, question-4.option-9,
+      question-4.option-10]
     resourcebundle:messages: [Next, Previous, Results, Your estimated total carbon
         emission for your trip is, Your emissions breakdown, 'That''s the equivalent
         of xxx kms in a medium-sized petrol car, which would take you from Edinburgh
@@ -228,9 +245,13 @@
       'How would you describe your diet?', Frequent meat-eater, Moderate meat-eater,
       Infrequent meat-eater, Pescatarian, Vegetarian, Vegan, 'Frequent meat eater:
         5 times a week, moderate meat eater: 3 times a week, infrequent meat eater:
-        1 - 2 times a week', 'https://static.visitscotland.com/forms/carbon-calculator/carbon-calculator-fields.json',
-      'https://static.visitscotland.com/forms/carbon-calculator/carbon-calculator-fields.json',
-      You need Javascript enabled to use this calculator, Step xxx of yyy]
+        1 - 2 times a week', 'https://static.visitscotland.com/forms/carbon-calculator/carbon-calculator-form-v-2.json',
+      'https://static.visitscotland.com/forms/carbon-calculator/carbon-calculator-form-v-2.json',
+      You need Javascript enabled to use this calculator, Step xxx of yyy, '', '',
+      '', '', '', 'What will be your main mode of transport while travelling around
+        Scotland?', Car (Petrol), Car (Diesel), Car (Electric), Campervan/Motorhome
+        (Petrol), Campervan/Motorhome (Diesel), Coach, Bus, Train, Motorbike, Walking
+        / Cycling]
     resourcebundle:messages_de: [Weiter, Zurück, Ergebnis, 'Ihr geschätzter CO₂-Ausstoß
         für diese Reise ist:', Aufschlüsselung Ihrer Emissionen, Das entspricht einer
         Fahrt von xxx km in einem mittelgroßen Auto - damit könnten Sie yyy Mal von
@@ -260,7 +281,8 @@
       'Ich esse kein Fleisch, aber Fisch', Ich ernähre mich vegetarisch, Ich ernähre
         mich vegan, 'Regelmäßiger Fleischkonsum: 5 Mal pro Woche, gelegentlicher Fleischkonsum:
         3 Mal pro Woche, seltener Fleischkonsum: 1-2 Mal pro Woche', '', '', 'Sie
-        müssen JavaScript aktivieren, um diesen Rechner zu benutzen.', '']
+        müssen JavaScript aktivieren, um diesen Rechner zu benutzen.', '', '', '',
+      '', '', '', '', '', '', '', '', '', '', '', '', '', '']
     resourcebundle:messages_es: [Siguiente, Anterior, Resultados, 'Tus emisiones de
         CO₂ estimadas para este viaje son:', Desglose de tus emisiones, 'Esto equivale
         a un trayecto de xx kilómetros en un coche de tamaño medio: ¡podrías viajar
@@ -290,7 +312,8 @@
         (o pescatariana), Sigo una dieta vegetariana, Sigo una dieta vegana, 'Como
         carne habitualmente: 5 veces a la semana, como carne de vez en cuando: 3 veces
         a la semana, como poca carne: 1-2 veces a la semana', '', '', Debes activar
-        JavaScript para poder utilizar esta calculadora., '']
+        JavaScript para poder utilizar esta calculadora., '', '', '', '', '', '',
+      '', '', '', '', '', '', '', '', '', '', '']
     resourcebundle:messages_fr: [Suivant, Précédent, Résultats, 'Le total estimé de
         vos émissions de carbone pour ce voyage s’élève à :', Le détail de vos émissions,
       'Cela équivaut à xxx kilomètres dans une voiture de taille moyenne, ce qui vous
@@ -315,7 +338,8 @@
         (pesco-végétarien), Végétarien, Végane, 'Je mange de la viande régulièrement
         : 5 fois par semaine, de temps à autre : 3 fois par semaine, très peu souvent
         : 1 à 2 fois par semaine', '', '', Vous devez activer JavaScript afin de pouvoir
-        utiliser ce Calculateur., '']
+        utiliser ce Calculateur., '', '', '', '', '', '', '', '', '', '', '', '',
+      '', '', '', '', '']
     resourcebundle:messages_it: [Avanti, Indietro, Risultato, 'Le tue emissioni di
         CO₂ stimate per questo viaggio sono:', Ripartizione delle tue emissioni, 'È
         l''equivalente di percorrere xxx kilometri in un''auto di medie dimensioni:
@@ -345,11 +369,11 @@
         dieta vegana, 'Consumo regolare di carne: 5 volte a settimana, consumo occasionale
         di carne: 3 volte a settimana, consumo raramente di carne: 1-2 volte a settimana',
       '', '', Per utilizzare questa calcolatrice è necessario abilitare Javascript.,
-      '']
+      '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '']
     resourcebundle:messages_nl: ['', '', '', '', '', '', '', '', '', '', '', '', '',
       '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
       '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
-      '']
+      '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '']
   /carbon-calculator[3]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:referenceable']
@@ -359,23 +383,28 @@
     hippostd:state: published
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2023-08-09T17:31:48.480+01:00
-    hippostdpubwf:lastModificationDate: 2023-11-06T10:07:17.634+01:00
-    hippostdpubwf:lastModifiedBy: juanluis.hurtado
-    hippostdpubwf:publicationDate: 2023-11-06T10:07:20.690+01:00
+    hippostdpubwf:lastModificationDate: 2023-11-08T16:49:39.543Z
+    hippostdpubwf:lastModifiedBy: admin
+    hippostdpubwf:publicationDate: 2023-11-08T16:49:42.246Z
     resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '', '', '', '',
       '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
       '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
-      '', '']
+      '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '']
     resourcebundle:id: carbon-calculator
     resourcebundle:keys: [next, previous, results, resultsIntro, chartTitle, comparison,
       kilos, begin, introHeading, introContent, perDayTarget, perDaySuccess, topTip,
-      allTips, soFar, kgsOf, kgsPerDay, transport, accommodation, food, restart, section-1.title,
-      section-2.title, section-3.title, section-4.title, page-1.question, page-1.option-1,
-      page-1.option-2, page-1.option-3, page-1.option-4, page-1.option-5, page-1.option-6,
-      page-1.option-7, page-1.option-8, page-1.option-9, page-1.option-10, page-1.option-11,
-      page-1.option-12, page-2.question, page-3.question, page-4.question, page-4.option-1,
-      page-4.option-2, page-4.option-3, page-4.option-4, page-4.option-5, page-4.option-6,
-      page-4.hint, form-url, formUrl, noJsMessage, progress]
+      allTips, soFar, kgsOf, kgsPerDay, transport, accommodation, food, restart, stage-1.title,
+      stage-2.title, stage-3.title, stage-4.title, question-1.question, question-1.option-1,
+      question-1.option-2, question-1.option-3, question-1.option-4, question-1.option-5,
+      question-1.option-6, question-1.option-7, question-1.option-8, question-1.option-9,
+      question-1.option-10, question-1.option-11, question-1.option-12, question-2.question,
+      question-3.question, question-5.question, question-5.option-1, question-5.option-2,
+      question-5.option-3, question-5.option-4, question-5.option-5, question-5.option-6,
+      question-5.hint, form-url, formUrl, noJsMessage, progress, question-1.hint,
+      stage-1.tip, stage-2.tip, stage-3.tip, stage-4.tip, question-4.question, question-4.option-1,
+      question-4.option-2, question-4.option-3, question-4.option-4, question-4.option-5,
+      question-4.option-6, question-4.option-7, question-4.option-8, question-4.option-9,
+      question-4.option-10]
     resourcebundle:messages: [Next, Previous, Results, Your estimated total carbon
         emission for your trip is, Your emissions breakdown, 'That''s the equivalent
         of xxx kms in a medium-sized petrol car, which would take you from Edinburgh
@@ -402,9 +431,13 @@
       'How would you describe your diet?', Frequent meat-eater, Moderate meat-eater,
       Infrequent meat-eater, Pescatarian, Vegetarian, Vegan, 'Frequent meat eater:
         5 times a week, moderate meat eater: 3 times a week, infrequent meat eater:
-        1 - 2 times a week', 'https://static.visitscotland.com/forms/carbon-calculator/carbon-calculator-fields.json',
-      'https://static.visitscotland.com/forms/carbon-calculator/carbon-calculator-fields.json',
-      You need Javascript enabled to use this calculator, Step xxx of yyy]
+        1 - 2 times a week', 'https://static.visitscotland.com/forms/carbon-calculator/carbon-calculator-form-v-2.json',
+      'https://static.visitscotland.com/forms/carbon-calculator/carbon-calculator-form-v-2.json',
+      You need Javascript enabled to use this calculator, Step xxx of yyy, '', '',
+      '', '', '', 'What will be your main mode of transport while travelling around
+        Scotland?', Car (Petrol), Car (Diesel), Car (Electric), Campervan/Motorhome
+        (Petrol), Campervan/Motorhome (Diesel), Coach, Bus, Train, Motorbike, Walking
+        / Cycling]
     resourcebundle:messages_de: [Weiter, Zurück, Ergebnis, 'Ihr geschätzter CO₂-Ausstoß
         für diese Reise ist:', Aufschlüsselung Ihrer Emissionen, Das entspricht einer
         Fahrt von xxx km in einem mittelgroßen Auto - damit könnten Sie yyy Mal von
@@ -434,7 +467,8 @@
       'Ich esse kein Fleisch, aber Fisch', Ich ernähre mich vegetarisch, Ich ernähre
         mich vegan, 'Regelmäßiger Fleischkonsum: 5 Mal pro Woche, gelegentlicher Fleischkonsum:
         3 Mal pro Woche, seltener Fleischkonsum: 1-2 Mal pro Woche', '', '', 'Sie
-        müssen JavaScript aktivieren, um diesen Rechner zu benutzen.', '']
+        müssen JavaScript aktivieren, um diesen Rechner zu benutzen.', '', '', '',
+      '', '', '', '', '', '', '', '', '', '', '', '', '', '']
     resourcebundle:messages_es: [Siguiente, Anterior, Resultados, 'Tus emisiones de
         CO₂ estimadas para este viaje son:', Desglose de tus emisiones, 'Esto equivale
         a un trayecto de xx kilómetros en un coche de tamaño medio: ¡podrías viajar
@@ -464,7 +498,8 @@
         (o pescatariana), Sigo una dieta vegetariana, Sigo una dieta vegana, 'Como
         carne habitualmente: 5 veces a la semana, como carne de vez en cuando: 3 veces
         a la semana, como poca carne: 1-2 veces a la semana', '', '', Debes activar
-        JavaScript para poder utilizar esta calculadora., '']
+        JavaScript para poder utilizar esta calculadora., '', '', '', '', '', '',
+      '', '', '', '', '', '', '', '', '', '', '']
     resourcebundle:messages_fr: [Suivant, Précédent, Résultats, 'Le total estimé de
         vos émissions de carbone pour ce voyage s’élève à :', Le détail de vos émissions,
       'Cela équivaut à xxx kilomètres dans une voiture de taille moyenne, ce qui vous
@@ -489,7 +524,8 @@
         (pesco-végétarien), Végétarien, Végane, 'Je mange de la viande régulièrement
         : 5 fois par semaine, de temps à autre : 3 fois par semaine, très peu souvent
         : 1 à 2 fois par semaine', '', '', Vous devez activer JavaScript afin de pouvoir
-        utiliser ce Calculateur., '']
+        utiliser ce Calculateur., '', '', '', '', '', '', '', '', '', '', '', '',
+      '', '', '', '', '']
     resourcebundle:messages_it: [Avanti, Indietro, Risultato, 'Le tue emissioni di
         CO₂ stimate per questo viaggio sono:', Ripartizione delle tue emissioni, 'È
         l''equivalente di percorrere xxx kilometri in un''auto di medie dimensioni:
@@ -519,8 +555,8 @@
         dieta vegana, 'Consumo regolare di carne: 5 volte a settimana, consumo occasionale
         di carne: 3 volte a settimana, consumo raramente di carne: 1-2 volte a settimana',
       '', '', Per utilizzare questa calcolatrice è necessario abilitare Javascript.,
-      '']
+      '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '']
     resourcebundle:messages_nl: ['', '', '', '', '', '', '', '', '', '', '', '', '',
       '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
       '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
-      '']
+      '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '']
