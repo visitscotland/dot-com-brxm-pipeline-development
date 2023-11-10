@@ -3,7 +3,6 @@
 <#include "../../../frontend/components/vs-caption.ftl">
 
 <#macro imageWithCaption imageSrc imageDetails variant="fullwidth" isHero="false" mobileOverlap="false" alignment="left" isVideo="false" videoId="" videoTitle="" videoBtn="" smallPlayButton="false" useLazyLoading="true" noAltText="false" showToggle="true">
-    <#assign imageParamer=JspTaglibs["http://www.hippoecm.org/jsp/hst/core"] >
     <vs-image-with-caption
         latitude="<#if variant != 'fullwidth'>${(imageDetails.coordinates.latitude)!''}</#if>"
         longitude="<#if variant != 'fullwidth'>${(imageDetails.coordinates.longitude)!''}</#if>"
