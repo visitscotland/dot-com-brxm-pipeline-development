@@ -207,7 +207,7 @@ public class MapService {
                 feature.set(GEOMETRY, getGeometryNode(getCoordinates(longitude,latitude),POINT));
             }else{
                 String errorMessage = String.format("Failed to create map card '%s', please review the document attached at: %s", item.getDisplayName(), item.getPath() );
-                module.setErrorMessages(Collections.singletonList(errorMessage));
+                module.addErrorMessage(errorMessage);
                 logger.error(errorMessage);
             }
         }
