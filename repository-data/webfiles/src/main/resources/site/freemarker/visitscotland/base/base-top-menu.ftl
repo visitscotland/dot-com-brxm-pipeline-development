@@ -18,7 +18,7 @@
     <#if ciBranch??>
         <@devEnvMenu />
     </#if>
-
+    <@hst.cmseditmenu menu=menu />
     <div class="has-edit-button vs-sticky-nav">
         <@headerSkipTo />
         <header>
@@ -26,7 +26,6 @@
             <!-- Navigation generated at ${menu.timeStamp?string["yyyy-MM-dd HH:mm:ss"]} -->
             <@headerMegaNav menu=menu/>
         </header>
-        <@hst.cmseditmenu menu=menu />
     </div>
     <#if widgetList??>
         <#list widgetList as navigationWidget>
