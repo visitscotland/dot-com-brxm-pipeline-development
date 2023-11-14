@@ -38,7 +38,6 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
     public static final String PSR_WIDGET = "psrWidget";
 
     public static final String SEARCH_RESULTS = "searchResultsPage";
-
     private final BlogFactory blogFactory;
     private final MegalinkFactory megalinkFactory;
     private final ImageFactory imageFactory;
@@ -180,7 +179,7 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
         if (request.getAttribute(DOCUMENT) instanceof Page) {
             return (T) request.getAttribute(DOCUMENT);
         } else {
-            logger.error("The main document is not an instance of Page.", new ClassCastException());
+            logger.error("The main document is not an instance of Page. Requested URL = {}", request.getRequestURI(), new ClassCastException());
             return null;
         }
     }

@@ -24,12 +24,14 @@
     <@productSearchWidget psrWidget />
 
 	<#list pageItems as item>
-        <@moduleBuilder item />
+        <@moduleBuilder module=item pageIndex="${item?index + 1}" />
 	</#list>
 
     <@socialShare nojs=true/>
 
-    <@otymlModule otyml editMode />
+    <#if otyml??>
+        <@otymlModule otyml editMode />
+    </#if>
 
     <#if newsletterSignpost??>
 		<@signpost module=newsletterSignpost />

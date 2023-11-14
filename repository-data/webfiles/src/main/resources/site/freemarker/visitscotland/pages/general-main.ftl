@@ -31,7 +31,7 @@
 		<@pageIntro content=document lightBackground=true blog=blog />
 		<@introImage mainImage=heroImage />
 	<#elseif topLevelTemplate>
-		<@pageIntro content=document heroDetails=heroImage lightBackground=(psrWidget?has_content && psrWidget.position = "top") />
+		<@pageIntro content=document heroDetails=heroImage lightBackground=(psrWidget?has_content && psrWidget.position = "Top") />
 	<#elseif standardTemplate>
         <@pageIntro content=document lightBackground=true />
 		<@introImage mainImage=heroImage />
@@ -39,7 +39,7 @@
         <@pageIntro content=document lightBackground=true />
     </#if>
 
-	<#if psrWidget?? && psrWidget.position = "top">
+	<#if psrWidget?? && psrWidget.position = "Top">
 		<@productSearchWidget psrWidget/>
 	</#if>
 
@@ -51,9 +51,9 @@
 	<#list pageItems as module>
 		<#--TODO Colour should be only added to Megalinks, add this code to macros or create a common macro to control it-->
 		<#if standardTemplate || topLevelTemplate >
-			<@moduleBuilder module />
+			<@moduleBuilder module=module pageIndex="${module?index + 1}" />
 		<#else>
-			<@moduleBuilder module=module colourScheme=["light", "light", "light"] />
+			<@moduleBuilder module=module pageIndex="${module?index + 1}" colourScheme=["light", "light", "light"] />
 		</#if>
 	</#list>
 
@@ -63,7 +63,7 @@
 
     <@socialShare nojs=true/>
 
-	<#if psrWidget?? && psrWidget.position = "bottom">
+	<#if psrWidget?? && psrWidget.position = "Bottom">
 		<@productSearchWidget psrWidget/>
 	</#if>
 

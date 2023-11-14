@@ -1,4 +1,5 @@
 <#macro personalisation>
+    <#if (!editMode) >
     <@hst.headContribution category="htmlBodyEndScripts">
         <!-- Marketo RTP tag --> 
         <script type='text/javascript'>
@@ -19,23 +20,21 @@
 
                 [...personalisationContainers].forEach(function(el) {
                     const personalisationSections = (el.querySelectorAll('[data-personalisation-type]'));
+                    const defaultEl = el.querySelectorAll('[data-personalisation-type="default"]')[0];
 
                     let personalisationMatch = false;
                     [...personalisationSections].forEach(function(section) {
                         if (section.dataset.personalisationType === response.results.location.country) {
                             personalisationMatch = true;
                             section.classList.remove('personalisation--hidden');
+                            defaultEl.classList.add('personalisation--hidden');
                         }
                     });
-
-                    if (!personalisationMatch) {
-                        const defaultEl = el.querySelectorAll('[data-personalisation-type="default"]')[0];
-                        defaultEl.classList.remove('personalisation--hidden');
-                    }
                 });
             }
 
             rtp('get', 'visitor', callbackFunction);
         </script>
     </@hst.headContribution>
+    </#if>
 </#macro>

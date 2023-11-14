@@ -13,11 +13,10 @@ import com.visitscotland.brxm.model.PSModule;
 import com.visitscotland.brxm.services.ResourceBundleService;
 import com.visitscotland.brxm.utils.Language;
 import com.visitscotland.brxm.utils.Properties;
+import com.visitscotland.utils.Contract;
 import org.hippoecm.hst.core.component.HstRequest;
 import org.jetbrains.annotations.NotNull;
 import org.springframework.stereotype.Component;
-
-import java.util.regex.Pattern;
 
 @Component
 public class ProductSearchWidgetFactory {
@@ -28,8 +27,10 @@ public class ProductSearchWidgetFactory {
     final LocationLoader locationLoader;
     final Properties properties;
 
-    public static final String POSITION_TOP = "top";
-    public static final String POSITION_BOTTOM = "bottom";
+    public static final String POSITION_TOP = "Top";
+    public static final String POSITION_BOTTOM = "Bottom";
+    //TODO: This option will dissappear after the regular expresions are removed
+    public static final String POSITION_DEFAULT = "Default";
 
     public ProductSearchWidgetFactory(ResourceBundleService bundle, LocationLoader locationLoader, Properties properties) {
         this.bundle = bundle;
@@ -58,25 +59,19 @@ public class ProductSearchWidgetFactory {
         Page page = (Page) request.getAttribute(PageContentComponent.DOCUMENT);
         if (page instanceof General){
             General general = ((General) page);
-            String pattern;
 
-            if (general.getBlog() != null){
+            if (general.getBlog() != null) {
                 return POSITION_BOTTOM;
-            } else if (general.getTheme().equals(GeneralContentComponent.TOP_LEVEL)) {
-                pattern = properties.getPsrPositionTopLevel();
-            } else if (general.getTheme().equals(GeneralContentComponent.STANDARD)) {
-                pattern = properties.getPsrPositionGeneralStandard();
-            } else {
-                return POSITION_BOTTOM;
+            } else if (!Contract.isEmpty(general.getPswPosition()) && !general.getPswPosition().equals(POSITION_DEFAULT)) {
+                return general.getPswPosition();
+            } else if (!general.getTheme().equals(GeneralContentComponent.SIMPLE)) {
+                return POSITION_TOP;
             }
-
-            Pattern p = Pattern.compile(pattern);
-            return p.matcher(request.getPathInfo()).matches()?POSITION_BOTTOM:POSITION_TOP;
         } else if (page instanceof Destination){
             return POSITION_TOP;
-        } else {
-            return POSITION_BOTTOM;
         }
+
+        return POSITION_BOTTOM;
     }
 
     /**

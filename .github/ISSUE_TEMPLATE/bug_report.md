@@ -7,6 +7,9 @@ assignees: ''
 
 ---
 
+### Raised by
+Who raised the bug
+
 ### Describe the bug
 A clear and concise description of what the bug is.
 
@@ -31,6 +34,10 @@ Browser where the bug was seen
 
 ### Device and version
 If applicable, device the bug was seen on
+
+### Impact on end user
+
+### Impact on product development
 
 ### Additional context
 Add any other context about the problem here.

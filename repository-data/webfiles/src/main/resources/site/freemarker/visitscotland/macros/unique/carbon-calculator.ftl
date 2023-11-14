@@ -4,7 +4,7 @@
 <#include "../../../frontend/components/vs-module-wrapper.ftl">
 
 <#macro carbonCalculator >
-    <#assign labels =  ResourceBundle.getAllLabels("carbon-calculator", null) />
+    <#assign labels =  ResourceBundle.getAllLabels("carbon-calculator", locale) />
 
     <vs-module-wrapper
         class="text-left"

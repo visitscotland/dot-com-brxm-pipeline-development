@@ -46,6 +46,7 @@ public class Properties {
     static final String CONVERT_TO_RELATIVE = "links.convert-to-relative";
     static final String SERVE_LECAGY_CSS = "data-internal.serve-legacy-css";
     static final String DMS_INTERNAL_PATH = "data-internal.path";
+    static final String NAVIGATION_CACHE= "navigation.cms.cache";
 
     // DMS Properties
     public static final String API_DATA_BACKEND_HOST = "api-data.backend-url";
@@ -67,12 +68,9 @@ public class Properties {
     private static final String PATH_NEWSLETTER = "site.path.newsletter";
     private static final String PATH_ICENTRE = "site.path.icentre-landing";
 
-    // Components references
-    private static final String PSR_POSITION_TOP_LEVEL = "psr.position.general-top-level";
-    private static final String PSR_POSITION_GENERAL_STANDARD = "psr.position.general-standard";
-
-    //Modules References
+   //Modules References
     static final String ENABLE_IKNOW_MODULE = "iknow-module.enabled";
+    static final String MAP_MULTIPOLYGONS = "map.multipolygon.regions";
 
 
     private final ResourceBundleService bundle;
@@ -188,6 +186,9 @@ public class Properties {
     public String getDmsInternalPath() {
         return readString(DMS_INTERNAL_PATH);
     }
+    public Boolean getNavigationCache() {
+        return readBoolean(NAVIGATION_CACHE);
+    }
 
     public String getSiteSkiSection() {
         return readString(PATH_SKI_SECTION);
@@ -213,12 +214,10 @@ public class Properties {
         return readString(PATH_ICENTRE);
     }
 
-    public String getPsrPositionGeneralStandard(){
-        return readString(PSR_POSITION_GENERAL_STANDARD);
+    public String getMapMultipolygons() {
+        return readString(MAP_MULTIPOLYGONS);
     }
-    public String getPsrPositionTopLevel(){
-        return readString(PSR_POSITION_TOP_LEVEL);
-    }
+
 
     public Integer getContentCacheRetention() {
         //Note that the retention period is defined in seconds and java.util.Date measures the time in seconds

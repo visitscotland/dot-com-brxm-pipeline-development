@@ -15,7 +15,7 @@
                 <template v-slot:button-content>
                     ${item.title}
                 </template>
-
+            <#if (!menu.cmsCached)>
                 <template v-slot:dropdown-content>
                     <#list item.childMenuItems as childItem>
                         <#if childItem.title??>
@@ -34,13 +34,16 @@
                                     </#list>
                                 </template>
                                 <#if childItem.cta?? && childItem.hstLink??>
-                                    <vs-mega-nav-list-item
-                                        href="${getUrl(childItem)}"
-                                        subheading-link
+                                    <template
                                         v-slot:nav-heading-cta-link
                                     >
-                                        ${childItem.cta}
-                                    </vs-mega-nav-list-item>
+                                        <vs-mega-nav-list-item
+                                            href="${getUrl(childItem)}"
+                                            subheading-link
+                                        >
+                                            ${childItem.cta}
+                                        </vs-mega-nav-list-item>
+                                    </template>
                                 </#if>
                             </vs-mega-nav-list>
                         </#if>
@@ -50,6 +53,7 @@
                 <#if item.widget?? >
                     <@headerWidget item.widget />
                 </#if>
+              </#if>
             </vs-mega-nav-top-menu-item>
         </#if>
     </#list>
