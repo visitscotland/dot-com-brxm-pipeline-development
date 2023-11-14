@@ -38,7 +38,6 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
     public static final String PSR_WIDGET = "psrWidget";
 
     public static final String SEARCH_RESULTS = "searchResultsPage";
-
     private final BlogFactory blogFactory;
     private final MegalinkFactory megalinkFactory;
     private final ImageFactory imageFactory;

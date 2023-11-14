@@ -46,6 +46,7 @@ public class Properties {
     static final String CONVERT_TO_RELATIVE = "links.convert-to-relative";
     static final String SERVE_LECAGY_CSS = "data-internal.serve-legacy-css";
     static final String DMS_INTERNAL_PATH = "data-internal.path";
+    static final String NAVIGATION_CACHE= "navigation.cms.cache";
 
     // DMS Properties
     public static final String API_DATA_BACKEND_HOST = "api-data.backend-url";
@@ -69,6 +70,7 @@ public class Properties {
 
    //Modules References
     static final String ENABLE_IKNOW_MODULE = "iknow-module.enabled";
+    static final String MAP_MULTIPOLYGONS = "map.multipolygon.regions";
 
 
     private final ResourceBundleService bundle;
@@ -184,6 +186,9 @@ public class Properties {
     public String getDmsInternalPath() {
         return readString(DMS_INTERNAL_PATH);
     }
+    public Boolean getNavigationCache() {
+        return readBoolean(NAVIGATION_CACHE);
+    }
 
     public String getSiteSkiSection() {
         return readString(PATH_SKI_SECTION);
@@ -208,6 +213,11 @@ public class Properties {
     public String getSiteICentre() {
         return readString(PATH_ICENTRE);
     }
+
+    public String getMapMultipolygons() {
+        return readString(MAP_MULTIPOLYGONS);
+    }
+
 
     public Integer getContentCacheRetention() {
         //Note that the retention period is defined in seconds and java.util.Date measures the time in seconds
