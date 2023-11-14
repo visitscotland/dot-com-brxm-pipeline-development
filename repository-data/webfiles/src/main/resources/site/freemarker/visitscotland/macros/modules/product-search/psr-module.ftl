@@ -11,7 +11,7 @@
             default-locale="${locale[0..1]}"
             no-js-message="${label('product-search-widget', 'no-js-message')}"
             <#if module.location??>
-                default-location="${module.location.key}"
+                default-location="${module.location.id}"
             </#if>
             <#if module.position=="Top" && themeCalculator(introTheme) != "light">
                 class="mb-9 mb-lg-12 pt-9"
