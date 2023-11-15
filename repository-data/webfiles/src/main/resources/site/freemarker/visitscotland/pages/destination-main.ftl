@@ -29,7 +29,9 @@
 
     <@socialShare nojs=true/>
 
-    <@otymlModule otyml editMode />
+    <#if otyml??>
+        <@otymlModule otyml editMode />
+    </#if>
 
     <#if newsletterSignpost??>
 		<@signpost module=newsletterSignpost />

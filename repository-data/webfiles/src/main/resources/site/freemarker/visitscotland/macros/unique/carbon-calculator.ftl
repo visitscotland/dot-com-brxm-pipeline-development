@@ -15,6 +15,7 @@
                     '${key}': '${escapeJSON(labels[key], false)}',
                 </#list>
             }"
+            language="${locale}"
         >
         </vs-carbon-calculator>
     </vs-module-wrapper>
