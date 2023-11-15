@@ -14,7 +14,7 @@
                         <p>${message}</p>
                     <#elseif hidden>
                         <p>There is an issue with the document <strong>${module.hippoBean.displayName}</strong> and It was hidden from the page:</p>
-                    <#else>
+                    <#elseif module.hippoBean??>
                         <p>The following issues have been detected in the document ${module.hippoBean.displayName}:</p>
                     </#if>
                     <vs-list>
