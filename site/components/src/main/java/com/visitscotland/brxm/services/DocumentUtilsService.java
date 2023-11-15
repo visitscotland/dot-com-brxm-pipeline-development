@@ -131,7 +131,7 @@ public class DocumentUtilsService {
 
                 if (Locale.UK.equals(language.getLocale())) {
                     if (translation == null) {
-                        logger.error("The requested page does not exist in English: {}", document.getPath());
+                        logger.warn("The requested page does not exist in English: {}", document.getPath());
                     }
                 }
 
