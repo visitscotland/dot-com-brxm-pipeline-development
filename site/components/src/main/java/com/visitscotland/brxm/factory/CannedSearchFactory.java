@@ -112,7 +112,7 @@ public class CannedSearchFactory {
             contentLog.error(message);
         }
 
-        FlatLink viewAllCta = linkService.createExternalLink(document.getToursSearch());
+        FlatLink viewAllCta = linkService.createExternalLink(document.getToursSearch(), document.getPath());
         if (!Contract.isEmpty(document.getViewAll())) {
             viewAllCta.setLabel(document.getViewAll());
         } else {

@@ -5,6 +5,7 @@ import org.hippoecm.hst.content.rewriter.impl.SimpleContentRewriter;
 import org.hippoecm.hst.core.request.HstRequestContext;
 
 import javax.jcr.Node;
+import javax.jcr.RepositoryException;
 
 /**
  * For reference: https://documentation.bloomreach.com/14/library/concepts/rewriting-rich-text-field-runtime/hst-2-rewriting-rich-text-field-runtime.html
@@ -24,6 +25,10 @@ public class VsHTMLContentRewriter
                           final Mount targetMount) {
 
         String hippoHtml = super.rewrite(html, node, requestContext, targetMount);
-        return transformer.process(hippoHtml);
+        try {
+            return transformer.process(hippoHtml, node.getPath());
+        } catch (RepositoryException e) {
+            throw new RuntimeException(e);
+        }
     }
 }
