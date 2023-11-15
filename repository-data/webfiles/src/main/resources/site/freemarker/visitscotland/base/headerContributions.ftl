@@ -35,13 +35,6 @@
         <link rel="preconnect" href="https://api.visitscotland.com">
         <link rel="preconnect" href="https://www.visitscotland.com">
 
-        
-        <#if (editMode) >
-            <script>
-                window.bypassCookieChecks = true;
-            </script>
-        </#if>
-
         <style>
             .skeleton-site {
                 display: block;
