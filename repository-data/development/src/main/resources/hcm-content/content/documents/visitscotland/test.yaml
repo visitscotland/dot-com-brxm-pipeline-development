@@ -14636,7 +14636,7 @@
       jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
       jcr:uuid: 1be49e15-8182-4db6-bcea-fafdb166de03
       hippo:name: Example Maps
-      hippo:versionHistory: 39d27373-8eae-4e73-96f1-dbc13bf9206d
+      hippo:versionHistory: 56e31475-bfc2-43e7-b478-b3df7b3149db
       /example-maps[1]:
         jcr:primaryType: visitscotland:Megalinks
         jcr:mixinTypes: ['mix:referenceable']
@@ -14644,14 +14644,13 @@
         hippo:availability: []
         hippostd:retainable: false
         hippostd:state: draft
-        hippostd:transferable: false
         hippostdpubwf:createdBy: admin
         hippostdpubwf:creationDate: 2023-08-30T17:22:37.177+01:00
-        hippostdpubwf:lastModificationDate: 2023-08-30T17:34:31.296+01:00
+        hippostdpubwf:lastModificationDate: 2023-11-16T17:17:16.439Z
         hippostdpubwf:lastModifiedBy: admin
         hippotranslation:id: 83595e3f-6437-4c14-8335-2635d0625413
         hippotranslation:locale: en
-        visitscotland:layout: Default
+        visitscotland:layout: List
         visitscotland:teaserVisible: true
         visitscotland:title: Map Examples
         visitscotland:translation: ''
@@ -14660,29 +14659,35 @@
           hippostd:content: <p>Various map examples used across the site.&nbsp;</p>
         /visitscotland:megalinkItems[1]:
           jcr:primaryType: visitscotland:MegalinkItem
-          visitscotland:feature: false
+          visitscotland:feature: true
           /visitscotland:links:
             jcr:primaryType: hippo:mirror
             hippo:docbase: 8b6ecee2-030b-4cf5-92a7-5d201b2ec15d
         /visitscotland:megalinkItems[2]:
           jcr:primaryType: visitscotland:MegalinkItem
-          visitscotland:feature: false
+          visitscotland:feature: true
           /visitscotland:links:
             jcr:primaryType: hippo:mirror
-            hippo:docbase: b72e7bfe-605f-427c-ac32-852e2980f48d
+            hippo:docbase: ad1df6c4-0649-4f26-8ec5-d2c1f975a17a
         /visitscotland:megalinkItems[3]:
           jcr:primaryType: visitscotland:MegalinkItem
           visitscotland:feature: false
           /visitscotland:links:
             jcr:primaryType: hippo:mirror
-            hippo:docbase: 20fc02f2-a71e-47b4-be0e-c120c0c50616
+            hippo:docbase: b72e7bfe-605f-427c-ac32-852e2980f48d
         /visitscotland:megalinkItems[4]:
           jcr:primaryType: visitscotland:MegalinkItem
           visitscotland:feature: false
           /visitscotland:links:
             jcr:primaryType: hippo:mirror
-            hippo:docbase: 0813311b-25ea-4f3f-bedd-d9edc15aaa87
+            hippo:docbase: e8f7af33-b75d-481c-87f6-26a08fc65542
         /visitscotland:megalinkItems[5]:
+          jcr:primaryType: visitscotland:MegalinkItem
+          visitscotland:feature: false
+          /visitscotland:links:
+            jcr:primaryType: hippo:mirror
+            hippo:docbase: 0813311b-25ea-4f3f-bedd-d9edc15aaa87
+        /visitscotland:megalinkItems[6]:
           jcr:primaryType: visitscotland:MegalinkItem
           visitscotland:feature: false
           /visitscotland:links:
@@ -14697,11 +14702,11 @@
         hippostd:state: unpublished
         hippostdpubwf:createdBy: admin
         hippostdpubwf:creationDate: 2023-08-30T17:22:37.177+01:00
-        hippostdpubwf:lastModificationDate: 2023-08-30T17:32:06.857+01:00
+        hippostdpubwf:lastModificationDate: 2023-11-16T17:17:19.484Z
         hippostdpubwf:lastModifiedBy: admin
         hippotranslation:id: 83595e3f-6437-4c14-8335-2635d0625413
         hippotranslation:locale: en
-        visitscotland:layout: Default
+        visitscotland:layout: List
         visitscotland:teaserVisible: true
         visitscotland:title: Map Examples
         visitscotland:translation: ''
@@ -14710,29 +14715,35 @@
           hippostd:content: <p>Various map examples used across the site.&nbsp;</p>
         /visitscotland:megalinkItems[1]:
           jcr:primaryType: visitscotland:MegalinkItem
-          visitscotland:feature: false
+          visitscotland:feature: true
           /visitscotland:links:
             jcr:primaryType: hippo:mirror
             hippo:docbase: 8b6ecee2-030b-4cf5-92a7-5d201b2ec15d
         /visitscotland:megalinkItems[2]:
           jcr:primaryType: visitscotland:MegalinkItem
-          visitscotland:feature: false
+          visitscotland:feature: true
           /visitscotland:links:
             jcr:primaryType: hippo:mirror
-            hippo:docbase: b72e7bfe-605f-427c-ac32-852e2980f48d
+            hippo:docbase: ad1df6c4-0649-4f26-8ec5-d2c1f975a17a
         /visitscotland:megalinkItems[3]:
           jcr:primaryType: visitscotland:MegalinkItem
           visitscotland:feature: false
           /visitscotland:links:
             jcr:primaryType: hippo:mirror
-            hippo:docbase: e8f7af33-b75d-481c-87f6-26a08fc65542
+            hippo:docbase: b72e7bfe-605f-427c-ac32-852e2980f48d
         /visitscotland:megalinkItems[4]:
           jcr:primaryType: visitscotland:MegalinkItem
           visitscotland:feature: false
           /visitscotland:links:
             jcr:primaryType: hippo:mirror
-            hippo:docbase: 0813311b-25ea-4f3f-bedd-d9edc15aaa87
+            hippo:docbase: e8f7af33-b75d-481c-87f6-26a08fc65542
         /visitscotland:megalinkItems[5]:
+          jcr:primaryType: visitscotland:MegalinkItem
+          visitscotland:feature: false
+          /visitscotland:links:
+            jcr:primaryType: hippo:mirror
+            hippo:docbase: 0813311b-25ea-4f3f-bedd-d9edc15aaa87
+        /visitscotland:megalinkItems[6]:
           jcr:primaryType: visitscotland:MegalinkItem
           visitscotland:feature: false
           /visitscotland:links:
@@ -14747,12 +14758,12 @@
         hippostd:state: published
         hippostdpubwf:createdBy: admin
         hippostdpubwf:creationDate: 2023-08-30T17:22:37.177+01:00
-        hippostdpubwf:lastModificationDate: 2023-08-30T17:32:06.857+01:00
+        hippostdpubwf:lastModificationDate: 2023-11-16T17:17:19.484Z
         hippostdpubwf:lastModifiedBy: admin
-        hippostdpubwf:publicationDate: 2023-08-30T17:32:08.494+01:00
+        hippostdpubwf:publicationDate: 2023-11-16T17:17:20.998Z
         hippotranslation:id: 83595e3f-6437-4c14-8335-2635d0625413
         hippotranslation:locale: en
-        visitscotland:layout: Default
+        visitscotland:layout: List
         visitscotland:teaserVisible: true
         visitscotland:title: Map Examples
         visitscotland:translation: ''
@@ -14761,29 +14772,35 @@
           hippostd:content: <p>Various map examples used across the site.&nbsp;</p>
         /visitscotland:megalinkItems[1]:
           jcr:primaryType: visitscotland:MegalinkItem
-          visitscotland:feature: false
+          visitscotland:feature: true
           /visitscotland:links:
             jcr:primaryType: hippo:mirror
             hippo:docbase: 8b6ecee2-030b-4cf5-92a7-5d201b2ec15d
         /visitscotland:megalinkItems[2]:
           jcr:primaryType: visitscotland:MegalinkItem
-          visitscotland:feature: false
+          visitscotland:feature: true
           /visitscotland:links:
             jcr:primaryType: hippo:mirror
-            hippo:docbase: b72e7bfe-605f-427c-ac32-852e2980f48d
+            hippo:docbase: ad1df6c4-0649-4f26-8ec5-d2c1f975a17a
         /visitscotland:megalinkItems[3]:
           jcr:primaryType: visitscotland:MegalinkItem
           visitscotland:feature: false
           /visitscotland:links:
             jcr:primaryType: hippo:mirror
-            hippo:docbase: e8f7af33-b75d-481c-87f6-26a08fc65542
+            hippo:docbase: b72e7bfe-605f-427c-ac32-852e2980f48d
         /visitscotland:megalinkItems[4]:
           jcr:primaryType: visitscotland:MegalinkItem
           visitscotland:feature: false
           /visitscotland:links:
             jcr:primaryType: hippo:mirror
-            hippo:docbase: 0813311b-25ea-4f3f-bedd-d9edc15aaa87
+            hippo:docbase: e8f7af33-b75d-481c-87f6-26a08fc65542
         /visitscotland:megalinkItems[5]:
+          jcr:primaryType: visitscotland:MegalinkItem
+          visitscotland:feature: false
+          /visitscotland:links:
+            jcr:primaryType: hippo:mirror
+            hippo:docbase: 0813311b-25ea-4f3f-bedd-d9edc15aaa87
+        /visitscotland:megalinkItems[6]:
           jcr:primaryType: visitscotland:MegalinkItem
           visitscotland:feature: false
           /visitscotland:links:
@@ -23927,6 +23944,232 @@
       hippostd:foldertype: [new-translated-folder-test, new-document]
       hippotranslation:id: e87bd259-50ad-47fd-ad17-ec008d40f9d3
       hippotranslation:locale: en
+      /main-map-with-regions:
+        jcr:primaryType: hippostd:folder
+        jcr:mixinTypes: ['hippo:named', 'hippotranslation:translated', 'mix:versionable']
+        jcr:uuid: fcda2f8a-5c19-43c6-92c3-adf0700da00b
+        hippo:name: Main Map with Regions
+        hippostd:foldertype: [new-translated-folder-test, new-document]
+        hippotranslation:id: d8798b5e-7e7d-4aaa-bcdc-f8b9191cd705
+        hippotranslation:locale: en
+        /content:
+          jcr:primaryType: hippo:handle
+          jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+          jcr:uuid: ad1df6c4-0649-4f26-8ec5-d2c1f975a17a
+          hippo:name: Places To Go
+          hippo:versionHistory: a68c7ac5-62f0-42d1-9e16-9d8a202920c7
+          /content[1]:
+            jcr:primaryType: visitscotland:General
+            jcr:mixinTypes: ['mix:versionable']
+            jcr:uuid: 83c252f2-512a-475b-ad4e-e6930dd4d1fd
+            hippo:availability: [preview]
+            hippostd:retainable: false
+            hippostd:state: unpublished
+            hippostdpubwf:createdBy: admin
+            hippostdpubwf:creationDate: 2021-06-25T10:03:42.014+01:00
+            hippostdpubwf:lastModificationDate: 2023-11-16T17:20:19.777Z
+            hippostdpubwf:lastModifiedBy: admin
+            hippotranslation:id: bb449cd8-7130-4ecb-b798-2ebbaf5f0b00
+            hippotranslation:locale: en
+            visitscotland:breadcrumb: Places to go
+            visitscotland:hideNewsletter: false
+            visitscotland:newsletter: true
+            visitscotland:pswPosition: Bottom
+            visitscotland:seoDescription: Showing main map of Scotland with region
+              polygons
+            visitscotland:seoNoIndex: false
+            visitscotland:seoTitle: Places to Go
+            visitscotland:teaser: Showing main map of Scotland with region polygons
+            visitscotland:theme: Simple
+            visitscotland:title: Places to Go
+            visitscotland:translation: ''
+            /visitscotland:heroImage:
+              jcr:primaryType: hippogallerypicker:imagelink
+              hippo:docbase: d607431a-46f7-4ed1-a288-de6458bbdc97
+              hippo:facets: []
+              hippo:modes: []
+              hippo:values: []
+            /visitscotland:introduction:
+              jcr:primaryType: hippostd:html
+              hippostd:content: <p>Showing main map of Scotland with major cities,
+                towns, islands and region polygons.</p>
+          /content[2]:
+            jcr:primaryType: visitscotland:General
+            jcr:mixinTypes: ['mix:referenceable']
+            jcr:uuid: cec99b48-c8e7-48cd-b709-648f7539d541
+            hippo:availability: []
+            hippostd:retainable: false
+            hippostd:state: draft
+            hippostdpubwf:createdBy: admin
+            hippostdpubwf:creationDate: 2021-06-25T10:03:42.014+01:00
+            hippostdpubwf:lastModificationDate: 2023-11-16T17:20:15.107Z
+            hippostdpubwf:lastModifiedBy: admin
+            hippotranslation:id: bb449cd8-7130-4ecb-b798-2ebbaf5f0b00
+            hippotranslation:locale: en
+            visitscotland:breadcrumb: Places to go
+            visitscotland:hideNewsletter: false
+            visitscotland:newsletter: true
+            visitscotland:pswPosition: Bottom
+            visitscotland:seoDescription: Showing main map of Scotland with region
+              polygons
+            visitscotland:seoNoIndex: false
+            visitscotland:seoTitle: Places to Go
+            visitscotland:teaser: Showing main map of Scotland with region polygons
+            visitscotland:theme: Simple
+            visitscotland:title: Places to Go
+            visitscotland:translation: ''
+            /visitscotland:heroImage:
+              jcr:primaryType: hippogallerypicker:imagelink
+              hippo:docbase: d607431a-46f7-4ed1-a288-de6458bbdc97
+              hippo:facets: []
+              hippo:modes: []
+              hippo:values: []
+            /visitscotland:introduction:
+              jcr:primaryType: hippostd:html
+              hippostd:content: <p>Showing main map of Scotland with major cities,
+                towns, islands and region polygons.</p>
+          /content[3]:
+            jcr:primaryType: visitscotland:General
+            jcr:mixinTypes: ['mix:referenceable']
+            jcr:uuid: 4b908345-d7d3-497c-ace1-b277b67b77e9
+            hippo:availability: [live]
+            hippostd:retainable: false
+            hippostd:state: published
+            hippostdpubwf:createdBy: admin
+            hippostdpubwf:creationDate: 2021-06-25T10:03:42.014+01:00
+            hippostdpubwf:lastModificationDate: 2023-11-16T17:20:19.777Z
+            hippostdpubwf:lastModifiedBy: admin
+            hippostdpubwf:publicationDate: 2023-11-16T17:20:21.676Z
+            hippotranslation:id: bb449cd8-7130-4ecb-b798-2ebbaf5f0b00
+            hippotranslation:locale: en
+            visitscotland:breadcrumb: Places to go
+            visitscotland:hideNewsletter: false
+            visitscotland:newsletter: true
+            visitscotland:pswPosition: Bottom
+            visitscotland:seoDescription: Showing main map of Scotland with region
+              polygons
+            visitscotland:seoNoIndex: false
+            visitscotland:seoTitle: Places to Go
+            visitscotland:teaser: Showing main map of Scotland with region polygons
+            visitscotland:theme: Simple
+            visitscotland:title: Places to Go
+            visitscotland:translation: ''
+            /visitscotland:heroImage:
+              jcr:primaryType: hippogallerypicker:imagelink
+              hippo:docbase: d607431a-46f7-4ed1-a288-de6458bbdc97
+              hippo:facets: []
+              hippo:modes: []
+              hippo:values: []
+            /visitscotland:introduction:
+              jcr:primaryType: hippostd:html
+              hippostd:content: <p>Showing main map of Scotland with major cities,
+                towns, islands and region polygons.</p>
+        /main-map:
+          jcr:primaryType: hippo:handle
+          jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+          jcr:uuid: ecc62dce-ceb2-4aa7-ac60-52f3615a2047
+          hippo:name: Main Map
+          hippo:versionHistory: 39ff3edc-b47f-4198-a228-2dba2ab5e00f
+          /main-map[1]:
+            jcr:primaryType: visitscotland:MapModule
+            jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:versionable']
+            jcr:uuid: 7214feb6-4d7c-4966-b427-b173612bf8eb
+            hippo:availability: [preview]
+            hippostd:retainable: false
+            hippostd:state: unpublished
+            hippostdpubwf:createdBy: admin
+            hippostdpubwf:creationDate: 2022-06-16T09:40:19.973+01:00
+            hippostdpubwf:lastModificationDate: 2023-11-16T17:13:54.972Z
+            hippostdpubwf:lastModifiedBy: admin
+            hippotaxonomy:keys: [destinations]
+            hippotranslation:id: ea7f9827-02a3-4ebd-b420-503a9f39a773
+            hippotranslation:locale: en
+            visitscotland:mapType: ''
+            visitscotland:tabTitle: Explore places to go
+            visitscotland:title: Map of Scotland
+            visitscotland:translation: ''
+            /visitscotland:copy:
+              jcr:primaryType: hippostd:html
+              hippostd:content: ''
+            /visitscotland:categories:
+              jcr:primaryType: visitscotland:MapCategory
+              visitscotland:title: ''
+              /visitscotland:mapPins[1]:
+                jcr:primaryType: hippo:mirror
+                hippo:docbase: 030dde79-74ad-441b-b7f2-731cb0312e3c
+              /visitscotland:mapPins[2]:
+                jcr:primaryType: hippo:mirror
+                hippo:docbase: f0c435ec-14f2-48a0-81b7-05507be62018
+              /visitscotland:mapPins[3]:
+                jcr:primaryType: hippo:mirror
+                hippo:docbase: 56d04a55-ae5b-4357-a8fd-b20bebbe91c5
+          /main-map[2]:
+            jcr:primaryType: visitscotland:MapModule
+            jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
+            jcr:uuid: 7ea75a17-34ff-4d27-b527-d31666246a7a
+            hippo:availability: []
+            hippostd:retainable: false
+            hippostd:state: draft
+            hippostdpubwf:createdBy: admin
+            hippostdpubwf:creationDate: 2022-06-16T09:40:19.973+01:00
+            hippostdpubwf:lastModificationDate: 2023-11-16T17:13:47.592Z
+            hippostdpubwf:lastModifiedBy: admin
+            hippotaxonomy:keys: [destinations]
+            hippotranslation:id: ea7f9827-02a3-4ebd-b420-503a9f39a773
+            hippotranslation:locale: en
+            visitscotland:mapType: ''
+            visitscotland:tabTitle: Explore places to go
+            visitscotland:title: Map of Scotland
+            visitscotland:translation: ''
+            /visitscotland:copy:
+              jcr:primaryType: hippostd:html
+              hippostd:content: ''
+            /visitscotland:categories:
+              jcr:primaryType: visitscotland:MapCategory
+              visitscotland:title: ''
+              /visitscotland:mapPins[1]:
+                jcr:primaryType: hippo:mirror
+                hippo:docbase: 030dde79-74ad-441b-b7f2-731cb0312e3c
+              /visitscotland:mapPins[2]:
+                jcr:primaryType: hippo:mirror
+                hippo:docbase: f0c435ec-14f2-48a0-81b7-05507be62018
+              /visitscotland:mapPins[3]:
+                jcr:primaryType: hippo:mirror
+                hippo:docbase: 56d04a55-ae5b-4357-a8fd-b20bebbe91c5
+          /main-map[3]:
+            jcr:primaryType: visitscotland:MapModule
+            jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
+            jcr:uuid: 5366a2d7-ec1a-42c5-9c49-8d0784d70982
+            hippo:availability: [live]
+            hippostd:retainable: false
+            hippostd:state: published
+            hippostdpubwf:createdBy: admin
+            hippostdpubwf:creationDate: 2022-06-16T09:40:19.973+01:00
+            hippostdpubwf:lastModificationDate: 2023-11-16T17:13:54.972Z
+            hippostdpubwf:lastModifiedBy: admin
+            hippostdpubwf:publicationDate: 2023-11-16T17:14:40.387Z
+            hippotaxonomy:keys: [destinations]
+            hippotranslation:id: ea7f9827-02a3-4ebd-b420-503a9f39a773
+            hippotranslation:locale: en
+            visitscotland:mapType: ''
+            visitscotland:tabTitle: Explore places to go
+            visitscotland:title: Map of Scotland
+            visitscotland:translation: ''
+            /visitscotland:copy:
+              jcr:primaryType: hippostd:html
+              hippostd:content: ''
+            /visitscotland:categories:
+              jcr:primaryType: visitscotland:MapCategory
+              visitscotland:title: ''
+              /visitscotland:mapPins[1]:
+                jcr:primaryType: hippo:mirror
+                hippo:docbase: 030dde79-74ad-441b-b7f2-731cb0312e3c
+              /visitscotland:mapPins[2]:
+                jcr:primaryType: hippo:mirror
+                hippo:docbase: f0c435ec-14f2-48a0-81b7-05507be62018
+              /visitscotland:mapPins[3]:
+                jcr:primaryType: hippo:mirror
+                hippo:docbase: 56d04a55-ae5b-4357-a8fd-b20bebbe91c5
       /outlander:
         jcr:primaryType: hippostd:folder
         jcr:mixinTypes: ['hippo:named', 'hippotranslation:translated', 'mix:versionable']
@@ -23940,7 +24183,7 @@
           jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
           jcr:uuid: b72e7bfe-605f-427c-ac32-852e2980f48d
           hippo:name: Outlander Filming Locations
-          hippo:versionHistory: e208a548-87fe-4c70-8683-6e7d9e36a710
+          hippo:versionHistory: 971a9642-5e46-4211-9ddd-5adcbdebc4d3
           /content[1]:
             jcr:primaryType: visitscotland:General
             jcr:mixinTypes: ['mix:referenceable']
@@ -23948,21 +24191,22 @@
             hippo:availability: []
             hippostd:retainable: false
             hippostd:state: draft
-            hippostd:transferable: false
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2023-08-14T13:56:51.517+01:00
-            hippostdpubwf:lastModificationDate: 2023-08-30T17:32:56.077+01:00
+            hippostdpubwf:lastModificationDate: 2023-11-16T17:20:35.466Z
             hippostdpubwf:lastModifiedBy: admin
             hippotranslation:id: 64555c8c-ffc6-461c-8fa5-b6e3df13fe5b
             hippotranslation:locale: en
             visitscotland:breadcrumb: ''
             visitscotland:hideNewsletter: false
-            visitscotland:seoDescription: Outlander Filming Locations
+            visitscotland:pswPosition: Bottom
+            visitscotland:seoDescription: A map used to display Outlander filming
+              locations
             visitscotland:seoNoIndex: false
-            visitscotland:seoTitle: Outlander Filming Locations
-            visitscotland:teaser: Outlander Filming Locations
-            visitscotland:theme: Standard
-            visitscotland:title: Outlander Filming Locations
+            visitscotland:seoTitle: Outlander Locations Map
+            visitscotland:teaser: A map used to display Outlander filming locations
+            visitscotland:theme: Simple
+            visitscotland:title: Outlander Locations Map
             visitscotland:translation: ''
             /visitscotland:heroImage:
               jcr:primaryType: hippogallerypicker:imagelink
@@ -23988,18 +24232,20 @@
             hippostd:state: unpublished
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2023-08-14T13:56:51.517+01:00
-            hippostdpubwf:lastModificationDate: 2023-08-14T13:57:56.103+01:00
+            hippostdpubwf:lastModificationDate: 2023-11-16T17:20:37.773Z
             hippostdpubwf:lastModifiedBy: admin
             hippotranslation:id: 64555c8c-ffc6-461c-8fa5-b6e3df13fe5b
             hippotranslation:locale: en
             visitscotland:breadcrumb: ''
             visitscotland:hideNewsletter: false
-            visitscotland:seoDescription: Outlander Filming Locations
+            visitscotland:pswPosition: Bottom
+            visitscotland:seoDescription: A map used to display Outlander filming
+              locations
             visitscotland:seoNoIndex: false
-            visitscotland:seoTitle: Outlander Filming Locations
-            visitscotland:teaser: Outlander Filming Locations
-            visitscotland:theme: Standard
-            visitscotland:title: Outlander Filming Locations
+            visitscotland:seoTitle: Outlander Locations Map
+            visitscotland:teaser: A map used to display Outlander filming locations
+            visitscotland:theme: Simple
+            visitscotland:title: Outlander Locations Map
             visitscotland:translation: ''
             /visitscotland:heroImage:
               jcr:primaryType: hippogallerypicker:imagelink
@@ -24025,19 +24271,21 @@
             hippostd:state: published
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2023-08-14T13:56:51.517+01:00
-            hippostdpubwf:lastModificationDate: 2023-08-14T13:57:56.103+01:00
+            hippostdpubwf:lastModificationDate: 2023-11-16T17:20:37.773Z
             hippostdpubwf:lastModifiedBy: admin
-            hippostdpubwf:publicationDate: 2023-08-30T17:33:11.631+01:00
+            hippostdpubwf:publicationDate: 2023-11-16T17:20:40.677Z
             hippotranslation:id: 64555c8c-ffc6-461c-8fa5-b6e3df13fe5b
             hippotranslation:locale: en
             visitscotland:breadcrumb: ''
             visitscotland:hideNewsletter: false
-            visitscotland:seoDescription: Outlander Filming Locations
+            visitscotland:pswPosition: Bottom
+            visitscotland:seoDescription: A map used to display Outlander filming
+              locations
             visitscotland:seoNoIndex: false
-            visitscotland:seoTitle: Outlander Filming Locations
-            visitscotland:teaser: Outlander Filming Locations
-            visitscotland:theme: Standard
-            visitscotland:title: Outlander Filming Locations
+            visitscotland:seoTitle: Outlander Locations Map
+            visitscotland:teaser: A map used to display Outlander filming locations
+            visitscotland:theme: Simple
+            visitscotland:title: Outlander Locations Map
             visitscotland:translation: ''
             /visitscotland:heroImage:
               jcr:primaryType: hippogallerypicker:imagelink
@@ -24059,7 +24307,7 @@
           jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
           jcr:uuid: 9800eb85-c4b8-45f3-9dc1-1987318b67e3
           hippo:name: OUTLANDER FILMING LOCATIONS
-          hippo:versionHistory: e2ed82af-2403-41eb-aa95-72e53af77c14
+          hippo:versionHistory: cc2ea17a-a392-4ec9-852b-66ce7336f28a
           /outlander-filming-locations[1]:
             jcr:primaryType: visitscotland:MapModule
             jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
@@ -24067,9 +24315,10 @@
             hippo:availability: []
             hippostd:retainable: false
             hippostd:state: draft
+            hippostd:transferable: false
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2023-08-14T13:58:31.150+01:00
-            hippostdpubwf:lastModificationDate: 2023-09-18T15:18:44.468+01:00
+            hippostdpubwf:lastModificationDate: 2023-11-16T17:03:18.877Z
             hippostdpubwf:lastModifiedBy: admin
             hippotaxonomy:keys: [outlander-category]
             hippotranslation:id: 17354a1b-3c5e-401f-a10c-c572d604d603
@@ -24078,12 +24327,6 @@
             visitscotland:tabTitle: categories
             visitscotland:title: Outlander Filming Locations
             visitscotland:translation: ''
-            /visitscotland:categories:
-              jcr:primaryType: visitscotland:MapCategory
-              visitscotland:title: ''
-              /visitscotland:mapPins:
-                jcr:primaryType: hippo:mirror
-                hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
           /outlander-filming-locations[2]:
             jcr:primaryType: visitscotland:MapModule
             jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable', 'mix:versionable']
@@ -24106,14 +24349,14 @@
             jcr:primaryType: visitscotland:MapModule
             jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
             jcr:uuid: ebed5882-a5ea-41f7-b678-6eeb447354c6
-            hippo:availability: []
+            hippo:availability: [live]
             hippostd:retainable: false
             hippostd:state: published
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2023-08-14T13:58:31.150+01:00
-            hippostdpubwf:lastModificationDate: 2023-09-19T14:03:26.308+01:00
+            hippostdpubwf:lastModificationDate: 2023-09-18T15:18:31.386+01:00
             hippostdpubwf:lastModifiedBy: admin
-            hippostdpubwf:publicationDate: 2023-09-19T14:03:31.806+01:00
+            hippostdpubwf:publicationDate: 2023-11-16T15:22:50.496Z
             hippotaxonomy:keys: [outlander-category]
             hippotranslation:id: 17354a1b-3c5e-401f-a10c-c572d604d603
             hippotranslation:locale: en
@@ -24134,7 +24377,7 @@
           jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
           jcr:uuid: e8f7af33-b75d-481c-87f6-26a08fc65542
           hippo:name: iCentres Map
-          hippo:versionHistory: 178a79c1-75e3-4ad4-a890-fccb78194338
+          hippo:versionHistory: 41adb625-41e4-4cd1-88da-96f298d9a252
           /content[1]:
             jcr:primaryType: visitscotland:General
             jcr:mixinTypes: ['mix:referenceable']
@@ -24142,20 +24385,20 @@
             hippo:availability: []
             hippostd:retainable: false
             hippostd:state: draft
+            hippostd:transferable: false
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2023-03-30T12:27:18.344+01:00
-            hippostdpubwf:lastModificationDate: 2023-08-30T17:35:34.795+01:00
+            hippostdpubwf:lastModificationDate: 2023-11-16T17:20:44.552Z
             hippostdpubwf:lastModifiedBy: admin
             hippotranslation:id: db16c41f-3446-4d02-b66c-cd5466e0a89d
             hippotranslation:locale: en
             visitscotland:breadcrumb: ''
             visitscotland:hideNewsletter: false
-            visitscotland:seoDescription: iCentres Map
+            visitscotland:pswPosition: Bottom
+            visitscotland:seoDescription: A map used to display all our iCentre locations
             visitscotland:seoNoIndex: false
             visitscotland:seoTitle: iCentres Map
-            visitscotland:teaser: Visit one of our Information Centres (iCentres)
-              for tourist information and the best local recommendations from knowledgeable
-              Scotland experts.
+            visitscotland:teaser: A map used to display all our iCentre locations
             visitscotland:theme: Simple
             visitscotland:title: iCentres Map
             visitscotland:translation: ''
@@ -24180,18 +24423,17 @@
             hippostd:state: unpublished
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2023-03-30T12:27:18.344+01:00
-            hippostdpubwf:lastModificationDate: 2023-08-30T17:35:54.892+01:00
+            hippostdpubwf:lastModificationDate: 2023-11-16T17:06:31.112Z
             hippostdpubwf:lastModifiedBy: admin
             hippotranslation:id: db16c41f-3446-4d02-b66c-cd5466e0a89d
             hippotranslation:locale: en
             visitscotland:breadcrumb: ''
             visitscotland:hideNewsletter: false
-            visitscotland:seoDescription: iCentres Map
+            visitscotland:pswPosition: Bottom
+            visitscotland:seoDescription: A map used to display all our iCentre locations
             visitscotland:seoNoIndex: false
             visitscotland:seoTitle: iCentres Map
-            visitscotland:teaser: Visit one of our Information Centres (iCentres)
-              for tourist information and the best local recommendations from knowledgeable
-              Scotland experts.
+            visitscotland:teaser: A map used to display all our iCentre locations
             visitscotland:theme: Simple
             visitscotland:title: iCentres Map
             visitscotland:translation: ''
@@ -24216,19 +24458,18 @@
             hippostd:state: published
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2023-03-30T12:27:18.344+01:00
-            hippostdpubwf:lastModificationDate: 2023-08-30T17:35:54.892+01:00
+            hippostdpubwf:lastModificationDate: 2023-11-16T17:06:31.112Z
             hippostdpubwf:lastModifiedBy: admin
-            hippostdpubwf:publicationDate: 2023-08-30T17:35:56.732+01:00
+            hippostdpubwf:publicationDate: 2023-11-16T17:06:33.282Z
             hippotranslation:id: db16c41f-3446-4d02-b66c-cd5466e0a89d
             hippotranslation:locale: en
             visitscotland:breadcrumb: ''
             visitscotland:hideNewsletter: false
-            visitscotland:seoDescription: iCentres Map
+            visitscotland:pswPosition: Bottom
+            visitscotland:seoDescription: A map used to display all our iCentre locations
             visitscotland:seoNoIndex: false
             visitscotland:seoTitle: iCentres Map
-            visitscotland:teaser: Visit one of our Information Centres (iCentres)
-              for tourist information and the best local recommendations from knowledgeable
-              Scotland experts.
+            visitscotland:teaser: A map used to display all our iCentre locations
             visitscotland:theme: Simple
             visitscotland:title: iCentres Map
             visitscotland:translation: ''
@@ -24326,7 +24567,7 @@
           jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
           jcr:uuid: 0813311b-25ea-4f3f-bedd-d9edc15aaa87
           hippo:name: Whisky page
-          hippo:versionHistory: aa2f72f0-fe0f-4857-bf4b-d6eb708a9a50
+          hippo:versionHistory: 7a5b64f8-03c4-4f81-adf6-cc616e11bc3f
           /content[1]:
             jcr:primaryType: visitscotland:General
             jcr:mixinTypes: ['mix:referenceable']
@@ -24336,20 +24577,20 @@
             hippostd:state: draft
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2023-08-30T08:56:24.509+01:00
-            hippostdpubwf:lastModificationDate: 2023-08-30T17:26:24.055+01:00
+            hippostdpubwf:lastModificationDate: 2023-11-16T17:21:11.114Z
             hippostdpubwf:lastModifiedBy: admin
             hippotranslation:id: dcf0f365-9a89-4d5a-90a2-a62a8f0a290a
             hippotranslation:locale: en
             visitscotland:breadcrumb: ''
             visitscotland:hideNewsletter: false
-            visitscotland:seoDescription: Scottish Whisky Distilleries
+            visitscotland:pswPosition: Bottom
+            visitscotland:seoDescription: A map used to display all of Scotland's
+              whisky distilleries
             visitscotland:seoNoIndex: false
-            visitscotland:seoTitle: Scottish Whisky Distilleries
-            visitscotland:teaser: Our Scotland's Whisky Distillery Map below to learn
-              more about Scottish whisky distilleries and find a behind-the-scenes
-              whisky tour near you.
-            visitscotland:theme: Standard
-            visitscotland:title: Scottish Whisky Distilleries
+            visitscotland:seoTitle: Scottish Whisky Distillery Map
+            visitscotland:teaser: A map used to display all of Scotland's whisky distilleries
+            visitscotland:theme: Simple
+            visitscotland:title: Scottish Whisky Distillery Map
             visitscotland:translation: ''
             /visitscotland:heroImage:
               jcr:primaryType: hippogallerypicker:imagelink
@@ -24372,20 +24613,20 @@
             hippostd:state: unpublished
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2023-08-30T08:56:24.509+01:00
-            hippostdpubwf:lastModificationDate: 2023-08-30T17:27:01.177+01:00
+            hippostdpubwf:lastModificationDate: 2023-11-16T17:21:14.387Z
             hippostdpubwf:lastModifiedBy: admin
             hippotranslation:id: dcf0f365-9a89-4d5a-90a2-a62a8f0a290a
             hippotranslation:locale: en
             visitscotland:breadcrumb: ''
             visitscotland:hideNewsletter: false
-            visitscotland:seoDescription: Scottish Whisky Distilleries
+            visitscotland:pswPosition: Bottom
+            visitscotland:seoDescription: A map used to display all of Scotland's
+              whisky distilleries
             visitscotland:seoNoIndex: false
-            visitscotland:seoTitle: Scottish Whisky Distilleries
-            visitscotland:teaser: Our Scotland's Whisky Distillery Map below to learn
-              more about Scottish whisky distilleries and find a behind-the-scenes
-              whisky tour near you.
-            visitscotland:theme: Standard
-            visitscotland:title: Scottish Whisky Distilleries
+            visitscotland:seoTitle: Scottish Whisky Distillery Map
+            visitscotland:teaser: A map used to display all of Scotland's whisky distilleries
+            visitscotland:theme: Simple
+            visitscotland:title: Scottish Whisky Distillery Map
             visitscotland:translation: ''
             /visitscotland:heroImage:
               jcr:primaryType: hippogallerypicker:imagelink
@@ -24408,21 +24649,21 @@
             hippostd:state: published
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2023-08-30T08:56:24.509+01:00
-            hippostdpubwf:lastModificationDate: 2023-08-30T17:27:01.177+01:00
+            hippostdpubwf:lastModificationDate: 2023-11-16T17:21:14.387Z
             hippostdpubwf:lastModifiedBy: admin
-            hippostdpubwf:publicationDate: 2023-08-30T17:35:15.225+01:00
+            hippostdpubwf:publicationDate: 2023-11-16T17:21:15.867Z
             hippotranslation:id: dcf0f365-9a89-4d5a-90a2-a62a8f0a290a
             hippotranslation:locale: en
             visitscotland:breadcrumb: ''
             visitscotland:hideNewsletter: false
-            visitscotland:seoDescription: Scottish Whisky Distilleries
+            visitscotland:pswPosition: Bottom
+            visitscotland:seoDescription: A map used to display all of Scotland's
+              whisky distilleries
             visitscotland:seoNoIndex: false
-            visitscotland:seoTitle: Scottish Whisky Distilleries
-            visitscotland:teaser: Our Scotland's Whisky Distillery Map below to learn
-              more about Scottish whisky distilleries and find a behind-the-scenes
-              whisky tour near you.
-            visitscotland:theme: Standard
-            visitscotland:title: Scottish Whisky Distilleries
+            visitscotland:seoTitle: Scottish Whisky Distillery Map
+            visitscotland:teaser: A map used to display all of Scotland's whisky distilleries
+            visitscotland:theme: Simple
+            visitscotland:title: Scottish Whisky Distillery Map
             visitscotland:translation: ''
             /visitscotland:heroImage:
               jcr:primaryType: hippogallerypicker:imagelink
@@ -24507,7 +24748,7 @@
           jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
           jcr:uuid: fcd8bf63-e0b2-4df7-965a-02c29c817057
           hippo:name: Highlands
-          hippo:versionHistory: dcf059e9-ac98-4317-a388-b2942232921a
+          hippo:versionHistory: 5593c991-9bce-4c84-8323-b398f3a583cf
           /content[1]:
             jcr:primaryType: visitscotland:Destination
             jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
@@ -24517,7 +24758,7 @@
             hippostd:state: draft
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2023-08-30T09:00:10.326+01:00
-            hippostdpubwf:lastModificationDate: 2023-09-19T14:04:31.183+01:00
+            hippostdpubwf:lastModificationDate: 2023-11-16T17:07:34.327Z
             hippostdpubwf:lastModifiedBy: admin
             hippotaxonomy:keys: [regions]
             hippotranslation:id: a6bd4d63-341c-41f7-a461-7427671663ed
@@ -24525,12 +24766,13 @@
             visitscotland:breadcrumb: ''
             visitscotland:hideNewsletter: false
             visitscotland:location: The Highlands
-            visitscotland:seoDescription: The Highlands
+            visitscotland:seoDescription: A map used to display places and iCentres
+              within a specific region
             visitscotland:seoNoIndex: false
-            visitscotland:seoTitle: The Highlands
-            visitscotland:teaser: The Scottish Highlands is really the Scotland of
-              your imagination and the perfect backdrop for your next adventure.
-            visitscotland:title: The Highlands
+            visitscotland:seoTitle: Regional Map - The Highlands
+            visitscotland:teaser: A map used to display places and iCentres within
+              a specific region
+            visitscotland:title: Regional Map - The Highlands
             visitscotland:translation: ''
             /visitscotland:heroImage:
               jcr:primaryType: hippogallerypicker:imagelink
@@ -24557,7 +24799,7 @@
             hippostd:state: unpublished
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2023-08-30T09:00:10.326+01:00
-            hippostdpubwf:lastModificationDate: 2023-09-19T14:04:35.108+01:00
+            hippostdpubwf:lastModificationDate: 2023-11-16T17:08:17.867Z
             hippostdpubwf:lastModifiedBy: admin
             hippotaxonomy:keys: [regions]
             hippotranslation:id: a6bd4d63-341c-41f7-a461-7427671663ed
@@ -24565,12 +24807,13 @@
             visitscotland:breadcrumb: ''
             visitscotland:hideNewsletter: false
             visitscotland:location: The Highlands
-            visitscotland:seoDescription: The Highlands
+            visitscotland:seoDescription: A map used to display places and iCentres
+              within a specific region
             visitscotland:seoNoIndex: false
-            visitscotland:seoTitle: The Highlands
-            visitscotland:teaser: The Scottish Highlands is really the Scotland of
-              your imagination and the perfect backdrop for your next adventure.
-            visitscotland:title: The Highlands
+            visitscotland:seoTitle: Regional Map - The Highlands
+            visitscotland:teaser: A map used to display places and iCentres within
+              a specific region
+            visitscotland:title: Regional Map - The Highlands
             visitscotland:translation: ''
             /visitscotland:heroImage:
               jcr:primaryType: hippogallerypicker:imagelink
@@ -24597,21 +24840,22 @@
             hippostd:state: published
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2023-08-30T09:00:10.326+01:00
-            hippostdpubwf:lastModificationDate: 2023-09-19T14:04:35.108+01:00
+            hippostdpubwf:lastModificationDate: 2023-11-16T17:08:17.867Z
             hippostdpubwf:lastModifiedBy: admin
-            hippostdpubwf:publicationDate: 2023-09-19T14:04:37.869+01:00
+            hippostdpubwf:publicationDate: 2023-11-16T17:08:21.086Z
             hippotaxonomy:keys: [regions]
             hippotranslation:id: a6bd4d63-341c-41f7-a461-7427671663ed
             hippotranslation:locale: en
             visitscotland:breadcrumb: ''
             visitscotland:hideNewsletter: false
             visitscotland:location: The Highlands
-            visitscotland:seoDescription: The Highlands
+            visitscotland:seoDescription: A map used to display places and iCentres
+              within a specific region
             visitscotland:seoNoIndex: false
-            visitscotland:seoTitle: The Highlands
-            visitscotland:teaser: The Scottish Highlands is really the Scotland of
-              your imagination and the perfect backdrop for your next adventure.
-            visitscotland:title: The Highlands
+            visitscotland:seoTitle: Regional Map - The Highlands
+            visitscotland:teaser: A map used to display places and iCentres within
+              a specific region
+            visitscotland:title: Regional Map - The Highlands
             visitscotland:translation: ''
             /visitscotland:heroImage:
               jcr:primaryType: hippogallerypicker:imagelink
