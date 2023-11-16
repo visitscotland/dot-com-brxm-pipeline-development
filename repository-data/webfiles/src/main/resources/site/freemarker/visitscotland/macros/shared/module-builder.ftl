@@ -55,7 +55,7 @@
         <#elseif moduleType == "LongCopyModule">
             <@includeOnce "../modules/long-copy/long-copy.ftl" />
             <@longCopy module/>
-        <#elseif moduleType == "StacklaModule">
+        <#elseif moduleType == "UserGeneratedContentModule">
             <@includeOnce "../modules/ugc/ugc.ftl" />
             <@ugc module/>
         <#elseif moduleType == "TravelInformationModule">

@@ -52,4 +52,9 @@ public class Stackla extends BaseDocument {
     public Calendar getTranslationDeadline() {
         return getSingleProperty("visitscotland:translationDeadline");
     }
+
+    @HippoEssentialsGenerated(internalName = "visitscotland:storystreamId")
+    public String getStorystreamId() {
+        return getSingleProperty("visitscotland:storystreamId");
+    }
 }
