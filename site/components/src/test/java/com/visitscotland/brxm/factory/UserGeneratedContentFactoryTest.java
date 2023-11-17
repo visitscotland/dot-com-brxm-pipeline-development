@@ -24,22 +24,20 @@ class UserGeneratedContentFactoryTest {
     @Mock
     ResourceBundleService bundle;
 
-    private static final String BUNDLE_ID = "stackla";
+    private static final String BUNDLE_ID = "ugc";
 
     @DisplayName("All information from stackla bean is passed into User Generated Content module")
     @Test
     void UserGeneratedContentModule() {
         Stackla stackla = new UserGeneratedContentMockBuilder().title("title").copy("copy").dataId("id").build();
-        when(bundle.getResourceBundle(BUNDLE_ID, "stackla.no-cookies-message", Locale.UK)).thenReturn("no cookies");
-        when(bundle.getResourceBundle(BUNDLE_ID, "stackla.no-js-message", Locale.UK)).thenReturn("no js");
-        when(bundle.getResourceBundle(BUNDLE_ID, "stackla.update-cookies-link.label", Locale.UK)).thenReturn("no cookies link");
+        when(bundle.getResourceBundle(BUNDLE_ID, "ugc.no-cookies-message", Locale.UK)).thenReturn("no cookies");
+        when(bundle.getResourceBundle(BUNDLE_ID, "ugc.no-js-message", Locale.UK)).thenReturn("no js");
         UserGeneratedContentModule module = userGeneratedContentFactory.getUGCModule(stackla, Locale.UK);
         Assertions.assertEquals("title", module.getTitle());
         Assertions.assertEquals("copy", module.getCopy().getContent());
         Assertions.assertEquals("id", module.getStorystreamId());
         Assertions.assertEquals("no cookies", module.getNoCookiesMessage());
         Assertions.assertEquals("no js", module.getNoJsMessage());
-        Assertions.assertEquals("no cookies link", module.getNoCookiesLinkLabel());
     }
 
 

@@ -10,8 +10,6 @@ public class UserGeneratedContentModule extends Module<Stackla> {
     private String storystreamId;
     private String noCookiesMessage;
     private String noJsMessage;
-    private String noCookiesLinkLabel;
-
     public void setNoCookiesMessage(String noCookiesMessage) {
         this.noCookiesMessage = noCookiesMessage;
     }
@@ -36,10 +34,6 @@ public class UserGeneratedContentModule extends Module<Stackla> {
         this.storystreamId = storystreamId;
     }
 
-    public void setNoCookiesLinkLabel(String noCookiesLinkLabel) {
-        this.noCookiesLinkLabel = noCookiesLinkLabel;
-    }
-
     public String getTitle() {
         return title;
     }
@@ -57,8 +51,5 @@ public class UserGeneratedContentModule extends Module<Stackla> {
         return noJsMessage;
     }
 
-    public String getNoCookiesLinkLabel() {
-        return noCookiesLinkLabel;
-    }
 
 }

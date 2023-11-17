@@ -15,7 +15,7 @@ public class UserGeneratedContentFactory {
 
     private final ResourceBundleService bundle;
     private static final Logger logger = LoggerFactory.getLogger(UserGeneratedContentFactory.class);
-    static final String BUNDLE_ID = "stackla";
+    static final String BUNDLE_ID = "ugc";
 
     public UserGeneratedContentFactory(ResourceBundleService bundle) {
         this.bundle = bundle;
@@ -28,9 +28,8 @@ public class UserGeneratedContentFactory {
         ugc.setCopy(document.getCopy());
         ugc.setStorystreamId(document.getStorystreamId());
         ugc.setHippoBean(document);
-        ugc.setNoCookiesMessage(bundle.getResourceBundle(BUNDLE_ID, "stackla.no-cookies-message", locale));
-        ugc.setNoJsMessage(bundle.getResourceBundle(BUNDLE_ID, "stackla.no-js-message", locale));
-        ugc.setNoCookiesLinkLabel(bundle.getResourceBundle(BUNDLE_ID, "stackla.update-cookies-link.label", locale));
+        ugc.setNoCookiesMessage(bundle.getResourceBundle(BUNDLE_ID, "ugc.no-cookies-message", locale));
+        ugc.setNoJsMessage(bundle.getResourceBundle(BUNDLE_ID, "ugc.no-js-message", locale));
         if (!Contract.isEmpty(document.getStacklaId()) || !Contract.isEmpty(document.getStacklaHash())){
             ugc.addErrorMessage("Stackla id and Stackla hash are not valid fields, please remove the values");
         }

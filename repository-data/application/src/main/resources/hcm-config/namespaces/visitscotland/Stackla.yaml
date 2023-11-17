@@ -11,7 +11,7 @@ definitions:
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:uuid: b6010014-8ec2-435a-a162-0ae90a1ee6c7
+          jcr:uuid: e90e8e60-c326-4fd3-a76e-6831f04b1890
           hipposysedit:node: true
           hipposysedit:supertype: ['visitscotland:basedocument', 'hippostd:relaxed',
             'hippotranslation:translated']
@@ -81,7 +81,7 @@ definitions:
           visitscotland:title: ''
           visitscotland:stacklaId: ''
           visitscotland:stacklaHash: ''
-          jcr:uuid: 3b67255d-8832-46eb-abf4-edea315d3fe1
+          jcr:uuid: 4b45e0f0-6adf-423e-af2d-325d0cc56193
           hippostdpubwf:lastModificationDate: 2021-05-06T14:34:32.434+01:00
           hippostdpubwf:creationDate: 2021-05-06T14:34:32.434+01:00
           visitscotland:translation: ''
@@ -121,7 +121,7 @@ definitions:
                 , removeButtons: ''PickImage,Youtube,Table,Bold,Underline,Strike,Subscript,Superscript''}'
           /storystreamId:
             jcr:primaryType: frontend:plugin
-            caption: Storystream Id
+            caption: StoryStream ID
             field: storystreamId
             hint: ''
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
