@@ -79,6 +79,16 @@
     <#return escaped>
 </#function>
 
+<#--  Get correct parameter depending on the number of paramters existing -->
+<#--  Usage: ${getParameter(imageURL)} -->
+<#function addParameter url>
+    <#if url?contains("?")>
+        <#return "&">
+    <#else>
+        <#return "?">
+    </#if>
+</#function>
+
 
 <#--TODO: polimorphism-->
 <#--<#function productSearch locale productType location >-->
