@@ -21,7 +21,7 @@
         <@gtm noscript=true />
         <@skeleton />
         <@personalisation />
-        <div data-vue-hydration-init><div class="no-js" data-vue-app-init>
+        <div data-vue-hydration-init class="hydrate"><div class="no-js" data-vue-app-init>
             <@hst.include ref="top"/>
 
             <@hst.include ref="menu"/>
