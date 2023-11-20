@@ -133,6 +133,9 @@ public class PageTemplateBuilder {
 
         setIntroTheme(request, page.modules);
 
+        if(page.modules.isEmpty()){
+            logger.error("The page {} does not have any modules published", request.getRequestURI()) ;
+        }
 
         request.setAttribute(PAGE_ITEMS, page.modules);
     }
