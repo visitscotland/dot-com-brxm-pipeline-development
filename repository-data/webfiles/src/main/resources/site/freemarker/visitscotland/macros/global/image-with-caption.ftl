@@ -28,6 +28,9 @@
         <template v-slot:video-title>
             ${videoTitle}
         </template>
+        <#assign imageParameter>
+            ${addParameter(imageSrc)}
+        </#assign>
 
         <vs-img
             src="${imageSrc}"
@@ -36,12 +39,12 @@
             <#else>
                 alt="${(imageDetails.altText)!'${label("essentials.global", "default.alt-text")}'}"
             </#if>
-            srcset="${imageSrc}?size=xs 300w, 
-                    ${imageSrc}?size=sm 600w,
-                    ${imageSrc}?size=md 1200w, 
-                    ${imageSrc}?size=lg 2048w"
+            srcset="${imageSrc}${imageParameter}size=xs 300w,
+                    ${imageSrc}${imageParameter}size=sm 600w,
+                    ${imageSrc}${imageParameter}size=md 1200w,
+                    ${imageSrc}${imageParameter}size=lg 2048w"
             sizes="(min-width: 768px) 75vw, 100vw"
-            low-res-image="${imageSrc}?size=xxs"
+            low-res-image="${imageSrc}${imageParameter}size=xxs"
             :use-lazy-loading="${useLazyLoading}"
         >
         </vs-img>

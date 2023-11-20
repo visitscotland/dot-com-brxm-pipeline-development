@@ -20,9 +20,9 @@ public class HTMLtoVueTransformer {
         this.linkService = linkService;
     }
 
-    public String process(final String html){
+    public String process(final String html, String parentDocument){
         String output = processHeadings(html);
-        output = processLinks(output);
+        output = processLinks(output, parentDocument);
         output = processLists(output);
         output = processInfoAlert(output);
 
@@ -71,7 +71,7 @@ public class HTMLtoVueTransformer {
      *
      * @see LinkType
      */
-    public String processLinks(final String html){
+    public String processLinks(final String html, String parentDocument){
 
         /*
          * Targets the opening tag of anchor links (a tag).
@@ -93,7 +93,7 @@ public class HTMLtoVueTransformer {
         while (matcher.find()) {
             String closingTag;
             String a = matcher.group();
-            FlatLink link = linkService.createExternalLink(matcher.group(HREF));
+            FlatLink link = linkService.createExternalLink(matcher.group(HREF), parentDocument);
 
             if (link.getType().equals(LinkType.DOWNLOAD)){
                 closingTag = linkService.getDownloadText(matcher.group(HREF))+ "</vs-link>";

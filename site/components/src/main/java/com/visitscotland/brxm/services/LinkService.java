@@ -94,7 +94,7 @@ public class LinkService {
 
             return new FlatLink(bundle.getCtaLabel(productSearchLink.getLabel(), locale), psb.build(), LinkType.INTERNAL);
         } else if (item instanceof ExternalLink) {
-            return createExternalLink(locale, ((ExternalLink) item).getLink(), bundle.getCtaLabel(((ExternalLink) item).getLabel(), locale));
+            return createExternalLink(locale, ((ExternalLink) item).getLink(), bundle.getCtaLabel(((ExternalLink) item).getLabel(), locale), item.getPath());
         } else if (item instanceof CMSLink) {
             return createCMSLink(module, locale, (CMSLink) item);
         }
@@ -140,16 +140,16 @@ public class LinkService {
      *
      * @param url: URl
      */
-    public FlatLink createExternalLink(final String url) {
-        return createExternalLink(utils.getRequestLocale(), url, null);
+    public FlatLink createExternalLink(final String url, String parentDocument) {
+        return createExternalLink(utils.getRequestLocale(), url, null, parentDocument);
     }
 
-   public FlatLink createExternalLink(final Locale locale, final String url, final String label) {
+   public FlatLink createExternalLink(final Locale locale, final String url, final String label, String parentDocument) {
         LinkType linkType = getType(url);
         String localizedUrl = processURL(locale, url);
 
         if (!locale.equals(Locale.UK) && url != null && url.equals(localizedUrl) && linkType == LinkType.INTERNAL && !url.startsWith("#")) {
-            logger.warn("The URL {} could not be localized, the label for the link is {}", url, label);
+            logger.warn("The URL {} could not be localized added to the document {} the label for the link is {}", url, parentDocument, label);
         }
 
         return new FlatLink(label, localizedUrl, linkType);
