@@ -133,7 +133,7 @@ public class PageTemplateBuilder {
 
         setIntroTheme(request, page.modules);
 
-        if(page.modules.isEmpty()){
+        if (page.modules.isEmpty() && !getDocument(request).getSeoNoIndex()){
             logger.warn("The page {} does not have any modules published", request.getRequestURI());
         }
 
