@@ -198,13 +198,16 @@ public class ListicleFactory {
     public List<ListicleModule> generateItems(Locale locale, Listicle listicle) {
         final List<ListicleItem> listicleItems = documentUtils.getAllowedDocuments(listicle, ListicleItem.class);
         final List<ListicleModule> items = new ArrayList<>();
+        if(listicleItems != null && !listicleItems.isEmpty()){
+            boolean descOrder = Boolean.TRUE.equals(listicle.getDescOrder());
+            int index = descOrder ? listicleItems.size() : 1;
 
-        boolean descOrder = Boolean.TRUE.equals(listicle.getDescOrder());
-        int index = descOrder ? listicleItems.size() : 1;
-
-        for (ListicleItem listicleItem : listicleItems) {
-            Integer itemNumber = descOrder ? index-- : index++;
-            items.add(getListicleItem(locale, listicleItem, itemNumber));
+            for (ListicleItem listicleItem : listicleItems) {
+                Integer itemNumber = descOrder ? index-- : index++;
+                items.add(getListicleItem(locale, listicleItem, itemNumber));
+            }
+        }else{
+            logger.warn("The listicle page {} does not have any modules published", listicle.getPath());
         }
         return items;
     }

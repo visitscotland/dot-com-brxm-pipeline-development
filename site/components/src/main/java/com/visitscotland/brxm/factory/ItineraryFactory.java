@@ -94,6 +94,9 @@ public class ItineraryFactory {
                 page.addStop(module);
             }
         }
+        if (page.getDays() == null || page.getDays().isEmpty()) {
+            logger.warn("The itinerary page {} does not have any modules published", itinerary.getPath());
+        }
 
         page.setDistance(calculateDistance ? totalDistance.setScale(0, BigDecimal.ROUND_HALF_UP) :BigDecimal.valueOf(itinerary.getDistance()));
 
