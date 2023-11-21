@@ -207,7 +207,7 @@ public class ListicleFactory {
                 items.add(getListicleItem(locale, listicleItem, itemNumber));
             }
         }else{
-            logger.error("The listicle page {} does not have any modules published", listicle.getPath());
+            logger.warn("The listicle page {} does not have any modules published", listicle.getPath());
         }
         return items;
     }
