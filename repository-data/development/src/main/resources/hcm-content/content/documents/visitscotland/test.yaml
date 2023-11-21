@@ -5151,11 +5151,11 @@
             hippostd:content: <p>Lorem ipsum dolor sit amet, consectetur adipiscing
               elit. In blandit nec dui in iaculis. Pellentesque id scelerisque dolor.
               Aenean euismod condimentum erat a interdum.</p>
-    /stackla:
+    /ugc:
       jcr:primaryType: hippostd:folder
       jcr:mixinTypes: ['hippo:named', 'hippotranslation:translated', 'mix:versionable']
       jcr:uuid: a6f5f4b4-609f-4e09-abfa-46e32a476b22
-      hippo:name: Stackla
+      hippo:name: User Generated Content
       hippostd:foldertype: [new-translated-folder-test, new-document]
       hippotranslation:id: 3202e1bc-9330-448d-936f-76c4b1b0e6f5
       hippotranslation:locale: en
@@ -5163,8 +5163,8 @@
         jcr:primaryType: hippo:handle
         jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
         jcr:uuid: 92c22220-b994-4f13-818b-fed30ce812b9
-        hippo:name: Stackla
-        hippo:versionHistory: 991df8c3-863f-4eee-afc9-a5b5faf61aa7
+        hippo:name: Storystream
+        hippo:versionHistory: 5d516b35-12d1-48ee-9b9a-99d8c02876cb
         /content[1]:
           jcr:primaryType: visitscotland:General
           jcr:mixinTypes: ['mix:referenceable']
@@ -5174,21 +5174,22 @@
           hippostd:state: draft
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2021-07-07T12:10:08.803+01:00
-          hippostdpubwf:lastModificationDate: 2021-09-09T16:44:46.364+01:00
+          hippostdpubwf:lastModificationDate: 2023-11-16T10:43:43.657Z
           hippostdpubwf:lastModifiedBy: admin
           hippotranslation:id: c474f4d6-2403-46c6-bbd8-07491e486da4
           hippotranslation:locale: en
           visitscotland:breadcrumb: ''
           visitscotland:hideNewsletter: false
           visitscotland:newsletter: true
-          visitscotland:seoDescription: The Stackla module is used to display social
-            media images via the Stackla plugin
+          visitscotland:pswPosition: Top
+          visitscotland:seoDescription: The UGC module is used to display social media
+            images via the StoryStream plugin
           visitscotland:seoNoIndex: false
-          visitscotland:seoTitle: Stackla
-          visitscotland:teaser: The Stackla module is used to display social media
-            images via the Stackla plugin
+          visitscotland:seoTitle: User Generated Content
+          visitscotland:teaser: The UGC module is used to display social media images
+            via the StoryStream plugin
           visitscotland:theme: Standard
-          visitscotland:title: Stackla
+          visitscotland:title: User Generated Content
           visitscotland:translation: ''
           /visitscotland:heroImage:
             jcr:primaryType: hippogallerypicker:imagelink
@@ -5198,10 +5199,9 @@
             hippo:values: []
           /visitscotland:introduction:
             jcr:primaryType: hippostd:html
-            hippostd:content: <p>The Stackla module has a title and description and
-              is&nbsp;used to display social media images via the Stackla plugin.
-              A Stackla Data Hash and ID for the chosen Stackla widget&nbsp;is needed
-              to display the images.&nbsp;</p>
+            hippostd:content: <p>The UGC&nbsp;module has a title and description and
+              is&nbsp;used to display social media images via the StoryStream&nbsp;plugin.
+              An ID for the chosen StoryStream grid is needed to display the images.&nbsp;</p>
         /content[2]:
           jcr:primaryType: visitscotland:General
           jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
@@ -5211,21 +5211,22 @@
           hippostd:state: unpublished
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2021-07-07T12:10:08.803+01:00
-          hippostdpubwf:lastModificationDate: 2021-09-09T16:44:51.272+01:00
+          hippostdpubwf:lastModificationDate: 2023-11-16T10:44:53.535Z
           hippostdpubwf:lastModifiedBy: admin
           hippotranslation:id: c474f4d6-2403-46c6-bbd8-07491e486da4
           hippotranslation:locale: en
           visitscotland:breadcrumb: ''
           visitscotland:hideNewsletter: false
           visitscotland:newsletter: true
-          visitscotland:seoDescription: The Stackla module is used to display social
-            media images via the Stackla plugin
+          visitscotland:pswPosition: Top
+          visitscotland:seoDescription: The UGC module is used to display social media
+            images via the StoryStream plugin
           visitscotland:seoNoIndex: false
-          visitscotland:seoTitle: Stackla
-          visitscotland:teaser: The Stackla module is used to display social media
-            images via the Stackla plugin
+          visitscotland:seoTitle: User Generated Content
+          visitscotland:teaser: The UGC module is used to display social media images
+            via the StoryStream plugin
           visitscotland:theme: Standard
-          visitscotland:title: Stackla
+          visitscotland:title: User Generated Content
           visitscotland:translation: ''
           /visitscotland:heroImage:
             jcr:primaryType: hippogallerypicker:imagelink
@@ -5235,10 +5236,9 @@
             hippo:values: []
           /visitscotland:introduction:
             jcr:primaryType: hippostd:html
-            hippostd:content: <p>The Stackla module has a title and description and
-              is&nbsp;used to display social media images via the Stackla plugin.
-              A Stackla Data Hash and ID for the chosen Stackla widget&nbsp;is needed
-              to display the images.&nbsp;</p>
+            hippostd:content: <p>The UGC&nbsp;module has a title and description and
+              is&nbsp;used to display social media images via the StoryStream&nbsp;plugin.
+              An ID for the chosen StoryStream grid is needed to display the images.&nbsp;</p>
         /content[3]:
           jcr:primaryType: visitscotland:General
           jcr:mixinTypes: ['mix:referenceable']
@@ -5248,22 +5248,23 @@
           hippostd:state: published
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2021-07-07T12:10:08.803+01:00
-          hippostdpubwf:lastModificationDate: 2021-09-09T16:44:51.272+01:00
+          hippostdpubwf:lastModificationDate: 2023-11-16T10:44:53.535Z
           hippostdpubwf:lastModifiedBy: admin
-          hippostdpubwf:publicationDate: 2021-09-09T16:44:52.953+01:00
+          hippostdpubwf:publicationDate: 2023-11-16T10:48:12.674Z
           hippotranslation:id: c474f4d6-2403-46c6-bbd8-07491e486da4
           hippotranslation:locale: en
           visitscotland:breadcrumb: ''
           visitscotland:hideNewsletter: false
           visitscotland:newsletter: true
-          visitscotland:seoDescription: The Stackla module is used to display social
-            media images via the Stackla plugin
+          visitscotland:pswPosition: Top
+          visitscotland:seoDescription: The UGC module is used to display social media
+            images via the StoryStream plugin
           visitscotland:seoNoIndex: false
-          visitscotland:seoTitle: Stackla
-          visitscotland:teaser: The Stackla module is used to display social media
-            images via the Stackla plugin
+          visitscotland:seoTitle: User Generated Content
+          visitscotland:teaser: The UGC module is used to display social media images
+            via the StoryStream plugin
           visitscotland:theme: Standard
-          visitscotland:title: Stackla
+          visitscotland:title: User Generated Content
           visitscotland:translation: ''
           /visitscotland:heroImage:
             jcr:primaryType: hippogallerypicker:imagelink
@@ -5273,17 +5274,16 @@
             hippo:values: []
           /visitscotland:introduction:
             jcr:primaryType: hippostd:html
-            hippostd:content: <p>The Stackla module has a title and description and
-              is&nbsp;used to display social media images via the Stackla plugin.
-              A Stackla Data Hash and ID for the chosen Stackla widget&nbsp;is needed
-              to display the images.&nbsp;</p>
-      /stackla-module:
+            hippostd:content: <p>The UGC&nbsp;module has a title and description and
+              is&nbsp;used to display social media images via the StoryStream&nbsp;plugin.
+              An ID for the chosen StoryStream grid is needed to display the images.&nbsp;</p>
+      /storystream-module:
         jcr:primaryType: hippo:handle
         jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
         jcr:uuid: 6f0cf660-158d-412e-90ef-ed974c07dca0
-        hippo:name: Stackla module
-        hippo:versionHistory: b2786902-151c-4344-a9c8-3e28df0a91a5
-        /stackla-module[1]:
+        hippo:name: Storystream module
+        hippo:versionHistory: adf66bbd-362f-401b-87ac-828a98a700a5
+        /storystream-module[1]:
           jcr:primaryType: visitscotland:Stackla
           jcr:mixinTypes: ['mix:referenceable']
           jcr:uuid: 06d74559-281c-4e33-997e-55708f912386
@@ -5292,19 +5292,19 @@
           hippostd:state: draft
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2021-07-07T12:14:38.200+01:00
-          hippostdpubwf:lastModificationDate: 2022-10-11T09:30:52.944+01:00
+          hippostdpubwf:lastModificationDate: 2023-11-17T10:19:11.553Z
           hippostdpubwf:lastModifiedBy: admin
           hippotranslation:id: 9a5f6065-6367-4d23-a305-bc6f02b6d021
           hippotranslation:locale: en
-          visitscotland:stacklaHash: 6324456e6fe79
-          visitscotland:stacklaId: '97279'
-          visitscotland:title: Your Pictures Of Scottish Castles
+          visitscotland:stacklaHash: '3799244314124'
+          visitscotland:stacklaId: '-'
+          visitscotland:storystreamId: '3799244314124'
+          visitscotland:title: Storystream
           visitscotland:translation: ''
           /visitscotland:copy:
             jcr:primaryType: hippostd:html
-            hippostd:content: '<p>Share your snaps with us by using #ScottishCastle
-              or #VisitScotland</p>'
-        /stackla-module[2]:
+            hippostd:content: <p>Storystream Proof of concept</p>
+        /storystream-module[2]:
           jcr:primaryType: visitscotland:Stackla
           jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
           jcr:uuid: 2814e665-b44b-4840-9c04-fd778cd03963
@@ -5313,19 +5313,19 @@
           hippostd:state: unpublished
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2021-07-07T12:14:38.200+01:00
-          hippostdpubwf:lastModificationDate: 2022-10-11T09:31:01.414+01:00
+          hippostdpubwf:lastModificationDate: 2023-11-17T10:19:19.562Z
           hippostdpubwf:lastModifiedBy: admin
           hippotranslation:id: 9a5f6065-6367-4d23-a305-bc6f02b6d021
           hippotranslation:locale: en
-          visitscotland:stacklaHash: 6324456e6fe79
-          visitscotland:stacklaId: '97279'
-          visitscotland:title: Your Pictures Of Scottish Castles
+          visitscotland:stacklaHash: '3799244314124'
+          visitscotland:stacklaId: '-'
+          visitscotland:storystreamId: '3799244314124'
+          visitscotland:title: Storystream
           visitscotland:translation: ''
           /visitscotland:copy:
             jcr:primaryType: hippostd:html
-            hippostd:content: '<p>Share your snaps with us by using #ScottishCastle
-              or #VisitScotland</p>'
-        /stackla-module[3]:
+            hippostd:content: <p>Storystream Proof of concept</p>
+        /storystream-module[3]:
           jcr:primaryType: visitscotland:Stackla
           jcr:mixinTypes: ['mix:referenceable']
           jcr:uuid: c03f5e3a-c33b-4efc-a439-4078fa95cc0f
@@ -5334,19 +5334,19 @@
           hippostd:state: published
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2021-07-07T12:14:38.200+01:00
-          hippostdpubwf:lastModificationDate: 2022-10-11T09:31:01.414+01:00
+          hippostdpubwf:lastModificationDate: 2023-11-17T10:19:19.562Z
           hippostdpubwf:lastModifiedBy: admin
-          hippostdpubwf:publicationDate: 2022-10-11T09:31:11.632+01:00
+          hippostdpubwf:publicationDate: 2023-11-17T10:19:25.039Z
           hippotranslation:id: 9a5f6065-6367-4d23-a305-bc6f02b6d021
           hippotranslation:locale: en
-          visitscotland:stacklaHash: 6324456e6fe79
-          visitscotland:stacklaId: '97279'
-          visitscotland:title: Your Pictures Of Scottish Castles
+          visitscotland:stacklaHash: '3799244314124'
+          visitscotland:stacklaId: '-'
+          visitscotland:storystreamId: '3799244314124'
+          visitscotland:title: Storystream
           visitscotland:translation: ''
           /visitscotland:copy:
             jcr:primaryType: hippostd:html
-            hippostd:content: '<p>Share your snaps with us by using #ScottishCastle
-              or #VisitScotland</p>'
+            hippostd:content: <p>Storystream Proof of concept</p>
     /travel-information:
       jcr:primaryType: hippostd:folder
       jcr:mixinTypes: ['hippo:named', 'hippotranslation:translated', 'mix:versionable']
