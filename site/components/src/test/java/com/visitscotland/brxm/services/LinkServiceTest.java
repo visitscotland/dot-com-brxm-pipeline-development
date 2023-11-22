@@ -4,7 +4,6 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.visitscotland.brxm.factory.ImageFactory;
 import com.visitscotland.brxm.hippobeans.*;
-import com.visitscotland.brxm.hippobeans.capabilities.Linkable;
 import com.visitscotland.brxm.mock.MegalinksMockBuilder;
 import com.visitscotland.brxm.mock.SharedLinkMockBuilder;
 import com.visitscotland.brxm.mock.VideoMockBuilder;
@@ -519,7 +518,7 @@ class LinkServiceTest {
 
         EnhancedLink link = service.createEnhancedLink(dmsLink, module,Locale.UK,false).get();
         assertEquals("/info/fake-product-p0123456798", link.getLink());
-        assertTrue( module.getErrorMessages().size() > 0);
+        assertTrue(!module.getErrorMessages().isEmpty());
         assertNull(link.getImage());
     }
 
@@ -726,7 +725,7 @@ class LinkServiceTest {
         JsonNode product = mock(JsonNode.class,RETURNS_DEEP_STUBS);
         DMSLink dmsLink = mock(DMSLink.class);
         FlatImage flatImage = new FlatImage();
-        flatImage.setExternalImage("dms-image.jpg");;
+        flatImage.setExternalImage("dms-image.jpg");
 
         when(sharedLink.getImage()).thenReturn(image);
 
