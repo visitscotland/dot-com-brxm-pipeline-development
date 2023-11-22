@@ -5,7 +5,6 @@ import com.visitscotland.brxm.model.FlatLink;
 import com.visitscotland.brxm.model.IKnowCommunityModule;
 import com.visitscotland.brxm.model.LinkType;
 import com.visitscotland.brxm.services.ResourceBundleService;
-import com.visitscotland.brxm.utils.HippoUtilsService;
 import com.visitscotland.brxm.utils.HippoHtmlWrapper;
 import com.visitscotland.brxm.utils.Properties;
 import com.visitscotland.utils.Contract;
@@ -21,7 +20,6 @@ import java.util.stream.Collectors;
 @Component
 public class IKnowCommunityFactory {
 
-    private final HippoUtilsService utils;
     private final ResourceBundleService bundle;
     private final Properties properties;
     private static final String BUNDLE_ID = "iknow-community";
@@ -29,8 +27,7 @@ public class IKnowCommunityFactory {
     private static final Logger logger = LoggerFactory.getLogger(IKnowCommunityFactory.class);
 
 
-    public IKnowCommunityFactory(HippoUtilsService utils, ResourceBundleService bundle, Properties properties){
-        this.utils = utils;
+    public IKnowCommunityFactory(ResourceBundleService bundle, Properties properties){
         this.bundle = bundle;
         this.properties = properties;
     }

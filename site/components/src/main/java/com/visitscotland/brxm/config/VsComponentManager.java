@@ -17,7 +17,7 @@ public class VsComponentManager {
      * This method is convenient for unit testing for objects that are not injected because they need to keep
      * their state (thread-safety)
      *
-     * @param manager
+     * @param manager the component manager
      */
     public static void setComponentManager(ComponentManager manager) {
         VsComponentManager.manager = manager;

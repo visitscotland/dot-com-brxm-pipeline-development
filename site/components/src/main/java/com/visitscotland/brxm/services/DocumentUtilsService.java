@@ -129,10 +129,9 @@ public class DocumentUtilsService {
 
                 HippoBean translation = document.getAvailableTranslations().getTranslation(lan.getLanguage());
 
-                if (Locale.UK.equals(language.getLocale())) {
-                    if (translation == null) {
+                if (Locale.UK.equals(language.getLocale()) && (translation == null)) {
                         logger.warn("The requested page does not exist in English: {}", document.getPath());
-                    }
+
                 }
 
                 if (translation instanceof Page) {
@@ -155,8 +154,8 @@ public class DocumentUtilsService {
     /**
      * Reorganize the document translations depending on an order predefined by SEO so hreflang
      *
-     * @param <B>
-     * @return
+     * @param availableTranslations list of translation documents
+     * @return <B extends BaseDocument> List<B>
      */
     public <B extends BaseDocument> List<B> sortTranslationsForSeo(List<BaseDocument> availableTranslations){
         List<B> sortedTranslations = new ArrayList<>();
@@ -170,7 +169,7 @@ public class DocumentUtilsService {
                 }
             }
         }
-        // If, for example, channel.seo.alternate-link-locale-orders is missing the fr language, then all french documents
+        // If, for example, channel.seo.alternate-link-locale-orders is missing the French language, then all french documents
         // in availableTranslations will not be placed in the sortedTranslations list
         if (sortedTranslations.size() != availableTranslations.size()) {
             contentLog.warn("Failed to order translations as property channel.seo.alternate-link-locale-orders is set incorrectly");

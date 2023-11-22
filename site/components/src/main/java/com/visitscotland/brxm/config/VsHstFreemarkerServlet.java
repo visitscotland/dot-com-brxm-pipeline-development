@@ -17,7 +17,6 @@ import java.util.Properties;
 
 /**
  * This Piece of code Extracted from the dot-org project and Enhanced for the dot-com needs (Dependency Injection Coming soon)
- *
  * {@code com.visitscotland.org.util.VSHstFreemarkerServlet.java}
  */
 @NonTestable(NonTestable.Cause.INHERITANCE)
@@ -70,7 +69,7 @@ public class VsHstFreemarkerServlet extends HstFreemarkerServlet {
 
     /** Adds the build number to the template */
     private void includeVersionNumber() throws TemplateModelException {
-        //Sets the version number as a Freemarker shared variable so it can be inserted to all pages.
+        //Sets the version number as a Freemarker shared variable, so it can be inserted to all pages.
         if (About.getVersion().equals("Unknown")){
             getConfiguration().setSharedVariable("version", getClass().getPackage().getImplementationVersion());
         } else {
