@@ -150,7 +150,7 @@ public class LinkService {
 
         if (url != null && url.contains("pagenotfound")){
             logger.warn("The document {} contains an invalid URL{} ", parentDocument, url);
-        }else if (localizedUrl != null && !localizedUrl.contains(locale.toLanguageTag().toLowerCase())){
+        } else if (localizedUrl != null && !localizedUrl.contains(locale.toLanguageTag().toLowerCase())){
             if (!locale.equals(Locale.UK) && linkType == LinkType.INTERNAL && !url.startsWith("#")) {
                 logger.warn("The URL {} could not be localized added to the document {} the label for the link is {}", url, parentDocument, label);
             }
