@@ -46,7 +46,7 @@ public class PageTemplateBuilder {
     private final IKnowFactory iKnowFactory;
     private final ArticleFactory articleFactory;
     private final LongCopyFactory longCopyFactory;
-    private final StacklaFactory stacklaFactory;
+    private final UserGeneratedContentFactory userGeneratedContentFactory;
     private final TravelInformationFactory travelInformationFactory;
     private final CannedSearchFactory cannedSearchFactory;
     private final PreviewModeFactory previewFactory;
@@ -61,7 +61,7 @@ public class PageTemplateBuilder {
     @Autowired
     public PageTemplateBuilder(DocumentUtilsService documentUtils, MegalinkFactory linksFactory, ICentreFactory iCentreFactory,
                                IKnowFactory iKnowFactory, ArticleFactory articleFactory, LongCopyFactory longCopyFactory,
-                               StacklaFactory stacklaFactory, TravelInformationFactory travelInformationFactory,
+                               UserGeneratedContentFactory userGeneratedContentFactory, TravelInformationFactory travelInformationFactory,
                                CannedSearchFactory cannedSearchFactory, PreviewModeFactory previewFactory, MarketoFormFactory marketoFormFactory,
                                MapFactory mapFactory, SkiFactory skiFactory, Properties properties,
                                DevModuleFactory devModuleFactory, Logger contentLogger) {
@@ -71,7 +71,7 @@ public class PageTemplateBuilder {
         this.iKnowFactory = iKnowFactory;
         this.articleFactory = articleFactory;
         this.longCopyFactory = longCopyFactory;
-        this.stacklaFactory = stacklaFactory;
+        this.userGeneratedContentFactory = userGeneratedContentFactory;
         this.travelInformationFactory = travelInformationFactory;
         this.cannedSearchFactory = cannedSearchFactory;
         this.previewFactory = previewFactory;
@@ -108,7 +108,7 @@ public class PageTemplateBuilder {
                 } else if (item instanceof MapModule) {
                     page.modules.add(mapFactory.getModule(request, (MapModule) item, getDocument(request)));
                 } else if (item instanceof Stackla) {
-                    page.modules.add(stacklaFactory.getStacklaModule((Stackla) item, request.getLocale()));
+                    page.modules.add(userGeneratedContentFactory.getUGCModule((Stackla) item, request.getLocale()));
                 }  else if (item instanceof TravelInformation) {
                     page.modules.add(travelInformationFactory.getTravelInformation((TravelInformation) item, request.getLocale()));
                 }else if (item instanceof CannedSearch) {
@@ -133,6 +133,9 @@ public class PageTemplateBuilder {
 
         setIntroTheme(request, page.modules);
 
+        if (page.modules.isEmpty() && !getDocument(request).getSeoNoIndex()){
+            logger.warn("The page {} does not have any modules published", request.getRequestURI());
+        }
 
         request.setAttribute(PAGE_ITEMS, page.modules);
     }
