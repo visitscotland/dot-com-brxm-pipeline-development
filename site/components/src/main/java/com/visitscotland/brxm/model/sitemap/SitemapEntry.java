@@ -1,10 +1,14 @@
 package com.visitscotland.brxm.model.sitemap;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import java.io.Serializable;
 import java.util.Date;
 
 public class SitemapEntry implements Serializable {
     private String url;
+
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     private Date lastModification;
 
     public SitemapEntry() {
