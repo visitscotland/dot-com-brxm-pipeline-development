@@ -1,13 +1,12 @@
 <#include "../../../../include/imports.ftl">
 <#include "../../global/preview-warning.ftl">
 <#include "../../../../frontend/components/vs-module-wrapper.ftl">
-<#include "../../../../frontend/components/vs-main-map-wrapper.ftl">
-
+<#include "../../../../frontend/components/vs-map-with-sidebar.ftl">
 
 <#-- @ftlvariable name="module" type="com.visitscotland.brxm.model.MapsModule" -->
 <#-- @ftlvariable name="editMode" type="java.lang.Boolean"-->
 
-<#macro map module>
+<#macro mapWithSidebar module>
     <@hst.manageContent hippobean=module.hippoBean />
     <@previewWarning editMode module module.errorMessages />
 
@@ -71,7 +70,7 @@
         <template v-slot:vs-module-wrapper-intro>
             <@hst.html hippohtml=module.introduction/>
         </template>
-        <vs-main-map-wrapper
+        <vs-map-with-sidebar
             :main-heading-exists="${mainHeadingExists}"
             category-heading="${module.tabTitle}"
             :filters="${escapeJSON(module.filters,true)}"
@@ -83,6 +82,8 @@
             filters-applied-text="${label('map', 'map.filters-applied')}"
             clear-filters-text="${label('map', 'map.clear')}"
             :region-bounds="${escapeJSON(module.mapPosition,true)}"
+            map-filter-message="${label('map', 'map.apply-filters')}"
+            map-no-results-message="${label('map', 'map.no-results')}"
             <#if toggleValues??>
                 :toggle-data="${toggleValues}"
             </#if>
@@ -92,9 +93,6 @@
             <#if module.mapType = 'regional'>
                 panel-message="${label('map', 'map.panel-bottom-msg')}"
             </#if>
-            map-filter-message="${label('map', 'map.apply-filters')}"
-            map-no-results-message="${label('map', 'map.no-results')}"
-
         >
             <template v-slot:close-side-panel-text>
                 <span class="sr-only">
@@ -128,6 +126,6 @@
             <template v-slot:zoom-too-far>
                 ${label('map', 'map.zoom-too-far')}
             </template>
-        </vs-main-map-wrapper>
+        </vs-map-with-sidebar>
     </vs-module-wrapper>
 </#macro>

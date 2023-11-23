@@ -35,13 +35,9 @@
 
 <div class="has-edit-button">
     <@hst.manageContent hippobean=document/>
-
     <@pageIntro content=document heroDetails=heroImage itinerary=itinerary />
 
-    <vs-itinerary
-        list-view-text="${label('itinerary', 'list-view')}"
-        map-view-text="${label('itinerary', 'map-view')}"
-    >
+    <vs-itinerary>
         <template v-slot:map>
             <@itineraryMap itinerary />
         </template>

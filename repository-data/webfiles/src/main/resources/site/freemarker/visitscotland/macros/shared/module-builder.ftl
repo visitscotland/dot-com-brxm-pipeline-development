@@ -62,8 +62,8 @@
             <@includeOnce "../modules/travel-information/travel-information.ftl" />
             <@travelInformation module/>
         <#elseif moduleType == "MapsModule">
-            <@includeOnce "../modules/map/map.ftl" />
-            <@map module/>
+            <@includeOnce "../modules/map-with-sidebar/map-with-sidebar.ftl" />
+            <@mapWithSidebar module/>
         <#elseif moduleType == "CannedSearchModule">
             <@includeOnce "../modules/canned-search/canned-search.ftl" />
             <@cannedSearch module themeName/>
