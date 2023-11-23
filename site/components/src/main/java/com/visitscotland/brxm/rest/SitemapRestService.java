@@ -9,6 +9,7 @@ import com.visitscotland.brxm.services.DocumentUtilsService;
 import com.visitscotland.brxm.services.LinkService;
 import com.visitscotland.brxm.utils.HippoUtilsService;
 import com.visitscotland.brxm.utils.Properties;
+import com.visitscotland.brxm.utils.VsException;
 import org.hippoecm.hst.configuration.hosting.Mount;
 import org.hippoecm.hst.configuration.hosting.VirtualHosts;
 import org.hippoecm.hst.container.RequestContextProvider;
@@ -27,6 +28,8 @@ import org.hippoecm.hst.util.HstSiteMapUtils;
 import org.hippoecm.hst.util.PathUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 
 import javax.jcr.Node;
 import javax.jcr.RepositoryException;
@@ -71,12 +74,13 @@ public class SitemapRestService extends AbstractResource {
     @Path("/pages/")
     @Produces("application/json")
     public Response fragment(@Context HstRequest request,
-                             @DefaultValue("hst:root") @QueryParam("channel") String locale,
-                             @QueryParam("group") List<String> group,
-                             @QueryParam("exclude") List<String>
-    @) {
-        return Response.ok().entity(getPages(locale, Destination.class, Listicle.class, General.class, Itinerary.class))
-                .build();
+                             @DefaultValue("hst:root") @QueryParam("channel") String locale) {
+        try {
+            return Response.ok().entity(getPages(locale, Destination.class, Listicle.class, General.class, Itinerary.class))
+                    .build();
+        } catch (VsException e){
+            return Response.serverError().build();
+        }
     }
 
 
@@ -86,13 +90,8 @@ public class SitemapRestService extends AbstractResource {
             HippoBeanIterator iterator = findAllPages(channel, types);
 
             while (iterator.hasNext()){
-                HippoBean bean = iterator.nextHippoBean();
-                if (bean.getPath()){
-
-                }
                 entries.add(getSitemapEntry(channel, (Page) iterator.nextHippoBean()));
             }
-
 
         } catch (RepositoryException | QueryException e) {
             throw new RuntimeException(e);
@@ -123,7 +122,7 @@ public class SitemapRestService extends AbstractResource {
 
         HstQueryResult result = hstQuery.execute();
 
-        HippoBeanIterator iterator = result.getHippoBeans();
+        return result.getHippoBeans();
     }
 
     private SitemapEntry getSitemapEntry(String channel, Page page) throws RepositoryException {
@@ -175,19 +174,17 @@ public class SitemapRestService extends AbstractResource {
     public Mount getMountforChannel(String channel){
         HstRequestContext context = RequestContextProvider.get();
         String currentHost = context.getVirtualHost().getHostGroupName();
-        Mount root = null;
+
         for (Mount mount : context.getVirtualHost().getVirtualHosts().getMountsByHostGroup(currentHost)) {
             if (mount.getParent() == null){
                 if (channel.equals("hst:root")){
                     return mount;
-                } else {
-                    root = mount;
                 }
             } else if (channel.equals(mount.getName())){
                 return mount;
             }
         }
         logger.warn("The mount point for the channel {} was not located. Defaulting to English", channel);
-        return root;
+        throw new VsException("The requested channel was not found");
     }
 }
