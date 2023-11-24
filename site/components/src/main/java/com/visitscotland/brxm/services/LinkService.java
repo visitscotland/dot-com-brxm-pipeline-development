@@ -602,7 +602,11 @@ public class LinkService {
     }
 
     private String getYoutubeId(String url) {
-        return UriComponentsBuilder.fromUriString(url).build().getQueryParams().getFirst("v");
+        String id = UriComponentsBuilder.fromUriString(url).build().getQueryParams().getFirst("v");
+        if (Contract.isEmpty(id)){
+            logger.warn("The Youtube ID could not be calculated from the URL {}", url);
+        }
+        return id;
     }
 
 }
