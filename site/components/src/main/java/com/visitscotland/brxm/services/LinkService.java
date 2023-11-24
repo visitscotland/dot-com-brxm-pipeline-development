@@ -97,6 +97,10 @@ public class LinkService {
             return createExternalLink(locale, ((ExternalLink) item).getLink(), bundle.getCtaLabel(((ExternalLink) item).getLabel(), locale), item.getPath());
         } else if (item instanceof CMSLink) {
             return createCMSLink(module, locale, (CMSLink) item);
+        } else if (item instanceof ProductsSearch) {
+            ProductSearchBuilder psb = productSearch().fromHippoBean((ProductsSearch)item ).locale(locale);
+
+            return new FlatLink(bundle.getCtaLabel(null, locale), psb.build(), LinkType.INTERNAL);
         }
         logger.warn("The document {} could not be turned into a link", item.getPath());
         module.addErrorMessage("The link was not correctly processed");
