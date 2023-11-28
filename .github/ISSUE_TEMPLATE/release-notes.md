@@ -17,9 +17,9 @@ assignees: ''
 
 | **Version:** | 
 | :--------------------------------------- |
-| **Build Number: ** | 
-| **MD5: ** | 
-| **Artefact: **  | 
+| **Build Number:** | 
+| **MD5:** | 
+| **Artefact:**  | 
 
 | Post-Release Steps (For SE) | 
 | :--------------------------------------- |
@@ -31,4 +31,4 @@ assignees: ''
 
 ### B) dot-com-brxm-ssr
 
-# Add any further project information needed here
+### Add any further project information needed here
