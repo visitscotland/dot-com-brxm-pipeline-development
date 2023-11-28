@@ -26,7 +26,8 @@ public class VsHTMLContentRewriter
 
         String hippoHtml = super.rewrite(html, node, requestContext, targetMount);
         try {
-            return transformer.process(hippoHtml, node.getPath());
+            String parentDocument = node != null? node.getPath() : "VsHTMLContentRewriter";
+            return transformer.process(hippoHtml, parentDocument);
         } catch (RepositoryException e) {
             throw new RuntimeException(e);
         }
