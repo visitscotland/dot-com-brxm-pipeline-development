@@ -30,7 +30,7 @@ public class HTMLtoVueTransformer {
     }
 
     /**
-     * Process the heading tags (h2, h3, etc) and transform them into Vue tags.
+     * Process the heading tags (h2, h3, etc.) and transform them into Vue tags.
      */
     public String processHeadings(final String html){
         /*
@@ -112,7 +112,6 @@ public class HTMLtoVueTransformer {
 
     /**
      * Process info alerts
-     *
      * These are warnings that can appear in a General page introduction. They are inserted by the CKEditor as
      * <span class="info-alert">...</span>, and must be converted into <vs-alert>...</vs-alert>
      */
@@ -129,11 +128,9 @@ public class HTMLtoVueTransformer {
 
     /**
      * Process ul and ol lists.
-     *
      * Due to a bug in Vue, nested ul and ol tags are not correctly processed. In order to overcome that issue, only the most
      * external tags will be converted to a Vue component
-     *
-     * This text will come from a CKEditor so it is assumed that the HTML is well constructed.
+     * This text will come from a CKEditor, so it is assumed that the HTML is well constructed.
      */
     public String processLists(final String html){
         final String UL = "<ul>";
@@ -179,7 +176,7 @@ public class HTMLtoVueTransformer {
     }
 
     /**
-     * Convert the ol or ul tag into a the vs-list Vue component.
+     * Convert the ol or ul tag into the vs-list Vue component.
      */
     private String convertToVsList(String html, int openTagIndex, int closeTagIndex, boolean ul){
         String vsList = ul?"<vs-list>":"<vs-list ordered>";

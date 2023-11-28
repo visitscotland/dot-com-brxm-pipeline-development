@@ -81,7 +81,7 @@ public class ListicleFactory {
         }
 
         //Set Extra Links
-        //Original designs used to had more that one link, so the logic is prepared to be opened to several links
+        //Original designs used to had more than one link, so the logic is prepared to be opened to several links
         for (HippoCompound compound : listicleItem.getExtraLinks()) {
             if (compound instanceof CMSLink) {
                 CMSLink cmsLink = (CMSLink) compound;
@@ -168,7 +168,6 @@ public class ListicleFactory {
 
     /**
      * Loads as much information as it can from the DMS Product data:
-     *
      * Facilities are loaded from the dmsItem. Subtitle, Image and Coordinates are set only when the listicle item has
      * not defined the values
      */

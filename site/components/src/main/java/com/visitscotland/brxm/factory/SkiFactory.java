@@ -60,7 +60,7 @@ public class SkiFactory {
                 contentLogger.error("{} (Path={})", message, document.getPath());
             }  else {
                 List<SkiCentre> skiDocument = documentUtils.getSiblingDocuments(page, SkiCentre.class, "visitscotland:SkiCentre");
-                if (skiDocument.size() == 0){
+                if (skiDocument.isEmpty()){
 
                     String message = String.format("Ski Centre Document wasn't found for %s.", page.getDisplayName());
                     module.addErrorMessage(message);

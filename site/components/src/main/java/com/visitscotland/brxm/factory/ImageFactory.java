@@ -185,7 +185,6 @@ public class ImageFactory {
 
     /**
      * Creates an Image from a DMS product node.
-     *
      * If the product does not contain an image a Placeholder image is returned instead
      *
      * @param dmsProduct JsonNode with the information of the product.

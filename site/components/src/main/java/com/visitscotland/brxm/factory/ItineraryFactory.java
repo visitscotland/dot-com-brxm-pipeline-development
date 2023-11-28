@@ -140,7 +140,7 @@ public class ItineraryFactory {
     }
 
     /**
-     * Transform an Stop document in a ItineraryStopModule and add extra information depending on the type
+     * Transform a Stop document in a ItineraryStopModule and add extra information depending on the type
      */
     public ItineraryStopModule generateStop(Locale locale, Stop stop, Itinerary itinerary, Integer index){
         ItineraryStopModule module = initializeStop(stop);
@@ -170,7 +170,7 @@ public class ItineraryFactory {
     }
 
     /**
-     * Creates an Stop from the stop Document type
+     * Creates a Stop from the stop Document type
      */
     private ItineraryStopModule initializeStop(Stop stop) {
         ItineraryStopModule module = new ItineraryStopModule();

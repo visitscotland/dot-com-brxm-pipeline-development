@@ -21,7 +21,6 @@ public class BlogFactory {
         this.bundle = bundle;
     }
 
-    //TODO refactor and review/redo in phase 1, temporary solution to unblock content team while CPP project
     public FlatBlog getBlog(Blog doc, Locale locale, Collection<String> errorMessages){
         FlatBlog blog = new FlatBlog();
         if (doc.getAuthor() instanceof Profile) {
