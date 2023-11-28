@@ -43,3 +43,10 @@ definitions:
               jcr:primaryType: hst:mount
               hst:locale: es_ES
               hst:mountpoint: /hst:visitscotland/hst:sites/visitscotland-es
+            /api:
+              .meta:residual-child-node-category: content
+              jcr:primaryType: hst:mount
+              hst:alias: api
+              hst:ismapped: false
+              hst:namedpipeline: JaxrsRestPlainPipeline
+              hst:types: [rest]
