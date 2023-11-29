@@ -61,7 +61,7 @@
                     </vs-col>
                 
                     <#if listItem.youtubeId??>
-                        <@videoModal videoId=listItem.youtubeId videoTitle=listItem.label />
+                        <@videoModal video=listItem />
                     </#if>
                 </#list>
             </vs-row>
