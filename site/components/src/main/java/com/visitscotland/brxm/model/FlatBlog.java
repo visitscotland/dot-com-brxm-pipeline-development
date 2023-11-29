@@ -4,7 +4,6 @@ public class FlatBlog {
 
     private String authorName;
     private String publishDate;
-
     private String readingTime;
     public String getAuthorName() {
         return authorName;

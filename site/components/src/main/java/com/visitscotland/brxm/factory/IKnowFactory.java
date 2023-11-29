@@ -8,7 +8,6 @@ import com.visitscotland.brxm.dms.DMSConstants;
 import com.visitscotland.brxm.dms.ProductSearchBuilder;
 import com.visitscotland.brxm.services.ResourceBundleService;
 import com.visitscotland.brxm.utils.HippoHtmlWrapper;
-import com.visitscotland.brxm.utils.HippoUtilsService;
 import com.visitscotland.utils.Contract;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -23,11 +22,9 @@ public class IKnowFactory {
 
     static final String BUNDLE_ID = "tourism.information";
 
-    private final HippoUtilsService utils;
     private final ResourceBundleService bundle;
 
-    public IKnowFactory(HippoUtilsService utils, ResourceBundleService bundle){
-        this.utils = utils;
+    public IKnowFactory(ResourceBundleService bundle){
         this.bundle = bundle;
     }
 
@@ -46,9 +43,6 @@ public class IKnowFactory {
         module.setDescription(new HippoHtmlWrapper(document.getDescription(), defaultDescription));
 
         FlatLink link = new FlatLink();
-
-        //TODO get prodTypes from Labels (Configuration)
-        //TODO Chekc with http://localhost:8080/cms/content/path/content/documents/administration/options/product-search
 
         link.setLink(VsComponentManager.get(ProductSearchBuilder.class).locale(locale).productTypes(DMSConstants.TYPE_IKNOW).award(DMSConstants.AWARD_IKNOW).location(location).build());
         link.setLabel(bundle.getResourceBundle(BUNDLE_ID,"iknow.link.label", locale));

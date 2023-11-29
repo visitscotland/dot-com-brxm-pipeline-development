@@ -303,7 +303,7 @@ class ItineraryFactoryTest {
 
         ItineraryStopModule module = getSingleStop(factory.buildItinerary(itinerary, Locale.UK));
 
-        verify(linkService, atLeastOnce()).createExternalLink(any(), any(), any());
+        verify(linkService, atLeastOnce()).createExternalLink(any(), any(), any(),any());
 
         assertTrue(Contract.isEmpty(module.getErrorMessages()));
         assertEquals(1., module.getCoordinates().getLatitude());
@@ -318,7 +318,7 @@ class ItineraryFactoryTest {
 
         ItineraryStopModule module = getSingleStop(factory.buildItinerary(itinerary, Locale.UK));
 
-        verify(linkService, atLeastOnce()).createExternalLink(any(), any(), any());
+        verify(linkService, atLeastOnce()).createExternalLink(any(), any(), any(), any());
 
         assertTrue(Contract.isEmpty(module.getErrorMessages()));
         assertEquals(1., module.getCoordinates().getLatitude());
@@ -401,7 +401,7 @@ class ItineraryFactoryTest {
 
         factory.buildItinerary(itinerary, Locale.UK);
 
-        verify(linkService).createExternalLink(Locale.UK, "https://example.com", "Find out more about title");
+        verify(linkService).createExternalLink(Locale.UK, "https://example.com", "Find out more about title", null);
     }
 
 

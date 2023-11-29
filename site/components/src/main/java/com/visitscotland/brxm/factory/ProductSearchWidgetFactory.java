@@ -29,7 +29,7 @@ public class ProductSearchWidgetFactory {
 
     public static final String POSITION_TOP = "Top";
     public static final String POSITION_BOTTOM = "Bottom";
-    //TODO: This option will dissappear after the regular expresions are removed
+    //TODO: This option will disappear after the regular expressions are removed
     public static final String POSITION_DEFAULT = "Default";
 
     public ProductSearchWidgetFactory(ResourceBundleService bundle, LocationLoader locationLoader, Properties properties) {
@@ -75,8 +75,8 @@ public class ProductSearchWidgetFactory {
     }
 
     /**
-     * @param request
-     * @return
+     * @param request the HstRequest request
+     * @return Location object populated
      */
     private LocationObject getLocation(HstRequest request){
         Page page = request.getModel("document");

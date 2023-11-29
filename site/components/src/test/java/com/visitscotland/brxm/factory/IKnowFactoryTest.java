@@ -52,7 +52,7 @@ class IKnowFactoryTest {
 
     @BeforeEach
     void init() {
-        factory = new IKnowFactory(utils, bundle);
+        factory = new IKnowFactory(bundle);
         mockBuilder = new TouristInformationMockBuilder().addIKnow();
 
     }

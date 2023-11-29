@@ -39,14 +39,14 @@ class CommonUtilsServiceTest {
     }
 
     @Test
-    @DisplayName("buildParamentersUrl - No parameters return an empty String")
+    @DisplayName("buildParametersUrl - No parameters return an empty String")
     void buildParametersUrl_noParam() {
         String parameters = utils.buildQueryString(new HashMap<String, String>(), UTF8);
         Assertions.assertEquals("", parameters);
     }
 
     @Test
-    @DisplayName("buildParamentersUrl - Tests different configurations of parameters")
+    @DisplayName("buildParametersUrl - Tests different configurations of parameters")
     void buildParametersUrl_noValue() {
         Map<String, String> params = new HashMap<>();
 
@@ -62,12 +62,12 @@ class CommonUtilsServiceTest {
         // Param2 has an empty value and it must be recognized as 'param2'
         Assertions.assertTrue(queryParameters.contains("param2&") || queryParameters.endsWith("param2"));
         // Param2 has no value and it must be recognized as just 'param3'
-        Assertions.assertTrue(!queryParameters.contains("param3="));
+        Assertions.assertFalse(queryParameters.contains("param3="));
         Assertions.assertTrue(queryParameters.contains("param3"));
     }
 
     @Test
-    @DisplayName("buildParamentersUrl - Parameter without parameter name are skipped")
+    @DisplayName("buildParametersUrl - Parameter without parameter name are skipped")
     void buildParametersUrl_noKey() {
         Map<String, String> params = new HashMap<>();
 

@@ -81,7 +81,7 @@ public class ListicleFactory {
         }
 
         //Set Extra Links
-        //Original designs used to had more that one link, so the logic is prepared to be opened to several links
+        //Original designs used to had more than one link, so the logic is prepared to be opened to several links
         for (HippoCompound compound : listicleItem.getExtraLinks()) {
             if (compound instanceof CMSLink) {
                 CMSLink cmsLink = (CMSLink) compound;
@@ -168,7 +168,6 @@ public class ListicleFactory {
 
     /**
      * Loads as much information as it can from the DMS Product data:
-     *
      * Facilities are loaded from the dmsItem. Subtitle, Image and Coordinates are set only when the listicle item has
      * not defined the values
      */
@@ -198,13 +197,16 @@ public class ListicleFactory {
     public List<ListicleModule> generateItems(Locale locale, Listicle listicle) {
         final List<ListicleItem> listicleItems = documentUtils.getAllowedDocuments(listicle, ListicleItem.class);
         final List<ListicleModule> items = new ArrayList<>();
+        if(listicleItems != null && !listicleItems.isEmpty()){
+            boolean descOrder = Boolean.TRUE.equals(listicle.getDescOrder());
+            int index = descOrder ? listicleItems.size() : 1;
 
-        boolean descOrder = Boolean.TRUE.equals(listicle.getDescOrder());
-        int index = descOrder ? listicleItems.size() : 1;
-
-        for (ListicleItem listicleItem : listicleItems) {
-            Integer itemNumber = descOrder ? index-- : index++;
-            items.add(getListicleItem(locale, listicleItem, itemNumber));
+            for (ListicleItem listicleItem : listicleItems) {
+                Integer itemNumber = descOrder ? index-- : index++;
+                items.add(getListicleItem(locale, listicleItem, itemNumber));
+            }
+        }else{
+            logger.warn("The listicle page {} does not have any modules published", listicle.getPath());
         }
         return items;
     }

@@ -24,4 +24,10 @@
         </#if>
     </#if>
     <!-- End Google Tag Manager -->
+
+    <#if (editMode) >
+        <script>
+            window.bypassCookieChecks = true;
+        </script>
+    </#if>
 </#macro>

@@ -94,6 +94,9 @@ public class ItineraryFactory {
                 page.addStop(module);
             }
         }
+        if (page.getDays() == null || page.getDays().isEmpty()) {
+            logger.warn("The itinerary page {} does not have any modules published", itinerary.getPath());
+        }
 
         page.setDistance(calculateDistance ? totalDistance.setScale(0, BigDecimal.ROUND_HALF_UP) :BigDecimal.valueOf(itinerary.getDistance()));
 
@@ -137,7 +140,7 @@ public class ItineraryFactory {
     }
 
     /**
-     * Transform an Stop document in a ItineraryStopModule and add extra information depending on the type
+     * Transform a Stop document in a ItineraryStopModule and add extra information depending on the type
      */
     public ItineraryStopModule generateStop(Locale locale, Stop stop, Itinerary itinerary, Integer index){
         ItineraryStopModule module = initializeStop(stop);
@@ -167,7 +170,7 @@ public class ItineraryFactory {
     }
 
     /**
-     * Creates an Stop from the stop Document type
+     * Creates a Stop from the stop Document type
      */
     private ItineraryStopModule initializeStop(Stop stop) {
         ItineraryStopModule module = new ItineraryStopModule();
@@ -201,7 +204,8 @@ public class ItineraryFactory {
 
         if (externalLink.getExternalLink() != null) {
             FlatLink ctaLink = linkService.createExternalLink(locale, externalLink.getExternalLink().getLink(),
-                    !externalLink.getExternalLink().getLabel().isEmpty()? externalLink.getExternalLink().getLabel(): bundle.getFindOutMoreAboutCta(module.getTitle(), locale));
+                    !externalLink.getExternalLink().getLabel().isEmpty()? externalLink.getExternalLink().getLabel(): bundle.getFindOutMoreAboutCta(module.getTitle(), locale),
+                    externalLink.getPath());
             module.setCtaLink(ctaLink);
         }
 

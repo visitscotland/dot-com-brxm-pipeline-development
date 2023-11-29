@@ -41,10 +41,10 @@ public class NavigationFactory {
     static final String NAVIGATION_PREFIX = "navigation.";
     static final String WIDGET_LIST = "widgetList";
 
-    private ResourceBundleService bundle;
-    private HippoUtilsService utils;
-    private LinkService linkService;
-    private ProductSearchBuilder productSearchBuilder;
+    private final ResourceBundleService bundle;
+    private final HippoUtilsService utils;
+    private final LinkService linkService;
+    private final ProductSearchBuilder productSearchBuilder;
     private final Logger contentLogger;
 
     public NavigationFactory(ResourceBundleService bundle, HippoUtilsService utils, LinkService linkService, ProductSearchBuilder productSearchBuilder,
@@ -57,7 +57,7 @@ public class NavigationFactory {
     }
 
     /**
-     * Builds a VisitScotland enhanced menu from the out of the box menu
+     * Builds a VisitScotland enhanced menu from the out-of-the-box menu
      */
     @Cacheable(
             value = "navigation",
@@ -86,8 +86,7 @@ public class NavigationFactory {
     /**
      * Creates a new MenuItem that Matches with Bloomreach's MenuItem specification. which enhanced information
      * about the linked item
-     *
-     * If the item happens to be a widget the  MenuItem is descarded and a Navigation Widget is returned instead
+     * If the item happens to be a widget the  MenuItem is discarded and a Navigation Widget is returned instead
      */
     private Object getMenuItem(HstRequest request, HstSiteMenuItem hstItem, String resourceBundle) {
         MenuItem menuItem = new MenuItem(hstItem);

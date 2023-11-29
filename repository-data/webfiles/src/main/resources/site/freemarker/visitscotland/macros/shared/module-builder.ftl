@@ -33,7 +33,7 @@
         <#if moduleType == "PersonalisationModule">
         <div data-personalisation>
             <#list module.modules as personalisedModule>
-                <@moduleBuilder personalisedModule colourScheme />
+                <@moduleBuilder personalisedModule pageIndex colourScheme />
             </#list>
         </div>
         <#elseif moduleType == "megalinks">
@@ -55,15 +55,15 @@
         <#elseif moduleType == "LongCopyModule">
             <@includeOnce "../modules/long-copy/long-copy.ftl" />
             <@longCopy module/>
-        <#elseif moduleType == "StacklaModule">
-            <@includeOnce "../modules/stackla/stackla.ftl" />
-            <@stackla module/>
+        <#elseif moduleType == "UserGeneratedContentModule">
+            <@includeOnce "../modules/ugc/ugc.ftl" />
+            <@ugc module/>
         <#elseif moduleType == "TravelInformationModule">
             <@includeOnce "../modules/travel-information/travel-information.ftl" />
             <@travelInformation module/>
         <#elseif moduleType == "MapsModule">
-            <@includeOnce "../modules/map/map.ftl" />
-            <@map module/>
+            <@includeOnce "../modules/map-with-sidebar/map-with-sidebar.ftl" />
+            <@mapWithSidebar module/>
         <#elseif moduleType == "CannedSearchModule">
             <@includeOnce "../modules/canned-search/canned-search.ftl" />
             <@cannedSearch module themeName/>
