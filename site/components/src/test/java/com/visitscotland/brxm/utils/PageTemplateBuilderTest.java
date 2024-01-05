@@ -246,10 +246,10 @@ class PageTemplateBuilderTest {
         List<LinksModule> items = (List<LinksModule>) request.getAttribute(PageTemplateBuilder.PAGE_ITEMS);
         assertEquals(4, items.size());
 
-        verify(module1).setAlignment(PageTemplateBuilder.alignment[0 % 2]);
-        verify(module2).setAlignment(PageTemplateBuilder.alignment[1 % 2]);
-        verify(module3).setAlignment(PageTemplateBuilder.alignment[2 % 2]);
-        verify(module4).setAlignment(PageTemplateBuilder.alignment[3 % 2]);
+        verify(module1).setAlignment(PageTemplateBuilder.ALIGNMENT[0 % 2]);
+        verify(module2).setAlignment(PageTemplateBuilder.ALIGNMENT[1 % 2]);
+        verify(module3).setAlignment(PageTemplateBuilder.ALIGNMENT[2 % 2]);
+        verify(module4).setAlignment(PageTemplateBuilder.ALIGNMENT[3 % 2]);
     }
 
     /**
