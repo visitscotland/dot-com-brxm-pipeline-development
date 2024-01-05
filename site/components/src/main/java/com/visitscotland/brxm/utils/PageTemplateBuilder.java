@@ -175,6 +175,9 @@ public class PageTemplateBuilder {
 
         if (al.getType().equalsIgnoreCase(SingleImageLinksModule.class.getSimpleName())) {
             al.setAlignment(alignment[page.alignment++ % alignment.length]);
+            if (Contract.isEmpty(al.getAlignment())){
+                logger.warn("The Single Image Megalink module for {} does not have the alignment field defined", item.getPath());
+            }
         }
 
         if (Contract.isEmpty(al.getTitle()) && page.style > 0) {
