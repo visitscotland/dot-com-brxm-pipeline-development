@@ -195,6 +195,7 @@ public class PageTemplateBuilder {
                 personalisationList.add(processPersonalisation(request, (Megalinks)personalisationMegalink.getModule(), personalisationMegalink.getId(), al));
             }
             personalisationModule.setModules(personalisationList);
+
             page.modules.add(personalisationModule);
         }else{
             page.modules.add(al);
@@ -208,6 +209,13 @@ public class PageTemplateBuilder {
 
         if (!Contract.isEmpty(marketoId)) {
             al.setMarketoId(marketoId);
+        }
+
+        if (al.getType().equalsIgnoreCase(SingleImageLinksModule.class.getSimpleName())) {
+            al.setAlignment(parent.getAlignment());
+            if (Contract.isEmpty(al.getAlignment())) {
+                logger.warn("The Single Image Megalink module for {} does not have the alignment field defined", item.getPath());
+            }
         }
 
         return al;
