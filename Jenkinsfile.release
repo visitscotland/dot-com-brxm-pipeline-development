@@ -1,0 +1,29 @@
+pipeline {
+  agent any
+  tools {
+    maven 'Maven 3.5.4'
+    jdk 'jdk11'
+  }
+
+  stages {
+
+    stage('automation build') {
+      when {
+        changeset "feature/release-automation-jenkins-develop"
+      }
+      steps {
+        echo "  Branch: ${BRANCH_NAME}"
+        echo "Job Name: ${JOB_NAME}"
+        echo "   Stage: ${BUILD_DISPLAY_NAME}"
+      }
+      post {
+        success {
+          echo "Automation succeeded on branch: ${BRANCH_NAME}"
+          failure {
+            echo "Automation failed on branch: ${BRANCH_NAME}"
+          }
+        }
+      }
+    }
+  }
+}
