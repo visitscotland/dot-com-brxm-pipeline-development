@@ -24,7 +24,7 @@
         <vs-megalink-single-image 
             title="${item.innerTitle}"
             <#if (item.cta.link)??>button-link="${item.cta.link}"</#if>
-            <#if item.alignment == 'left'>alternate</#if>
+            <#if item.alignment?? && item.alignment == 'left'>alternate</#if>
             theme="${theme}"
         >
             <template v-slot:vs-single-image>
