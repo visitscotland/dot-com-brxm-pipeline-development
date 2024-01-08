@@ -104,6 +104,25 @@ pipeline {
       }
     }
 
+    stage ('automation build') {
+      when {
+        changeset "feature/release-automation-jenkins-develop"
+      }
+      steps {
+        echo -e "  Branch: ${BRANCH_NAME}\nJob Name: ${JOB_NAME}\n   Stage: ${BUILD_DISPLAY_NAME}"
+        echo "  Branch: ${BRANCH_NAME}"
+        echo "Job Name: ${JOB_NAME}"
+        echo "   Stage: ${BUILD_DISPLAY_NAME}"
+      }
+      post {
+        success {
+          echo "Automation succeeded on branch: ${BRANCH_NAME}"
+          failure {
+            echo "Automation failed on branch: ${BRANCH_NAME}"
+        }
+      }
+    }
+
     stage ('vs compile & package') {
       when {
         allOf {
