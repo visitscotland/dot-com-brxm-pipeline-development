@@ -5,12 +5,12 @@ pipeline {
     jdk 'jdk11'
   }
 
-  // added comment to trigger pipeline
   stages {
 
     stage('automation build') {
       when {
-        changeset "feature/release-automation-jenkins-develop"
+        // changeset expects a regular expression
+        changeset '^feature/release-automation-jenkins-develop.*'
       }
       steps {
         echo "  Branch: ${BRANCH_NAME}"
