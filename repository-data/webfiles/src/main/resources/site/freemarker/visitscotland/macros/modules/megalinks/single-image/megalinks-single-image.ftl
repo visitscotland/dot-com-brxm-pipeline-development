@@ -54,7 +54,7 @@
                     </vs-link-list-item>
 
                     <#if listItem.youtubeId??>
-                        <@videoModal videoId=listItem.youtubeId videoTitle=listItem.label />
+                        <@videoModal video=listItem/>
                     </#if>
                 </#list>
             </template>
