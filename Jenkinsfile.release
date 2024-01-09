@@ -8,10 +8,6 @@ pipeline {
   stages {
 
     stage('automation build') {
-      when {
-        // changeset expects a regular expression
-        branch '^.*release-automation-jenkins-develop.*$'
-      }
       steps {
         echo "  Branch: ${BRANCH_NAME}"
         echo "Job Name: ${JOB_NAME}"
