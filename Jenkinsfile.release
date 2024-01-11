@@ -16,9 +16,9 @@ pipeline {
       post {
         success {
           echo "Automation succeeded on branch: ${BRANCH_NAME}"
-          failure {
-            echo "Automation failed on branch: ${BRANCH_NAME}"
-          }
+        }
+        failure {
+          echo "Automation failed on branch: ${BRANCH_NAME}"
         }
       }
     }
