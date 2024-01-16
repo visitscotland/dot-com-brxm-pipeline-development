@@ -1,0 +1,50 @@
+definitions:
+  config:
+    /hst:hst/hst:configurations/business-events/hst:workspace:
+      jcr:primaryType: hst:workspace
+      /hst:sitemenus:
+        jcr:primaryType: hst:sitemenus
+        /footer:
+          .meta:residual-child-node-category: content
+          jcr:primaryType: hst:sitemenu
+          hst:lastmodified: 2023-07-20T14:53:17.670+01:00
+        /utility:
+          .meta:residual-child-node-category: content
+          jcr:primaryType: hst:sitemenu
+          hst:lastmodified: 2023-07-20T14:49:40.022+01:00
+        /main:
+          .meta:residual-child-node-category: content
+          jcr:primaryType: hst:sitemenu
+          hst:lastmodified: 2023-11-30T16:35:47.871Z
+      /hst:containers:
+        jcr:primaryType: hst:containercomponentfolder
+        /base:
+          jcr:primaryType: hst:containercomponentfolder
+          /top:
+            .meta:residual-child-node-category: content
+            jcr:primaryType: hst:containercomponent
+            hippo:identifier: 539e87ec-f7f0-481d-9d61-61eba7d42e77
+            hst:label: Top
+            hst:xtype: hst.vbox
+          /footer:
+            .meta:residual-child-node-category: content
+            jcr:primaryType: hst:containercomponent
+            hippo:identifier: a984b944-cdaa-46cf-8b9e-f395b8ecab1d
+            hst:label: Footer
+            hst:xtype: hst.vbox
+        /homepage:
+          jcr:primaryType: hst:containercomponentfolder
+          /main:
+            .meta:residual-child-node-category: content
+            jcr:primaryType: hst:containercomponent
+            hippo:identifier: 816c11a4-1e4c-462b-a5eb-b737b28540c5
+            hst:label: Home Page Main
+            hst:xtype: hst.vbox
+        /pagenotfound:
+          jcr:primaryType: hst:containercomponentfolder
+          /main:
+            .meta:residual-child-node-category: content
+            jcr:primaryType: hst:containercomponent
+            hippo:identifier: ef6887bb-ff0d-4922-844f-8cc83d54a03e
+            hst:label: Page-Not-Found Main
+            hst:xtype: hst.vbox
