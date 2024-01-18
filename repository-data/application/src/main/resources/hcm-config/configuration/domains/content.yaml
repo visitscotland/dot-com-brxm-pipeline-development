@@ -6,3 +6,9 @@ definitions:
       hipposys:facet: jcr:path
       hipposys:type: Reference
       hipposys:value: /content/documents/administration
+    /hippo:configuration/hippo:domains/content/content-domain/exclude-business-events:
+      jcr:primaryType: hipposys:facetrule
+      hipposys:equals: false
+      hipposys:facet: jcr:path
+      hipposys:type: Reference
+      hipposys:value: /content/documents/business-events
