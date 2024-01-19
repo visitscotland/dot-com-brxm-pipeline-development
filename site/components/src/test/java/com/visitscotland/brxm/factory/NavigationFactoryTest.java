@@ -67,7 +67,6 @@ class NavigationFactoryTest {
      */
     private void addMenuToRequest(HstSiteMenuItem menuItem){
         HstSiteMenu model = mock(HstSiteMenu.class);
-        when(model.getName()).thenReturn(MENU_ID);
         request.setModel(MenuComponent.MENU, model);
         when(model.getSiteMenuItems()).thenReturn(Collections.singletonList(menuItem));
     }
