@@ -1,0 +1,162 @@
+/content/documents/administration/business-events/labels/navigation:
+  jcr:primaryType: hippostd:folder
+  jcr:mixinTypes: ['hippo:named', 'mix:versionable']
+  jcr:uuid: 4134e51c-93ab-4b8f-9206-4252fed42d80
+  hippo:name: Navigation
+  hippostd:foldertype: [new-untranslated-folder-resource-bundle, new-resource-bundle]
+  /meganav-links:
+    jcr:primaryType: hippo:handle
+    jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+    jcr:uuid: c1ba9e0f-6b36-4398-b21b-3c597139ee8f
+    hippo:name: Meganav Links
+    hippo:versionHistory: 2cf8082f-caa8-469f-b6f5-cca5bbcf9a24
+    /meganav-links[1]:
+      jcr:primaryType: resourcebundle:resourcebundle
+      jcr:mixinTypes: ['mix:referenceable']
+      jcr:uuid: c83e9861-980c-47e5-8efb-8894add7ec7d
+      hippo:availability: []
+      hippostd:retainable: false
+      hippostd:state: draft
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2024-01-18T17:37:39.819Z
+      hippostdpubwf:lastModificationDate: 2024-01-18T17:37:39.819Z
+      hippostdpubwf:lastModifiedBy: admin
+      resourcebundle:descriptions: ['', '', '', '', '', '', '']
+      resourcebundle:id: be.navigation.main
+      resourcebundle:keys: [venues, services, why-scotland, key-sectors, events-tradeshows,
+        news, about-us]
+      resourcebundle:messages: [Venues, Services, Why Scotland, Key Sectors, Events
+          and Tradeshows, News, About us]
+    /meganav-links[2]:
+      jcr:primaryType: resourcebundle:resourcebundle
+      jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+      jcr:uuid: e9d70207-5cd6-4e51-9db6-179b5180bd7d
+      hippo:availability: [preview]
+      hippostd:retainable: false
+      hippostd:state: unpublished
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2024-01-18T17:37:39.819Z
+      hippostdpubwf:lastModificationDate: 2024-01-18T17:40:09.259Z
+      hippostdpubwf:lastModifiedBy: admin
+      resourcebundle:descriptions: ['', '', '', '', '', '', '']
+      resourcebundle:id: be.navigation.main
+      resourcebundle:keys: [venues, services, why-scotland, key-sectors, events-tradeshows,
+        news, about-us]
+      resourcebundle:messages: [Venues, Services, Why Scotland, Key Sectors, Events
+          and Tradeshows, News, About us]
+    /meganav-links[3]:
+      jcr:primaryType: resourcebundle:resourcebundle
+      jcr:mixinTypes: ['mix:referenceable']
+      jcr:uuid: feb19071-1541-4726-9f2c-6aee09b181ad
+      hippo:availability: [live]
+      hippostd:retainable: false
+      hippostd:state: published
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2024-01-18T17:37:39.819Z
+      hippostdpubwf:lastModificationDate: 2024-01-18T17:40:09.259Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippostdpubwf:publicationDate: 2024-01-18T17:40:12.541Z
+      resourcebundle:descriptions: ['', '', '', '', '', '', '']
+      resourcebundle:id: be.navigation.main
+      resourcebundle:keys: [venues, services, why-scotland, key-sectors, events-tradeshows,
+        news, about-us]
+      resourcebundle:messages: [Venues, Services, Why Scotland, Key Sectors, Events
+          and Tradeshows, News, About us]
+  /utility-links:
+    jcr:primaryType: hippo:handle
+    jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+    jcr:uuid: 5d55ea13-eac2-478b-b11a-2ab312b191dd
+    hippo:name: Utility Links
+    hippo:versionHistory: 973e4de9-e3d7-472c-b9b8-985a1e8b013a
+    /utility-links[1]:
+      jcr:primaryType: resourcebundle:resourcebundle
+      jcr:mixinTypes: ['mix:referenceable']
+      jcr:uuid: 9fdb03c3-84ef-4e14-95c7-cc8e105b8691
+      hippo:availability: []
+      hippostd:retainable: false
+      hippostd:state: draft
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2024-01-19T10:20:22.788Z
+      hippostdpubwf:lastModificationDate: 2024-01-19T10:20:22.789Z
+      hippostdpubwf:lastModifiedBy: admin
+      resourcebundle:id: be.navigation.utility
+      resourcebundle:keys: []
+      resourcebundle:messages: []
+    /utility-links[2]:
+      jcr:primaryType: resourcebundle:resourcebundle
+      jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+      jcr:uuid: 3ef51f2d-779a-4a28-97e2-3f541c631d50
+      hippo:availability: [preview]
+      hippostd:retainable: false
+      hippostd:state: unpublished
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2024-01-19T10:20:22.788Z
+      hippostdpubwf:lastModificationDate: 2024-01-19T10:20:34.780Z
+      hippostdpubwf:lastModifiedBy: admin
+      resourcebundle:id: be.navigation.utility
+      resourcebundle:keys: []
+      resourcebundle:messages: []
+    /utility-links[3]:
+      jcr:primaryType: resourcebundle:resourcebundle
+      jcr:mixinTypes: ['mix:referenceable']
+      jcr:uuid: a1bb705e-f8a2-461b-afbb-6452d7d2970b
+      hippo:availability: [live]
+      hippostd:retainable: false
+      hippostd:state: published
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2024-01-19T10:20:22.788Z
+      hippostdpubwf:lastModificationDate: 2024-01-19T10:20:34.780Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippostdpubwf:publicationDate: 2024-01-19T10:33:33.001Z
+      resourcebundle:id: be.navigation.utility
+      resourcebundle:keys: []
+      resourcebundle:messages: []
+  /footer-links:
+    jcr:primaryType: hippo:handle
+    jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+    jcr:uuid: a0874f83-8f76-46f5-ad39-32822b51c109
+    hippo:name: Footer Links
+    hippo:versionHistory: 15e69aa6-a8f4-41fa-841d-5ae77db0edda
+    /footer-links[1]:
+      jcr:primaryType: resourcebundle:resourcebundle
+      jcr:mixinTypes: ['mix:referenceable']
+      jcr:uuid: 5836bc1c-ffe0-4f4a-b112-635b2ea3eb04
+      hippo:availability: []
+      hippostd:retainable: false
+      hippostd:state: draft
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2024-01-19T10:28:31.156Z
+      hippostdpubwf:lastModificationDate: 2024-01-19T10:28:31.156Z
+      hippostdpubwf:lastModifiedBy: admin
+      resourcebundle:id: be.navigation.footer
+      resourcebundle:keys: []
+      resourcebundle:messages: []
+    /footer-links[2]:
+      jcr:primaryType: resourcebundle:resourcebundle
+      jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+      jcr:uuid: 87994262-8cfa-4e60-9378-85e229e64f8f
+      hippo:availability: [preview]
+      hippostd:retainable: false
+      hippostd:state: unpublished
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2024-01-19T10:28:31.156Z
+      hippostdpubwf:lastModificationDate: 2024-01-19T10:28:42.755Z
+      hippostdpubwf:lastModifiedBy: admin
+      resourcebundle:id: be.navigation.footer
+      resourcebundle:keys: []
+      resourcebundle:messages: []
+    /footer-links[3]:
+      jcr:primaryType: resourcebundle:resourcebundle
+      jcr:mixinTypes: ['mix:referenceable']
+      jcr:uuid: abe61741-3327-42fe-a893-4a8b34f167f9
+      hippo:availability: [live]
+      hippostd:retainable: false
+      hippostd:state: published
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2024-01-19T10:28:31.156Z
+      hippostdpubwf:lastModificationDate: 2024-01-19T10:28:42.755Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippostdpubwf:publicationDate: 2024-01-19T10:33:37.759Z
+      resourcebundle:id: be.navigation.footer
+      resourcebundle:keys: []
+      resourcebundle:messages: []
