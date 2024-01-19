@@ -35,8 +35,8 @@ public class DestinationContentComponent extends PageContentComponent<Destinatio
     void addAttributesToRequest(HstRequest request) {
         Destination document = (Destination) request.getAttribute("document");
         LocationObject location = locationLoader.getLocation(document.getLocation(), Locale.UK);
-        request.setAttribute("location", location);
-        request.setAttribute("region", locationLoader.getRegion(location, Locale.UK));
+        request.setModel("location", location);
+        request.setModel("region", locationLoader.getRegion(location, Locale.UK));
 
         builder.addModules(request, document.getLocation());
     }

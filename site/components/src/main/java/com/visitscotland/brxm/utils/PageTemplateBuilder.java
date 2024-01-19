@@ -137,7 +137,7 @@ public class PageTemplateBuilder {
             logger.warn("The page {} does not have any modules published", request.getRequestURI());
         }
 
-        request.setAttribute(PAGE_ITEMS, page.modules);
+        request.setModel(PAGE_ITEMS, page.modules);
     }
 
     /**
@@ -252,7 +252,7 @@ public class PageTemplateBuilder {
      */
     private void setIntroTheme(HstRequest request, List<Module<?>> modules){
         if(!modules.isEmpty() && modules.get(0) instanceof LinksModule){
-            request.setAttribute(INTRO_THEME, ((LinksModule<?>) modules.get(0)).getThemeIndex());
+            request.setModel(INTRO_THEME, ((LinksModule<?>) modules.get(0)).getThemeIndex());
         }
     }
 
