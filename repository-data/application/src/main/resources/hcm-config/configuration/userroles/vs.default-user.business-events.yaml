@@ -2,8 +2,7 @@ definitions:
   config:
     /hippo:configuration/hippo:userroles/vs.default-user.business-events:
       jcr:primaryType: hipposys:userrole
-      hipposys:description: Implies all standard userroles needed for a default author
-        user or group
+      hipposys:description: Business Events Content Editor
       hipposys:system: true
       hipposys:userroles: [vs.content.business-events, xm.channel.viewer, xm.cms.user,
         xm.dashboard.user]
