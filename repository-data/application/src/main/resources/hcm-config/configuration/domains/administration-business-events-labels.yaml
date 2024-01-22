@@ -17,17 +17,17 @@ definitions:
           .meta:category: system
           type: string
           value: xm.content.admin
-      /editor:
-        jcr:primaryType: hipposys:authrole
-        hipposys:role: admin
-        hipposys:userrole:
-          .meta:category: system
-          type: string
-          value: vs.content.be-editor
-      /author:
+      /vs-editor:
         jcr:primaryType: hipposys:authrole
         hipposys:role: readonly
         hipposys:userrole:
           .meta:category: system
           type: string
           value: xm.content.author
+      /be-editor:
+        jcr:primaryType: hipposys:authrole
+        hipposys:role: editor
+        hipposys:userrole:
+          .meta:category: system
+          type: string
+          value: vs.content.business-events
