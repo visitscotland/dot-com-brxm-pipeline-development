@@ -12,7 +12,8 @@ pipeline {
         echo "  Branch: ${BRANCH_NAME}"
         echo "Job Name: ${JOB_NAME}"
         echo "   Stage: ${BUILD_DISPLAY_NAME}"
-        sh 'mvn clean install -DskipTests'
+        echo "-s maven: ${MAVEN_SETTINGS}"
+        sh 'mvn clean install -DskipTests -s $MAVEN_SETTINGS'
       }
       post {
         success {
