@@ -1,5 +1,8 @@
 pipeline {
   agent any
+  environment {
+    MAVEN_SETTINGS = credentials('maven-settings')
+  }
   tools {
     maven 'Maven 3.5.4'
     jdk 'jdk11'
