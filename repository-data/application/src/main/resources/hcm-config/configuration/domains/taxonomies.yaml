@@ -1,15 +1,26 @@
 definitions:
   config:
-    /hippo:configuration/hippo:domains/content-business-event:
+    /hippo:configuration/hippo:domains/taxonomies:
       jcr:primaryType: hipposys:domain
-      /content-domain:
-        jcr:primaryType: hipposys:domainrule
-        /content-and-descendants:
-          jcr:primaryType: hipposys:facetrule
-          hipposys:equals: true
-          hipposys:facet: jcr:path
-          hipposys:type: Reference
-          hipposys:value: /content/documents/business-events
+      /editor:
+        jcr:primaryType: hipposys:authrole
+        hipposys:groups:
+          .meta:category: system
+          .meta:add-new-system-values: true
+          operation: override
+          type: string
+          value: []
+        hipposys:role: editor
+        hipposys:userrole:
+          .meta:category: system
+          type: string
+          value: xm.content.editor
+        hipposys:users:
+          .meta:category: system
+          .meta:add-new-system-values: true
+          operation: override
+          type: string
+          value: []
       /admin:
         jcr:primaryType: hipposys:authrole
         hipposys:groups:
@@ -48,30 +59,11 @@ definitions:
           operation: override
           type: string
           value: []
-      /be-editor:
-        jcr:primaryType: hipposys:authrole
-        hipposys:groups:
-          .meta:category: system
-          .meta:add-new-system-values: true
-          operation: override
-          type: string
-          value: []
-        hipposys:role: editor
-        hipposys:userrole:
-          .meta:category: system
-          type: string
-          value: vs.content.business-events
-        hipposys:users:
-          .meta:category: system
-          .meta:add-new-system-values: true
-          operation: override
-          type: string
-          value: []
-      /gallery-domain:
+      /taxonomies-domain:
         jcr:primaryType: hipposys:domainrule
-        /content-and-descendants:
+        /taxonomies-and-descendants:
           jcr:primaryType: hipposys:facetrule
           hipposys:equals: true
           hipposys:facet: jcr:path
           hipposys:type: Reference
-          hipposys:value: /content/gallery/business-events
+          hipposys:value: /content/taxonomies/
