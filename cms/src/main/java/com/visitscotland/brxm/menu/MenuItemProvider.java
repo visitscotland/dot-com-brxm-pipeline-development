@@ -53,7 +53,6 @@ public class MenuItemProvider {
             Optional<Page> optionalPage = getPageContentBean(subjectNode);
             if (optionalPage.isPresent()) {
                 prototypes.remove(pageMenu);
-                prototypes.put(moduleMenu, Set.of((optionalPage.get()).getChildJcrTypes()));
             } else {
                 prototypes.remove(moduleMenu);
             }
