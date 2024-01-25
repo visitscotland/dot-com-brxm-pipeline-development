@@ -31,10 +31,3 @@ definitions:
           .meta:category: system
           type: string
           value: xm.content.editor
-      /be-editor:
-        jcr:primaryType: hipposys:authrole
-        hipposys:role: readonly
-        hipposys:userrole:
-          .meta:category: system
-          type: string
-          value: vs.content.business-events
