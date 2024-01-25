@@ -11,7 +11,6 @@ definitions:
           jcr:primaryType: hst:mount
           jcr:mixinTypes: ['visitscotland:hosts']
           hst:homepage: root
-          hst:linkurlprefix: http://local.businessevents:8080
           hst:locale: en_GB
           hst:mountpoint: /hst:visitscotland/hst:sites/business-events
           hst:pagemodelapi: resourceapi
@@ -25,9 +24,3 @@ definitions:
             hst:ismapped: false
             hst:namedpipeline: JaxrsRestPlainPipeline
             hst:types: [rest]
-          /resourceapi:
-            .meta:residual-child-node-category: content
-            jcr:primaryType: hst:mount
-            hst:mountpoint: /hst:visitscotland/hst:sites/business-events
-            hst:namedpipeline: SpaSitePipeline
-            hst:pagemodelapi: resourceapi
