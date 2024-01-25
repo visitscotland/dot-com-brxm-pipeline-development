@@ -37,11 +37,11 @@ public class VsBreadcrumbComponent extends CommonComponent {
         super.doBeforeRender(request, response);
 
         //Requested URL to identify the current page from the breadcrumb
-        request.setAttribute(REQUESTED_URI, request.getRequestURI());
+        request.setModel(REQUESTED_URI, request.getRequestURI());
         //Identify if the page is the home page independently of the environment (local, dev, acct, prod) and language
-        request.setAttribute(IS_HOME, "root".equals(request.getRequestContext().getResolvedSiteMapItem().getHstSiteMapItem().getId()));
+        request.setModel(IS_HOME, "root".equals(request.getRequestContext().getResolvedSiteMapItem().getHstSiteMapItem().getId()));
         //Breadcrumb Items list
-        request.setAttribute(BREADCRUMB, this.breadcrumbProvider.getBreadcrumb(request));
+        request.setModel(BREADCRUMB, this.breadcrumbProvider.getBreadcrumb(request));
         //Main document for the page
         setDocument(request, response);
     }
@@ -49,10 +49,10 @@ public class VsBreadcrumbComponent extends CommonComponent {
     private void setDocument(HstRequest request, HstResponse response) {
         Optional<HippoBean> document = hippoUtilsService.getContentBeanWithTranslationFallback(request);
         if (document.isPresent() && document.get() instanceof Page) {
-            request.setAttribute(DOCUMENT, document.get());
+            request.setModel(DOCUMENT, document.get());
             // Translations ordered by SEO order
             List<BaseDocument> availableTranslations = ((Page) document.get()).getAvailableTranslations(BaseDocument.class).getTranslations();
-            request.setAttribute(ORDERED_TRANSLATIONS, documentUtils.sortTranslationsForSeo(availableTranslations));
+            request.setModel(ORDERED_TRANSLATIONS, documentUtils.sortTranslationsForSeo(availableTranslations));
         } else {
             logger.debug("{} page not found - redirecting to 404 page", request.getRequestURI());
             this.pageNotFound(response);

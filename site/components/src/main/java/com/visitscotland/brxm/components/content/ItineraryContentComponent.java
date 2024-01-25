@@ -37,7 +37,7 @@ public class ItineraryContentComponent extends PageContentComponent<Itinerary> {
         addProductSearchBuilder(request);
 
         ItineraryPage itineraryPage = itineraryFactory.buildItinerary(getDocument(request), request.getLocale());
-        request.setAttribute(ITINERARY, itineraryPage);
+        request.setModel(ITINERARY, itineraryPage);
         if (!Contract.isEmpty(itineraryPage.getErrorMessages())) {
             setErrorMessages(request, itineraryPage.getErrorMessages());
         }
@@ -48,7 +48,7 @@ public class ItineraryContentComponent extends PageContentComponent<Itinerary> {
         TemplateHashModel staticModels = wrapper.getStaticModels();
         try {
             TemplateHashModel psb = (TemplateHashModel) staticModels.get(ProductSearchBuilder.class.getCanonicalName());
-            request.setAttribute("ProductSearchBuilder", psb);
+            request.setModel("ProductSearchBuilder", psb);
         } catch (TemplateModelException e) {
             logger.error("Product Search Builder is not available for the Page", e);
         }

@@ -30,7 +30,7 @@ public class ListicleContentComponent extends PageContentComponent<Listicle> {
     public void doBeforeRender(HstRequest request, HstResponse response) {
         super.doBeforeRender(request, response);
 
-        request.setAttribute(LISTICLE_ITEMS, factory.generateItems(request.getLocale(), getDocument(request)));
+        request.setModel(LISTICLE_ITEMS, factory.generateItems(request.getLocale(), getDocument(request)));
     }
 
 }
