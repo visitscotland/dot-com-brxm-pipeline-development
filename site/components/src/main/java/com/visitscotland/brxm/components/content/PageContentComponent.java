@@ -11,6 +11,7 @@ import com.visitscotland.brxm.model.megalinks.EnhancedLink;
 import com.visitscotland.brxm.model.megalinks.HorizontalListLinksModule;
 import com.visitscotland.brxm.services.LinkService;
 import com.visitscotland.brxm.utils.ContentLogger;
+import com.visitscotland.brxm.utils.HippoUtilsService;
 import com.visitscotland.brxm.utils.Properties;
 import com.visitscotland.utils.Contract;
 import org.hippoecm.hst.core.component.HstRequest;
@@ -45,6 +46,8 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
     private final SignpostFactory signpostFactory;
     private final ProductSearchWidgetFactory psrFactory;
     private final PreviewModeFactory previewFactory;
+
+    private final HippoUtilsService hippoUtils;
     private final Properties properties;
     private final Logger contentLogger;
 
@@ -57,7 +60,9 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
         psrFactory = VsComponentManager.get(ProductSearchWidgetFactory.class);
         previewFactory = VsComponentManager.get(PreviewModeFactory.class);
         contentLogger = VsComponentManager.get(ContentLogger.class);
+        hippoUtils = VsComponentManager.get(HippoUtilsService.class);
         properties = VsComponentManager.get(Properties.class);
+
     }
 
     @Override
@@ -72,6 +77,7 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
         addLogging(request);
         addFlags(request);
         addBlog(request);
+        addSite(request);
     }
 
     /**
@@ -190,6 +196,12 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
             requestMessages.addAll(errorMessages);
         } else {
             request.setAttribute(PREVIEW_ALERTS, errorMessages);
+        }
+    }
+
+    private void addSite(HstRequest request){
+        if (hippoUtils.isBusinessEventsSite(request)){
+            request.setModel(HippoUtilsService.BUSINESS_EVENTS_SITE, true);
         }
     }
 }
