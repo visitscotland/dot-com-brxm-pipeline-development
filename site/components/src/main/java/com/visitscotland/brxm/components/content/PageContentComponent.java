@@ -10,6 +10,7 @@ import com.visitscotland.brxm.model.SignpostModule;
 import com.visitscotland.brxm.model.megalinks.EnhancedLink;
 import com.visitscotland.brxm.model.megalinks.HorizontalListLinksModule;
 import com.visitscotland.brxm.services.LinkService;
+import com.visitscotland.brxm.services.ResourceBundleService;
 import com.visitscotland.brxm.utils.ContentLogger;
 import com.visitscotland.brxm.utils.HippoUtilsService;
 import com.visitscotland.brxm.utils.Properties;
@@ -37,6 +38,7 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
     public static final String HERO_IMAGE = "heroImage";
     public static final String HERO_VIDEO = "heroVideo";
     public static final String PSR_WIDGET = "psrWidget";
+    public static final String SOCIAL_LINKS = "social-links";
 
     public static final String SEARCH_RESULTS = "searchResultsPage";
     private final BlogFactory blogFactory;
@@ -46,8 +48,8 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
     private final SignpostFactory signpostFactory;
     private final ProductSearchWidgetFactory psrFactory;
     private final PreviewModeFactory previewFactory;
-
     private final HippoUtilsService hippoUtils;
+    private final ResourceBundleService bundle;
     private final Properties properties;
     private final Logger contentLogger;
 
@@ -62,6 +64,7 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
         contentLogger = VsComponentManager.get(ContentLogger.class);
         hippoUtils = VsComponentManager.get(HippoUtilsService.class);
         properties = VsComponentManager.get(Properties.class);
+        bundle = VsComponentManager.get(ResourceBundleService.class);
 
     }
 
@@ -77,7 +80,7 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
         addLogging(request);
         addFlags(request);
         addBlog(request);
-        addSite(request);
+        addSiteSpecificConfiguration(request);
     }
 
     /**
@@ -199,9 +202,17 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
         }
     }
 
-    private void addSite(HstRequest request){
-        if (hippoUtils.isBusinessEventsSite(request)){
+    private void addSiteSpecificConfiguration(HstRequest request){
+        String socialMediaBundle;
+
+        if (hippoUtils.isBusinessEventsSite(request)) {
             request.setModel(HippoUtilsService.BUSINESS_EVENTS_SITE, true);
+            socialMediaBundle = "be.navigation.social-media";
+        } else {
+            socialMediaBundle = "navigation.social-media";
         }
+
+        request.setModel(SOCIAL_LINKS, bundle.getAllLabels(socialMediaBundle, request.getLocale()));
+
     }
 }
