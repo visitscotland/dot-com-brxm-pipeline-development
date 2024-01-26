@@ -85,7 +85,7 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
      */
     private void addFlags(HstRequest request){
         if (request.getPathInfo().contains(properties.getSiteGlobalSearch())){
-            request.setAttribute(SEARCH_RESULTS, true);
+            request.setModel(SEARCH_RESULTS, true);
         }
     }
 
@@ -103,12 +103,12 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
             contentLogger.warn(message);
             introModule.addErrorMessage(message);
         }
-        request.setAttribute(HERO_IMAGE, heroImage);
+        request.setModel(HERO_IMAGE, heroImage);
 
         VideoLink videoDocument = getDocument(request).getHeroVideo();
         if (videoDocument != null && videoDocument.getVideoLink() != null) {
             EnhancedLink video = linksService.createVideo(videoDocument.getVideoLink(), introModule, request.getLocale());
-            request.setAttribute(HERO_VIDEO, video);
+            request.setModel(HERO_VIDEO, video);
         }
 
         if (!Contract.isEmpty(introModule.getErrorMessages())) {
@@ -125,13 +125,13 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
             HorizontalListLinksModule otyml = megalinkFactory.horizontalListLayout(page.getOtherThings(), request.getLocale());
             if (Contract.isEmpty(otyml.getLinks())) {
                 contentLogger.warn("OTYML at {} contains 0 published items. Skipping module", page.getOtherThings().getPath());
-                request.setAttribute(OTYML, previewFactory.createErrorModule(otyml));
+                request.setModel(OTYML, previewFactory.createErrorModule(otyml));
                 return;
             }
             if (otyml.getLinks().size() < MegalinkFactory.MIN_ITEMS_CAROUSEL) {
                 contentLogger.warn("OTYML at {} contains only {} published items. Expected a minimum of 5", page.getOtherThings().getPath(), otyml.getLinks().size());
             }
-            request.setAttribute(OTYML, otyml);
+            request.setModel(OTYML, otyml);
         }
     }
 
@@ -142,7 +142,7 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
         Page page = getDocument(request);
         if (page.getBlog() != null) {
             Collection<String> errorMessages = new ArrayList<>();
-            request.setAttribute(BLOG, blogFactory.getBlog(page.getBlog(), request.getLocale(), errorMessages));
+            request.setModel(BLOG, blogFactory.getBlog(page.getBlog(), request.getLocale(), errorMessages));
             setErrorMessages(request, errorMessages);
         }
     }
@@ -157,7 +157,7 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
                 signpost = signpostFactory.createNewsletterSignpostModule(request.getLocale());
             }
             if (signpost != null) {
-                request.setAttribute(NEWSLETTER_SIGNPOST, signpost);
+                request.setModel(NEWSLETTER_SIGNPOST, signpost);
             }
         }
     }
@@ -167,12 +167,12 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
      */
     private void addProductSearchWidget(HstRequest request) {
         if (!request.getPathInfo().contains(properties.getSiteSkiSection()) && !request.getPathInfo().contains(properties.getCampaignSection())) {
-            request.setAttribute(PSR_WIDGET, psrFactory.getWidget(request));
+            request.setModel(PSR_WIDGET, psrFactory.getWidget(request));
         }
     }
 
     public void addLogging(HstRequest request){
-        request.setAttribute("Logger", freemarkerLogger);
+        request.setModel("Logger", freemarkerLogger);
     }
 
     /**
@@ -195,7 +195,7 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
             Collection<String> requestMessages = (Collection<String>) request.getAttribute(PREVIEW_ALERTS);
             requestMessages.addAll(errorMessages);
         } else {
-            request.setAttribute(PREVIEW_ALERTS, errorMessages);
+            request.setModel(PREVIEW_ALERTS, errorMessages);
         }
     }
 
