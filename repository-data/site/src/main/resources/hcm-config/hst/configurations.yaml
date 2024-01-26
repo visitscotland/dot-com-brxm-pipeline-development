@@ -85,9 +85,12 @@ definitions:
       /visitscotland-it:
         jcr:primaryType: hst:configuration
         hst:inheritsfrom: [../vs-default, '../vs-default/hst:workspace']
-      /business-events:
-        jcr:primaryType: hst:configuration
-        hst:inheritsfrom: [../common]
       /vs-default:
         jcr:primaryType: hst:configuration
         hst:inheritsfrom: [../common, '../visitscotland/hst:workspace']
+      /business-events-freemarker:
+        jcr:primaryType: hst:configuration
+        hst:inheritsfrom: [../business-events]
+      /business-events:
+        jcr:primaryType: hst:configuration
+        hst:inheritsfrom: [../common]

@@ -1,0 +1,10 @@
+definitions:
+  config:
+    /hst:platform/hst:hosts/business-events/local:
+      jcr:primaryType: hst:virtualhost
+      /businessevents:
+        jcr:primaryType: hst:virtualhost
+        /hst:root:
+          jcr:primaryType: hst:mount
+          hst:ismapped: false
+          hst:namedpipeline: SpaSitePipeline
