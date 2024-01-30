@@ -7,9 +7,10 @@
   hippotranslation:locale: en
   /content:
     jcr:primaryType: hippo:handle
-    jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+    jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
     jcr:uuid: f29b746e-7701-42ce-a102-0747589f0905
     hippo:name: content
+    hippo:versionHistory: 7859f0bc-ac09-4216-b46b-a4de00144a64
     /content[1]:
       jcr:primaryType: visitscotland:General
       jcr:mixinTypes: ['mix:versionable']
@@ -19,23 +20,20 @@
       hippostd:state: unpublished
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2021-06-29T15:19:57.775+01:00
-      hippostdpubwf:lastModificationDate: 2024-01-18T12:31:21.663Z
+      hippostdpubwf:lastModificationDate: 2024-01-30T10:36:27.376Z
       hippostdpubwf:lastModifiedBy: admin
       hippotranslation:id: b7c1e00c-c46b-4440-9c7b-f3f0adf890a8
       hippotranslation:locale: en
-      visitscotland:breadcrumb: ''
+      visitscotland:breadcrumb: Development Sandbox
       visitscotland:hideNewsletter: false
       visitscotland:newsletter: true
       visitscotland:pswPosition: Hidden
-      visitscotland:seoDescription: Welcome to VisitScotland Business Events. Your
-        partners in Scotland for conferences, conventions, meetings, incentives and
-        more!
+      visitscotland:seoDescription: Welcome to VisitScotland Business Events.
       visitscotland:seoNoIndex: false
       visitscotland:seoTitle: Welcome to Business Events Scotland
-      visitscotland:teaser: Welcome to VisitScotland Business Events. Your partners
-        in Scotland for conferences, conventions, meetings, incentives and more!
+      visitscotland:teaser: Software development
       visitscotland:theme: Top-Level
-      visitscotland:title: Welcome to Business Events Scotland
+      visitscotland:title: Sandbox for developeers
       visitscotland:translation: ''
       /visitscotland:heroImage:
         jcr:primaryType: hippogallerypicker:imagelink
@@ -45,10 +43,10 @@
         hippo:values: []
       /visitscotland:introduction:
         jcr:primaryType: hippostd:html
-        hippostd:content: |-
-          <p>For years Scotland has welcomed the world's greatest thinkers, pioneers, innovators and leaders to the many international congresses, conferences and meetings we host. Scotland is an incredible destination for business events. Our world leading academia, research institutes, industries and innovation centres thrive on ideas, new challenges and the inspiration we can give and draw from delegates to our country.</p>
-
-          <p>In Scotland we believe business events are a catalyst for social and economic transformation; they are a driver to tackle climate change; they are a voice for human rights; they are a leader in the global <a href="https://businessevents.visitscotland.com/why-scotland/journey-to-change/" title="Journey to change">Journey to Change</a>.</p>
+        hippostd:content: <p>Software development, a dynamic field, involves designing,
+          coding, and maintaining applications. Agile methodologies, collaboration,
+          and diverse tech tools drive innovation. From web to AI, it shapes our digital
+          world, emphasizing security and quality assurance.</p>
     /content[2]:
       jcr:primaryType: visitscotland:General
       jcr:mixinTypes: ['mix:referenceable']
@@ -58,23 +56,20 @@
       hippostd:state: draft
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2021-06-29T15:19:57.775+01:00
-      hippostdpubwf:lastModificationDate: 2024-01-18T12:29:51.371Z
+      hippostdpubwf:lastModificationDate: 2024-01-30T10:33:20.799Z
       hippostdpubwf:lastModifiedBy: admin
       hippotranslation:id: b7c1e00c-c46b-4440-9c7b-f3f0adf890a8
       hippotranslation:locale: en
-      visitscotland:breadcrumb: ''
+      visitscotland:breadcrumb: Development Sandbox
       visitscotland:hideNewsletter: false
       visitscotland:newsletter: true
       visitscotland:pswPosition: Hidden
-      visitscotland:seoDescription: Welcome to VisitScotland Business Events. Your
-        partners in Scotland for conferences, conventions, meetings, incentives and
-        more!
+      visitscotland:seoDescription: Welcome to VisitScotland Business Events.
       visitscotland:seoNoIndex: false
       visitscotland:seoTitle: Welcome to Business Events Scotland
-      visitscotland:teaser: Welcome to VisitScotland Business Events. Your partners
-        in Scotland for conferences, conventions, meetings, incentives and more!
+      visitscotland:teaser: Software development
       visitscotland:theme: Top-Level
-      visitscotland:title: Welcome to Business Events Scotland
+      visitscotland:title: Sandbox for developeers
       visitscotland:translation: ''
       /visitscotland:heroImage:
         jcr:primaryType: hippogallerypicker:imagelink
@@ -84,10 +79,10 @@
         hippo:values: []
       /visitscotland:introduction:
         jcr:primaryType: hippostd:html
-        hippostd:content: |-
-          <p>For years Scotland has welcomed the world's greatest thinkers, pioneers, innovators and leaders to the many international congresses, conferences and meetings we host. Scotland is an incredible destination for business events. Our world leading academia, research institutes, industries and innovation centres thrive on ideas, new challenges and the inspiration we can give and draw from delegates to our country.</p>
-
-          <p>In Scotland we believe business events are a catalyst for social and economic transformation; they are a driver to tackle climate change; they are a voice for human rights; they are a leader in the global <a href="https://businessevents.visitscotland.com/why-scotland/journey-to-change/" title="Journey to change">Journey to Change</a>.</p>
+        hippostd:content: <p>Software development, a dynamic field, involves designing,
+          coding, and maintaining applications. Agile methodologies, collaboration,
+          and diverse tech tools drive innovation. From web to AI, it shapes our digital
+          world, emphasizing security and quality assurance.</p>
     /content[3]:
       jcr:primaryType: visitscotland:General
       jcr:mixinTypes: ['mix:referenceable']
@@ -97,24 +92,21 @@
       hippostd:state: published
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2021-06-29T15:19:57.775+01:00
-      hippostdpubwf:lastModificationDate: 2024-01-18T12:31:21.663Z
+      hippostdpubwf:lastModificationDate: 2024-01-30T10:36:27.376Z
       hippostdpubwf:lastModifiedBy: admin
-      hippostdpubwf:publicationDate: 2024-01-18T12:31:25.667Z
+      hippostdpubwf:publicationDate: 2024-01-30T10:36:30.543Z
       hippotranslation:id: b7c1e00c-c46b-4440-9c7b-f3f0adf890a8
       hippotranslation:locale: en
-      visitscotland:breadcrumb: ''
+      visitscotland:breadcrumb: Development Sandbox
       visitscotland:hideNewsletter: false
       visitscotland:newsletter: true
       visitscotland:pswPosition: Hidden
-      visitscotland:seoDescription: Welcome to VisitScotland Business Events. Your
-        partners in Scotland for conferences, conventions, meetings, incentives and
-        more!
+      visitscotland:seoDescription: Welcome to VisitScotland Business Events.
       visitscotland:seoNoIndex: false
       visitscotland:seoTitle: Welcome to Business Events Scotland
-      visitscotland:teaser: Welcome to VisitScotland Business Events. Your partners
-        in Scotland for conferences, conventions, meetings, incentives and more!
+      visitscotland:teaser: Software development
       visitscotland:theme: Top-Level
-      visitscotland:title: Welcome to Business Events Scotland
+      visitscotland:title: Sandbox for developeers
       visitscotland:translation: ''
       /visitscotland:heroImage:
         jcr:primaryType: hippogallerypicker:imagelink
@@ -124,7 +116,259 @@
         hippo:values: []
       /visitscotland:introduction:
         jcr:primaryType: hippostd:html
-        hippostd:content: |-
-          <p>For years Scotland has welcomed the world's greatest thinkers, pioneers, innovators and leaders to the many international congresses, conferences and meetings we host. Scotland is an incredible destination for business events. Our world leading academia, research institutes, industries and innovation centres thrive on ideas, new challenges and the inspiration we can give and draw from delegates to our country.</p>
-
-          <p>In Scotland we believe business events are a catalyst for social and economic transformation; they are a driver to tackle climate change; they are a voice for human rights; they are a leader in the global <a href="https://businessevents.visitscotland.com/why-scotland/journey-to-change/" title="Journey to change">Journey to Change</a>.</p>
+        hippostd:content: <p>Software development, a dynamic field, involves designing,
+          coding, and maintaining applications. Agile methodologies, collaboration,
+          and diverse tech tools drive innovation. From web to AI, it shapes our digital
+          world, emphasizing security and quality assurance.</p>
+  /general-pages:
+    jcr:primaryType: hippostd:folder
+    jcr:mixinTypes: ['hippo:named', 'hippotranslation:translated', 'mix:versionable']
+    jcr:uuid: d57a10ba-e848-4805-a480-18a260304ad0
+    hippo:name: General Pages
+    hippostd:foldertype: [new-translated-folder, new-page, new-module]
+    hippotranslation:id: bdd60ad3-92b6-4a40-bd34-3cd9e2d1d216
+    hippotranslation:locale: en
+    /simple-page:
+      jcr:primaryType: hippostd:folder
+      jcr:mixinTypes: ['hippo:named', 'hippotranslation:translated', 'mix:versionable']
+      jcr:uuid: 1c1f498d-c1a3-41d4-9290-5bf5fa90f0a1
+      hippo:name: Simple Page
+      hippostd:foldertype: [new-translated-folder, new-page, new-module]
+      hippotranslation:id: 6ddcfd3f-4e9c-4a1a-a4d1-f28d2e6ba143
+      hippotranslation:locale: en
+      /content:
+        jcr:primaryType: hippo:handle
+        jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+        jcr:uuid: e973cfc4-93f1-4d7b-91af-caa97482691b
+        hippo:name: Simple
+        hippo:versionHistory: d80ed520-83fd-4951-9440-18eca613537d
+        /content[1]:
+          jcr:primaryType: visitscotland:General
+          jcr:mixinTypes: ['mix:referenceable']
+          jcr:uuid: 5ac8c86e-26a7-4c74-86a5-7c31990789d7
+          hippo:availability: []
+          hippostd:retainable: false
+          hippostd:state: draft
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2024-01-30T10:09:27.135Z
+          hippostdpubwf:lastModificationDate: 2024-01-30T10:09:27.149Z
+          hippostdpubwf:lastModifiedBy: admin
+          hippotranslation:id: b02bf6e2-c9a0-450e-83aa-58d0d964abe9
+          hippotranslation:locale: en
+          visitscotland:breadcrumb: ''
+          visitscotland:hideNewsletter: false
+          visitscotland:pswPosition: Default
+          visitscotland:seoDescription: Start your journey to change
+          visitscotland:seoNoIndex: false
+          visitscotland:seoTitle: Start your journey to change
+          visitscotland:teaser: This is a Simple Page
+          visitscotland:theme: Standard
+          visitscotland:title: Start your journey to change
+          visitscotland:translation: ''
+          /visitscotland:heroImage:
+            jcr:primaryType: hippogallerypicker:imagelink
+            hippo:docbase: bf46fa76-e050-4555-8fb5-9c01e7b35d00
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+          /visitscotland:introduction:
+            jcr:primaryType: hippostd:html
+            hippostd:content: <p>Scotland, a prime business destination, boasts a
+              diverse economy with strengths in oil and gas, renewable energy, tourism,
+              and technology. Cities like Edinburgh and Glasgow provide a thriving
+              business environment, with Edinburgh excelling in financial services,
+              and Glasgow leading in manufacturing and innovation. The nation's skilled
+              workforce, coupled with a supportive business infrastructure, attracts
+              international companies seeking growth.</p>
+        /content[2]:
+          jcr:primaryType: visitscotland:General
+          jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+          jcr:uuid: 953e92fe-cd48-403d-9cd0-42dc325ff90d
+          hippo:availability: [preview]
+          hippostd:retainable: false
+          hippostd:state: unpublished
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2024-01-30T10:09:27.135Z
+          hippostdpubwf:lastModificationDate: 2024-01-30T10:30:49.456Z
+          hippostdpubwf:lastModifiedBy: admin
+          hippotranslation:id: b02bf6e2-c9a0-450e-83aa-58d0d964abe9
+          hippotranslation:locale: en
+          visitscotland:breadcrumb: ''
+          visitscotland:hideNewsletter: false
+          visitscotland:pswPosition: Default
+          visitscotland:seoDescription: Start your journey to change
+          visitscotland:seoNoIndex: false
+          visitscotland:seoTitle: Start your journey to change
+          visitscotland:teaser: This is a Simple Page
+          visitscotland:theme: Standard
+          visitscotland:title: Start your journey to change
+          visitscotland:translation: ''
+          /visitscotland:heroImage:
+            jcr:primaryType: hippogallerypicker:imagelink
+            hippo:docbase: bf46fa76-e050-4555-8fb5-9c01e7b35d00
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+          /visitscotland:introduction:
+            jcr:primaryType: hippostd:html
+            hippostd:content: <p>Scotland, a prime business destination, boasts a
+              diverse economy with strengths in oil and gas, renewable energy, tourism,
+              and technology. Cities like Edinburgh and Glasgow provide a thriving
+              business environment, with Edinburgh excelling in financial services,
+              and Glasgow leading in manufacturing and innovation. The nation's skilled
+              workforce, coupled with a supportive business infrastructure, attracts
+              international companies seeking growth.</p>
+        /content[3]:
+          jcr:primaryType: visitscotland:General
+          jcr:mixinTypes: ['mix:referenceable']
+          jcr:uuid: ddf1bdeb-4559-432b-8961-cf54e812a7dc
+          hippo:availability: [live]
+          hippostd:retainable: false
+          hippostd:state: published
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2024-01-30T10:09:27.135Z
+          hippostdpubwf:lastModificationDate: 2024-01-30T10:30:49.456Z
+          hippostdpubwf:lastModifiedBy: admin
+          hippostdpubwf:publicationDate: 2024-01-30T10:32:07.902Z
+          hippotranslation:id: b02bf6e2-c9a0-450e-83aa-58d0d964abe9
+          hippotranslation:locale: en
+          visitscotland:breadcrumb: ''
+          visitscotland:hideNewsletter: false
+          visitscotland:pswPosition: Default
+          visitscotland:seoDescription: Start your journey to change
+          visitscotland:seoNoIndex: false
+          visitscotland:seoTitle: Start your journey to change
+          visitscotland:teaser: This is a Simple Page
+          visitscotland:theme: Standard
+          visitscotland:title: Start your journey to change
+          visitscotland:translation: ''
+          /visitscotland:heroImage:
+            jcr:primaryType: hippogallerypicker:imagelink
+            hippo:docbase: bf46fa76-e050-4555-8fb5-9c01e7b35d00
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+          /visitscotland:introduction:
+            jcr:primaryType: hippostd:html
+            hippostd:content: <p>Scotland, a prime business destination, boasts a
+              diverse economy with strengths in oil and gas, renewable energy, tourism,
+              and technology. Cities like Edinburgh and Glasgow provide a thriving
+              business environment, with Edinburgh excelling in financial services,
+              and Glasgow leading in manufacturing and innovation. The nation's skilled
+              workforce, coupled with a supportive business infrastructure, attracts
+              international companies seeking growth.</p>
+    /content:
+      jcr:primaryType: hippo:handle
+      jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+      jcr:uuid: 3ba34831-eeb8-40bc-b555-e7da47e02eb8
+      hippo:name: content
+      hippo:versionHistory: 85ac1b34-110c-43a2-937d-50b11767e5f1
+      /content[1]:
+        jcr:primaryType: visitscotland:General
+        jcr:mixinTypes: ['mix:versionable']
+        jcr:uuid: ecd7c5ef-274f-4566-84b1-f2ff7c41afa1
+        hippo:availability: [preview]
+        hippostd:retainable: false
+        hippostd:state: unpublished
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2021-06-29T15:19:57.775+01:00
+        hippostdpubwf:lastModificationDate: 2024-01-30T10:37:25.405Z
+        hippostdpubwf:lastModifiedBy: admin
+        hippotranslation:id: 130313af-b109-4e68-8696-7a6aad03e60b
+        hippotranslation:locale: en
+        visitscotland:breadcrumb: Development Sandbox
+        visitscotland:hideNewsletter: false
+        visitscotland:newsletter: true
+        visitscotland:pswPosition: Hidden
+        visitscotland:seoDescription: Welcome to VisitScotland Business Events.
+        visitscotland:seoNoIndex: false
+        visitscotland:seoTitle: Welcome to Business Events Scotland
+        visitscotland:teaser: This are development examples of general pages
+        visitscotland:theme: Top-Level
+        visitscotland:title: General Pages
+        visitscotland:translation: ''
+        /visitscotland:heroImage:
+          jcr:primaryType: hippogallerypicker:imagelink
+          hippo:docbase: 6fe01b32-04e9-4d0f-86c9-b6b8bd246a67
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+        /visitscotland:introduction:
+          jcr:primaryType: hippostd:html
+          hippostd:content: <p>Software development, a dynamic field, involves designing,
+            coding, and maintaining applications. Agile methodologies, collaboration,
+            and diverse tech tools drive innovation. From web to AI, it shapes our
+            digital world, emphasizing security and quality assurance.</p>
+      /content[2]:
+        jcr:primaryType: visitscotland:General
+        jcr:mixinTypes: ['mix:referenceable']
+        jcr:uuid: cc69a73c-893e-441c-a280-19b563a92701
+        hippo:availability: []
+        hippostd:retainable: false
+        hippostd:state: draft
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2021-06-29T15:19:57.775+01:00
+        hippostdpubwf:lastModificationDate: 2024-01-30T10:36:57.647Z
+        hippostdpubwf:lastModifiedBy: admin
+        hippotranslation:id: 130313af-b109-4e68-8696-7a6aad03e60b
+        hippotranslation:locale: en
+        visitscotland:breadcrumb: Development Sandbox
+        visitscotland:hideNewsletter: false
+        visitscotland:newsletter: true
+        visitscotland:pswPosition: Hidden
+        visitscotland:seoDescription: Welcome to VisitScotland Business Events.
+        visitscotland:seoNoIndex: false
+        visitscotland:seoTitle: Welcome to Business Events Scotland
+        visitscotland:teaser: This are development examples of general pages
+        visitscotland:theme: Top-Level
+        visitscotland:title: General Pages
+        visitscotland:translation: ''
+        /visitscotland:heroImage:
+          jcr:primaryType: hippogallerypicker:imagelink
+          hippo:docbase: 6fe01b32-04e9-4d0f-86c9-b6b8bd246a67
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+        /visitscotland:introduction:
+          jcr:primaryType: hippostd:html
+          hippostd:content: <p>Software development, a dynamic field, involves designing,
+            coding, and maintaining applications. Agile methodologies, collaboration,
+            and diverse tech tools drive innovation. From web to AI, it shapes our
+            digital world, emphasizing security and quality assurance.</p>
+      /content[3]:
+        jcr:primaryType: visitscotland:General
+        jcr:mixinTypes: ['mix:referenceable']
+        jcr:uuid: a257be80-9366-4710-89f1-18d71a686a3b
+        hippo:availability: [live]
+        hippostd:retainable: false
+        hippostd:state: published
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2021-06-29T15:19:57.775+01:00
+        hippostdpubwf:lastModificationDate: 2024-01-30T10:37:25.405Z
+        hippostdpubwf:lastModifiedBy: admin
+        hippostdpubwf:publicationDate: 2024-01-30T10:37:32.558Z
+        hippotranslation:id: 130313af-b109-4e68-8696-7a6aad03e60b
+        hippotranslation:locale: en
+        visitscotland:breadcrumb: Development Sandbox
+        visitscotland:hideNewsletter: false
+        visitscotland:newsletter: true
+        visitscotland:pswPosition: Hidden
+        visitscotland:seoDescription: Welcome to VisitScotland Business Events.
+        visitscotland:seoNoIndex: false
+        visitscotland:seoTitle: Welcome to Business Events Scotland
+        visitscotland:teaser: This are development examples of general pages
+        visitscotland:theme: Top-Level
+        visitscotland:title: General Pages
+        visitscotland:translation: ''
+        /visitscotland:heroImage:
+          jcr:primaryType: hippogallerypicker:imagelink
+          hippo:docbase: 6fe01b32-04e9-4d0f-86c9-b6b8bd246a67
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+        /visitscotland:introduction:
+          jcr:primaryType: hippostd:html
+          hippostd:content: <p>Software development, a dynamic field, involves designing,
+            coding, and maintaining applications. Agile methodologies, collaboration,
+            and diverse tech tools drive innovation. From web to AI, it shapes our
+            digital world, emphasizing security and quality assurance.</p>
