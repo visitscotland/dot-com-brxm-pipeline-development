@@ -76,10 +76,10 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
 
         addOTYML(request);
         addNewsletterSignup(request);
-        addProductSearchWidget(request);
         addLogging(request);
         addFlags(request);
         addBlog(request);
+
         addSiteSpecificConfiguration(request);
     }
 
@@ -209,6 +209,7 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
             request.setModel(HippoUtilsService.BUSINESS_EVENTS_SITE, true);
             socialMediaBundle = "be.navigation.social-media";
         } else {
+            addProductSearchWidget(request);
             socialMediaBundle = "navigation.social-media";
         }
 
