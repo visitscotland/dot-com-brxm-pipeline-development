@@ -2,20 +2,6 @@ definitions:
   config:
     /hst:hst/hst:configurations/business-events-freemarker/hst:workspace:
       jcr:primaryType: hst:workspace
-      /hst:sitemenus:
-        jcr:primaryType: hst:sitemenus
-        /footer:
-          .meta:residual-child-node-category: content
-          jcr:primaryType: hst:sitemenu
-          hst:lastmodified: 2023-07-20T14:53:17.670+01:00
-        /utility:
-          .meta:residual-child-node-category: content
-          jcr:primaryType: hst:sitemenu
-          hst:lastmodified: 2023-07-20T14:49:40.022+01:00
-        /main:
-          .meta:residual-child-node-category: content
-          jcr:primaryType: hst:sitemenu
-          hst:lastmodified: 2024-01-18T12:59:24.453Z
       /hst:containers:
         jcr:primaryType: hst:containercomponentfolder
         /base:
@@ -48,3 +34,17 @@ definitions:
             hippo:identifier: ef6887bb-ff0d-4922-844f-8cc83d54a03e
             hst:label: Page-Not-Found Main
             hst:xtype: hst.vbox
+      /hst:sitemenus:
+        jcr:primaryType: hst:sitemenus
+        /utility:
+          .meta:residual-child-node-category: content
+          jcr:primaryType: hst:sitemenu
+          hst:lastmodified: 2023-07-20T14:49:40.022+01:00
+        /main:
+          .meta:residual-child-node-category: content
+          jcr:primaryType: hst:sitemenu
+          hst:lastmodified: 2024-01-18T12:59:24.453Z
+        /footer:
+          .meta:residual-child-node-category: content
+          jcr:primaryType: hst:sitemenu
+          hst:lastmodified: 2024-01-26T13:45:10.446Z

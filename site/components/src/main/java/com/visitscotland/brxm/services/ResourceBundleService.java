@@ -201,8 +201,11 @@ public class ResourceBundleService {
     }
 
     public Map<String, String> getAllLabels(String bundleName, String locale){
+        return getAllLabels(bundleName, toLocale(locale));
+    }
+    public Map<String, String> getAllLabels(String bundleName, Locale locale){
         Map<String, String> labels = new HashMap<>();
-        for (String key : getResourceBundle(bundleName, toLocale(locale)).keySet()){
+        for (String key : getResourceBundle(bundleName, locale).keySet()){
             labels.put(key, getResourceBundle(bundleName, key, locale));
         }
         return labels;
