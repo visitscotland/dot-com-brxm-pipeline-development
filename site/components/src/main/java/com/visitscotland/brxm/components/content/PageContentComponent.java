@@ -152,7 +152,7 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
 
     protected void addNewsletterSignup(HstRequest request) {
         Page page = getDocument(request);
-        if (!Contract.defaultIfNull(page.getHideNewsletter(), false)) {
+        if (Boolean.FALSE.equals(Contract.defaultIfNull(page.getHideNewsletter(), false))) {
             SignpostModule signpost;
             if (request.getPathInfo().contains(properties.getSiteSkiSection())) {
                 signpost = signpostFactory.createSnowAlertsModule(request.getLocale());
