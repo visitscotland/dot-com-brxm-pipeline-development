@@ -145,7 +145,10 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
         Page page = getDocument(request);
         if (page.getBlog() != null) {
             Collection<String> errorMessages = new ArrayList<>();
-            request.setModel(BLOG, blogFactory.getBlog(page.getBlog(), request.getLocale(), errorMessages));
+            //TODO: DO IT ALL RIGHT
+            request.setAttribute(BLOG, blogFactory.getBlog(page.getBlog(), request.getLocale(), errorMessages));
+            request.setModel("Author", blogFactory.getBlog(page.getBlog(), request.getLocale(), errorMessages));
+            //END OF TODO
             setErrorMessages(request, errorMessages);
         }
     }
