@@ -30,7 +30,7 @@ public class PageTemplateBuilder {
     static final String PAGE_ITEMS = "pageItems";
     static final String DEFAULT = "default";
 
-    static final String[] alignment = {"right", "left"};
+    static final String[] ALIGNMENT = {"right", "left"};
 
     /**
      * TODO: Convert into property?
@@ -137,7 +137,7 @@ public class PageTemplateBuilder {
             logger.warn("The page {} does not have any modules published", request.getRequestURI());
         }
 
-        request.setAttribute(PAGE_ITEMS, page.modules);
+        request.setModel(PAGE_ITEMS, page.modules);
     }
 
     /**
@@ -174,7 +174,10 @@ public class PageTemplateBuilder {
         }
 
         if (al.getType().equalsIgnoreCase(SingleImageLinksModule.class.getSimpleName())) {
-            al.setAlignment(alignment[page.alignment++ % alignment.length]);
+            al.setAlignment(ALIGNMENT[page.alignment++ % ALIGNMENT.length]);
+            if (Contract.isEmpty(al.getAlignment())) {
+                logger.warn("The Single Image Megalink module for {} does not have the alignment field defined", item.getPath());
+            }
         }
 
         if (Contract.isEmpty(al.getTitle()) && page.style > 0) {
@@ -192,6 +195,7 @@ public class PageTemplateBuilder {
                 personalisationList.add(processPersonalisation(request, (Megalinks)personalisationMegalink.getModule(), personalisationMegalink.getId(), al));
             }
             personalisationModule.setModules(personalisationList);
+
             page.modules.add(personalisationModule);
         }else{
             page.modules.add(al);
@@ -205,6 +209,13 @@ public class PageTemplateBuilder {
 
         if (!Contract.isEmpty(marketoId)) {
             al.setMarketoId(marketoId);
+        }
+
+        if (al.getType().equalsIgnoreCase(SingleImageLinksModule.class.getSimpleName())) {
+            al.setAlignment(parent.getAlignment());
+            if (Contract.isEmpty(al.getAlignment())) {
+                logger.warn("The Single Image Megalink module for {} does not have the alignment field defined", item.getPath());
+            }
         }
 
         return al;
@@ -241,7 +252,7 @@ public class PageTemplateBuilder {
      */
     private void setIntroTheme(HstRequest request, List<Module<?>> modules){
         if(!modules.isEmpty() && modules.get(0) instanceof LinksModule){
-            request.setAttribute(INTRO_THEME, ((LinksModule<?>) modules.get(0)).getThemeIndex());
+            request.setModel(INTRO_THEME, ((LinksModule<?>) modules.get(0)).getThemeIndex());
         }
     }
 

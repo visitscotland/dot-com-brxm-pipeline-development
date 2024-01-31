@@ -1,20 +1,20 @@
 /content/documents/administration/labels/modules/carbon-calculator:
   jcr:primaryType: hippo:handle
   jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
-  jcr:uuid: 2ac010d5-8d44-4860-bff0-78e39097f417
+  jcr:uuid: 315a4f94-dcf1-41ab-b0d0-a7d896d97861
   hippo:name: Carbon Calculator
   hippo:versionHistory: 0a250395-ffd0-4d0d-a03f-550e8841b19b
   /carbon-calculator[1]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:referenceable']
-    jcr:uuid: 72df49d8-63e9-4f68-8fb7-c59e10b8a384
+    jcr:uuid: 912d33ec-838e-4da0-99d4-f234965d095c
     hippo:availability: []
     hippostd:retainable: false
     hippostd:state: draft
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2023-08-09T17:31:48.480+01:00
-    hippostdpubwf:lastModificationDate: 2023-11-16T12:06:53.940+01:00
-    hippostdpubwf:lastModifiedBy: elena.pederiva
+    hippostdpubwf:lastModificationDate: 2023-11-28T13:06:33.424+01:00
+    hippostdpubwf:lastModifiedBy: alma.garcia
     resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '', '', '', '',
       '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
       '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
@@ -53,17 +53,19 @@
         more top tips for sustainable travel in Scotland</a>', 'Your calculation so
         far:', KGs of CO₂e, That's about xxx KGs of CO₂e per day., Transport, Accommodation,
       Food, Restart, Travel to Scotland, Accommodation, Travel around Scotland, Food,
-      'How are you travelling to Scotland?', I live in Scotland, Domestic Flight,
-      Short-Haul Flight, Long-Haul Flight, Car (Petrol), Car (Diesel), Car (Electric),
+      'How are you travelling to Scotland?', I live in Scotland, Domestic Flight*,
+      Short-Haul Flight*, Long-Haul Flight*, Car (Petrol), Car (Diesel), Car (Electric),
       Train, Coach, Ferry, Campervan/Motorhome (Petrol), Campervan/Motorhome (Diesel),
       'How many hours will your journey take?', 'How many nights are you staying for?',
-      'How would you describe your diet?', Frequent meat-eater, Moderate meat-eater,
-      Infrequent meat-eater, Pescatarian, Vegetarian, Vegan, 'Frequent meat eater:
+      'How would you describe your diet?', Frequent meat-eater*, Moderate meat-eater*,
+      Infrequent meat-eater*, Pescatarian, Vegetarian, Vegan, '*Frequent meat eater:
         5 times a week, moderate meat eater: 3 times a week, infrequent meat eater:
         1 - 2 times a week', 'https://static.visitscotland.com/forms/carbon-calculator/carbon-calculator-form-v-2.json',
       'https://static.visitscotland.com/forms/carbon-calculator/carbon-calculator-form-v-2.json',
-      You need Javascript enabled to use this calculator, Step xxx of yyy, '', 'Taking
-        time to form deeper connections is a more meaningful way to travel.<a href="https://www.visitscotland.com/inspiration/slow-travel"target="_blank">
+      You need Javascript enabled to use this calculator, Step xxx of yyy, '*Domestic
+        flight: within the UK, short-haul flight: within Europe, long-haul flight:
+        from outside of Europe', 'Taking time to form deeper connections is a more
+        meaningful way to travel.<a href="https://www.visitscotland.com/inspiration/slow-travel"target="_blank">
         Plan your slow travel adventure in Scotland</a>', 'You can protect Scotland''s
         natural beauty by booking an eco-retreat for your visit.<a href="https://www.visitscotland.com/accommodation/eco-green"target="_blank">
         Find eco-friendly accommodation</a>', 'You can reduce your carbon output by
@@ -95,18 +97,19 @@
         Berechnung:', CO₂-Äquivalente in kg, Das entspricht etwa xxx kg CO₂-Äquivalenten
         pro Tag., Verkehr, Unterkunft, Ernährung, Neu starten, Anreise nach Schottland,
       Unterkunft, Reisen innerhalb von Schottland, Ernährung, 'Wie reisen Sie nach
-        Schottland?', Ich lebe in Schottland, Inlandsflug, Mittelstreckenflug, Langstreckenflug,
+        Schottland?', Ich lebe in Schottland, Inlandsflug*, Mittelstreckenflug*, Langstreckenflug*,
       Auto (Benzin), Auto (Diesel), Auto (elektrisch), Zug, Reisebus, Fähre, Camper/Wohnmobil
         (Benzin), Camper/Wohnmobil (Diesel), 'Wie viele Stunden dauert Ihre Reise
         nach Schottland?', 'Wie viele Nächte verbringen Sie in Schottland?', 'Wie
-        würden Sie Ihre Ernährungsweise beschreiben?', Ich esse regelmäßig Fleisch,
-      Ich esse gelegentlich Fleisch, Ich esse selten Fleisch, 'Ich esse kein Fleisch,
-        aber Fisch', Ich ernähre mich vegetarisch, Ich ernähre mich vegan, 'Regelmäßiger
+        würden Sie Ihre Ernährungsweise beschreiben?', Ich esse regelmäßig Fleisch*,
+      Ich esse gelegentlich Fleisch*, Ich esse selten Fleisch*, 'Ich esse kein Fleisch,
+        aber Fisch', Ich ernähre mich vegetarisch, Ich ernähre mich vegan, '* Regelmäßiger
         Fleischkonsum: 5 Mal pro Woche, gelegentlicher Fleischkonsum: 3 Mal pro Woche,
         seltener Fleischkonsum: 1-2 Mal pro Woche', '', '', 'Sie müssen JavaScript
-        aktivieren, um diesen Rechner zu benutzen.', Schritt xxx von yyy, '', 'Wenn
-        Sie sich die Zeit nehmen, intensivere Verbindungen aufzubauen, wird Ihre Reise
-        noch bedeutungsvoller. <a href="https://www.visitscotland.com/de-de/inspiration/slow-travel"target="_blank">
+        aktivieren, um diesen Rechner zu benutzen.', Schritt xxx von yyy, '* Inlandsflug:
+        innerhalb Großbritanniens, Mittelstreckenflug: innerhalb Europas, Langstreckenflug:
+        außerhalb Europas', 'Wenn Sie sich die Zeit nehmen, intensivere Verbindungen
+        aufzubauen, wird Ihre Reise noch bedeutungsvoller. <a href="https://www.visitscotland.com/de-de/inspiration/slow-travel"target="_blank">
         Planen Sie Ihr Slow-Travel-Abenteuer in Schottland</a>', 'Sie können die Schönheit
         der schottischen Natur schützen, indem Sie eine umweltfreundliche Unterkunft
         für Ihren Urlaub buchen. <a href="https://www.visitscotland.com/de-de/accommodation/eco-green"target="_blank">
@@ -122,16 +125,17 @@
     resourcebundle:messages_es: [Siguiente, Anterior, Resultados, 'Tus emisiones de
         CO₂ estimadas para este viaje son:', Desglose de tus emisiones, 'Esto equivale
         a un trayecto de xx kilómetros en un coche de tamaño medio: ¡podrías viajar
-        de Edimburgo a Londres xx veces!', kilos, Empezar el cuestionario, Calcula
-        tu huella de carbono, 'Desde el transporte hasta la comida, responde a 4 sencillas
-        preguntas sobre tu viaje a Escocia y calcularemos tus emisiones.', '30', '¡Enhorabuena!
-        Estás emitiendo menos de xxx kg de CO₂ al día durante tu viaje, lo que está
-        por debajo de la media. Esto te convierte en un unicornio de la sostenibilidad:
-        el animal nacional de Escocia, dedicado a la protección y cuidado de nuestro
-        medio ambiente.', ¡Los mejores consejos!, 'Echa un vistazo a nuestros mejores
-        consejos para viajar de forma sostenible por Escocia: <br/><br/> <a href=
-        "https://www.visitscotland.com/es-es/inspiration/slow-travel"> Saca el máximo
-        partido a tu estancia en Escocia y disfruta del viaje </a> <br/><br/> <a href="https://www.visitscotland.com/es-es/accommodation/eco-green">
+        de Edimburgo a Londres xx veces!', kilos, Empezar el cuestionario, '¿Pueden
+        tus vacaciones ser más ecológicas?', 'Desde el transporte hasta la comida,
+        responde a 4 sencillas preguntas sobre tu viaje a Escocia y calcularemos tus
+        emisiones.', '30', '¡Enhorabuena! Estás emitiendo menos de xxx kg de CO₂ al
+        día durante tu viaje, lo que está por debajo de la media. Esto te convierte
+        en un unicornio de la sostenibilidad: el animal nacional de Escocia, dedicado
+        a la protección y cuidado de nuestro medio ambiente.', ¡Los mejores consejos!,
+      'Echa un vistazo a nuestros mejores consejos para viajar de forma sostenible
+        por Escocia: <br/><br/> <a href= "https://www.visitscotland.com/es-es/inspiration/slow-travel">
+        Saca el máximo partido a tu estancia en Escocia y disfruta del viaje </a>
+        <br/><br/> <a href="https://www.visitscotland.com/es-es/accommodation/eco-green">
         Reduce tu huella de carbono en un relajante alojamiento ecológico</a> <br/><br/>
         <a href="https://www.visitscotland.com/es-es/things-to-do/food-drink/seasonal-food-calendar">
         Conecta con las granjas y comunidades locales y disfruta de nuestra despensa
@@ -140,17 +144,19 @@
       'Tus cálculos hasta ahora:', KGs de CO₂e, Esto corresponde a xxx kg de CO₂ al
         día., Transporte, Alojamiento, Comida, Empezar de nuevo, Viajar a Escocia,
       Alojamiento, Viajar por Escocia, Comida, '¿Cómo viajas por Escocia?', Vivo en
-        Escocia, Vuelo nacional, Vuelo de corta distancia, Vuelo de larga distancia,
-      Coche (gasolina), Coche (gasóleo), Coche (eléctrico), Tren, Autobús, Ferri,
-      Autocaravana (gasolina), Autocaravana (gasóleo), '¿Cuántas horas durará tu viaje
-        a Escocia?', '¿Cuántas noches te alojarás en Escocia?', '¿Cómo describirías
-        tu dieta?', Como carne habitualmente, Como carne de vez en cuando, Rara vez
-        como carne, Dieta pescetariana (o pescatariana), Sigo una dieta vegetariana,
-      Sigo una dieta vegana, 'Como carne habitualmente: 5 veces a la semana, como
-        carne de vez en cuando: 3 veces a la semana, como poca carne: 1-2 veces a
-        la semana', '', '', Debes activar JavaScript para poder utilizar esta calculadora.,
-      Paso xxx de yyy, '', 'Dedicar tiempo a crear vínculos más fuertes es una forma
-        más positiva de viajar.<a href="https://www.visitscotland.com/es-es/inspiration/slow-travel"target="_blank">
+        Escocia, Vuelo nacional*, Vuelo de corta distancia*, Vuelo de larga distancia*,
+      Coche (gasolina), Coche (diésel), Coche (eléctrico), Tren, Autobús, Ferri, Autocaravana
+        (gasolina), Autocaravana (gasóleo), '¿Cuántas horas durará tu viaje a Escocia?',
+      '¿Cuántas noches te alojarás en Escocia?', '¿Cómo describirías tu dieta?', Como
+        carne habitualmente*, Como carne de vez en cuando*, Rara vez como carne*,
+      Dieta pescetariana (o pescatariana), Sigo una dieta vegetariana, Sigo una dieta
+        vegana, '*Como carne habitualmente: 5 veces a la semana, como carne de vez
+        en cuando: 3 veces a la semana, como poca carne: 1-2 veces a la semana', '',
+      '', Debes activar JavaScript para poder utilizar esta calculadora., Paso xxx
+        de yyy, '*Vuelo nacional: dentro del Reino Unido, vuelo de corta distancia:
+        dentro de Europa, vuelo de larga distancia: desde fuera de Europa.', 'Dedicar
+        tiempo a crear vínculos más fuertes es una forma más positiva de viajar.<a
+        href="https://www.visitscotland.com/es-es/inspiration/slow-travel"target="_blank">
         Planifica tu aventura por Escocia a un ritmo relajado</ un>', 'Reserva un
         alojamiento ecológico para tu viaje y protege la belleza natural de Escocia.
         <a href="https://www.visitscotland.com/es-es/accommodation/eco-green" target="_blank">Encuentra
@@ -178,18 +184,20 @@
         jusqu’à présent :', Kg de CO₂e, Cela équivaut à xxx kg de CO₂e par jour.,
       Transports, Hébergements, Nourriture, Recommencer, Se rendre en Écosse, Hébergements,
       Se déplacer en Écosse, Nourriture, 'Comment vous rendrez-vous en Écosse ?',
-      J’habite en Écosse, Vol intérieur, Vol court-courrier, Vol long-courrier, Voiture
+      Je vis en Écosse, Vol intérieur*, Vol court-courrier*, Vol long-courrier*, Voiture
         (essence), Voiture (diesel), Voiture (électrique), Train, Car, Ferry, Caravane
         ou camping-car (essence), Caravane ou camping-car (diesel), 'Combien d’heures
         durera votre trajet jusqu’en Écosse ?', 'Combien de nuits séjournerez-vous
         en Écosse ?', 'Comment qualifieriez-vous votre régime alimentaire ?', Je mange
-        régulièrement de la viande, Je mange occasionnellement de la viande, Je mange
-        très peu souvent de la viande, Pescétarien·ne (pesco-végétarien·ne), Végétarien·ne,
-      Végane, 'Je mange de la viande régulièrement : 5 fois par semaine, de temps
-        à autre : 3 fois par semaine, très peu souvent : 1 à 2 fois par semaine',
+        régulièrement de la viande*, Je mange occasionnellement de la viande*, Je
+        mange très peu souvent de la viande*, Pescétarien·ne (pesco-végétarien·ne),
+      Végétarien·ne, Végane, '*Je mange de la viande régulièrement : 5 fois par semaine,
+        de temps à autre : 3 fois par semaine, très peu souvent : 1 à 2 fois par semaine',
       '', '', Vous devez activer JavaScript afin de pouvoir utiliser ce Calculateur.,
-      '', '', 'Prendre le temps de nouer des liens plus profonds est une façon plus
-        significative de voyager.<a href="https://www.visitscotland.com/fr-fr/inspiration/slow-travel
+      Étape xxx sur yyy, '*Vol domestique : vol à l’intérieur du Royaume-Uni, vol
+        court-courrier : vol au sein de l’Europe, vol long-courrier : vol depuis une
+        destination hors-Europe', 'Prendre le temps de nouer des liens plus profonds
+        est une façon plus significative de voyager.<a href="https://www.visitscotland.com/fr-fr/inspiration/slow-travel
         "target="_blank"> Organisez votre aventure de slow travel en Écosse</a>',
       'Vous pouvez protéger la beauté naturelle de l’Écosse en réservant une retraite
         écologique pour votre séjour.<a href="https://www.visitscotland.com/fr-fr/accommodation/eco-green
@@ -224,17 +232,19 @@
       'Il tuo calcolo finora:', Equivalenti di CO₂ in kg, Ciò corrisponde a xxx kg
         di CO₂ equivalenti al giorno., Trasporto, Alloggio, Alimentazione, Ricomincia,
       Viaggiare verso la Scozia, Alloggi, Viaggiare in Scozia, Alimentazione, 'Come
-        viaggi in Scozia?', Io vivo in Scozia, Volo interno, Volo a corto raggio,
-      Volo a lungo raggio, Auto (benzina), Auto (diesel), Auto (elettrica), Treno,
+        viaggi in Scozia?', Io vivo in Scozia, Volo interno*, Volo a corto raggio*,
+      Volo a lungo raggio*, Auto (benzina), Auto (diesel), Auto (elettrica), Treno,
       Bus, Traghetto, Camper (benzina), Camper (diesel), 'Quante ore durerà il tuo
         viaggio verso la Scozia?', 'Quante notti rimani in Scozia?', 'Come descriveresti
-        la tua dieta?', Mangio carne regolarmente, Mangio carne occasionalmente, Mangio
-        raramente carne, 'Non mangio carne, ma mangio pesce', Seguo una dieta vegetariana,
-      Seguo una dieta vegana, 'Consumo regolare di carne: 5 volte a settimana, consumo
-        occasionale di carne: 3 volte a settimana, consumo raramente di carne: 1-2
-        volte a settimana', '', '', Per utilizzare questa calcolatrice è necessario
-        abilitare Javascript., Step xxx di yyy, '', 'Prendersi del tempo per creare
-        legami più profondi è un modo più significativo di viaggiare.<a href="https://www.visitscotland.com/it-it/inspiration/slow-travel"target="_blank">
+        la tua dieta?', Mangio carne regolarmente*, Mangio carne occasionalmente*,
+      Mangio raramente carne*, 'Non mangio carne, ma mangio pesce', Seguo una dieta
+        vegetariana, Seguo una dieta vegana, '*Consumo regolare di carne: 5 volte
+        a settimana, consumo occasionale di carne: 3 volte a settimana, consumo raramente
+        di carne: 1-2 volte a settimana', '', '', Per utilizzare questa calcolatrice
+        è necessario abilitare Javascript., Step xxx di yyy, '*Volo nazionale: nel
+        Regno Unito, volo a corto raggio: in Europa, volo a lungo raggio: da fuori
+        Europa', 'Prendersi del tempo per creare legami più profondi è un modo più
+        significativo di viaggiare.<a href="https://www.visitscotland.com/it-it/inspiration/slow-travel"target="_blank">
         Pianifica la tua avventura di slow travel in Scozia</ un>', 'Puoi proteggere
         la bellezza della natura scozzese prenotando una sistemazione ecologica per
         le tue vacanze. <a href="https://www.visitscotland.com/it-it/accommodation/eco-green"
@@ -254,14 +264,14 @@
   /carbon-calculator[2]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
-    jcr:uuid: 71dc3b5a-49fb-42e1-a4cc-ee7039b39b93
+    jcr:uuid: d3e32ca5-faa3-411f-af30-de6161b94d39
     hippo:availability: [preview]
     hippostd:retainable: false
     hippostd:state: unpublished
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2023-08-09T17:31:48.480+01:00
-    hippostdpubwf:lastModificationDate: 2023-11-16T12:07:32.105+01:00
-    hippostdpubwf:lastModifiedBy: elena.pederiva
+    hippostdpubwf:lastModificationDate: 2023-11-28T13:06:33.123+01:00
+    hippostdpubwf:lastModifiedBy: alma.garcia
     resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '', '', '', '',
       '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
       '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
@@ -300,17 +310,19 @@
         more top tips for sustainable travel in Scotland</a>', 'Your calculation so
         far:', KGs of CO₂e, That's about xxx KGs of CO₂e per day., Transport, Accommodation,
       Food, Restart, Travel to Scotland, Accommodation, Travel around Scotland, Food,
-      'How are you travelling to Scotland?', I live in Scotland, Domestic Flight,
-      Short-Haul Flight, Long-Haul Flight, Car (Petrol), Car (Diesel), Car (Electric),
+      'How are you travelling to Scotland?', I live in Scotland, Domestic Flight*,
+      Short-Haul Flight*, Long-Haul Flight*, Car (Petrol), Car (Diesel), Car (Electric),
       Train, Coach, Ferry, Campervan/Motorhome (Petrol), Campervan/Motorhome (Diesel),
       'How many hours will your journey take?', 'How many nights are you staying for?',
-      'How would you describe your diet?', Frequent meat-eater, Moderate meat-eater,
-      Infrequent meat-eater, Pescatarian, Vegetarian, Vegan, 'Frequent meat eater:
+      'How would you describe your diet?', Frequent meat-eater*, Moderate meat-eater*,
+      Infrequent meat-eater*, Pescatarian, Vegetarian, Vegan, '*Frequent meat eater:
         5 times a week, moderate meat eater: 3 times a week, infrequent meat eater:
         1 - 2 times a week', 'https://static.visitscotland.com/forms/carbon-calculator/carbon-calculator-form-v-2.json',
       'https://static.visitscotland.com/forms/carbon-calculator/carbon-calculator-form-v-2.json',
-      You need Javascript enabled to use this calculator, Step xxx of yyy, '', 'Taking
-        time to form deeper connections is a more meaningful way to travel.<a href="https://www.visitscotland.com/inspiration/slow-travel"target="_blank">
+      You need Javascript enabled to use this calculator, Step xxx of yyy, '*Domestic
+        flight: within the UK, short-haul flight: within Europe, long-haul flight:
+        from outside of Europe', 'Taking time to form deeper connections is a more
+        meaningful way to travel.<a href="https://www.visitscotland.com/inspiration/slow-travel"target="_blank">
         Plan your slow travel adventure in Scotland</a>', 'You can protect Scotland''s
         natural beauty by booking an eco-retreat for your visit.<a href="https://www.visitscotland.com/accommodation/eco-green"target="_blank">
         Find eco-friendly accommodation</a>', 'You can reduce your carbon output by
@@ -342,18 +354,19 @@
         Berechnung:', CO₂-Äquivalente in kg, Das entspricht etwa xxx kg CO₂-Äquivalenten
         pro Tag., Verkehr, Unterkunft, Ernährung, Neu starten, Anreise nach Schottland,
       Unterkunft, Reisen innerhalb von Schottland, Ernährung, 'Wie reisen Sie nach
-        Schottland?', Ich lebe in Schottland, Inlandsflug, Mittelstreckenflug, Langstreckenflug,
+        Schottland?', Ich lebe in Schottland, Inlandsflug*, Mittelstreckenflug*, Langstreckenflug*,
       Auto (Benzin), Auto (Diesel), Auto (elektrisch), Zug, Reisebus, Fähre, Camper/Wohnmobil
         (Benzin), Camper/Wohnmobil (Diesel), 'Wie viele Stunden dauert Ihre Reise
         nach Schottland?', 'Wie viele Nächte verbringen Sie in Schottland?', 'Wie
-        würden Sie Ihre Ernährungsweise beschreiben?', Ich esse regelmäßig Fleisch,
-      Ich esse gelegentlich Fleisch, Ich esse selten Fleisch, 'Ich esse kein Fleisch,
-        aber Fisch', Ich ernähre mich vegetarisch, Ich ernähre mich vegan, 'Regelmäßiger
+        würden Sie Ihre Ernährungsweise beschreiben?', Ich esse regelmäßig Fleisch*,
+      Ich esse gelegentlich Fleisch*, Ich esse selten Fleisch*, 'Ich esse kein Fleisch,
+        aber Fisch', Ich ernähre mich vegetarisch, Ich ernähre mich vegan, '* Regelmäßiger
         Fleischkonsum: 5 Mal pro Woche, gelegentlicher Fleischkonsum: 3 Mal pro Woche,
         seltener Fleischkonsum: 1-2 Mal pro Woche', '', '', 'Sie müssen JavaScript
-        aktivieren, um diesen Rechner zu benutzen.', Schritt xxx von yyy, '', 'Wenn
-        Sie sich die Zeit nehmen, intensivere Verbindungen aufzubauen, wird Ihre Reise
-        noch bedeutungsvoller. <a href="https://www.visitscotland.com/de-de/inspiration/slow-travel"target="_blank">
+        aktivieren, um diesen Rechner zu benutzen.', Schritt xxx von yyy, '* Inlandsflug:
+        innerhalb Großbritanniens, Mittelstreckenflug: innerhalb Europas, Langstreckenflug:
+        außerhalb Europas', 'Wenn Sie sich die Zeit nehmen, intensivere Verbindungen
+        aufzubauen, wird Ihre Reise noch bedeutungsvoller. <a href="https://www.visitscotland.com/de-de/inspiration/slow-travel"target="_blank">
         Planen Sie Ihr Slow-Travel-Abenteuer in Schottland</a>', 'Sie können die Schönheit
         der schottischen Natur schützen, indem Sie eine umweltfreundliche Unterkunft
         für Ihren Urlaub buchen. <a href="https://www.visitscotland.com/de-de/accommodation/eco-green"target="_blank">
@@ -369,16 +382,17 @@
     resourcebundle:messages_es: [Siguiente, Anterior, Resultados, 'Tus emisiones de
         CO₂ estimadas para este viaje son:', Desglose de tus emisiones, 'Esto equivale
         a un trayecto de xx kilómetros en un coche de tamaño medio: ¡podrías viajar
-        de Edimburgo a Londres xx veces!', kilos, Empezar el cuestionario, Calcula
-        tu huella de carbono, 'Desde el transporte hasta la comida, responde a 4 sencillas
-        preguntas sobre tu viaje a Escocia y calcularemos tus emisiones.', '30', '¡Enhorabuena!
-        Estás emitiendo menos de xxx kg de CO₂ al día durante tu viaje, lo que está
-        por debajo de la media. Esto te convierte en un unicornio de la sostenibilidad:
-        el animal nacional de Escocia, dedicado a la protección y cuidado de nuestro
-        medio ambiente.', ¡Los mejores consejos!, 'Echa un vistazo a nuestros mejores
-        consejos para viajar de forma sostenible por Escocia: <br/><br/> <a href=
-        "https://www.visitscotland.com/es-es/inspiration/slow-travel"> Saca el máximo
-        partido a tu estancia en Escocia y disfruta del viaje </a> <br/><br/> <a href="https://www.visitscotland.com/es-es/accommodation/eco-green">
+        de Edimburgo a Londres xx veces!', kilos, Empezar el cuestionario, '¿Pueden
+        tus vacaciones ser más ecológicas?', 'Desde el transporte hasta la comida,
+        responde a 4 sencillas preguntas sobre tu viaje a Escocia y calcularemos tus
+        emisiones.', '30', '¡Enhorabuena! Estás emitiendo menos de xxx kg de CO₂ al
+        día durante tu viaje, lo que está por debajo de la media. Esto te convierte
+        en un unicornio de la sostenibilidad: el animal nacional de Escocia, dedicado
+        a la protección y cuidado de nuestro medio ambiente.', ¡Los mejores consejos!,
+      'Echa un vistazo a nuestros mejores consejos para viajar de forma sostenible
+        por Escocia: <br/><br/> <a href= "https://www.visitscotland.com/es-es/inspiration/slow-travel">
+        Saca el máximo partido a tu estancia en Escocia y disfruta del viaje </a>
+        <br/><br/> <a href="https://www.visitscotland.com/es-es/accommodation/eco-green">
         Reduce tu huella de carbono en un relajante alojamiento ecológico</a> <br/><br/>
         <a href="https://www.visitscotland.com/es-es/things-to-do/food-drink/seasonal-food-calendar">
         Conecta con las granjas y comunidades locales y disfruta de nuestra despensa
@@ -387,17 +401,19 @@
       'Tus cálculos hasta ahora:', KGs de CO₂e, Esto corresponde a xxx kg de CO₂ al
         día., Transporte, Alojamiento, Comida, Empezar de nuevo, Viajar a Escocia,
       Alojamiento, Viajar por Escocia, Comida, '¿Cómo viajas por Escocia?', Vivo en
-        Escocia, Vuelo nacional, Vuelo de corta distancia, Vuelo de larga distancia,
-      Coche (gasolina), Coche (gasóleo), Coche (eléctrico), Tren, Autobús, Ferri,
-      Autocaravana (gasolina), Autocaravana (gasóleo), '¿Cuántas horas durará tu viaje
-        a Escocia?', '¿Cuántas noches te alojarás en Escocia?', '¿Cómo describirías
-        tu dieta?', Como carne habitualmente, Como carne de vez en cuando, Rara vez
-        como carne, Dieta pescetariana (o pescatariana), Sigo una dieta vegetariana,
-      Sigo una dieta vegana, 'Como carne habitualmente: 5 veces a la semana, como
-        carne de vez en cuando: 3 veces a la semana, como poca carne: 1-2 veces a
-        la semana', '', '', Debes activar JavaScript para poder utilizar esta calculadora.,
-      Paso xxx de yyy, '', 'Dedicar tiempo a crear vínculos más fuertes es una forma
-        más positiva de viajar.<a href="https://www.visitscotland.com/es-es/inspiration/slow-travel"target="_blank">
+        Escocia, Vuelo nacional*, Vuelo de corta distancia*, Vuelo de larga distancia*,
+      Coche (gasolina), Coche (diésel), Coche (eléctrico), Tren, Autobús, Ferri, Autocaravana
+        (gasolina), Autocaravana (gasóleo), '¿Cuántas horas durará tu viaje a Escocia?',
+      '¿Cuántas noches te alojarás en Escocia?', '¿Cómo describirías tu dieta?', Como
+        carne habitualmente*, Como carne de vez en cuando*, Rara vez como carne*,
+      Dieta pescetariana (o pescatariana), Sigo una dieta vegetariana, Sigo una dieta
+        vegana, '*Como carne habitualmente: 5 veces a la semana, como carne de vez
+        en cuando: 3 veces a la semana, como poca carne: 1-2 veces a la semana', '',
+      '', Debes activar JavaScript para poder utilizar esta calculadora., Paso xxx
+        de yyy, '*Vuelo nacional: dentro del Reino Unido, vuelo de corta distancia:
+        dentro de Europa, vuelo de larga distancia: desde fuera de Europa.', 'Dedicar
+        tiempo a crear vínculos más fuertes es una forma más positiva de viajar.<a
+        href="https://www.visitscotland.com/es-es/inspiration/slow-travel"target="_blank">
         Planifica tu aventura por Escocia a un ritmo relajado</ un>', 'Reserva un
         alojamiento ecológico para tu viaje y protege la belleza natural de Escocia.
         <a href="https://www.visitscotland.com/es-es/accommodation/eco-green" target="_blank">Encuentra
@@ -425,18 +441,20 @@
         jusqu’à présent :', Kg de CO₂e, Cela équivaut à xxx kg de CO₂e par jour.,
       Transports, Hébergements, Nourriture, Recommencer, Se rendre en Écosse, Hébergements,
       Se déplacer en Écosse, Nourriture, 'Comment vous rendrez-vous en Écosse ?',
-      J’habite en Écosse, Vol intérieur, Vol court-courrier, Vol long-courrier, Voiture
+      Je vis en Écosse, Vol intérieur*, Vol court-courrier*, Vol long-courrier*, Voiture
         (essence), Voiture (diesel), Voiture (électrique), Train, Car, Ferry, Caravane
         ou camping-car (essence), Caravane ou camping-car (diesel), 'Combien d’heures
         durera votre trajet jusqu’en Écosse ?', 'Combien de nuits séjournerez-vous
         en Écosse ?', 'Comment qualifieriez-vous votre régime alimentaire ?', Je mange
-        régulièrement de la viande, Je mange occasionnellement de la viande, Je mange
-        très peu souvent de la viande, Pescétarien·ne (pesco-végétarien·ne), Végétarien·ne,
-      Végane, 'Je mange de la viande régulièrement : 5 fois par semaine, de temps
-        à autre : 3 fois par semaine, très peu souvent : 1 à 2 fois par semaine',
+        régulièrement de la viande*, Je mange occasionnellement de la viande*, Je
+        mange très peu souvent de la viande*, Pescétarien·ne (pesco-végétarien·ne),
+      Végétarien·ne, Végane, '*Je mange de la viande régulièrement : 5 fois par semaine,
+        de temps à autre : 3 fois par semaine, très peu souvent : 1 à 2 fois par semaine',
       '', '', Vous devez activer JavaScript afin de pouvoir utiliser ce Calculateur.,
-      '', '', 'Prendre le temps de nouer des liens plus profonds est une façon plus
-        significative de voyager.<a href="https://www.visitscotland.com/fr-fr/inspiration/slow-travel
+      Étape xxx sur yyy, '*Vol domestique : vol à l’intérieur du Royaume-Uni, vol
+        court-courrier : vol au sein de l’Europe, vol long-courrier : vol depuis une
+        destination hors-Europe', 'Prendre le temps de nouer des liens plus profonds
+        est une façon plus significative de voyager.<a href="https://www.visitscotland.com/fr-fr/inspiration/slow-travel
         "target="_blank"> Organisez votre aventure de slow travel en Écosse</a>',
       'Vous pouvez protéger la beauté naturelle de l’Écosse en réservant une retraite
         écologique pour votre séjour.<a href="https://www.visitscotland.com/fr-fr/accommodation/eco-green
@@ -471,17 +489,19 @@
       'Il tuo calcolo finora:', Equivalenti di CO₂ in kg, Ciò corrisponde a xxx kg
         di CO₂ equivalenti al giorno., Trasporto, Alloggio, Alimentazione, Ricomincia,
       Viaggiare verso la Scozia, Alloggi, Viaggiare in Scozia, Alimentazione, 'Come
-        viaggi in Scozia?', Io vivo in Scozia, Volo interno, Volo a corto raggio,
-      Volo a lungo raggio, Auto (benzina), Auto (diesel), Auto (elettrica), Treno,
+        viaggi in Scozia?', Io vivo in Scozia, Volo interno*, Volo a corto raggio*,
+      Volo a lungo raggio*, Auto (benzina), Auto (diesel), Auto (elettrica), Treno,
       Bus, Traghetto, Camper (benzina), Camper (diesel), 'Quante ore durerà il tuo
         viaggio verso la Scozia?', 'Quante notti rimani in Scozia?', 'Come descriveresti
-        la tua dieta?', Mangio carne regolarmente, Mangio carne occasionalmente, Mangio
-        raramente carne, 'Non mangio carne, ma mangio pesce', Seguo una dieta vegetariana,
-      Seguo una dieta vegana, 'Consumo regolare di carne: 5 volte a settimana, consumo
-        occasionale di carne: 3 volte a settimana, consumo raramente di carne: 1-2
-        volte a settimana', '', '', Per utilizzare questa calcolatrice è necessario
-        abilitare Javascript., Step xxx di yyy, '', 'Prendersi del tempo per creare
-        legami più profondi è un modo più significativo di viaggiare.<a href="https://www.visitscotland.com/it-it/inspiration/slow-travel"target="_blank">
+        la tua dieta?', Mangio carne regolarmente*, Mangio carne occasionalmente*,
+      Mangio raramente carne*, 'Non mangio carne, ma mangio pesce', Seguo una dieta
+        vegetariana, Seguo una dieta vegana, '*Consumo regolare di carne: 5 volte
+        a settimana, consumo occasionale di carne: 3 volte a settimana, consumo raramente
+        di carne: 1-2 volte a settimana', '', '', Per utilizzare questa calcolatrice
+        è necessario abilitare Javascript., Step xxx di yyy, '*Volo nazionale: nel
+        Regno Unito, volo a corto raggio: in Europa, volo a lungo raggio: da fuori
+        Europa', 'Prendersi del tempo per creare legami più profondi è un modo più
+        significativo di viaggiare.<a href="https://www.visitscotland.com/it-it/inspiration/slow-travel"target="_blank">
         Pianifica la tua avventura di slow travel in Scozia</ un>', 'Puoi proteggere
         la bellezza della natura scozzese prenotando una sistemazione ecologica per
         le tue vacanze. <a href="https://www.visitscotland.com/it-it/accommodation/eco-green"
@@ -501,15 +521,15 @@
   /carbon-calculator[3]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:referenceable']
-    jcr:uuid: 40f6cf12-82ce-4b12-a382-ea19bd546936
+    jcr:uuid: e5e12aae-bf7d-4089-824d-287c898bb6f3
     hippo:availability: [live]
     hippostd:retainable: false
     hippostd:state: published
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2023-08-09T17:31:48.480+01:00
-    hippostdpubwf:lastModificationDate: 2023-11-16T12:07:32.105+01:00
-    hippostdpubwf:lastModifiedBy: elena.pederiva
-    hippostdpubwf:publicationDate: 2023-11-16T12:07:34.306+01:00
+    hippostdpubwf:lastModificationDate: 2023-11-28T13:06:33.123+01:00
+    hippostdpubwf:lastModifiedBy: alma.garcia
+    hippostdpubwf:publicationDate: 2023-11-28T13:06:42.202+01:00
     resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '', '', '', '',
       '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
       '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
@@ -548,17 +568,19 @@
         more top tips for sustainable travel in Scotland</a>', 'Your calculation so
         far:', KGs of CO₂e, That's about xxx KGs of CO₂e per day., Transport, Accommodation,
       Food, Restart, Travel to Scotland, Accommodation, Travel around Scotland, Food,
-      'How are you travelling to Scotland?', I live in Scotland, Domestic Flight,
-      Short-Haul Flight, Long-Haul Flight, Car (Petrol), Car (Diesel), Car (Electric),
+      'How are you travelling to Scotland?', I live in Scotland, Domestic Flight*,
+      Short-Haul Flight*, Long-Haul Flight*, Car (Petrol), Car (Diesel), Car (Electric),
       Train, Coach, Ferry, Campervan/Motorhome (Petrol), Campervan/Motorhome (Diesel),
       'How many hours will your journey take?', 'How many nights are you staying for?',
-      'How would you describe your diet?', Frequent meat-eater, Moderate meat-eater,
-      Infrequent meat-eater, Pescatarian, Vegetarian, Vegan, 'Frequent meat eater:
+      'How would you describe your diet?', Frequent meat-eater*, Moderate meat-eater*,
+      Infrequent meat-eater*, Pescatarian, Vegetarian, Vegan, '*Frequent meat eater:
         5 times a week, moderate meat eater: 3 times a week, infrequent meat eater:
         1 - 2 times a week', 'https://static.visitscotland.com/forms/carbon-calculator/carbon-calculator-form-v-2.json',
       'https://static.visitscotland.com/forms/carbon-calculator/carbon-calculator-form-v-2.json',
-      You need Javascript enabled to use this calculator, Step xxx of yyy, '', 'Taking
-        time to form deeper connections is a more meaningful way to travel.<a href="https://www.visitscotland.com/inspiration/slow-travel"target="_blank">
+      You need Javascript enabled to use this calculator, Step xxx of yyy, '*Domestic
+        flight: within the UK, short-haul flight: within Europe, long-haul flight:
+        from outside of Europe', 'Taking time to form deeper connections is a more
+        meaningful way to travel.<a href="https://www.visitscotland.com/inspiration/slow-travel"target="_blank">
         Plan your slow travel adventure in Scotland</a>', 'You can protect Scotland''s
         natural beauty by booking an eco-retreat for your visit.<a href="https://www.visitscotland.com/accommodation/eco-green"target="_blank">
         Find eco-friendly accommodation</a>', 'You can reduce your carbon output by
@@ -590,18 +612,19 @@
         Berechnung:', CO₂-Äquivalente in kg, Das entspricht etwa xxx kg CO₂-Äquivalenten
         pro Tag., Verkehr, Unterkunft, Ernährung, Neu starten, Anreise nach Schottland,
       Unterkunft, Reisen innerhalb von Schottland, Ernährung, 'Wie reisen Sie nach
-        Schottland?', Ich lebe in Schottland, Inlandsflug, Mittelstreckenflug, Langstreckenflug,
+        Schottland?', Ich lebe in Schottland, Inlandsflug*, Mittelstreckenflug*, Langstreckenflug*,
       Auto (Benzin), Auto (Diesel), Auto (elektrisch), Zug, Reisebus, Fähre, Camper/Wohnmobil
         (Benzin), Camper/Wohnmobil (Diesel), 'Wie viele Stunden dauert Ihre Reise
         nach Schottland?', 'Wie viele Nächte verbringen Sie in Schottland?', 'Wie
-        würden Sie Ihre Ernährungsweise beschreiben?', Ich esse regelmäßig Fleisch,
-      Ich esse gelegentlich Fleisch, Ich esse selten Fleisch, 'Ich esse kein Fleisch,
-        aber Fisch', Ich ernähre mich vegetarisch, Ich ernähre mich vegan, 'Regelmäßiger
+        würden Sie Ihre Ernährungsweise beschreiben?', Ich esse regelmäßig Fleisch*,
+      Ich esse gelegentlich Fleisch*, Ich esse selten Fleisch*, 'Ich esse kein Fleisch,
+        aber Fisch', Ich ernähre mich vegetarisch, Ich ernähre mich vegan, '* Regelmäßiger
         Fleischkonsum: 5 Mal pro Woche, gelegentlicher Fleischkonsum: 3 Mal pro Woche,
         seltener Fleischkonsum: 1-2 Mal pro Woche', '', '', 'Sie müssen JavaScript
-        aktivieren, um diesen Rechner zu benutzen.', Schritt xxx von yyy, '', 'Wenn
-        Sie sich die Zeit nehmen, intensivere Verbindungen aufzubauen, wird Ihre Reise
-        noch bedeutungsvoller. <a href="https://www.visitscotland.com/de-de/inspiration/slow-travel"target="_blank">
+        aktivieren, um diesen Rechner zu benutzen.', Schritt xxx von yyy, '* Inlandsflug:
+        innerhalb Großbritanniens, Mittelstreckenflug: innerhalb Europas, Langstreckenflug:
+        außerhalb Europas', 'Wenn Sie sich die Zeit nehmen, intensivere Verbindungen
+        aufzubauen, wird Ihre Reise noch bedeutungsvoller. <a href="https://www.visitscotland.com/de-de/inspiration/slow-travel"target="_blank">
         Planen Sie Ihr Slow-Travel-Abenteuer in Schottland</a>', 'Sie können die Schönheit
         der schottischen Natur schützen, indem Sie eine umweltfreundliche Unterkunft
         für Ihren Urlaub buchen. <a href="https://www.visitscotland.com/de-de/accommodation/eco-green"target="_blank">
@@ -617,16 +640,17 @@
     resourcebundle:messages_es: [Siguiente, Anterior, Resultados, 'Tus emisiones de
         CO₂ estimadas para este viaje son:', Desglose de tus emisiones, 'Esto equivale
         a un trayecto de xx kilómetros en un coche de tamaño medio: ¡podrías viajar
-        de Edimburgo a Londres xx veces!', kilos, Empezar el cuestionario, Calcula
-        tu huella de carbono, 'Desde el transporte hasta la comida, responde a 4 sencillas
-        preguntas sobre tu viaje a Escocia y calcularemos tus emisiones.', '30', '¡Enhorabuena!
-        Estás emitiendo menos de xxx kg de CO₂ al día durante tu viaje, lo que está
-        por debajo de la media. Esto te convierte en un unicornio de la sostenibilidad:
-        el animal nacional de Escocia, dedicado a la protección y cuidado de nuestro
-        medio ambiente.', ¡Los mejores consejos!, 'Echa un vistazo a nuestros mejores
-        consejos para viajar de forma sostenible por Escocia: <br/><br/> <a href=
-        "https://www.visitscotland.com/es-es/inspiration/slow-travel"> Saca el máximo
-        partido a tu estancia en Escocia y disfruta del viaje </a> <br/><br/> <a href="https://www.visitscotland.com/es-es/accommodation/eco-green">
+        de Edimburgo a Londres xx veces!', kilos, Empezar el cuestionario, '¿Pueden
+        tus vacaciones ser más ecológicas?', 'Desde el transporte hasta la comida,
+        responde a 4 sencillas preguntas sobre tu viaje a Escocia y calcularemos tus
+        emisiones.', '30', '¡Enhorabuena! Estás emitiendo menos de xxx kg de CO₂ al
+        día durante tu viaje, lo que está por debajo de la media. Esto te convierte
+        en un unicornio de la sostenibilidad: el animal nacional de Escocia, dedicado
+        a la protección y cuidado de nuestro medio ambiente.', ¡Los mejores consejos!,
+      'Echa un vistazo a nuestros mejores consejos para viajar de forma sostenible
+        por Escocia: <br/><br/> <a href= "https://www.visitscotland.com/es-es/inspiration/slow-travel">
+        Saca el máximo partido a tu estancia en Escocia y disfruta del viaje </a>
+        <br/><br/> <a href="https://www.visitscotland.com/es-es/accommodation/eco-green">
         Reduce tu huella de carbono en un relajante alojamiento ecológico</a> <br/><br/>
         <a href="https://www.visitscotland.com/es-es/things-to-do/food-drink/seasonal-food-calendar">
         Conecta con las granjas y comunidades locales y disfruta de nuestra despensa
@@ -635,17 +659,19 @@
       'Tus cálculos hasta ahora:', KGs de CO₂e, Esto corresponde a xxx kg de CO₂ al
         día., Transporte, Alojamiento, Comida, Empezar de nuevo, Viajar a Escocia,
       Alojamiento, Viajar por Escocia, Comida, '¿Cómo viajas por Escocia?', Vivo en
-        Escocia, Vuelo nacional, Vuelo de corta distancia, Vuelo de larga distancia,
-      Coche (gasolina), Coche (gasóleo), Coche (eléctrico), Tren, Autobús, Ferri,
-      Autocaravana (gasolina), Autocaravana (gasóleo), '¿Cuántas horas durará tu viaje
-        a Escocia?', '¿Cuántas noches te alojarás en Escocia?', '¿Cómo describirías
-        tu dieta?', Como carne habitualmente, Como carne de vez en cuando, Rara vez
-        como carne, Dieta pescetariana (o pescatariana), Sigo una dieta vegetariana,
-      Sigo una dieta vegana, 'Como carne habitualmente: 5 veces a la semana, como
-        carne de vez en cuando: 3 veces a la semana, como poca carne: 1-2 veces a
-        la semana', '', '', Debes activar JavaScript para poder utilizar esta calculadora.,
-      Paso xxx de yyy, '', 'Dedicar tiempo a crear vínculos más fuertes es una forma
-        más positiva de viajar.<a href="https://www.visitscotland.com/es-es/inspiration/slow-travel"target="_blank">
+        Escocia, Vuelo nacional*, Vuelo de corta distancia*, Vuelo de larga distancia*,
+      Coche (gasolina), Coche (diésel), Coche (eléctrico), Tren, Autobús, Ferri, Autocaravana
+        (gasolina), Autocaravana (gasóleo), '¿Cuántas horas durará tu viaje a Escocia?',
+      '¿Cuántas noches te alojarás en Escocia?', '¿Cómo describirías tu dieta?', Como
+        carne habitualmente*, Como carne de vez en cuando*, Rara vez como carne*,
+      Dieta pescetariana (o pescatariana), Sigo una dieta vegetariana, Sigo una dieta
+        vegana, '*Como carne habitualmente: 5 veces a la semana, como carne de vez
+        en cuando: 3 veces a la semana, como poca carne: 1-2 veces a la semana', '',
+      '', Debes activar JavaScript para poder utilizar esta calculadora., Paso xxx
+        de yyy, '*Vuelo nacional: dentro del Reino Unido, vuelo de corta distancia:
+        dentro de Europa, vuelo de larga distancia: desde fuera de Europa.', 'Dedicar
+        tiempo a crear vínculos más fuertes es una forma más positiva de viajar.<a
+        href="https://www.visitscotland.com/es-es/inspiration/slow-travel"target="_blank">
         Planifica tu aventura por Escocia a un ritmo relajado</ un>', 'Reserva un
         alojamiento ecológico para tu viaje y protege la belleza natural de Escocia.
         <a href="https://www.visitscotland.com/es-es/accommodation/eco-green" target="_blank">Encuentra
@@ -673,18 +699,20 @@
         jusqu’à présent :', Kg de CO₂e, Cela équivaut à xxx kg de CO₂e par jour.,
       Transports, Hébergements, Nourriture, Recommencer, Se rendre en Écosse, Hébergements,
       Se déplacer en Écosse, Nourriture, 'Comment vous rendrez-vous en Écosse ?',
-      J’habite en Écosse, Vol intérieur, Vol court-courrier, Vol long-courrier, Voiture
+      Je vis en Écosse, Vol intérieur*, Vol court-courrier*, Vol long-courrier*, Voiture
         (essence), Voiture (diesel), Voiture (électrique), Train, Car, Ferry, Caravane
         ou camping-car (essence), Caravane ou camping-car (diesel), 'Combien d’heures
         durera votre trajet jusqu’en Écosse ?', 'Combien de nuits séjournerez-vous
         en Écosse ?', 'Comment qualifieriez-vous votre régime alimentaire ?', Je mange
-        régulièrement de la viande, Je mange occasionnellement de la viande, Je mange
-        très peu souvent de la viande, Pescétarien·ne (pesco-végétarien·ne), Végétarien·ne,
-      Végane, 'Je mange de la viande régulièrement : 5 fois par semaine, de temps
-        à autre : 3 fois par semaine, très peu souvent : 1 à 2 fois par semaine',
+        régulièrement de la viande*, Je mange occasionnellement de la viande*, Je
+        mange très peu souvent de la viande*, Pescétarien·ne (pesco-végétarien·ne),
+      Végétarien·ne, Végane, '*Je mange de la viande régulièrement : 5 fois par semaine,
+        de temps à autre : 3 fois par semaine, très peu souvent : 1 à 2 fois par semaine',
       '', '', Vous devez activer JavaScript afin de pouvoir utiliser ce Calculateur.,
-      '', '', 'Prendre le temps de nouer des liens plus profonds est une façon plus
-        significative de voyager.<a href="https://www.visitscotland.com/fr-fr/inspiration/slow-travel
+      Étape xxx sur yyy, '*Vol domestique : vol à l’intérieur du Royaume-Uni, vol
+        court-courrier : vol au sein de l’Europe, vol long-courrier : vol depuis une
+        destination hors-Europe', 'Prendre le temps de nouer des liens plus profonds
+        est une façon plus significative de voyager.<a href="https://www.visitscotland.com/fr-fr/inspiration/slow-travel
         "target="_blank"> Organisez votre aventure de slow travel en Écosse</a>',
       'Vous pouvez protéger la beauté naturelle de l’Écosse en réservant une retraite
         écologique pour votre séjour.<a href="https://www.visitscotland.com/fr-fr/accommodation/eco-green
@@ -719,17 +747,19 @@
       'Il tuo calcolo finora:', Equivalenti di CO₂ in kg, Ciò corrisponde a xxx kg
         di CO₂ equivalenti al giorno., Trasporto, Alloggio, Alimentazione, Ricomincia,
       Viaggiare verso la Scozia, Alloggi, Viaggiare in Scozia, Alimentazione, 'Come
-        viaggi in Scozia?', Io vivo in Scozia, Volo interno, Volo a corto raggio,
-      Volo a lungo raggio, Auto (benzina), Auto (diesel), Auto (elettrica), Treno,
+        viaggi in Scozia?', Io vivo in Scozia, Volo interno*, Volo a corto raggio*,
+      Volo a lungo raggio*, Auto (benzina), Auto (diesel), Auto (elettrica), Treno,
       Bus, Traghetto, Camper (benzina), Camper (diesel), 'Quante ore durerà il tuo
         viaggio verso la Scozia?', 'Quante notti rimani in Scozia?', 'Come descriveresti
-        la tua dieta?', Mangio carne regolarmente, Mangio carne occasionalmente, Mangio
-        raramente carne, 'Non mangio carne, ma mangio pesce', Seguo una dieta vegetariana,
-      Seguo una dieta vegana, 'Consumo regolare di carne: 5 volte a settimana, consumo
-        occasionale di carne: 3 volte a settimana, consumo raramente di carne: 1-2
-        volte a settimana', '', '', Per utilizzare questa calcolatrice è necessario
-        abilitare Javascript., Step xxx di yyy, '', 'Prendersi del tempo per creare
-        legami più profondi è un modo più significativo di viaggiare.<a href="https://www.visitscotland.com/it-it/inspiration/slow-travel"target="_blank">
+        la tua dieta?', Mangio carne regolarmente*, Mangio carne occasionalmente*,
+      Mangio raramente carne*, 'Non mangio carne, ma mangio pesce', Seguo una dieta
+        vegetariana, Seguo una dieta vegana, '*Consumo regolare di carne: 5 volte
+        a settimana, consumo occasionale di carne: 3 volte a settimana, consumo raramente
+        di carne: 1-2 volte a settimana', '', '', Per utilizzare questa calcolatrice
+        è necessario abilitare Javascript., Step xxx di yyy, '*Volo nazionale: nel
+        Regno Unito, volo a corto raggio: in Europa, volo a lungo raggio: da fuori
+        Europa', 'Prendersi del tempo per creare legami più profondi è un modo più
+        significativo di viaggiare.<a href="https://www.visitscotland.com/it-it/inspiration/slow-travel"target="_blank">
         Pianifica la tua avventura di slow travel in Scozia</ un>', 'Puoi proteggere
         la bellezza della natura scozzese prenotando una sistemazione ecologica per
         le tue vacanze. <a href="https://www.visitscotland.com/it-it/accommodation/eco-green"

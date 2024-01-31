@@ -72,7 +72,7 @@ class PageTemplateBuilderTest {
         request.setLocale(Locale.UK);
 
         //Adds a mock document to the Request
-        request.setAttribute("document", page);
+        request.setModel("document", page);
     }
 
     /**
@@ -246,10 +246,10 @@ class PageTemplateBuilderTest {
         List<LinksModule> items = (List<LinksModule>) request.getAttribute(PageTemplateBuilder.PAGE_ITEMS);
         assertEquals(4, items.size());
 
-        verify(module1).setAlignment(PageTemplateBuilder.alignment[0 % 2]);
-        verify(module2).setAlignment(PageTemplateBuilder.alignment[1 % 2]);
-        verify(module3).setAlignment(PageTemplateBuilder.alignment[2 % 2]);
-        verify(module4).setAlignment(PageTemplateBuilder.alignment[3 % 2]);
+        verify(module1).setAlignment(PageTemplateBuilder.ALIGNMENT[0 % 2]);
+        verify(module2).setAlignment(PageTemplateBuilder.ALIGNMENT[1 % 2]);
+        verify(module3).setAlignment(PageTemplateBuilder.ALIGNMENT[2 % 2]);
+        verify(module4).setAlignment(PageTemplateBuilder.ALIGNMENT[3 % 2]);
     }
 
     /**
@@ -392,7 +392,7 @@ class PageTemplateBuilderTest {
 
         //The module is only allowed got general pages.
         when(page.getTheme()).thenReturn("Simple");
-        request.setAttribute("document", page);
+        request.setModel("document", page);
 
         when(utils.getAllowedDocuments(page)).thenReturn(Collections.singletonList(longCopy));
         when(longCopyFactory.getModule(any(LongCopy.class))).thenReturn(new LongCopyModule());
@@ -411,7 +411,7 @@ class PageTemplateBuilderTest {
         LongCopy longCopy = mock(LongCopy.class);
 
         //The module is only allowed got general pages.
-        request.setAttribute("document", page);
+        request.setModel("document", page);
 
         when(utils.getAllowedDocuments(page)).thenReturn(Collections.singletonList(longCopy));
         
@@ -428,7 +428,7 @@ class PageTemplateBuilderTest {
 
         //The module is only allowed got general pages.
         when(page.getTheme()).thenReturn("Standard");
-        request.setAttribute("document", page);
+        request.setModel("document", page);
 
         when(utils.getAllowedDocuments(page)).thenReturn(Collections.singletonList(longCopy));
         
@@ -444,7 +444,7 @@ class PageTemplateBuilderTest {
 
         //The module is only allowed got general pages.
         when(page.getTheme()).thenReturn("Simple");
-        request.setAttribute("document", page);
+        request.setModel("document", page);
 
         when(utils.getAllowedDocuments(page)).thenReturn(Arrays.asList(mock(LongCopy.class), mock(LongCopy.class), mock(LongCopy.class)));
         when(longCopyFactory.getModule(any(LongCopy.class))).thenReturn(new LongCopyModule());
@@ -465,7 +465,7 @@ class PageTemplateBuilderTest {
 //
 //        //The module is only allowed got general pages.
 //        when(page.getTheme()).thenReturn("Simple");
-//        request.setAttribute("document", page);
+//        request.setModel("document", page);
 //
 //        when(utils.getAllowedDocuments(page)).thenReturn(Arrays.asList(mock(LongCopy.class), mock(LongCopy.class), mock(LongCopy.class)));
 //        when(longCopyFactory.getModule(any(LongCopy.class))).thenReturn(new LongCopyModule());
