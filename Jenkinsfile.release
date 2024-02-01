@@ -1,7 +1,7 @@
 pipeline {
   agent any
   environment {
-    MAVEN_SETTINGS = credentials('maven-settings')
+//    MAVEN_SETTINGS = credentials('maven-settings')
   }
   tools {
     maven 'Maven 3.5.4'
@@ -11,12 +11,16 @@ pipeline {
   stages {
 
     stage('automation build') {
+      when {
+        branch 'feature/release-automation-jenkins-develop' // only runs on this branch for now
+      }
       steps {
         echo "  Branch: ${BRANCH_NAME}"
         echo "Job Name: ${JOB_NAME}"
         echo "   Stage: ${BUILD_DISPLAY_NAME}"
-        echo "-s maven: ${MAVEN_SETTINGS}"
-        sh 'mvn clean install -DskipTests -s $MAVEN_SETTINGS'
+//        echo "-s maven: ${MAVEN_SETTINGS}"
+//        sh 'mvn clean install -DskipTests -s $MAVEN_SETTINGS'
+        sh 'mvn clean deploy -Pdist'
       }
       post {
         success {
