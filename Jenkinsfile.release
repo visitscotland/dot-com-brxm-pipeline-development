@@ -1,7 +1,7 @@
 pipeline {
   agent any
   environment {
-//    MAVEN_SETTINGS = credentials('maven-settings')
+    MAVEN_SETTINGS = credentials('maven-settings')
   }
   tools {
     maven 'Maven 3.5.4'
