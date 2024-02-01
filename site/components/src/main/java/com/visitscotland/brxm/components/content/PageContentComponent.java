@@ -4,6 +4,7 @@ import com.visitscotland.brxm.config.VsComponentManager;
 import com.visitscotland.brxm.factory.*;
 import com.visitscotland.brxm.hippobeans.Page;
 import com.visitscotland.brxm.hippobeans.VideoLink;
+import com.visitscotland.brxm.model.FlatBlog;
 import com.visitscotland.brxm.model.FlatImage;
 import com.visitscotland.brxm.model.Module;
 import com.visitscotland.brxm.model.SignpostModule;
@@ -33,6 +34,7 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
     public static final String DOCUMENT = "document";
     public static final String OTYML = "otyml";
     public static final String BLOG = "blog";
+    public static final String AUTHOR = "author";
     public static final String NEWSLETTER_SIGNPOST = "newsletterSignpost";
     public static final String PREVIEW_ALERTS = "alerts";
     public static final String HERO_IMAGE = "heroImage";
@@ -76,10 +78,10 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
 
         addOTYML(request);
         addNewsletterSignup(request);
-        addProductSearchWidget(request);
         addLogging(request);
         addFlags(request);
         addBlog(request);
+
         addSiteSpecificConfiguration(request);
     }
 
@@ -145,14 +147,20 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
         Page page = getDocument(request);
         if (page.getBlog() != null) {
             Collection<String> errorMessages = new ArrayList<>();
-            request.setModel(BLOG, blogFactory.getBlog(page.getBlog(), request.getLocale(), errorMessages));
+
+            FlatBlog blog = blogFactory.getBlog(page.getBlog(), request.getLocale(), errorMessages);
+
+            //TODO: Remove setAttribute when "blog" is removed from Freemarker
+            request.setAttribute(BLOG, blog);
+            request.setModel(AUTHOR, blog);
+
             setErrorMessages(request, errorMessages);
         }
     }
 
     protected void addNewsletterSignup(HstRequest request) {
         Page page = getDocument(request);
-        if (!Contract.defaultIfNull(page.getHideNewsletter(), false)) {
+        if (Boolean.FALSE.equals(Contract.defaultIfNull(page.getHideNewsletter(), false))) {
             SignpostModule signpost;
             if (request.getPathInfo().contains(properties.getSiteSkiSection())) {
                 signpost = signpostFactory.createSnowAlertsModule(request.getLocale());
@@ -209,6 +217,7 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
             request.setModel(HippoUtilsService.BUSINESS_EVENTS_SITE, true);
             socialMediaBundle = "be.navigation.social-media";
         } else {
+            addProductSearchWidget(request);
             socialMediaBundle = "navigation.social-media";
         }
 

@@ -7,9 +7,10 @@
   hippotranslation:locale: en
   /content:
     jcr:primaryType: hippo:handle
-    jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+    jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
     jcr:uuid: f29b746e-7701-42ce-a102-0747589f0905
     hippo:name: content
+    hippo:versionHistory: 7859f0bc-ac09-4216-b46b-a4de00144a64
     /content[1]:
       jcr:primaryType: visitscotland:General
       jcr:mixinTypes: ['mix:versionable']
@@ -19,23 +20,20 @@
       hippostd:state: unpublished
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2021-06-29T15:19:57.775+01:00
-      hippostdpubwf:lastModificationDate: 2024-01-18T12:31:21.663Z
+      hippostdpubwf:lastModificationDate: 2024-01-30T10:36:27.376Z
       hippostdpubwf:lastModifiedBy: admin
       hippotranslation:id: b7c1e00c-c46b-4440-9c7b-f3f0adf890a8
       hippotranslation:locale: en
-      visitscotland:breadcrumb: ''
+      visitscotland:breadcrumb: Development Sandbox
       visitscotland:hideNewsletter: false
       visitscotland:newsletter: true
       visitscotland:pswPosition: Hidden
-      visitscotland:seoDescription: Welcome to VisitScotland Business Events. Your
-        partners in Scotland for conferences, conventions, meetings, incentives and
-        more!
+      visitscotland:seoDescription: Welcome to VisitScotland Business Events.
       visitscotland:seoNoIndex: false
       visitscotland:seoTitle: Welcome to Business Events Scotland
-      visitscotland:teaser: Welcome to VisitScotland Business Events. Your partners
-        in Scotland for conferences, conventions, meetings, incentives and more!
+      visitscotland:teaser: Software development
       visitscotland:theme: Top-Level
-      visitscotland:title: Welcome to Business Events Scotland
+      visitscotland:title: Sandbox for developeers
       visitscotland:translation: ''
       /visitscotland:heroImage:
         jcr:primaryType: hippogallerypicker:imagelink
@@ -45,10 +43,10 @@
         hippo:values: []
       /visitscotland:introduction:
         jcr:primaryType: hippostd:html
-        hippostd:content: |-
-          <p>For years Scotland has welcomed the world's greatest thinkers, pioneers, innovators and leaders to the many international congresses, conferences and meetings we host. Scotland is an incredible destination for business events. Our world leading academia, research institutes, industries and innovation centres thrive on ideas, new challenges and the inspiration we can give and draw from delegates to our country.</p>
-
-          <p>In Scotland we believe business events are a catalyst for social and economic transformation; they are a driver to tackle climate change; they are a voice for human rights; they are a leader in the global <a href="https://businessevents.visitscotland.com/why-scotland/journey-to-change/" title="Journey to change">Journey to Change</a>.</p>
+        hippostd:content: <p>Software development, a dynamic field, involves designing,
+          coding, and maintaining applications. Agile methodologies, collaboration,
+          and diverse tech tools drive innovation. From web to AI, it shapes our digital
+          world, emphasizing security and quality assurance.</p>
     /content[2]:
       jcr:primaryType: visitscotland:General
       jcr:mixinTypes: ['mix:referenceable']
@@ -58,23 +56,20 @@
       hippostd:state: draft
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2021-06-29T15:19:57.775+01:00
-      hippostdpubwf:lastModificationDate: 2024-01-18T12:29:51.371Z
+      hippostdpubwf:lastModificationDate: 2024-01-30T10:33:20.799Z
       hippostdpubwf:lastModifiedBy: admin
       hippotranslation:id: b7c1e00c-c46b-4440-9c7b-f3f0adf890a8
       hippotranslation:locale: en
-      visitscotland:breadcrumb: ''
+      visitscotland:breadcrumb: Development Sandbox
       visitscotland:hideNewsletter: false
       visitscotland:newsletter: true
       visitscotland:pswPosition: Hidden
-      visitscotland:seoDescription: Welcome to VisitScotland Business Events. Your
-        partners in Scotland for conferences, conventions, meetings, incentives and
-        more!
+      visitscotland:seoDescription: Welcome to VisitScotland Business Events.
       visitscotland:seoNoIndex: false
       visitscotland:seoTitle: Welcome to Business Events Scotland
-      visitscotland:teaser: Welcome to VisitScotland Business Events. Your partners
-        in Scotland for conferences, conventions, meetings, incentives and more!
+      visitscotland:teaser: Software development
       visitscotland:theme: Top-Level
-      visitscotland:title: Welcome to Business Events Scotland
+      visitscotland:title: Sandbox for developeers
       visitscotland:translation: ''
       /visitscotland:heroImage:
         jcr:primaryType: hippogallerypicker:imagelink
@@ -84,10 +79,10 @@
         hippo:values: []
       /visitscotland:introduction:
         jcr:primaryType: hippostd:html
-        hippostd:content: |-
-          <p>For years Scotland has welcomed the world's greatest thinkers, pioneers, innovators and leaders to the many international congresses, conferences and meetings we host. Scotland is an incredible destination for business events. Our world leading academia, research institutes, industries and innovation centres thrive on ideas, new challenges and the inspiration we can give and draw from delegates to our country.</p>
-
-          <p>In Scotland we believe business events are a catalyst for social and economic transformation; they are a driver to tackle climate change; they are a voice for human rights; they are a leader in the global <a href="https://businessevents.visitscotland.com/why-scotland/journey-to-change/" title="Journey to change">Journey to Change</a>.</p>
+        hippostd:content: <p>Software development, a dynamic field, involves designing,
+          coding, and maintaining applications. Agile methodologies, collaboration,
+          and diverse tech tools drive innovation. From web to AI, it shapes our digital
+          world, emphasizing security and quality assurance.</p>
     /content[3]:
       jcr:primaryType: visitscotland:General
       jcr:mixinTypes: ['mix:referenceable']
@@ -97,24 +92,21 @@
       hippostd:state: published
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2021-06-29T15:19:57.775+01:00
-      hippostdpubwf:lastModificationDate: 2024-01-18T12:31:21.663Z
+      hippostdpubwf:lastModificationDate: 2024-01-30T10:36:27.376Z
       hippostdpubwf:lastModifiedBy: admin
-      hippostdpubwf:publicationDate: 2024-01-18T12:31:25.667Z
+      hippostdpubwf:publicationDate: 2024-01-30T10:36:30.543Z
       hippotranslation:id: b7c1e00c-c46b-4440-9c7b-f3f0adf890a8
       hippotranslation:locale: en
-      visitscotland:breadcrumb: ''
+      visitscotland:breadcrumb: Development Sandbox
       visitscotland:hideNewsletter: false
       visitscotland:newsletter: true
       visitscotland:pswPosition: Hidden
-      visitscotland:seoDescription: Welcome to VisitScotland Business Events. Your
-        partners in Scotland for conferences, conventions, meetings, incentives and
-        more!
+      visitscotland:seoDescription: Welcome to VisitScotland Business Events.
       visitscotland:seoNoIndex: false
       visitscotland:seoTitle: Welcome to Business Events Scotland
-      visitscotland:teaser: Welcome to VisitScotland Business Events. Your partners
-        in Scotland for conferences, conventions, meetings, incentives and more!
+      visitscotland:teaser: Software development
       visitscotland:theme: Top-Level
-      visitscotland:title: Welcome to Business Events Scotland
+      visitscotland:title: Sandbox for developeers
       visitscotland:translation: ''
       /visitscotland:heroImage:
         jcr:primaryType: hippogallerypicker:imagelink
@@ -124,7 +116,1579 @@
         hippo:values: []
       /visitscotland:introduction:
         jcr:primaryType: hippostd:html
-        hippostd:content: |-
-          <p>For years Scotland has welcomed the world's greatest thinkers, pioneers, innovators and leaders to the many international congresses, conferences and meetings we host. Scotland is an incredible destination for business events. Our world leading academia, research institutes, industries and innovation centres thrive on ideas, new challenges and the inspiration we can give and draw from delegates to our country.</p>
+        hippostd:content: <p>Software development, a dynamic field, involves designing,
+          coding, and maintaining applications. Agile methodologies, collaboration,
+          and diverse tech tools drive innovation. From web to AI, it shapes our digital
+          world, emphasizing security and quality assurance.</p>
+  /shared:
+    jcr:primaryType: hippostd:folder
+    jcr:mixinTypes: ['hippotranslation:translated', 'mix:versionable']
+    jcr:uuid: 03fe5965-3010-4c34-b530-0dbfd6b04d69
+    hippostd:foldertype: []
+    hippotranslation:id: 6034f132-a4a9-4d46-a282-fb26ffc69c36
+    hippotranslation:locale: en
+    /profiles:
+      jcr:primaryType: hippostd:folder
+      jcr:mixinTypes: ['hippo:named', 'hippotranslation:translated', 'mix:versionable']
+      jcr:uuid: d8f94704-d6c3-4a60-a6ac-49a935cbe592
+      hippo:name: Author Profile
+      hippostd:foldertype: [new-author-profile]
+      hippotranslation:id: bb58b2b3-9748-4788-8a80-cec5c5a78d7c
+      hippotranslation:locale: en
+      /jose-calcines:
+        jcr:primaryType: hippo:handle
+        jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+        jcr:uuid: 81178a86-fdbe-4766-ab92-7a1c74d21d7a
+        hippo:name: Jose Calcines
+        hippo:versionHistory: 3d6cc652-bda3-48a9-b6b1-52d93f4f0c26
+        /jose-calcines[1]:
+          jcr:primaryType: visitscotland:Profile
+          jcr:mixinTypes: ['mix:referenceable']
+          jcr:uuid: e8da0b4c-1295-4f55-a777-9a8046968a0a
+          hippo:availability: []
+          hippostd:retainable: false
+          hippostd:state: draft
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2024-01-31T10:33:24.042Z
+          hippostdpubwf:lastModificationDate: 2024-01-31T10:33:24.043Z
+          hippostdpubwf:lastModifiedBy: admin
+          hippotranslation:id: 2481e14a-8fe2-4a56-8c47-17dea217d498
+          hippotranslation:locale: en
+          visitscotland:name: Jose Calcines
+          /visitscotland:photo:
+            jcr:primaryType: hippogallerypicker:imagelink
+            hippo:docbase: a5b5922e-d0d5-420c-af2d-670768cf7bd6
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+        /jose-calcines[2]:
+          jcr:primaryType: visitscotland:Profile
+          jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+          jcr:uuid: dccc17ef-8909-4b26-90ef-2fca7a88c2a5
+          hippo:availability: [preview]
+          hippostd:retainable: false
+          hippostd:state: unpublished
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2024-01-31T10:33:24.042Z
+          hippostdpubwf:lastModificationDate: 2024-01-31T10:33:50.275Z
+          hippostdpubwf:lastModifiedBy: admin
+          hippotranslation:id: 2481e14a-8fe2-4a56-8c47-17dea217d498
+          hippotranslation:locale: en
+          visitscotland:name: Jose Calcines
+          /visitscotland:photo:
+            jcr:primaryType: hippogallerypicker:imagelink
+            hippo:docbase: a5b5922e-d0d5-420c-af2d-670768cf7bd6
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+        /jose-calcines[3]:
+          jcr:primaryType: visitscotland:Profile
+          jcr:mixinTypes: ['mix:referenceable']
+          jcr:uuid: 83166351-7df3-41ba-9027-72d77f03488f
+          hippo:availability: [live]
+          hippostd:retainable: false
+          hippostd:state: published
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2024-01-31T10:33:24.042Z
+          hippostdpubwf:lastModificationDate: 2024-01-31T10:33:50.275Z
+          hippostdpubwf:lastModifiedBy: admin
+          hippostdpubwf:publicationDate: 2024-01-31T10:33:54.968Z
+          hippotranslation:id: 2481e14a-8fe2-4a56-8c47-17dea217d498
+          hippotranslation:locale: en
+          visitscotland:name: Jose Calcines
+          /visitscotland:photo:
+            jcr:primaryType: hippogallerypicker:imagelink
+            hippo:docbase: a5b5922e-d0d5-420c-af2d-670768cf7bd6
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+    /links:
+      jcr:primaryType: hippostd:folder
+      jcr:mixinTypes: ['frontend:orderChildFolders', 'hippo:named', 'hippotranslation:translated',
+        'mix:versionable']
+      jcr:uuid: dc3f67da-89a8-484a-b844-6a04137a858d
+      hippo:name: Custom Links
+      hippostd:foldertype: [new-translated-folder-shared, new-shared-document]
+      hippotranslation:id: 3869bf02-107a-44fd-b0ec-177f9bae4148
+      hippotranslation:locale: en
+    /video:
+      jcr:primaryType: hippostd:folder
+      jcr:mixinTypes: ['frontend:orderChildFolders', 'hippo:named', 'hippotranslation:translated',
+        'mix:versionable']
+      jcr:uuid: b9444408-bc3f-4cbe-846d-c859c502dd29
+      hippo:name: Videos
+      hippostd:foldertype: [new-translated-folder-videos, new-video]
+      hippotranslation:id: 45852a7c-f20f-4d3a-92e5-138ba1675e8d
+      hippotranslation:locale: en
+      /video:
+        jcr:primaryType: hippo:handle
+        jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+        jcr:uuid: a3b61d9b-62b0-4195-b8e8-14aec06ffd0a
+        hippo:name: Video
+        hippo:versionHistory: 68f2ab79-b15a-4073-a228-3ef2151aa60a
+        /video[1]:
+          jcr:primaryType: visitscotland:Video
+          jcr:mixinTypes: ['mix:referenceable']
+          jcr:uuid: 8287ce12-efdb-4013-909e-8422d6ac1869
+          hippo:availability: []
+          hippostd:retainable: false
+          hippostd:state: draft
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2024-01-31T10:35:52.188Z
+          hippostdpubwf:lastModificationDate: 2024-01-31T10:35:52.188Z
+          hippostdpubwf:lastModifiedBy: admin
+          hippotranslation:id: ca8abdd2-baa4-4382-865a-79b1d1add054
+          hippotranslation:locale: en
+          visitscotland:label: Start your Journey to Change in Scotland.
+          visitscotland:teaser: We believe that business events are crucial in driving
+            social transformation.
+          visitscotland:title: Your Journey to Change continues
+          visitscotland:translation: ''
+          visitscotland:url: https://www.youtube.com/watch?v=iShjpCUyqv0&ab_channel=VisitScotlandBusinessEvents
+          /visitscotland:image:
+            jcr:primaryType: hippogallerypicker:imagelink
+            hippo:docbase: 9fa69545-8c3d-4de4-8a31-f0c1c705749e
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+        /video[2]:
+          jcr:primaryType: visitscotland:Video
+          jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+          jcr:uuid: 3bf9baff-776a-4f89-bab1-fc8095c19e2b
+          hippo:availability: [preview]
+          hippostd:retainable: false
+          hippostd:state: unpublished
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2024-01-31T10:35:52.188Z
+          hippostdpubwf:lastModificationDate: 2024-01-31T10:37:33.168Z
+          hippostdpubwf:lastModifiedBy: admin
+          hippotranslation:id: ca8abdd2-baa4-4382-865a-79b1d1add054
+          hippotranslation:locale: en
+          visitscotland:label: Start your Journey to Change in Scotland.
+          visitscotland:teaser: We believe that business events are crucial in driving
+            social transformation.
+          visitscotland:title: Your Journey to Change continues
+          visitscotland:translation: ''
+          visitscotland:url: https://www.youtube.com/watch?v=iShjpCUyqv0&ab_channel=VisitScotlandBusinessEvents
+          /visitscotland:image:
+            jcr:primaryType: hippogallerypicker:imagelink
+            hippo:docbase: 9fa69545-8c3d-4de4-8a31-f0c1c705749e
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+        /video[3]:
+          jcr:primaryType: visitscotland:Video
+          jcr:mixinTypes: ['mix:referenceable']
+          jcr:uuid: c718716f-cd97-4bd1-9a75-b3d472580a21
+          hippo:availability: [live]
+          hippostd:retainable: false
+          hippostd:state: published
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2024-01-31T10:35:52.188Z
+          hippostdpubwf:lastModificationDate: 2024-01-31T10:37:33.168Z
+          hippostdpubwf:lastModifiedBy: admin
+          hippostdpubwf:publicationDate: 2024-01-31T10:37:35.750Z
+          hippotranslation:id: ca8abdd2-baa4-4382-865a-79b1d1add054
+          hippotranslation:locale: en
+          visitscotland:label: Start your Journey to Change in Scotland.
+          visitscotland:teaser: We believe that business events are crucial in driving
+            social transformation.
+          visitscotland:title: Your Journey to Change continues
+          visitscotland:translation: ''
+          visitscotland:url: https://www.youtube.com/watch?v=iShjpCUyqv0&ab_channel=VisitScotlandBusinessEvents
+          /visitscotland:image:
+            jcr:primaryType: hippogallerypicker:imagelink
+            hippo:docbase: 9fa69545-8c3d-4de4-8a31-f0c1c705749e
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+  /general-pages:
+    jcr:primaryType: hippostd:folder
+    jcr:mixinTypes: ['hippo:named', 'hippotranslation:translated', 'mix:versionable']
+    jcr:uuid: d57a10ba-e848-4805-a480-18a260304ad0
+    hippo:name: General Pages
+    hippostd:foldertype: [new-translated-folder, new-page, new-module]
+    hippotranslation:id: bdd60ad3-92b6-4a40-bd34-3cd9e2d1d216
+    hippotranslation:locale: en
+    /content:
+      jcr:primaryType: hippo:handle
+      jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+      jcr:uuid: 3ba34831-eeb8-40bc-b555-e7da47e02eb8
+      hippo:name: content
+      hippo:versionHistory: 85ac1b34-110c-43a2-937d-50b11767e5f1
+      /content[1]:
+        jcr:primaryType: visitscotland:General
+        jcr:mixinTypes: ['mix:versionable']
+        jcr:uuid: ecd7c5ef-274f-4566-84b1-f2ff7c41afa1
+        hippo:availability: [preview]
+        hippostd:retainable: false
+        hippostd:state: unpublished
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2021-06-29T15:19:57.775+01:00
+        hippostdpubwf:lastModificationDate: 2024-01-30T10:37:25.405Z
+        hippostdpubwf:lastModifiedBy: admin
+        hippotranslation:id: 130313af-b109-4e68-8696-7a6aad03e60b
+        hippotranslation:locale: en
+        visitscotland:breadcrumb: Development Sandbox
+        visitscotland:hideNewsletter: false
+        visitscotland:newsletter: true
+        visitscotland:pswPosition: Hidden
+        visitscotland:seoDescription: Welcome to VisitScotland Business Events.
+        visitscotland:seoNoIndex: false
+        visitscotland:seoTitle: Welcome to Business Events Scotland
+        visitscotland:teaser: This are development examples of general pages
+        visitscotland:theme: Top-Level
+        visitscotland:title: General Pages
+        visitscotland:translation: ''
+        /visitscotland:heroImage:
+          jcr:primaryType: hippogallerypicker:imagelink
+          hippo:docbase: 6fe01b32-04e9-4d0f-86c9-b6b8bd246a67
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+        /visitscotland:introduction:
+          jcr:primaryType: hippostd:html
+          hippostd:content: <p>Software development, a dynamic field, involves designing,
+            coding, and maintaining applications. Agile methodologies, collaboration,
+            and diverse tech tools drive innovation. From web to AI, it shapes our
+            digital world, emphasizing security and quality assurance.</p>
+      /content[2]:
+        jcr:primaryType: visitscotland:General
+        jcr:mixinTypes: ['mix:referenceable']
+        jcr:uuid: cc69a73c-893e-441c-a280-19b563a92701
+        hippo:availability: []
+        hippostd:retainable: false
+        hippostd:state: draft
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2021-06-29T15:19:57.775+01:00
+        hippostdpubwf:lastModificationDate: 2024-01-30T10:36:57.647Z
+        hippostdpubwf:lastModifiedBy: admin
+        hippotranslation:id: 130313af-b109-4e68-8696-7a6aad03e60b
+        hippotranslation:locale: en
+        visitscotland:breadcrumb: Development Sandbox
+        visitscotland:hideNewsletter: false
+        visitscotland:newsletter: true
+        visitscotland:pswPosition: Hidden
+        visitscotland:seoDescription: Welcome to VisitScotland Business Events.
+        visitscotland:seoNoIndex: false
+        visitscotland:seoTitle: Welcome to Business Events Scotland
+        visitscotland:teaser: This are development examples of general pages
+        visitscotland:theme: Top-Level
+        visitscotland:title: General Pages
+        visitscotland:translation: ''
+        /visitscotland:heroImage:
+          jcr:primaryType: hippogallerypicker:imagelink
+          hippo:docbase: 6fe01b32-04e9-4d0f-86c9-b6b8bd246a67
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+        /visitscotland:introduction:
+          jcr:primaryType: hippostd:html
+          hippostd:content: <p>Software development, a dynamic field, involves designing,
+            coding, and maintaining applications. Agile methodologies, collaboration,
+            and diverse tech tools drive innovation. From web to AI, it shapes our
+            digital world, emphasizing security and quality assurance.</p>
+      /content[3]:
+        jcr:primaryType: visitscotland:General
+        jcr:mixinTypes: ['mix:referenceable']
+        jcr:uuid: a257be80-9366-4710-89f1-18d71a686a3b
+        hippo:availability: [live]
+        hippostd:retainable: false
+        hippostd:state: published
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2021-06-29T15:19:57.775+01:00
+        hippostdpubwf:lastModificationDate: 2024-01-30T10:37:25.405Z
+        hippostdpubwf:lastModifiedBy: admin
+        hippostdpubwf:publicationDate: 2024-01-30T10:37:32.558Z
+        hippotranslation:id: 130313af-b109-4e68-8696-7a6aad03e60b
+        hippotranslation:locale: en
+        visitscotland:breadcrumb: Development Sandbox
+        visitscotland:hideNewsletter: false
+        visitscotland:newsletter: true
+        visitscotland:pswPosition: Hidden
+        visitscotland:seoDescription: Welcome to VisitScotland Business Events.
+        visitscotland:seoNoIndex: false
+        visitscotland:seoTitle: Welcome to Business Events Scotland
+        visitscotland:teaser: This are development examples of general pages
+        visitscotland:theme: Top-Level
+        visitscotland:title: General Pages
+        visitscotland:translation: ''
+        /visitscotland:heroImage:
+          jcr:primaryType: hippogallerypicker:imagelink
+          hippo:docbase: 6fe01b32-04e9-4d0f-86c9-b6b8bd246a67
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+        /visitscotland:introduction:
+          jcr:primaryType: hippostd:html
+          hippostd:content: <p>Software development, a dynamic field, involves designing,
+            coding, and maintaining applications. Agile methodologies, collaboration,
+            and diverse tech tools drive innovation. From web to AI, it shapes our
+            digital world, emphasizing security and quality assurance.</p>
+    /simple-page:
+      jcr:primaryType: hippostd:folder
+      jcr:mixinTypes: ['hippo:named', 'hippotranslation:translated', 'mix:versionable']
+      jcr:uuid: 1c1f498d-c1a3-41d4-9290-5bf5fa90f0a1
+      hippo:name: Simple Page
+      hippostd:foldertype: [new-translated-folder, new-page, new-module]
+      hippotranslation:id: 6ddcfd3f-4e9c-4a1a-a4d1-f28d2e6ba143
+      hippotranslation:locale: en
+      /content:
+        jcr:primaryType: hippo:handle
+        jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+        jcr:uuid: e973cfc4-93f1-4d7b-91af-caa97482691b
+        hippo:name: Simple
+        hippo:versionHistory: d80ed520-83fd-4951-9440-18eca613537d
+        /content[1]:
+          jcr:primaryType: visitscotland:General
+          jcr:mixinTypes: ['mix:referenceable']
+          jcr:uuid: 5ac8c86e-26a7-4c74-86a5-7c31990789d7
+          hippo:availability: []
+          hippostd:retainable: false
+          hippostd:state: draft
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2024-01-30T10:09:27.135Z
+          hippostdpubwf:lastModificationDate: 2024-01-31T10:30:04.054Z
+          hippostdpubwf:lastModifiedBy: admin
+          hippotranslation:id: b02bf6e2-c9a0-450e-83aa-58d0d964abe9
+          hippotranslation:locale: en
+          visitscotland:breadcrumb: ''
+          visitscotland:hideNewsletter: false
+          visitscotland:pswPosition: Default
+          visitscotland:seoDescription: Start your journey to change
+          visitscotland:seoNoIndex: false
+          visitscotland:seoTitle: Start your journey to change
+          visitscotland:teaser: This is a Simple Page
+          visitscotland:theme: Simple
+          visitscotland:title: Start your journey to change
+          visitscotland:translation: ''
+          /visitscotland:heroImage:
+            jcr:primaryType: hippogallerypicker:imagelink
+            hippo:docbase: bf46fa76-e050-4555-8fb5-9c01e7b35d00
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+          /visitscotland:introduction:
+            jcr:primaryType: hippostd:html
+            hippostd:content: <p>Scotland, a prime business destination, boasts a
+              diverse economy with strengths in oil and gas, renewable energy, tourism,
+              and technology. Cities like Edinburgh and Glasgow provide a thriving
+              business environment, with Edinburgh excelling in financial services,
+              and Glasgow leading in manufacturing and innovation. The nation's skilled
+              workforce, coupled with a supportive business infrastructure, attracts
+              international companies seeking growth.</p>
+        /content[2]:
+          jcr:primaryType: visitscotland:General
+          jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+          jcr:uuid: 953e92fe-cd48-403d-9cd0-42dc325ff90d
+          hippo:availability: [preview]
+          hippostd:retainable: false
+          hippostd:state: unpublished
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2024-01-30T10:09:27.135Z
+          hippostdpubwf:lastModificationDate: 2024-01-31T10:30:07.225Z
+          hippostdpubwf:lastModifiedBy: admin
+          hippotranslation:id: b02bf6e2-c9a0-450e-83aa-58d0d964abe9
+          hippotranslation:locale: en
+          visitscotland:breadcrumb: ''
+          visitscotland:hideNewsletter: false
+          visitscotland:pswPosition: Default
+          visitscotland:seoDescription: Start your journey to change
+          visitscotland:seoNoIndex: false
+          visitscotland:seoTitle: Start your journey to change
+          visitscotland:teaser: This is a Simple Page
+          visitscotland:theme: Simple
+          visitscotland:title: Start your journey to change
+          visitscotland:translation: ''
+          /visitscotland:heroImage:
+            jcr:primaryType: hippogallerypicker:imagelink
+            hippo:docbase: bf46fa76-e050-4555-8fb5-9c01e7b35d00
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+          /visitscotland:introduction:
+            jcr:primaryType: hippostd:html
+            hippostd:content: <p>Scotland, a prime business destination, boasts a
+              diverse economy with strengths in oil and gas, renewable energy, tourism,
+              and technology. Cities like Edinburgh and Glasgow provide a thriving
+              business environment, with Edinburgh excelling in financial services,
+              and Glasgow leading in manufacturing and innovation. The nation's skilled
+              workforce, coupled with a supportive business infrastructure, attracts
+              international companies seeking growth.</p>
+        /content[3]:
+          jcr:primaryType: visitscotland:General
+          jcr:mixinTypes: ['mix:referenceable']
+          jcr:uuid: ddf1bdeb-4559-432b-8961-cf54e812a7dc
+          hippo:availability: [live]
+          hippostd:retainable: false
+          hippostd:state: published
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2024-01-30T10:09:27.135Z
+          hippostdpubwf:lastModificationDate: 2024-01-31T10:30:07.225Z
+          hippostdpubwf:lastModifiedBy: admin
+          hippostdpubwf:publicationDate: 2024-01-31T10:30:09.656Z
+          hippotranslation:id: b02bf6e2-c9a0-450e-83aa-58d0d964abe9
+          hippotranslation:locale: en
+          visitscotland:breadcrumb: ''
+          visitscotland:hideNewsletter: false
+          visitscotland:pswPosition: Default
+          visitscotland:seoDescription: Start your journey to change
+          visitscotland:seoNoIndex: false
+          visitscotland:seoTitle: Start your journey to change
+          visitscotland:teaser: This is a Simple Page
+          visitscotland:theme: Simple
+          visitscotland:title: Start your journey to change
+          visitscotland:translation: ''
+          /visitscotland:heroImage:
+            jcr:primaryType: hippogallerypicker:imagelink
+            hippo:docbase: bf46fa76-e050-4555-8fb5-9c01e7b35d00
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+          /visitscotland:introduction:
+            jcr:primaryType: hippostd:html
+            hippostd:content: <p>Scotland, a prime business destination, boasts a
+              diverse economy with strengths in oil and gas, renewable energy, tourism,
+              and technology. Cities like Edinburgh and Glasgow provide a thriving
+              business environment, with Edinburgh excelling in financial services,
+              and Glasgow leading in manufacturing and innovation. The nation's skilled
+              workforce, coupled with a supportive business infrastructure, attracts
+              international companies seeking growth.</p>
+    /standard-page:
+      jcr:primaryType: hippostd:folder
+      jcr:mixinTypes: ['hippo:named', 'hippotranslation:translated', 'mix:versionable']
+      jcr:uuid: 85f528f5-1b9e-4fa7-b947-f89e96558eca
+      hippo:name: Standard Page
+      hippostd:foldertype: [new-translated-folder, new-page, new-module]
+      hippotranslation:id: 7ffafb65-60d1-4d86-8ec2-57fc3e597f91
+      hippotranslation:locale: en
+      /content:
+        jcr:primaryType: hippo:handle
+        jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+        jcr:uuid: 183aeff0-ce2e-42f7-9884-0e0ce3da6e17
+        hippo:name: Standard Page
+        hippo:versionHistory: f0e1587e-7ede-408a-bb76-fc82f6414802
+        /content[1]:
+          jcr:primaryType: visitscotland:General
+          jcr:mixinTypes: ['mix:versionable']
+          jcr:uuid: a1ac1dbf-5ed8-4332-86eb-9b6a7568ddf8
+          hippo:availability: [preview]
+          hippostd:retainable: false
+          hippostd:state: unpublished
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2024-01-30T10:09:27.135Z
+          hippostdpubwf:lastModificationDate: 2024-01-31T10:15:52.895Z
+          hippostdpubwf:lastModifiedBy: admin
+          hippotranslation:id: 05c76eea-9281-4a4d-a7a8-001f1be791a7
+          hippotranslation:locale: en
+          visitscotland:breadcrumb: ''
+          visitscotland:hideNewsletter: false
+          visitscotland:pswPosition: Default
+          visitscotland:seoDescription: Start your journey to change
+          visitscotland:seoNoIndex: false
+          visitscotland:seoTitle: Start your journey to change
+          visitscotland:teaser: This is a Standard Page
+          visitscotland:theme: Standard
+          visitscotland:title: Start your journey to change
+          visitscotland:translation: ''
+          /visitscotland:heroImage:
+            jcr:primaryType: hippogallerypicker:imagelink
+            hippo:docbase: bf46fa76-e050-4555-8fb5-9c01e7b35d00
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+          /visitscotland:introduction:
+            jcr:primaryType: hippostd:html
+            hippostd:content: <p>Scotland, a prime business destination, boasts a
+              diverse economy with strengths in oil and gas, renewable energy, tourism,
+              and technology. Cities like Edinburgh and Glasgow provide a thriving
+              business environment, with Edinburgh excelling in financial services,
+              and Glasgow leading in manufacturing and innovation. The nation's skilled
+              workforce, coupled with a supportive business infrastructure, attracts
+              international companies seeking growth.</p>
+        /content[2]:
+          jcr:primaryType: visitscotland:General
+          jcr:mixinTypes: ['mix:referenceable']
+          jcr:uuid: fa199330-cd01-49df-a87b-ad7b2a3554c0
+          hippo:availability: []
+          hippostd:retainable: false
+          hippostd:state: draft
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2024-01-30T10:09:27.135Z
+          hippostdpubwf:lastModificationDate: 2024-01-31T10:15:41.838Z
+          hippostdpubwf:lastModifiedBy: admin
+          hippotranslation:id: 05c76eea-9281-4a4d-a7a8-001f1be791a7
+          hippotranslation:locale: en
+          visitscotland:breadcrumb: ''
+          visitscotland:hideNewsletter: false
+          visitscotland:pswPosition: Default
+          visitscotland:seoDescription: Start your journey to change
+          visitscotland:seoNoIndex: false
+          visitscotland:seoTitle: Start your journey to change
+          visitscotland:teaser: This is a Standard Page
+          visitscotland:theme: Standard
+          visitscotland:title: Start your journey to change
+          visitscotland:translation: ''
+          /visitscotland:heroImage:
+            jcr:primaryType: hippogallerypicker:imagelink
+            hippo:docbase: bf46fa76-e050-4555-8fb5-9c01e7b35d00
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+          /visitscotland:introduction:
+            jcr:primaryType: hippostd:html
+            hippostd:content: <p>Scotland, a prime business destination, boasts a
+              diverse economy with strengths in oil and gas, renewable energy, tourism,
+              and technology. Cities like Edinburgh and Glasgow provide a thriving
+              business environment, with Edinburgh excelling in financial services,
+              and Glasgow leading in manufacturing and innovation. The nation's skilled
+              workforce, coupled with a supportive business infrastructure, attracts
+              international companies seeking growth.</p>
+        /content[3]:
+          jcr:primaryType: visitscotland:General
+          jcr:mixinTypes: ['mix:referenceable']
+          jcr:uuid: 0dcbcf73-c268-4067-9c24-aac80a8ed1ef
+          hippo:availability: [live]
+          hippostd:retainable: false
+          hippostd:state: published
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2024-01-30T10:09:27.135Z
+          hippostdpubwf:lastModificationDate: 2024-01-31T10:15:52.895Z
+          hippostdpubwf:lastModifiedBy: admin
+          hippostdpubwf:publicationDate: 2024-01-31T10:29:52.166Z
+          hippotranslation:id: 05c76eea-9281-4a4d-a7a8-001f1be791a7
+          hippotranslation:locale: en
+          visitscotland:breadcrumb: ''
+          visitscotland:hideNewsletter: false
+          visitscotland:pswPosition: Default
+          visitscotland:seoDescription: Start your journey to change
+          visitscotland:seoNoIndex: false
+          visitscotland:seoTitle: Start your journey to change
+          visitscotland:teaser: This is a Standard Page
+          visitscotland:theme: Standard
+          visitscotland:title: Start your journey to change
+          visitscotland:translation: ''
+          /visitscotland:heroImage:
+            jcr:primaryType: hippogallerypicker:imagelink
+            hippo:docbase: bf46fa76-e050-4555-8fb5-9c01e7b35d00
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+          /visitscotland:introduction:
+            jcr:primaryType: hippostd:html
+            hippostd:content: <p>Scotland, a prime business destination, boasts a
+              diverse economy with strengths in oil and gas, renewable energy, tourism,
+              and technology. Cities like Edinburgh and Glasgow provide a thriving
+              business environment, with Edinburgh excelling in financial services,
+              and Glasgow leading in manufacturing and innovation. The nation's skilled
+              workforce, coupled with a supportive business infrastructure, attracts
+              international companies seeking growth.</p>
+    /top-level-page:
+      jcr:primaryType: hippostd:folder
+      jcr:mixinTypes: ['hippo:named', 'hippotranslation:translated', 'mix:versionable']
+      jcr:uuid: 59a5e177-937c-4022-af3b-07bb5d52947e
+      hippo:name: Top-Level Page
+      hippostd:foldertype: [new-translated-folder, new-page, new-module]
+      hippotranslation:id: 2d65e09a-8692-4b5a-a944-ed69c7ada8c4
+      hippotranslation:locale: en
+      /content:
+        jcr:primaryType: hippo:handle
+        jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+        jcr:uuid: a7c68ee9-0d97-4f1f-91cd-791d836fd4a0
+        hippo:name: Top-Level Page
+        hippo:versionHistory: 7eecc421-82aa-4ae4-a291-684d6918e4e2
+        /content[1]:
+          jcr:primaryType: visitscotland:General
+          jcr:mixinTypes: ['mix:versionable']
+          jcr:uuid: c3b0b9ea-45e3-42b6-8b8a-d1bbf5837b70
+          hippo:availability: [preview]
+          hippostd:retainable: false
+          hippostd:state: unpublished
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2024-01-30T10:09:27.135Z
+          hippostdpubwf:lastModificationDate: 2024-01-31T10:14:26.462Z
+          hippostdpubwf:lastModifiedBy: admin
+          hippotranslation:id: 9c3d7ec7-48b7-46ae-988e-8e9ef3ae701b
+          hippotranslation:locale: en
+          visitscotland:breadcrumb: ''
+          visitscotland:hideNewsletter: false
+          visitscotland:pswPosition: Default
+          visitscotland:seoDescription: Start your journey to change
+          visitscotland:seoNoIndex: false
+          visitscotland:seoTitle: Start your journey to change
+          visitscotland:teaser: This is a Top-Level Page
+          visitscotland:theme: Simple
+          visitscotland:title: Start your journey to change
+          visitscotland:translation: ''
+          /visitscotland:heroImage:
+            jcr:primaryType: hippogallerypicker:imagelink
+            hippo:docbase: bf46fa76-e050-4555-8fb5-9c01e7b35d00
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+          /visitscotland:introduction:
+            jcr:primaryType: hippostd:html
+            hippostd:content: <p>Scotland, a prime business destination, boasts a
+              diverse economy with strengths in oil and gas, renewable energy, tourism,
+              and technology. Cities like Edinburgh and Glasgow provide a thriving
+              business environment, with Edinburgh excelling in financial services,
+              and Glasgow leading in manufacturing and innovation. The nation's skilled
+              workforce, coupled with a supportive business infrastructure, attracts
+              international companies seeking growth.</p>
+        /content[2]:
+          jcr:primaryType: visitscotland:General
+          jcr:mixinTypes: ['mix:referenceable']
+          jcr:uuid: 350142e9-6151-4bef-8d9a-e548d60b2c84
+          hippo:availability: []
+          hippostd:retainable: false
+          hippostd:state: draft
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2024-01-30T10:09:27.135Z
+          hippostdpubwf:lastModificationDate: 2024-01-31T10:14:22.345Z
+          hippostdpubwf:lastModifiedBy: admin
+          hippotranslation:id: 9c3d7ec7-48b7-46ae-988e-8e9ef3ae701b
+          hippotranslation:locale: en
+          visitscotland:breadcrumb: ''
+          visitscotland:hideNewsletter: false
+          visitscotland:pswPosition: Default
+          visitscotland:seoDescription: Start your journey to change
+          visitscotland:seoNoIndex: false
+          visitscotland:seoTitle: Start your journey to change
+          visitscotland:teaser: This is a Top-Level Page
+          visitscotland:theme: Simple
+          visitscotland:title: Start your journey to change
+          visitscotland:translation: ''
+          /visitscotland:heroImage:
+            jcr:primaryType: hippogallerypicker:imagelink
+            hippo:docbase: bf46fa76-e050-4555-8fb5-9c01e7b35d00
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+          /visitscotland:introduction:
+            jcr:primaryType: hippostd:html
+            hippostd:content: <p>Scotland, a prime business destination, boasts a
+              diverse economy with strengths in oil and gas, renewable energy, tourism,
+              and technology. Cities like Edinburgh and Glasgow provide a thriving
+              business environment, with Edinburgh excelling in financial services,
+              and Glasgow leading in manufacturing and innovation. The nation's skilled
+              workforce, coupled with a supportive business infrastructure, attracts
+              international companies seeking growth.</p>
+        /content[3]:
+          jcr:primaryType: visitscotland:General
+          jcr:mixinTypes: ['mix:referenceable']
+          jcr:uuid: 77ce06ea-8f9f-490e-958b-f5fb0a757b2f
+          hippo:availability: [live]
+          hippostd:retainable: false
+          hippostd:state: published
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2024-01-30T10:09:27.135Z
+          hippostdpubwf:lastModificationDate: 2024-01-31T10:14:26.462Z
+          hippostdpubwf:lastModifiedBy: admin
+          hippostdpubwf:publicationDate: 2024-01-31T10:14:30.140Z
+          hippotranslation:id: 9c3d7ec7-48b7-46ae-988e-8e9ef3ae701b
+          hippotranslation:locale: en
+          visitscotland:breadcrumb: ''
+          visitscotland:hideNewsletter: false
+          visitscotland:pswPosition: Default
+          visitscotland:seoDescription: Start your journey to change
+          visitscotland:seoNoIndex: false
+          visitscotland:seoTitle: Start your journey to change
+          visitscotland:teaser: This is a Top-Level Page
+          visitscotland:theme: Simple
+          visitscotland:title: Start your journey to change
+          visitscotland:translation: ''
+          /visitscotland:heroImage:
+            jcr:primaryType: hippogallerypicker:imagelink
+            hippo:docbase: bf46fa76-e050-4555-8fb5-9c01e7b35d00
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+          /visitscotland:introduction:
+            jcr:primaryType: hippostd:html
+            hippostd:content: <p>Scotland, a prime business destination, boasts a
+              diverse economy with strengths in oil and gas, renewable energy, tourism,
+              and technology. Cities like Edinburgh and Glasgow provide a thriving
+              business environment, with Edinburgh excelling in financial services,
+              and Glasgow leading in manufacturing and innovation. The nation's skilled
+              workforce, coupled with a supportive business infrastructure, attracts
+              international companies seeking growth.</p>
+    /otyml:
+      jcr:primaryType: hippostd:folder
+      jcr:mixinTypes: ['hippo:named', 'hippotranslation:translated', 'mix:versionable']
+      jcr:uuid: 093e63b7-3c28-44e4-ab55-074e1f05ff0c
+      hippo:name: OTYML
+      hippostd:foldertype: [new-translated-folder, new-page, new-module]
+      hippotranslation:id: df73e91c-7ae8-4675-841f-a9c041a235dd
+      hippotranslation:locale: en
+      /content:
+        jcr:primaryType: hippo:handle
+        jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+        jcr:uuid: 100d5ec6-2dc4-45cc-a7b4-01c657ce15a6
+        hippo:name: OTYML
+        hippo:versionHistory: ff97c4f0-b803-4a80-9906-49a832fb1467
+        /content[1]:
+          jcr:primaryType: visitscotland:General
+          jcr:mixinTypes: ['mix:versionable']
+          jcr:uuid: f48f60a8-1851-4ea8-8963-529e1715a4dc
+          hippo:availability: [preview]
+          hippostd:retainable: false
+          hippostd:state: unpublished
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2024-01-30T10:09:27.135Z
+          hippostdpubwf:lastModificationDate: 2024-01-31T10:43:21.440Z
+          hippostdpubwf:lastModifiedBy: admin
+          hippotranslation:id: 83f3588b-7492-4c24-a856-bf4435bdda1f
+          hippotranslation:locale: en
+          visitscotland:breadcrumb: ''
+          visitscotland:hideNewsletter: false
+          visitscotland:pswPosition: Default
+          visitscotland:seoDescription: Start your journey to change
+          visitscotland:seoNoIndex: false
+          visitscotland:seoTitle: Start your journey to change
+          visitscotland:teaser: Other things you might like Demo
+          visitscotland:theme: Simple
+          visitscotland:title: Other things you might like Demo
+          visitscotland:translation: ''
+          /visitscotland:heroImage:
+            jcr:primaryType: hippogallerypicker:imagelink
+            hippo:docbase: bf46fa76-e050-4555-8fb5-9c01e7b35d00
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+          /visitscotland:introduction:
+            jcr:primaryType: hippostd:html
+            hippostd:content: <p>Scotland, a prime business destination, boasts a
+              diverse economy with strengths in oil and gas, renewable energy, tourism,
+              and technology. Cities like Edinburgh and Glasgow provide a thriving
+              business environment, with Edinburgh excelling in financial services,
+              and Glasgow leading in manufacturing and innovation. The nation's skilled
+              workforce, coupled with a supportive business infrastructure, attracts
+              international companies seeking growth.</p>
+          /visitscotland:otherThings:
+            jcr:primaryType: visitscotland:OTYML
+            visitscotland:title: ''
+            /visitscotland:links[1]:
+              jcr:primaryType: hippo:mirror
+              hippo:docbase: e973cfc4-93f1-4d7b-91af-caa97482691b
+            /visitscotland:links[2]:
+              jcr:primaryType: hippo:mirror
+              hippo:docbase: 183aeff0-ce2e-42f7-9884-0e0ce3da6e17
+            /visitscotland:links[3]:
+              jcr:primaryType: hippo:mirror
+              hippo:docbase: a7c68ee9-0d97-4f1f-91cd-791d836fd4a0
+            /visitscotland:links[4]:
+              jcr:primaryType: hippo:mirror
+              hippo:docbase: aa536081-1bc9-40fc-974b-111ea32c72f2
+            /visitscotland:links[5]:
+              jcr:primaryType: hippo:mirror
+              hippo:docbase: 4a0d5fec-e83e-494f-b3d2-7715ec862707
+            /visitscotland:links[6]:
+              jcr:primaryType: hippo:mirror
+              hippo:docbase: c8f6ef96-a9cf-4d1d-aa35-de18ffed1d11
+        /content[2]:
+          jcr:primaryType: visitscotland:General
+          jcr:mixinTypes: ['mix:referenceable']
+          jcr:uuid: 370e1038-d7f0-418d-993c-07dac122e2f4
+          hippo:availability: []
+          hippostd:retainable: false
+          hippostd:state: draft
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2024-01-30T10:09:27.135Z
+          hippostdpubwf:lastModificationDate: 2024-01-31T10:42:05.927Z
+          hippostdpubwf:lastModifiedBy: admin
+          hippotranslation:id: 83f3588b-7492-4c24-a856-bf4435bdda1f
+          hippotranslation:locale: en
+          visitscotland:breadcrumb: ''
+          visitscotland:hideNewsletter: false
+          visitscotland:pswPosition: Default
+          visitscotland:seoDescription: Start your journey to change
+          visitscotland:seoNoIndex: false
+          visitscotland:seoTitle: Start your journey to change
+          visitscotland:teaser: Other things you might like Demo
+          visitscotland:theme: Simple
+          visitscotland:title: Other things you might like Demo
+          visitscotland:translation: ''
+          /visitscotland:heroImage:
+            jcr:primaryType: hippogallerypicker:imagelink
+            hippo:docbase: bf46fa76-e050-4555-8fb5-9c01e7b35d00
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+          /visitscotland:introduction:
+            jcr:primaryType: hippostd:html
+            hippostd:content: <p>Scotland, a prime business destination, boasts a
+              diverse economy with strengths in oil and gas, renewable energy, tourism,
+              and technology. Cities like Edinburgh and Glasgow provide a thriving
+              business environment, with Edinburgh excelling in financial services,
+              and Glasgow leading in manufacturing and innovation. The nation's skilled
+              workforce, coupled with a supportive business infrastructure, attracts
+              international companies seeking growth.</p>
+          /visitscotland:otherThings:
+            jcr:primaryType: visitscotland:OTYML
+            visitscotland:title: ''
+            /visitscotland:links[1]:
+              jcr:primaryType: hippo:mirror
+              hippo:docbase: e973cfc4-93f1-4d7b-91af-caa97482691b
+            /visitscotland:links[2]:
+              jcr:primaryType: hippo:mirror
+              hippo:docbase: 183aeff0-ce2e-42f7-9884-0e0ce3da6e17
+            /visitscotland:links[3]:
+              jcr:primaryType: hippo:mirror
+              hippo:docbase: a7c68ee9-0d97-4f1f-91cd-791d836fd4a0
+            /visitscotland:links[4]:
+              jcr:primaryType: hippo:mirror
+              hippo:docbase: aa536081-1bc9-40fc-974b-111ea32c72f2
+            /visitscotland:links[5]:
+              jcr:primaryType: hippo:mirror
+              hippo:docbase: 4a0d5fec-e83e-494f-b3d2-7715ec862707
+            /visitscotland:links[6]:
+              jcr:primaryType: hippo:mirror
+              hippo:docbase: c8f6ef96-a9cf-4d1d-aa35-de18ffed1d11
+        /content[3]:
+          jcr:primaryType: visitscotland:General
+          jcr:mixinTypes: ['mix:referenceable']
+          jcr:uuid: 183b0578-6d0e-4a62-8710-9dc31996bb98
+          hippo:availability: [live]
+          hippostd:retainable: false
+          hippostd:state: published
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2024-01-30T10:09:27.135Z
+          hippostdpubwf:lastModificationDate: 2024-01-31T10:43:21.440Z
+          hippostdpubwf:lastModifiedBy: admin
+          hippostdpubwf:publicationDate: 2024-01-31T10:46:54.396Z
+          hippotranslation:id: 83f3588b-7492-4c24-a856-bf4435bdda1f
+          hippotranslation:locale: en
+          visitscotland:breadcrumb: ''
+          visitscotland:hideNewsletter: false
+          visitscotland:pswPosition: Default
+          visitscotland:seoDescription: Start your journey to change
+          visitscotland:seoNoIndex: false
+          visitscotland:seoTitle: Start your journey to change
+          visitscotland:teaser: Other things you might like Demo
+          visitscotland:theme: Simple
+          visitscotland:title: Other things you might like Demo
+          visitscotland:translation: ''
+          /visitscotland:heroImage:
+            jcr:primaryType: hippogallerypicker:imagelink
+            hippo:docbase: bf46fa76-e050-4555-8fb5-9c01e7b35d00
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+          /visitscotland:introduction:
+            jcr:primaryType: hippostd:html
+            hippostd:content: <p>Scotland, a prime business destination, boasts a
+              diverse economy with strengths in oil and gas, renewable energy, tourism,
+              and technology. Cities like Edinburgh and Glasgow provide a thriving
+              business environment, with Edinburgh excelling in financial services,
+              and Glasgow leading in manufacturing and innovation. The nation's skilled
+              workforce, coupled with a supportive business infrastructure, attracts
+              international companies seeking growth.</p>
+          /visitscotland:otherThings:
+            jcr:primaryType: visitscotland:OTYML
+            visitscotland:title: ''
+            /visitscotland:links[1]:
+              jcr:primaryType: hippo:mirror
+              hippo:docbase: e973cfc4-93f1-4d7b-91af-caa97482691b
+            /visitscotland:links[2]:
+              jcr:primaryType: hippo:mirror
+              hippo:docbase: 183aeff0-ce2e-42f7-9884-0e0ce3da6e17
+            /visitscotland:links[3]:
+              jcr:primaryType: hippo:mirror
+              hippo:docbase: a7c68ee9-0d97-4f1f-91cd-791d836fd4a0
+            /visitscotland:links[4]:
+              jcr:primaryType: hippo:mirror
+              hippo:docbase: aa536081-1bc9-40fc-974b-111ea32c72f2
+            /visitscotland:links[5]:
+              jcr:primaryType: hippo:mirror
+              hippo:docbase: 4a0d5fec-e83e-494f-b3d2-7715ec862707
+            /visitscotland:links[6]:
+              jcr:primaryType: hippo:mirror
+              hippo:docbase: c8f6ef96-a9cf-4d1d-aa35-de18ffed1d11
+    /video:
+      jcr:primaryType: hippostd:folder
+      jcr:mixinTypes: ['hippo:named', 'hippotranslation:translated', 'mix:versionable']
+      jcr:uuid: bd7ebd43-952f-4611-a7d6-7b2bdbc096fe
+      hippo:name: Video
+      hippostd:foldertype: [new-translated-folder, new-page, new-module]
+      hippotranslation:id: 8cf4b7a5-c1fe-45bf-932f-008cc6e6527b
+      hippotranslation:locale: en
+      /content:
+        jcr:primaryType: hippo:handle
+        jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+        jcr:uuid: aa536081-1bc9-40fc-974b-111ea32c72f2
+        hippo:name: Overlay Video
+        hippo:versionHistory: 3cd4ccb7-0b8c-43c6-aa1d-a0e621c77263
+        /content[1]:
+          jcr:primaryType: visitscotland:General
+          jcr:mixinTypes: ['mix:versionable']
+          jcr:uuid: 4e22e408-f285-4ea7-9e38-9acf3fdfe1ce
+          hippo:availability: [preview]
+          hippostd:retainable: false
+          hippostd:state: unpublished
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2024-01-30T10:09:27.135Z
+          hippostdpubwf:lastModificationDate: 2024-01-31T10:38:16.419Z
+          hippostdpubwf:lastModifiedBy: admin
+          hippotranslation:id: 55f87970-d567-4390-bcc2-0da8f899f004
+          hippotranslation:locale: en
+          visitscotland:breadcrumb: ''
+          visitscotland:hideNewsletter: false
+          visitscotland:pswPosition: Default
+          visitscotland:seoDescription: Start your journey to change
+          visitscotland:seoNoIndex: false
+          visitscotland:seoTitle: Start your journey to change
+          visitscotland:teaser: This is a Page with an overlay video
+          visitscotland:theme: Simple
+          visitscotland:title: Start your journey to change
+          visitscotland:translation: ''
+          /visitscotland:heroImage:
+            jcr:primaryType: hippogallerypicker:imagelink
+            hippo:docbase: bf46fa76-e050-4555-8fb5-9c01e7b35d00
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+          /visitscotland:introduction:
+            jcr:primaryType: hippostd:html
+            hippostd:content: <p>Scotland, a prime business destination, boasts a
+              diverse economy with strengths in oil and gas, renewable energy, tourism,
+              and technology. Cities like Edinburgh and Glasgow provide a thriving
+              business environment, with Edinburgh excelling in financial services,
+              and Glasgow leading in manufacturing and innovation. The nation's skilled
+              workforce, coupled with a supportive business infrastructure, attracts
+              international companies seeking growth.</p>
+          /visitscotland:heroVideo:
+            jcr:primaryType: visitscotland:VideoLink
+            /visitscotland:videoLink:
+              jcr:primaryType: hippo:mirror
+              hippo:docbase: a3b61d9b-62b0-4195-b8e8-14aec06ffd0a
+        /content[2]:
+          jcr:primaryType: visitscotland:General
+          jcr:mixinTypes: ['mix:referenceable']
+          jcr:uuid: b876c5c1-35de-4083-be2b-d2751d46c29e
+          hippo:availability: []
+          hippostd:retainable: false
+          hippostd:state: draft
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2024-01-30T10:09:27.135Z
+          hippostdpubwf:lastModificationDate: 2024-01-31T10:37:39.159Z
+          hippostdpubwf:lastModifiedBy: admin
+          hippotranslation:id: 55f87970-d567-4390-bcc2-0da8f899f004
+          hippotranslation:locale: en
+          visitscotland:breadcrumb: ''
+          visitscotland:hideNewsletter: false
+          visitscotland:pswPosition: Default
+          visitscotland:seoDescription: Start your journey to change
+          visitscotland:seoNoIndex: false
+          visitscotland:seoTitle: Start your journey to change
+          visitscotland:teaser: This is a Page with an overlay video
+          visitscotland:theme: Simple
+          visitscotland:title: Start your journey to change
+          visitscotland:translation: ''
+          /visitscotland:heroImage:
+            jcr:primaryType: hippogallerypicker:imagelink
+            hippo:docbase: bf46fa76-e050-4555-8fb5-9c01e7b35d00
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+          /visitscotland:introduction:
+            jcr:primaryType: hippostd:html
+            hippostd:content: <p>Scotland, a prime business destination, boasts a
+              diverse economy with strengths in oil and gas, renewable energy, tourism,
+              and technology. Cities like Edinburgh and Glasgow provide a thriving
+              business environment, with Edinburgh excelling in financial services,
+              and Glasgow leading in manufacturing and innovation. The nation's skilled
+              workforce, coupled with a supportive business infrastructure, attracts
+              international companies seeking growth.</p>
+          /visitscotland:heroVideo:
+            jcr:primaryType: visitscotland:VideoLink
+            /visitscotland:videoLink:
+              jcr:primaryType: hippo:mirror
+              hippo:docbase: a3b61d9b-62b0-4195-b8e8-14aec06ffd0a
+        /content[3]:
+          jcr:primaryType: visitscotland:General
+          jcr:mixinTypes: ['mix:referenceable']
+          jcr:uuid: 6c88e3e7-4447-4b1f-8157-41f96558c695
+          hippo:availability: [live]
+          hippostd:retainable: false
+          hippostd:state: published
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2024-01-30T10:09:27.135Z
+          hippostdpubwf:lastModificationDate: 2024-01-31T10:38:16.419Z
+          hippostdpubwf:lastModifiedBy: admin
+          hippostdpubwf:publicationDate: 2024-01-31T10:46:54.830Z
+          hippotranslation:id: 55f87970-d567-4390-bcc2-0da8f899f004
+          hippotranslation:locale: en
+          visitscotland:breadcrumb: ''
+          visitscotland:hideNewsletter: false
+          visitscotland:pswPosition: Default
+          visitscotland:seoDescription: Start your journey to change
+          visitscotland:seoNoIndex: false
+          visitscotland:seoTitle: Start your journey to change
+          visitscotland:teaser: This is a Page with an overlay video
+          visitscotland:theme: Simple
+          visitscotland:title: Start your journey to change
+          visitscotland:translation: ''
+          /visitscotland:heroImage:
+            jcr:primaryType: hippogallerypicker:imagelink
+            hippo:docbase: bf46fa76-e050-4555-8fb5-9c01e7b35d00
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+          /visitscotland:introduction:
+            jcr:primaryType: hippostd:html
+            hippostd:content: <p>Scotland, a prime business destination, boasts a
+              diverse economy with strengths in oil and gas, renewable energy, tourism,
+              and technology. Cities like Edinburgh and Glasgow provide a thriving
+              business environment, with Edinburgh excelling in financial services,
+              and Glasgow leading in manufacturing and innovation. The nation's skilled
+              workforce, coupled with a supportive business infrastructure, attracts
+              international companies seeking growth.</p>
+          /visitscotland:heroVideo:
+            jcr:primaryType: visitscotland:VideoLink
+            /visitscotland:videoLink:
+              jcr:primaryType: hippo:mirror
+              hippo:docbase: a3b61d9b-62b0-4195-b8e8-14aec06ffd0a
+    /news-article:
+      jcr:primaryType: hippostd:folder
+      jcr:mixinTypes: ['hippo:named', 'hippotranslation:translated', 'mix:versionable']
+      jcr:uuid: c8ae78f5-aac9-4723-83f2-60b5dee6bc0e
+      hippo:name: News Article
+      hippostd:foldertype: [new-translated-folder, new-page, new-module]
+      hippotranslation:id: c58c67e3-f1a9-464d-9bf8-86b78f33f5c1
+      hippotranslation:locale: en
+      /content:
+        jcr:primaryType: hippo:handle
+        jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+        jcr:uuid: 4a0d5fec-e83e-494f-b3d2-7715ec862707
+        hippo:name: News Article
+        hippo:versionHistory: d5d212d9-e36e-4980-a420-01fd8c827c39
+        /content[1]:
+          jcr:primaryType: visitscotland:General
+          jcr:mixinTypes: ['mix:versionable']
+          jcr:uuid: ebccfd69-c060-4308-8d77-9730b637d7ae
+          hippo:availability: [preview]
+          hippostd:retainable: false
+          hippostd:state: unpublished
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2024-01-30T10:09:27.135Z
+          hippostdpubwf:lastModificationDate: 2024-01-31T10:34:39.312Z
+          hippostdpubwf:lastModifiedBy: admin
+          hippotranslation:id: b520ecbf-1af7-4219-a9e2-5ec43fc02dcc
+          hippotranslation:locale: en
+          visitscotland:breadcrumb: ''
+          visitscotland:hideNewsletter: false
+          visitscotland:pswPosition: Default
+          visitscotland:seoDescription: Isle of Skye adventure
+          visitscotland:seoNoIndex: false
+          visitscotland:seoTitle: Start your journey to change
+          visitscotland:teaser: This is a News Article Demo
+          visitscotland:theme: Standard
+          visitscotland:title: Isle of Skye adventure
+          visitscotland:translation: ''
+          /visitscotland:heroImage:
+            jcr:primaryType: hippogallerypicker:imagelink
+            hippo:docbase: a2e737b3-c93a-4453-bbe5-ed0d739809f8
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+          /visitscotland:introduction:
+            jcr:primaryType: hippostd:html
+            hippostd:content: <p>An Isle of Skye adventure beckons with its rugged
+              beauty, showcasing dramatic cliffs, waterfalls, and iconic landmarks
+              like the Old Man of Storr. Beyond nature, delve into Scotland's history,
+              exploring charming villages and ancient castles. The Cuillin Mountains
+              offer challenging hikes, while the Fairy Pools enchant with their ethereal
+              beauty. From fresh seafood to traditional dishes, the local cuisine
+              adds a flavorful touch to this sensory-rich journey, making the Isle
+              of Skye an idyllic escape into the untamed beauty of the Scottish highlands.</p>
+          /visitscotland:blog:
+            jcr:primaryType: visitscotland:Blog
+            visitscotland:publishDate: 2024-01-31T00:00:00Z
+            visitscotland:readingTime: 3
+            /visitscotland:author:
+              jcr:primaryType: hippo:mirror
+              hippo:docbase: 81178a86-fdbe-4766-ab92-7a1c74d21d7a
+        /content[2]:
+          jcr:primaryType: visitscotland:General
+          jcr:mixinTypes: ['mix:referenceable']
+          jcr:uuid: f073b3d3-ffda-440d-a805-e979da506ec8
+          hippo:availability: []
+          hippostd:retainable: false
+          hippostd:state: draft
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2024-01-30T10:09:27.135Z
+          hippostdpubwf:lastModificationDate: 2024-01-31T10:30:49.985Z
+          hippostdpubwf:lastModifiedBy: admin
+          hippotranslation:id: b520ecbf-1af7-4219-a9e2-5ec43fc02dcc
+          hippotranslation:locale: en
+          visitscotland:breadcrumb: ''
+          visitscotland:hideNewsletter: false
+          visitscotland:pswPosition: Default
+          visitscotland:seoDescription: Isle of Skye adventure
+          visitscotland:seoNoIndex: false
+          visitscotland:seoTitle: Start your journey to change
+          visitscotland:teaser: This is a News Article Demo
+          visitscotland:theme: Standard
+          visitscotland:title: Isle of Skye adventure
+          visitscotland:translation: ''
+          /visitscotland:heroImage:
+            jcr:primaryType: hippogallerypicker:imagelink
+            hippo:docbase: a2e737b3-c93a-4453-bbe5-ed0d739809f8
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+          /visitscotland:introduction:
+            jcr:primaryType: hippostd:html
+            hippostd:content: <p>An Isle of Skye adventure beckons with its rugged
+              beauty, showcasing dramatic cliffs, waterfalls, and iconic landmarks
+              like the Old Man of Storr. Beyond nature, delve into Scotland's history,
+              exploring charming villages and ancient castles. The Cuillin Mountains
+              offer challenging hikes, while the Fairy Pools enchant with their ethereal
+              beauty. From fresh seafood to traditional dishes, the local cuisine
+              adds a flavorful touch to this sensory-rich journey, making the Isle
+              of Skye an idyllic escape into the untamed beauty of the Scottish highlands.</p>
+          /visitscotland:blog:
+            jcr:primaryType: visitscotland:Blog
+            visitscotland:publishDate: 2024-01-31T00:00:00Z
+            visitscotland:readingTime: 3
+            /visitscotland:author:
+              jcr:primaryType: hippo:mirror
+              hippo:docbase: 81178a86-fdbe-4766-ab92-7a1c74d21d7a
+        /content[3]:
+          jcr:primaryType: visitscotland:General
+          jcr:mixinTypes: ['mix:referenceable']
+          jcr:uuid: 253cd10b-c7dd-4e32-8e64-54a205082ecd
+          hippo:availability: [live]
+          hippostd:retainable: false
+          hippostd:state: published
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2024-01-30T10:09:27.135Z
+          hippostdpubwf:lastModificationDate: 2024-01-31T10:34:39.312Z
+          hippostdpubwf:lastModifiedBy: admin
+          hippostdpubwf:publicationDate: 2024-01-31T10:34:42.410Z
+          hippotranslation:id: b520ecbf-1af7-4219-a9e2-5ec43fc02dcc
+          hippotranslation:locale: en
+          visitscotland:breadcrumb: ''
+          visitscotland:hideNewsletter: false
+          visitscotland:pswPosition: Default
+          visitscotland:seoDescription: Isle of Skye adventure
+          visitscotland:seoNoIndex: false
+          visitscotland:seoTitle: Start your journey to change
+          visitscotland:teaser: This is a News Article Demo
+          visitscotland:theme: Standard
+          visitscotland:title: Isle of Skye adventure
+          visitscotland:translation: ''
+          /visitscotland:heroImage:
+            jcr:primaryType: hippogallerypicker:imagelink
+            hippo:docbase: a2e737b3-c93a-4453-bbe5-ed0d739809f8
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+          /visitscotland:introduction:
+            jcr:primaryType: hippostd:html
+            hippostd:content: <p>An Isle of Skye adventure beckons with its rugged
+              beauty, showcasing dramatic cliffs, waterfalls, and iconic landmarks
+              like the Old Man of Storr. Beyond nature, delve into Scotland's history,
+              exploring charming villages and ancient castles. The Cuillin Mountains
+              offer challenging hikes, while the Fairy Pools enchant with their ethereal
+              beauty. From fresh seafood to traditional dishes, the local cuisine
+              adds a flavorful touch to this sensory-rich journey, making the Isle
+              of Skye an idyllic escape into the untamed beauty of the Scottish highlands.</p>
+          /visitscotland:blog:
+            jcr:primaryType: visitscotland:Blog
+            visitscotland:publishDate: 2024-01-31T00:00:00Z
+            visitscotland:readingTime: 3
+            /visitscotland:author:
+              jcr:primaryType: hippo:mirror
+              hippo:docbase: 81178a86-fdbe-4766-ab92-7a1c74d21d7a
+      /isle-of-skye-adventure:
+        jcr:primaryType: hippo:handle
+        jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+        jcr:uuid: 3e83ad24-5c9c-4855-8d3e-2bedab8ede22
+        hippo:name: Isle of Skye Adventure
+        hippo:versionHistory: 9c5878f6-5dd7-48a8-bfe0-7e68663954b8
+        /isle-of-skye-adventure[1]:
+          jcr:primaryType: visitscotland:Article
+          jcr:mixinTypes: ['mix:referenceable']
+          jcr:uuid: 705cc91f-5e1c-4912-a2a1-8b8515e11483
+          hippo:availability: []
+          hippostd:retainable: false
+          hippostd:state: draft
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2024-01-31T10:10:16.376Z
+          hippostdpubwf:lastModificationDate: 2024-01-31T10:10:16.376Z
+          hippostdpubwf:lastModifiedBy: admin
+          hippotranslation:id: c7b32ed3-d5d5-4a36-8d9a-a35b8722625b
+          hippotranslation:locale: en
+          visitscotland:anchor: ''
+          visitscotland:title: Isle of Skye
+          visitscotland:translation: ''
+          /visitscotland:copy:
+            jcr:primaryType: hippostd:html
+            hippostd:content: ''
+          /visitscotland:paragraph[1]:
+            jcr:primaryType: visitscotland:ArticleSection
+            /visitscotland:copy:
+              jcr:primaryType: hippostd:html
+              hippostd:content: |-
+                <p>Embarking on an Isle of Skye adventure is a journey into the heart of Scotland's rugged beauty. The island, with its dramatic landscapes, boasts majestic cliffs, cascading waterfalls, and otherworldly rock formations. Exploring the iconic landmarks like the Old Man of Storr or the Quiraing is a surreal experience, as misty landscapes unveil the rich tapestry of Scottish nature.</p>
 
-          <p>In Scotland we believe business events are a catalyst for social and economic transformation; they are a driver to tackle climate change; they are a voice for human rights; they are a leader in the global <a href="https://businessevents.visitscotland.com/why-scotland/journey-to-change/" title="Journey to change">Journey to Change</a>.</p>
+                <p>Beyond its natural wonders, the Isle of Skye offers a glimpse into Scotland's history and culture. Visitors can wander through charming villages, each with its own character, and discover ancient castles steeped in tales of clans and battles. The local cuisine, featuring fresh seafood and traditional Scottish dishes, adds a delightful flavor to the adventure.</p>
+            /visitscotland:media:
+              jcr:primaryType: hippogallerypicker:imagelink
+              hippo:docbase: bfddf3d2-4f16-4527-bb80-9867470ac5d4
+              hippo:facets: []
+              hippo:modes: []
+              hippo:values: []
+          /visitscotland:paragraph[2]:
+            jcr:primaryType: visitscotland:ArticleSection
+            /visitscotland:copy:
+              jcr:primaryType: hippostd:html
+              hippostd:content: <p>Whether trekking the challenging Cuillin Mountains
+                or simply meandering through the fairy-tale-like Fairy Pools, an Isle
+                of Skye adventure is a sensory feast. The tranquil ambiance and breathtaking
+                vistas make it a haven for nature enthusiasts and a captivating escape
+                into the untamed beauty of the Scottish highlands.</p>
+        /isle-of-skye-adventure[2]:
+          jcr:primaryType: visitscotland:Article
+          jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+          jcr:uuid: 8cc58419-77f5-4f81-9069-c00305baa57a
+          hippo:availability: [preview]
+          hippostd:retainable: false
+          hippostd:state: unpublished
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2024-01-31T10:10:16.376Z
+          hippostdpubwf:lastModificationDate: 2024-01-31T10:11:48.847Z
+          hippostdpubwf:lastModifiedBy: admin
+          hippotranslation:id: c7b32ed3-d5d5-4a36-8d9a-a35b8722625b
+          hippotranslation:locale: en
+          visitscotland:anchor: ''
+          visitscotland:title: Isle of Skye
+          visitscotland:translation: ''
+          /visitscotland:copy:
+            jcr:primaryType: hippostd:html
+            hippostd:content: ''
+          /visitscotland:paragraph[1]:
+            jcr:primaryType: visitscotland:ArticleSection
+            /visitscotland:copy:
+              jcr:primaryType: hippostd:html
+              hippostd:content: |-
+                <p>Embarking on an Isle of Skye adventure is a journey into the heart of Scotland's rugged beauty. The island, with its dramatic landscapes, boasts majestic cliffs, cascading waterfalls, and otherworldly rock formations. Exploring the iconic landmarks like the Old Man of Storr or the Quiraing is a surreal experience, as misty landscapes unveil the rich tapestry of Scottish nature.</p>
+
+                <p>Beyond its natural wonders, the Isle of Skye offers a glimpse into Scotland's history and culture. Visitors can wander through charming villages, each with its own character, and discover ancient castles steeped in tales of clans and battles. The local cuisine, featuring fresh seafood and traditional Scottish dishes, adds a delightful flavor to the adventure.</p>
+            /visitscotland:media:
+              jcr:primaryType: hippogallerypicker:imagelink
+              hippo:docbase: bfddf3d2-4f16-4527-bb80-9867470ac5d4
+              hippo:facets: []
+              hippo:modes: []
+              hippo:values: []
+          /visitscotland:paragraph[2]:
+            jcr:primaryType: visitscotland:ArticleSection
+            /visitscotland:copy:
+              jcr:primaryType: hippostd:html
+              hippostd:content: <p>Whether trekking the challenging Cuillin Mountains
+                or simply meandering through the fairy-tale-like Fairy Pools, an Isle
+                of Skye adventure is a sensory feast. The tranquil ambiance and breathtaking
+                vistas make it a haven for nature enthusiasts and a captivating escape
+                into the untamed beauty of the Scottish highlands.</p>
+        /isle-of-skye-adventure[3]:
+          jcr:primaryType: visitscotland:Article
+          jcr:mixinTypes: ['mix:referenceable']
+          jcr:uuid: 02293229-8bf8-4ce3-9713-59a125c85414
+          hippo:availability: [live]
+          hippostd:retainable: false
+          hippostd:state: published
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2024-01-31T10:10:16.376Z
+          hippostdpubwf:lastModificationDate: 2024-01-31T10:11:48.847Z
+          hippostdpubwf:lastModifiedBy: admin
+          hippostdpubwf:publicationDate: 2024-01-31T10:34:47.027Z
+          hippotranslation:id: c7b32ed3-d5d5-4a36-8d9a-a35b8722625b
+          hippotranslation:locale: en
+          visitscotland:anchor: ''
+          visitscotland:title: Isle of Skye
+          visitscotland:translation: ''
+          /visitscotland:copy:
+            jcr:primaryType: hippostd:html
+            hippostd:content: ''
+          /visitscotland:paragraph[1]:
+            jcr:primaryType: visitscotland:ArticleSection
+            /visitscotland:copy:
+              jcr:primaryType: hippostd:html
+              hippostd:content: |-
+                <p>Embarking on an Isle of Skye adventure is a journey into the heart of Scotland's rugged beauty. The island, with its dramatic landscapes, boasts majestic cliffs, cascading waterfalls, and otherworldly rock formations. Exploring the iconic landmarks like the Old Man of Storr or the Quiraing is a surreal experience, as misty landscapes unveil the rich tapestry of Scottish nature.</p>
+
+                <p>Beyond its natural wonders, the Isle of Skye offers a glimpse into Scotland's history and culture. Visitors can wander through charming villages, each with its own character, and discover ancient castles steeped in tales of clans and battles. The local cuisine, featuring fresh seafood and traditional Scottish dishes, adds a delightful flavor to the adventure.</p>
+            /visitscotland:media:
+              jcr:primaryType: hippogallerypicker:imagelink
+              hippo:docbase: bfddf3d2-4f16-4527-bb80-9867470ac5d4
+              hippo:facets: []
+              hippo:modes: []
+              hippo:values: []
+          /visitscotland:paragraph[2]:
+            jcr:primaryType: visitscotland:ArticleSection
+            /visitscotland:copy:
+              jcr:primaryType: hippostd:html
+              hippostd:content: <p>Whether trekking the challenging Cuillin Mountains
+                or simply meandering through the fairy-tale-like Fairy Pools, an Isle
+                of Skye adventure is a sensory feast. The tranquil ambiance and breathtaking
+                vistas make it a haven for nature enthusiasts and a captivating escape
+                into the untamed beauty of the Scottish highlands.</p>
+    /theme-calculator:
+      jcr:primaryType: hippostd:folder
+      jcr:mixinTypes: ['hippo:named', 'hippotranslation:translated', 'mix:versionable']
+      jcr:uuid: 7bc960e6-0601-4b35-9610-4046bccd5454
+      hippo:name: Theme Calculator
+      hippostd:foldertype: [new-translated-folder, new-page, new-module]
+      hippotranslation:id: 3e5e7963-d6f4-43df-aae5-eec4cfaa86bc
+      hippotranslation:locale: en
+      /content:
+        jcr:primaryType: hippo:handle
+        jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+        jcr:uuid: c8f6ef96-a9cf-4d1d-aa35-de18ffed1d11
+        hippo:name: WIP
+        hippo:versionHistory: 9500c904-ec09-4bd5-80bf-2c95a35416ce
+        /content[1]:
+          jcr:primaryType: visitscotland:General
+          jcr:mixinTypes: ['mix:versionable']
+          jcr:uuid: b20f636f-ffd5-4015-8a79-3716b322ec49
+          hippo:availability: [preview]
+          hippostd:retainable: false
+          hippostd:state: unpublished
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2024-01-30T10:09:27.135Z
+          hippostdpubwf:lastModificationDate: 2024-01-31T10:40:48.434Z
+          hippostdpubwf:lastModifiedBy: admin
+          hippotranslation:id: a11709d8-cf20-4ba0-99cd-6f48237ddd58
+          hippotranslation:locale: en
+          visitscotland:breadcrumb: ''
+          visitscotland:hideNewsletter: false
+          visitscotland:pswPosition: Default
+          visitscotland:seoDescription: Start your journey to change
+          visitscotland:seoNoIndex: false
+          visitscotland:seoTitle: Start your journey to change
+          visitscotland:teaser: This is an example of Theme Calculator funcionality
+          visitscotland:theme: Standard
+          visitscotland:title: Theme Calculator funcionality (WIP)
+          visitscotland:translation: ''
+          /visitscotland:heroImage:
+            jcr:primaryType: hippogallerypicker:imagelink
+            hippo:docbase: bf46fa76-e050-4555-8fb5-9c01e7b35d00
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+          /visitscotland:introduction:
+            jcr:primaryType: hippostd:html
+            hippostd:content: <p>Scotland, a prime business destination, boasts a
+              diverse economy with strengths in oil and gas, renewable energy, tourism,
+              and technology. Cities like Edinburgh and Glasgow provide a thriving
+              business environment, with Edinburgh excelling in financial services,
+              and Glasgow leading in manufacturing and innovation. The nation's skilled
+              workforce, coupled with a supportive business infrastructure, attracts
+              international companies seeking growth.</p>
+        /content[2]:
+          jcr:primaryType: visitscotland:General
+          jcr:mixinTypes: ['mix:referenceable']
+          jcr:uuid: e3a8e88a-6511-4cd0-a40c-9eb7e056a0e5
+          hippo:availability: []
+          hippostd:retainable: false
+          hippostd:state: draft
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2024-01-30T10:09:27.135Z
+          hippostdpubwf:lastModificationDate: 2024-01-31T10:40:14.618Z
+          hippostdpubwf:lastModifiedBy: admin
+          hippotranslation:id: a11709d8-cf20-4ba0-99cd-6f48237ddd58
+          hippotranslation:locale: en
+          visitscotland:breadcrumb: ''
+          visitscotland:hideNewsletter: false
+          visitscotland:pswPosition: Default
+          visitscotland:seoDescription: Start your journey to change
+          visitscotland:seoNoIndex: false
+          visitscotland:seoTitle: Start your journey to change
+          visitscotland:teaser: This is an example of Theme Calculator funcionality
+          visitscotland:theme: Standard
+          visitscotland:title: Theme Calculator funcionality (WIP)
+          visitscotland:translation: ''
+          /visitscotland:heroImage:
+            jcr:primaryType: hippogallerypicker:imagelink
+            hippo:docbase: bf46fa76-e050-4555-8fb5-9c01e7b35d00
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+          /visitscotland:introduction:
+            jcr:primaryType: hippostd:html
+            hippostd:content: <p>Scotland, a prime business destination, boasts a
+              diverse economy with strengths in oil and gas, renewable energy, tourism,
+              and technology. Cities like Edinburgh and Glasgow provide a thriving
+              business environment, with Edinburgh excelling in financial services,
+              and Glasgow leading in manufacturing and innovation. The nation's skilled
+              workforce, coupled with a supportive business infrastructure, attracts
+              international companies seeking growth.</p>
+        /content[3]:
+          jcr:primaryType: visitscotland:General
+          jcr:mixinTypes: ['mix:referenceable']
+          jcr:uuid: 8a49740b-aac5-4fb4-99e5-ee0931f829c2
+          hippo:availability: [live]
+          hippostd:retainable: false
+          hippostd:state: published
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2024-01-30T10:09:27.135Z
+          hippostdpubwf:lastModificationDate: 2024-01-31T10:40:48.434Z
+          hippostdpubwf:lastModifiedBy: admin
+          hippostdpubwf:publicationDate: 2024-01-31T10:46:54.500Z
+          hippotranslation:id: a11709d8-cf20-4ba0-99cd-6f48237ddd58
+          hippotranslation:locale: en
+          visitscotland:breadcrumb: ''
+          visitscotland:hideNewsletter: false
+          visitscotland:pswPosition: Default
+          visitscotland:seoDescription: Start your journey to change
+          visitscotland:seoNoIndex: false
+          visitscotland:seoTitle: Start your journey to change
+          visitscotland:teaser: This is an example of Theme Calculator funcionality
+          visitscotland:theme: Standard
+          visitscotland:title: Theme Calculator funcionality (WIP)
+          visitscotland:translation: ''
+          /visitscotland:heroImage:
+            jcr:primaryType: hippogallerypicker:imagelink
+            hippo:docbase: bf46fa76-e050-4555-8fb5-9c01e7b35d00
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+          /visitscotland:introduction:
+            jcr:primaryType: hippostd:html
+            hippostd:content: <p>Scotland, a prime business destination, boasts a
+              diverse economy with strengths in oil and gas, renewable energy, tourism,
+              and technology. Cities like Edinburgh and Glasgow provide a thriving
+              business environment, with Edinburgh excelling in financial services,
+              and Glasgow leading in manufacturing and innovation. The nation's skilled
+              workforce, coupled with a supportive business infrastructure, attracts
+              international companies seeking growth.</p>
+    /preview-errors:
+      jcr:primaryType: hippostd:folder
+      jcr:mixinTypes: ['hippo:named', 'hippotranslation:translated', 'mix:versionable']
+      jcr:uuid: 8f248f05-0a46-4fab-8212-240297ee5504
+      hippo:name: Preview Errors
+      hippostd:foldertype: [new-translated-folder, new-page, new-module]
+      hippotranslation:id: a9e599df-fca9-44da-959c-47424c209783
+      hippotranslation:locale: en
+      /content:
+        jcr:primaryType: hippo:handle
+        jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+        jcr:uuid: 3776cac4-f9c0-482e-ab02-f9006ec3fb73
+        hippo:name: Preview Errors
+        hippo:versionHistory: 6e291d09-108b-459d-b8bb-d53f7a1d6e0a
+        /content[1]:
+          jcr:primaryType: visitscotland:General
+          jcr:mixinTypes: ['mix:versionable']
+          jcr:uuid: a2a0ed9e-782c-4568-81c5-f133388843b7
+          hippo:availability: [preview]
+          hippostd:retainable: false
+          hippostd:state: unpublished
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2024-01-30T10:09:27.135Z
+          hippostdpubwf:lastModificationDate: 2024-01-31T10:50:04.367Z
+          hippostdpubwf:lastModifiedBy: admin
+          hippotranslation:id: eb2d191c-b4b0-4ecc-8058-62afc7ff0e87
+          hippotranslation:locale: en
+          visitscotland:breadcrumb: ''
+          visitscotland:hideNewsletter: false
+          visitscotland:pswPosition: Hidden
+          visitscotland:seoDescription: Start your journey to change
+          visitscotland:seoNoIndex: false
+          visitscotland:seoTitle: Start your journey to change
+          visitscotland:teaser: This is an Example of a page with preview errors
+          visitscotland:theme: Simple
+          visitscotland:title: Preview Errors WIP
+          visitscotland:translation: ''
+          /visitscotland:heroImage:
+            jcr:primaryType: hippogallerypicker:imagelink
+            hippo:docbase: bf46fa76-e050-4555-8fb5-9c01e7b35d00
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+          /visitscotland:introduction:
+            jcr:primaryType: hippostd:html
+            hippostd:content: <p>Scotland, a prime business destination, boasts a
+              diverse economy with strengths in oil and gas, renewable energy, tourism,
+              and technology. Cities like Edinburgh and Glasgow provide a thriving
+              business environment, with Edinburgh excelling in financial services,
+              and Glasgow leading in manufacturing and innovation. The nation's skilled
+              workforce, coupled with a supportive business infrastructure, attracts
+              international companies seeking growth.</p>
+        /content[2]:
+          jcr:primaryType: visitscotland:General
+          jcr:mixinTypes: ['mix:referenceable']
+          jcr:uuid: 971fc601-3630-40ec-9afe-246233f7c3f8
+          hippo:availability: []
+          hippostd:retainable: false
+          hippostd:state: draft
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2024-01-30T10:09:27.135Z
+          hippostdpubwf:lastModificationDate: 2024-01-31T10:49:56.220Z
+          hippostdpubwf:lastModifiedBy: admin
+          hippotranslation:id: eb2d191c-b4b0-4ecc-8058-62afc7ff0e87
+          hippotranslation:locale: en
+          visitscotland:breadcrumb: ''
+          visitscotland:hideNewsletter: false
+          visitscotland:pswPosition: Hidden
+          visitscotland:seoDescription: Start your journey to change
+          visitscotland:seoNoIndex: false
+          visitscotland:seoTitle: Start your journey to change
+          visitscotland:teaser: This is an Example of a page with preview errors
+          visitscotland:theme: Simple
+          visitscotland:title: Preview Errors WIP
+          visitscotland:translation: ''
+          /visitscotland:heroImage:
+            jcr:primaryType: hippogallerypicker:imagelink
+            hippo:docbase: bf46fa76-e050-4555-8fb5-9c01e7b35d00
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+          /visitscotland:introduction:
+            jcr:primaryType: hippostd:html
+            hippostd:content: <p>Scotland, a prime business destination, boasts a
+              diverse economy with strengths in oil and gas, renewable energy, tourism,
+              and technology. Cities like Edinburgh and Glasgow provide a thriving
+              business environment, with Edinburgh excelling in financial services,
+              and Glasgow leading in manufacturing and innovation. The nation's skilled
+              workforce, coupled with a supportive business infrastructure, attracts
+              international companies seeking growth.</p>
+        /content[3]:
+          jcr:primaryType: visitscotland:General
+          jcr:mixinTypes: ['mix:referenceable']
+          jcr:uuid: 4831ecc1-82d7-43f1-bf50-adcfceb5c146
+          hippo:availability: [live]
+          hippostd:retainable: false
+          hippostd:state: published
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2024-01-30T10:09:27.135Z
+          hippostdpubwf:lastModificationDate: 2024-01-31T10:50:04.367Z
+          hippostdpubwf:lastModifiedBy: admin
+          hippostdpubwf:publicationDate: 2024-01-31T10:51:01.293Z
+          hippotranslation:id: eb2d191c-b4b0-4ecc-8058-62afc7ff0e87
+          hippotranslation:locale: en
+          visitscotland:breadcrumb: ''
+          visitscotland:hideNewsletter: false
+          visitscotland:pswPosition: Hidden
+          visitscotland:seoDescription: Start your journey to change
+          visitscotland:seoNoIndex: false
+          visitscotland:seoTitle: Start your journey to change
+          visitscotland:teaser: This is an Example of a page with preview errors
+          visitscotland:theme: Simple
+          visitscotland:title: Preview Errors WIP
+          visitscotland:translation: ''
+          /visitscotland:heroImage:
+            jcr:primaryType: hippogallerypicker:imagelink
+            hippo:docbase: bf46fa76-e050-4555-8fb5-9c01e7b35d00
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+          /visitscotland:introduction:
+            jcr:primaryType: hippostd:html
+            hippostd:content: <p>Scotland, a prime business destination, boasts a
+              diverse economy with strengths in oil and gas, renewable energy, tourism,
+              and technology. Cities like Edinburgh and Glasgow provide a thriving
+              business environment, with Edinburgh excelling in financial services,
+              and Glasgow leading in manufacturing and innovation. The nation's skilled
+              workforce, coupled with a supportive business infrastructure, attracts
+              international companies seeking growth.</p>
