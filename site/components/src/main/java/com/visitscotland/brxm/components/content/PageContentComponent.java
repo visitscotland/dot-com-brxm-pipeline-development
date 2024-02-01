@@ -101,10 +101,8 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
         final String VIDEO_BUNDLE = "video";
 
         Map<String, Map<String, String>> labels = new HashMap<>();
-        labels.put(SOCIAL_SHARE_BUNDLE, bundle.getAllLabels(SOCIAL_SHARE_BUNDLE, request.getLocale()));
-        labels.put(VIDEO_BUNDLE, bundle.getAllLabels(VIDEO_BUNDLE, request.getLocale()));
-
         Map<String, String> globalLabels = new HashMap<>();
+
         addGlobalLabel(globalLabels,"close", request.getLocale());
         addGlobalLabel(globalLabels,"cookie.link-message", request.getLocale());
         addGlobalLabel(globalLabels,"third-party-error", request.getLocale());
@@ -112,6 +110,10 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
         addGlobalLabel(globalLabels,"image.title", request.getLocale());
         addGlobalLabel(globalLabels,"image.no.credit", request.getLocale());
         addGlobalLabel(globalLabels,"home", request.getLocale());
+
+        labels.put(ResourceBundleService.GLOBAL_BUNDLE_FILE, globalLabels);
+        labels.put(SOCIAL_SHARE_BUNDLE, bundle.getAllLabels(SOCIAL_SHARE_BUNDLE, request.getLocale()));
+        labels.put(VIDEO_BUNDLE, bundle.getAllLabels(VIDEO_BUNDLE, request.getLocale()));
 
         request.setModel(LABELS, labels);
     }
