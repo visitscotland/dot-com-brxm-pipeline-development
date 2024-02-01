@@ -20,7 +20,8 @@ pipeline {
         echo "   Stage: ${BUILD_DISPLAY_NAME}"
 //        echo "-s maven: ${MAVEN_SETTINGS}"
 //        sh 'mvn clean install -DskipTests -s $MAVEN_SETTINGS'
-        sh 'mvn clean deploy -Pdist'
+        sh 'mvn clean verify'
+        sh 'mvn deploy -Pdist'
       }
       post {
         success {
