@@ -14,7 +14,7 @@ import java.util.*;
 public class ResourceBundleService {
 
     private static final Logger logger = LoggerFactory.getLogger(ResourceBundleService.class.getName());
-    private static final String GLOBAL_BUNDLE_FILE = "essentials.global";
+    public static final String GLOBAL_BUNDLE_FILE = "essentials.global";
 
     private final Logger contentLogger;
 

@@ -21,8 +21,7 @@ import org.hippoecm.hst.core.component.HstResponse;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.util.ArrayList;
-import java.util.Collection;
+import java.util.*;
 
 
 public class PageContentComponent<T extends Page> extends ContentComponent {
@@ -37,6 +36,8 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
     public static final String AUTHOR = "author";
     public static final String NEWSLETTER_SIGNPOST = "newsletterSignpost";
     public static final String PREVIEW_ALERTS = "alerts";
+    public static final String LABELS = "labels";
+
     public static final String HERO_IMAGE = "heroImage";
     public static final String HERO_VIDEO = "heroVideo";
     public static final String PSR_WIDGET = "psrWidget";
@@ -83,6 +84,7 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
         addBlog(request);
 
         addSiteSpecificConfiguration(request);
+        addLabels(request);
     }
 
     /**
@@ -92,6 +94,32 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
         if (request.getPathInfo().contains(properties.getSiteGlobalSearch())){
             request.setModel(SEARCH_RESULTS, true);
         }
+    }
+
+    private void addLabels(HstRequest request){
+        final String SOCIAL_SHARE_BUNDLE = "social.share";
+        final String VIDEO_BUNDLE = "video";
+
+        Map<String, Map<String, String>> labels = new HashMap<>();
+        Map<String, String> globalLabels = new HashMap<>();
+
+        addGlobalLabel(globalLabels,"close", request.getLocale());
+        addGlobalLabel(globalLabels,"cookie.link-message", request.getLocale());
+        addGlobalLabel(globalLabels,"third-party-error", request.getLocale());
+        addGlobalLabel(globalLabels,"default.alt-text", request.getLocale());
+        addGlobalLabel(globalLabels,"image.title", request.getLocale());
+        addGlobalLabel(globalLabels,"image.no.credit", request.getLocale());
+        addGlobalLabel(globalLabels,"home", request.getLocale());
+
+        labels.put(ResourceBundleService.GLOBAL_BUNDLE_FILE, globalLabels);
+        labels.put(SOCIAL_SHARE_BUNDLE, bundle.getAllLabels(SOCIAL_SHARE_BUNDLE, request.getLocale()));
+        labels.put(VIDEO_BUNDLE, bundle.getAllLabels(VIDEO_BUNDLE, request.getLocale()));
+
+        request.setModel(LABELS, labels);
+    }
+
+    private void addGlobalLabel(Map<String, String> map, String key, Locale locale){
+        map.put(key, bundle.getResourceBundle(ResourceBundleService.GLOBAL_BUNDLE_FILE, key, locale));
     }
 
     /**
@@ -222,6 +250,5 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
         }
 
         request.setModel(SOCIAL_LINKS, bundle.getAllLabels(socialMediaBundle, request.getLocale()));
-
     }
 }
