@@ -83,8 +83,10 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
         addFlags(request);
         addBlog(request);
 
-        addSiteSpecificConfiguration(request);
         addLabels(request);
+        //Note: Site specific configurations need the labels object to be set beforehand
+        addSiteSpecificConfiguration(request);
+
     }
 
     /**
@@ -249,6 +251,12 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
             socialMediaBundle = "navigation.social-media";
         }
 
-        request.setModel(SOCIAL_LINKS, bundle.getAllLabels(socialMediaBundle, request.getLocale()));
+
+        if (request.getModel(LABELS) == null){
+            logger.error("The social links could not be added because the labels request model is not defined");
+        } else {
+            Map<String, Map<?, ?>> labels = request.getModel(LABELS);
+            labels.put(SOCIAL_LINKS, bundle.getAllLabels(socialMediaBundle, request.getLocale()));
+        }
     }
 }
