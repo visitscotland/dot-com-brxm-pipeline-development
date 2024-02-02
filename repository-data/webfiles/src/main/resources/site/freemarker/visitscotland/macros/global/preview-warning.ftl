@@ -13,7 +13,7 @@
                     <#if message?? && message != "">
                         <p>${message}</p>
                     <#elseif hidden>
-                        <p>There is an issue with the document <strong>${module.hippoBean.displayName}</strong> and It was hidden from the page:</p>
+                        <p>The following document has been hidden from the page due to some unexpected errors: <strong>${module.hippoBean.displayName}</strong></p>
                     <#elseif module.hippoBean??>
                         <p>The following issues have been detected in the document ${module.hippoBean.displayName}:</p>
                     </#if>
