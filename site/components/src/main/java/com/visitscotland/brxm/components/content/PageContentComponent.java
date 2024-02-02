@@ -251,7 +251,6 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
             socialMediaBundle = "navigation.social-media";
         }
 
-
         if (request.getModel(LABELS) == null){
             logger.error("The social links could not be added because the labels request model is not defined");
         } else {
