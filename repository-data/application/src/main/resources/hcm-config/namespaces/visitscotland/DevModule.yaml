@@ -11,7 +11,7 @@ definitions:
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:uuid: 9504952e-485e-4156-90eb-623802fa7a79
+          jcr:uuid: 5757d526-fa16-466b-85e7-9f5409f648ca
           hipposysedit:node: true
           hipposysedit:supertype: ['visitscotland:basedocument', 'hippostd:relaxed',
             'hippotranslation:translated']
@@ -73,7 +73,7 @@ definitions:
           jcr:mixinTypes: ['mix:referenceable']
           visitscotland:html: ''
           visitscotland:notes: ''
-          jcr:uuid: 91a9e6e8-6f4a-497f-b8bd-57c4a8edcad2
+          jcr:uuid: 9a5a5e10-f9e8-4663-b2cc-f2e304149e82
           hippostdpubwf:lastModificationDate: 2023-01-18T16:27:53.908Z
           hippostdpubwf:creationDate: 2023-01-18T16:27:53.908Z
           visitscotland:headContributions: []
@@ -125,7 +125,7 @@ definitions:
             wicket.id: ${cluster.id}.field
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-              selectable.options: Carbon Calculator
+              selectable.options: Carbon Calculator,Experiences Calculator
           /notes:
             jcr:primaryType: frontend:plugin
             caption: Notes (Not renderable)
