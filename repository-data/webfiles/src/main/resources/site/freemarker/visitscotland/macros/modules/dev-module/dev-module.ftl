@@ -11,6 +11,10 @@
                 <#include "../../unique/carbon-calculator.ftl">
                 <@carbonCalculator />
             <#break >
+            <#case "Experiences Calculator">
+                <#include "../../unique/experiences-calculator.ftl">
+                <@carbonCalculator />
+            <#break >
             <#default>
                 <@previewWarning editMode=editMode module=module message="The Freemarker module ${module.hippoBean.freemarkerId} has not been recognized" />
         </#switch>
