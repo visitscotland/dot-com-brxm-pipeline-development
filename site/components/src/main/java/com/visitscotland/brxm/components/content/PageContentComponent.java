@@ -101,6 +101,7 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
     private void addLabels(HstRequest request){
         final String SOCIAL_SHARE_BUNDLE = "social.share";
         final String VIDEO_BUNDLE = "video";
+        final String CMS_MESSAGES = "cms-messages";
 
         Map<String, Map<String, String>> labels = new HashMap<>();
         Map<String, String> globalLabels = new HashMap<>();
@@ -116,6 +117,10 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
         labels.put(ResourceBundleService.GLOBAL_BUNDLE_FILE, globalLabels);
         labels.put(SOCIAL_SHARE_BUNDLE, bundle.getAllLabels(SOCIAL_SHARE_BUNDLE, request.getLocale()));
         labels.put(VIDEO_BUNDLE, bundle.getAllLabels(VIDEO_BUNDLE, request.getLocale()));
+
+        if (isEditMode(request)){
+            labels.put(CMS_MESSAGES, bundle.getAllLabels(CMS_MESSAGES, request.getLocale()));
+        }
 
         request.setModel(LABELS, labels);
     }
@@ -251,12 +256,15 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
             socialMediaBundle = "navigation.social-media";
         }
 
-
         if (request.getModel(LABELS) == null){
             logger.error("The social links could not be added because the labels request model is not defined");
         } else {
             Map<String, Map<?, ?>> labels = request.getModel(LABELS);
             labels.put(SOCIAL_LINKS, bundle.getAllLabels(socialMediaBundle, request.getLocale()));
         }
+    }
+
+    boolean isEditMode(HstRequest request){
+        return Boolean.TRUE.equals(request.getAttribute("editMode"));
     }
 }
