@@ -113,6 +113,8 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
         addGlobalLabel(globalLabels,"image.title", request.getLocale());
         addGlobalLabel(globalLabels,"image.no.credit", request.getLocale());
         addGlobalLabel(globalLabels,"home", request.getLocale());
+        addGlobalLabel(globalLabels,"page.next", request.getLocale());
+        addGlobalLabel(globalLabels,"page.previous", request.getLocale());
 
         labels.put(ResourceBundleService.GLOBAL_BUNDLE_FILE, globalLabels);
         labels.put(SOCIAL_SHARE_BUNDLE, bundle.getAllLabels(SOCIAL_SHARE_BUNDLE, request.getLocale()));
@@ -160,6 +162,8 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
      * Set the OTYML module if present
      */
     protected void addOTYML(HstRequest request) {
+        final String PAGINATION_BUNDLE = "essentials.pagination";
+
         Page page = getDocument(request);
         if (page.getOtherThings() != null) {
             HorizontalListLinksModule otyml = megalinkFactory.horizontalListLayout(page.getOtherThings(), request.getLocale());
@@ -173,6 +177,19 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
             }
             request.setModel(OTYML, otyml);
         }
+
+        //TODO: Add itinerary labels for days and transport.
+        labels(request).put(PAGINATION_BUNDLE, bundle.getAllLabels(PAGINATION_BUNDLE, request.getLocale()));
+    }
+
+    private Map<String, Map<String, String>> labels(HstRequest request){
+        if (request.getModel(LABELS) == null) {
+            Map<String, Map<String, String>> labels = new HashMap<>();
+            request.setModel(LABELS, labels);
+            return labels;
+        }
+
+        return request.getModel(LABELS);
     }
 
     /**
