@@ -84,9 +84,7 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
         addBlog(request);
 
         addLabels(request);
-        //Note: Site specific configurations need the labels object to be set beforehand
         addSiteSpecificConfiguration(request);
-
     }
 
     /**
@@ -103,7 +101,6 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
         final String VIDEO_BUNDLE = "video";
         final String CMS_MESSAGES = "cms-messages";
 
-        Map<String, Map<String, String>> labels = new HashMap<>();
         Map<String, String> globalLabels = new HashMap<>();
 
         addGlobalLabel(globalLabels,"close", request.getLocale());
@@ -116,15 +113,13 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
         addGlobalLabel(globalLabels,"page.next", request.getLocale());
         addGlobalLabel(globalLabels,"page.previous", request.getLocale());
 
-        labels.put(ResourceBundleService.GLOBAL_BUNDLE_FILE, globalLabels);
-        labels.put(SOCIAL_SHARE_BUNDLE, bundle.getAllLabels(SOCIAL_SHARE_BUNDLE, request.getLocale()));
-        labels.put(VIDEO_BUNDLE, bundle.getAllLabels(VIDEO_BUNDLE, request.getLocale()));
+        labels(request).put(ResourceBundleService.GLOBAL_BUNDLE_FILE, globalLabels);
+        labels(request).put(SOCIAL_SHARE_BUNDLE, bundle.getAllLabels(SOCIAL_SHARE_BUNDLE, request.getLocale()));
+        labels(request).put(VIDEO_BUNDLE, bundle.getAllLabels(VIDEO_BUNDLE, request.getLocale()));
 
         if (isEditMode(request)){
-            labels.put(CMS_MESSAGES, bundle.getAllLabels(CMS_MESSAGES, request.getLocale()));
+            labels(request).put(CMS_MESSAGES, bundle.getAllLabels(CMS_MESSAGES, request.getLocale()));
         }
-
-        request.setModel(LABELS, labels);
     }
 
     private void addGlobalLabel(Map<String, String> map, String key, Locale locale){
@@ -163,6 +158,7 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
      */
     protected void addOTYML(HstRequest request) {
         final String PAGINATION_BUNDLE = "essentials.pagination";
+        final String OTYML_BUNDLE = "otyml";
 
         Page page = getDocument(request);
         if (page.getOtherThings() != null) {
@@ -179,6 +175,7 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
         }
 
         //TODO: Add itinerary labels for days and transport.
+        labels(request).put(OTYML_BUNDLE, bundle.getAllLabels(OTYML_BUNDLE, request.getLocale()));
         labels(request).put(PAGINATION_BUNDLE, bundle.getAllLabels(PAGINATION_BUNDLE, request.getLocale()));
     }
 
@@ -254,8 +251,8 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
     }
 
     public static void setErrorMessages(HstRequest request, Collection<String> errorMessages) {
-        if (request.getAttribute(PREVIEW_ALERTS) != null) {
-            Collection<String> requestMessages = (Collection<String>) request.getAttribute(PREVIEW_ALERTS);
+        if (request.getModel(PREVIEW_ALERTS) != null) {
+            Collection<String> requestMessages = request.getModel(PREVIEW_ALERTS);
             requestMessages.addAll(errorMessages);
         } else {
             request.setModel(PREVIEW_ALERTS, errorMessages);
@@ -276,8 +273,7 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
         if (request.getModel(LABELS) == null){
             logger.error("The social links could not be added because the labels request model is not defined");
         } else {
-            Map<String, Map<?, ?>> labels = request.getModel(LABELS);
-            labels.put(SOCIAL_LINKS, bundle.getAllLabels(socialMediaBundle, request.getLocale()));
+            labels(request).put(SOCIAL_LINKS, bundle.getAllLabels(socialMediaBundle, request.getLocale()));
         }
     }
 
