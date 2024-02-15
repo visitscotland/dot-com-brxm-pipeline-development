@@ -8102,7 +8102,7 @@
         jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
         jcr:uuid: 0b71bcbd-d8cc-401d-96e1-4972dba3d890
         hippo:name: Calculator
-        hippo:versionHistory: ede21e18-3b9b-436e-99c3-39c375ce332b
+        hippo:versionHistory: 26002510-eaff-4e51-affc-15d8b412f2b9
         /calculator[1]:
           jcr:primaryType: visitscotland:DevModule
           jcr:mixinTypes: ['mix:referenceable']
@@ -8112,12 +8112,12 @@
           hippostd:state: draft
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2023-08-17T12:56:22.998+01:00
-          hippostdpubwf:lastModificationDate: 2023-08-17T12:56:22.998+01:00
+          hippostdpubwf:lastModificationDate: 2024-02-09T12:41:13.875Z
           hippostdpubwf:lastModifiedBy: admin
           hippotranslation:id: bd1ae9d4-862d-4b61-a68f-fc695c60dc4b
           hippotranslation:locale: en
           visitscotland:footerContributions: []
-          visitscotland:freemarkerId: Carbon Calculator
+          visitscotland:freemarkerId: Experiences Calculator
           visitscotland:headContributions: []
           visitscotland:html: ''
           visitscotland:notes: ''
@@ -8130,12 +8130,12 @@
           hippostd:state: unpublished
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2023-08-17T12:56:22.998+01:00
-          hippostdpubwf:lastModificationDate: 2023-08-17T12:56:28.688+01:00
+          hippostdpubwf:lastModificationDate: 2024-02-09T12:41:19.566Z
           hippostdpubwf:lastModifiedBy: admin
           hippotranslation:id: bd1ae9d4-862d-4b61-a68f-fc695c60dc4b
           hippotranslation:locale: en
           visitscotland:footerContributions: []
-          visitscotland:freemarkerId: Carbon Calculator
+          visitscotland:freemarkerId: Experiences Calculator
           visitscotland:headContributions: []
           visitscotland:html: ''
           visitscotland:notes: ''
@@ -8148,13 +8148,185 @@
           hippostd:state: published
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2023-08-17T12:56:22.998+01:00
-          hippostdpubwf:lastModificationDate: 2023-08-17T12:56:28.688+01:00
+          hippostdpubwf:lastModificationDate: 2024-02-09T12:41:19.566Z
           hippostdpubwf:lastModifiedBy: admin
-          hippostdpubwf:publicationDate: 2023-08-17T12:56:31.746+01:00
+          hippostdpubwf:publicationDate: 2024-02-09T12:41:21.046Z
           hippotranslation:id: bd1ae9d4-862d-4b61-a68f-fc695c60dc4b
           hippotranslation:locale: en
           visitscotland:footerContributions: []
-          visitscotland:freemarkerId: Carbon Calculator
+          visitscotland:freemarkerId: Experiences Calculator
+          visitscotland:headContributions: []
+          visitscotland:html: ''
+          visitscotland:notes: ''
+    /experiences-calculator:
+      jcr:primaryType: hippostd:folder
+      jcr:mixinTypes: ['hippo:named', 'hippotranslation:translated', 'mix:versionable']
+      jcr:uuid: 235b9c35-f2f5-41f8-9662-ddd7eba5a1ee
+      hippo:name: Experiences Calculator
+      hippostd:foldertype: [new-translated-folder-test, new-document]
+      hippotranslation:id: ad431cb9-91ff-43bf-8a06-9b062463acff
+      hippotranslation:locale: en
+      /content:
+        jcr:primaryType: hippo:handle
+        jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+        jcr:uuid: 8f244e91-dce6-4f33-ad2c-5d34b62ef58e
+        hippo:name: Experiences Calculator
+        hippo:versionHistory: bc371ccd-9131-4734-9ef0-663f525a3288
+        /content[1]:
+          jcr:primaryType: visitscotland:General
+          jcr:mixinTypes: ['mix:referenceable']
+          jcr:uuid: e3e3850f-2db0-40f8-ba9f-2edd140fd4c0
+          hippo:availability: []
+          hippostd:retainable: false
+          hippostd:state: draft
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2024-02-09T12:40:21.874Z
+          hippostdpubwf:lastModificationDate: 2024-02-09T12:40:21.874Z
+          hippostdpubwf:lastModifiedBy: admin
+          hippotranslation:id: dc5142da-541d-4405-b26e-f80e8d10cc34
+          hippotranslation:locale: en
+          visitscotland:breadcrumb: ''
+          visitscotland:hideNewsletter: false
+          visitscotland:pswPosition: Bottom
+          visitscotland:seoDescription: Experiences Calculator
+          visitscotland:seoNoIndex: false
+          visitscotland:seoTitle: Experiences Calculator
+          visitscotland:teaser: Experiences Calculator
+          visitscotland:theme: Top-Level
+          visitscotland:title: Experiences Calculator
+          visitscotland:translation: ''
+          /visitscotland:heroImage:
+            jcr:primaryType: hippogallerypicker:imagelink
+            hippo:docbase: c3eafb5b-6c18-4caa-9c9a-63279b816630
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+          /visitscotland:introduction:
+            jcr:primaryType: hippostd:html
+            hippostd:content: <p>Experiences Calculator</p>
+        /content[2]:
+          jcr:primaryType: visitscotland:General
+          jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+          jcr:uuid: d70580bb-96ff-419b-915e-83bc2c2869e5
+          hippo:availability: [preview]
+          hippostd:retainable: false
+          hippostd:state: unpublished
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2024-02-09T12:40:21.874Z
+          hippostdpubwf:lastModificationDate: 2024-02-09T12:40:55.696Z
+          hippostdpubwf:lastModifiedBy: admin
+          hippotranslation:id: dc5142da-541d-4405-b26e-f80e8d10cc34
+          hippotranslation:locale: en
+          visitscotland:breadcrumb: ''
+          visitscotland:hideNewsletter: false
+          visitscotland:pswPosition: Bottom
+          visitscotland:seoDescription: Experiences Calculator
+          visitscotland:seoNoIndex: false
+          visitscotland:seoTitle: Experiences Calculator
+          visitscotland:teaser: Experiences Calculator
+          visitscotland:theme: Top-Level
+          visitscotland:title: Experiences Calculator
+          visitscotland:translation: ''
+          /visitscotland:heroImage:
+            jcr:primaryType: hippogallerypicker:imagelink
+            hippo:docbase: c3eafb5b-6c18-4caa-9c9a-63279b816630
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+          /visitscotland:introduction:
+            jcr:primaryType: hippostd:html
+            hippostd:content: <p>Experiences Calculator</p>
+        /content[3]:
+          jcr:primaryType: visitscotland:General
+          jcr:mixinTypes: ['mix:referenceable']
+          jcr:uuid: 811d4f6a-3668-4003-a17a-380e7623fb15
+          hippo:availability: [live]
+          hippostd:retainable: false
+          hippostd:state: published
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2024-02-09T12:40:21.874Z
+          hippostdpubwf:lastModificationDate: 2024-02-09T12:40:55.696Z
+          hippostdpubwf:lastModifiedBy: admin
+          hippostdpubwf:publicationDate: 2024-02-09T12:40:57.566Z
+          hippotranslation:id: dc5142da-541d-4405-b26e-f80e8d10cc34
+          hippotranslation:locale: en
+          visitscotland:breadcrumb: ''
+          visitscotland:hideNewsletter: false
+          visitscotland:pswPosition: Bottom
+          visitscotland:seoDescription: Experiences Calculator
+          visitscotland:seoNoIndex: false
+          visitscotland:seoTitle: Experiences Calculator
+          visitscotland:teaser: Experiences Calculator
+          visitscotland:theme: Top-Level
+          visitscotland:title: Experiences Calculator
+          visitscotland:translation: ''
+          /visitscotland:heroImage:
+            jcr:primaryType: hippogallerypicker:imagelink
+            hippo:docbase: c3eafb5b-6c18-4caa-9c9a-63279b816630
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+          /visitscotland:introduction:
+            jcr:primaryType: hippostd:html
+            hippostd:content: <p>Experiences Calculator</p>
+      /calculator:
+        jcr:primaryType: hippo:handle
+        jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+        jcr:uuid: 49ea6e64-853d-49ac-9c25-d04ce3f7fa87
+        hippo:name: Calculator
+        hippo:versionHistory: ff498732-695a-41f2-ac16-071f820c4bd3
+        /calculator[1]:
+          jcr:primaryType: visitscotland:DevModule
+          jcr:mixinTypes: ['mix:referenceable']
+          jcr:uuid: 1a033337-e417-4997-8fd1-5093bba4ccca
+          hippo:availability: []
+          hippostd:retainable: false
+          hippostd:state: draft
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2024-02-09T12:41:09.240Z
+          hippostdpubwf:lastModificationDate: 2024-02-09T14:47:42.907Z
+          hippostdpubwf:lastModifiedBy: admin
+          hippotranslation:id: 75f49e99-30f9-47bc-b58d-d1d90e4425a5
+          hippotranslation:locale: en
+          visitscotland:footerContributions: []
+          visitscotland:freemarkerId: Experiences Calculator
+          visitscotland:headContributions: []
+          visitscotland:html: ''
+          visitscotland:notes: ''
+        /calculator[2]:
+          jcr:primaryType: visitscotland:DevModule
+          jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+          jcr:uuid: 8b5dc0b5-c35a-4265-bca3-8250eb75d129
+          hippo:availability: [preview]
+          hippostd:retainable: false
+          hippostd:state: unpublished
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2024-02-09T12:41:09.240Z
+          hippostdpubwf:lastModificationDate: 2024-02-09T14:47:50.683Z
+          hippostdpubwf:lastModifiedBy: admin
+          hippotranslation:id: 75f49e99-30f9-47bc-b58d-d1d90e4425a5
+          hippotranslation:locale: en
+          visitscotland:footerContributions: []
+          visitscotland:freemarkerId: Experiences Calculator
+          visitscotland:headContributions: []
+          visitscotland:html: ''
+          visitscotland:notes: ''
+        /calculator[3]:
+          jcr:primaryType: visitscotland:DevModule
+          jcr:mixinTypes: ['mix:referenceable']
+          jcr:uuid: 61f53f70-a36e-4b7a-9d99-0ef18a8e47f0
+          hippo:availability: [live]
+          hippostd:retainable: false
+          hippostd:state: published
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2024-02-09T12:41:09.240Z
+          hippostdpubwf:lastModificationDate: 2024-02-09T14:47:50.683Z
+          hippostdpubwf:lastModifiedBy: admin
+          hippostdpubwf:publicationDate: 2024-02-09T14:47:52.252Z
+          hippotranslation:id: 75f49e99-30f9-47bc-b58d-d1d90e4425a5
+          hippotranslation:locale: en
+          visitscotland:footerContributions: []
+          visitscotland:freemarkerId: Experiences Calculator
           visitscotland:headContributions: []
           visitscotland:html: ''
           visitscotland:notes: ''
