@@ -84,26 +84,23 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
         addBlog(request);
 
         addLabels(request);
-        //Note: Site specific configurations need the labels object to be set beforehand
         addSiteSpecificConfiguration(request);
-
     }
 
     /**
      * Add flags to the freekarker to indicate what type of page is being processed
      */
-    private void addFlags(HstRequest request){
+    private void addFlags(HstRequest request) {
         if (request.getPathInfo().contains(properties.getSiteGlobalSearch())){
             request.setModel(SEARCH_RESULTS, true);
         }
     }
 
-    private void addLabels(HstRequest request){
+    private void addLabels(HstRequest request) {
         final String SOCIAL_SHARE_BUNDLE = "social.share";
         final String VIDEO_BUNDLE = "video";
         final String CMS_MESSAGES = "cms-messages";
 
-        Map<String, Map<String, String>> labels = new HashMap<>();
         Map<String, String> globalLabels = new HashMap<>();
 
         addGlobalLabel(globalLabels,"close", request.getLocale());
@@ -113,16 +110,16 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
         addGlobalLabel(globalLabels,"image.title", request.getLocale());
         addGlobalLabel(globalLabels,"image.no.credit", request.getLocale());
         addGlobalLabel(globalLabels,"home", request.getLocale());
+        addGlobalLabel(globalLabels,"page.next", request.getLocale());
+        addGlobalLabel(globalLabels,"page.previous", request.getLocale());
 
-        labels.put(ResourceBundleService.GLOBAL_BUNDLE_FILE, globalLabels);
-        labels.put(SOCIAL_SHARE_BUNDLE, bundle.getAllLabels(SOCIAL_SHARE_BUNDLE, request.getLocale()));
-        labels.put(VIDEO_BUNDLE, bundle.getAllLabels(VIDEO_BUNDLE, request.getLocale()));
+        labels(request).put(ResourceBundleService.GLOBAL_BUNDLE_FILE, globalLabels);
+        labels(request).put(SOCIAL_SHARE_BUNDLE, bundle.getAllLabels(SOCIAL_SHARE_BUNDLE, request.getLocale()));
+        labels(request).put(VIDEO_BUNDLE, bundle.getAllLabels(VIDEO_BUNDLE, request.getLocale()));
 
         if (isEditMode(request)){
-            labels.put(CMS_MESSAGES, bundle.getAllLabels(CMS_MESSAGES, request.getLocale()));
+            labels(request).put(CMS_MESSAGES, bundle.getAllLabels(CMS_MESSAGES, request.getLocale()));
         }
-
-        request.setModel(LABELS, labels);
     }
 
     private void addGlobalLabel(Map<String, String> map, String key, Locale locale){
@@ -160,6 +157,9 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
      * Set the OTYML module if present
      */
     protected void addOTYML(HstRequest request) {
+        final String PAGINATION_BUNDLE = "essentials.pagination";
+        final String OTYML_BUNDLE = "otyml";
+
         Page page = getDocument(request);
         if (page.getOtherThings() != null) {
             HorizontalListLinksModule otyml = megalinkFactory.horizontalListLayout(page.getOtherThings(), request.getLocale());
@@ -173,6 +173,20 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
             }
             request.setModel(OTYML, otyml);
         }
+
+        //TODO: Add itinerary labels for days and transport. (https://github.com/visitscotland/business-events-front-end/issues/74)
+        labels(request).put(OTYML_BUNDLE, bundle.getAllLabels(OTYML_BUNDLE, request.getLocale()));
+        labels(request).put(PAGINATION_BUNDLE, bundle.getAllLabels(PAGINATION_BUNDLE, request.getLocale()));
+    }
+
+    private Map<String, Map<String, String>> labels(HstRequest request) {
+        if (request.getModel(LABELS) == null) {
+            Map<String, Map<String, String>> labels = new HashMap<>();
+            request.setModel(LABELS, labels);
+            return labels;
+        }
+
+        return request.getModel(LABELS);
     }
 
     /**
@@ -217,7 +231,7 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
         }
     }
 
-    public void addLogging(HstRequest request){
+    public void addLogging(HstRequest request) {
         request.setModel("Logger", freemarkerLogger);
     }
 
@@ -237,15 +251,15 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
     }
 
     public static void setErrorMessages(HstRequest request, Collection<String> errorMessages) {
-        if (request.getAttribute(PREVIEW_ALERTS) != null) {
-            Collection<String> requestMessages = (Collection<String>) request.getAttribute(PREVIEW_ALERTS);
+        if (request.getModel(PREVIEW_ALERTS) != null) {
+            Collection<String> requestMessages = request.getModel(PREVIEW_ALERTS);
             requestMessages.addAll(errorMessages);
         } else {
             request.setModel(PREVIEW_ALERTS, errorMessages);
         }
     }
 
-    private void addSiteSpecificConfiguration(HstRequest request){
+    private void addSiteSpecificConfiguration(HstRequest request) {
         String socialMediaBundle;
 
         if (hippoUtils.isBusinessEventsSite(request)) {
@@ -259,8 +273,7 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
         if (request.getModel(LABELS) == null){
             logger.error("The social links could not be added because the labels request model is not defined");
         } else {
-            Map<String, Map<?, ?>> labels = request.getModel(LABELS);
-            labels.put(SOCIAL_LINKS, bundle.getAllLabels(socialMediaBundle, request.getLocale()));
+            labels(request).put(SOCIAL_LINKS, bundle.getAllLabels(socialMediaBundle, request.getLocale()));
         }
     }
 
