@@ -90,13 +90,13 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
     /**
      * Add flags to the freekarker to indicate what type of page is being processed
      */
-    private void addFlags(HstRequest request){
+    private void addFlags(HstRequest request) {
         if (request.getPathInfo().contains(properties.getSiteGlobalSearch())){
             request.setModel(SEARCH_RESULTS, true);
         }
     }
 
-    private void addLabels(HstRequest request){
+    private void addLabels(HstRequest request) {
         final String SOCIAL_SHARE_BUNDLE = "social.share";
         final String VIDEO_BUNDLE = "video";
         final String CMS_MESSAGES = "cms-messages";
@@ -179,7 +179,7 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
         labels(request).put(PAGINATION_BUNDLE, bundle.getAllLabels(PAGINATION_BUNDLE, request.getLocale()));
     }
 
-    private Map<String, Map<String, String>> labels(HstRequest request){
+    private Map<String, Map<String, String>> labels(HstRequest request) {
         if (request.getModel(LABELS) == null) {
             Map<String, Map<String, String>> labels = new HashMap<>();
             request.setModel(LABELS, labels);
@@ -231,7 +231,7 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
         }
     }
 
-    public void addLogging(HstRequest request){
+    public void addLogging(HstRequest request) {
         request.setModel("Logger", freemarkerLogger);
     }
 
@@ -259,7 +259,7 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
         }
     }
 
-    private void addSiteSpecificConfiguration(HstRequest request){
+    private void addSiteSpecificConfiguration(HstRequest request) {
         String socialMediaBundle;
 
         if (hippoUtils.isBusinessEventsSite(request)) {
