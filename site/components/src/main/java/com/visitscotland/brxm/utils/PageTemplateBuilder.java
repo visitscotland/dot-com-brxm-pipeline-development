@@ -9,6 +9,7 @@ import com.visitscotland.brxm.model.megalinks.LinksModule;
 import com.visitscotland.brxm.model.megalinks.MultiImageLinksModule;
 import com.visitscotland.brxm.model.megalinks.SingleImageLinksModule;
 import com.visitscotland.brxm.services.DocumentUtilsService;
+import com.visitscotland.brxm.services.ResourceBundleService;
 import com.visitscotland.utils.Contract;
 import org.hippoecm.hst.core.component.HstRequest;
 import org.slf4j.Logger;
@@ -16,9 +17,10 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.MissingResourceException;
+import java.util.*;
+
+import static com.visitscotland.brxm.components.content.PageContentComponent.LABELS;
+import static com.visitscotland.brxm.services.ResourceBundleService.GLOBAL_BUNDLE_FILE;
 
 @Component
 public class PageTemplateBuilder {
@@ -28,6 +30,7 @@ public class PageTemplateBuilder {
     //Static Constant
     static final String INTRO_THEME = "introTheme";
     static final String PAGE_ITEMS = "pageItems";
+
     static final String DEFAULT = "default";
 
     static final String[] ALIGNMENT = {"right", "left"};
@@ -55,6 +58,8 @@ public class PageTemplateBuilder {
     private final SkiFactory skiFactory;
     private final DevModuleFactory devModuleFactory;
     private final Properties properties;
+
+    private final ResourceBundleService bundle;
     private final Logger contentLogger;
 
 
@@ -64,7 +69,7 @@ public class PageTemplateBuilder {
                                UserGeneratedContentFactory userGeneratedContentFactory, TravelInformationFactory travelInformationFactory,
                                CannedSearchFactory cannedSearchFactory, PreviewModeFactory previewFactory, MarketoFormFactory marketoFormFactory,
                                MapFactory mapFactory, SkiFactory skiFactory, Properties properties,
-                               DevModuleFactory devModuleFactory, Logger contentLogger) {
+                               DevModuleFactory devModuleFactory, ResourceBundleService bundle, Logger contentLogger) {
         this.documentUtils = documentUtils;
         this.linksFactory = linksFactory;
         this.iCentreFactory = iCentreFactory;
@@ -80,6 +85,7 @@ public class PageTemplateBuilder {
         this.devModuleFactory = devModuleFactory;
         this.skiFactory = skiFactory;
         this.properties = properties;
+        this.bundle = bundle;
         this.contentLogger = contentLogger;
     }
 
@@ -144,7 +150,7 @@ public class PageTemplateBuilder {
      * Convert a LongCopy into a LongCopy module and adds it to the list of modules
      * Note: Consider to create a factory if the creation of the Module requires more logic.
      */
-    private void processLongCopy(HstRequest request, PageConfiguration config, LongCopy document){
+    private void processLongCopy(HstRequest request, PageConfiguration config, LongCopy document) {
         Page page = getDocument(request);
         if (page instanceof General && ((General) page).getTheme().equals(GeneralContentComponent.SIMPLE)){
             if (config.modules.stream().anyMatch(LongCopyModule.class::isInstance)){
@@ -200,6 +206,8 @@ public class PageTemplateBuilder {
         }else{
             page.modules.add(al);
         }
+
+        addGlobalLabel(request,"third-party-error");
     }
     private Module<Megalinks> processPersonalisation(HstRequest request, Megalinks item, String marketoId, LinksModule<?> parent) {
         LinksModule<?> al = linksFactory.getMegalinkModule(item, request.getLocale());
@@ -222,13 +230,13 @@ public class PageTemplateBuilder {
 
     }
 
-    private boolean isICentreLanding(HstRequest request){
+    private boolean isICentreLanding(HstRequest request) {
         return request.getPathInfo().equals(properties.getSiteICentre().substring(0, properties.getSiteICentre().length() - 8));
     }
     /**
      * Creates a LinkModule from a TouristInformation document
      */
-    private void processTouristInformation(HstRequest request, PageConfiguration page, TourismInformation touristInfo, String location){
+    private void processTouristInformation(HstRequest request, PageConfiguration page, TourismInformation touristInfo, String location) {
         if (!isICentreLanding(request)) {
             ICentreModule iCentreModule = iCentreFactory.getModule(touristInfo.getICentre(), request.getLocale(), location);
 
@@ -250,10 +258,24 @@ public class PageTemplateBuilder {
      * @param request HstRequest request
      * @param modules List Modules
      */
-    private void setIntroTheme(HstRequest request, List<Module<?>> modules){
+    private void setIntroTheme(HstRequest request, List<Module<?>> modules) {
         if(!modules.isEmpty() && modules.get(0) instanceof LinksModule){
             request.setModel(INTRO_THEME, ((LinksModule<?>) modules.get(0)).getThemeIndex());
         }
+    }
+
+    private Map<String, Map<String, String>> labels(HstRequest request) {
+        if (request.getModel(LABELS) == null) {
+            Map<String, Map<String, String>> labels = new HashMap<>();
+            request.setModel(LABELS, labels);
+            return labels;
+        }
+
+        return request.getModel(LABELS);
+    }
+
+    private void addGlobalLabel(HstRequest request, String key) {
+        labels(request).get(GLOBAL_BUNDLE_FILE).put(key, bundle.getResourceBundle(GLOBAL_BUNDLE_FILE, key, request.getLocale()));
     }
 
     /**
