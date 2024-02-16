@@ -41,7 +41,6 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
     public static final String HERO_IMAGE = "heroImage";
     public static final String HERO_VIDEO = "heroVideo";
     public static final String PSR_WIDGET = "psrWidget";
-    public static final String SOCIAL_LINKS = "social-links";
 
     public static final String SEARCH_RESULTS = "searchResultsPage";
     private final BlogFactory blogFactory;
@@ -99,6 +98,7 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
     private void addLabels(HstRequest request) {
         final String SOCIAL_SHARE_BUNDLE = "social.share";
         final String VIDEO_BUNDLE = "video";
+        final String SKIP_TO = "skip-to";
         final String CMS_MESSAGES = "cms-messages";
 
         Map<String, String> globalLabels = new HashMap<>();
@@ -116,6 +116,7 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
         labels(request).put(ResourceBundleService.GLOBAL_BUNDLE_FILE, globalLabels);
         labels(request).put(SOCIAL_SHARE_BUNDLE, bundle.getAllLabels(SOCIAL_SHARE_BUNDLE, request.getLocale()));
         labels(request).put(VIDEO_BUNDLE, bundle.getAllLabels(VIDEO_BUNDLE, request.getLocale()));
+        labels(request).put(SKIP_TO, bundle.getAllLabels(SKIP_TO, request.getLocale()));
 
         if (isEditMode(request)){
             labels(request).put(CMS_MESSAGES, bundle.getAllLabels(CMS_MESSAGES, request.getLocale()));
@@ -260,20 +261,22 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
     }
 
     private void addSiteSpecificConfiguration(HstRequest request) {
-        String socialMediaBundle;
+        final String SOCIAL_MEDIA = "navigation.social-media";
+        final String STATIC = "navigation.static";
+        String prefix = "";
 
         if (hippoUtils.isBusinessEventsSite(request)) {
             request.setModel(HippoUtilsService.BUSINESS_EVENTS_SITE, true);
-            socialMediaBundle = "be.navigation.social-media";
+            prefix = "be.";
         } else {
             addProductSearchWidget(request);
-            socialMediaBundle = "navigation.social-media";
         }
 
         if (request.getModel(LABELS) == null){
             logger.error("The social links could not be added because the labels request model is not defined");
         } else {
-            labels(request).put(SOCIAL_LINKS, bundle.getAllLabels(socialMediaBundle, request.getLocale()));
+            labels(request).put(SOCIAL_MEDIA, bundle.getAllLabels( prefix + SOCIAL_MEDIA, request.getLocale()));
+            labels(request).put(STATIC, bundle.getAllLabels( prefix + STATIC, request.getLocale()));
         }
     }
 
