@@ -207,7 +207,7 @@ public class PageTemplateBuilder {
             page.modules.add(al);
         }
 
-        addGlobalLabel(request,"third-party-error");
+        addGlobalLabel(request, "third-party-error");
     }
     private Module<Megalinks> processPersonalisation(HstRequest request, Megalinks item, String marketoId, LinksModule<?> parent) {
         LinksModule<?> al = linksFactory.getMegalinkModule(item, request.getLocale());
