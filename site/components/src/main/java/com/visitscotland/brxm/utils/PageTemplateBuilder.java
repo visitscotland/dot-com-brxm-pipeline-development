@@ -197,13 +197,13 @@ public class PageTemplateBuilder {
             List<Module> personalisationList = new ArrayList<>();
             al.setMarketoId(DEFAULT);
             personalisationList.add(al);
-            for (Personalization personalisationMegalink : item.getPersonalization()){
+            for (Personalization personalisationMegalink : item.getPersonalization()) {
                 personalisationList.add(processPersonalisation(request, (Megalinks)personalisationMegalink.getModule(), personalisationMegalink.getId(), al));
             }
             personalisationModule.setModules(personalisationList);
 
             page.modules.add(personalisationModule);
-        }else{
+        } else {
             page.modules.add(al);
         }
 
