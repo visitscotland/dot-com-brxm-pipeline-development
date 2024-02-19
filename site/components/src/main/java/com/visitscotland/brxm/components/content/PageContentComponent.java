@@ -272,12 +272,8 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
             addProductSearchWidget(request);
         }
 
-        if (request.getModel(LABELS) == null) {
-            logger.error("The social links could not be added because the labels request model is not defined");
-        } else {
-            labels(request).put(SOCIAL_MEDIA, bundle.getAllLabels(prefix + SOCIAL_MEDIA, request.getLocale()));
-            labels(request).put(STATIC, bundle.getAllLabels(prefix + STATIC, request.getLocale()));
-        }
+        labels(request).put(SOCIAL_MEDIA, bundle.getAllLabels(prefix + SOCIAL_MEDIA, request.getLocale()));
+        labels(request).put(STATIC, bundle.getAllLabels(prefix + STATIC, request.getLocale()));
     }
 
     boolean isEditMode(HstRequest request) {
