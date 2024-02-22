@@ -17,6 +17,10 @@
         padding: 1.5rem !important;
     }
 
+    .vs-global-menu__list_item a{
+        padding: 0 2rem;
+    }
+
     .vs-global-menu__list_item,
     .vs-global-menu__languages__text,
     .vs-global-menu__languages__selected {
@@ -84,6 +88,10 @@
 }
 
 .vs-mega-nav {
+    &__logo svg{
+        margin: 0;
+    }
+
     .vs-mega-nav-accordion-item {
         width: 100%;
         height: auto; 
@@ -232,6 +240,10 @@
             font-size: 1.4rem !important;
         }
     }
+}
+
+.vs-button{
+    border-radius: 0;
 }
 
 .vs-banner {
