@@ -1,0 +1,26 @@
+definitions:
+  config:
+    /hippo:configuration/hippo:domains/be-labels:
+      jcr:primaryType: hipposys:domain
+      /administration-labels-domain:
+        jcr:primaryType: hipposys:domainrule
+        /labels:
+          jcr:primaryType: hipposys:facetrule
+          hipposys:equals: true
+          hipposys:facet: jcr:path
+          hipposys:type: Reference
+          hipposys:value: /content/documents/administration/be-labels
+      /admin:
+        jcr:primaryType: hipposys:authrole
+        hipposys:role: admin
+        hipposys:userrole:
+          .meta:category: system
+          type: string
+          value: xm.content.admin
+      /be-editor:
+        jcr:primaryType: hipposys:authrole
+        hipposys:role: editor
+        hipposys:userrole:
+          .meta:category: system
+          type: string
+          value: vs.labels.business-events

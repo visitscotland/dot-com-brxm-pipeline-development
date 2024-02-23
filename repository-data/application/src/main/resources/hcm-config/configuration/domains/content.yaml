@@ -6,3 +6,19 @@ definitions:
       hipposys:facet: jcr:path
       hipposys:type: Reference
       hipposys:value: /content/documents/administration
+    /hippo:configuration/hippo:domains/content/content-domain/content-and-descendants:
+      hipposys:value: /content/documents/
+    /hippo:configuration/hippo:domains/content/content-domain/exclude-business-events:
+      jcr:primaryType: hipposys:facetrule
+      hipposys:equals: false
+      hipposys:facet: jcr:path
+      hipposys:type: Reference
+      hipposys:value: /content/documents/business-events
+    /hippo:configuration/hippo:domains/content/gallery-domain:
+      jcr:primaryType: hipposys:domainrule
+      /content-and-descendants:
+        jcr:primaryType: hipposys:facetrule
+        hipposys:equals: true
+        hipposys:facet: jcr:path
+        hipposys:type: Reference
+        hipposys:value: /content/gallery/visitscotland
