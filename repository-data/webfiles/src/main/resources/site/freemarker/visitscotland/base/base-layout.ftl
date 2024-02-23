@@ -22,6 +22,7 @@
         <@skeleton />
         <@personalisation />
         <div data-vue-hydration-init class="hydrate"><div class="no-js" data-vue-app-init>
+            <#-- This top element is an Experience Manager Container (not currently in use)-->
             <@hst.include ref="top"/>
 
             <@hst.include ref="menu"/>
