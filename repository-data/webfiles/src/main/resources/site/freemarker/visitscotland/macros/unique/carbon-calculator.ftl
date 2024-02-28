@@ -7,7 +7,7 @@
     <#assign labels =  ResourceBundle.getAllLabels("carbon-calculator", locale) />
 
     <vs-module-wrapper
-        class="text-left"
+        class="text-start"
     >
         <vs-carbon-calculator
             :labels-map="{
