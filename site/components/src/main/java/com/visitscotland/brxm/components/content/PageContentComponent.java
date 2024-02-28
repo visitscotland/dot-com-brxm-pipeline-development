@@ -41,7 +41,6 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
     public static final String HERO_IMAGE = "heroImage";
     public static final String HERO_VIDEO = "heroVideo";
     public static final String PSR_WIDGET = "psrWidget";
-    public static final String SOCIAL_LINKS = "social-links";
 
     public static final String SEARCH_RESULTS = "searchResultsPage";
     private final BlogFactory blogFactory;
@@ -91,7 +90,7 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
      * Add flags to the freekarker to indicate what type of page is being processed
      */
     private void addFlags(HstRequest request) {
-        if (request.getPathInfo().contains(properties.getSiteGlobalSearch())){
+        if (request.getPathInfo().contains(properties.getSiteGlobalSearch())) {
             request.setModel(SEARCH_RESULTS, true);
         }
     }
@@ -99,30 +98,32 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
     private void addLabels(HstRequest request) {
         final String SOCIAL_SHARE_BUNDLE = "social.share";
         final String VIDEO_BUNDLE = "video";
+        final String SKIP_TO = "skip-to";
         final String CMS_MESSAGES = "cms-messages";
 
         Map<String, String> globalLabels = new HashMap<>();
 
-        addGlobalLabel(globalLabels,"close", request.getLocale());
-        addGlobalLabel(globalLabels,"cookie.link-message", request.getLocale());
-        addGlobalLabel(globalLabels,"third-party-error", request.getLocale());
-        addGlobalLabel(globalLabels,"default.alt-text", request.getLocale());
-        addGlobalLabel(globalLabels,"image.title", request.getLocale());
-        addGlobalLabel(globalLabels,"image.no.credit", request.getLocale());
-        addGlobalLabel(globalLabels,"home", request.getLocale());
-        addGlobalLabel(globalLabels,"page.next", request.getLocale());
-        addGlobalLabel(globalLabels,"page.previous", request.getLocale());
+        addGlobalLabel(globalLabels, "close", request.getLocale());
+        addGlobalLabel(globalLabels, "cookie.link-message", request.getLocale());
+        addGlobalLabel(globalLabels, "third-party-error", request.getLocale());
+        addGlobalLabel(globalLabels, "default.alt-text", request.getLocale());
+        addGlobalLabel(globalLabels, "image.title", request.getLocale());
+        addGlobalLabel(globalLabels, "image.no.credit", request.getLocale());
+        addGlobalLabel(globalLabels, "home", request.getLocale());
+        addGlobalLabel(globalLabels, "page.next", request.getLocale());
+        addGlobalLabel(globalLabels, "page.previous", request.getLocale());
 
         labels(request).put(ResourceBundleService.GLOBAL_BUNDLE_FILE, globalLabels);
         labels(request).put(SOCIAL_SHARE_BUNDLE, bundle.getAllLabels(SOCIAL_SHARE_BUNDLE, request.getLocale()));
         labels(request).put(VIDEO_BUNDLE, bundle.getAllLabels(VIDEO_BUNDLE, request.getLocale()));
+        labels(request).put(SKIP_TO, bundle.getAllLabels(SKIP_TO, request.getLocale()));
 
-        if (isEditMode(request)){
+        if (isEditMode(request)) {
             labels(request).put(CMS_MESSAGES, bundle.getAllLabels(CMS_MESSAGES, request.getLocale()));
         }
     }
 
-    private void addGlobalLabel(Map<String, String> map, String key, Locale locale){
+    private void addGlobalLabel(Map<String, String> map, String key, Locale locale) {
         map.put(key, bundle.getResourceBundle(ResourceBundleService.GLOBAL_BUNDLE_FILE, key, locale));
     }
 
@@ -136,7 +137,7 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
         FlatImage heroImage = imageFactory.createImage(getDocument(request).getHeroImage(), introModule, request.getLocale());
         if (getDocument(request).getHeroImage() == null) {
             String message = String.format("The image selected for '%s' is not available, please select a valid image for '%s' at: %s ",
-                    getDocument(request).getTitle(), getDocument(request).getDisplayName(),getDocument(request).getPath());
+                    getDocument(request).getTitle(), getDocument(request).getDisplayName(), getDocument(request).getPath());
             contentLogger.warn(message);
             introModule.addErrorMessage(message);
         }
@@ -260,24 +261,22 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
     }
 
     private void addSiteSpecificConfiguration(HstRequest request) {
-        String socialMediaBundle;
+        final String SOCIAL_MEDIA = "navigation.social-media";
+        final String STATIC = "navigation.static";
+        String prefix = "";
 
         if (hippoUtils.isBusinessEventsSite(request)) {
             request.setModel(HippoUtilsService.BUSINESS_EVENTS_SITE, true);
-            socialMediaBundle = "be.navigation.social-media";
+            prefix = "be.";
         } else {
             addProductSearchWidget(request);
-            socialMediaBundle = "navigation.social-media";
         }
 
-        if (request.getModel(LABELS) == null){
-            logger.error("The social links could not be added because the labels request model is not defined");
-        } else {
-            labels(request).put(SOCIAL_LINKS, bundle.getAllLabels(socialMediaBundle, request.getLocale()));
-        }
+        labels(request).put(SOCIAL_MEDIA, bundle.getAllLabels(prefix + SOCIAL_MEDIA, request.getLocale()));
+        labels(request).put(STATIC, bundle.getAllLabels(prefix + STATIC, request.getLocale()));
     }
 
-    boolean isEditMode(HstRequest request){
+    boolean isEditMode(HstRequest request) {
         return Boolean.TRUE.equals(request.getAttribute("editMode"));
     }
 }
