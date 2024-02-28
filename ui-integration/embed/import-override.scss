@@ -88,7 +88,7 @@
 }
 
 .vs-mega-nav {
-    &__logo svg{
+    .vs-mega-nav__logo svg{
         margin: 0;
     }
 
@@ -467,4 +467,31 @@
 // fix spacing at top for old floating header
 html body main > #wrapper {
     padding-top: 0 !important;
+}
+
+// Temporary fixes for Tours until we can update the
+// code for Bootstrap 5
+
+.sr-only {
+    position: absolute !important;
+    width: 1px !important;
+    height: 1px !important;
+    padding: 0 !important;
+    margin: -1px !important;
+    overflow: hidden !important;
+    clip: rect(0, 0, 0, 0) !important;
+    white-space: nowrap !important;
+    border: 0 !important;
+}
+
+.ml-8, .ml-md-8 {
+    margin-left: 2rem !important;
+}
+
+.ml-4{
+    margin-left: 1rem !important;
+}
+
+.form-group {
+    margin-bottom: 1rem;
 }
