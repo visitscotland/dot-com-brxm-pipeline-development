@@ -29,7 +29,7 @@
                         cols="12"
                         sm="6"
                         lg="4"
-                        class="px-4 px-lg-8 text-left"
+                        class="px-4 px-lg-8 text-start"
                     >
                         <vs-ski-scotland-card
                             centre-info-url="${centre.feedURL}"

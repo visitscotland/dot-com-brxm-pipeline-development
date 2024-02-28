@@ -57,7 +57,7 @@
                                     href="${cta.link}"
                                     <#if cta.type != "internal">type="${cta.type}"</#if>
                                 >
-                                    ${cta.label}<span class="sr-only">: ${item.title}</span>
+                                    ${cta.label}<span class="visually-hidden">: ${item.title}</span>
                                 </vs-link>
                             </div>
                         </#if>
