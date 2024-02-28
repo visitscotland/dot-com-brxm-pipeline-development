@@ -11,7 +11,7 @@
     jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
     jcr:uuid: 353aacad-a093-43af-ae54-90fe64d2b38e
     hippo:name: content
-    hippo:versionHistory: d5653585-e6f2-474c-aac7-38117609acc1
+    hippo:versionHistory: 5ed8fcc2-f375-4369-a60b-a8d9211439a7
     /content[1]:
       jcr:primaryType: visitscotland:General
       jcr:mixinTypes: ['mix:versionable']
@@ -21,7 +21,7 @@
       hippostd:state: unpublished
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2021-06-29T15:19:57.775+01:00
-      hippostdpubwf:lastModificationDate: 2024-01-18T12:31:21.663Z
+      hippostdpubwf:lastModificationDate: 2024-02-26T13:43:41.909Z
       hippostdpubwf:lastModifiedBy: admin
       hippotranslation:id: f1a75f0d-60a4-49b9-b879-5d143c70353e
       hippotranslation:locale: en
@@ -51,6 +51,11 @@
           <p>For years Scotland has welcomed the world's greatest thinkers, pioneers, innovators and leaders to the many international congresses, conferences and meetings we host. Scotland is an incredible destination for business events. Our world leading academia, research institutes, industries and innovation centres thrive on ideas, new challenges and the inspiration we can give and draw from delegates to our country.</p>
 
           <p>In Scotland we believe business events are a catalyst for social and economic transformation; they are a driver to tackle climate change; they are a voice for human rights; they are a leader in the global <a href="https://businessevents.visitscotland.com/why-scotland/journey-to-change/" title="Journey to change">Journey to Change</a>.</p>
+      /visitscotland:heroVideo:
+        jcr:primaryType: visitscotland:VideoLink
+        /visitscotland:videoLink:
+          jcr:primaryType: hippo:mirror
+          hippo:docbase: 531e8256-dfdc-4af0-b2ff-4835fe3aef10
     /content[2]:
       jcr:primaryType: visitscotland:General
       jcr:mixinTypes: ['mix:referenceable']
@@ -60,7 +65,7 @@
       hippostd:state: draft
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2021-06-29T15:19:57.775+01:00
-      hippostdpubwf:lastModificationDate: 2024-01-18T12:29:51.371Z
+      hippostdpubwf:lastModificationDate: 2024-02-26T13:43:36.247Z
       hippostdpubwf:lastModifiedBy: admin
       hippotranslation:id: f1a75f0d-60a4-49b9-b879-5d143c70353e
       hippotranslation:locale: en
@@ -90,6 +95,11 @@
           <p>For years Scotland has welcomed the world's greatest thinkers, pioneers, innovators and leaders to the many international congresses, conferences and meetings we host. Scotland is an incredible destination for business events. Our world leading academia, research institutes, industries and innovation centres thrive on ideas, new challenges and the inspiration we can give and draw from delegates to our country.</p>
 
           <p>In Scotland we believe business events are a catalyst for social and economic transformation; they are a driver to tackle climate change; they are a voice for human rights; they are a leader in the global <a href="https://businessevents.visitscotland.com/why-scotland/journey-to-change/" title="Journey to change">Journey to Change</a>.</p>
+      /visitscotland:heroVideo:
+        jcr:primaryType: visitscotland:VideoLink
+        /visitscotland:videoLink:
+          jcr:primaryType: hippo:mirror
+          hippo:docbase: 531e8256-dfdc-4af0-b2ff-4835fe3aef10
     /content[3]:
       jcr:primaryType: visitscotland:General
       jcr:mixinTypes: ['mix:referenceable']
@@ -99,9 +109,9 @@
       hippostd:state: published
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2021-06-29T15:19:57.775+01:00
-      hippostdpubwf:lastModificationDate: 2024-01-18T12:31:21.663Z
+      hippostdpubwf:lastModificationDate: 2024-02-26T13:43:41.909Z
       hippostdpubwf:lastModifiedBy: admin
-      hippostdpubwf:publicationDate: 2024-01-18T12:31:25.667Z
+      hippostdpubwf:publicationDate: 2024-02-26T13:43:47.656Z
       hippotranslation:id: f1a75f0d-60a4-49b9-b879-5d143c70353e
       hippotranslation:locale: en
       visitscotland:breadcrumb: ''
@@ -130,3 +140,8 @@
           <p>For years Scotland has welcomed the world's greatest thinkers, pioneers, innovators and leaders to the many international congresses, conferences and meetings we host. Scotland is an incredible destination for business events. Our world leading academia, research institutes, industries and innovation centres thrive on ideas, new challenges and the inspiration we can give and draw from delegates to our country.</p>
 
           <p>In Scotland we believe business events are a catalyst for social and economic transformation; they are a driver to tackle climate change; they are a voice for human rights; they are a leader in the global <a href="https://businessevents.visitscotland.com/why-scotland/journey-to-change/" title="Journey to change">Journey to Change</a>.</p>
+      /visitscotland:heroVideo:
+        jcr:primaryType: visitscotland:VideoLink
+        /visitscotland:videoLink:
+          jcr:primaryType: hippo:mirror
+          hippo:docbase: 531e8256-dfdc-4af0-b2ff-4835fe3aef10
