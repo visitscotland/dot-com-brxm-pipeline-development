@@ -86,6 +86,10 @@ public class LocationLoader {
     }
 
     public LocationObject getLocation(String location, Locale locale){
+        if (locationToId.isEmpty()){
+            logger.error("The location list is not available");
+            return null;
+        }
         return getLocations(Language.getLanguageForLocale(locale)).get(locationToId.get(location));
     }
 
