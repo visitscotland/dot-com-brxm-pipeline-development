@@ -12,7 +12,7 @@
         fullyQualified=fullyQualifiedURLs path='/webfiles/static/third-party/embed/processed-styles/legacy.css' />" />
     <#else >
         <link rel="stylesheet" href="<@hst.link
-        fullyQualified=fullyQualifiedURLs path='/webfiles/static/third-party/embed/processed-styles/tours.css' />" />
+        fullyQualified=fullyQualifiedURLs path='/webfiles/static/third-party/embed/processed-styles/bootstrap5-override.css' />" />
     </#if>
 
 
