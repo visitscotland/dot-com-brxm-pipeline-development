@@ -57,7 +57,7 @@
             <#if stop.timeToExplore?? && stop.timeToExplore?has_content>
                 <template v-slot:stop>
                     <vs-description-list class="mb-4 justify-content-start" inline>
-                        <vs-description-list-item title class="mb-0 mr-0 pr-1 col-auto">${label("itinerary", "stop.time-to-explore")}</vs-description-list-item>
+                        <vs-description-list-item title class="mb-0 me-0 pe-1 col-auto">${label("itinerary", "stop.time-to-explore")}</vs-description-list-item>
                         <vs-description-list-item class="mb-0 col-auto px-0">${stop.timeToExplore}</vs-description-list-item>
                     </vs-description-list>
                 </template>
@@ -135,7 +135,7 @@
                         and-text='${label("itinerary", "stop.and")}'
                     >
                         <template v-slot:stop-link-text>
-                            <span class="sr-only">${stop.title}: </span>${label("itinerary", "stop.opening")}
+                            <span class="visually-hidden">${stop.title}: </span>${label("itinerary", "stop.opening")}
                         </template>
 
                         <#if stop.price??>
