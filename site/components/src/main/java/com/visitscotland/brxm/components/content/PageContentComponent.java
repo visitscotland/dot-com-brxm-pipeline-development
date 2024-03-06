@@ -14,6 +14,7 @@ import com.visitscotland.brxm.services.LinkService;
 import com.visitscotland.brxm.services.ResourceBundleService;
 import com.visitscotland.brxm.utils.ContentLogger;
 import com.visitscotland.brxm.utils.HippoUtilsService;
+import com.visitscotland.brxm.utils.MetadataFactory;
 import com.visitscotland.brxm.utils.Properties;
 import com.visitscotland.utils.Contract;
 import org.hippoecm.hst.core.component.HstRequest;
@@ -43,6 +44,8 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
     public static final String PSR_WIDGET = "psrWidget";
 
     public static final String SEARCH_RESULTS = "searchResultsPage";
+    public static final String METADATA_MODEL = "metadata";
+
     private final BlogFactory blogFactory;
     private final MegalinkFactory megalinkFactory;
     private final ImageFactory imageFactory;
@@ -54,6 +57,8 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
     private final ResourceBundleService bundle;
     private final Properties properties;
     private final Logger contentLogger;
+
+    private final MetadataFactory metadata;
 
     public PageContentComponent() {
         blogFactory = VsComponentManager.get(BlogFactory.class);
@@ -67,12 +72,14 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
         hippoUtils = VsComponentManager.get(HippoUtilsService.class);
         properties = VsComponentManager.get(Properties.class);
         bundle = VsComponentManager.get(ResourceBundleService.class);
+        metadata = VsComponentManager.get(MetadataFactory.class);
 
     }
 
     @Override
     public void doBeforeRender(HstRequest request, HstResponse response) {
         super.doBeforeRender(request, response);
+        addMetadata(request);
 
         addHeroImage(request);
 
@@ -84,6 +91,14 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
 
         addLabels(request);
         addSiteSpecificConfiguration(request);
+    }
+
+    private void addMetadata(HstRequest request){
+        try {
+            request.setModel(METADATA_MODEL, metadata.getMetadata());
+        } catch (Exception e){
+            e.printStackTrace();
+        }
     }
 
     /**
