@@ -26,12 +26,14 @@ public class MenuComponent extends EssentialsMenuComponent {
     private static final String VS_PREFIX = "navigation.";
     private static final String BE_PREFIX = "be.navigation.";
 
+    private static final String PREVIEW_QUERY_PARAMETER = "preview-token";
+
     public static final String MENU = "menu";
     public static final String LOCALIZED_URLS = "localizedURLs";
 
-    private NavigationFactory factory;
-    private HippoUtilsService utils;
-    private Properties properties;
+    private final NavigationFactory factory;
+    private final HippoUtilsService utils;
+    private final Properties properties;
 
 
     public MenuComponent() {
@@ -59,12 +61,20 @@ public class MenuComponent extends EssentialsMenuComponent {
                 requestContext.setPreferredLocale(language.getLocale());
             }
         }
-        boolean editModeCache = (Boolean.TRUE.equals(request.getAttribute("editMode")) && Boolean.TRUE.equals(properties.getNavigationCache()));
-        boolean cacheable = (properties.isSnippetCacheEnabled() && Boolean.FALSE.equals(request.getAttribute("editMode"))) || editModeCache;
-        String token = getAnyParameter(request, "preview-token");
 
-        RootMenuItem rootMenuItem = factory.buildMenu(request, getResourceBundle(request), token, cacheable);
-        rootMenuItem.setCmsCached(editModeCache);
+        boolean editMode = Boolean.TRUE.equals(request.getAttribute("editMode"));
+        boolean cacheable;
+
+        if (editMode) {
+            cacheable = Boolean.TRUE.equals(properties.getNavigationCache());
+        } else {
+            cacheable = properties.isSnippetCacheEnabled();
+        }
+
+        String id = (editMode?"1-":"0-") + getAnyParameter(request, PREVIEW_QUERY_PARAMETER);
+
+        RootMenuItem rootMenuItem = factory.buildMenu(request, getResourceBundle(request), id, cacheable);
+        rootMenuItem.setCmsCached(cacheable);
 
         request.setModel(MENU, rootMenuItem);
     }

@@ -62,10 +62,10 @@ public class NavigationFactory {
      */
     @Cacheable(
             value = "navigation",
-            key = "{#request.locale, #resourceBundle, #token, #cacheable}",
+            key = "{#request.locale, #resourceBundle, #id, #cacheable}",
             unless = "!#cacheable"
     )
-    public RootMenuItem buildMenu(HstRequest request, String resourceBundle, String token, boolean cacheable) {
+    public RootMenuItem buildMenu(HstRequest request, String resourceBundle, String id, boolean cacheable) {
         final HstSiteMenu hstSiteMenu = request.getModel(MENU);
         List<HstSiteMenuItem> enhancedMenu = new ArrayList<>();
 
@@ -123,7 +123,6 @@ public class NavigationFactory {
             return null;
         }
     }
-
 
     /**
      * Identifies the type of document linked and populated the data on the menu item accordingly
@@ -252,6 +251,6 @@ public class NavigationFactory {
      * Indicates if the link is based on a document
      */
     private boolean isDocumentBased(HstLink link) {
-        return link != null && link.getPath() != null && link.getPath().length() > 0;
+        return link != null && link.getPath() != null && link.getPath().isEmpty();
     }
 }
