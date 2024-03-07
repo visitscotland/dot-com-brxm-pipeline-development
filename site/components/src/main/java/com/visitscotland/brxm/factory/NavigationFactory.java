@@ -124,6 +124,7 @@ public class NavigationFactory {
         }
     }
 
+
     /**
      * Identifies the type of document linked and populated the data on the menu item accordingly
      */

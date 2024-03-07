@@ -1,0 +1,282 @@
+definitions:
+  config:
+    /hst:hst/hst:configurations/business-events/hst:sitemap:
+      jcr:primaryType: hst:sitemap
+      /root:
+        jcr:primaryType: hst:sitemapitem
+        hst:componentconfigurationid: hst:pages/general-page
+        hst:pagetitle: Home Page
+        hst:refId: root
+        hst:relativecontentpath: site/content
+      /_any_:
+        jcr:primaryType: hst:sitemapitem
+        hst:componentconfigurationid: hst:pages/pagenotfound
+      /pagenotfound:
+        jcr:primaryType: hst:sitemapitem
+        hst:componentconfigurationid: hst:pages/pagenotfound
+        hst:refId: pagenotfound
+        hst:relativecontentpath: general/error/404-not-found/content
+      /sandbox:
+        jcr:primaryType: hst:sitemapitem
+        hst:componentconfigurationid: hst:pages/pagenotfound
+        hst:relativecontentpath: sandbox
+        /_index_:
+          jcr:primaryType: hst:sitemapitem
+          hst:componentconfigurationid: hst:pages/pagenotfound
+          hst:componentconfigurationmappingnames: ['visitscotland:Itinerary', 'visitscotland:Listicle',
+            'visitscotland:Destination', 'visitscotland:General']
+          hst:componentconfigurationmappingvalues: ['hst:pages/itinerary-page', 'hst:pages/listicle-page',
+            'hst:pages/destination-page', 'hst:pages/general-page']
+          hst:relativecontentpath: ${parent}/content
+        /vuex:
+          jcr:primaryType: hst:sitemapitem
+          hst:componentconfigurationid: hst:pages/vuex-example-page
+          /vuex-example:
+            jcr:primaryType: hst:sitemapitem
+            hst:componentconfigurationid: hst:pages/vuex-example-page
+        /_default_:
+          jcr:primaryType: hst:sitemapitem
+          hst:componentconfigurationid: hst:pages/pagenotfound
+          hst:relativecontentpath: ${parent}/${1}
+          /_index_:
+            jcr:primaryType: hst:sitemapitem
+            hst:componentconfigurationid: hst:pages/pagenotfound
+            hst:componentconfigurationmappingnames: ['visitscotland:Itinerary', 'visitscotland:Listicle',
+              'visitscotland:General', 'visitscotland:Destination']
+            hst:componentconfigurationmappingvalues: ['hst:pages/itinerary-page',
+              'hst:pages/listicle-page', 'hst:pages/general-page', 'hst:pages/destination-page']
+            hst:relativecontentpath: ${parent}/content
+          /_default_:
+            jcr:primaryType: hst:sitemapitem
+            hst:componentconfigurationid: hst:pages/pagenotfound
+            hst:relativecontentpath: ${parent}/${2}
+            /_default_:
+              jcr:primaryType: hst:sitemapitem
+              hst:componentconfigurationid: hst:pages/pagenotfound
+              hst:relativecontentpath: ${parent}/${3}
+              /_default_:
+                jcr:primaryType: hst:sitemapitem
+                hst:componentconfigurationid: hst:pages/pagenotfound
+                hst:relativecontentpath: ${parent}/${4}
+                /_default_:
+                  jcr:primaryType: hst:sitemapitem
+                  hst:componentconfigurationid: hst:pages/pagenotfound
+                  hst:relativecontentpath: ${parent}/${5}
+                  /_default_:
+                    jcr:primaryType: hst:sitemapitem
+                    hst:componentconfigurationid: hst:pages/pagenotfound
+                    hst:relativecontentpath: ${parent}/${6}
+                    /_index_:
+                      jcr:primaryType: hst:sitemapitem
+                      hst:componentconfigurationid: hst:pages/pagenotfound
+                      hst:componentconfigurationmappingnames: ['visitscotland:Itinerary',
+                        'visitscotland:Listicle', 'visitscotland:General', 'visitscotland:Destination']
+                      hst:componentconfigurationmappingvalues: ['hst:pages/itinerary-page',
+                        'hst:pages/listicle-page', 'hst:pages/general-page', 'hst:pages/destination-page']
+                      hst:relativecontentpath: ${parent}/content
+                    /_default_:
+                      jcr:primaryType: hst:sitemapitem
+                      hst:componentconfigurationid: hst:pages/pagenotfound
+                      hst:relativecontentpath: ${parent}/${7}
+                      /_index_:
+                        jcr:primaryType: hst:sitemapitem
+                        hst:componentconfigurationid: hst:pages/pagenotfound
+                        hst:componentconfigurationmappingnames: ['visitscotland:Itinerary',
+                          'visitscotland:Listicle', 'visitscotland:Destination']
+                        hst:componentconfigurationmappingvalues: ['hst:pages/itinerary-page',
+                          'hst:pages/listicle-page', 'hst:pages/destination-page']
+                        hst:relativecontentpath: ${parent}/content
+                      /_default_:
+                        jcr:primaryType: hst:sitemapitem
+                        hst:componentconfigurationid: hst:pages/pagenotfound
+                        hst:relativecontentpath: ${parent}/${8}
+                        /_index_:
+                          jcr:primaryType: hst:sitemapitem
+                          hst:componentconfigurationid: hst:pages/pagenotfound
+                          hst:componentconfigurationmappingnames: ['visitscotland:Itinerary',
+                            'visitscotland:Listicle', 'visitscotland:Destination']
+                          hst:componentconfigurationmappingvalues: ['hst:pages/itinerary-page',
+                            'hst:pages/listicle-page', 'hst:pages/destination-page']
+                          hst:relativecontentpath: ${parent}/content
+                        /_default_:
+                          jcr:primaryType: hst:sitemapitem
+                          hst:componentconfigurationid: hst:pages/pagenotfound
+                          hst:relativecontentpath: ${parent}/${9}
+                          /_index_:
+                            jcr:primaryType: hst:sitemapitem
+                            hst:componentconfigurationid: hst:pages/pagenotfound
+                            hst:componentconfigurationmappingnames: ['visitscotland:Itinerary',
+                              'visitscotland:Listicle', 'visitscotland:Destination']
+                            hst:componentconfigurationmappingvalues: ['hst:pages/itinerary-page',
+                              'hst:pages/listicle-page', 'hst:pages/destination-page']
+                            hst:relativecontentpath: ${parent}/content
+                  /_index_:
+                    jcr:primaryType: hst:sitemapitem
+                    hst:componentconfigurationid: hst:pages/pagenotfound
+                    hst:componentconfigurationmappingnames: ['visitscotland:Itinerary',
+                      'visitscotland:Listicle', 'visitscotland:General', 'visitscotland:Destination']
+                    hst:componentconfigurationmappingvalues: ['hst:pages/itinerary-page',
+                      'hst:pages/listicle-page', 'hst:pages/general-page', 'hst:pages/destination-page']
+                    hst:relativecontentpath: ${parent}/content
+                /_index_:
+                  jcr:primaryType: hst:sitemapitem
+                  hst:componentconfigurationid: hst:pages/pagenotfound
+                  hst:componentconfigurationmappingnames: ['visitscotland:Itinerary',
+                    'visitscotland:Listicle', 'visitscotland:General', 'visitscotland:Destination']
+                  hst:componentconfigurationmappingvalues: ['hst:pages/itinerary-page',
+                    'hst:pages/listicle-page', 'hst:pages/general-page', 'hst:pages/destination-page']
+                  hst:relativecontentpath: ${parent}/content
+              /_index_:
+                jcr:primaryType: hst:sitemapitem
+                hst:componentconfigurationid: hst:pages/pagenotfound
+                hst:componentconfigurationmappingnames: ['visitscotland:Itinerary',
+                  'visitscotland:Listicle', 'visitscotland:General', 'visitscotland:Destination']
+                hst:componentconfigurationmappingvalues: ['hst:pages/itinerary-page',
+                  'hst:pages/listicle-page', 'hst:pages/general-page', 'hst:pages/destination-page']
+                hst:relativecontentpath: ${parent}/content
+            /_index_:
+              jcr:primaryType: hst:sitemapitem
+              hst:componentconfigurationid: hst:pages/pagenotfound
+              hst:componentconfigurationmappingnames: ['visitscotland:Itinerary',
+                'visitscotland:Listicle', 'visitscotland:General', 'visitscotland:Destination']
+              hst:componentconfigurationmappingvalues: ['hst:pages/itinerary-page',
+                'hst:pages/listicle-page', 'hst:pages/general-page', 'hst:pages/destination-page']
+              hst:relativecontentpath: ${parent}/content
+      /servererror:
+        jcr:primaryType: hst:sitemapitem
+        hst:componentconfigurationid: hst:pages/servererror
+        hst:relativecontentpath: general/error/500-server-error/content
+      /widget:
+        jcr:primaryType: hst:sitemapitem
+        hst:relativecontentpath: general/navigation/widgets
+        /_any_:
+          jcr:primaryType: hst:sitemapitem
+          hst:componentconfigurationid: hst:pages/pagenotfound
+          hst:relativecontentpath: ${parent}/${1}
+      /data:
+        jcr:primaryType: hst:sitemapitem
+        hst:componentconfigurationid: hst:pages/pagenotfound
+        /internal:
+          jcr:primaryType: hst:sitemapitem
+          hst:componentconfigurationid: hst:pages/pagenotfound
+          hst:pagetitle: Fragmented Page
+          /css-header:
+            jcr:primaryType: hst:sitemapitem
+            hst:componentconfigurationid: hst:pages/internal-css-header
+          /header:
+            jcr:primaryType: hst:sitemapitem
+            hst:componentconfigurationid: hst:pages/internal-header
+          /footer:
+            jcr:primaryType: hst:sitemapitem
+            hst:componentconfigurationid: hst:pages/internal-footer
+          /script-footer:
+            jcr:primaryType: hst:sitemapitem
+            hst:componentconfigurationid: hst:pages/internal-script-footer
+      /_default_:
+        jcr:primaryType: hst:sitemapitem
+        hst:componentconfigurationid: hst:pages/pagenotfound
+        hst:relativecontentpath: site/${1}
+        /_index_:
+          jcr:primaryType: hst:sitemapitem
+          hst:componentconfigurationid: hst:pages/pagenotfound
+          hst:componentconfigurationmappingnames: ['visitscotland:Itinerary', 'visitscotland:Listicle',
+            'visitscotland:General', 'visitscotland:Destination']
+          hst:componentconfigurationmappingvalues: ['hst:pages/itinerary-page', 'hst:pages/listicle-page',
+            'hst:pages/general-page', 'hst:pages/destination-page']
+          hst:relativecontentpath: ${parent}/content
+        /_default_:
+          jcr:primaryType: hst:sitemapitem
+          hst:componentconfigurationid: hst:pages/pagenotfound
+          hst:relativecontentpath: ${parent}/${2}
+          /_default_:
+            jcr:primaryType: hst:sitemapitem
+            hst:componentconfigurationid: hst:pages/pagenotfound
+            hst:relativecontentpath: ${parent}/${3}
+            /_default_:
+              jcr:primaryType: hst:sitemapitem
+              hst:componentconfigurationid: hst:pages/pagenotfound
+              hst:relativecontentpath: ${parent}/${4}
+              /_default_:
+                jcr:primaryType: hst:sitemapitem
+                hst:componentconfigurationid: hst:pages/pagenotfound
+                hst:relativecontentpath: ${parent}/${5}
+                /_default_:
+                  jcr:primaryType: hst:sitemapitem
+                  hst:componentconfigurationid: hst:pages/pagenotfound
+                  hst:relativecontentpath: ${parent}/${6}
+                  /_index_:
+                    jcr:primaryType: hst:sitemapitem
+                    hst:componentconfigurationid: hst:pages/pagenotfound
+                    hst:componentconfigurationmappingnames: ['visitscotland:Itinerary',
+                      'visitscotland:Listicle', 'visitscotland:General', 'visitscotland:Destination']
+                    hst:componentconfigurationmappingvalues: ['hst:pages/itinerary-page',
+                      'hst:pages/listicle-page', 'hst:pages/general-page', 'hst:pages/destination-page']
+                    hst:relativecontentpath: ${parent}/content
+                  /_default_:
+                    jcr:primaryType: hst:sitemapitem
+                    hst:componentconfigurationid: hst:pages/pagenotfound
+                    hst:relativecontentpath: ${parent}/${7}
+                    /_index_:
+                      jcr:primaryType: hst:sitemapitem
+                      hst:componentconfigurationid: hst:pages/pagenotfound
+                      hst:componentconfigurationmappingnames: ['visitscotland:Itinerary',
+                        'visitscotland:Listicle', 'visitscotland:Destination']
+                      hst:componentconfigurationmappingvalues: ['hst:pages/itinerary-page',
+                        'hst:pages/listicle-page', 'hst:pages/destination-page']
+                      hst:relativecontentpath: ${parent}/content
+                    /_default_:
+                      jcr:primaryType: hst:sitemapitem
+                      hst:componentconfigurationid: hst:pages/pagenotfound
+                      hst:relativecontentpath: ${parent}/${8}
+                      /_index_:
+                        jcr:primaryType: hst:sitemapitem
+                        hst:componentconfigurationid: hst:pages/pagenotfound
+                        hst:componentconfigurationmappingnames: ['visitscotland:Itinerary',
+                          'visitscotland:Listicle', 'visitscotland:Destination']
+                        hst:componentconfigurationmappingvalues: ['hst:pages/itinerary-page',
+                          'hst:pages/listicle-page', 'hst:pages/destination-page']
+                        hst:relativecontentpath: ${parent}/content
+                      /_default_:
+                        jcr:primaryType: hst:sitemapitem
+                        hst:componentconfigurationid: hst:pages/pagenotfound
+                        hst:relativecontentpath: ${parent}/${9}
+                        /_index_:
+                          jcr:primaryType: hst:sitemapitem
+                          hst:componentconfigurationid: hst:pages/pagenotfound
+                          hst:componentconfigurationmappingnames: ['visitscotland:Itinerary',
+                            'visitscotland:Listicle', 'visitscotland:Destination']
+                          hst:componentconfigurationmappingvalues: ['hst:pages/itinerary-page',
+                            'hst:pages/listicle-page', 'hst:pages/destination-page']
+                          hst:relativecontentpath: ${parent}/content
+                /_index_:
+                  jcr:primaryType: hst:sitemapitem
+                  hst:componentconfigurationid: hst:pages/pagenotfound
+                  hst:componentconfigurationmappingnames: ['visitscotland:Itinerary',
+                    'visitscotland:Listicle', 'visitscotland:General', 'visitscotland:Destination']
+                  hst:componentconfigurationmappingvalues: ['hst:pages/itinerary-page',
+                    'hst:pages/listicle-page', 'hst:pages/general-page', 'hst:pages/destination-page']
+                  hst:relativecontentpath: ${parent}/content
+              /_index_:
+                jcr:primaryType: hst:sitemapitem
+                hst:componentconfigurationid: hst:pages/pagenotfound
+                hst:componentconfigurationmappingnames: ['visitscotland:Itinerary',
+                  'visitscotland:Listicle', 'visitscotland:General', 'visitscotland:Destination']
+                hst:componentconfigurationmappingvalues: ['hst:pages/itinerary-page',
+                  'hst:pages/listicle-page', 'hst:pages/general-page', 'hst:pages/destination-page']
+                hst:relativecontentpath: ${parent}/content
+            /_index_:
+              jcr:primaryType: hst:sitemapitem
+              hst:componentconfigurationid: hst:pages/pagenotfound
+              hst:componentconfigurationmappingnames: ['visitscotland:Itinerary',
+                'visitscotland:Listicle', 'visitscotland:General', 'visitscotland:Destination']
+              hst:componentconfigurationmappingvalues: ['hst:pages/itinerary-page',
+                'hst:pages/listicle-page', 'hst:pages/general-page', 'hst:pages/destination-page']
+              hst:relativecontentpath: ${parent}/content
+          /_index_:
+            jcr:primaryType: hst:sitemapitem
+            hst:componentconfigurationid: hst:pages/pagenotfound
+            hst:componentconfigurationmappingnames: ['visitscotland:Itinerary', 'visitscotland:Listicle',
+              'visitscotland:General', 'visitscotland:Destination']
+            hst:componentconfigurationmappingvalues: ['hst:pages/itinerary-page',
+              'hst:pages/listicle-page', 'hst:pages/general-page', 'hst:pages/destination-page']
+            hst:relativecontentpath: ${parent}/content
