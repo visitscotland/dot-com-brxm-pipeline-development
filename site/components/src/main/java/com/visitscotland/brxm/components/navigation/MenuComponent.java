@@ -22,6 +22,8 @@ import java.util.Locale;
 )
 public class MenuComponent extends EssentialsMenuComponent {
 
+    private static final String PREVIEW_QUERY_PARAMETER = "preview-token";
+
     public static final String MENU = "menu";
     public static final String LOCALIZED_URLS = "localizedURLs";
 
@@ -65,7 +67,7 @@ public class MenuComponent extends EssentialsMenuComponent {
             cacheable = properties.isSnippetCacheEnabled();
         }
 
-        String id = (editMode?"1-":"0-") + getAnyParameter(request, "preview-token");
+        String id = (editMode?"1-":"0-") + getAnyParameter(request, PREVIEW_QUERY_PARAMETER);
 
         RootMenuItem rootMenuItem = factory.buildMenu(request, request.getModel(MENU), id, cacheable);
         rootMenuItem.setCmsCached(cacheable);
