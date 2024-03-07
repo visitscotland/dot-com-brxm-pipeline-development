@@ -62,6 +62,24 @@ public class MenuComponent extends EssentialsMenuComponent {
             }
         }
 
+        request.setModel(MENU, getRootMenuItem(request));
+    }
+
+    /**
+     * Generates the root menu item considering if it needs to be cached.
+     * <br>
+     * There are three different navigation environments to be cached.
+     * <ul>
+     * <li>Live: General purpose Navigation served to final users</li>
+     * <li>CMS: Navigation inside the CMS. It would use URLs containing <i>/_cmsinternal/</i></li>
+     * <lI>Preview: Navigation for users that use the preview query string ({@code preview-token}) </li>
+     * </ul>
+     *
+     * @param request HstRequest object
+     *
+     * @return Resulting RootMenuItem
+     */
+    private RootMenuItem getRootMenuItem(HstRequest request){
         boolean editMode = Boolean.TRUE.equals(request.getAttribute("editMode"));
         boolean cacheable;
 
@@ -76,7 +94,7 @@ public class MenuComponent extends EssentialsMenuComponent {
         RootMenuItem rootMenuItem = factory.buildMenu(request, getResourceBundle(request), id, cacheable);
         rootMenuItem.setCmsCached(cacheable);
 
-        request.setModel(MENU, rootMenuItem);
+        return rootMenuItem;
     }
 
     private String getResourceBundle(HstRequest request){
