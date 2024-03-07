@@ -5,7 +5,6 @@ import com.visitscotland.utils.info.About;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.cache.annotation.Cacheable;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.stereotype.Component;
 
@@ -61,8 +60,8 @@ public class MetadataFactory {
 
         metadata.setVersion(getVersionNumber());
         metadata.setBranch(getCiProperty(BRANCH_NAME));
-        metadata.setLastCommitAuthor(AUTHOR);
-        metadata.setPr(PR_ID);
+        metadata.setLastCommitAuthor(getCiProperty(AUTHOR));
+        metadata.setPr(getCiProperty(PR_ID));
 
         return metadata;
     }
