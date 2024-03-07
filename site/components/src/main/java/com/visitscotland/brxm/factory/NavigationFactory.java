@@ -61,10 +61,10 @@ public class NavigationFactory {
      */
     @Cacheable(
             value = "navigation",
-            key = "{#request.locale, #hstSiteMenu.name, #token, #cacheable}",
+            key = "{#request.locale, #hstSiteMenu.name, #id, #cacheable}",
             unless = "!#cacheable"
     )
-    public RootMenuItem buildMenu(HstRequest request, HstSiteMenu hstSiteMenu, String token, boolean cacheable) {
+    public RootMenuItem buildMenu(HstRequest request, HstSiteMenu hstSiteMenu, String id, boolean cacheable) {
         List<HstSiteMenuItem> enhancedMenu = new ArrayList<>();
         RootMenuItem root = new RootMenuItem(hstSiteMenu);
         if (hstSiteMenu != null) {
