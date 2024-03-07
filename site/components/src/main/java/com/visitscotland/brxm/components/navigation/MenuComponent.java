@@ -81,13 +81,7 @@ public class MenuComponent extends EssentialsMenuComponent {
      */
     private RootMenuItem getRootMenuItem(HstRequest request){
         boolean editMode = Boolean.TRUE.equals(request.getAttribute("editMode"));
-        boolean cacheable;
-
-        if (editMode) {
-            cacheable = Boolean.TRUE.equals(properties.getNavigationCache());
-        } else {
-            cacheable = properties.isSnippetCacheEnabled();
-        }
+        boolean cacheable = editMode ? Boolean.TRUE.equals(properties.getNavigationCache()) : properties.isSnippetCacheEnabled();
 
         String id = (editMode?"1-":"0-") + getAnyParameter(request, PREVIEW_QUERY_PARAMETER);
 
