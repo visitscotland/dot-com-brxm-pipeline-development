@@ -13,7 +13,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
 
-@PropertySource("classpath:application.properties")
+@PropertySource("classpath:site.properties")
 @Component
 public class MetadataFactory {
 
@@ -55,7 +55,7 @@ public class MetadataFactory {
         return null;
     }
 
-    @Cacheable("metadata")
+
     public Metadata getMetadata (){
         Metadata metadata = new Metadata();
 
