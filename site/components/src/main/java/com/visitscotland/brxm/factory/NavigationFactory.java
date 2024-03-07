@@ -251,6 +251,6 @@ public class NavigationFactory {
      * Indicates if the link is based on a document
      */
     private boolean isDocumentBased(HstLink link) {
-        return link != null && link.getPath() != null && link.getPath().isEmpty();
+        return link != null && link.getPath() != null && !link.getPath().isEmpty();
     }
 }
