@@ -35,6 +35,7 @@ public class NavigationFactory {
 
     private static final Logger logger = LoggerFactory.getLogger(NavigationFactory.class);
 
+    public static final String MENU = "menu";
 
     static final String STATIC = "navigation.static";
     static final String CTA_SUFFIX = ".cta";
@@ -61,16 +62,15 @@ public class NavigationFactory {
      */
     @Cacheable(
             value = "navigation",
-            key = "{#request.locale, #hstSiteMenu.name, #cacheable}",
+            key = "{#request.locale, #resourceBundle, #token, #cacheable}",
             unless = "!#cacheable"
     )
-    public RootMenuItem buildMenu(HstRequest request, HstSiteMenu hstSiteMenu, boolean cacheable) {
+    public RootMenuItem buildMenu(HstRequest request, String resourceBundle, String token, boolean cacheable) {
+        final HstSiteMenu hstSiteMenu = request.getModel(MENU);
         List<HstSiteMenuItem> enhancedMenu = new ArrayList<>();
+
         RootMenuItem root = new RootMenuItem(hstSiteMenu);
         if (hstSiteMenu != null) {
-            //Calculate the resource bundle id
-            String resourceBundle = NAVIGATION_PREFIX + hstSiteMenu.getName();
-
             for (HstSiteMenuItem hstItem : hstSiteMenu.getSiteMenuItems()) {
                 Object menuItem = getMenuItem(request, hstItem, resourceBundle);
                 if (menuItem instanceof MenuItem) {
@@ -123,6 +123,7 @@ public class NavigationFactory {
             return null;
         }
     }
+
 
     /**
      * Identifies the type of document linked and populated the data on the menu item accordingly
