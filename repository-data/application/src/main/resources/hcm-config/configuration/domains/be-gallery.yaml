@@ -23,7 +23,7 @@ definitions:
           value: []
       /be-editor:
         jcr:primaryType: hipposys:authrole
-        hipposys:role: admin
+        hipposys:role: editor
         hipposys:userrole:
           .meta:category: system
           type: string
@@ -36,3 +36,16 @@ definitions:
           hipposys:facet: jcr:path
           hipposys:type: Reference
           hipposys:value: /content/gallery/business-events
+          hipposys:filter: false
+      /readwrite:
+        jcr:primaryType: hipposys:authrole
+        hipposys:groups:
+          .meta:category: system
+          .meta:add-new-system-values: true
+          type: string
+          value: [be-editor]
+        hipposys:role: readwrite
+        hipposys:userrole:
+          .meta:category: system
+          type: string
+          value: vs.gallery.business-events
