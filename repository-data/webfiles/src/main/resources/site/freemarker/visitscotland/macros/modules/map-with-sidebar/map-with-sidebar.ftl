@@ -95,7 +95,7 @@
             </#if>
         >
             <template v-slot:close-side-panel-text>
-                <span class="sr-only">
+                <span class="visually-hidden">
                     ${label('map', 'map.close-panel')}
                 </span>
             </template>
