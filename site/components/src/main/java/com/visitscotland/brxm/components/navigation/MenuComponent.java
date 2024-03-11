@@ -3,9 +3,7 @@ package com.visitscotland.brxm.components.navigation;
 
 import com.visitscotland.brxm.components.navigation.info.MenuComponentInfo;
 import com.visitscotland.brxm.config.VsComponentManager;
-import com.visitscotland.brxm.factory.BannerFactory;
 import com.visitscotland.brxm.factory.NavigationFactory;
-import com.visitscotland.brxm.services.DocumentUtilsService;
 import com.visitscotland.brxm.utils.HippoUtilsService;
 import com.visitscotland.brxm.utils.InternalParameterProcessor;
 import com.visitscotland.brxm.utils.Language;
@@ -24,12 +22,14 @@ import java.util.Locale;
 )
 public class MenuComponent extends EssentialsMenuComponent {
 
+    private static final String PREVIEW_QUERY_PARAMETER = "preview-token";
+
     public static final String MENU = "menu";
     public static final String LOCALIZED_URLS = "localizedURLs";
 
-    private NavigationFactory factory;
-    private HippoUtilsService utils;
-    private Properties properties;
+    private final NavigationFactory factory;
+    private final HippoUtilsService utils;
+    private final Properties properties;
 
 
     public MenuComponent() {
@@ -57,11 +57,20 @@ public class MenuComponent extends EssentialsMenuComponent {
                 requestContext.setPreferredLocale(language.getLocale());
             }
         }
-        boolean editModeCache = (Boolean.TRUE.equals(request.getAttribute("editMode")) && Boolean.TRUE.equals(properties.getNavigationCache()));
-        boolean cacheable = (properties.isSnippetCacheEnabled() && Boolean.FALSE.equals(request.getAttribute("editMode"))) || editModeCache;
 
-        RootMenuItem rootMenuItem = factory.buildMenu(request, request.getModel(MENU), cacheable);
-        rootMenuItem.setCmsCached(editModeCache);
+        boolean editMode = Boolean.TRUE.equals(request.getAttribute("editMode"));
+        boolean cacheable;
+
+        if (editMode) {
+            cacheable = Boolean.TRUE.equals(properties.getNavigationCache());
+        } else {
+            cacheable = properties.isSnippetCacheEnabled();
+        }
+
+        String id = (editMode?"1-":"0-") + getAnyParameter(request, PREVIEW_QUERY_PARAMETER);
+
+        RootMenuItem rootMenuItem = factory.buildMenu(request, request.getModel(MENU), id, cacheable);
+        rootMenuItem.setCmsCached(cacheable);
 
         request.setModel(MENU, rootMenuItem);
     }
