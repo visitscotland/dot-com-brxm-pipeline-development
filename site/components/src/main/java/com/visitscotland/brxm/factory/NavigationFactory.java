@@ -61,10 +61,10 @@ public class NavigationFactory {
      */
     @Cacheable(
             value = "navigation",
-            key = "{#request.locale, #hstSiteMenu.name, #cacheable}",
+            key = "{#request.locale, #hstSiteMenu.name, #id, #cacheable}",
             unless = "!#cacheable"
     )
-    public RootMenuItem buildMenu(HstRequest request, HstSiteMenu hstSiteMenu, boolean cacheable) {
+    public RootMenuItem buildMenu(HstRequest request, HstSiteMenu hstSiteMenu, String id, boolean cacheable) {
         List<HstSiteMenuItem> enhancedMenu = new ArrayList<>();
         RootMenuItem root = new RootMenuItem(hstSiteMenu);
         if (hstSiteMenu != null) {
@@ -251,6 +251,6 @@ public class NavigationFactory {
      * Indicates if the link is based on a document
      */
     private boolean isDocumentBased(HstLink link) {
-        return link != null && link.getPath() != null && link.getPath().length() > 0;
+        return link != null && link.getPath() != null && !link.getPath().isEmpty();
     }
 }
