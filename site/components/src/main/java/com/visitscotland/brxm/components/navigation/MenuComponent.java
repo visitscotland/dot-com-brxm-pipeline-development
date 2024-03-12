@@ -26,12 +26,14 @@ public class MenuComponent extends EssentialsMenuComponent {
     private static final String VS_PREFIX = "navigation.";
     private static final String BE_PREFIX = "be.navigation.";
 
+    private static final String PREVIEW_QUERY_PARAMETER = "preview-token";
+
     public static final String MENU = "menu";
     public static final String LOCALIZED_URLS = "localizedURLs";
 
-    private NavigationFactory factory;
-    private HippoUtilsService utils;
-    private Properties properties;
+    private final NavigationFactory factory;
+    private final HippoUtilsService utils;
+    private final Properties properties;
 
 
     public MenuComponent() {
@@ -59,13 +61,34 @@ public class MenuComponent extends EssentialsMenuComponent {
                 requestContext.setPreferredLocale(language.getLocale());
             }
         }
-        boolean editModeCache = (Boolean.TRUE.equals(request.getAttribute("editMode")) && Boolean.TRUE.equals(properties.getNavigationCache()));
-        boolean cacheable = (properties.isSnippetCacheEnabled() && Boolean.FALSE.equals(request.getAttribute("editMode"))) || editModeCache;
 
-        RootMenuItem rootMenuItem = factory.buildMenu(request, getResourceBundle(request), cacheable);
-        rootMenuItem.setCmsCached(editModeCache);
+        request.setModel(MENU, getRootMenuItem(request));
+    }
 
-        request.setModel(MENU, rootMenuItem);
+    /**
+     * Generates the root menu item considering if it needs to be cached.
+     * <br>
+     * There are three different navigation environments to be cached.
+     * <ul>
+     * <li>Live: General purpose Navigation served to final users</li>
+     * <li>CMS: Navigation inside the CMS. It would use URLs containing <i>/_cmsinternal/</i></li>
+     * <lI>Preview: Navigation for users that use the preview query string ({@code preview-token}) </li>
+     * </ul>
+     *
+     * @param request HstRequest object
+     *
+     * @return Resulting RootMenuItem
+     */
+    private RootMenuItem getRootMenuItem(HstRequest request){
+        boolean editMode = Boolean.TRUE.equals(request.getAttribute("editMode"));
+        boolean cacheable = editMode ? Boolean.TRUE.equals(properties.getNavigationCache()) : properties.isSnippetCacheEnabled();
+
+        String id = (editMode?"1-":"0-") + getAnyParameter(request, PREVIEW_QUERY_PARAMETER);
+
+        RootMenuItem rootMenuItem = factory.buildMenu(request, getResourceBundle(request), id, cacheable);
+        rootMenuItem.setCmsCached(cacheable);
+
+        return rootMenuItem;
     }
 
     private String getResourceBundle(HstRequest request){

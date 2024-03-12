@@ -62,10 +62,10 @@ public class NavigationFactory {
      */
     @Cacheable(
             value = "navigation",
-            key = "{#request.locale, #resourceBundle, #cacheable}",
+            key = "{#request.locale, #resourceBundle, #id, #cacheable}",
             unless = "!#cacheable"
     )
-    public RootMenuItem buildMenu(HstRequest request, String resourceBundle, boolean cacheable) {
+    public RootMenuItem buildMenu(HstRequest request, String resourceBundle, String id, boolean cacheable) {
         final HstSiteMenu hstSiteMenu = request.getModel(MENU);
         List<HstSiteMenuItem> enhancedMenu = new ArrayList<>();
 
@@ -252,6 +252,6 @@ public class NavigationFactory {
      * Indicates if the link is based on a document
      */
     private boolean isDocumentBased(HstLink link) {
-        return link != null && link.getPath() != null && link.getPath().length() > 0;
+        return link != null && link.getPath() != null && !link.getPath().isEmpty();
     }
 }
