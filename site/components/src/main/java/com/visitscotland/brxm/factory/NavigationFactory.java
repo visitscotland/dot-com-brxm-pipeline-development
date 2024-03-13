@@ -65,6 +65,10 @@ public class NavigationFactory {
             unless = "!#cacheable"
     )
     public RootMenuItem buildMenu(HstRequest request, HstSiteMenu hstSiteMenu, String id, boolean cacheable) {
+        if (cacheable){
+            logger.info("Creating a menu with the following key menu={}, id={}, locale={}",
+                    request.getLocale(), hstSiteMenu.getName(), id);
+        }
         List<HstSiteMenuItem> enhancedMenu = new ArrayList<>();
         RootMenuItem root = new RootMenuItem(hstSiteMenu);
         if (hstSiteMenu != null) {
