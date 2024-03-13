@@ -140,7 +140,7 @@ public class PageTemplateBuilder {
         } else if (item instanceof CannedSearchTours) {
             page.modules.add(cannedSearchFactory.getCannedSearchToursModule((CannedSearchTours) item, request.getLocale()));
         } else if (item instanceof MarketoForm) {
-            getForm(request, item);
+            page.modules.add(getForm(request, item));
         } else if (item instanceof SkiCentre){
             page.modules.add(skiFactory.createSkyModule((SkiCentre) item, request.getLocale()));
         } else if (item instanceof SkiCentreList){
@@ -170,13 +170,15 @@ public class PageTemplateBuilder {
         Page page = getDocument(request);
         if (page instanceof General && ((General) page).getTheme().equals(GeneralContentComponent.SIMPLE)){
             if (config.modules.stream().anyMatch(LongCopyModule.class::isInstance)){
-                logger.error("Only one instance of this module is allowed");
+                logger.error("Only one instance of Long Module is allowed");
+                config.modules.add(new ErrorModule(document, "Only one instance of Long Module module is allowed"));
             } else {
                 config.modules.add(longCopyFactory.getModule(document));
             }
         } else {
             logger.error("The document type LongCopy is only allowed in Simple Pages");
             contentLogger.error("The document type LongCopy is not allowed in this page. Path {}", page.getPath());
+            config.modules.add(new ErrorModule(document, "The document type Long Copy is only allowed in Simple Pages"));
         }
     }
 
