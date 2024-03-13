@@ -10,9 +10,8 @@
             <#assign imageQuote="" />
         </#if>
         <#if imageQuote?has_content>
-            <#assign imageParameter>
-                ${addParameter(imageQuote)}
-            </#assign>
+          <#compress>
+            <#assign imageParameter=addParameter(imageQuote)>
             <template v-slot:quote-image>
                 <vs-img
                     alt=""
@@ -26,6 +25,7 @@
                 >
                 </vs-img>
             </template>
+           </#compress>
         </#if>
         <template v-slot:quote-content>
             <@hst.html hippohtml=quoteItem.quote/>
