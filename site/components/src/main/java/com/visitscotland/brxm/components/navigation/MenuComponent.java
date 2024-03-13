@@ -70,7 +70,7 @@ public class MenuComponent extends EssentialsMenuComponent {
         String id = (editMode?"1-":"0-") + getAnyParameter(request, PREVIEW_QUERY_PARAMETER);
 
         RootMenuItem rootMenuItem = factory.buildMenu(request, request.getModel(MENU), id, cacheable);
-        rootMenuItem.setCmsCached(cacheable);
+        rootMenuItem.setCmsCached(cacheable && editMode);
 
         request.setModel(MENU, rootMenuItem);
     }
