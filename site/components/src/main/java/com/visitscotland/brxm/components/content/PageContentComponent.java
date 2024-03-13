@@ -212,7 +212,9 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
         Page page = getDocument(request);
         if (Boolean.FALSE.equals(Contract.defaultIfNull(page.getHideNewsletter(), false))) {
             SignpostModule signpost;
-            if (request.getPathInfo().contains(properties.getSiteSkiSection())) {
+            if (hippoUtils.isBusinessEventsSite(request)){
+                signpost = signpostFactory.createBusinessEventsModule(request.getLocale());
+            } else if (request.getPathInfo().contains(properties.getSiteSkiSection())) {
                 signpost = signpostFactory.createSnowAlertsModule(request.getLocale());
             } else {
                 signpost = signpostFactory.createNewsletterSignpostModule(request.getLocale());

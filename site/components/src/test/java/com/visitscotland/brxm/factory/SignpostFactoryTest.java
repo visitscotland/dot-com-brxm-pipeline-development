@@ -38,6 +38,7 @@ class SignpostFactoryTest {
         when(bundle.getResourceBundle(BUNDLE_ID, "newsletter.title", Locale.UK)).thenReturn("title");
         when(bundle.getResourceBundle(BUNDLE_ID, "newsletter.copy", Locale.UK)).thenReturn("copy");
         when(bundle.getResourceBundle(BUNDLE_ID, "newsletter.image", Locale.UK)).thenReturn("image.jpeg");
+        when(bundle.getResourceBundle(BUNDLE_ID, "newsletter.cta.link", Locale.UK)).thenReturn("dummy-url");
 
         when(utils.createUrlFromNode(any(), anyBoolean())).thenReturn("cta.link");
 
