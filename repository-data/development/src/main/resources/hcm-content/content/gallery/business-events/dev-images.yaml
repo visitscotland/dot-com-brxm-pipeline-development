@@ -366,3 +366,54 @@
         jcr:primaryType: visitscotland:ImageData
         visitscotland:altText: ''
         visitscotland:caption: ''
+  /brokenimage.jpg:
+    jcr:primaryType: hippo:handle
+    jcr:mixinTypes: ['mix:referenceable']
+    jcr:uuid: e158dfef-2d71-4188-b4b1-3e7179e786c3
+    /brokenimage.jpg:
+      jcr:primaryType: visitscotland:Image
+      hippo:availability: [live, preview]
+      hippogallery:description: ''
+      hippogallery:filename: brokenimage.jpg
+      visitscotland:altText: This image is meant to be broken. DO NOT EDIT THIS IMAGE
+      visitscotland:credit: Michael Bolognesi
+      visitscotland:location: North Ayrshire
+      /hippogallery:thumbnail:
+        jcr:primaryType: hippogallery:image
+        hippo:filename: brokenimage.jpg
+        hippogallery:height: 39
+        hippogallery:width: 60
+        jcr:data:
+          type: binary
+          resource: /content/gallery/business-events/dev-images/brokenimage.jpg/brokenimage.jpg/thumbnail/thumbnail.jpg
+        jcr:lastModified: 2024-03-12T12:30:28.473Z
+        jcr:mimeType: image/jpeg
+      /hippogallery:original:
+        jcr:primaryType: hippogallery:image
+        hippogallery:height: 682
+        hippogallery:width: 1024
+        jcr:data:
+          type: binary
+          resource: /content/gallery/business-events/dev-images/brokenimage.jpg/brokenimage.jpg/original/original.jpg
+        jcr:lastModified: 2024-03-12T12:30:28.473Z
+        jcr:mimeType: image/jpeg
+      /visitscotland:nl:
+        jcr:primaryType: visitscotland:ImageData
+        visitscotland:altText: ''
+        visitscotland:caption: ''
+      /visitscotland:fr:
+        jcr:primaryType: visitscotland:ImageData
+        visitscotland:altText: ''
+        visitscotland:caption: ''
+      /visitscotland:de:
+        jcr:primaryType: visitscotland:ImageData
+        visitscotland:altText: ''
+        visitscotland:caption: ''
+      /visitscotland:es:
+        jcr:primaryType: visitscotland:ImageData
+        visitscotland:altText: ''
+        visitscotland:caption: ''
+      /visitscotland:it:
+        jcr:primaryType: visitscotland:ImageData
+        visitscotland:altText: ''
+        visitscotland:caption: ''
