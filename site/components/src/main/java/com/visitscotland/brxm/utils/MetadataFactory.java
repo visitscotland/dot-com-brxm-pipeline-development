@@ -18,28 +18,28 @@ public class MetadataFactory {
 
     private static final Logger logger = LoggerFactory.getLogger(MetadataFactory.class);
 
-    public static final String BRANCH_NAME = "VS_BRANCH_NAME";
-    public static final String AUTHOR = "VS_COMMIT_AUTHOR";
-    public static final String PR_ID = "CHANGE_ID";
+    private static final String BRANCH_NAME = "VS_BRANCH_NAME";
+    private static final String AUTHOR = "VS_COMMIT_AUTHOR";
+    private static final String PR_ID = "CHANGE_ID";
 
     @Value("${ciFilePath}")
     private String ciFilePath;
 
     private String getVersionNumber() {
         //Sets the version number as a Freemarker shared variable, so it can be inserted to all pages.
-        if (About.getVersion().equals("Unknown")){
+        if (About.getVersion().equals("Unknown")) {
             return getClass().getPackage().getImplementationVersion();
         } else {
             return About.getVersion() + " (" + About.getBuildNumber() + ")";
         }
     }
 
-    private String getCiProperty(final String property){
+    private String getCiProperty(final String property) {
         if (System.getenv().containsKey(property)) {
             return System.getenv(property);
         } else {
             java.util.Properties p = new Properties();
-            try (InputStream is = getClass().getResourceAsStream(ciFilePath)){
+            try (InputStream is = getClass().getResourceAsStream(ciFilePath)) {
                 if (is != null) {
                     p.load(is);
                     if (p.containsKey(property)) {
@@ -55,7 +55,7 @@ public class MetadataFactory {
     }
 
 
-    public Metadata getMetadata (){
+    public Metadata getMetadata() {
         Metadata metadata = new Metadata();
 
         metadata.setVersion(getVersionNumber());

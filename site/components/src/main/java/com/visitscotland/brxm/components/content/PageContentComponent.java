@@ -94,11 +94,7 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
     }
 
     private void addMetadata(HstRequest request){
-        try {
-            request.setModel(METADATA_MODEL, metadata.getMetadata());
-        } catch (Exception e){
-            e.printStackTrace();
-        }
+        request.setModel(METADATA_MODEL, metadata.getMetadata());
     }
 
     /**
