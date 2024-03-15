@@ -9,19 +9,23 @@ import org.springframework.stereotype.Component;
 @Component
 public class MarketoFormFactory {
 
+    private static final String PROP_RECAPTCHA = "form.recaptcha-key";
+    private static final String PROP_MARKETO_URL = "form.marketo.instance-url";
+    private static final String PROP_MARKETO_MUNCHKIN = "form.marketo.munchkin";
+    private static final String PROP_MARKETO_SCRIPT = "form.marketo.script";
 
     private final Properties properties;
 
-    public MarketoFormFactory(Properties properties){
+    public MarketoFormFactory(Properties properties) {
         this.properties = properties;
     }
 
     public MarketoFormModule getModule(MarketoForm document) {
         MarketoConfiguration cfg = new MarketoConfiguration();
-        cfg.setRecaptcha(properties.getProperty("form.recaptcha-key"));
-        cfg.setMarketoInstance(properties.getProperty("form.marketo.instance-url"));
-        cfg.setMunchkinId(properties.getProperty("form.marketo.munchkin"));
-        cfg.setScript(properties.getProperty("form.marketo.script"));
+        cfg.setRecaptcha(properties.getProperty(PROP_RECAPTCHA));
+        cfg.setMarketoInstance(properties.getProperty(PROP_MARKETO_URL));
+        cfg.setMunchkinId(properties.getProperty(PROP_MARKETO_MUNCHKIN));
+        cfg.setScript(properties.getProperty(PROP_MARKETO_SCRIPT));
 
         MarketoFormModule module = new MarketoFormModule();
         module.setConfig(cfg);
