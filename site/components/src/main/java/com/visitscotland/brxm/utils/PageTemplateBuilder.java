@@ -103,33 +103,7 @@ public class PageTemplateBuilder {
         for (BaseDocument item : documentUtils.getAllowedDocuments(getDocument(request))) {
             try {
                 logger.debug("A {} module was found. Type {}", item.getClass(), item.getPath());
-                if (item instanceof Megalinks) {
-                    processMegalinks(request, page, (Megalinks) item);
-                } else if (item instanceof TourismInformation) {
-                    processTouristInformation(request,page, (TourismInformation) item, location);
-                } else if (item instanceof Article){
-                    page.modules.add(articleFactory.getModule(request, (Article) item));
-                } else if (item instanceof LongCopy){
-                    processLongCopy(request, page, (LongCopy) item);
-                } else if (item instanceof MapModule) {
-                    page.modules.add(mapFactory.getModule(request, (MapModule) item, getDocument(request)));
-                } else if (item instanceof Stackla) {
-                    page.modules.add(userGeneratedContentFactory.getUGCModule((Stackla) item, request.getLocale()));
-                }  else if (item instanceof TravelInformation) {
-                    page.modules.add(travelInformationFactory.getTravelInformation((TravelInformation) item, request.getLocale()));
-                }else if (item instanceof CannedSearch) {
-                    page.modules.add(cannedSearchFactory.getCannedSearchModule((CannedSearch) item, request.getLocale()));
-                } else if (item instanceof CannedSearchTours) {
-                    page.modules.add(cannedSearchFactory.getCannedSearchToursModule((CannedSearchTours) item, request.getLocale()));
-                } else if (item instanceof MarketoForm) {
-                    page.modules.add(marketoFormFactory.getModule((MarketoForm) item));
-                } else if (item instanceof SkiCentre){
-                    page.modules.add(skiFactory.createSkyModule((SkiCentre) item, request.getLocale()));
-                } else if (item instanceof SkiCentreList){
-                    page.modules.add(skiFactory.createSkyListModule((SkiCentreList) item, request.getLocale()));
-                } else if (item instanceof DevModule){
-                    page.modules.add(devModuleFactory.getModule((DevModule) item));
-                }
+                addModule(request, page, item, location);
             } catch (MissingResourceException e){
                 logger.error("The module for {} couldn't be built because some labels do not exist", item.getPath(), e);
             } catch (RuntimeException e){
@@ -139,11 +113,53 @@ public class PageTemplateBuilder {
 
         setIntroTheme(request, page.modules);
 
-        if (page.modules.isEmpty() && !getDocument(request).getSeoNoIndex()){
+        if (page.modules.isEmpty() && Boolean.FALSE.equals(getDocument(request).getSeoNoIndex())){
             logger.warn("The page {} does not have any modules published", request.getRequestURI());
         }
 
         request.setModel(PAGE_ITEMS, page.modules);
+    }
+
+    private void addModule(HstRequest request, PageConfiguration page, BaseDocument item, String location){
+        if (item instanceof Megalinks) {
+            processMegalinks(request, page, (Megalinks) item);
+        } else if (item instanceof TourismInformation) {
+            processTouristInformation(request,page, (TourismInformation) item, location);
+        } else if (item instanceof Article){
+            page.modules.add(articleFactory.getModule(request, (Article) item));
+        } else if (item instanceof LongCopy){
+            processLongCopy(request, page, (LongCopy) item);
+        } else if (item instanceof MapModule) {
+            page.modules.add(mapFactory.getModule(request, (MapModule) item, getDocument(request)));
+        } else if (item instanceof Stackla) {
+            page.modules.add(userGeneratedContentFactory.getUGCModule((Stackla) item, request.getLocale()));
+        } else if (item instanceof TravelInformation) {
+            page.modules.add(travelInformationFactory.getTravelInformation((TravelInformation) item, request.getLocale()));
+        } else if (item instanceof CannedSearch) {
+            page.modules.add(cannedSearchFactory.getCannedSearchModule((CannedSearch) item, request.getLocale()));
+        } else if (item instanceof CannedSearchTours) {
+            page.modules.add(cannedSearchFactory.getCannedSearchToursModule((CannedSearchTours) item, request.getLocale()));
+        } else if (item instanceof MarketoForm) {
+            page.modules.add(getForm(request, item));
+        } else if (item instanceof SkiCentre){
+            page.modules.add(skiFactory.createSkyModule((SkiCentre) item, request.getLocale()));
+        } else if (item instanceof SkiCentreList){
+            page.modules.add(skiFactory.createSkyListModule((SkiCentreList) item, request.getLocale()));
+        } else if (item instanceof DevModule){
+            page.modules.add(devModuleFactory.getModule((DevModule) item));
+        } else {
+            logger.warn("Unrecognized Module Type: {}", item.getClass());
+        }
+    }
+    private MarketoFormModule getForm(HstRequest request, BaseDocument form){
+        addAllLabels(request, "forms");
+        Map<String, String> formLabels = labels(request).get("forms");
+
+        //The following files are required independent from the Form Framework
+        formLabels.put("cfg.form.json.countries", properties.getProperty("form.json.countries"));
+        formLabels.put("cfg.form.json.messages", properties.getProperty("form.json.messages"));
+
+        return marketoFormFactory.getModule((MarketoForm) form);
     }
 
     /**
@@ -154,13 +170,15 @@ public class PageTemplateBuilder {
         Page page = getDocument(request);
         if (page instanceof General && ((General) page).getTheme().equals(GeneralContentComponent.SIMPLE)){
             if (config.modules.stream().anyMatch(LongCopyModule.class::isInstance)){
-                logger.error("Only one instance of this module is allowed");
+                logger.error("Only one instance of Long Module is allowed");
+                config.modules.add(new ErrorModule(document, "Only one instance of Long Module module is allowed"));
             } else {
                 config.modules.add(longCopyFactory.getModule(document));
             }
         } else {
             logger.error("The document type LongCopy is only allowed in Simple Pages");
             contentLogger.error("The document type LongCopy is not allowed in this page. Path {}", page.getPath());
+            config.modules.add(new ErrorModule(document, "The document type Long Copy is only allowed in Simple Pages"));
         }
     }
 
@@ -276,6 +294,10 @@ public class PageTemplateBuilder {
 
     private void addGlobalLabel(HstRequest request, String key) {
         labels(request).get(GLOBAL_BUNDLE_FILE).put(key, bundle.getResourceBundle(GLOBAL_BUNDLE_FILE, key, request.getLocale()));
+    }
+
+    private void addAllLabels(HstRequest request, String bundleName) {
+        labels(request).put(bundleName, bundle.getAllLabels(bundleName, request.getLocale()));
     }
 
     /**
