@@ -34,7 +34,7 @@
                     transport-name="${label('transports', carouselItem.itineraryTransport)}"
                 </#if>
                 <#if carouselItem.itineraryDays??>
-                    <#if carouselItem.itineraryDays = 1>
+                    <#if carouselItem.itineraryDays == 1>
                         days-label="${label('itinerary', 'day')}"
                     <#else>
                         days-label="${label('itinerary', 'days')}"

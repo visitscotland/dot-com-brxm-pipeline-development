@@ -29,7 +29,7 @@
                 transport-name="${label('transports', feature.itineraryTransport)}"
             </#if>
             <#if feature.itineraryDays??>
-                <#if feature.itineraryDays = 1>
+                <#if feature.itineraryDays == 1>
                     days-label="${label('itinerary', 'day')}"
                 <#else>
                     days-label="${label('itinerary', 'days')}"

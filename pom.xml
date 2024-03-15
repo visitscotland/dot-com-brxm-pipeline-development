@@ -13,7 +13,7 @@
   <description>www.visitscotland.com CMS Pages</description>
   <groupId>com.visitscotland</groupId>
   <artifactId>dot-com-brxm</artifactId>
-  <version>2.0.7</version>
+  <version>2.0.8</version>
   <packaging>pom</packaging>
 
   <properties>
@@ -87,22 +87,22 @@
     </snapshotRepository>
   </distributionManagement>
 
-  <repositories>
-    <repository>
-      <id>hippo</id>
-      <name>Hippo maven 2 repository.</name>
-      <url>https://maven.bloomreach.com/repository/maven2/</url>
-    </repository>
-    <repository>
-      <id>hippo-maven2-enterprise</id>
-      <name>Hippo Enterprise Maven 2</name>
-      <url>https://maven.bloomreach.com/repository/maven2-enterprise/</url>
-      <releases>
-        <updatePolicy>never</updatePolicy>
-        <checksumPolicy>fail</checksumPolicy>
-      </releases>
-    </repository>
-  </repositories>
+<!--  <repositories>-->
+<!--    <repository>-->
+<!--      <id>hippo</id>-->
+<!--      <name>Hippo maven 2 repository.</name>-->
+<!--      <url>https://maven.bloomreach.com/repository/maven2/</url>-->
+<!--    </repository>-->
+<!--    <repository>-->
+<!--      <id>hippo-maven2-enterprise</id>-->
+<!--      <name>Hippo Enterprise Maven 2</name>-->
+<!--      <url>https://maven.bloomreach.com/repository/maven2-enterprise/</url>-->
+<!--      <releases>-->
+<!--        <updatePolicy>never</updatePolicy>-->
+<!--        <checksumPolicy>fail</checksumPolicy>-->
+<!--      </releases>-->
+<!--    </repository>-->
+<!--  </repositories>-->
 
   <dependencyManagement>
     <dependencies>

@@ -1,14 +1,22 @@
 version: 2
 updates:
   - package-ecosystem: "npm"
+    open-pull-requests-limit: 0
     directory: "/"
     schedule:
       interval: "daily"
   - package-ecosystem: "npm"
+    open-pull-requests-limit: 0
     directory: "/ui-integration"
     schedule:
       interval: "daily"
   - package-ecosystem: "maven"
+    open-pull-requests-limit: 30
     directory: "/"
+    schedule:
+      interval: "daily"
+  - package-ecosystem: "maven"
+    open-pull-requests-limit: 30
+    directory: "/cms"
     schedule:
       interval: "daily"
