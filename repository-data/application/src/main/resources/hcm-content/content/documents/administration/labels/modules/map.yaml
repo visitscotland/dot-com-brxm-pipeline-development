@@ -4,7 +4,7 @@
   jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
   jcr:uuid: ac89a8cf-a2c8-4cd6-bf14-91afb3d68e3e
   hippo:name: Map
-  hippo:versionHistory: 4eb03d13-335f-4252-be84-a198dcba6106
+  hippo:versionHistory: c0d355c1-838d-4358-ac07-c53cb3a24b18
   /map[1]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:referenceable']
@@ -14,8 +14,8 @@
     hippostd:state: draft
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2020-03-02T10:09:34.350Z
-    hippostdpubwf:lastModificationDate: 2023-08-24T09:46:24.303+01:00
-    hippostdpubwf:lastModifiedBy: admin
+    hippostdpubwf:lastModificationDate: 2024-02-26T10:04:21.872+01:00
+    hippostdpubwf:lastModifiedBy: lea.kumke
     resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '', '', '', '',
       '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
       '', '', '', '', '', '']
@@ -28,18 +28,18 @@
       map.loading, map.apply-filters, map-no-results, map.panel-bottom-msg, map.no-results,
       map.zoom-too-far, map.zoom-too-close, map.explore, map.distillery]
     resourcebundle:messages: [Show fullscreen, Exit fullscreen, Reset angle, Zoom
-        in, Zoom out, Featured Places, Discover, Close search and filter panel, Open
-        search & filter, Go back one step, Reset filters, Accommodation, Activities,
-      Attractions, Events, Food & Drink, Shopping, Places, iCentres, Regions, Places,
-      Javascript is needed to show this map., Clear all, Show results, Filters Applied,
-      Select map types, Load more, Loading results, Loading, Please apply filter(s)
-        to refine results, 'No results found, please apply filter(s)', Get friendly
-        and helpful advice for your trip at our iCentres., 'No results found, please
-        apply filter(s).', 'We''re sorry, you can''t zoom out any more', 'We''re sorry,
+        in, Zoom out, Featured Places, Discover, Close search and filter panel, Map
+        menu, Go back one step, Reset filters, Accommodation, Activities, Attractions,
+      Events, Food & Drink, Shopping, Places, iCentres, Regions, Places, Javascript
+        is needed to show this map., Clear all, Show results, Filters Applied, Select
+        map types, Load more, Loading results, Loading, Please apply filter(s) to
+        refine results, 'No results found, please apply filter(s)', Get friendly and
+        helpful advice for your trip at our iCentres., 'No results found, please apply
+        filter(s).', 'We''re sorry, you can''t zoom out any more', 'We''re sorry,
         you can''t zoom in any more', Explore, Distilleries]
     resourcebundle:messages_de: [Vollbild anzeigen, Vollbild schließen, Zurücksetzen,
       Vergrößern, Verkleinern, Besondere Orte, 'Jetzt entdecken:', Suche und Filter
-        schließen , Open zoeken en filteren, Einen Schritt zurückgehen , Filter zurücksetzen ,
+        schließen , Kartenmenü, Einen Schritt zurückgehen , Filter zurücksetzen ,
       Unterkünfte, Aktivitäten, Sehenswürdigkeiten, Veranstaltungen, Gastronomie,
       Shopping, Orte, iCentres, Regionen, Orte, 'JavaScript wird benötigt, um diese
         Karte anzuzeigen.', Alle entfernen, Ergebnisse anzeigen, Filter angewendet,
@@ -49,33 +49,33 @@
         unseren iCentres erhalten Sie eine freundliche Beratung für Ihre Reise., 'Keine
         Ergebnisse gefunden, bitte wählen Sie einen oder mehrere Filter aus.', Sie
         können die Karte nicht weiter verkleinern., Sie können die Karte nicht weiter
-        vergrößern., Entdecken Sie, '']
+        vergrößern., Entdecken Sie, Destillerien]
     resourcebundle:messages_es: [Mostrar pantalla completa, Cerrar pantalla completa,
       Restablecer ángulo, Ampliar, Reducir, Lugares destacados, Descubre, Cerrar panel
-        de búsqueda y filtro, Abrir búsqueda y filtro, Retroceder un paso, Restablecer
-        filtros, Alojamiento, Actividades, Atracciones, Eventos, Gastronomía, Compras,
-      Lugares, iCentres, Regiones, Lugares, Se requiere Javascript para visualizar
-        este mapa., Borrar todo, Mostrar resultados, Filtros aplicados, Selecciona
-        el tipo de mapa, Cargar mas, Carga de resultados, Cargando, Aplicar filtro(s)
-        para refinar los resultados, 'No se encontraron resultados, por favor aplique
-        filtro(s)', Obtén consejos amables y útiles para tu viaje en nuestros iCentres.,
-      'No se encontraron resultados, por favor aplica filtro(s).', 'Lo sentimos, ya
-        no puedes alejarte', 'Lo sentimos, ya no puedes hacer zoom', Explora, '']
+        de búsqueda y filtro, Menú, Retroceder un paso, Restablecer filtros, Alojamiento,
+      Actividades, Atracciones, Eventos, Gastronomía, Compras, Lugares, iCentres,
+      Regiones, Lugares, Se requiere Javascript para visualizar este mapa., Borrar
+        todo, Mostrar resultados, Filtros aplicados, Selecciona el tipo de mapa, Cargar
+        mas, Carga de resultados, Cargando, Aplicar filtro(s) para refinar los resultados,
+      'No se encontraron resultados, por favor aplique filtro(s)', Obtén consejos
+        amables y útiles para tu viaje en nuestros iCentres., 'No se encontraron resultados,
+        por favor aplica filtro(s).', 'Lo sentimos, ya no puedes alejarte', 'Lo sentimos,
+        ya no puedes hacer zoom', Explora, Destilerías]
     resourcebundle:messages_fr: [Afficher en mode plein écran, Quitter le mode plein
         écran, Réinitialiser, Zoomer, Dézoomer, Lieux d’intérêt, 'Découvrez:', Fermer
-        l’outil de recherche et les filtres, Ouvrir la recherche et filtrer, Revenir
-        en arrière, Réinitialiser les filtres, Hébergements, Activités, Attractions,
-      Événements, Gastronomie, Boutiques, Lieux, iCentres, Régions, Lieux, JavaScript
-        est requis pour afficher cette carte., Tout effacer, Afficher les résultats,
-      Filtres appliqués, Sélectionner le type de carte, Charger plus, Chargement des
-        résultats, Chargement, Veuillez appliquer un filtre pour affiner les résultats,
-      'Aucun résultat, veuillez appliquer un filtre', Obtenez des conseils et astuces
-        de voyage dans nos iCentres., 'Aucun résultat, veuillez appliquer un filtre.',
+        l’outil de recherche et les filtres, Menu de la carte, Revenir en arrière,
+      Réinitialiser les filtres, Hébergements, Activités, Attractions, Événements,
+      Gastronomie, Boutiques, Lieux, iCentres, Régions, Lieux, JavaScript est requis
+        pour afficher cette carte., Tout effacer, Afficher les résultats, Filtres
+        appliqués, Sélectionner le type de carte, Charger plus, Chargement des résultats,
+      Chargement, Veuillez appliquer un filtre pour affiner les résultats, 'Aucun
+        résultat, veuillez appliquer un filtre', Obtenez des conseils et astuces de
+        voyage dans nos iCentres., 'Aucun résultat, veuillez appliquer un filtre.',
       'Désolé, vous ne pouvez pas dézoomer davantage', 'Désolé, vous ne pouvez pas
         zoomer davantage', Explorez, '']
     resourcebundle:messages_it: [Mostra a schermo intero, Esci dallo schermo intero,
       Reset, Ingrandisci, Riduci, Luoghi in primo piano, 'Scopri ora:', Chiudi il
-        pannello di ricerca e filtri, Apro ricerca e filtro, Torna indietro, Reimposta
+        pannello di ricerca e filtri, Menu della mappa, Torna indietro, Reimposta
         filtri, Alloggi, Attività, Attrazioni, Eventi, Cibo e bevande, Shopping, Luoghi,
       iCentres, Regioni, Luoghi, Per visualizzare la mappa è necessario l'uso di Javascript.,
       Cancella tutto, Mostra i risultati, Filtri applicati, Selezionare il tipo di
@@ -87,14 +87,14 @@
         è più possibile ingrandire', Esplora, '']
     resourcebundle:messages_nl: [Volledig scherm tonen, Volledig scherm sluiten, Heroriënteren,
       Inzoomen, Uitzoomen, Bijzondere plaatsen, Ontdek, Sluit het zoek- en filterpaneel,
-      Zoeken en filters openen, Een stap terug, Filters resetten, Accommodatie, Activiteiten,
-      Bezienswaardigheden, Evenementen, Eten en drinken, Winkelen, Plaatsen, iCentres,
-      Regio\'s, Plaatsen, Javascript is nodig om deze kaart te tonen., Alles verwijderen,
-      Toon resultaten, Filters toegepast, Selecteer type kaart, Meer laden, Resultaten
-        laden, Laden, Pas filter(s) toe om de resultaten te verfijnen, 'Geen resultaten
-        gevonden, pas filter(s) toe', Krijg in onze iCentres vriendelijk en nuttig
-        advies voor je reis., 'Geen resultaten gevonden, pas filter(s) toe.', '',
-      '', Ontdek, '']
+      Legenda, Een stap terug, Filters resetten, Accommodatie, Activiteiten, Bezienswaardigheden,
+      Evenementen, Eten en drinken, Winkelen, Plaatsen, iCentres, Regio\'s, Plaatsen,
+      Javascript is nodig om deze kaart te tonen., Alles verwijderen, Toon resultaten,
+      Filters toegepast, Selecteer type kaart, Meer laden, Resultaten laden, Laden,
+      Pas filter(s) toe om de resultaten te verfijnen, 'Geen resultaten gevonden,
+        pas filter(s) toe', Krijg in onze iCentres vriendelijk en nuttig advies voor
+        je reis., 'Geen resultaten gevonden, pas filter(s) toe.', 'Helaas, je kunt
+        niet verder uitzoomen', 'Helaas, je kunt niet verder inzoomen', Ontdek, '']
   /map[2]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:versionable']
@@ -104,8 +104,8 @@
     hippostd:state: unpublished
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2020-03-02T10:09:34.350Z
-    hippostdpubwf:lastModificationDate: 2023-08-24T09:50:55.254+01:00
-    hippostdpubwf:lastModifiedBy: admin
+    hippostdpubwf:lastModificationDate: 2024-02-26T10:04:57.760+01:00
+    hippostdpubwf:lastModifiedBy: lea.kumke
     resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '', '', '', '',
       '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
       '', '', '', '', '', '']
@@ -118,18 +118,18 @@
       map.loading, map.apply-filters, map-no-results, map.panel-bottom-msg, map.no-results,
       map.zoom-too-far, map.zoom-too-close, map.explore, map.distillery]
     resourcebundle:messages: [Show fullscreen, Exit fullscreen, Reset angle, Zoom
-        in, Zoom out, Featured Places, Discover, Close search and filter panel, Open
-        search & filter, Go back one step, Reset filters, Accommodation, Activities,
-      Attractions, Events, Food & Drink, Shopping, Places, iCentres, Regions, Places,
-      Javascript is needed to show this map., Clear all, Show results, Filters Applied,
-      Select map types, Load more, Loading results, Loading, Please apply filter(s)
-        to refine results, 'No results found, please apply filter(s)', Get friendly
-        and helpful advice for your trip at our iCentres., 'No results found, please
-        apply filter(s).', 'We''re sorry, you can''t zoom out any more', 'We''re sorry,
+        in, Zoom out, Featured Places, Discover, Close search and filter panel, Map
+        menu, Go back one step, Reset filters, Accommodation, Activities, Attractions,
+      Events, Food & Drink, Shopping, Places, iCentres, Regions, Places, Javascript
+        is needed to show this map., Clear all, Show results, Filters Applied, Select
+        map types, Load more, Loading results, Loading, Please apply filter(s) to
+        refine results, 'No results found, please apply filter(s)', Get friendly and
+        helpful advice for your trip at our iCentres., 'No results found, please apply
+        filter(s).', 'We''re sorry, you can''t zoom out any more', 'We''re sorry,
         you can''t zoom in any more', Explore, Distilleries]
     resourcebundle:messages_de: [Vollbild anzeigen, Vollbild schließen, Zurücksetzen,
       Vergrößern, Verkleinern, Besondere Orte, 'Jetzt entdecken:', Suche und Filter
-        schließen , Open zoeken en filteren, Einen Schritt zurückgehen , Filter zurücksetzen ,
+        schließen , Kartenmenü, Einen Schritt zurückgehen , Filter zurücksetzen ,
       Unterkünfte, Aktivitäten, Sehenswürdigkeiten, Veranstaltungen, Gastronomie,
       Shopping, Orte, iCentres, Regionen, Orte, 'JavaScript wird benötigt, um diese
         Karte anzuzeigen.', Alle entfernen, Ergebnisse anzeigen, Filter angewendet,
@@ -139,33 +139,33 @@
         unseren iCentres erhalten Sie eine freundliche Beratung für Ihre Reise., 'Keine
         Ergebnisse gefunden, bitte wählen Sie einen oder mehrere Filter aus.', Sie
         können die Karte nicht weiter verkleinern., Sie können die Karte nicht weiter
-        vergrößern., Entdecken Sie, '']
+        vergrößern., Entdecken Sie, Destillerien]
     resourcebundle:messages_es: [Mostrar pantalla completa, Cerrar pantalla completa,
       Restablecer ángulo, Ampliar, Reducir, Lugares destacados, Descubre, Cerrar panel
-        de búsqueda y filtro, Abrir búsqueda y filtro, Retroceder un paso, Restablecer
-        filtros, Alojamiento, Actividades, Atracciones, Eventos, Gastronomía, Compras,
-      Lugares, iCentres, Regiones, Lugares, Se requiere Javascript para visualizar
-        este mapa., Borrar todo, Mostrar resultados, Filtros aplicados, Selecciona
-        el tipo de mapa, Cargar mas, Carga de resultados, Cargando, Aplicar filtro(s)
-        para refinar los resultados, 'No se encontraron resultados, por favor aplique
-        filtro(s)', Obtén consejos amables y útiles para tu viaje en nuestros iCentres.,
-      'No se encontraron resultados, por favor aplica filtro(s).', 'Lo sentimos, ya
-        no puedes alejarte', 'Lo sentimos, ya no puedes hacer zoom', Explora, '']
+        de búsqueda y filtro, Menú, Retroceder un paso, Restablecer filtros, Alojamiento,
+      Actividades, Atracciones, Eventos, Gastronomía, Compras, Lugares, iCentres,
+      Regiones, Lugares, Se requiere Javascript para visualizar este mapa., Borrar
+        todo, Mostrar resultados, Filtros aplicados, Selecciona el tipo de mapa, Cargar
+        mas, Carga de resultados, Cargando, Aplicar filtro(s) para refinar los resultados,
+      'No se encontraron resultados, por favor aplique filtro(s)', Obtén consejos
+        amables y útiles para tu viaje en nuestros iCentres., 'No se encontraron resultados,
+        por favor aplica filtro(s).', 'Lo sentimos, ya no puedes alejarte', 'Lo sentimos,
+        ya no puedes hacer zoom', Explora, Destilerías]
     resourcebundle:messages_fr: [Afficher en mode plein écran, Quitter le mode plein
         écran, Réinitialiser, Zoomer, Dézoomer, Lieux d’intérêt, 'Découvrez:', Fermer
-        l’outil de recherche et les filtres, Ouvrir la recherche et filtrer, Revenir
-        en arrière, Réinitialiser les filtres, Hébergements, Activités, Attractions,
-      Événements, Gastronomie, Boutiques, Lieux, iCentres, Régions, Lieux, JavaScript
-        est requis pour afficher cette carte., Tout effacer, Afficher les résultats,
-      Filtres appliqués, Sélectionner le type de carte, Charger plus, Chargement des
-        résultats, Chargement, Veuillez appliquer un filtre pour affiner les résultats,
-      'Aucun résultat, veuillez appliquer un filtre', Obtenez des conseils et astuces
-        de voyage dans nos iCentres., 'Aucun résultat, veuillez appliquer un filtre.',
+        l’outil de recherche et les filtres, Menu de la carte, Revenir en arrière,
+      Réinitialiser les filtres, Hébergements, Activités, Attractions, Événements,
+      Gastronomie, Boutiques, Lieux, iCentres, Régions, Lieux, JavaScript est requis
+        pour afficher cette carte., Tout effacer, Afficher les résultats, Filtres
+        appliqués, Sélectionner le type de carte, Charger plus, Chargement des résultats,
+      Chargement, Veuillez appliquer un filtre pour affiner les résultats, 'Aucun
+        résultat, veuillez appliquer un filtre', Obtenez des conseils et astuces de
+        voyage dans nos iCentres., 'Aucun résultat, veuillez appliquer un filtre.',
       'Désolé, vous ne pouvez pas dézoomer davantage', 'Désolé, vous ne pouvez pas
         zoomer davantage', Explorez, '']
     resourcebundle:messages_it: [Mostra a schermo intero, Esci dallo schermo intero,
       Reset, Ingrandisci, Riduci, Luoghi in primo piano, 'Scopri ora:', Chiudi il
-        pannello di ricerca e filtri, Apro ricerca e filtro, Torna indietro, Reimposta
+        pannello di ricerca e filtri, Menu della mappa, Torna indietro, Reimposta
         filtri, Alloggi, Attività, Attrazioni, Eventi, Cibo e bevande, Shopping, Luoghi,
       iCentres, Regioni, Luoghi, Per visualizzare la mappa è necessario l'uso di Javascript.,
       Cancella tutto, Mostra i risultati, Filtri applicati, Selezionare il tipo di
@@ -177,14 +177,14 @@
         è più possibile ingrandire', Esplora, '']
     resourcebundle:messages_nl: [Volledig scherm tonen, Volledig scherm sluiten, Heroriënteren,
       Inzoomen, Uitzoomen, Bijzondere plaatsen, Ontdek, Sluit het zoek- en filterpaneel,
-      Zoeken en filters openen, Een stap terug, Filters resetten, Accommodatie, Activiteiten,
-      Bezienswaardigheden, Evenementen, Eten en drinken, Winkelen, Plaatsen, iCentres,
-      Regio\'s, Plaatsen, Javascript is nodig om deze kaart te tonen., Alles verwijderen,
-      Toon resultaten, Filters toegepast, Selecteer type kaart, Meer laden, Resultaten
-        laden, Laden, Pas filter(s) toe om de resultaten te verfijnen, 'Geen resultaten
-        gevonden, pas filter(s) toe', Krijg in onze iCentres vriendelijk en nuttig
-        advies voor je reis., 'Geen resultaten gevonden, pas filter(s) toe.', '',
-      '', Ontdek, '']
+      Legenda, Een stap terug, Filters resetten, Accommodatie, Activiteiten, Bezienswaardigheden,
+      Evenementen, Eten en drinken, Winkelen, Plaatsen, iCentres, Regio\'s, Plaatsen,
+      Javascript is nodig om deze kaart te tonen., Alles verwijderen, Toon resultaten,
+      Filters toegepast, Selecteer type kaart, Meer laden, Resultaten laden, Laden,
+      Pas filter(s) toe om de resultaten te verfijnen, 'Geen resultaten gevonden,
+        pas filter(s) toe', Krijg in onze iCentres vriendelijk en nuttig advies voor
+        je reis., 'Geen resultaten gevonden, pas filter(s) toe.', 'Helaas, je kunt
+        niet verder uitzoomen', 'Helaas, je kunt niet verder inzoomen', Ontdek, '']
   /map[3]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:referenceable']
@@ -194,9 +194,9 @@
     hippostd:state: published
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2020-03-02T10:09:34.350Z
-    hippostdpubwf:lastModificationDate: 2023-08-24T09:50:55.254+01:00
-    hippostdpubwf:lastModifiedBy: admin
-    hippostdpubwf:publicationDate: 2023-08-24T09:50:58.861+01:00
+    hippostdpubwf:lastModificationDate: 2024-02-26T10:04:57.760+01:00
+    hippostdpubwf:lastModifiedBy: lea.kumke
+    hippostdpubwf:publicationDate: 2024-02-28T09:47:59.525+01:00
     resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '', '', '', '',
       '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
       '', '', '', '', '', '']
@@ -209,18 +209,18 @@
       map.loading, map.apply-filters, map-no-results, map.panel-bottom-msg, map.no-results,
       map.zoom-too-far, map.zoom-too-close, map.explore, map.distillery]
     resourcebundle:messages: [Show fullscreen, Exit fullscreen, Reset angle, Zoom
-        in, Zoom out, Featured Places, Discover, Close search and filter panel, Open
-        search & filter, Go back one step, Reset filters, Accommodation, Activities,
-      Attractions, Events, Food & Drink, Shopping, Places, iCentres, Regions, Places,
-      Javascript is needed to show this map., Clear all, Show results, Filters Applied,
-      Select map types, Load more, Loading results, Loading, Please apply filter(s)
-        to refine results, 'No results found, please apply filter(s)', Get friendly
-        and helpful advice for your trip at our iCentres., 'No results found, please
-        apply filter(s).', 'We''re sorry, you can''t zoom out any more', 'We''re sorry,
+        in, Zoom out, Featured Places, Discover, Close search and filter panel, Map
+        menu, Go back one step, Reset filters, Accommodation, Activities, Attractions,
+      Events, Food & Drink, Shopping, Places, iCentres, Regions, Places, Javascript
+        is needed to show this map., Clear all, Show results, Filters Applied, Select
+        map types, Load more, Loading results, Loading, Please apply filter(s) to
+        refine results, 'No results found, please apply filter(s)', Get friendly and
+        helpful advice for your trip at our iCentres., 'No results found, please apply
+        filter(s).', 'We''re sorry, you can''t zoom out any more', 'We''re sorry,
         you can''t zoom in any more', Explore, Distilleries]
     resourcebundle:messages_de: [Vollbild anzeigen, Vollbild schließen, Zurücksetzen,
       Vergrößern, Verkleinern, Besondere Orte, 'Jetzt entdecken:', Suche und Filter
-        schließen , Open zoeken en filteren, Einen Schritt zurückgehen , Filter zurücksetzen ,
+        schließen , Kartenmenü, Einen Schritt zurückgehen , Filter zurücksetzen ,
       Unterkünfte, Aktivitäten, Sehenswürdigkeiten, Veranstaltungen, Gastronomie,
       Shopping, Orte, iCentres, Regionen, Orte, 'JavaScript wird benötigt, um diese
         Karte anzuzeigen.', Alle entfernen, Ergebnisse anzeigen, Filter angewendet,
@@ -230,33 +230,33 @@
         unseren iCentres erhalten Sie eine freundliche Beratung für Ihre Reise., 'Keine
         Ergebnisse gefunden, bitte wählen Sie einen oder mehrere Filter aus.', Sie
         können die Karte nicht weiter verkleinern., Sie können die Karte nicht weiter
-        vergrößern., Entdecken Sie, '']
+        vergrößern., Entdecken Sie, Destillerien]
     resourcebundle:messages_es: [Mostrar pantalla completa, Cerrar pantalla completa,
       Restablecer ángulo, Ampliar, Reducir, Lugares destacados, Descubre, Cerrar panel
-        de búsqueda y filtro, Abrir búsqueda y filtro, Retroceder un paso, Restablecer
-        filtros, Alojamiento, Actividades, Atracciones, Eventos, Gastronomía, Compras,
-      Lugares, iCentres, Regiones, Lugares, Se requiere Javascript para visualizar
-        este mapa., Borrar todo, Mostrar resultados, Filtros aplicados, Selecciona
-        el tipo de mapa, Cargar mas, Carga de resultados, Cargando, Aplicar filtro(s)
-        para refinar los resultados, 'No se encontraron resultados, por favor aplique
-        filtro(s)', Obtén consejos amables y útiles para tu viaje en nuestros iCentres.,
-      'No se encontraron resultados, por favor aplica filtro(s).', 'Lo sentimos, ya
-        no puedes alejarte', 'Lo sentimos, ya no puedes hacer zoom', Explora, '']
+        de búsqueda y filtro, Menú, Retroceder un paso, Restablecer filtros, Alojamiento,
+      Actividades, Atracciones, Eventos, Gastronomía, Compras, Lugares, iCentres,
+      Regiones, Lugares, Se requiere Javascript para visualizar este mapa., Borrar
+        todo, Mostrar resultados, Filtros aplicados, Selecciona el tipo de mapa, Cargar
+        mas, Carga de resultados, Cargando, Aplicar filtro(s) para refinar los resultados,
+      'No se encontraron resultados, por favor aplique filtro(s)', Obtén consejos
+        amables y útiles para tu viaje en nuestros iCentres., 'No se encontraron resultados,
+        por favor aplica filtro(s).', 'Lo sentimos, ya no puedes alejarte', 'Lo sentimos,
+        ya no puedes hacer zoom', Explora, Destilerías]
     resourcebundle:messages_fr: [Afficher en mode plein écran, Quitter le mode plein
         écran, Réinitialiser, Zoomer, Dézoomer, Lieux d’intérêt, 'Découvrez:', Fermer
-        l’outil de recherche et les filtres, Ouvrir la recherche et filtrer, Revenir
-        en arrière, Réinitialiser les filtres, Hébergements, Activités, Attractions,
-      Événements, Gastronomie, Boutiques, Lieux, iCentres, Régions, Lieux, JavaScript
-        est requis pour afficher cette carte., Tout effacer, Afficher les résultats,
-      Filtres appliqués, Sélectionner le type de carte, Charger plus, Chargement des
-        résultats, Chargement, Veuillez appliquer un filtre pour affiner les résultats,
-      'Aucun résultat, veuillez appliquer un filtre', Obtenez des conseils et astuces
-        de voyage dans nos iCentres., 'Aucun résultat, veuillez appliquer un filtre.',
+        l’outil de recherche et les filtres, Menu de la carte, Revenir en arrière,
+      Réinitialiser les filtres, Hébergements, Activités, Attractions, Événements,
+      Gastronomie, Boutiques, Lieux, iCentres, Régions, Lieux, JavaScript est requis
+        pour afficher cette carte., Tout effacer, Afficher les résultats, Filtres
+        appliqués, Sélectionner le type de carte, Charger plus, Chargement des résultats,
+      Chargement, Veuillez appliquer un filtre pour affiner les résultats, 'Aucun
+        résultat, veuillez appliquer un filtre', Obtenez des conseils et astuces de
+        voyage dans nos iCentres., 'Aucun résultat, veuillez appliquer un filtre.',
       'Désolé, vous ne pouvez pas dézoomer davantage', 'Désolé, vous ne pouvez pas
         zoomer davantage', Explorez, '']
     resourcebundle:messages_it: [Mostra a schermo intero, Esci dallo schermo intero,
       Reset, Ingrandisci, Riduci, Luoghi in primo piano, 'Scopri ora:', Chiudi il
-        pannello di ricerca e filtri, Apro ricerca e filtro, Torna indietro, Reimposta
+        pannello di ricerca e filtri, Menu della mappa, Torna indietro, Reimposta
         filtri, Alloggi, Attività, Attrazioni, Eventi, Cibo e bevande, Shopping, Luoghi,
       iCentres, Regioni, Luoghi, Per visualizzare la mappa è necessario l'uso di Javascript.,
       Cancella tutto, Mostra i risultati, Filtri applicati, Selezionare il tipo di
@@ -268,11 +268,11 @@
         è più possibile ingrandire', Esplora, '']
     resourcebundle:messages_nl: [Volledig scherm tonen, Volledig scherm sluiten, Heroriënteren,
       Inzoomen, Uitzoomen, Bijzondere plaatsen, Ontdek, Sluit het zoek- en filterpaneel,
-      Zoeken en filters openen, Een stap terug, Filters resetten, Accommodatie, Activiteiten,
-      Bezienswaardigheden, Evenementen, Eten en drinken, Winkelen, Plaatsen, iCentres,
-      Regio\'s, Plaatsen, Javascript is nodig om deze kaart te tonen., Alles verwijderen,
-      Toon resultaten, Filters toegepast, Selecteer type kaart, Meer laden, Resultaten
-        laden, Laden, Pas filter(s) toe om de resultaten te verfijnen, 'Geen resultaten
-        gevonden, pas filter(s) toe', Krijg in onze iCentres vriendelijk en nuttig
-        advies voor je reis., 'Geen resultaten gevonden, pas filter(s) toe.', '',
-      '', Ontdek, '']
+      Legenda, Een stap terug, Filters resetten, Accommodatie, Activiteiten, Bezienswaardigheden,
+      Evenementen, Eten en drinken, Winkelen, Plaatsen, iCentres, Regio\'s, Plaatsen,
+      Javascript is nodig om deze kaart te tonen., Alles verwijderen, Toon resultaten,
+      Filters toegepast, Selecteer type kaart, Meer laden, Resultaten laden, Laden,
+      Pas filter(s) toe om de resultaten te verfijnen, 'Geen resultaten gevonden,
+        pas filter(s) toe', Krijg in onze iCentres vriendelijk en nuttig advies voor
+        je reis., 'Geen resultaten gevonden, pas filter(s) toe.', 'Helaas, je kunt
+        niet verder uitzoomen', 'Helaas, je kunt niet verder inzoomen', Ontdek, '']
