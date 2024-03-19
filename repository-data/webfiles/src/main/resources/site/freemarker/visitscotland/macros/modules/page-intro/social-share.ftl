@@ -26,7 +26,7 @@
             link-text="${label('social.share', 'whatsapp.link.text')}"
         ></vs-social-share-item>
         <vs-social-share-item
-            name="twitter"
+            name="x-twitter"
             link-text="${label('social.share', 'twitter.link.text')}"
         ></vs-social-share-item>
         <vs-social-share-item
