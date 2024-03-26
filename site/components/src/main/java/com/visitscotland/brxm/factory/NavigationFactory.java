@@ -69,6 +69,11 @@ public class NavigationFactory {
         final HstSiteMenu hstSiteMenu = request.getModel(MENU);
         List<HstSiteMenuItem> enhancedMenu = new ArrayList<>();
 
+        if (cacheable){
+            logger.info("Creating a menu. It will be cached with the following key: menu={}, id={}, locale={}",
+                    request.getLocale(), hstSiteMenu.getName(), id);
+        }
+
         RootMenuItem root = new RootMenuItem(hstSiteMenu);
         if (hstSiteMenu != null) {
             for (HstSiteMenuItem hstItem : hstSiteMenu.getSiteMenuItems()) {
@@ -123,7 +128,6 @@ public class NavigationFactory {
             return null;
         }
     }
-
 
     /**
      * Identifies the type of document linked and populated the data on the menu item accordingly

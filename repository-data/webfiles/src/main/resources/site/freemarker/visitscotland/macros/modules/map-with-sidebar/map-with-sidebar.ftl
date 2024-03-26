@@ -102,6 +102,9 @@
             <template v-slot:open-side-panel-text>
                 ${label('map', 'map.open-panel')}
             </template>
+            <template v-slot:menu-btn-text>
+                ${label('map', 'map.open-panel')}
+            </template>
             <template v-slot:back-btn-text>
                 ${label('map', 'map.step-back')}
             </template>

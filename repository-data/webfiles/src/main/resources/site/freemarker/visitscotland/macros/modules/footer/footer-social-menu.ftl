@@ -15,7 +15,7 @@
         ></vs-footer-social-item>
         <vs-footer-social-item
             href="${optionalLabel('navigation.social-media', 'twitter')}"
-            icon="twitter"
+            icon="x-twitter"
         ></vs-footer-social-item>
         <vs-footer-social-item
             href="${optionalLabel('navigation.social-media', 'youtube')}"
