@@ -6,6 +6,9 @@ import org.onehippo.cms7.essentials.dashboard.annotations.HippoEssentialsGenerat
 import org.hippoecm.hst.content.beans.Node;
 import org.hippoecm.hst.content.beans.standard.HippoHtml;
 
+/**
+ * TODO: Beanwriter: Failed to create getter for node type: hippo:compound
+ */
 @HippoEssentialsGenerated(internalName = "visitscotland:Form")
 @Node(jcrType = "visitscotland:Form")
 public class Form extends BaseDocument {
@@ -29,7 +32,7 @@ public class Form extends BaseDocument {
         return getHippoHtml("visitscotland:copy");
     }
 
-    @HippoEssentialsGenerated(internalName = "visitscotland:form")
+    @HippoEssentialsGenerated(internalName = "visitscotland:form", allowModifications = false)
     public HippoCompound getFormConfiguration() {
         return getBean("visitscotland:form", HippoCompound.class);
     }

@@ -11,7 +11,7 @@ definitions:
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:uuid: 046ddbb7-7d5a-4e9d-bea0-19e80bcc2480
+          jcr:uuid: d686dfe9-3e6e-416e-a415-d8206a66bb1b
           hipposysedit:node: true
           hipposysedit:supertype: ['hippo:compound', 'hippostd:relaxed']
           hipposysedit:uri: http://www.visitscotland.com/visitscotland/nt/1.0
@@ -23,11 +23,22 @@ definitions:
             hipposysedit:path: visitscotland:url
             hipposysedit:primary: false
             hipposysedit:type: String
+            hipposysedit:validators: [required]
+          /jsonURL:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: visitscotland:jsonURL
+            hipposysedit:primary: false
+            hipposysedit:type: String
+            hipposysedit:validators: [required]
       /hipposysedit:prototypes:
         jcr:primaryType: hipposysedit:prototypeset
         /hipposysedit:prototype:
           jcr:primaryType: visitscotland:FormCompoundFepl
           visitscotland:url: ''
+          visitscotland:jsonURL: ''
       /editor:templates:
         jcr:primaryType: editor:templateset
         /_default_:
@@ -39,6 +50,15 @@ definitions:
             jcr:primaryType: frontend:plugin
             item: ${cluster.id}.field
             plugin.class: org.hippoecm.frontend.service.render.ListViewPlugin
+          /jsonURL:
+            jcr:primaryType: frontend:plugin
+            caption: Configuration JSON URL
+            field: jsonURL
+            hint: ''
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
           /url:
             jcr:primaryType: frontend:plugin
             caption: FEPL Submit URL

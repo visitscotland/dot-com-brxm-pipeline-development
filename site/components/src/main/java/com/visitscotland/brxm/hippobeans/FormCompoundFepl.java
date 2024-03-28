@@ -11,4 +11,9 @@ public class FormCompoundFepl extends HippoCompound {
     public String getUrl() {
         return getSingleProperty("visitscotland:url");
     }
+
+    @HippoEssentialsGenerated(internalName = "visitscotland:jsonURL")
+    public String getJsonURL() {
+        return getSingleProperty("visitscotland:jsonURL");
+    }
 }
