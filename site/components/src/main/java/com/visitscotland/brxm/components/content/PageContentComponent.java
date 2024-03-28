@@ -33,7 +33,6 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
 
     public static final String DOCUMENT = "document";
     public static final String OTYML = "otyml";
-    public static final String BLOG = "blog";
     public static final String AUTHOR = "author";
     public static final String NEWSLETTER_SIGNPOST = "newsletterSignpost";
     public static final String PREVIEW_ALERTS = "alerts";
@@ -211,8 +210,6 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
 
             FlatBlog blog = blogFactory.getBlog(page.getBlog(), request.getLocale(), errorMessages);
 
-            //TODO: Remove setAttribute when "blog" is removed from Freemarker
-            request.setAttribute(BLOG, blog);
             request.setModel(AUTHOR, blog);
 
             setErrorMessages(request, errorMessages);
