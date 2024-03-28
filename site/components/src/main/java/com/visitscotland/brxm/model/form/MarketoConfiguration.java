@@ -6,12 +6,14 @@ package com.visitscotland.brxm.model.form;
  *
  *
  */
-@Deprecated(since = "12/03/2024")
-public class MarketoConfiguration {
+@Deprecated(since = "12/03/2024", forRemoval = true)
+public class MarketoConfiguration implements  FormConfiguration {
+
     private String munchkinId;
     private String marketoInstance;
     private String script;
     private String recaptcha;
+    private String jsonUrl;
 
     public String getMunchkinId() {
         return munchkinId;
@@ -43,5 +45,13 @@ public class MarketoConfiguration {
 
     public void setRecaptcha(String recaptcha) {
         this.recaptcha = recaptcha;
+    }
+
+    public String getJsonUrl() {
+        return jsonUrl;
+    }
+
+    public void setJsonUrl(String jsonUrl) {
+        this.jsonUrl = jsonUrl;
     }
 }

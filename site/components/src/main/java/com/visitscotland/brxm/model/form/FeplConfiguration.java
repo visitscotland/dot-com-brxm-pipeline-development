@@ -1,6 +1,6 @@
 package com.visitscotland.brxm.model.form;
 
-public class FeplConfiguration {
+public class FeplConfiguration implements  FormConfiguration {
 
     private String recaptcha;
     private String submitURL;
