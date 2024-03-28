@@ -2413,11 +2413,11 @@
               <p>The VisitScotland Business Events team works with Scottish partners to promote Scotland, to develop and support events and to maximise legacy. We are also a key point of contact for anyone considering Scotland, offering free and impartial advice we can connect you with the venues and suppliers you need to make your event shine.</p>
 
               <p>For information and recommendations to help you bring your event to Scotland get in touch with us on +44 131 472 2355 or email <a href="mailto:business.events@visitscotland.com" title="Business Events email address">business.events@visitscotland.com.</a></p>
-    /form:
+    /marketo-form:
       jcr:primaryType: hippostd:folder
       jcr:mixinTypes: ['hippo:named', 'hippotranslation:translated', 'mix:versionable']
       jcr:uuid: b678323b-7c36-4bc7-9c8c-772f4fe5113b
-      hippo:name: Form
+      hippo:name: Marketo Form
       hippostd:foldertype: [new-be-folder, new-be-page, new-be-module]
       hippotranslation:id: 8dbb96b0-5378-4087-93dc-d95759231c60
       hippotranslation:locale: en
@@ -2609,3 +2609,367 @@
               <p>We'll take your data and use it in very imaginative ways to get to you.</p>
 
               <p>However, If you are precious about it, don't worry! We actually ignore all data and we don't use it at all. Essentially you are wasting your time filling this form the same I am  writing this text 😉</p>
+    /form:
+      jcr:primaryType: hippostd:folder
+      jcr:mixinTypes: ['hippo:named', 'hippotranslation:translated', 'mix:versionable']
+      jcr:uuid: e297a8ed-a07c-46dc-856b-7acef9d8fbb3
+      hippo:name: Form
+      hippostd:foldertype: [new-be-folder, new-be-page, new-be-module]
+      hippotranslation:id: b7e19689-6813-472b-ae7b-779c316cf023
+      hippotranslation:locale: en
+      /marketo:
+        jcr:primaryType: hippostd:folder
+        jcr:mixinTypes: ['hippo:named', 'hippotranslation:translated', 'mix:versionable']
+        jcr:uuid: 417cd2fc-6fa6-4441-bfa9-a9ab83684555
+        hippo:name: Marketo
+        hippostd:foldertype: [new-be-folder, new-be-page, new-be-module]
+        hippotranslation:id: 9fcff8fb-be3a-4784-8193-04c3a19f7602
+        hippotranslation:locale: en
+        /content:
+          jcr:primaryType: hippo:handle
+          jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+          jcr:uuid: f00cf1e5-aa51-4f35-8e27-5fa5f75b2fd2
+          hippo:name: Content
+          hippo:versionHistory: b7ed91c4-b1ad-4d40-8b88-08f215abf29f
+          /content[1]:
+            jcr:primaryType: visitscotland:General
+            jcr:mixinTypes: ['mix:versionable']
+            jcr:uuid: dece91e9-f0b8-47fb-a325-3ff90da51822
+            hippo:availability: [preview]
+            hippostd:retainable: false
+            hippostd:state: unpublished
+            hippostdpubwf:createdBy: admin
+            hippostdpubwf:creationDate: 2024-02-14T12:47:37.022Z
+            hippostdpubwf:lastModificationDate: 2024-03-13T13:10:00.436Z
+            hippostdpubwf:lastModifiedBy: admin
+            hippotranslation:id: cdacb0c4-2663-4482-87a9-f16e53864088
+            hippotranslation:locale: en
+            visitscotland:breadcrumb: ''
+            visitscotland:hideNewsletter: false
+            visitscotland:pswPosition: Default
+            visitscotland:seoDescription: This is a page To test a specific Module
+            visitscotland:seoNoIndex: false
+            visitscotland:seoTitle: This is a page To test a specific Module
+            visitscotland:teaser: Forms
+            visitscotland:theme: Standard
+            visitscotland:title: Form test page
+            visitscotland:translation: ''
+            /visitscotland:heroImage:
+              jcr:primaryType: hippogallerypicker:imagelink
+              hippo:docbase: ea78cf97-be18-42d9-b266-3a5023316f16
+              hippo:facets: []
+              hippo:modes: []
+              hippo:values: []
+            /visitscotland:introduction:
+              jcr:primaryType: hippostd:html
+              hippostd:content: <p>This page illustrates different combinations for
+                this module, please feel free to add more use cases to illustrate
+                uses of this moduel</p>
+          /content[2]:
+            jcr:primaryType: visitscotland:General
+            jcr:mixinTypes: ['mix:referenceable']
+            jcr:uuid: 48108aa8-ef40-4343-afc9-ae3af54184cd
+            hippo:availability: [live]
+            hippostd:retainable: false
+            hippostd:state: published
+            hippostdpubwf:createdBy: admin
+            hippostdpubwf:creationDate: 2024-02-14T12:47:37.022Z
+            hippostdpubwf:lastModificationDate: 2024-03-13T13:10:00.436Z
+            hippostdpubwf:lastModifiedBy: admin
+            hippostdpubwf:publicationDate: 2024-03-28T16:48:16.449Z
+            hippotranslation:id: cdacb0c4-2663-4482-87a9-f16e53864088
+            hippotranslation:locale: en
+            visitscotland:breadcrumb: ''
+            visitscotland:hideNewsletter: false
+            visitscotland:pswPosition: Default
+            visitscotland:seoDescription: This is a page To test a specific Module
+            visitscotland:seoNoIndex: false
+            visitscotland:seoTitle: This is a page To test a specific Module
+            visitscotland:teaser: Forms
+            visitscotland:theme: Standard
+            visitscotland:title: Form test page
+            visitscotland:translation: ''
+            /visitscotland:heroImage:
+              jcr:primaryType: hippogallerypicker:imagelink
+              hippo:docbase: ea78cf97-be18-42d9-b266-3a5023316f16
+              hippo:facets: []
+              hippo:modes: []
+              hippo:values: []
+            /visitscotland:introduction:
+              jcr:primaryType: hippostd:html
+              hippostd:content: <p>This page illustrates different combinations for
+                this module, please feel free to add more use cases to illustrate
+                uses of this moduel</p>
+        /form:
+          jcr:primaryType: hippo:handle
+          jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+          jcr:uuid: d83e23d9-b6ff-4235-aef2-b47a96c7919a
+          hippo:name: Form
+          hippo:versionHistory: 0b736698-8124-41ea-852d-9339055488c4
+          /form[1]:
+            jcr:primaryType: visitscotland:Form
+            jcr:mixinTypes: ['mix:versionable']
+            jcr:uuid: da6c0354-56e8-4f22-a799-cc97d0cea6dc
+            hippo:availability: [preview]
+            hippostd:retainable: false
+            hippostd:state: unpublished
+            hippostdpubwf:createdBy: admin
+            hippostdpubwf:creationDate: 2024-03-28T15:10:21.040Z
+            hippostdpubwf:lastModificationDate: 2024-03-28T15:30:41.480Z
+            hippostdpubwf:lastModifiedBy: admin
+            hippotranslation:id: c52756d7-9432-4841-8a45-2273b650e2a6
+            hippotranslation:locale: en
+            visitscotland:nonJavaScriptMessage: This form doesn't work without JavaScript
+              (Tough Luck!)
+            visitscotland:title: This is a FEPL FORM
+            visitscotland:translation: ''
+            /visitscotland:copy:
+              jcr:primaryType: hippostd:html
+              hippostd:content: ''
+            /visitscotland:form:
+              jcr:primaryType: visitscotland:FormCompoundMarketo
+              visitscotland:jsonUrl: https://static.visitscotland.com/forms/newsletter-sign-up/newsletter-sign-up.json
+          /form[2]:
+            jcr:primaryType: visitscotland:Form
+            jcr:mixinTypes: ['mix:referenceable']
+            jcr:uuid: 5ab0c2df-b0fc-4f2d-86ff-ba47662a24ca
+            hippo:availability: []
+            hippostd:retainable: false
+            hippostd:state: draft
+            hippostdpubwf:createdBy: admin
+            hippostdpubwf:creationDate: 2024-03-28T15:10:21.040Z
+            hippostdpubwf:lastModificationDate: 2024-03-28T15:30:19.535Z
+            hippostdpubwf:lastModifiedBy: admin
+            hippotranslation:id: c52756d7-9432-4841-8a45-2273b650e2a6
+            hippotranslation:locale: en
+            visitscotland:nonJavaScriptMessage: This form doesn't work without JavaScript
+              (Tough Luck!)
+            visitscotland:title: This is a FEPL FORM
+            visitscotland:translation: ''
+            /visitscotland:copy:
+              jcr:primaryType: hippostd:html
+              hippostd:content: ''
+            /visitscotland:form:
+              jcr:primaryType: visitscotland:FormCompoundMarketo
+              visitscotland:jsonUrl: https://static.visitscotland.com/forms/newsletter-sign-up/newsletter-sign-up.json
+          /form[3]:
+            jcr:primaryType: visitscotland:Form
+            jcr:mixinTypes: ['mix:referenceable']
+            jcr:uuid: 57924df8-5b1f-4b37-b9d3-e2f48a892071
+            hippo:availability: [live]
+            hippostd:retainable: false
+            hippostd:state: published
+            hippostdpubwf:createdBy: admin
+            hippostdpubwf:creationDate: 2024-03-28T15:10:21.040Z
+            hippostdpubwf:lastModificationDate: 2024-03-28T15:30:41.480Z
+            hippostdpubwf:lastModifiedBy: admin
+            hippostdpubwf:publicationDate: 2024-03-28T16:48:16.341Z
+            hippotranslation:id: c52756d7-9432-4841-8a45-2273b650e2a6
+            hippotranslation:locale: en
+            visitscotland:nonJavaScriptMessage: This form doesn't work without JavaScript
+              (Tough Luck!)
+            visitscotland:title: This is a FEPL FORM
+            visitscotland:translation: ''
+            /visitscotland:copy:
+              jcr:primaryType: hippostd:html
+              hippostd:content: ''
+            /visitscotland:form:
+              jcr:primaryType: visitscotland:FormCompoundMarketo
+              visitscotland:jsonUrl: https://static.visitscotland.com/forms/newsletter-sign-up/newsletter-sign-up.json
+      /fepl:
+        jcr:primaryType: hippostd:folder
+        jcr:mixinTypes: ['hippo:named', 'hippotranslation:translated', 'mix:versionable']
+        jcr:uuid: 3bd3cf4b-ad34-496c-926f-f815f141f085
+        hippo:name: Fepl
+        hippostd:foldertype: [new-be-folder, new-be-page, new-be-module]
+        hippotranslation:id: 6917784c-6e3b-4def-8367-4c987beab264
+        hippotranslation:locale: en
+        /content:
+          jcr:primaryType: hippo:handle
+          jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+          jcr:uuid: ab681409-ec18-4b33-a6f5-b2cba3328feb
+          hippo:name: Content
+          hippo:versionHistory: 6c3eaf12-ffc7-4b89-ba6b-99d7b9637d19
+          /content[1]:
+            jcr:primaryType: visitscotland:General
+            jcr:mixinTypes: ['mix:versionable']
+            jcr:uuid: a1180d9a-1fba-4e49-bca6-b197c5df272b
+            hippo:availability: [preview]
+            hippostd:retainable: false
+            hippostd:state: unpublished
+            hippostdpubwf:createdBy: admin
+            hippostdpubwf:creationDate: 2024-02-14T12:47:37.022Z
+            hippostdpubwf:lastModificationDate: 2024-03-13T13:10:00.436Z
+            hippostdpubwf:lastModifiedBy: admin
+            hippotranslation:id: abe6a9f2-c20f-48ff-8d14-28ea1563e832
+            hippotranslation:locale: en
+            visitscotland:breadcrumb: ''
+            visitscotland:hideNewsletter: false
+            visitscotland:pswPosition: Default
+            visitscotland:seoDescription: This is a page To test a specific Module
+            visitscotland:seoNoIndex: false
+            visitscotland:seoTitle: This is a page To test a specific Module
+            visitscotland:teaser: Forms
+            visitscotland:theme: Standard
+            visitscotland:title: Form test page
+            visitscotland:translation: ''
+            /visitscotland:heroImage:
+              jcr:primaryType: hippogallerypicker:imagelink
+              hippo:docbase: ea78cf97-be18-42d9-b266-3a5023316f16
+              hippo:facets: []
+              hippo:modes: []
+              hippo:values: []
+            /visitscotland:introduction:
+              jcr:primaryType: hippostd:html
+              hippostd:content: <p>This page illustrates different combinations for
+                this module, please feel free to add more use cases to illustrate
+                uses of this moduel</p>
+          /content[2]:
+            jcr:primaryType: visitscotland:General
+            jcr:mixinTypes: ['mix:referenceable']
+            jcr:uuid: a4029336-66d9-4dfe-abab-6fa862b34918
+            hippo:availability: []
+            hippostd:retainable: false
+            hippostd:state: draft
+            hippostd:transferable: false
+            hippostdpubwf:createdBy: admin
+            hippostdpubwf:creationDate: 2024-02-14T12:47:37.022Z
+            hippostdpubwf:lastModificationDate: 2024-03-28T15:06:47.945Z
+            hippostdpubwf:lastModifiedBy: admin
+            hippotranslation:id: abe6a9f2-c20f-48ff-8d14-28ea1563e832
+            hippotranslation:locale: en
+            visitscotland:breadcrumb: ''
+            visitscotland:hideNewsletter: false
+            visitscotland:pswPosition: Default
+            visitscotland:seoDescription: This is a page To test a specific Module
+            visitscotland:seoNoIndex: false
+            visitscotland:seoTitle: This is a page To test a specific Module
+            visitscotland:teaser: Forms
+            visitscotland:theme: Standard
+            visitscotland:title: Form test page
+            visitscotland:translation: ''
+            /visitscotland:heroImage:
+              jcr:primaryType: hippogallerypicker:imagelink
+              hippo:docbase: ea78cf97-be18-42d9-b266-3a5023316f16
+              hippo:facets: []
+              hippo:modes: []
+              hippo:values: []
+            /visitscotland:introduction:
+              jcr:primaryType: hippostd:html
+              hippostd:content: <p>This page illustrates different combinations for
+                this module, please feel free to add more use cases to illustrate
+                uses of this moduel</p>
+          /content[3]:
+            jcr:primaryType: visitscotland:General
+            jcr:mixinTypes: ['mix:referenceable']
+            jcr:uuid: 2a4ed6f4-4f87-499e-b98c-2e0b609500f9
+            hippo:availability: [live]
+            hippostd:retainable: false
+            hippostd:state: published
+            hippostdpubwf:createdBy: admin
+            hippostdpubwf:creationDate: 2024-02-14T12:47:37.022Z
+            hippostdpubwf:lastModificationDate: 2024-03-13T13:10:00.436Z
+            hippostdpubwf:lastModifiedBy: admin
+            hippostdpubwf:publicationDate: 2024-03-28T16:48:16.227Z
+            hippotranslation:id: abe6a9f2-c20f-48ff-8d14-28ea1563e832
+            hippotranslation:locale: en
+            visitscotland:breadcrumb: ''
+            visitscotland:hideNewsletter: false
+            visitscotland:pswPosition: Default
+            visitscotland:seoDescription: This is a page To test a specific Module
+            visitscotland:seoNoIndex: false
+            visitscotland:seoTitle: This is a page To test a specific Module
+            visitscotland:teaser: Forms
+            visitscotland:theme: Standard
+            visitscotland:title: Form test page
+            visitscotland:translation: ''
+            /visitscotland:heroImage:
+              jcr:primaryType: hippogallerypicker:imagelink
+              hippo:docbase: ea78cf97-be18-42d9-b266-3a5023316f16
+              hippo:facets: []
+              hippo:modes: []
+              hippo:values: []
+            /visitscotland:introduction:
+              jcr:primaryType: hippostd:html
+              hippostd:content: <p>This page illustrates different combinations for
+                this module, please feel free to add more use cases to illustrate
+                uses of this moduel</p>
+        /form:
+          jcr:primaryType: hippo:handle
+          jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+          jcr:uuid: fbed7922-3430-4f77-a29e-0ccfd3a83296
+          hippo:name: Form
+          hippo:versionHistory: a73712e8-574a-467d-a214-c3fc6b64c5d4
+          /form[1]:
+            jcr:primaryType: visitscotland:Form
+            jcr:mixinTypes: ['mix:referenceable']
+            jcr:uuid: 1adc7008-f339-47a3-837b-fdb484f32ee6
+            hippo:availability: []
+            hippostd:retainable: false
+            hippostd:state: draft
+            hippostdpubwf:createdBy: admin
+            hippostdpubwf:creationDate: 2024-03-28T15:10:21.040Z
+            hippostdpubwf:lastModificationDate: 2024-03-28T16:29:00.586Z
+            hippostdpubwf:lastModifiedBy: admin
+            hippotranslation:id: 55847ec9-5390-4253-b46b-b6a3370182ca
+            hippotranslation:locale: en
+            visitscotland:nonJavaScriptMessage: This form doesn't work without JavaScript
+              (Tough Luck!)
+            visitscotland:title: This is a FEPL FORM
+            visitscotland:translation: ''
+            /visitscotland:copy:
+              jcr:primaryType: hippostd:html
+              hippostd:content: ''
+            /visitscotland:form:
+              jcr:primaryType: visitscotland:FormCompoundFepl
+              visitscotland:jsonURL: https://static.visitscotland.com/forms/newsletter-sign-up/newsletter-sign-up.json
+              visitscotland:url: https://develop.visitscotland.org/api/submit/fepl/forms/business-events-newsletter
+          /form[2]:
+            jcr:primaryType: visitscotland:Form
+            jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+            jcr:uuid: 62c9d698-f3ed-4d8f-9d68-951db1046358
+            hippo:availability: [preview]
+            hippostd:retainable: false
+            hippostd:state: unpublished
+            hippostdpubwf:createdBy: admin
+            hippostdpubwf:creationDate: 2024-03-28T15:10:21.040Z
+            hippostdpubwf:lastModificationDate: 2024-03-28T16:29:04.045Z
+            hippostdpubwf:lastModifiedBy: admin
+            hippotranslation:id: 55847ec9-5390-4253-b46b-b6a3370182ca
+            hippotranslation:locale: en
+            visitscotland:nonJavaScriptMessage: This form doesn't work without JavaScript
+              (Tough Luck!)
+            visitscotland:title: This is a FEPL FORM
+            visitscotland:translation: ''
+            /visitscotland:copy:
+              jcr:primaryType: hippostd:html
+              hippostd:content: ''
+            /visitscotland:form:
+              jcr:primaryType: visitscotland:FormCompoundFepl
+              visitscotland:jsonURL: https://static.visitscotland.com/forms/newsletter-sign-up/newsletter-sign-up.json
+              visitscotland:url: https://develop.visitscotland.org/api/submit/fepl/forms/business-events-newsletter
+          /form[3]:
+            jcr:primaryType: visitscotland:Form
+            jcr:mixinTypes: ['mix:referenceable']
+            jcr:uuid: 437db3fe-10d8-4ec7-b8de-5e4279d179ce
+            hippo:availability: [live]
+            hippostd:retainable: false
+            hippostd:state: published
+            hippostdpubwf:createdBy: admin
+            hippostdpubwf:creationDate: 2024-03-28T15:10:21.040Z
+            hippostdpubwf:lastModificationDate: 2024-03-28T16:29:04.045Z
+            hippostdpubwf:lastModifiedBy: admin
+            hippostdpubwf:publicationDate: 2024-03-28T16:29:06.307Z
+            hippotranslation:id: 55847ec9-5390-4253-b46b-b6a3370182ca
+            hippotranslation:locale: en
+            visitscotland:nonJavaScriptMessage: This form doesn't work without JavaScript
+              (Tough Luck!)
+            visitscotland:title: This is a FEPL FORM
+            visitscotland:translation: ''
+            /visitscotland:copy:
+              jcr:primaryType: hippostd:html
+              hippostd:content: ''
+            /visitscotland:form:
+              jcr:primaryType: visitscotland:FormCompoundFepl
+              visitscotland:jsonURL: https://static.visitscotland.com/forms/newsletter-sign-up/newsletter-sign-up.json
+              visitscotland:url: https://develop.visitscotland.org/api/submit/fepl/forms/business-events-newsletter
