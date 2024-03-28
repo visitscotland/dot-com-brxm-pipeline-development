@@ -53,7 +53,7 @@ public class PageTemplateBuilder {
     private final TravelInformationFactory travelInformationFactory;
     private final CannedSearchFactory cannedSearchFactory;
     private final PreviewModeFactory previewFactory;
-    private final MarketoFormFactory marketoFormFactory;
+    private final FormFactory formFactory;
     private final MapFactory mapFactory;
     private final SkiFactory skiFactory;
     private final DevModuleFactory devModuleFactory;
@@ -67,7 +67,7 @@ public class PageTemplateBuilder {
     public PageTemplateBuilder(DocumentUtilsService documentUtils, MegalinkFactory linksFactory, ICentreFactory iCentreFactory,
                                IKnowFactory iKnowFactory, ArticleFactory articleFactory, LongCopyFactory longCopyFactory,
                                UserGeneratedContentFactory userGeneratedContentFactory, TravelInformationFactory travelInformationFactory,
-                               CannedSearchFactory cannedSearchFactory, PreviewModeFactory previewFactory, MarketoFormFactory marketoFormFactory,
+                               CannedSearchFactory cannedSearchFactory, PreviewModeFactory previewFactory, FormFactory marketoFormFactory,
                                MapFactory mapFactory, SkiFactory skiFactory, Properties properties,
                                DevModuleFactory devModuleFactory, ResourceBundleService bundle, Logger contentLogger) {
         this.documentUtils = documentUtils;
@@ -80,7 +80,7 @@ public class PageTemplateBuilder {
         this.travelInformationFactory = travelInformationFactory;
         this.cannedSearchFactory = cannedSearchFactory;
         this.previewFactory = previewFactory;
-        this.marketoFormFactory = marketoFormFactory;
+        this.formFactory = marketoFormFactory;
         this.mapFactory = mapFactory;
         this.devModuleFactory = devModuleFactory;
         this.skiFactory = skiFactory;
@@ -139,7 +139,7 @@ public class PageTemplateBuilder {
             page.modules.add(cannedSearchFactory.getCannedSearchModule((CannedSearch) item, request.getLocale()));
         } else if (item instanceof CannedSearchTours) {
             page.modules.add(cannedSearchFactory.getCannedSearchToursModule((CannedSearchTours) item, request.getLocale()));
-        } else if (item instanceof MarketoForm) {
+        } else if (item instanceof MarketoForm || item instanceof Form) {
             page.modules.add(getForm(request, item));
         } else if (item instanceof SkiCentre){
             page.modules.add(skiFactory.createSkyModule((SkiCentre) item, request.getLocale()));
@@ -151,15 +151,22 @@ public class PageTemplateBuilder {
             logger.warn("Unrecognized Module Type: {}", item.getClass());
         }
     }
-    private MarketoFormModule getForm(HstRequest request, BaseDocument form){
+    private FormModule getForm(HstRequest request, BaseDocument form){
         addAllLabels(request, "forms");
         Map<String, String> formLabels = labels(request).get("forms");
 
-        //The following files are required independent from the Form Framework
+        //The following files are required independent of the Form Framework
         formLabels.put("cfg.form.json.countries", properties.getProperty("form.json.countries"));
         formLabels.put("cfg.form.json.messages", properties.getProperty("form.json.messages"));
 
-        return marketoFormFactory.getModule((MarketoForm) form);
+        if (form instanceof MarketoForm) {
+            return formFactory.getModule((MarketoForm) form);
+        } else if (form instanceof Form) {
+            return formFactory.getModule((Form) form);
+        } else if (form != null) {
+            logger.error("Form Class not recognized {}, path = {}", form.getClass(), form.getPath());
+        }
+        return null;
     }
 
     /**

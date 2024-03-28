@@ -6,7 +6,7 @@ package com.visitscotland.brxm.model.form;
  *
  *
  */
-@Deprecated(since = "12/03/2024", forRemoval = true)
+@Deprecated(since = "12/03/2024")
 public class MarketoConfiguration implements  FormConfiguration {
 
     private String munchkinId;
