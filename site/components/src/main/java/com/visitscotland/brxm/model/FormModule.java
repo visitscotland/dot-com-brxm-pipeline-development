@@ -1,8 +1,8 @@
 package com.visitscotland.brxm.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.visitscotland.brxm.hippobeans.MarketoForm;
 import com.visitscotland.brxm.model.form.FormConfiguration;
-import com.visitscotland.brxm.model.form.MarketoConfiguration;
 import org.hippoecm.hst.content.beans.standard.HippoHtml;
 
 public class FormModule extends Module<MarketoForm> {
@@ -30,6 +30,7 @@ public class FormModule extends Module<MarketoForm> {
      * @deprecated Marketo forms are about to be removed. This method will be deleted after MarketoForm class is retired
      */
     @Deprecated(forRemoval = true)
+    @JsonIgnore
     public void setJsonUrl(String jsonUrl) {
         this.jsonUrl = jsonUrl;
     }
