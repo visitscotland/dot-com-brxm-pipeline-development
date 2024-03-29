@@ -17,7 +17,7 @@ import org.springframework.stereotype.Component;
 public class FormFactory {
 
     private static final String PROP_RECAPTCHA = "form.recaptcha-key";
-    private static final String PROP_MARKETO_URL = "form.marketo.instance-url";
+    private static final String PROP_MARKETO_URL = "form.maketo.instance-url";
     private static final String PROP_MARKETO_MUNCHKIN = "form.marketo.munchkin";
     private static final String PROP_MARKETO_SCRIPT = "form.marketo.script";
 
