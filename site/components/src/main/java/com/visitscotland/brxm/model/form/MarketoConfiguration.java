@@ -9,6 +9,11 @@ package com.visitscotland.brxm.model.form;
 @Deprecated(since = "12/03/2024")
 public class MarketoConfiguration implements  FormConfiguration {
 
+    /**
+     * Indicates the type of form to the front-end. Do not change this value unless it is agreed with UI developers
+     */
+    private static final String FORM_TYPE = "marketo";
+
     private String munchkinId;
     private String marketoInstance;
     private String script;
@@ -53,5 +58,10 @@ public class MarketoConfiguration implements  FormConfiguration {
 
     public void setJsonUrl(String jsonUrl) {
         this.jsonUrl = jsonUrl;
+    }
+
+    @Override
+    public String getType() {
+        return FORM_TYPE;
     }
 }

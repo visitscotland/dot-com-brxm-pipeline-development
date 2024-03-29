@@ -7,4 +7,6 @@ package com.visitscotland.brxm.model.form;
  */
 public interface FormConfiguration {
 
+    String getType();
+
 }
