@@ -6,10 +6,10 @@ import com.visitscotland.brxm.hippobeans.FormCompoundMarketo;
 import com.visitscotland.brxm.hippobeans.MarketoForm;
 import com.visitscotland.brxm.model.FormModule;
 import com.visitscotland.brxm.model.form.FeplConfiguration;
-import com.visitscotland.brxm.model.form.FormConfiguration;
 import com.visitscotland.brxm.model.form.MarketoConfiguration;
 import com.visitscotland.brxm.utils.ContentLogger;
 import com.visitscotland.brxm.utils.Properties;
+import org.hippoecm.hst.content.beans.standard.HippoBean;
 import org.hippoecm.hst.content.beans.standard.HippoCompound;
 import org.springframework.stereotype.Component;
 
@@ -31,7 +31,7 @@ public class FormFactory {
     }
 
     public FormModule getModule(MarketoForm document) {
-        MarketoConfiguration cfg = getMarketoConfiguration(null);
+        MarketoConfiguration cfg = getMarketoConfiguration(document);
 
         FormModule module = new FormModule();
         module.setConfig(cfg);
@@ -43,15 +43,17 @@ public class FormFactory {
         return module;
     }
 
-    private MarketoConfiguration getMarketoConfiguration(FormCompoundMarketo compound) {
+    private MarketoConfiguration getMarketoConfiguration(HippoBean bean) {
         MarketoConfiguration cfg = new MarketoConfiguration();
         cfg.setRecaptcha(properties.getProperty(PROP_RECAPTCHA));
         cfg.setMarketoInstance(properties.getProperty(PROP_MARKETO_URL));
         cfg.setMunchkinId(properties.getProperty(PROP_MARKETO_MUNCHKIN));
         cfg.setScript(properties.getProperty(PROP_MARKETO_SCRIPT));
 
-        if (compound != null) {
-            cfg.setJsonUrl(compound.getJsonUrl());
+        if (bean instanceof FormCompoundMarketo) {
+            cfg.setJsonUrl(((FormCompoundMarketo) bean).getJsonUrl());
+        } else if (bean instanceof MarketoForm){
+            cfg.setJsonUrl(((MarketoForm) bean).getJsonUrl());
         }
 
         return cfg;
@@ -61,6 +63,7 @@ public class FormFactory {
         FeplConfiguration cfg = new FeplConfiguration();
         cfg.setRecaptcha(properties.getProperty(PROP_RECAPTCHA));
         cfg.setSubmitURL(fepl.getUrl());
+        cfg.setJsonUrl(fepl.getJsonURL());
 
         return cfg;
     }
@@ -76,7 +79,7 @@ public class FormFactory {
         if (cfg instanceof FormCompoundFepl) {
             module.setConfig(getFeplConfiguration((FormCompoundFepl) document.getFormConfiguration()));
         } else if (cfg instanceof FormCompoundMarketo){
-            module.setConfig(getMarketoConfiguration((FormCompoundMarketo) document.getFormConfiguration()));
+            module.setConfig(getMarketoConfiguration(document.getFormConfiguration()));
         } else {
             contentLogger.warn("The Form document '{}' does not have a valid configuration. It won't appear on the page", document.getPath());
             return null;
