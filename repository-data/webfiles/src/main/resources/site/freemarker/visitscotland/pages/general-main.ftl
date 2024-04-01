@@ -27,8 +27,8 @@
 <div class="has-edit-button">
 	<@hst.manageContent hippobean=document/>
 
-	<#if blog??>
-		<@pageIntro content=document lightBackground=true blog=blog />
+	<#if author??>
+		<@pageIntro content=document lightBackground=true author=author />
 		<@introImage mainImage=heroImage />
 	<#elseif topLevelTemplate>
 		<@pageIntro content=document heroDetails=heroImage lightBackground=(psrWidget?has_content && psrWidget.position = "Top") />
