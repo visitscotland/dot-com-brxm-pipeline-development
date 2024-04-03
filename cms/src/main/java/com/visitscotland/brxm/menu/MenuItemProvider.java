@@ -22,6 +22,9 @@ public class MenuItemProvider {
     private static final String NEW_PAGE_MENU = "new-page";
     private static final String NEW_MODULE_MENU = "new-module";
 
+    private static final String NEW_BE_PAGE_MENU = "new-be-page";
+    private static final String NEW_BE_MODULE_MENU = "new-be-module";
+
     private static final String LOCALE_PROPERTY_PATH = "hippotranslation:locale";
 
     private static final Logger logger = LoggerFactory.getLogger(MenuItemProvider.class);
@@ -37,17 +40,22 @@ public class MenuItemProvider {
             boolean createDocumentOnTranslation = createDocumentOnTranslationObject instanceof Boolean ? (Boolean) createDocumentOnTranslationObject : true;
             if (!isEnglishFolder(subjectNode) && !createDocumentOnTranslation) {
                 prototypes.clear();
-            } else if (prototypes.containsKey(NEW_PAGE_MENU) && prototypes.containsKey(NEW_MODULE_MENU)) {
-                Optional<Page> optionalPage = getPageContentBean(subjectNode);
-                if (optionalPage.isPresent()) {
-                    prototypes.remove(NEW_PAGE_MENU);
-                    prototypes.put(NEW_MODULE_MENU, new TreeSet<>(Arrays.asList((optionalPage.get()).getChildJcrTypes())));
-                } else {
-                    prototypes.remove(NEW_MODULE_MENU);
-                }
             }
+            simplifyMenu(subjectNode, prototypes, NEW_PAGE_MENU, NEW_MODULE_MENU);
+            simplifyMenu(subjectNode, prototypes, NEW_BE_PAGE_MENU, NEW_BE_MODULE_MENU);
         } catch (RepositoryException | ObjectBeanManagerException | QueryException ex) {
             logger.warn("Failed to obtain child JCR types for menu selection", ex);
+        }
+    }
+
+    private void simplifyMenu(Node subjectNode, Map<String, Set<String>> prototypes, String pageMenu, String moduleMenu) throws ObjectBeanManagerException, QueryException, RepositoryException {
+        if (prototypes.containsKey(pageMenu) && prototypes.containsKey(moduleMenu)) {
+            Optional<Page> optionalPage = getPageContentBean(subjectNode);
+            if (optionalPage.isPresent()) {
+                prototypes.remove(pageMenu);
+            } else {
+                prototypes.remove(moduleMenu);
+            }
         }
     }
 

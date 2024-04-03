@@ -1,6 +1,7 @@
 package com.visitscotland.brxm.model;
 
 import com.visitscotland.brxm.hippobeans.MarketoForm;
+import com.visitscotland.brxm.model.form.MarketoConfiguration;
 import org.hippoecm.hst.content.beans.standard.HippoHtml;
 
 public class MarketoFormModule extends Module<MarketoForm> {
@@ -9,6 +10,8 @@ public class MarketoFormModule extends Module<MarketoForm> {
     private String jsonUrl;
     private String noJavaScriptMessage;
     private HippoHtml copy;
+
+    private MarketoConfiguration config;
 
     public String getTitle() {
         return title;
@@ -40,5 +43,13 @@ public class MarketoFormModule extends Module<MarketoForm> {
 
     public void setCopy(HippoHtml copy) {
         this.copy = copy;
+    }
+
+    public MarketoConfiguration getConfig() {
+        return config;
+    }
+
+    public void setConfig(MarketoConfiguration config) {
+        this.config = config;
     }
 }
