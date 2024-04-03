@@ -2899,7 +2899,7 @@
           jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
           jcr:uuid: fbed7922-3430-4f77-a29e-0ccfd3a83296
           hippo:name: Form
-          hippo:versionHistory: a73712e8-574a-467d-a214-c3fc6b64c5d4
+          hippo:versionHistory: f8f65d80-bc37-428d-9c7a-2cb36e815045
           /form[1]:
             jcr:primaryType: visitscotland:Form
             jcr:mixinTypes: ['mix:referenceable']
@@ -2909,7 +2909,7 @@
             hippostd:state: draft
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2024-03-28T15:10:21.040Z
-            hippostdpubwf:lastModificationDate: 2024-03-29T10:01:43.877Z
+            hippostdpubwf:lastModificationDate: 2024-04-03T15:48:04.629+01:00
             hippostdpubwf:lastModifiedBy: admin
             hippotranslation:id: 55847ec9-5390-4253-b46b-b6a3370182ca
             hippotranslation:locale: en
@@ -2922,8 +2922,8 @@
               hippostd:content: ''
             /visitscotland:form:
               jcr:primaryType: visitscotland:FormCompoundFepl
-              visitscotland:jsonURL: https://static.visitscotland.com/forms/newsletter-sign-up/newsletter-sign-up.json
-              visitscotland:url: https://develop.visitscotland.org/api/submit/fepl/forms/business-events-newsletter
+              visitscotland:jsonURL: http://localhost:3000/fepl-form.json
+              visitscotland:url: https://develop.visitscotland.org/api/submit/fepl/forms
           /form[2]:
             jcr:primaryType: visitscotland:Form
             jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
@@ -2933,7 +2933,7 @@
             hippostd:state: unpublished
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2024-03-28T15:10:21.040Z
-            hippostdpubwf:lastModificationDate: 2024-03-28T16:29:04.045Z
+            hippostdpubwf:lastModificationDate: 2024-04-03T15:57:26.467+01:00
             hippostdpubwf:lastModifiedBy: admin
             hippotranslation:id: 55847ec9-5390-4253-b46b-b6a3370182ca
             hippotranslation:locale: en
@@ -2946,8 +2946,8 @@
               hippostd:content: ''
             /visitscotland:form:
               jcr:primaryType: visitscotland:FormCompoundFepl
-              visitscotland:jsonURL: https://static.visitscotland.com/forms/newsletter-sign-up/newsletter-sign-up.json
-              visitscotland:url: https://develop.visitscotland.org/api/submit/fepl/forms/business-events-newsletter
+              visitscotland:jsonURL: http://localhost:3000/fepl-form.json
+              visitscotland:url: https://develop.visitscotland.org/api/submit/fepl/forms
           /form[3]:
             jcr:primaryType: visitscotland:Form
             jcr:mixinTypes: ['mix:referenceable']
@@ -2957,9 +2957,9 @@
             hippostd:state: published
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2024-03-28T15:10:21.040Z
-            hippostdpubwf:lastModificationDate: 2024-03-28T16:29:04.045Z
+            hippostdpubwf:lastModificationDate: 2024-04-03T15:57:26.467+01:00
             hippostdpubwf:lastModifiedBy: admin
-            hippostdpubwf:publicationDate: 2024-03-28T16:29:06.307Z
+            hippostdpubwf:publicationDate: 2024-04-03T15:57:58.367+01:00
             hippotranslation:id: 55847ec9-5390-4253-b46b-b6a3370182ca
             hippotranslation:locale: en
             visitscotland:nonJavaScriptMessage: This form doesn't work without JavaScript
@@ -2971,5 +2971,5 @@
               hippostd:content: ''
             /visitscotland:form:
               jcr:primaryType: visitscotland:FormCompoundFepl
-              visitscotland:jsonURL: https://static.visitscotland.com/forms/newsletter-sign-up/newsletter-sign-up.json
-              visitscotland:url: https://develop.visitscotland.org/api/submit/fepl/forms/business-events-newsletter
+              visitscotland:jsonURL: http://localhost:3000/fepl-form.json
+              visitscotland:url: https://develop.visitscotland.org/api/submit/fepl/forms
