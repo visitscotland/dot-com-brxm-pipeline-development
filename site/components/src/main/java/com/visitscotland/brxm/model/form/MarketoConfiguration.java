@@ -20,6 +20,14 @@ public class MarketoConfiguration implements  FormConfiguration {
     private String recaptcha;
     private String jsonUrl;
 
+    /**
+     * It allows Marketo to difference between sandbox and live.
+     *
+     * This information should probably go into the back end but since this form type is in process of being retired,
+     * it is not worth the change
+     */
+    private boolean production;
+
     public String getMunchkinId() {
         return munchkinId;
     }
@@ -63,5 +71,13 @@ public class MarketoConfiguration implements  FormConfiguration {
     @Override
     public String getType() {
         return FORM_TYPE;
+    }
+
+    public boolean isProduction() {
+        return production;
+    }
+
+    public void setProduction(boolean production) {
+        this.production = production;
     }
 }

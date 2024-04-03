@@ -21,6 +21,8 @@ public class FormFactory {
     private static final String PROP_MARKETO_MUNCHKIN = "form.marketo.munchkin";
     private static final String PROP_MARKETO_SCRIPT = "form.marketo.script";
 
+    private static final String PROP_MARKETO_IS_PRODUCTION = "form.is-production";
+
     private final Properties properties;
 
     private final ContentLogger contentLogger;
@@ -49,6 +51,10 @@ public class FormFactory {
         cfg.setMarketoInstance(properties.getProperty(PROP_MARKETO_URL));
         cfg.setMunchkinId(properties.getProperty(PROP_MARKETO_MUNCHKIN));
         cfg.setScript(properties.getProperty(PROP_MARKETO_SCRIPT));
+        /** TODO: This property should go away
+         * @see MarketoConfiguration.production
+         */
+        cfg.setProduction(properties.readBoolean(PROP_MARKETO_IS_PRODUCTION));
 
         if (bean instanceof FormCompoundMarketo) {
             cfg.setJsonUrl(((FormCompoundMarketo) bean).getJsonUrl());
