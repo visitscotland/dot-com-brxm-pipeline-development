@@ -13,7 +13,9 @@ import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 import static org.junit.jupiter.api.Assertions.*;
+
 import org.junit.jupiter.api.Test;
+
 import static org.mockito.Mockito.*;
 
 
@@ -32,10 +34,11 @@ class FactoryTest {
         MarketoForm form = new MarketoFormMockBuilder().title("title")
                 .configuration("config").noJavascriptMessage("nojs").copy("copy").build();
 
-        when(properties.getProperty("form.recaptcha-key")).thenReturn("recaptcha");
-        when(properties.getProperty("form.marketo.instance-url")).thenReturn("url");
-        when(properties.getProperty("form.marketo.munchkin")).thenReturn("munchkin");
-        when(properties.getProperty("form.marketo.script")).thenReturn("script.js");
+        when(properties.getProperty(FormFactory.PROP_RECAPTCHA)).thenReturn("recaptcha");
+        when(properties.getProperty(FormFactory.PROP_MARKETO_URL)).thenReturn("url");
+        when(properties.getProperty(FormFactory.PROP_MARKETO_MUNCHKIN)).thenReturn("munchkin");
+        when(properties.getProperty(FormFactory.PROP_MARKETO_SCRIPT)).thenReturn("script.js");
+        when(properties.readBoolean(FormFactory.PROP_MARKETO_IS_PRODUCTION)).thenReturn(true);
 
         FormModule module = marketoFormFactory.getModule(form);
 
@@ -44,10 +47,10 @@ class FactoryTest {
         assertEquals("nojs", module.getNoJavaScriptMessage());
         assertEquals("copy", module.getCopy().getContent());
         assertInstanceOf(MarketoConfiguration.class, module.getConfig());
-        assertEquals("recaptcha", ((MarketoConfiguration)module.getConfig()).getRecaptcha());
-        assertEquals("url", ((MarketoConfiguration)module.getConfig()).getMarketoInstance());
-        assertEquals("script.js", ((MarketoConfiguration)module.getConfig()).getScript());
-        assertEquals("munchkin", ((MarketoConfiguration)module.getConfig()).getMunchkinId());
+        assertEquals("recaptcha", ((MarketoConfiguration) module.getConfig()).getRecaptcha());
+        assertEquals("url", ((MarketoConfiguration) module.getConfig()).getMarketoInstance());
+        assertEquals("script.js", ((MarketoConfiguration) module.getConfig()).getScript());
+        assertEquals("munchkin", ((MarketoConfiguration) module.getConfig()).getMunchkinId());
     }
 
     @Test

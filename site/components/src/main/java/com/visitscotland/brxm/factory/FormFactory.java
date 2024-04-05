@@ -16,12 +16,11 @@ import org.springframework.stereotype.Component;
 @Component
 public class FormFactory {
 
-    private static final String PROP_RECAPTCHA = "form.recaptcha-key";
-    private static final String PROP_MARKETO_URL = "form.maketo.instance-url";
-    private static final String PROP_MARKETO_MUNCHKIN = "form.marketo.munchkin";
-    private static final String PROP_MARKETO_SCRIPT = "form.marketo.script";
-
-    private static final String PROP_MARKETO_IS_PRODUCTION = "form.is-production";
+    static final String PROP_RECAPTCHA = "form.recaptcha-key";
+    static final String PROP_MARKETO_URL = "form.maketo.instance-url";
+    static final String PROP_MARKETO_MUNCHKIN = "form.marketo.munchkin";
+    static final String PROP_MARKETO_SCRIPT = "form.marketo.script";
+    static final String PROP_MARKETO_IS_PRODUCTION = "form.is-production";
 
     private final Properties properties;
 
