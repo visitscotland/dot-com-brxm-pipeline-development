@@ -17,6 +17,8 @@ import com.visitscotland.utils.Contract;
 import org.hippoecm.hst.core.component.HstRequest;
 import org.onehippo.taxonomy.api.Category;
 import org.onehippo.taxonomy.api.Taxonomy;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
 import java.util.Arrays;
@@ -24,6 +26,8 @@ import java.util.Locale;
 
 @Component
 public class MapFactory {
+
+    private static final Logger logger = LoggerFactory.getLogger(MapFactory.class);
 
     static final String ID = "id";
     static final String TYPE = "type";
@@ -164,7 +168,9 @@ public class MapFactory {
         if (!Contract.isNull(mapModuleDocument.getFeaturedPlacesItem())) {
             mapService.addFeaturePlacesNode(module, mapModuleDocument.getCategories(), locale , keys, features);
         }
-        if (destinationPage.getKeys() == null || !Arrays.asList(destinationPage.getKeys()).contains(REGIONS)) {
+        if (location == null) {
+            logger.error("The locations list is not available and the map cannot be displayed for {}", destinationPage.getPath());
+        } else if (destinationPage.getKeys() == null || !Arrays.asList(destinationPage.getKeys()).contains(REGIONS)) {
             module.setMapType(MapType.CITIES.getMapType());
             geometryNode = dmsDataService.getLocationBorders(location.getId(),false);
             for (CitiesMapTab prodType : CitiesMapTab.values()) {
