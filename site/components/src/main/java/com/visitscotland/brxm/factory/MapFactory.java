@@ -163,7 +163,7 @@ public class MapFactory {
            module.setTabTitle(tabTitle);
        }
         LocationObject location = locationLoader.getLocation(destinationPage.getLocation(),locale);
-        JsonNode geometryNode;
+        JsonNode geometryNode = null;
         //Feature places on top of these maps
         if (!Contract.isNull(mapModuleDocument.getFeaturedPlacesItem())) {
             mapService.addFeaturePlacesNode(module, mapModuleDocument.getCategories(), locale , keys, features);
