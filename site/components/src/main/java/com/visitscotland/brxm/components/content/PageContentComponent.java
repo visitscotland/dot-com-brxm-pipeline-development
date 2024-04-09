@@ -110,7 +110,7 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
     }
 
     /**
-     * Add flags to the Freemarker to indicate what type of page is being processed
+     * Add flags to indicate what type of page is being processed
      */
     private void addFlags(HstRequest request) {
         if (request.getPathInfo().contains(properties.getSiteGlobalSearch())) {
