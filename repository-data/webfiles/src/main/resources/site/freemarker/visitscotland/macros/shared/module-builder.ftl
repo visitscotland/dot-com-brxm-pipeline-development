@@ -67,7 +67,7 @@
         <#elseif moduleType == "CannedSearchModule">
             <@includeOnce "../modules/canned-search/canned-search.ftl" />
             <@cannedSearch module themeName/>
-        <#elseif moduleType == "MarketoFormModule">
+        <#elseif moduleType == "FormModule">
             <@includeOnce "../modules/marketo/marketo.ftl" />
             <@marketo module/>
         <#elseif moduleType == "SkiModule">
