@@ -24,6 +24,9 @@
 [visitscotland:Banner] > hippostd:relaxed, hippotranslation:translated, visitscotland:basedocument, visitscotland:translatable
   orderable
 
+[visitscotland:Blog] > hippo:compound, hippostd:relaxed
+  orderable
+
 [visitscotland:CMSLink] > hippo:compound, hippostd:relaxed
   orderable
 
@@ -63,6 +66,15 @@
 [visitscotland:FeaturedWidget] > hippostd:relaxed, hippotranslation:translated, visitscotland:Widget
   orderable
 
+[visitscotland:Form] > hippostd:relaxed, hippotranslation:translated, visitscotland:basedocument
+  orderable
+
+[visitscotland:FormCompoundFepl] > hippo:compound, hippostd:relaxed
+  orderable
+
+[visitscotland:FormCompoundMarketo] > hippo:compound, hippostd:relaxed
+  orderable
+
 [visitscotland:General] > hippostd:relaxed, hippotranslation:translated, visitscotland:Page, visitscotland:translatable
   orderable
 
@@ -99,9 +111,6 @@
   orderable
 
 [visitscotland:LongCopy] > hippostd:relaxed, hippotranslation:translated, visitscotland:basedocument, visitscotland:translatable
-  orderable
-
-[visitscotland:Blog] > hippo:compound, hippostd:relaxed
   orderable
 
 [visitscotland:MapCategory] > hippo:compound, hippostd:relaxed
