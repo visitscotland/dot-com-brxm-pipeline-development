@@ -27,7 +27,7 @@
 <#-- @ftlvariable name="itinerary" type="com.visitscotland.brxm.model.ItineraryPage" -->
 <#-- @ftlvariable name="introTheme" type="int" -->
 
-<#macro pageIntro content heroDetails="" itinerary="" lightBackground=false blog="">
+<#macro pageIntro content heroDetails="" itinerary="" lightBackground=false author="">
     <@previewWarning editMode content alerts!"" />
     <#if lightBackground>
         <#assign themeName = themeCalculator(1)>
@@ -39,15 +39,15 @@
         <@hst.link var="hero" hippobean=content.heroImage.original/>
     </#if>
 
-    <!-- payload prop to be updated by back end -->
+    <#--    payload prop to be updated by back end -->
     <#--    ${pageViewDLEvent()}-->
             <vs-tag-manager-wrapper
                 :payload="${pageViewDLEvent(content)}"
             ></vs-tag-manager-wrapper>
 
     <div class="has-edit-button">
-        <vs-page-intro 
-            background="${themeName}" 
+        <vs-page-intro
+            background="${themeName}"
             <#if heroDetails?has_content>hero-intro</#if>
             <#if itinerary?has_content>is-itinerary</#if>
         >
@@ -94,7 +94,7 @@
                             useLazyLoading="false"
                         />
                     <#else>
-                        <@imageWithCaption 
+                        <@imageWithCaption
                             imageSrc=heroSrc
                             imageDetails=heroDetails
                             variant="large"
@@ -114,15 +114,15 @@
                 ${content.title}
             </template>
 
-            
-            <#if blog?? && blog?has_content>
+
+            <#if author?? && author?has_content>
                 <template
                     v-slot:vs-blog-data
                 >
                     <vs-blog-details
-                        blog-author="${blog.authorName}"
-                        blog-publish-date="${blog.publishDate}"
-                        blog-read-time="${blog.readingTime}"
+                        blog-author="${author.authorName}"
+                        blog-publish-date="${author.publishDate}"
+                        blog-read-time="${author.readingTime}"
                     ></vs-blog-details>
                 </template>
             </#if>
@@ -144,7 +144,7 @@
                         <dd class="list-inline-item">${itinerary.firstStopLocation} / ${itinerary.lastStopLocation}</dd>
                     </template>
                 </#if>
-            
+
                 <template v-slot:vs-intro-summary-box>
                     <@summaryBox itinerary />
                 </template>
@@ -158,7 +158,7 @@
                                         <vs-description-list-item title>
                                             ${label("itinerary", "highlights")}
                                         </vs-description-list-item>
-                                        
+
                                         <#list itinerary.document.highlights as highlight>
                                             <vs-description-list-item>
                                                 ${highlight}

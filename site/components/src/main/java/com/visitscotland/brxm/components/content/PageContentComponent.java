@@ -28,12 +28,17 @@ import java.util.*;
 public class PageContentComponent<T extends Page> extends ContentComponent {
 
     private static final Logger logger = LoggerFactory.getLogger(PageContentComponent.class);
-    //TODO: Content Logger?
+
+    /* Should we use Content Logger instead of Freemarker?
+     *
+     * TODO: Verify usage of this logger and decide what to do with this
+     *
+     * Note: This freemarker logger is not available to SPA SDK
+     */
     private final Logger freemarkerLogger = LoggerFactory.getLogger("freemarker");
 
     public static final String DOCUMENT = "document";
     public static final String OTYML = "otyml";
-    public static final String BLOG = "blog";
     public static final String AUTHOR = "author";
     public static final String NEWSLETTER_SIGNPOST = "newsletterSignpost";
     public static final String PREVIEW_ALERTS = "alerts";
@@ -45,6 +50,7 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
 
     public static final String SEARCH_RESULTS = "searchResultsPage";
     public static final String METADATA_MODEL = "metadata";
+    public static final String GTM = "gtm";
 
     private final BlogFactory blogFactory;
     private final MegalinkFactory megalinkFactory;
@@ -88,11 +94,17 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
         addLogging(request);
         addFlags(request);
         addBlog(request);
+        addGtmConfiguration(request);
 
         addLabels(request);
         addSiteSpecificConfiguration(request);
     }
 
+    /**
+     * Adds Metadata about the application to the request
+     *
+     * @see {@code MetadataFactory}
+     */
     private void addMetadata(HstRequest request){
         request.setModel(METADATA_MODEL, metadata.getMetadata());
     }
@@ -106,25 +118,22 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
         }
     }
 
+    /**
+     * Adds labels that are necessary for type of pages. Please notice that there are two strategies for including properties
+     * <br>
+     * When all labels are required you should use {@code bundle.getAllLabels(...)}. However, in the case that only
+     * some of them are needed we can create a new {@code Map} object and include them one by one. (i.e. global labels)
+     * </ul>
+     *
+     * @param request HstRequest
+     */
     private void addLabels(HstRequest request) {
         final String SOCIAL_SHARE_BUNDLE = "social.share";
         final String VIDEO_BUNDLE = "video";
         final String SKIP_TO = "skip-to";
         final String CMS_MESSAGES = "cms-messages";
 
-        Map<String, String> globalLabels = new HashMap<>();
-
-        addGlobalLabel(globalLabels, "close", request.getLocale());
-        addGlobalLabel(globalLabels, "cookie.link-message", request.getLocale());
-        addGlobalLabel(globalLabels, "third-party-error", request.getLocale());
-        addGlobalLabel(globalLabels, "default.alt-text", request.getLocale());
-        addGlobalLabel(globalLabels, "image.title", request.getLocale());
-        addGlobalLabel(globalLabels, "image.no.credit", request.getLocale());
-        addGlobalLabel(globalLabels, "home", request.getLocale());
-        addGlobalLabel(globalLabels, "page.next", request.getLocale());
-        addGlobalLabel(globalLabels, "page.previous", request.getLocale());
-
-        labels(request).put(ResourceBundleService.GLOBAL_BUNDLE_FILE, globalLabels);
+        labels(request).put(ResourceBundleService.GLOBAL_BUNDLE_FILE, getGlobalLabels(request.getLocale()));
         labels(request).put(SOCIAL_SHARE_BUNDLE, bundle.getAllLabels(SOCIAL_SHARE_BUNDLE, request.getLocale()));
         labels(request).put(VIDEO_BUNDLE, bundle.getAllLabels(VIDEO_BUNDLE, request.getLocale()));
         labels(request).put(SKIP_TO, bundle.getAllLabels(SKIP_TO, request.getLocale()));
@@ -134,6 +143,49 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
         }
     }
 
+    /**
+     * Include GTM Configuration to the {@link HstRequest}
+     *
+     * @param request HstRequest
+     */
+    private void addGtmConfiguration(HstRequest request) {
+
+        Map<String, String> gtmProperties = new HashMap<>();
+
+        gtmProperties.put(Properties.GTM_CONTAINER_ID, properties.getGtmContainerId());
+        gtmProperties.put(Properties.GTM_PREVIEW_QUERY_STRING, properties.getGtmPreviewQueryString());
+        gtmProperties.put(Properties.GTM_IS_PRODUCTION, properties.getGtmIsProduction());
+
+        request.setModel(GTM, gtmProperties);
+    }
+    /**
+     * Returns a subset of labels that are requires for all pages
+     * @param locale Locale of the request
+     * @return subset of labels that are requires for all pages
+     */
+    private Map<String, String> getGlobalLabels(Locale locale) {
+        Map<String, String> globalLabels = new HashMap<>();
+
+        addGlobalLabel(globalLabels, "close", locale);
+        addGlobalLabel(globalLabels, "cookie.link-message", locale);
+        addGlobalLabel(globalLabels, "third-party-error", locale);
+        addGlobalLabel(globalLabels, "default.alt-text", locale);
+        addGlobalLabel(globalLabels, "image.title", locale);
+        addGlobalLabel(globalLabels, "image.no.credit", locale);
+        addGlobalLabel(globalLabels, "home", locale);
+        addGlobalLabel(globalLabels, "page.next", locale);
+        addGlobalLabel(globalLabels, "page.previous", locale);
+
+        return globalLabels;
+    }
+
+    /**
+     * Gets a label from the General resource bundle and adds it to a map
+     *
+     * @param map: Map where the labels will be added to
+     * @param key: Resource bundle key
+     * @param locale: Locale of the request
+     */
     private void addGlobalLabel(Map<String, String> map, String key, Locale locale) {
         map.put(key, bundle.getResourceBundle(ResourceBundleService.GLOBAL_BUNDLE_FILE, key, locale));
     }
@@ -191,6 +243,11 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
         labels(request).put(PAGINATION_BUNDLE, bundle.getAllLabels(PAGINATION_BUNDLE, request.getLocale()));
     }
 
+    /**
+     * Returns the labels object from the request if it exists, otherwise, creates a new one and adds it to the request
+     * @param request HstRequest
+     * @return labels object from the request
+     */
     private Map<String, Map<String, String>> labels(HstRequest request) {
         if (request.getModel(LABELS) == null) {
             Map<String, Map<String, String>> labels = new HashMap<>();
@@ -211,14 +268,17 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
 
             FlatBlog blog = blogFactory.getBlog(page.getBlog(), request.getLocale(), errorMessages);
 
-            //TODO: Remove setAttribute when "blog" is removed from Freemarker
-            request.setAttribute(BLOG, blog);
             request.setModel(AUTHOR, blog);
 
             setErrorMessages(request, errorMessages);
         }
     }
 
+    /**
+     * Adds the newsletter configuration to the request taking into account the target: (VisitScotland, Business Events or Ski)
+     *
+     * @param request HstRequest
+     */
     protected void addNewsletterSignup(HstRequest request) {
         Page page = getDocument(request);
         if (Boolean.FALSE.equals(Contract.defaultIfNull(page.getHideNewsletter(), false))) {
@@ -245,6 +305,11 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
         }
     }
 
+    /**
+     * Adds the logging object to the request.
+     *
+     * @param request HstRequest
+     */
     public void addLogging(HstRequest request) {
         request.setModel("Logger", freemarkerLogger);
     }
@@ -264,6 +329,11 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
         }
     }
 
+    /**
+     * Add a List of errors to the HstRequest
+     * @param request HstRequest
+     * @param errorMessages List of messages to be added to the request
+     */
     public static void setErrorMessages(HstRequest request, Collection<String> errorMessages) {
         if (request.getModel(PREVIEW_ALERTS) != null) {
             Collection<String> requestMessages = request.getModel(PREVIEW_ALERTS);
@@ -273,6 +343,10 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
         }
     }
 
+    /**
+     * Add Configuration specific to the VisitScotland.com or businessevents site
+     * @param request
+     */
     private void addSiteSpecificConfiguration(HstRequest request) {
         final String SOCIAL_MEDIA = "navigation.social-media";
         final String STATIC = "navigation.static";
