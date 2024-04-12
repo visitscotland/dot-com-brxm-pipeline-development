@@ -1,0 +1,109 @@
+definitions:
+  config:
+    /hippo:configuration/hippo:domains/vs-content:
+      jcr:primaryType: hipposys:domain
+      /content-domain:
+        jcr:primaryType: hipposys:domainrule
+        /content-and-descendants:
+          jcr:primaryType: hipposys:facetrule
+          hipposys:equals: true
+          hipposys:facet: jcr:path
+          hipposys:type: Reference
+          hipposys:value: /content/documents/visitscotland
+      /author:
+        jcr:primaryType: hipposys:authrole
+        hipposys:groups:
+          .meta:category: system
+          .meta:add-new-system-values: true
+          operation: override
+          type: string
+          value: []
+        hipposys:role: author
+        hipposys:userrole:
+          .meta:category: system
+          type: string
+          value: xm.content.author
+        hipposys:users:
+          .meta:category: system
+          .meta:add-new-system-values: true
+          operation: override
+          type: string
+          value: []
+      /editor:
+        jcr:primaryType: hipposys:authrole
+        hipposys:groups:
+          .meta:category: system
+          .meta:add-new-system-values: true
+          operation: override
+          type: string
+          value: []
+        hipposys:role: editor
+        hipposys:userrole:
+          .meta:category: system
+          type: string
+          value: xm.content.editor
+        hipposys:users:
+          .meta:category: system
+          .meta:add-new-system-values: true
+          operation: override
+          type: string
+          value: []
+      /admin:
+        jcr:primaryType: hipposys:authrole
+        hipposys:groups:
+          .meta:category: system
+          .meta:add-new-system-values: true
+          operation: override
+          type: string
+          value: []
+        hipposys:role: admin
+        hipposys:userrole:
+          .meta:category: system
+          type: string
+          value: xm.content.admin
+        hipposys:users:
+          .meta:category: system
+          .meta:add-new-system-values: true
+          operation: override
+          type: string
+          value: []
+      /content-es:
+        jcr:primaryType: hipposys:domainrule
+        /content-and-descendants:
+          jcr:primaryType: hipposys:facetrule
+          hipposys:equals: true
+          hipposys:facet: jcr:path
+          hipposys:type: Reference
+          hipposys:value: /content/documents/www.visitscotland.com-es
+      /content-de:
+        jcr:primaryType: hipposys:domainrule
+        /content-and-descendants:
+          jcr:primaryType: hipposys:facetrule
+          hipposys:equals: true
+          hipposys:facet: jcr:path
+          hipposys:type: Reference
+          hipposys:value: /content/documents/www.visitscotland.com-de
+      /content-it:
+        jcr:primaryType: hipposys:domainrule
+        /content-and-descendants:
+          jcr:primaryType: hipposys:facetrule
+          hipposys:equals: true
+          hipposys:facet: jcr:path
+          hipposys:type: Reference
+          hipposys:value: /content/documents/www.visitscotland.com-it
+      /content-nl:
+        jcr:primaryType: hipposys:domainrule
+        /content-and-descendants:
+          jcr:primaryType: hipposys:facetrule
+          hipposys:equals: true
+          hipposys:facet: jcr:path
+          hipposys:type: Reference
+          hipposys:value: /content/documents/www.visitscotland.com-nl
+      /content-fr:
+        jcr:primaryType: hipposys:domainrule
+        /content-and-descendants:
+          jcr:primaryType: hipposys:facetrule
+          hipposys:equals: true
+          hipposys:facet: jcr:path
+          hipposys:type: Reference
+          hipposys:value: /content/documents/www.visitscotland.com-fr

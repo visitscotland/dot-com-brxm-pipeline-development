@@ -4,7 +4,6 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.visitscotland.brxm.dms.model.LocationObject;
 import com.visitscotland.brxm.utils.Language;
-import com.visitscotland.utils.Contract;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,7 +34,7 @@ public class LocationLoader {
      */
     void validateMaps() {
         synchronized (LocationLoader.class) {
-            if (locationToId.size() == 0 && proxy.canMakeRequest()) {
+            if (locationToId.isEmpty() && proxy.canMakeRequest()) {
                 loadLocations();
             }
         }
@@ -55,7 +54,7 @@ public class LocationLoader {
                 List<LocationObject> locationList = deserialize(response);
 
                 //if the locationToId map is empty, and the locale is null. Both lists are populated simultaneously
-                if (locationToId.size() == 0 && lang == Language.ENGLISH) {
+                if (locationToId.isEmpty() && lang == Language.ENGLISH) {
                     for (LocationObject location : locationList) {
                         locationToId.put(location.getName(), location.getId());
                         locationsMap.put(location.getId(), location);
@@ -86,13 +85,18 @@ public class LocationLoader {
     }
 
     public LocationObject getLocation(String location, Locale locale){
-        return getLocations(Language.getLanguageForLocale(locale)).get(locationToId.get(location));
+        Map<String, LocationObject> locations = getLocations(Language.getLanguageForLocale(locale));
+        if (locations == null){
+            logger.error("The location list is not available");
+            return null;
+        }
+        return locations.get(locationToId.get(location));
     }
 
     /**
      *
-     * @param levels
-     * @return
+     * @param levels List Location levels
+     * @return List of locations matching the levels Defined or all locations if the list of levels is empty
      */
     public List<LocationObject> getLocationsByLevel(String... levels){
         List<LocationObject> locationList = new ArrayList<>();
@@ -119,23 +123,21 @@ public class LocationLoader {
     }
 
     /**
-     * Return the Region of that contains the location or null when the location is Scotland.
-     *
+     * Return the Region that contains the location or null when the location is Scotland.
      * This method relies on the hierarchy properly defined in the DMS
      *
      * @param location: Location to determine its region.
      * @param locale: Language
-     * @return
+     * @return Region of that contains the location or null when the location is Scotland
      */
     public LocationObject getRegion(LocationObject location, Locale locale){
         Language lang = Language.getLanguageForLocale(locale);
         LocationObject obj = navigateToRegion(location, lang, 5);
 
-        if (obj == null){
-
-            // TODO: This warning wouldn't add any value until VSD-256 is implemented
-            // logger.warn("The location '{}' doesn't seem to be contained in a region", location.getName());
-        }
+        // TODO: This warning wouldn't add any value until VSD-256 is implemented
+//        if (obj == null){
+//            logger.warn("The location '{}' doesn't seem to be contained in a region", location.getName());
+//        }
 
         return obj;
     }
@@ -148,10 +150,10 @@ public class LocationLoader {
                 return location;
             } else if (polygonKeys.containsKey(location.getParentId())) {
                 // The parent is a polygon and its ID is different that the location
-                return navigateToRegion(locations.get(lang).get(polygonKeys.get(location.getParentId())), lang, depth--);
+                return navigateToRegion(locations.get(lang).get(polygonKeys.get(location.getParentId())), lang, depth-1);
             } else {
                 // The parent is a regular location
-                return navigateToRegion(locations.get(lang).get(location.getParentId()), lang, depth--);
+                return navigateToRegion(locations.get(lang).get(location.getParentId()), lang, depth-1);
             }
         }
         return null;
@@ -180,9 +182,9 @@ public class LocationLoader {
 
     /**
      * Deserialize the List of elements in a list of Locations
-     * @param data
-     * @return
-     * @throws IOException
+     * @param data JSON Object to deserialize
+     * @return List of locations
+     * @throws IOException when the object cannot be deserialized
      */
     private List<LocationObject> deserialize(String data) throws IOException {
         ObjectMapper jsonMapper = new ObjectMapper();
