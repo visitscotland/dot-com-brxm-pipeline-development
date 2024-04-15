@@ -1,0 +1,1 @@
+mvn gitflow:release-finish -DskipTestProject=true
