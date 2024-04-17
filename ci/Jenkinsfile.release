@@ -206,6 +206,7 @@ pipeline {
                     // Always build the feature environment for 'develop' builds
                     branch 'develop'
                     // Build an environment for release branches so SSR artefact gets created
+                    branch 'hotfix/*'
                     branch 'release/*'
 
                     // Always build the feature environment for pull requests
@@ -239,7 +240,10 @@ pipeline {
 
                 stage('SonarQube BE Scan') {
                     when {
-                        branch 'develop'
+                        anyOf {
+                            branch 'hotfix/*'
+                            branch 'release/*'
+                        }
                     }
                     steps {
                         catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') { // SonarQube timeouts for now
@@ -253,7 +257,10 @@ pipeline {
 
                 stage('SonarQube FE scan') {
                     when {
-                        branch 'develop'
+                        anyOf {
+                            branch 'hotfix/*'
+                            branch 'release/*'
+                        }
                     }
                     environment {
                         scannerHome = tool 'SonarQube_4.0'
@@ -277,8 +284,8 @@ pipeline {
                 stage('Nexus IQ Scan: Site') {
                     when {
                         anyOf {
-                            // Always run Nexus IQ scan for builds on 'develop'
-                            branch 'develop'
+                            branch 'hotfix/*'
+                            branch 'release/*'
 
                             // Always run Nexus IQ scan for pull requests
                             changeRequest()
@@ -303,8 +310,8 @@ pipeline {
                 stage('Nexus IQ Scan: CMS') {
                     when {
                         anyOf {
-                            // Always run Nexus IQ scan for builds on 'develop'
-                            branch 'develop'
+                            branch 'hotfix/*'
+                            branch 'release/*'
 
                             // Always run Nexus IQ scan for pull requests
                             changeRequest()
@@ -329,8 +336,8 @@ pipeline {
                 stage('Nexus IQ Scan: SSR') {
                     when {
                         anyOf {
-                            // Always run Nexus IQ scan for builds on 'develop'
-                            branch 'develop'
+                            branch 'hotfix/*'
+                            branch 'release/*'
 
                             // Always run Nexus IQ scan for pull requests
                             changeRequest()
@@ -368,12 +375,11 @@ pipeline {
                 stage('Release to Nexus') {
                     when {
                         anyOf {
-                            branch 'develop'
+                            branch 'hotfix/*'
                             branch 'release/*'
                         }
                     }
                     steps {
-                        // new stuff
                         sh 'mvn --batch-mode deploy -Pdist 2>&1 | tee $GIT_COMMIT.log'
                     }
                 }
@@ -390,6 +396,8 @@ pipeline {
                     anyOf {
                         // Always run the Lighthouse Tests for 'develop' builds
                         branch 'develop'
+                        branch 'hotfix/*'
+                        branch 'release/*'
 
                         // Always run the Lighthouse Tests for pull requests
                         changeRequest()
