@@ -1,0 +1,51 @@
+definitions:
+  config:
+    /hippo:configuration/hippo:domains/be-gallery:
+      jcr:primaryType: hipposys:domain
+      /admin:
+        jcr:primaryType: hipposys:authrole
+        hipposys:groups:
+          .meta:category: system
+          .meta:add-new-system-values: true
+          operation: override
+          type: string
+          value: []
+        hipposys:role: admin
+        hipposys:userrole:
+          .meta:category: system
+          type: string
+          value: xm.content.admin
+        hipposys:users:
+          .meta:category: system
+          .meta:add-new-system-values: true
+          operation: override
+          type: string
+          value: []
+      /be-editor:
+        jcr:primaryType: hipposys:authrole
+        hipposys:role: editor
+        hipposys:userrole:
+          .meta:category: system
+          type: string
+          value: vs.gallery.business-events
+      /gallery-domain:
+        jcr:primaryType: hipposys:domainrule
+        /content-and-descendants:
+          jcr:primaryType: hipposys:facetrule
+          hipposys:equals: true
+          hipposys:facet: jcr:path
+          hipposys:type: Reference
+          hipposys:value: /content/gallery/business-events
+          hipposys:filter: false
+      /readwrite:
+        jcr:primaryType: hipposys:authrole
+        hipposys:groups:
+          .meta:category: system
+          .meta:add-new-system-values: true
+          type: string
+          value: [be-editor]
+        hipposys:role: readwrite
+        hipposys:userrole:
+          .meta:category: system
+          type: string
+          value: vs.gallery.business-events

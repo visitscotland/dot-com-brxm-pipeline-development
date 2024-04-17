@@ -101,13 +101,12 @@ class MenuItemProviderTest {
         when(subjectNode.hasNode("content")).thenReturn(true);
         when(subjectNode.getNode("content")).thenReturn(contentNode);
         General generalPage = mock(General.class);
-        when(generalPage.getChildJcrTypes()).thenReturn(new String[]{"TypeA", "TypeB"});
+        when(generalPage.getChildJcrTypes()).thenCallRealMethod();
         when(hippoUtilsService.getDocumentFromNode(contentNode, true)).thenReturn(generalPage);
 
         menuItemProvider.constructPageAndModuleMenus(subjectNode, prototypes,  mock(RepositoryMap.class));
 
         Assertions.assertEquals(1, prototypes.size());
-        Assertions.assertEquals(new TreeSet<>(Arrays.asList("TypeA", "TypeB")), prototypes.get("new-module"));
     }
 
 

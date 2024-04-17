@@ -14,7 +14,7 @@ import java.util.*;
 public class ResourceBundleService {
 
     private static final Logger logger = LoggerFactory.getLogger(ResourceBundleService.class.getName());
-    private static final String GLOBAL_BUNDLE_FILE = "essentials.global";
+    public static final String GLOBAL_BUNDLE_FILE = "essentials.global";
 
     private final Logger contentLogger;
 
@@ -200,9 +200,29 @@ public class ResourceBundleService {
         return String.format("%s %s", getResourceBundle(GLOBAL_BUNDLE_FILE, "find-out-more-about", locale), title);
     }
 
+    /**
+     *  Return all labels for a Resource bundle file
+     *
+     * @param bundleName Resource Bundle CMS ID
+     * @param locale Locale of the request
+     *
+     * @return All labels for a Resource bundle file
+     */
     public Map<String, String> getAllLabels(String bundleName, String locale){
+        return getAllLabels(bundleName, toLocale(locale));
+    }
+
+    /**
+     *  Return all labels for a Resource bundle file
+     *
+     * @param bundleName Resource Bundle CMS ID
+     * @param locale Locale of the request
+     *
+     * @return All labels for a Resource bundle file
+     */
+    public Map<String, String> getAllLabels(String bundleName, Locale locale){
         Map<String, String> labels = new HashMap<>();
-        for (String key : getResourceBundle(bundleName, toLocale(locale)).keySet()){
+        for (String key : getResourceBundle(bundleName, locale).keySet()){
             labels.put(key, getResourceBundle(bundleName, key, locale));
         }
         return labels;

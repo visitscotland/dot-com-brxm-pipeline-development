@@ -1,27 +1,15 @@
 definitions:
   config:
-    /hippo:configuration/hippo:domains/administration-except-labels-and-configuration:
+    /hippo:configuration/hippo:domains/administration-options:
       jcr:primaryType: hipposys:domain
-      /administration-domain:
+      /administration-labels-domain:
         jcr:primaryType: hipposys:domainrule
-        /administration:
+        /options:
           jcr:primaryType: hipposys:facetrule
           hipposys:equals: true
           hipposys:facet: jcr:path
           hipposys:type: Reference
-          hipposys:value: /content/documents/administration
-        /exclude-labels:
-          jcr:primaryType: hipposys:facetrule
-          hipposys:equals: false
-          hipposys:facet: jcr:path
-          hipposys:type: Reference
-          hipposys:value: /content/documents/administration/labels
-        /exclude-configuration:
-          jcr:primaryType: hipposys:facetrule
-          hipposys:equals: false
-          hipposys:facet: jcr:path
-          hipposys:type: Reference
-          hipposys:value: /content/documents/administration/configuration
+          hipposys:value: /content/documents/administration/options
       /admin:
         jcr:primaryType: hipposys:authrole
         hipposys:role: admin
@@ -29,17 +17,17 @@ definitions:
           .meta:category: system
           type: string
           value: xm.content.admin
-      /editor:
+      /vs-editor:
         jcr:primaryType: hipposys:authrole
         hipposys:role: readonly
         hipposys:userrole:
           .meta:category: system
           type: string
           value: xm.content.editor
-      /author:
+      /be-editor:
         jcr:primaryType: hipposys:authrole
         hipposys:role: readonly
         hipposys:userrole:
           .meta:category: system
           type: string
-          value: xm.content.author
+          value: vs.content.business-events
