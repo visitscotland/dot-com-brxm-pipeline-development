@@ -54,7 +54,7 @@
                     <#if day.transports?has_content>
                         <#assign dayTransport = day.transports[0]>
                         <template v-slot:day-transport> 
-                            <vs-description-list class="text-center justify-content-center align-items-center has-edit-button">
+                            <vs-description-list class="text-center justify-content-center align-items-center mb-2 has-edit-button">
                                 <@hst.manageContent hippobean=day />
                                 <#-- 
                                     Note - can't use vs-description-list-item

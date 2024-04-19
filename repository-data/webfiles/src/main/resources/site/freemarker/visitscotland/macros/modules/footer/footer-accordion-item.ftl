@@ -18,11 +18,11 @@
                 class="<#if menuItem?is_first>border-start-0 ps-md-0</#if> <#if menuItem?is_last>border-bottom-0</#if>"
             >
                 <template v-slot:icon-open>
-                    <vs-icon name="chevron" variant="light" size="xs"></vs-icon>
+                    <vs-icon name="chevron" variant="inverse" size="xs"></vs-icon>
                 </template>
 
                 <template v-slot:icon-closed>
-                    <vs-icon name="chevron" orientation="down" variant="light" size="xs"></vs-icon>
+                    <vs-icon name="chevron" orientation="down" variant="inverse" size="xs"></vs-icon>
                 </template>
 
                 <#if menuItem.childMenuItems?size gt 0>
