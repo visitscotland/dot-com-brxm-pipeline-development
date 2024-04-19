@@ -53,7 +53,11 @@ public class MenuItemProvider {
             Optional<Page> optionalPage = getPageContentBean(subjectNode);
             if (optionalPage.isPresent()) {
                 prototypes.remove(pageMenu);
-                prototypes.put(moduleMenu, Set.of((optionalPage.get()).getChildJcrTypes()));
+                if (!NEW_BE_PAGE_MENU.equals(pageMenu)) {
+                    // Business Events currently get the list of items from the hippo:template defined at:
+                    // /hippo:configuration/hippo:queries/hippo:templates/new-be-module
+                    prototypes.put(moduleMenu, Set.of((optionalPage.get()).getChildJcrTypes()));
+                }
             } else {
                 prototypes.remove(moduleMenu);
             }
