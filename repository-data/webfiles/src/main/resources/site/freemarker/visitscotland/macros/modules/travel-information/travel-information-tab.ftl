@@ -8,14 +8,14 @@
 <#macro travelInformationTab module>
     <b-tab title="${module.title}">
         <vs-tab-item title="${module.title}">
-            <div class="px-3 px-md-6 px-lg-9 px-xl-10 pt-0 pt-lg-2 pb-0 pb-md-5">
+            <div class="px-3 px-md-6 px-lg-9 px-xl-10 pt-8 pb-5">
                 <vs-accordion>
                     <#list module.travelInformationTransportRows as row>
                         <vs-accordion-item 
                             :open-by-default="<#if row?is_first>true<#else>false</#if>" 
                             variant="transparent" 
                             control-id="accordion-item-${row.transport.key}-${row?index}"
-                            class="<#if row?is_first>border-0</#if>"
+                            class="<#if row?is_first>border-top-0</#if>"
                         >
                             <template v-slot:title>
                                 <vs-icon name="${row.transport.key}" size="sm" class="me-2"></vs-icon> 
