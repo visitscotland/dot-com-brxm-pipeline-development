@@ -10,7 +10,7 @@
         <#if item.title?has_content>
             <vs-mega-nav-top-menu-item
                     href="${getUrl(item)}"
-                    cta-text="<#if item.cta??>${item.cta}<#else></#if>"
+                    cta-text="<#if item.cta??>${item.cta}</#if>"
             >
                 <template v-slot:button-content>
                     ${item.title}
