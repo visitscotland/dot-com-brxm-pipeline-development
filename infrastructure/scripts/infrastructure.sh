@@ -84,6 +84,18 @@ if [ -z "$VS_SSR_PACKAGE_TARGET" ]; then VS_SSR_PACKAGE_TARGET="./target"; fi
 if [ -z "$VS_SSR_PACKAGE_NAME" ]; then VS_SSR_PACKAGE_NAME="vs-ssr-package.tar.gz"; fi
 if [ -z "$VS_SSR_PROXY_ON" ]; then VS_SSR_PROXY_ON="TRUE"; fi
 if [ -z "$VS_SSR_APP_PORT" ]; then VS_SSR_APP_PORT=8082; fi
+if [ -z "$VS_SSR_PROXY_TARGET_HOST" ]; then VS_SSR_PROXY_TARGET_HOST="http://localhost:8080"; fi
+#  ==== brC API Server Variables
+if [ -z "$VS_BRC_API_SERVER_SCHEME" ]; then VS_BRC_API_SERVER_SCHEME=https; fi
+if [ -z "$VS_BRC_API_SERVER_HOST" ]; then VS_BRC_API_SERVER_HOST=ci.visitscotland.com; fi
+if [ -z "$VS_BRC_API_SERVER_CONTEXT" ]; then VS_BRC_API_SERVER_CONTEXT=ops/preview; fi
+if [ -z "$VS_BRC_API_REMOTE_TRANSFER_METHOD" ]; then VS_BRC_API_REMOTE_TRANSFER_METHOD=SSH; fi
+if [ -z "$VS_BRC_API_STACK_NAME" ]; then VS_BRC_API_STACK_NAME=not-set; fi
+if [ -z "$VS_BRC_API_ENVIRONMENT_NAME" ]; then VS_BRC_API_ENVIRONMENT_NAME=development; fi
+# note: valid environment names are listed in defaultSettings function
+if [ -z "$VS_BRC_API_JOB_NAME" ]; then VS_BRC_API_JOB_NAME=upload-distribution; fi
+if [ -z "$VS_BRC_API_DEPLOY_AFTER_UPLOAD" ]; then VS_BRC_API_DEPLOY_AFTER_UPLOAD=true; fi
+if [ -z "$VS_BRC_API_ARTIFACT_OVERWRITE" ]; then VS_BRC_API_ARTIFACT_OVERWRITE=false; fi
 #  ==== Other Variables ====
 VS_JENKINS_LAST_ENV=jenkins-last-env
 VS_LAST_ENV=vs-last-env
@@ -209,6 +221,21 @@ defaultSettings() {
   else
     VS_PROXY_QS_SSR="&vs_ssr_proxy=off"
   fi
+  # VS BRC API server settings
+  if [ "$VS_BRC_API_ENVIRONMENT_NAME" == "stack" ]; then
+    VS_BRC_API_ENVIRONMENT_JOB_PATH=$VS_BRC_API_ENVIRONMENT_NAME
+  elif [ "$VS_BRC_API_ENVIRONMENT_NAME" == "development" ]; then
+    VS_BRC_API_ENVIRONMENT_JOB_PATH=$VS_BRC_API_ENVIRONMENT_NAME
+  elif [ "$VS_BRC_API_ENVIRONMENT_NAME" == "testing" ]; then
+    VS_BRC_API_ENVIRONMENT_JOB_PATH=$VS_BRC_API_ENVIRONMENT_NAME
+  elif [ "$VS_BRC_API_ENVIRONMENT_NAME" == "staging" ]; then
+    VS_BRC_API_ENVIRONMENT_JOB_PATH=$VS_BRC_API_ENVIRONMENT_NAME
+  elif [ "$VS_BRC_API_ENVIRONMENT_NAME" == "production" ]; then
+    VS_BRC_API_ENVIRONMENT_JOB_PATH=$VS_BRC_API_ENVIRONMENT_NAME
+  else
+    VS_BRC_API_ENVIRONMENT_JOB_PATH=not-set
+  fi
+  VS_BRC_API_SERVER_JOB_URL="$VS_BRC_API_SERVER_SCHEME://$VS_BRC_API_SERVER_HOST/$VS_BRC_API_SERVER_CONTEXT/job/$VS_BRC_API_STACK_NAME/job/$VS_BRC_API_ENVIRONMENT_JOB_PATH/job/$VS_BRC_API_JOB_NAME"
   # mail settings - build
   if [ -z "$VS_MAIL_NOTIFY_BUILD_TO" ]; then VS_MAIL_NOTIFY_BUILD_TO=$VS_COMMIT_AUTHOR; fi
   VS_MAIL_NOTIFY_BUILD_SENDER="$VS_PARENT_JOB_NAME"
@@ -496,7 +523,7 @@ setPortRange() {
   # if the override port if in use the job must fail in the findBasePort proc
   if [ -z "$VS_CONTAINER_BASE_PORT_OVERRIDE" ]; then
     MIN_PORT=8001
-    MAX_PORT=8096
+    MAX_PORT=8090
   else
     MIN_PORT=$VS_CONTAINER_BASE_PORT_OVERRIDE
     MAX_PORT=$VS_CONTAINER_BASE_PORT_OVERRIDE
@@ -609,32 +636,57 @@ findDynamicPorts() {
   echo ""
 }
 
-# search for latest Hippo distribution files if HIPPO_LATEST is not already set
+# search for latest Hippo distribution files if VS_HIPPO_LATEST is not already set
 findHippoArtifact() {
   if [ ! "$SAFE_TO_PROCEED" = "FALSE" ]; then
-    if [ -z $HIPPO_LATEST ]; then
+    if [ -z $VS_HIPPO_LATEST ]; then
       # search in $WORKSPACE/target/ for files matching "*.tar.gz"
       echo "`eval $VS_LOG_DATESTAMP` INFO  [$VS_SCRIPTNAME] searching for latest Hippo distribution files in $WORKSPACE/target"
-      HIPPO_LATEST=`ls -alht $WORKSPACE/target/visit*.tar.gz | head -1 | awk '{print $9}'` 2>&1 > /dev/null
-      if [ -z "$HIPPO_LATEST" ]; then
+      VS_HIPPO_LATEST=`ls -alht $WORKSPACE/target/visit*.tar.gz | head -1 | awk '{print $9}'` 2>&1 > /dev/null
+      if [ -z "$VS_HIPPO_LATEST" ]; then
         # recursive search in $WORKSPACE/ for files matching "dot-com-brxm*.tar.gz"
         echo "`eval $VS_LOG_DATESTAMP` WARN  [$VS_SCRIPTNAME] no archive found in $WORKSPACE/target/, widening search"
-        HIPPO_LATEST=`find $WORKSPACE/ -name "dot-com-brxm*.tar.gz" | head -1`
+        VS_HIPPO_LATEST=`find $WORKSPACE/ -name "dot-com-brxm*.tar.gz" | head -1`
       fi
-      if [ ! -z "$HIPPO_LATEST" ]; then
-        echo "`eval $VS_LOG_DATESTAMP` INFO  [$VS_SCRIPTNAME]  - found $HIPPO_LATEST"
+      if [ ! -z "$VS_HIPPO_LATEST" ]; then
+        echo "`eval $VS_LOG_DATESTAMP` INFO  [$VS_SCRIPTNAME]  - found $VS_HIPPO_LATEST"
       else
-        HIPPO_LATEST=NULL
+        VS_HIPPO_LATEST=NULL
         SAFE_TO_PROCEED=FALSE
         FAIL_REASON="no archive found in $WORKSPACE, giving up"
         echo " - $FAIL_REASON"
       fi
     else
-      echo "`eval $VS_LOG_DATESTAMP` INFO  [$VS_SCRIPTNAME] search for distribution files will not be run as HIPPO_LATEST was overridden to $HIPPO_LATEST"
+      echo "`eval $VS_LOG_DATESTAMP` INFO  [$VS_SCRIPTNAME] search for distribution files will not be run as VS_HIPPO_LATEST was overridden to $VS_HIPPO_LATEST"
     fi
   else
     echo ""
     echo "`eval $VS_LOG_DATESTAMP` INFO  [$VS_SCRIPTNAME] search for distribution files will not be run due to previous failures"
+  fi
+  echo ""
+}
+
+uploadHippoArtifactBRC() {
+  if [ ! "$SAFE_TO_PROCEED" = "FALSE" ]; then
+    if [ ! -z "$VS_HIPPO_LATEST" ] && [ ! "$VS_HIPPO_LATEST" = "NULL" ]; then
+      if [ ! -z "$VS_HOST_IP_ADDRESS" ]; then
+          VS_BRC_API_REMOTE_ARTIFACT="$LOGNAME"@"$VS_HOST_IP_ADDRESS":"$VS_HIPPO_LATEST"
+          VS_BRC_API_JOB_PARAMETERS="/buildWithParameters?token=$VS_BRC_API_UPLOAD_JOB_KEY&deploy_after_upload=$VS_BRC_API_DEPLOY_AFTER_UPLOAD&artefact_overwrite=$VS_BRC_API_ARTIFACT_OVERWRITE&artefact_remote_location=$VS_BRC_API_REMOTE_ARTIFACT"
+          echo "`eval $VS_LOG_DATESTAMP` INFO  [$VS_SCRIPTNAME] attempting to upload $VS_HIPPO_LATEST with using $VS_BRC_API_SERVER_JOB_URL"
+          curl -v "$VS_BRC_API_SERVER_JOB_URL$VS_BRC_API_JOB_PARAMETERS" 2>&1 | grep "<" | sed -s 's/^< //'
+      else
+        SAFE_TO_PROCEED=FALSE
+        FAIL_REASON="no source address was set for this server, remote server would not be able to connect"
+        echo " - $FAIL_REASON"
+      fi
+    else
+      SAFE_TO_PROCEED=FALSE
+      FAIL_REASON="VS_HIPPO_LATEST was not set, no artifact is available"
+      echo " - $FAIL_REASON"
+    fi
+      else
+    echo ""
+    echo "`eval $VS_LOG_DATESTAMP` INFO  [$VS_SCRIPTNAME] upload of distribution files to brCloud will not be run due to previous failures"
   fi
   echo ""
 }
@@ -667,9 +719,9 @@ containerCreateAndStart() {
     echo "`eval $VS_LOG_DATESTAMP` INFO  [$VS_SCRIPTNAME] about to create a new Docker container with:"
     #VS_DOCKER_CMD='docker run -d --name '$VS_CONTAINER_NAME' -p '$VS_CONTAINER_BASE_PORT':'$VS_CONTAINER_EXPOSE_PORT' --env VS_SSR_PROXY_ON='$VS_SSR_PROXY_ON' --env VS_SSR_PACKAGE_NAME='$VS_SSR_PACKAGE_NAME' '$VS_DOCKER_IMAGE_NAME' /bin/bash -c "/usr/local/bin/vs-mysqld-start && /usr/local/bin/vs-hippo && while [ ! -f /home/hippo/tomcat_8080/logs/cms.log ]; do echo no log; sleep 2; done; tail -f /home/hippo/tomcat_8080/logs/cms.log"'
     if [ "$VS_BRXM_PERSISTENCE_METHOD" == "mysql" ]; then
-      VS_DOCKER_CMD='docker run -d --name '$VS_CONTAINER_NAME' -p '$VS_CONTAINER_BASE_PORT':'$VS_CONTAINER_EXPOSE_PORT' '$VS_CONTAINER_PORT_MAPPINGS' --env VS_CONTAINER_CONSOLE_FILE=$VS_CONTAINER_CONSOLE_FILE --env VS_HIPPO_REPOSITORY_DIR='$VS_BRXM_REPOSITORY' --env VS_HIPPO_REPOSITORY_PERSIST='$VS_HIPPO_REPOSITORY_PERSIST' --env VS_SSR_PROXY_ON='$VS_SSR_PROXY_ON' --env VS_SSR_PACKAGE_NAME='$VS_SSR_PACKAGE_NAME' --env VS_CONTAINER_NAME='$VS_CONTAINER_NAME' --env VS_BRXM_TOMCAT_PORT='$VS_BRXM_TOMCAT_PORT' --env VS_BRANCH_NAME='$VS_BRANCH_NAME' --env VS_COMMIT_AUTHOR='$VS_COMMIT_AUTHOR' --env CHANGE_ID='$CHANGE_ID' '$VS_DOCKER_IMAGE_NAME' /bin/bash -c "/usr/local/bin/vs-mysqld-start && while [ ! -f /home/hippo/tomcat_8080/logs/cms.log ]; do echo no log; sleep 2; done; tail -f /home/hippo/tomcat_8080/logs/cms.log"'
+      VS_DOCKER_CMD='docker run -d --name '$VS_CONTAINER_NAME' -p '$VS_CONTAINER_BASE_PORT':'$VS_CONTAINER_EXPOSE_PORT' '$VS_CONTAINER_PORT_MAPPINGS' --env VS_CONTAINER_CONSOLE_FILE=$VS_CONTAINER_CONSOLE_FILE --env VS_HIPPO_REPOSITORY_DIR='$VS_BRXM_REPOSITORY' --env VS_HIPPO_REPOSITORY_PERSIST='$VS_HIPPO_REPOSITORY_PERSIST' --env VS_SSR_PROXY_ON='$VS_SSR_PROXY_ON' --env VS_SSR_PACKAGE_NAME='$VS_SSR_PACKAGE_NAME' --env=VS_SSR_PROXY_TARGET_HOST='$VS_SSR_PROXY_TARGET_HOST' --env VS_CONTAINER_NAME='$VS_CONTAINER_NAME' --env VS_BRXM_TOMCAT_PORT='$VS_BRXM_TOMCAT_PORT' --env VS_BRANCH_NAME='$VS_BRANCH_NAME' --env VS_COMMIT_AUTHOR='$VS_COMMIT_AUTHOR' --env CHANGE_ID='$CHANGE_ID' '$VS_DOCKER_IMAGE_NAME' /bin/bash -c "/usr/local/bin/vs-mysqld-start && while [ ! -f /home/hippo/tomcat_8080/logs/cms.log ]; do echo no log; sleep 2; done; tail -f /home/hippo/tomcat_8080/logs/cms.log"'
     else
-      VS_DOCKER_CMD='docker run -d --name '$VS_CONTAINER_NAME' -p '$VS_CONTAINER_BASE_PORT':'$VS_CONTAINER_EXPOSE_PORT' '$VS_CONTAINER_PORT_MAPPINGS' --env VS_CONTAINER_CONSOLE_FILE=$VS_CONTAINER_CONSOLE_FILE --env VS_HIPPO_REPOSITORY_DIR='$VS_BRXM_REPOSITORY' --env VS_HIPPO_REPOSITORY_PERSIST='$VS_HIPPO_REPOSITORY_PERSIST' --env VS_SSR_PROXY_ON='$VS_SSR_PROXY_ON' --env VS_SSR_PACKAGE_NAME='$VS_SSR_PACKAGE_NAME' --env VS_CONTAINER_NAME='$VS_CONTAINER_NAME' --env VS_BRXM_TOMCAT_PORT='$VS_BRXM_TOMCAT_PORT' --env VS_BRANCH_NAME='$VS_BRANCH_NAME' --env VS_COMMIT_AUTHOR='$VS_COMMIT_AUTHOR' --env CHANGE_ID='$CHANGE_ID' '$VS_DOCKER_IMAGE_NAME' /bin/bash -c "while [ ! -f /home/hippo/tomcat_8080/logs/cms.log ]; do echo no log; sleep 2; done; tail -f /home/hippo/tomcat_8080/logs/cms.log"'
+      VS_DOCKER_CMD='docker run -d --name '$VS_CONTAINER_NAME' -p '$VS_CONTAINER_BASE_PORT':'$VS_CONTAINER_EXPOSE_PORT' '$VS_CONTAINER_PORT_MAPPINGS' --env VS_CONTAINER_CONSOLE_FILE=$VS_CONTAINER_CONSOLE_FILE --env VS_HIPPO_REPOSITORY_DIR='$VS_BRXM_REPOSITORY' --env VS_HIPPO_REPOSITORY_PERSIST='$VS_HIPPO_REPOSITORY_PERSIST' --env VS_SSR_PROXY_ON='$VS_SSR_PROXY_ON' --env VS_SSR_PACKAGE_NAME='$VS_SSR_PACKAGE_NAME' --env=VS_SSR_PROXY_TARGET_HOST='$VS_SSR_PROXY_TARGET_HOST' --env VS_CONTAINER_NAME='$VS_CONTAINER_NAME' --env VS_BRXM_TOMCAT_PORT='$VS_BRXM_TOMCAT_PORT' --env VS_BRANCH_NAME='$VS_BRANCH_NAME' --env VS_COMMIT_AUTHOR='$VS_COMMIT_AUTHOR' --env CHANGE_ID='$CHANGE_ID' '$VS_DOCKER_IMAGE_NAME' /bin/bash -c "while [ ! -f /home/hippo/tomcat_8080/logs/cms.log ]; do echo no log; sleep 2; done; tail -f /home/hippo/tomcat_8080/logs/cms.log"'
     fi
     echo "`eval $VS_LOG_DATESTAMP` INFO  [$VS_SCRIPTNAME]  - $VS_DOCKER_CMD"
     eval $VS_DOCKER_CMD
@@ -730,8 +782,8 @@ containerStartSSH() {
 containerCopyHippoArtifact() {
     if [ ! "$SAFE_TO_PROCEED" = "FALSE" ]; then
     echo ""
-    echo "`eval $VS_LOG_DATESTAMP` INFO  [$VS_SCRIPTNAME] about to copy $HIPPO_LATEST to container $VS_CONTAINER_NAME:/home/hippo"
-    docker cp $HIPPO_LATEST $VS_CONTAINER_NAME:/home/hippo
+    echo "`eval $VS_LOG_DATESTAMP` INFO  [$VS_SCRIPTNAME] about to copy $VS_HIPPO_LATEST to container $VS_CONTAINER_NAME:/home/hippo"
+    docker cp $VS_HIPPO_LATEST $VS_CONTAINER_NAME:/home/hippo
     RETURN_CODE=$?; echo $RETURN_CODE
     if [ ! "$RETURN_CODE" = "0" ]; then
       SAFE_TO_PROCEED=FALSE
@@ -931,6 +983,17 @@ case $METHOD in
     #checkVariables
     defaultSettings
     createBuildReport
+  ;;
+  findartifact)
+    checkVariables
+    defaultSettings
+    findHippoArtifact
+  ;;
+  upload-to-brcloud)
+    checkVariables
+    defaultSettings
+    findHippoArtifact
+    uploadHippoArtifactBRC
   ;;
   *)
     echo "`eval $VS_LOG_DATESTAMP` WARN  [$VS_SCRIPTNAME] no function specified - running defaults"

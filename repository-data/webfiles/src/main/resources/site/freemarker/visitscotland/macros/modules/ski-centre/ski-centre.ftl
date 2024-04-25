@@ -99,7 +99,7 @@
                                             <vs-icon
                                                 name="phone"
                                                 size="xs"
-                                                class="mr-2"
+                                                class="me-2"
                                             ></vs-icon>
                                             <span>
                                                 ${module.phone}
@@ -111,7 +111,7 @@
                                             <vs-icon
                                                 name="globe"
                                                 size="xs"
-                                                class="mr-2"
+                                                class="me-2"
                                             ></vs-icon>
                                             <vs-link
                                                 type="external"
@@ -126,7 +126,7 @@
                                             <vs-icon
                                                 name="map-marker"
                                                 size="xs"
-                                                class="mr-2"
+                                                class="me-2"
                                             ></vs-icon>
                                             <span>
                                                 <@address module.address true />
@@ -138,7 +138,7 @@
                                             <vs-icon
                                                 name="landscape"
                                                 size="xs"
-                                                class="mr-2"
+                                                class="me-2"
                                             ></vs-icon>
                                             <vs-link
                                                 type="download"
@@ -153,7 +153,7 @@
                                             <vs-icon
                                                 name="clock"
                                                 size="xs"
-                                                class="mr-2"
+                                                class="me-2"
                                             ></vs-icon>
                                             <vs-link
                                                 type="${module.openingLink.type}"
@@ -168,7 +168,7 @@
                                             <vs-icon
                                                 name="webcam"
                                                 size="xs"
-                                                class="mr-2"
+                                                class="me-2"
                                             ></vs-icon>
                                             <span>${label("ski", "ski-centre.webcam")}</span>
                                         </li>
@@ -187,8 +187,8 @@
                                         </#if>
                                         class="d-inline-block mt-4"
                                     >
-                                        <div class="d-inline-block mr-4">
-                                            <span class="sr-only">${channel.label?eval}</span>
+                                        <div class="d-inline-block me-4">
+                                            <span class="visually-hidden">${channel.label?eval}</span>
                                             <vs-icon
                                                 size="sm"
                                                 name="${channel.label?eval?lower_case}"

@@ -23,7 +23,7 @@ to be included or excluded. The front-end specification can be found in:
     <#assign category = "homepage">
     <#list url?split("/") as urlSegment>
         <#if urlSegment?index gt 0>
-            <#if urlSegment?index = 1 && urlSegment?length gt 0>
+            <#if urlSegment?index == 1 && urlSegment?length gt 0>
                 <#assign category = urlSegment>
             </#if>
             <#assign event = event + "'page_category_${urlSegment?index}':  '${urlSegment}',">
