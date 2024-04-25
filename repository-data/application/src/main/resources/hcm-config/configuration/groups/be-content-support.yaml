@@ -1,0 +1,18 @@
+definitions:
+  config:
+    /hippo:configuration/hippo:groups/be-content-support:
+      jcr:primaryType: hipposys:group
+      hipposys:description: VisitScotland Support for Business Events. This group
+        is supposed to act as an extension of vs-editor and not as an independent
+        role
+      hipposys:members:
+        .meta:category: system
+        .meta:add-new-system-values: true
+        type: string
+        value: []
+      hipposys:securityprovider: internal
+      hipposys:userroles:
+        .meta:category: system
+        .meta:add-new-system-values: true
+        type: string
+        value: [vs.content.business-events, vs.labels.business-events]

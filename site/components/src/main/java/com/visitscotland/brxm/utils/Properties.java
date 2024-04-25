@@ -68,9 +68,15 @@ public class Properties {
     private static final String PATH_NEWSLETTER = "site.path.newsletter";
     private static final String PATH_ICENTRE = "site.path.icentre-landing";
 
-   //Modules References
+    //Modules References
     static final String ENABLE_IKNOW_MODULE = "iknow-module.enabled";
     static final String MAP_MULTIPOLYGONS = "map.multipolygon.regions";
+
+    //GTM Properties
+    public static final String GTM_CONTAINER_ID = "gtm.container-id";
+    public static final String GTM_IS_PRODUCTION = "gtm.is-production";
+    public static final String GTM_PREVIEW_QUERY_STRING = "gtm.preview-query-string";
+
 
 
     private final ResourceBundleService bundle;
@@ -218,6 +224,17 @@ public class Properties {
         return readString(MAP_MULTIPOLYGONS);
     }
 
+    public String getGtmContainerId (){
+        return readString(GTM_CONTAINER_ID);
+    }
+
+    public String getGtmIsProduction() {
+        return readString(GTM_IS_PRODUCTION);
+    }
+
+    public String getGtmPreviewQueryString() {
+        return readString(GTM_PREVIEW_QUERY_STRING);
+    }
 
     public Integer getContentCacheRetention() {
         //Note that the retention period is defined in seconds and java.util.Date measures the time in seconds

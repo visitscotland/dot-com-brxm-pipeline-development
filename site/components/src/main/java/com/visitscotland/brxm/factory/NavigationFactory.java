@@ -35,6 +35,7 @@ public class NavigationFactory {
 
     private static final Logger logger = LoggerFactory.getLogger(NavigationFactory.class);
 
+    public static final String MENU = "menu";
 
     static final String STATIC = "navigation.static";
     static final String CTA_SUFFIX = ".cta";
@@ -61,16 +62,20 @@ public class NavigationFactory {
      */
     @Cacheable(
             value = "navigation",
-            key = "{#request.locale, #hstSiteMenu.name, #cacheable}",
+            key = "{#request.locale, #resourceBundle, #id, #cacheable}",
             unless = "!#cacheable"
     )
-    public RootMenuItem buildMenu(HstRequest request, HstSiteMenu hstSiteMenu, boolean cacheable) {
+    public RootMenuItem buildMenu(HstRequest request, String resourceBundle, String id, boolean cacheable) {
+        final HstSiteMenu hstSiteMenu = request.getModel(MENU);
         List<HstSiteMenuItem> enhancedMenu = new ArrayList<>();
+
+        if (cacheable){
+            logger.info("Creating a menu. It will be cached with the following key: menu={}, id={}, locale={}",
+                    request.getLocale(), hstSiteMenu.getName(), id);
+        }
+
         RootMenuItem root = new RootMenuItem(hstSiteMenu);
         if (hstSiteMenu != null) {
-            //Calculate the resource bundle id
-            String resourceBundle = NAVIGATION_PREFIX + hstSiteMenu.getName();
-
             for (HstSiteMenuItem hstItem : hstSiteMenu.getSiteMenuItems()) {
                 Object menuItem = getMenuItem(request, hstItem, resourceBundle);
                 if (menuItem instanceof MenuItem) {
@@ -251,6 +256,6 @@ public class NavigationFactory {
      * Indicates if the link is based on a document
      */
     private boolean isDocumentBased(HstLink link) {
-        return link != null && link.getPath() != null && link.getPath().length() > 0;
+        return link != null && link.getPath() != null && !link.getPath().isEmpty();
     }
 }

@@ -1,0 +1,8 @@
+definitions:
+  config:
+    /hippo:configuration/hippo:userroles/vs.content.business-events:
+      jcr:primaryType: hipposys:userrole
+      hipposys:description: Business Events Content Access Configuration. Defined
+        on Business Events hippo:domains
+      hipposys:system: true
+      hipposys:userroles: [xm.content.viewer, xm.content.user]

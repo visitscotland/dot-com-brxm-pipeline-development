@@ -13,9 +13,9 @@
                     <#if message?? && message != "">
                         <p>${message}</p>
                     <#elseif hidden>
-                        <p>There is an issue with the document <strong>${module.hippoBean.displayName}</strong> and It was hidden from the page:</p>
+                        <p>${label('cms-messages','preview-warning.hide')}<strong>${module.hippoBean.displayName}</strong></p>
                     <#elseif module.hippoBean??>
-                        <p>The following issues have been detected in the document ${module.hippoBean.displayName}:</p>
+                        <p>${label('cms-messages','preview-warning.issues')} ${module.hippoBean.displayName}</p>
                     </#if>
                     <vs-list>
                         <#list errorMessages as error>

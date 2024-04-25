@@ -26,7 +26,7 @@
 <div class="has-edit-button">
     <@hst.manageContent hippobean=document/>
 
-    <@pageIntro content=document blog=blog/>
+    <@pageIntro content=document author=author/>
 
     <vs-container class="mt-6">
         <vs-row>
