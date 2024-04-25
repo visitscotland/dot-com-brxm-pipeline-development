@@ -6,7 +6,7 @@
         <#if module.getType()== "HorizontalListLinksModule" >
             <@horizontalList module />
         <#else>
-            <@previewWarning editMode module module.errorMessages true "There is no valid links for the OTYML module and it has been removed from the page:"/>
+            <@previewWarning editMode module module.errorMessages true label("cms-message", "otyml.no-links")/>
         </#if>
     </#if>
 </#macro>
