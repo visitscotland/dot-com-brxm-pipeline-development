@@ -1,0 +1,17 @@
+definitions:
+  config:
+    /hippo:configuration/hippo:groups/be-editor:
+      jcr:primaryType: hipposys:group
+      hipposys:description: Business Events Content Editor role. It has access to
+        the Business Events Area and labels documents and labels
+      hipposys:securityprovider: internal
+      hipposys:userroles:
+        .meta:category: system
+        .meta:add-new-system-values: true
+        type: string
+        value: [vs.default-user.business-events, vs.gallery.business-events, xm.channel.webmaster]
+      hipposys:members:
+        .meta:category: system
+        .meta:add-new-system-values: true
+        type: string
+        value: [be-editor]

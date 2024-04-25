@@ -1,0 +1,15 @@
+definitions:
+  config:
+    /hippo:configuration/hippo:users/be-editor:
+      jcr:primaryType: hipposys:user
+      hipposys:active: true
+      hipposys:firstname: Editor
+      hipposys:lastname: Business Events
+      hipposys:password:
+        .meta:category: system
+        value: be-editor
+      hipposys:passwordlastmodified:
+        .meta:category: system
+      hipposys:previouspasswords:
+        .meta:category: system
+      hipposys:securityprovider: internal

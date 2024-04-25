@@ -18,7 +18,7 @@
                             class="<#if row?is_first>border-0</#if>"
                         >
                             <template v-slot:title>
-                                <vs-icon name="${row.transport.key}" variant="dark" size="sm" class="mr-2"></vs-icon> 
+                                <vs-icon name="${row.transport.key}" variant="dark" size="sm" class="me-2"></vs-icon> 
                                 ${row.transport.label}
                             </template>
                             <template v-slot:icon-open>

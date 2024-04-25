@@ -14,7 +14,7 @@
             ${module.title}
         </template>
 
-        <vs-container class="text-center text-sm-left mt-2">
+        <vs-container class="text-center text-sm-start mt-2">
             <vs-row>
                 <vs-col
                     cols="12"
@@ -22,7 +22,7 @@
                     md="6"
                     lg="5"
                     offset-lg="1"
-                    class="text-center text-sm-left col-xxl-4"
+                    class="text-center text-sm-start col-xxl-4"
                 >   
                     <vs-rich-text-wrapper variant="lead" class="mb-9 mb-lg-10">
                         <p>
@@ -43,7 +43,7 @@
                     md="6"
                     lg="5"
                     xl="5"
-                    class="text-center text-lg-left col-xxl-5 offset-xxl-1"
+                    class="text-center text-lg-start col-xxl-5 offset-xxl-1"
                 >
                     <vs-img
                         src="<@hst.webfile path='${module.image.externalImage}'/>"
