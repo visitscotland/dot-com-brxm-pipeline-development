@@ -168,7 +168,7 @@ public abstract class AbstractDMSPicker implements ExternalDocumentServiceFacade
     }
 
     /**
-     * Request the the resource taking into account the language.
+     * Request the resource taking into account the language.
      *
      * @param locale: Specific locale for the fragment or null if the locale is English (default locale)
      *
