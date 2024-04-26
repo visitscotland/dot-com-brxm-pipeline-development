@@ -3,7 +3,7 @@ package com.visitscotland.brxm.services;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.visitscotland.brxm.model.YoutubeVideo;
-import com.visitscotland.brxm.utils.Properties;
+import com.visitscotland.brxm.utils.CMSProperties;
 import com.visitscotland.utils.Contract;
 
 import org.slf4j.Logger;
@@ -21,12 +21,12 @@ import java.util.Optional;
 public class YoutubeApiService {
 
     private final CommonUtilsService commonUtilsService;
-    private final Properties properties;
+    private final CMSProperties properties;
 
     private static final Logger logger = LoggerFactory.getLogger(YoutubeApiService.class);
     private static final String YOUTUBE_API_BASE = "https://www.googleapis.com/youtube/v3/";
 
-    public YoutubeApiService(Properties properties, CommonUtilsService commonUtilsService) {
+    public YoutubeApiService(CMSProperties properties, CommonUtilsService commonUtilsService) {
         this.commonUtilsService = commonUtilsService;
         this.properties = properties;
     }

@@ -3,17 +3,16 @@ package com.visitscotland.brxm.factory;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.visitscotland.brxm.dms.LocationLoader;
+import com.visitscotland.brxm.dms.model.LocationObject;
 import com.visitscotland.brxm.hippobeans.Image;
 import com.visitscotland.brxm.hippobeans.ImageData;
 import com.visitscotland.brxm.hippobeans.InstagramImage;
-import com.visitscotland.brxm.dms.model.LocationObject;
 import com.visitscotland.brxm.model.Coordinates;
 import com.visitscotland.brxm.model.FlatImage;
 import com.visitscotland.brxm.model.Module;
-import com.visitscotland.brxm.dms.LocationLoader;
-import com.visitscotland.brxm.services.ResourceBundleService;
 import com.visitscotland.brxm.services.CommonUtilsService;
-
+import com.visitscotland.brxm.services.ResourceBundleService;
 import com.visitscotland.brxm.utils.ContentLogger;
 import com.visitscotland.brxm.utils.HippoUtilsService;
 import com.visitscotland.brxm.utils.Properties;
@@ -31,8 +30,8 @@ import javax.jcr.RepositoryException;
 import java.io.IOException;
 import java.util.Locale;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.*;
-import static org.junit.jupiter.api.Assertions.*;
 
 @ExtendWith(MockitoExtension.class)
 class ImageFactoryTest {

@@ -5,298 +5,22 @@ import com.visitscotland.utils.Contract;
 import org.hippoecm.hst.configuration.hosting.Mount;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.stereotype.Component;
 
-import java.nio.charset.Charset;
-import java.nio.charset.StandardCharsets;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
 import java.util.Locale;
-import java.util.function.Predicate;
-import java.util.stream.Collectors;
 
-@Component
-public class Properties {
+public abstract class Properties {
 
     private static final Logger logger = LoggerFactory.getLogger(Properties.class.getName());
 
-    static final String DEFAULT_CONFIG = "default.config";
-
-    static final String INSTAGRAM_API = "instagram.api";
-    static final String INSTAGRAM_ACCESS_TOKEN ="instagram.accesstoken";
-    static final String INSTAGRAM_APP_ID ="instagram.app-id";
-    static final String INSTAGRAM_URL ="instagram.post-url";
-    static final String HELPDESK_EMAIL = "helpdesk-email";
-    static final String IKNOW_COMMUNITY_URL = "iknow-community.url";
-    static final String IKNOW_COMMUNITY_TAGGED_DISCUSSION = "iknow-community.tagged-discussion";
-    static final String YOUTUBE_API_KEY = "youtube.api-key";
-    static final String CHANNEL_ORDER = "seo.alternate-link-locale-order";
-    static final String GLOBAL_SEARCH_PATH = "global-search.path";
-    static final String ENGINE_ID = "global-search.engine-id";
-    static final String SNIPPET_CACHE = "snippet-cache.enable";
-    static final String CONTENT_CACHE_ENABLED = "content-cache.enabled";
-    static final String CONTENT_CACHE_RETENTION_PERIOD = "content-cache.retention-period";
-    static final String CONTENT_CACHE_MAX_ELEMENTS = "content-cache.max-elements";
-
-    //Environment
-    static final String USE_RELATIVE_URLS = "links.use-relative-urls";
-    static final String INTERNAL_SITES = "links.internal-sites";
-    static final String CMS_BASE_PATH = "links.cms-base-path.url";
-    static final String CONVERT_TO_RELATIVE = "links.convert-to-relative";
-    static final String SERVE_LECAGY_CSS = "data-internal.serve-legacy-css";
-    static final String DMS_INTERNAL_PATH = "data-internal.path";
-    static final String NAVIGATION_CACHE= "navigation.cms.cache";
-
-    // DMS Properties
-    public static final String API_DATA_BACKEND_HOST = "api-data.backend-url";
-    public static final String DMS_DATA_HOST = "dms-data.private-url";
-    static final String DMS_DATA_PUBLIC_HOST = "dms-data.public-url";
-    static final String DMS_DATA_ENCODING = "dms-data.encoding";
-    static final String DMS_DATA_API_KEY = "dms-data.api-key";
-    static final String DMS_DATA_TIMEOUT = "dms-data.timeout";
-    static final String DMS_DATA_TRIES = "dms-data.tries";
-    static final String DMS_DATA_SLEEP_TIME = "dms-data.sleep-time";
-    static final String DMS_HOST = "links.vs-dms-products.url";
-    static final String DMS_MAP_DEFAULT_DISTANCE = "dms.default-distance";
-
-    //Page References
-    private static final String PATH_GLOBAL_SEARCH = "site.path.global-search";
-    private static final String PATH_SKI_SECTION = "site.path.ski-landing";
-    private static final String PATH_CAMPAIGN_SECTION = "site.path.campaigns";
-    private static final String PATH_ABOUT_US = "site.path.about-us";
-    private static final String PATH_NEWSLETTER = "site.path.newsletter";
-    private static final String PATH_ICENTRE = "site.path.icentre-landing";
-
-    //Modules References
-    static final String ENABLE_IKNOW_MODULE = "iknow-module.enabled";
-    static final String MAP_MULTIPOLYGONS = "map.multipolygon.regions";
-
-    //GTM Properties
-    public static final String GTM_CONTAINER_ID = "gtm.container-id";
-    public static final String GTM_IS_PRODUCTION = "gtm.is-production";
-    public static final String GTM_PREVIEW_QUERY_STRING = "gtm.preview-query-string";
-
-
-
     private final ResourceBundleService bundle;
-
     private final HippoUtilsService utils;
 
-    public Properties(ResourceBundleService bundle, HippoUtilsService utils){
+    protected Properties(ResourceBundleService bundle, HippoUtilsService utils){
         this.bundle = bundle;
         this.utils = utils;
     }
 
-    public String getInstagramApi() {
-        return readString(INSTAGRAM_API);
-    }
-
-    public String getInstagramURL() {
-        return readString(INSTAGRAM_URL);
-    }
-
-    public String getGlobalSearchURL() {
-        return readString(GLOBAL_SEARCH_PATH);
-    }
-
-    public String getInstagramToken() {
-        String accessCode = readString(INSTAGRAM_ACCESS_TOKEN);
-        if (Contract.isEmpty(accessCode)){
-            return readString(INSTAGRAM_APP_ID);
-        } else {
-            return readString(INSTAGRAM_APP_ID) +"|"+accessCode;
-        }
-    }
-
-    public String getChannelOrder(){
-        return readString(CHANNEL_ORDER);
-    }
-
-    public String getHelpdeskEmail() {
-        return readString(HELPDESK_EMAIL);
-    }
-
-    public boolean isRelativeURLs(){
-        return readBoolean(USE_RELATIVE_URLS);
-    }
-
-    public String getDmsHost() {
-        if (isRelativeURLs()){
-            return "";
-        } else {
-            return readString(DMS_HOST);
-        }
-    }
-
-    public String getCmsBasePath() {
-        if (isRelativeURLs()){
-            return "";
-        } else {
-            return readString(CMS_BASE_PATH);
-        }
-    }
-
-    public String getConvertToRelative() {
-        if (isRelativeURLs()){
-            return readString(CONVERT_TO_RELATIVE);
-        } else {
-            return "";
-        }
-    }
-
-    public String getApiDataBackendHost() {
-        return readString(API_DATA_BACKEND_HOST);
-    }
-
-    public String getDmsDataHost() {
-        return readString(DMS_DATA_HOST);
-    }
-
-    public String getDmsDataPublicHost() {
-        return readString(DMS_DATA_PUBLIC_HOST);
-    }
-
-    public Double getDmsMapDefaultDistance() {
-        return readDouble(DMS_MAP_DEFAULT_DISTANCE);
-    }
-
-    public String getDmsToken() {
-        return readString(DMS_DATA_API_KEY);
-    }
-
-    public Integer getDmsTimeout() {
-        return readInteger(DMS_DATA_TIMEOUT);
-    }
-
-    public Integer getDmsTries() {
-        return readInteger(DMS_DATA_TRIES);
-    }
-
-    public Integer getDmsWaitTime() {
-        return readInteger(DMS_DATA_SLEEP_TIME);
-    }
-
-    public String getIknowCommunityUrl() {
-        return readString(IKNOW_COMMUNITY_URL);
-    }
-
-    public String getIknowCommunityTaggedDiscussion() {
-        return readString(IKNOW_COMMUNITY_TAGGED_DISCUSSION);
-    }
-
-    public String getYoutubeApiKey() {
-        return readString(YOUTUBE_API_KEY);
-    }
-
-    public String getDmsInternalPath() {
-        return readString(DMS_INTERNAL_PATH);
-    }
-    public Boolean getNavigationCache() {
-        return readBoolean(NAVIGATION_CACHE);
-    }
-
-    public String getSiteSkiSection() {
-        return readString(PATH_SKI_SECTION);
-    }
-    public String getCampaignSection() {
-        return readString(PATH_CAMPAIGN_SECTION);
-    }
-
-    public String getSiteAboutUs() {
-        return readString(PATH_ABOUT_US);
-    }
-
-    public String getSiteGlobalSearch() {
-        return readString(PATH_GLOBAL_SEARCH);
-    }
-
-
-    public String getSiteNewsletter() {
-        return readString(PATH_NEWSLETTER);
-    }
-
-    public String getSiteICentre() {
-        return readString(PATH_ICENTRE);
-    }
-
-    public String getMapMultipolygons() {
-        return readString(MAP_MULTIPOLYGONS);
-    }
-
-    public String getGtmContainerId (){
-        return readString(GTM_CONTAINER_ID);
-    }
-
-    public String getGtmIsProduction() {
-        return readString(GTM_IS_PRODUCTION);
-    }
-
-    public String getGtmPreviewQueryString() {
-        return readString(GTM_PREVIEW_QUERY_STRING);
-    }
-
-    public Integer getContentCacheRetention() {
-        //Note that the retention period is defined in seconds and java.util.Date measures the time in seconds
-        return readInteger(CONTENT_CACHE_RETENTION_PERIOD) * 1000;
-    }
-
-    public boolean isContentCacheEnabled() {
-        return readBoolean(CONTENT_CACHE_ENABLED);
-    }
-
-    public boolean isSnippetCacheEnabled() {
-        return readBoolean(SNIPPET_CACHE);
-    }
-
-    public boolean isIknowEnabled() {
-        return readBoolean(ENABLE_IKNOW_MODULE);
-    }
-    /**
-     * Max number of elements cached. If the property is not defined in the CMS, there is no maximum
-     */
-    public Integer getContentCacheMaxElements() {
-        Integer size = readInteger(CONTENT_CACHE_MAX_ELEMENTS);
-        return size > 0 ? size : Integer.MAX_VALUE;
-    }
-
-    /**
-     * Default DMS version served by Hippo.
-     * <p>
-     * Current allowed values:
-     * <ul>
-     *  <li>"legacy": For legacy applications based on 10 pixels base line</li>
-     *  <li>"": Standard version for newly developed applications. </li>
-     * </ul>
-     * <p>
-     * Values that are not in this list are going to be interpreted as standard version.
-     * <p>
-     */
-    public Boolean isServeLegacyCss() {
-        return readBoolean(SERVE_LECAGY_CSS);
-    }
-
-    public List<String> getInternalSites() {
-        String sites = readString(INTERNAL_SITES);
-        if (!Contract.isEmpty(sites)){
-            // TODO Java 11: Replace & Test: Arrays.stream(sites.trim().split("\\s*,\\s*")).filter(Predicate.not(String::isEmpty)).collect(Collectors.toUnmodifiableList());
-            return Arrays.stream(sites.trim().split("\\s*,\\s*")).filter(((Predicate<String>) String::isEmpty).negate()).collect(Collectors.toList());
-        }
-        return Collections.emptyList();
-    }
-
-
-    public Charset getDmsEncoding() {
-        String value = getProperty(DMS_DATA_ENCODING);
-        try{
-            if (!Contract.isEmpty(value)) {
-                return Charset.forName(value);
-            }
-        } catch (Exception e){
-            logger.warn("{} is not a valid value for the property {}", value, DMS_DATA_ENCODING);
-        }
-        return StandardCharsets.UTF_8;
-    }
+    abstract String getDefaultConfig();
 
     public String readString(String key){
         String value = getProperty(key);
@@ -368,7 +92,7 @@ public class Properties {
             }
         }
 
-        return DEFAULT_CONFIG;
+        return getDefaultConfig();
     }
 
     public String getProperty(String key){
@@ -381,7 +105,7 @@ public class Properties {
 
     public String getProperty(String key, Locale locale){
         String bundleId = getEnvironmentProperties();
-        boolean defaultConfig = bundleId.equals(DEFAULT_CONFIG);
+        boolean defaultConfig = bundleId.equals(getDefaultConfig());
         boolean englishLocale = Locale.UK.equals(locale);
 
         String value = bundle.getResourceBundle(bundleId, key, locale, !defaultConfig || !englishLocale);
@@ -392,9 +116,9 @@ public class Properties {
                 value = bundle.getResourceBundle(bundleId, key, Locale.UK, !defaultConfig );
             }
             if (Contract.isEmpty(value) && !defaultConfig) {
-                value = bundle.getResourceBundle(DEFAULT_CONFIG, key,locale, !englishLocale);
+                value = bundle.getResourceBundle(getDefaultConfig(), key,locale, !englishLocale);
                 if (Contract.isEmpty(value) && !englishLocale){
-                    value = bundle.getResourceBundle(DEFAULT_CONFIG, key,Locale.UK, false);
+                    value = bundle.getResourceBundle(getDefaultConfig(), key,Locale.UK, false);
                 }
             }
         }

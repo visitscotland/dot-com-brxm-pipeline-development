@@ -1,6 +1,5 @@
 package com.visitscotland.brxm.factory;
 
-import com.visitscotland.brxm.dms.DMSConstants;
 import com.visitscotland.brxm.dms.LocationLoader;
 import com.visitscotland.brxm.dms.PSType;
 import com.visitscotland.brxm.dms.model.LocationObject;

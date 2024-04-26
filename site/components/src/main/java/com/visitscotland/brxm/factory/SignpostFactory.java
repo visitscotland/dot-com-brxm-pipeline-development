@@ -7,7 +7,7 @@ import com.visitscotland.brxm.model.SignpostModule;
 import com.visitscotland.brxm.services.ResourceBundleService;
 import com.visitscotland.brxm.utils.HippoHtmlWrapper;
 import com.visitscotland.brxm.utils.HippoUtilsService;
-import com.visitscotland.brxm.utils.Properties;
+import com.visitscotland.brxm.utils.SiteProperties;
 import com.visitscotland.utils.Contract;
 import org.springframework.stereotype.Component;
 
@@ -20,10 +20,10 @@ public class SignpostFactory {
     private static final String BE_BUNDLE_ID = "be.newsletter-signpost";
 
     private final ResourceBundleService bundle;
-    private final Properties properties;
+    private final SiteProperties properties;
     private final HippoUtilsService hippoUtilsService;
 
-    public SignpostFactory(ResourceBundleService bundle, Properties properties, HippoUtilsService hippoUtilsService) {
+    public SignpostFactory(ResourceBundleService bundle, SiteProperties properties, HippoUtilsService hippoUtilsService) {
         this.bundle = bundle;
         this.properties = properties;
         this.hippoUtilsService = hippoUtilsService;

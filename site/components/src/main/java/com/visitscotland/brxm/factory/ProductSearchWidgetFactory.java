@@ -11,8 +11,8 @@ import com.visitscotland.brxm.hippobeans.General;
 import com.visitscotland.brxm.hippobeans.Page;
 import com.visitscotland.brxm.model.PSModule;
 import com.visitscotland.brxm.services.ResourceBundleService;
+import com.visitscotland.brxm.utils.CMSProperties;
 import com.visitscotland.brxm.utils.Language;
-import com.visitscotland.brxm.utils.Properties;
 import com.visitscotland.utils.Contract;
 import org.hippoecm.hst.core.component.HstRequest;
 import org.jetbrains.annotations.NotNull;
@@ -25,14 +25,14 @@ public class ProductSearchWidgetFactory {
 
     final ResourceBundleService bundle;
     final LocationLoader locationLoader;
-    final Properties properties;
+    final CMSProperties properties;
 
     public static final String POSITION_TOP = "Top";
     public static final String POSITION_BOTTOM = "Bottom";
     //TODO: This option will disappear after the regular expressions are removed
     public static final String POSITION_DEFAULT = "Default";
 
-    public ProductSearchWidgetFactory(ResourceBundleService bundle, LocationLoader locationLoader, Properties properties) {
+    public ProductSearchWidgetFactory(ResourceBundleService bundle, LocationLoader locationLoader, CMSProperties properties) {
         this.bundle = bundle;
         this.locationLoader = locationLoader;
         this.properties = properties;

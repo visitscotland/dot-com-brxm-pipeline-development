@@ -1,12 +1,11 @@
 package com.visitscotland.brxm.dms;
 
-import com.visitscotland.brxm.hippobeans.ProductsSearch;
 import com.visitscotland.brxm.dms.model.LocationObject;
+import com.visitscotland.brxm.hippobeans.ProductsSearch;
 import com.visitscotland.brxm.utils.Language;
 import com.visitscotland.brxm.utils.Properties;
 import com.visitscotland.brxm.utils.VsException;
 import com.visitscotland.utils.Contract;
-
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -16,9 +15,10 @@ import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.util.Locale;
 
-import static org.mockito.Mockito.*;
-import static org.junit.jupiter.api.Assertions.*;
 import static com.visitscotland.brxm.dms.DMSConstants.ProductSearch.*;
+import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
 class ProductSearchBuilderTest {
