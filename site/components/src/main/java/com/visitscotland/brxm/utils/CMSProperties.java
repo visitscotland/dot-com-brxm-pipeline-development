@@ -14,7 +14,8 @@ public class CMSProperties extends Properties {
 
     private static final Logger logger = LoggerFactory.getLogger(CMSProperties.class.getName());
 
-    static final String DEFAULT_CONFIG = "default.config";
+    static final String DEFAULT_CONFIG = "default.cms.config";
+    static final String OVERRIDE_PROPERTY = "visitscotland:cmsProperties";
 
     //Internal Configuration
     static final String HELPDESK_EMAIL = "helpdesk-email";
@@ -62,6 +63,11 @@ public class CMSProperties extends Properties {
     @Override
     public String getDefaultConfig() {
         return DEFAULT_CONFIG;
+    }
+
+    @Override
+    public String getOverrideProperty() {
+        return OVERRIDE_PROPERTY;
     }
 
     public String getInstagramApi() {

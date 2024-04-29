@@ -22,6 +22,8 @@ public abstract class Properties {
 
     abstract String getDefaultConfig();
 
+    abstract String getOverrideProperty();
+
     public String readString(String key){
         String value = getProperty(key);
         if (value != null){
@@ -79,12 +81,12 @@ public abstract class Properties {
     private String getEnvironmentProperties(){
         final Mount mount = utils.getResolvedMount(null);
         if (mount  != null) {
-            String bundleId = mount.getProperty("visitscotland:cmsProperties");
+            String bundleId = mount.getProperty(getOverrideProperty());
             if (bundleId != null){
                 return bundleId;
             } else if (mount.getParent() != null){
                 //Other languages and data endpoints are mounted as subsites in the configuration
-                bundleId = mount.getParent().getProperty("visitscotland:cmsProperties");
+                bundleId = mount.getParent().getProperty(getOverrideProperty());
 
                 if (bundleId != null){
                     return bundleId;

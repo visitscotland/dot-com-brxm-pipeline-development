@@ -17,8 +17,8 @@ public class SiteProperties extends Properties {
 
     private static final Logger logger = LoggerFactory.getLogger(SiteProperties.class.getName());
 
-    static final String DEFAULT_CONFIG = "default.config";
-    static final String DEFAULT_SITE_CONFIG = "default-site.config";
+    static final String DEFAULT_CONFIG = "default.site.config";
+    static final String OVERRIDE_PROPERTY = "visitscotland:siteProperties";
 
     static final String IKNOW_COMMUNITY_URL = "iknow-community.url";
     static final String IKNOW_COMMUNITY_TAGGED_DISCUSSION = "iknow-community.tagged-discussion";
@@ -66,6 +66,11 @@ public class SiteProperties extends Properties {
     @Override
     public String getDefaultConfig() {
         return DEFAULT_CONFIG;
+    }
+
+    @Override
+    public String getOverrideProperty() {
+        return OVERRIDE_PROPERTY;
     }
 
     public String getConvertToRelative() {
