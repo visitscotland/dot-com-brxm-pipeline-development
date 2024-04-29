@@ -4,7 +4,7 @@ import com.visitscotland.brxm.model.LinkType;
 import com.visitscotland.brxm.model.SignpostModule;
 import com.visitscotland.brxm.services.ResourceBundleService;
 import com.visitscotland.brxm.utils.HippoUtilsService;
-import com.visitscotland.brxm.utils.Properties;
+import com.visitscotland.brxm.utils.SiteProperties;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -27,7 +27,7 @@ class SignpostFactoryTest {
     @Mock
     HippoUtilsService utils;
     @Mock
-    Properties properties;
+    SiteProperties properties;
 
     @InjectMocks
     SignpostFactory signpostFactory;

@@ -13,9 +13,9 @@ import com.visitscotland.brxm.model.FlatImage;
 import com.visitscotland.brxm.model.Module;
 import com.visitscotland.brxm.services.CommonUtilsService;
 import com.visitscotland.brxm.services.ResourceBundleService;
+import com.visitscotland.brxm.utils.CMSProperties;
 import com.visitscotland.brxm.utils.ContentLogger;
 import com.visitscotland.brxm.utils.HippoUtilsService;
-import com.visitscotland.brxm.utils.Properties;
 import org.hippoecm.hst.content.beans.ObjectBeanManagerException;
 import org.hippoecm.hst.content.beans.query.exceptions.QueryException;
 import org.junit.jupiter.api.Assertions;
@@ -56,7 +56,7 @@ class ImageFactoryTest {
 
     //Injected even though it doesn't override any method. Do not remove
     @Mock
-    Properties properties;
+    CMSProperties properties;
 
     final String INSTAGRAM_OBJECT = "{ " +
             "\"thumbnail_url\": \"http://instagram/visitscotland\"," +
