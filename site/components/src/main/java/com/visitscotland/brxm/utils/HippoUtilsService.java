@@ -29,6 +29,7 @@ import org.onehippo.taxonomy.api.Taxonomy;
 import org.onehippo.taxonomy.api.TaxonomyManager;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Component;
 
 import javax.jcr.Node;
@@ -50,9 +51,10 @@ public class HippoUtilsService {
     private final static String SITE_ID = "visitscotland:site";
     public final static String BUSINESS_EVENTS_SITE = "business-events";
 
-    private CMSProperties properties;
 
-    public HippoUtilsService(CMSProperties properties){
+    private SiteProperties properties;
+
+    public HippoUtilsService(@Lazy SiteProperties properties){
         this.properties = properties;
     }
 
