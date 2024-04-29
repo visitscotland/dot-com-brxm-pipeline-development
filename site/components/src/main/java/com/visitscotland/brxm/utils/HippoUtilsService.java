@@ -2,6 +2,7 @@ package com.visitscotland.brxm.utils;
 
 import com.visitscotland.brxm.hippobeans.Image;
 import com.visitscotland.brxm.hippobeans.Page;
+import com.visitscotland.utils.Contract;
 import org.hippoecm.hst.configuration.hosting.Mount;
 import org.hippoecm.hst.container.RequestContextProvider;
 import org.hippoecm.hst.content.beans.ObjectBeanManagerException;
@@ -48,6 +49,12 @@ public class HippoUtilsService {
 
     private final static String SITE_ID = "visitscotland:site";
     public final static String BUSINESS_EVENTS_SITE = "business-events";
+
+    private CMSProperties properties;
+
+    public HippoUtilsService(CMSProperties properties){
+        this.properties = properties;
+    }
 
     /**
      * Convert and HstLink or a HippoBean into a URL String
@@ -359,8 +366,8 @@ public class HippoUtilsService {
      */
     @NonTestable(NonTestable.Cause.BRIDGE)
     public boolean isBusinessEventsSite(HstRequest request){
-        String site = request.getRequestContext().getResolvedMount().getMount().getProperty(SITE_ID);
-        if (site != null){
+        String site = properties.getProperty("site-id");
+        if (!Contract.isEmpty(site)){
             if (site.equals(BUSINESS_EVENTS_SITE)){
                 return true;
             } else {
