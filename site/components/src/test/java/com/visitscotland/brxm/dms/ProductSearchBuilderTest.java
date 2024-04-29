@@ -4,7 +4,6 @@ import com.visitscotland.brxm.dms.model.LocationObject;
 import com.visitscotland.brxm.hippobeans.ProductsSearch;
 import com.visitscotland.brxm.utils.CMSProperties;
 import com.visitscotland.brxm.utils.Language;
-import com.visitscotland.brxm.utils.Properties;
 import com.visitscotland.brxm.utils.VsException;
 import com.visitscotland.utils.Contract;
 import org.junit.jupiter.api.DisplayName;

@@ -8,7 +8,6 @@ import com.visitscotland.brxm.hippobeans.Page;
 import com.visitscotland.brxm.model.PSModule;
 import com.visitscotland.brxm.services.ResourceBundleService;
 import com.visitscotland.brxm.utils.CMSProperties;
-import com.visitscotland.brxm.utils.Properties;
 import org.hippoecm.hst.mock.core.component.MockHstRequest;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;

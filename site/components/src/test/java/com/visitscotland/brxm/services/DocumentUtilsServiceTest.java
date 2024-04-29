@@ -3,7 +3,6 @@ package com.visitscotland.brxm.services;
 import com.visitscotland.brxm.hippobeans.*;
 import com.visitscotland.brxm.model.LocalizedURL;
 import com.visitscotland.brxm.utils.*;
-import com.visitscotland.brxm.utils.Properties;
 import org.apache.jackrabbit.commons.iterator.NodeIteratorAdapter;
 import org.hippoecm.hst.content.beans.ObjectBeanManagerException;
 import org.hippoecm.hst.content.beans.query.exceptions.QueryException;

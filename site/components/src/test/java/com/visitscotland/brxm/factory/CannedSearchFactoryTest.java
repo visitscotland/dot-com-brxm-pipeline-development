@@ -12,7 +12,6 @@ import com.visitscotland.brxm.services.LinkService;
 import com.visitscotland.brxm.services.ResourceBundleService;
 import com.visitscotland.brxm.utils.CMSProperties;
 import com.visitscotland.brxm.utils.ContentLogger;
-import com.visitscotland.brxm.utils.Properties;
 import org.hippoecm.hst.core.container.ComponentManager;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;

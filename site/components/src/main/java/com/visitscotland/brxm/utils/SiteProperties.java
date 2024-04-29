@@ -50,6 +50,13 @@ public class SiteProperties extends Properties {
     public static final String GTM_IS_PRODUCTION = "gtm.is-production";
     public static final String GTM_PREVIEW_QUERY_STRING = "gtm.preview-query-string";
 
+    //Form Properties
+    static final String FORMS_RECAPTCHA = "form.recaptcha-key";
+    static final String FORMS_MARKETO_URL = "form.maketo.instance-url";
+    static final String FORMS_MARKETO_MUNCHKIN = "form.marketo.munchkin";
+    static final String FORMS_MARKETO_SCRIPT = "form.marketo.script";
+    static final String FORMS_MARKETO_IS_PRODUCTION = "form.is-production";
+
     private final CMSProperties cmsProperties;
     public SiteProperties(ResourceBundleService bundle, HippoUtilsService utils, CMSProperties cmsProperties){
         super(bundle, utils);
@@ -119,5 +126,23 @@ public class SiteProperties extends Properties {
         return Collections.emptyList();
     }
 
+    public String getFormsMarketoUrl() {
+        return readString(FORMS_MARKETO_URL);
+    }
 
+    public String getFormsRecaptcha() {
+        return readString(FORMS_RECAPTCHA);
+    }
+
+    public String getFormsMarketoMunchkin() {
+        return readString(FORMS_MARKETO_MUNCHKIN);
+    }
+
+    public String getFormsMarketoScript() {
+        return readString(FORMS_MARKETO_SCRIPT);
+    }
+
+    public Boolean getFormsMarketoIsProduction() {
+        return readBoolean(FORMS_MARKETO_IS_PRODUCTION);
+    }
 }

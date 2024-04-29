@@ -15,7 +15,6 @@ import com.visitscotland.brxm.model.Module;
 import com.visitscotland.brxm.model.*;
 import com.visitscotland.brxm.model.megalinks.EnhancedLink;
 import com.visitscotland.brxm.utils.*;
-import com.visitscotland.brxm.utils.Properties;
 import org.hippoecm.hst.content.beans.standard.HippoCompound;
 import org.hippoecm.hst.core.container.ComponentManager;
 import org.junit.jupiter.api.Assertions;

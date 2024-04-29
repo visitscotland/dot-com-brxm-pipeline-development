@@ -5,7 +5,6 @@ import com.visitscotland.brxm.hippobeans.*;
 import com.visitscotland.brxm.model.sitemap.SitemapEntry;
 import com.visitscotland.brxm.services.CommonUtilsService;
 import com.visitscotland.brxm.services.DocumentUtilsService;
-import com.visitscotland.brxm.utils.Properties;
 import com.visitscotland.brxm.utils.VsException;
 import org.hippoecm.hst.configuration.hosting.Mount;
 import org.hippoecm.hst.container.RequestContextProvider;
@@ -46,11 +45,8 @@ public class SitemapRestService extends AbstractResource {
 
     private final CommonUtilsService utils;
 
-    private final Properties properties;
-
-    public SitemapRestService(CommonUtilsService utils, Properties properties) {
+    public SitemapRestService(CommonUtilsService utils) {
         this.utils = utils;
-        this.properties = properties;
     }
 
     @GET
