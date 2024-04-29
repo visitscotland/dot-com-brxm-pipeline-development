@@ -9,7 +9,7 @@
 
 <#-- @ftlvariable name="module" type="com.visitscotland.brxm.model.SignpostModule" -->
 <#macro signpost module>
-    <vs-module-wrapper theme="grey">
+    <vs-module-wrapper theme="neutral">
         <template v-slot:vs-module-wrapper-heading>
             ${module.title}
         </template>

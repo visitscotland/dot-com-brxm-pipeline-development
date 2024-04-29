@@ -13,7 +13,6 @@
             </#if>
             <vs-footer-accordion-item
                 title="${title}"
-                variant="dark" 
                 control-id="footer_accordion_item_${menuItem?index}" 
                 class="<#if menuItem?is_first>border-start-0 ps-md-0</#if> <#if menuItem?is_last>border-bottom-0</#if>"
             >

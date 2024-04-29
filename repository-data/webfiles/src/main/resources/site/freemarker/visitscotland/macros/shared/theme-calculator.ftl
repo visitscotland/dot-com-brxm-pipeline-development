@@ -18,8 +18,6 @@
         <#return colourScheme[module.themeIndex]>
     <#elseif module?has_content && module.getType() == "ICentreModule">
         <#return "grey">
-    <#elseif module?has_content && module.getType() == "TravelInformationModule">
-        <#return "grey">
     <#else>
         <#return "light">
     </#if>
