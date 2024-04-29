@@ -1,9 +1,10 @@
 /content/documents/administration/configuration/default-properties:
+  .meta:order-before: default-cms-properties
   jcr:primaryType: hippo:handle
   jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
   jcr:uuid: a8a8926f-e625-4162-98b4-29f3c3b819b8
-  hippo:name: Default Properties
-  hippo:versionHistory: 366c96f4-7e7f-427c-b761-1224e4fcda3e
+  hippo:name: Default Properties (Deprecated)
+  hippo:versionHistory: 369ebf74-9572-40a6-9386-25680b24a492
   /default-properties[1]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:versionable']
@@ -112,9 +113,10 @@
     hippo:availability: []
     hippostd:retainable: false
     hippostd:state: draft
+    hippostd:transferable: false
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2021-02-05T15:37:26.056Z
-    hippostdpubwf:lastModificationDate: 2024-03-12T17:32:09.350Z
+    hippostdpubwf:lastModificationDate: 2024-04-29T12:47:10.626+01:00
     hippostdpubwf:lastModifiedBy: admin
     resourcebundle:descriptions: [URL prefix for Instagram endpoints, '', Client Token
         for Instagram request, '', Encoding for requests made to dms data endpoints,
@@ -217,7 +219,7 @@
     hippostdpubwf:creationDate: 2021-02-05T15:37:26.056Z
     hippostdpubwf:lastModificationDate: 2024-03-12T17:53:46.118Z
     hippostdpubwf:lastModifiedBy: admin
-    hippostdpubwf:publicationDate: 2024-03-12T17:53:51.396Z
+    hippostdpubwf:publicationDate: 2024-04-29T12:50:31.898+01:00
     resourcebundle:descriptions: [URL prefix for Instagram endpoints, '', Client Token
         for Instagram request, '', Encoding for requests made to dms data endpoints,
       "Token that identifies calls made to vs-dms-products as internal calls giving\

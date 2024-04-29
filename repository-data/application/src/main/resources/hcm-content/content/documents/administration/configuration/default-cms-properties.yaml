@@ -1,0 +1,196 @@
+/content/documents/administration/configuration/default-cms-properties:
+  jcr:primaryType: hippo:handle
+  jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+  jcr:uuid: 46654866-b5aa-4525-ae73-cb2795834a80
+  hippo:name: Default CMS Properties
+  hippo:versionHistory: 1cf28204-1c1c-481a-a806-03a7e32620ba
+  /default-cms-properties[1]:
+    jcr:primaryType: resourcebundle:resourcebundle
+    jcr:mixinTypes: ['mix:versionable']
+    jcr:uuid: ba04b336-7cf8-4402-968c-812e64bf22e3
+    hippo:availability: [preview]
+    hippostd:retainable: false
+    hippostd:state: unpublished
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2021-02-05T15:37:26.056Z
+    hippostdpubwf:lastModificationDate: 2024-04-29T12:41:42.254+01:00
+    hippostdpubwf:lastModifiedBy: admin
+    resourcebundle:descriptions: [URL prefix for Instagram endpoints, '', Client Token
+        for Instagram request, '', Encoding for requests made to dms data endpoints,
+      "Token that identifies calls made to vs-dms-products as internal calls giving\
+        \ access to wider data\r\n\r\nThis token is configured by the environment\
+        \ variable VS_API_KEY, but it can be overriden here if needed.\r\n\r\nDo not\
+        \ commit a value for this variable to the repository!!", Timeout for requests
+        to the DMS service (in milliseconds), Number of tries to get data from vs-dms-products
+        before any other request is put into sleep., Time to hold any request to the
+        DMS after a failure. in milliseconds, App Id for Instagram request, "When\
+        \ this property is set to true it nullifies links.vs-dms-products.url AND\
+        \ links.cms-base-path.url\r\n\r\nFor instance, this allows local environments\
+        \ to use the default server (http://172.28.81.65:8089)  and feature environments\
+        \ to use relative urls", "This path is prepend to the URL any time a non existing\
+        \ URL needs to be composed.\r\n\r\nCan be nullified by links.use-relative-urls\r\
+        \n\r\nlinks.use-relative-urls", "UI for vs-dms-products.\r\n\r\nThis value\
+        \ will be used to compose urls to vs-dms-products and Canned Search", '',
+      '', '', Indicates if the Header & Footer endpoints will deliver the legacy compatible
+        version (based on 10 pixels base line) by default, "Path of the Header & Footer\
+        \ endpoints which is used for identify URLs able to process the override locale\
+        \ parameter (vs-locale-ctx)\r\n\r\nOverriding the locale parameter allows\
+        \ to use a different language for the labels\r\n\r\nTHE VALUE OF THIS PROPERTY\
+        \ DOES NOT CHANGE THE PATH OF THE ENDPOINTS", "Maximum number of messages\
+        \ stored in the cache.\r\n\r\nWhen the maximum is exceeded the clean up job\
+        \ will trigger cleaning any messages  that its last occurrence exceeds the\
+        \ retention period", "Retention time for the message in seconds\r\n\r\nContent\
+        \ warnings will not be logged again until the retention time expires", '',
+      '', '', '', '', '']
+    resourcebundle:id: default.cms.config
+    resourcebundle:keys: [instagram.api, helpdesk-email, instagram.accesstoken, instagram.post-url,
+      dms-data.encoding, dms-data.api-key, dms-data.timeout, dms-data.tries, dms-data.sleep-time,
+      instagram.app-id, links.use-relative-urls, links.cms-base-path.url, links.vs-dms-products.url,
+      dms-data.public-url, dms-data.private-url, youtube.api-key, data-internal.serve-legacy-css,
+      data-internal.path, content-cache.max-elements, content-cache.retention-period,
+      api-data.backend-url, content-cache.enabled, dms.default-distance, snippet-cache.enable,
+      map.multipolygon.regions, navigation.cms.cache]
+    resourcebundle:messages: ['https://graph.facebook.com/v9.0/instagram_oembed?url=http://instagr.am/p/',
+      helpdesk@visitscotland.com, 0d41c47eaf42b43fe20de05201c798ec, 'https://www.instagram.com/p/',
+      UTF-8, $VS_API_KEY, '2000', '3', '60000', '1293271387429443', 'true', '', 'http://172.28.81.65:8089',
+      /data, 'http://172.28.81.65:8089/data', $YOUTUBE_API_KEY, 'true', /data/internal,
+      '1000', '3600', 'https://api.visitscotland.com/dev/data/', 'true', '10.0', 'false',
+      'argyll-isles,ayrshire-arran,dumfries-galloway,highlands,kingdom-fife,orkney,outer-hebrides,shetland',
+      'true']
+    resourcebundle:messages_de: ['', '', '', '', '', '', '', '', '', '', '', '', '',
+      '', '', '', '', '', '', '', '', '', '', '', '', '']
+    resourcebundle:messages_es: ['', '', '', '', '', '', '', '', '', '', '', '', '',
+      '', '', '', '', '', '', '', '', '', '', '', '', '']
+    resourcebundle:messages_fr: ['', '', '', '', '', '', '', '', '', '', '', '', '',
+      '', '', '', '', '', '', '', '', '', '', '', '', '']
+    resourcebundle:messages_it: ['', '', '', '', '', '', '', '', '', '', '', '', '',
+      '', '', '', '', '', '', '', '', '', '', '', '', '']
+    resourcebundle:messages_nl: ['', '', '', '', '', '', '', '', '', '', '', '', '',
+      '', '', '', '', '', '', '', '', '', '', '', '', '']
+  /default-cms-properties[2]:
+    jcr:primaryType: resourcebundle:resourcebundle
+    jcr:mixinTypes: ['mix:referenceable']
+    jcr:uuid: af69eefc-37f0-44cf-9aca-bb37a4568d73
+    hippo:availability: []
+    hippostd:retainable: false
+    hippostd:state: draft
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2021-02-05T15:37:26.056Z
+    hippostdpubwf:lastModificationDate: 2024-04-26T16:52:35.666+01:00
+    hippostdpubwf:lastModifiedBy: admin
+    resourcebundle:descriptions: [URL prefix for Instagram endpoints, '', Client Token
+        for Instagram request, '', Encoding for requests made to dms data endpoints,
+      "Token that identifies calls made to vs-dms-products as internal calls giving\
+        \ access to wider data\r\n\r\nThis token is configured by the environment\
+        \ variable VS_API_KEY, but it can be overriden here if needed.\r\n\r\nDo not\
+        \ commit a value for this variable to the repository!!", Timeout for requests
+        to the DMS service (in milliseconds), Number of tries to get data from vs-dms-products
+        before any other request is put into sleep., Time to hold any request to the
+        DMS after a failure. in milliseconds, App Id for Instagram request, "When\
+        \ this property is set to true it nullifies links.vs-dms-products.url AND\
+        \ links.cms-base-path.url\r\n\r\nFor instance, this allows local environments\
+        \ to use the default server (http://172.28.81.65:8089)  and feature environments\
+        \ to use relative urls", "This path is prepend to the URL any time a non existing\
+        \ URL needs to be composed.\r\n\r\nCan be nullified by links.use-relative-urls\r\
+        \n\r\nlinks.use-relative-urls", "UI for vs-dms-products.\r\n\r\nThis value\
+        \ will be used to compose urls to vs-dms-products and Canned Search", '',
+      '', '', Indicates if the Header & Footer endpoints will deliver the legacy compatible
+        version (based on 10 pixels base line) by default, "Path of the Header & Footer\
+        \ endpoints which is used for identify URLs able to process the override locale\
+        \ parameter (vs-locale-ctx)\r\n\r\nOverriding the locale parameter allows\
+        \ to use a different language for the labels\r\n\r\nTHE VALUE OF THIS PROPERTY\
+        \ DOES NOT CHANGE THE PATH OF THE ENDPOINTS", "Maximum number of messages\
+        \ stored in the cache.\r\n\r\nWhen the maximum is exceeded the clean up job\
+        \ will trigger cleaning any messages  that its last occurrence exceeds the\
+        \ retention period", "Retention time for the message in seconds\r\n\r\nContent\
+        \ warnings will not be logged again until the retention time expires", '',
+      '', '', '', '', '']
+    resourcebundle:id: default.cms.config
+    resourcebundle:keys: [instagram.api, helpdesk-email, instagram.accesstoken, instagram.post-url,
+      dms-data.encoding, dms-data.api-key, dms-data.timeout, dms-data.tries, dms-data.sleep-time,
+      instagram.app-id, links.use-relative-urls, links.cms-base-path.url, links.vs-dms-products.url,
+      dms-data.public-url, dms-data.private-url, youtube.api-key, data-internal.serve-legacy-css,
+      data-internal.path, content-cache.max-elements, content-cache.retention-period,
+      api-data.backend-url, content-cache.enabled, dms.default-distance, snippet-cache.enable,
+      map.multipolygon.regions, navigation.cms.cache]
+    resourcebundle:messages: ['https://graph.facebook.com/v9.0/instagram_oembed?url=http://instagr.am/p/',
+      helpdesk@visitscotland.com, 0d41c47eaf42b43fe20de05201c798ec, 'https://www.instagram.com/p/',
+      UTF-8, $VS_API_KEY, '2000', '3', '60000', '1293271387429443', 'true', '', 'http://172.28.81.65:8089',
+      /data, 'http://172.28.81.65:8089/data', $YOUTUBE_API_KEY, 'true', /data/internal,
+      '1000', '3600', 'https://api.visitscotland.com/dev/data/', 'true', '10.0', 'false',
+      'argyll-isles,ayrshire-arran,dumfries-galloway,highlands,kingdom-fife,orkney,outer-hebrides,shetland',
+      'true']
+    resourcebundle:messages_de: ['', '', '', '', '', '', '', '', '', '', '', '', '',
+      '', '', '', '', '', '', '', '', '', '', '', '', '']
+    resourcebundle:messages_es: ['', '', '', '', '', '', '', '', '', '', '', '', '',
+      '', '', '', '', '', '', '', '', '', '', '', '', '']
+    resourcebundle:messages_fr: ['', '', '', '', '', '', '', '', '', '', '', '', '',
+      '', '', '', '', '', '', '', '', '', '', '', '', '']
+    resourcebundle:messages_it: ['', '', '', '', '', '', '', '', '', '', '', '', '',
+      '', '', '', '', '', '', '', '', '', '', '', '', '']
+    resourcebundle:messages_nl: ['', '', '', '', '', '', '', '', '', '', '', '', '',
+      '', '', '', '', '', '', '', '', '', '', '', '', '']
+  /default-cms-properties[3]:
+    jcr:primaryType: resourcebundle:resourcebundle
+    jcr:mixinTypes: ['mix:referenceable']
+    jcr:uuid: 1dde2519-10c1-403d-8acc-fd774d568f02
+    hippo:availability: [live]
+    hippostd:retainable: false
+    hippostd:state: published
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2021-02-05T15:37:26.056Z
+    hippostdpubwf:lastModificationDate: 2024-04-29T12:41:42.254+01:00
+    hippostdpubwf:lastModifiedBy: admin
+    hippostdpubwf:publicationDate: 2024-04-29T12:41:45.661+01:00
+    resourcebundle:descriptions: [URL prefix for Instagram endpoints, '', Client Token
+        for Instagram request, '', Encoding for requests made to dms data endpoints,
+      "Token that identifies calls made to vs-dms-products as internal calls giving\
+        \ access to wider data\r\n\r\nThis token is configured by the environment\
+        \ variable VS_API_KEY, but it can be overriden here if needed.\r\n\r\nDo not\
+        \ commit a value for this variable to the repository!!", Timeout for requests
+        to the DMS service (in milliseconds), Number of tries to get data from vs-dms-products
+        before any other request is put into sleep., Time to hold any request to the
+        DMS after a failure. in milliseconds, App Id for Instagram request, "When\
+        \ this property is set to true it nullifies links.vs-dms-products.url AND\
+        \ links.cms-base-path.url\r\n\r\nFor instance, this allows local environments\
+        \ to use the default server (http://172.28.81.65:8089)  and feature environments\
+        \ to use relative urls", "This path is prepend to the URL any time a non existing\
+        \ URL needs to be composed.\r\n\r\nCan be nullified by links.use-relative-urls\r\
+        \n\r\nlinks.use-relative-urls", "UI for vs-dms-products.\r\n\r\nThis value\
+        \ will be used to compose urls to vs-dms-products and Canned Search", '',
+      '', '', Indicates if the Header & Footer endpoints will deliver the legacy compatible
+        version (based on 10 pixels base line) by default, "Path of the Header & Footer\
+        \ endpoints which is used for identify URLs able to process the override locale\
+        \ parameter (vs-locale-ctx)\r\n\r\nOverriding the locale parameter allows\
+        \ to use a different language for the labels\r\n\r\nTHE VALUE OF THIS PROPERTY\
+        \ DOES NOT CHANGE THE PATH OF THE ENDPOINTS", "Maximum number of messages\
+        \ stored in the cache.\r\n\r\nWhen the maximum is exceeded the clean up job\
+        \ will trigger cleaning any messages  that its last occurrence exceeds the\
+        \ retention period", "Retention time for the message in seconds\r\n\r\nContent\
+        \ warnings will not be logged again until the retention time expires", '',
+      '', '', '', '', '']
+    resourcebundle:id: default.cms.config
+    resourcebundle:keys: [instagram.api, helpdesk-email, instagram.accesstoken, instagram.post-url,
+      dms-data.encoding, dms-data.api-key, dms-data.timeout, dms-data.tries, dms-data.sleep-time,
+      instagram.app-id, links.use-relative-urls, links.cms-base-path.url, links.vs-dms-products.url,
+      dms-data.public-url, dms-data.private-url, youtube.api-key, data-internal.serve-legacy-css,
+      data-internal.path, content-cache.max-elements, content-cache.retention-period,
+      api-data.backend-url, content-cache.enabled, dms.default-distance, snippet-cache.enable,
+      map.multipolygon.regions, navigation.cms.cache]
+    resourcebundle:messages: ['https://graph.facebook.com/v9.0/instagram_oembed?url=http://instagr.am/p/',
+      helpdesk@visitscotland.com, 0d41c47eaf42b43fe20de05201c798ec, 'https://www.instagram.com/p/',
+      UTF-8, $VS_API_KEY, '2000', '3', '60000', '1293271387429443', 'true', '', 'http://172.28.81.65:8089',
+      /data, 'http://172.28.81.65:8089/data', $YOUTUBE_API_KEY, 'true', /data/internal,
+      '1000', '3600', 'https://api.visitscotland.com/dev/data/', 'true', '10.0', 'false',
+      'argyll-isles,ayrshire-arran,dumfries-galloway,highlands,kingdom-fife,orkney,outer-hebrides,shetland',
+      'true']
+    resourcebundle:messages_de: ['', '', '', '', '', '', '', '', '', '', '', '', '',
+      '', '', '', '', '', '', '', '', '', '', '', '', '']
+    resourcebundle:messages_es: ['', '', '', '', '', '', '', '', '', '', '', '', '',
+      '', '', '', '', '', '', '', '', '', '', '', '', '']
+    resourcebundle:messages_fr: ['', '', '', '', '', '', '', '', '', '', '', '', '',
+      '', '', '', '', '', '', '', '', '', '', '', '', '']
+    resourcebundle:messages_it: ['', '', '', '', '', '', '', '', '', '', '', '', '',
+      '', '', '', '', '', '', '', '', '', '', '', '', '']
+    resourcebundle:messages_nl: ['', '', '', '', '', '', '', '', '', '', '', '', '',
+      '', '', '', '', '', '', '', '', '', '', '', '', '']
