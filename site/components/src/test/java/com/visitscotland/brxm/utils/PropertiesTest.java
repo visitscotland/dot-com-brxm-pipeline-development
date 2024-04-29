@@ -24,6 +24,9 @@ import static org.mockito.Mockito.*;
 class PropertiesTest {
 
     final static String BUNDLE_ID = CMSProperties.DEFAULT_CONFIG;
+    final static String PROPERTY_KEY = "property-key";
+
+
     @Mock
     ResourceBundleService bundle;
 
@@ -90,7 +93,7 @@ class PropertiesTest {
     @NullSource
     @DisplayName("Empty and wrong values return 0 for Numeric properties")
     void readInteger_empty(String value){
-        when(bundle.getResourceBundle(BUNDLE_ID, Properties.DMS_DATA_TRIES, Locale.UK, false)).thenReturn(value);
+        when(bundle.getResourceBundle(BUNDLE_ID, CMSProperties.DMS_DATA_TRIES, Locale.UK, false)).thenReturn(value);
         value = "";
         assertEquals(0, properties.getDmsTries());
     }
@@ -98,14 +101,14 @@ class PropertiesTest {
     @Test
     @DisplayName("Reads an integer number from a property")
     void readDouble(){
-        when(bundle.getResourceBundle(BUNDLE_ID, Properties.DMS_MAP_DEFAULT_DISTANCE, Locale.UK, false)).thenReturn("3.14");
+        when(bundle.getResourceBundle(BUNDLE_ID, CMSProperties.DMS_MAP_DEFAULT_DISTANCE, Locale.UK, false)).thenReturn("3.14");
         assertEquals(3.14, properties.getDmsMapDefaultDistance());
     }
 
     @Test
     @DisplayName("Can parse Integers from environment variables")
     void readDouble_env(){
-        when(bundle.getResourceBundle(BUNDLE_ID, Properties.DMS_MAP_DEFAULT_DISTANCE, Locale.UK, false)).thenReturn("$TEST_VS");
+        when(bundle.getResourceBundle(BUNDLE_ID, CMSProperties.DMS_MAP_DEFAULT_DISTANCE, Locale.UK, false)).thenReturn("$TEST_VS");
         value = "3.14";
         assertEquals(3.14, properties.getDmsMapDefaultDistance());
     }
@@ -115,7 +118,7 @@ class PropertiesTest {
     @NullSource
     @DisplayName("Empty and wrong values return 0 for Numeric properties")
     void readDouble_empty(String value){
-        when(bundle.getResourceBundle(BUNDLE_ID, Properties.DMS_MAP_DEFAULT_DISTANCE, Locale.UK, false)).thenReturn(value);
+        when(bundle.getResourceBundle(BUNDLE_ID, CMSProperties.DMS_MAP_DEFAULT_DISTANCE, Locale.UK, false)).thenReturn(value);
         assertEquals(0.0, properties.getDmsMapDefaultDistance());
     }
 
@@ -140,7 +143,7 @@ class PropertiesTest {
     @Test
     @DisplayName("getDmsEncoding - Can parse the value from a String")
     void getDmsEncoding(){
-        when(bundle.getResourceBundle(BUNDLE_ID, Properties.DMS_DATA_ENCODING, Locale.UK, false)).thenReturn("ISO-8859-1");
+        when(bundle.getResourceBundle(BUNDLE_ID, CMSProperties.DMS_DATA_ENCODING, Locale.UK, false)).thenReturn("ISO-8859-1");
         assertEquals(StandardCharsets.ISO_8859_1, properties.getDmsEncoding());
     }
 
@@ -149,29 +152,29 @@ class PropertiesTest {
     @NullSource
     @DisplayName("getDmsEncoding - non recognized values return UTF-8 encoding")
     void getDmsEncoding_empty(String value){
-        when(bundle.getResourceBundle(BUNDLE_ID, Properties.DMS_DATA_ENCODING, Locale.UK, false)).thenReturn(value);
+        when(bundle.getResourceBundle(BUNDLE_ID, CMSProperties.DMS_DATA_ENCODING, Locale.UK, false)).thenReturn(value);
         assertEquals(StandardCharsets.UTF_8, properties.getDmsEncoding());
     }
 
     @Test
     @DisplayName("As requested by WebOps, links to vs-dms-products URLs will be relative when use relative urls is active")
     void getDmsHost(){
-        when(bundle.getResourceBundle(BUNDLE_ID, Properties.DMS_HOST, Locale.UK, false)).thenReturn("http://test-dms.visitscotland.com");
-        when(bundle.getResourceBundle(BUNDLE_ID, Properties.USE_RELATIVE_URLS, Locale.UK, false)).thenReturn("false");
+        when(bundle.getResourceBundle(BUNDLE_ID, CMSProperties.DMS_HOST, Locale.UK, false)).thenReturn("http://test-dms.visitscotland.com");
+        when(bundle.getResourceBundle(BUNDLE_ID, CMSProperties.USE_RELATIVE_URLS, Locale.UK, false)).thenReturn("false");
         assertEquals("http://test-dms.visitscotland.com", properties.getDmsHost());
 
-        when(bundle.getResourceBundle(BUNDLE_ID, Properties.USE_RELATIVE_URLS, Locale.UK, false)).thenReturn("true");
+        when(bundle.getResourceBundle(BUNDLE_ID, CMSProperties.USE_RELATIVE_URLS, Locale.UK, false)).thenReturn("true");
         assertEquals("", properties.getDmsHost());
     }
 
     @Test
     @DisplayName("As requested by WebOps, made up links to the CMS, will be relative when use relative urls is active")
     void getLocalHost(){
-        when(bundle.getResourceBundle(BUNDLE_ID, Properties.CMS_BASE_PATH, Locale.UK, false)).thenReturn("http:/localhost:8080/site");
-        when(bundle.getResourceBundle(BUNDLE_ID, Properties.USE_RELATIVE_URLS, Locale.UK, false)).thenReturn("true");
+        when(bundle.getResourceBundle(BUNDLE_ID, CMSProperties.CMS_BASE_PATH, Locale.UK, false)).thenReturn("http:/localhost:8080/site");
+        when(bundle.getResourceBundle(BUNDLE_ID, CMSProperties.USE_RELATIVE_URLS, Locale.UK, false)).thenReturn("true");
         assertEquals("", properties.getDmsHost());
 
-        when(bundle.getResourceBundle(BUNDLE_ID, Properties.USE_RELATIVE_URLS, Locale.UK, false)).thenReturn("false");
+        when(bundle.getResourceBundle(BUNDLE_ID, CMSProperties.USE_RELATIVE_URLS, Locale.UK, false)).thenReturn("false");
         assertEquals("http:/localhost:8080/site", properties.getCmsBasePath());
     }
 
@@ -179,11 +182,11 @@ class PropertiesTest {
     @DisplayName("getInstagramURL() Composes the token from the app-id and the client-token (PR-383)")
     void getInstagramURL(){
 
-        when(bundle.getResourceBundle(BUNDLE_ID, Properties.INSTAGRAM_APP_ID, Locale.UK, false)).thenReturn("{app-id}");
-        when(bundle.getResourceBundle(BUNDLE_ID, Properties.INSTAGRAM_ACCESS_TOKEN, Locale.UK, false)).thenReturn("{client-token}");
+        when(bundle.getResourceBundle(BUNDLE_ID, CMSProperties.INSTAGRAM_APP_ID, Locale.UK, false)).thenReturn("{app-id}");
+        when(bundle.getResourceBundle(BUNDLE_ID, CMSProperties.INSTAGRAM_ACCESS_TOKEN, Locale.UK, false)).thenReturn("{client-token}");
         assertEquals("{app-id}|{client-token}", properties.getInstagramToken());
 
-        when(bundle.getResourceBundle(BUNDLE_ID, Properties.INSTAGRAM_ACCESS_TOKEN, Locale.UK, false)).thenReturn("");
+        when(bundle.getResourceBundle(BUNDLE_ID, CMSProperties.INSTAGRAM_ACCESS_TOKEN, Locale.UK, false)).thenReturn("");
         assertEquals("{app-id}", properties.getInstagramToken());
     }
 
@@ -219,21 +222,9 @@ class PropertiesTest {
     }
 
     @Test
-    @DisplayName("VS-2756 - Return InternalSites as a list")
-    void getInternalSites(){
-        when(bundle.getResourceBundle(BUNDLE_ID, Properties.INTERNAL_SITES, Locale.UK, false)).thenReturn("  aaa , bbb,,,ccc,");
-        List<String> hosts = properties.getInternalSites();
-
-        assertEquals(3,hosts.size());
-        assertEquals("aaa",hosts.get(0));
-        assertEquals("bbb",hosts.get(1));
-        assertEquals("ccc",hosts.get(2));
-     }
-
-    @Test
     @DisplayName("VS-3183 - Use default.config as the default properties given by the CMS from the codebase")
     void propertyValues_defaultConfig(){
-        when(bundle.getResourceBundle(BUNDLE_ID, Properties.DMS_DATA_API_KEY, Locale.UK, false)).thenReturn("PROP-VALUE");
+        when(bundle.getResourceBundle(BUNDLE_ID, CMSProperties.DMS_DATA_API_KEY, Locale.UK, false)).thenReturn("PROP-VALUE");
 
         assertEquals("PROP-VALUE", properties.getDmsToken());
     }
@@ -250,10 +241,10 @@ class PropertiesTest {
     @DisplayName("VS-3183 - Override properties when configured in the mount")
     void propertyValues_overrideConfig(){
         customizedProperties();
-        when(bundle.getResourceBundle(ENV_PROPERTIES, Properties.DMS_DATA_API_KEY, Locale.UK, true)).thenReturn("OVERRIDE-VALUE");
+        when(bundle.getResourceBundle(ENV_PROPERTIES, CMSProperties.DMS_DATA_API_KEY, Locale.UK, true)).thenReturn("OVERRIDE-VALUE");
 
         //This is not expected to be called but if were, It shouldn't affect the outcome of the method
-        lenient().when(bundle.getResourceBundle(BUNDLE_ID, Properties.DMS_DATA_API_KEY, Locale.UK, false)).thenReturn("DEFAULT-VALUE");
+        lenient().when(bundle.getResourceBundle(BUNDLE_ID, CMSProperties.DMS_DATA_API_KEY, Locale.UK, false)).thenReturn("DEFAULT-VALUE");
 
         assertEquals("OVERRIDE-VALUE", properties.getDmsToken());
     }
@@ -262,10 +253,10 @@ class PropertiesTest {
     @DisplayName("VS-3183 - If the property is not found in the file defined in the mount, it takes the value from default.config")
     void propertyValues_overrideConfig_defaultValue(){
         customizedProperties();
-        when(bundle.getResourceBundle(ENV_PROPERTIES, Properties.DMS_DATA_API_KEY, Locale.UK, true)).thenReturn(null);
+        when(bundle.getResourceBundle(ENV_PROPERTIES, CMSProperties.DMS_DATA_API_KEY, Locale.UK, true)).thenReturn(null);
 
         //This is not expected to be called but if were, It shouldn't affect the outcome of the method
-        when(bundle.getResourceBundle(BUNDLE_ID, Properties.DMS_DATA_API_KEY, Locale.UK, false)).thenReturn("DEFAULT-VALUE");
+        when(bundle.getResourceBundle(BUNDLE_ID, CMSProperties.DMS_DATA_API_KEY, Locale.UK, false)).thenReturn("DEFAULT-VALUE");
 
         assertEquals("DEFAULT-VALUE", properties.getDmsToken());
     }
@@ -273,40 +264,40 @@ class PropertiesTest {
     @Test
     @DisplayName("VS-3908 - The properties can have specific values for different locales")
     void locales(){
-        when(bundle.getResourceBundle(BUNDLE_ID, Properties.GLOBAL_SEARCH_PATH, Locale.UK, false)).thenReturn("/site/site-search-results");
-        assertEquals("/site/site-search-results", properties.getProperty(Properties.GLOBAL_SEARCH_PATH));
+        when(bundle.getResourceBundle(BUNDLE_ID, PROPERTY_KEY, Locale.UK, false)).thenReturn("/site/site-search-results");
+        assertEquals("/site/site-search-results", properties.getProperty(PROPERTY_KEY));
 
-        when(bundle.getResourceBundle(BUNDLE_ID, Properties.GLOBAL_SEARCH_PATH, Locale.FRANCE, true)).thenReturn("/site/fr/site-search-results");
-        assertEquals("/site/fr/site-search-results", properties.getProperty(Properties.GLOBAL_SEARCH_PATH, Locale.FRANCE));
+        when(bundle.getResourceBundle(BUNDLE_ID, PROPERTY_KEY, Locale.FRANCE, true)).thenReturn("/site/fr/site-search-results");
+        assertEquals("/site/fr/site-search-results", properties.getProperty(PROPERTY_KEY, Locale.FRANCE));
     }
 
     @Test
     @DisplayName("VS-3908 - Properties in the language fallback to English")
     void locales_defaultEnglish(){
-        when(bundle.getResourceBundle(BUNDLE_ID, Properties.GLOBAL_SEARCH_PATH, Locale.FRANCE, true)).thenReturn("");
-        when(bundle.getResourceBundle(BUNDLE_ID, Properties.GLOBAL_SEARCH_PATH, Locale.UK, false)).thenReturn("/site/site-search-results");
-        assertEquals("/site/site-search-results", properties.getProperty(Properties.GLOBAL_SEARCH_PATH, Locale.FRANCE));
+        when(bundle.getResourceBundle(BUNDLE_ID, PROPERTY_KEY, Locale.FRANCE, true)).thenReturn("");
+        when(bundle.getResourceBundle(BUNDLE_ID, PROPERTY_KEY, Locale.UK, false)).thenReturn("/site/site-search-results");
+        assertEquals("/site/site-search-results", properties.getProperty(PROPERTY_KEY, Locale.FRANCE));
     }
 
     @Test
     @DisplayName("VS-3908 - non-existing localized custom properties -> Localized global properties")
     void locales_overrideProperties(){
         customizedProperties();
-        when(bundle.getResourceBundle(ENV_PROPERTIES, Properties.ENGINE_ID, Locale.FRANCE, true)).thenReturn("");
-        when(bundle.getResourceBundle(ENV_PROPERTIES, Properties.ENGINE_ID, Locale.UK, true)).thenReturn("");
-        when(bundle.getResourceBundle(BUNDLE_ID, Properties.ENGINE_ID, Locale.FRANCE, true)).thenReturn("555");
-        assertEquals("555", properties.getProperty(Properties.ENGINE_ID, Locale.FRANCE));
+        when(bundle.getResourceBundle(ENV_PROPERTIES, PROPERTY_KEY, Locale.FRANCE, true)).thenReturn("");
+        when(bundle.getResourceBundle(ENV_PROPERTIES, PROPERTY_KEY, Locale.UK, true)).thenReturn("");
+        when(bundle.getResourceBundle(BUNDLE_ID, PROPERTY_KEY, Locale.FRANCE, true)).thenReturn("555");
+        assertEquals("555", properties.getProperty(PROPERTY_KEY, Locale.FRANCE));
     }
 
     @Test
     @DisplayName("VS-3908 - non-existing localized custom properties -> English global properties")
     void locales_overrideProperties_defaultEnglish(){
         customizedProperties();
-        when(bundle.getResourceBundle(ENV_PROPERTIES, Properties.ENGINE_ID, Locale.JAPAN, true)).thenReturn("");
-        when(bundle.getResourceBundle(ENV_PROPERTIES, Properties.ENGINE_ID, Locale.UK, true)).thenReturn("");
-        when(bundle.getResourceBundle(BUNDLE_ID, Properties.ENGINE_ID, Locale.JAPAN, true)).thenReturn("");
-        when(bundle.getResourceBundle(BUNDLE_ID, Properties.ENGINE_ID, Locale.UK, false)).thenReturn("131");
-        assertEquals("131", properties.getProperty(Properties.ENGINE_ID, Locale.JAPAN));
+        when(bundle.getResourceBundle(ENV_PROPERTIES, PROPERTY_KEY, Locale.JAPAN, true)).thenReturn("");
+        when(bundle.getResourceBundle(ENV_PROPERTIES, PROPERTY_KEY, Locale.UK, true)).thenReturn("");
+        when(bundle.getResourceBundle(BUNDLE_ID, PROPERTY_KEY, Locale.JAPAN, true)).thenReturn("");
+        when(bundle.getResourceBundle(BUNDLE_ID, PROPERTY_KEY, Locale.UK, false)).thenReturn("131");
+        assertEquals("131", properties.getProperty(PROPERTY_KEY, Locale.JAPAN));
     }
 
 }
