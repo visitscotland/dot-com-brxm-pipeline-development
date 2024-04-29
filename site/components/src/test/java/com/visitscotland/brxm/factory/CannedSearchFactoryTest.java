@@ -10,6 +10,7 @@ import com.visitscotland.brxm.mock.CannedSearchToursMockBuilder;
 import com.visitscotland.brxm.model.*;
 import com.visitscotland.brxm.services.LinkService;
 import com.visitscotland.brxm.services.ResourceBundleService;
+import com.visitscotland.brxm.utils.CMSProperties;
 import com.visitscotland.brxm.utils.ContentLogger;
 import com.visitscotland.brxm.utils.Properties;
 import org.hippoecm.hst.core.container.ComponentManager;
@@ -41,7 +42,7 @@ class CannedSearchFactoryTest {
     DMSDataService dmsData;
 
     @Mock
-    Properties properties;
+    CMSProperties properties;
 
     @Mock
     ContentLogger logger;

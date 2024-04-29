@@ -2,6 +2,7 @@ package com.visitscotland.brxm.dms;
 
 import com.visitscotland.brxm.dms.model.LocationObject;
 import com.visitscotland.brxm.hippobeans.ProductsSearch;
+import com.visitscotland.brxm.utils.CMSProperties;
 import com.visitscotland.brxm.utils.Language;
 import com.visitscotland.brxm.utils.Properties;
 import com.visitscotland.brxm.utils.VsException;
@@ -26,7 +27,7 @@ class ProductSearchBuilderTest {
     private final static String DEFAULT_TYPE = "cate";
 
     @Mock
-    Properties properties;
+    CMSProperties properties;
 
     @Mock
     LocationLoader locationLoader;

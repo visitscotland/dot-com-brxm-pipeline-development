@@ -7,6 +7,7 @@ import com.visitscotland.brxm.hippobeans.Destination;
 import com.visitscotland.brxm.hippobeans.Page;
 import com.visitscotland.brxm.model.PSModule;
 import com.visitscotland.brxm.services.ResourceBundleService;
+import com.visitscotland.brxm.utils.CMSProperties;
 import com.visitscotland.brxm.utils.Properties;
 import org.hippoecm.hst.mock.core.component.MockHstRequest;
 import org.junit.jupiter.api.Assertions;
@@ -26,7 +27,7 @@ import static com.visitscotland.brxm.factory.ProductSearchWidgetFactory.BUNDLE_I
 import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
-public class ProductSearchWidgetFactoryTest {
+class ProductSearchWidgetFactoryTest {
 
     private static final Locale LOCALE = Locale.UK;
 
@@ -37,7 +38,7 @@ public class ProductSearchWidgetFactoryTest {
     LocationLoader locationLoader;
 
     @Mock
-    Properties properties;
+    CMSProperties properties;
 
     @InjectMocks
     ProductSearchWidgetFactory factory;
