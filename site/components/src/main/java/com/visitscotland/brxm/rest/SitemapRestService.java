@@ -175,16 +175,18 @@ public class SitemapRestService extends AbstractResource {
         HstRequestContext context = RequestContextProvider.get();
         String currentHost = context.getVirtualHost().getHostGroupName();
 
-        for (Mount mount : context.getVirtualHost().getVirtualHosts().getMountsByHostGroup(currentHost)) {
-            if (mount.getParent() == null){
-                if (channel.equals("hst:root")){
-                    return mount;
-                }
-            } else if (channel.equals(mount.getName())){
-                return mount;
+        Mount rootMount = context.getResolvedMount().getMount().getParent();
+
+        if (channel.equals("hst:root")){
+            return rootMount;
+        } else {
+            Mount lang = rootMount.getChildMount(channel);
+            if (lang == null) {
+                logger.warn("The mount point for the channel {} was not located. Defaulting to English", channel);
+                throw new VsException("The requested channel was not found");
+            } else {
+                return lang;
             }
         }
-        logger.warn("The mount point for the channel {} was not located. Defaulting to English", channel);
-        throw new VsException("The requested channel was not found");
     }
 }
