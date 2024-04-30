@@ -48,8 +48,7 @@ public class HippoUtilsService {
 
     private static final Logger logger = LoggerFactory.getLogger(HippoUtilsService.class);
 
-    private final static String SITE_ID = "visitscotland:site";
-    public final static String BUSINESS_EVENTS_SITE = "business-events";
+    public static final String BUSINESS_EVENTS_SITE = "business-events";
 
 
     private SiteProperties properties;
@@ -223,7 +222,8 @@ public class HippoUtilsService {
     }
 
     /**
-     * TODO Comment
+     * Resolves the mount for the current request
+     *
      * @param request the HstRequest request
      * @param mount String (i.e: "es-es", "business-events", ...)
      *
@@ -368,13 +368,13 @@ public class HippoUtilsService {
      */
     @NonTestable(NonTestable.Cause.BRIDGE)
     public boolean isBusinessEventsSite(HstRequest request){
-        String site = properties.getProperty("site-id");
+        String site = properties.getSiteId();
         if (!Contract.isEmpty(site)){
             if (site.equals(BUSINESS_EVENTS_SITE)){
                 return true;
             } else {
-                logger.error("The configuration for the mount cannot be interpreted ({} = {}) for the following request: {}",
-                        SITE_ID, site, request.getRequestURI());
+                logger.error("The configuration for the mount cannot be interpreted (site-id = {}) for the following request: {}",
+                        site, request.getRequestURI());
             }
         }
         return false;

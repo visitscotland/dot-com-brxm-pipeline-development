@@ -15,11 +15,10 @@ import java.util.stream.Collectors;
 @Component
 public class SiteProperties extends Properties {
 
-    private static final Logger logger = LoggerFactory.getLogger(SiteProperties.class.getName());
-
     static final String DEFAULT_CONFIG = "default.site.config";
     static final String OVERRIDE_PROPERTY = "visitscotland:siteProperties";
 
+    static final String SITE_ID = "site-id";
     static final String IKNOW_COMMUNITY_URL = "iknow-community.url";
     static final String IKNOW_COMMUNITY_TAGGED_DISCUSSION = "iknow-community.tagged-discussion";
 
@@ -149,5 +148,9 @@ public class SiteProperties extends Properties {
 
     public Boolean getFormsMarketoIsProduction() {
         return readBoolean(FORMS_MARKETO_IS_PRODUCTION);
+    }
+
+    public String getSiteId() {
+        return readString(SITE_ID);
     }
 }
