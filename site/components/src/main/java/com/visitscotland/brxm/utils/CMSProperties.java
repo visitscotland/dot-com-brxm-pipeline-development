@@ -41,6 +41,7 @@ public class CMSProperties extends Properties {
     static final String INSTAGRAM_APP_ID = "instagram.app-id";
     static final String INSTAGRAM_URL = "instagram.post-url";
     static final String YOUTUBE_API_KEY = "youtube.api-key";
+    static final String YOUTUBE_API_BASE = "youtube.api-base";
 
     //CMS Cache
     static final String SNIPPET_CACHE = "snippet-cache.enable";
@@ -100,19 +101,11 @@ public class CMSProperties extends Properties {
     }
 
     public String getDmsHost() {
-        if (isRelativeURLs()) {
-            return "";
-        } else {
-            return readString(DMS_HOST);
-        }
+        return isRelativeURLs() ? "" : readString(DMS_HOST);
     }
 
     public String getCmsBasePath() {
-        if (isRelativeURLs()) {
-            return "";
-        } else {
-            return readString(CMS_BASE_PATH);
-        }
+        return isRelativeURLs() ? "" : readString(CMS_BASE_PATH);
     }
 
     public String getApiDataBackendHost() {
@@ -145,6 +138,10 @@ public class CMSProperties extends Properties {
 
     public String getYoutubeApiKey() {
         return readString(YOUTUBE_API_KEY);
+    }
+
+    public String getYoutubeApiBase() {
+        return readString(YOUTUBE_API_BASE);
     }
 
     public String getDmsInternalPath() {
