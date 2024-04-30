@@ -51,7 +51,6 @@ public class CMSProperties extends Properties {
     static final String NAVIGATION_CACHE = "navigation.cms.cache";
 
     // External Header and Footer configuration.
-    // These properties techni
     static final String SERVE_LECAGY_CSS = "data-internal.serve-legacy-css";
     static final String DMS_INTERNAL_PATH = "data-internal.path";
 
