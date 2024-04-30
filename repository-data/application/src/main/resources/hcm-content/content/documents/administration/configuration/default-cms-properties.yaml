@@ -14,7 +14,7 @@
     hippostd:state: unpublished
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2021-02-05T15:37:26.056Z
-    hippostdpubwf:lastModificationDate: 2024-04-29T12:41:42.254+01:00
+    hippostdpubwf:lastModificationDate: 2024-04-30T14:35:42.281+01:00
     hippostdpubwf:lastModifiedBy: admin
     resourcebundle:descriptions: [URL prefix for Instagram endpoints, '', Client Token
         for Instagram request, '', Encoding for requests made to dms data endpoints,
@@ -42,7 +42,7 @@
         \ will trigger cleaning any messages  that its last occurrence exceeds the\
         \ retention period", "Retention time for the message in seconds\r\n\r\nContent\
         \ warnings will not be logged again until the retention time expires", '',
-      '', '', '', '', '']
+      '', '', '', '', '', "Based URL for Youtube Metadata.\r\n\r\nhttps://www.googleapis.com/youtube/v3/"]
     resourcebundle:id: default.cms.config
     resourcebundle:keys: [instagram.api, helpdesk-email, instagram.accesstoken, instagram.post-url,
       dms-data.encoding, dms-data.api-key, dms-data.timeout, dms-data.tries, dms-data.sleep-time,
@@ -50,24 +50,24 @@
       dms-data.public-url, dms-data.private-url, youtube.api-key, data-internal.serve-legacy-css,
       data-internal.path, content-cache.max-elements, content-cache.retention-period,
       api-data.backend-url, content-cache.enabled, dms.default-distance, snippet-cache.enable,
-      map.multipolygon.regions, navigation.cms.cache]
+      map.multipolygon.regions, navigation.cms.cache, youtube.api-base]
     resourcebundle:messages: ['https://graph.facebook.com/v9.0/instagram_oembed?url=http://instagr.am/p/',
       helpdesk@visitscotland.com, 0d41c47eaf42b43fe20de05201c798ec, 'https://www.instagram.com/p/',
       UTF-8, $VS_API_KEY, '2000', '3', '60000', '1293271387429443', 'true', '', 'http://172.28.81.65:8089',
       /data, 'http://172.28.81.65:8089/data', $YOUTUBE_API_KEY, 'true', /data/internal,
       '1000', '3600', 'https://api.visitscotland.com/dev/data/', 'true', '10.0', 'false',
       'argyll-isles,ayrshire-arran,dumfries-galloway,highlands,kingdom-fife,orkney,outer-hebrides,shetland',
-      'true']
+      'true', 'https://www.googleapis.com/youtube/v3/']
     resourcebundle:messages_de: ['', '', '', '', '', '', '', '', '', '', '', '', '',
-      '', '', '', '', '', '', '', '', '', '', '', '', '']
+      '', '', '', '', '', '', '', '', '', '', '', '', '', '']
     resourcebundle:messages_es: ['', '', '', '', '', '', '', '', '', '', '', '', '',
-      '', '', '', '', '', '', '', '', '', '', '', '', '']
+      '', '', '', '', '', '', '', '', '', '', '', '', '', '']
     resourcebundle:messages_fr: ['', '', '', '', '', '', '', '', '', '', '', '', '',
-      '', '', '', '', '', '', '', '', '', '', '', '', '']
+      '', '', '', '', '', '', '', '', '', '', '', '', '', '']
     resourcebundle:messages_it: ['', '', '', '', '', '', '', '', '', '', '', '', '',
-      '', '', '', '', '', '', '', '', '', '', '', '', '']
+      '', '', '', '', '', '', '', '', '', '', '', '', '', '']
     resourcebundle:messages_nl: ['', '', '', '', '', '', '', '', '', '', '', '', '',
-      '', '', '', '', '', '', '', '', '', '', '', '', '']
+      '', '', '', '', '', '', '', '', '', '', '', '', '', '']
   /default-cms-properties[2]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:referenceable']
@@ -77,7 +77,7 @@
     hippostd:state: draft
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2021-02-05T15:37:26.056Z
-    hippostdpubwf:lastModificationDate: 2024-04-26T16:52:35.666+01:00
+    hippostdpubwf:lastModificationDate: 2024-04-30T14:32:52.380+01:00
     hippostdpubwf:lastModifiedBy: admin
     resourcebundle:descriptions: [URL prefix for Instagram endpoints, '', Client Token
         for Instagram request, '', Encoding for requests made to dms data endpoints,
@@ -105,7 +105,7 @@
         \ will trigger cleaning any messages  that its last occurrence exceeds the\
         \ retention period", "Retention time for the message in seconds\r\n\r\nContent\
         \ warnings will not be logged again until the retention time expires", '',
-      '', '', '', '', '']
+      '', '', '', '', '', "Based URL for Youtube Metadata.\r\n\r\nhttps://www.googleapis.com/youtube/v3/"]
     resourcebundle:id: default.cms.config
     resourcebundle:keys: [instagram.api, helpdesk-email, instagram.accesstoken, instagram.post-url,
       dms-data.encoding, dms-data.api-key, dms-data.timeout, dms-data.tries, dms-data.sleep-time,
@@ -113,24 +113,24 @@
       dms-data.public-url, dms-data.private-url, youtube.api-key, data-internal.serve-legacy-css,
       data-internal.path, content-cache.max-elements, content-cache.retention-period,
       api-data.backend-url, content-cache.enabled, dms.default-distance, snippet-cache.enable,
-      map.multipolygon.regions, navigation.cms.cache]
+      map.multipolygon.regions, navigation.cms.cache, youtube.api-base]
     resourcebundle:messages: ['https://graph.facebook.com/v9.0/instagram_oembed?url=http://instagr.am/p/',
       helpdesk@visitscotland.com, 0d41c47eaf42b43fe20de05201c798ec, 'https://www.instagram.com/p/',
       UTF-8, $VS_API_KEY, '2000', '3', '60000', '1293271387429443', 'true', '', 'http://172.28.81.65:8089',
       /data, 'http://172.28.81.65:8089/data', $YOUTUBE_API_KEY, 'true', /data/internal,
       '1000', '3600', 'https://api.visitscotland.com/dev/data/', 'true', '10.0', 'false',
       'argyll-isles,ayrshire-arran,dumfries-galloway,highlands,kingdom-fife,orkney,outer-hebrides,shetland',
-      'true']
+      'true', 'https://www.googleapis.com/youtube/v3/']
     resourcebundle:messages_de: ['', '', '', '', '', '', '', '', '', '', '', '', '',
-      '', '', '', '', '', '', '', '', '', '', '', '', '']
+      '', '', '', '', '', '', '', '', '', '', '', '', '', '']
     resourcebundle:messages_es: ['', '', '', '', '', '', '', '', '', '', '', '', '',
-      '', '', '', '', '', '', '', '', '', '', '', '', '']
+      '', '', '', '', '', '', '', '', '', '', '', '', '', '']
     resourcebundle:messages_fr: ['', '', '', '', '', '', '', '', '', '', '', '', '',
-      '', '', '', '', '', '', '', '', '', '', '', '', '']
+      '', '', '', '', '', '', '', '', '', '', '', '', '', '']
     resourcebundle:messages_it: ['', '', '', '', '', '', '', '', '', '', '', '', '',
-      '', '', '', '', '', '', '', '', '', '', '', '', '']
+      '', '', '', '', '', '', '', '', '', '', '', '', '', '']
     resourcebundle:messages_nl: ['', '', '', '', '', '', '', '', '', '', '', '', '',
-      '', '', '', '', '', '', '', '', '', '', '', '', '']
+      '', '', '', '', '', '', '', '', '', '', '', '', '', '']
   /default-cms-properties[3]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:referenceable']

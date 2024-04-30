@@ -24,7 +24,6 @@ public class YoutubeApiService {
     private final CMSProperties properties;
 
     private static final Logger logger = LoggerFactory.getLogger(YoutubeApiService.class);
-    private static final String YOUTUBE_API_BASE = "https://www.googleapis.com/youtube/v3/";
 
     public YoutubeApiService(CMSProperties properties, CommonUtilsService commonUtilsService) {
         this.commonUtilsService = commonUtilsService;
@@ -47,7 +46,7 @@ public class YoutubeApiService {
             return Optional.empty();
         }
         try {
-            String apiRequestUrl = String.format("%svideos?key=%s&part=snippet&id=%s", YOUTUBE_API_BASE, youtubeApiKey, youtubeId);
+            String apiRequestUrl = String.format("%svideos?key=%s&part=snippet&id=%s", properties.getYoutubeApiBase(), youtubeApiKey, youtubeId);
             URLConnection conn = commonUtilsService.openConnection(apiRequestUrl);
             conn.setConnectTimeout(1000);
             YoutubeListResponse jsonResponse = new ObjectMapper().readValue(conn.getInputStream(), YoutubeListResponse.class);
