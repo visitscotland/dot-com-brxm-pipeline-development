@@ -1,8 +1,64 @@
 definitions:
   config:
-    /hippo:configuration/hippo:domains/content/content-domain/exclude-administration:
-      jcr:primaryType: hipposys:facetrule
-      hipposys:equals: false
-      hipposys:facet: jcr:path
-      hipposys:type: Reference
-      hipposys:value: /content/documents/administration
+    /hippo:configuration/hippo:domains/content/content-folder-domain:
+      jcr:primaryType: hipposys:domainrule
+      /content-and-descendants:
+        jcr:primaryType: hipposys:facetrule
+        hipposys:equals: true
+        hipposys:facet: jcr:path
+        hipposys:type: Reference
+        hipposys:value: /content/documents/
+      /exclude-administration:
+        jcr:primaryType: hipposys:facetrule
+        hipposys:equals: false
+        hipposys:facet: jcr:path
+        hipposys:type: Reference
+        hipposys:value: /content/documents/administration
+      /exclude-business-events:
+        jcr:primaryType: hipposys:facetrule
+        hipposys:equals: false
+        hipposys:facet: jcr:path
+        hipposys:type: Reference
+        hipposys:value: /content/documents/business-events
+      /exclude-visitscotland:
+        jcr:primaryType: hipposys:facetrule
+        hipposys:equals: false
+        hipposys:facet: jcr:path
+        hipposys:type: Reference
+        hipposys:value: /content/documents/visitscotland
+      /exclude-visitscotland-de:
+        jcr:primaryType: hipposys:facetrule
+        hipposys:equals: false
+        hipposys:facet: jcr:path
+        hipposys:type: Reference
+        hipposys:value: /content/documents/www.visitscotland.com-de
+      /exclude-visitscotland-es:
+        jcr:primaryType: hipposys:facetrule
+        hipposys:equals: false
+        hipposys:facet: jcr:path
+        hipposys:type: Reference
+        hipposys:value: /content/documents/www.visitscotland.com-es
+      /exclude-visitscotland-nl:
+        jcr:primaryType: hipposys:facetrule
+        hipposys:equals: false
+        hipposys:facet: jcr:path
+        hipposys:type: Reference
+        hipposys:value: /content/documents/www.visitscotland.com-nl
+      /exclude-visitscotland-fr:
+        jcr:primaryType: hipposys:facetrule
+        hipposys:equals: false
+        hipposys:facet: jcr:path
+        hipposys:type: Reference
+        hipposys:value: /content/documents/www.visitscotland.com-fr
+      /exclude-visitscotland-it:
+        jcr:primaryType: hipposys:facetrule
+        hipposys:equals: false
+        hipposys:facet: jcr:path
+        hipposys:type: Reference
+        hipposys:value: /content/documents/www.visitscotland.com-it
+    /hippo:configuration/hippo:domains/content/content-domain:
+      .meta:delete: true
+    /hippo:configuration/hippo:domains/content/author:
+      .meta:delete: true
+    /hippo:configuration/hippo:domains/content/editor:
+      .meta:delete: true

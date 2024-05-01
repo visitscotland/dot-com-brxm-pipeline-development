@@ -15,7 +15,7 @@
                 title="${title}"
                 variant="dark" 
                 control-id="footer_accordion_item_${menuItem?index}" 
-                class="<#if menuItem?is_first>border-left-0 pl-md-0</#if> <#if menuItem?is_last>border-bottom-0</#if>"
+                class="<#if menuItem?is_first>border-start-0 ps-md-0</#if> <#if menuItem?is_last>border-bottom-0</#if>"
             >
                 <template v-slot:icon-open>
                     <vs-icon name="chevron" variant="light" size="xs"></vs-icon>

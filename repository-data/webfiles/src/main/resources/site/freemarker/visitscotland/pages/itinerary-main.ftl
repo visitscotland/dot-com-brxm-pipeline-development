@@ -72,7 +72,7 @@
                                             icon-only
                                             variant="transparent"
                                         >
-                                            <span class="sr-only">
+                                            <span class="visually-hidden">
                                                 ${label("transports", "${transport}")}
                                             </span>
                                         </vs-tooltip>

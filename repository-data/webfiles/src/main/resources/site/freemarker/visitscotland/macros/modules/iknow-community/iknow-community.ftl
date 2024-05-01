@@ -39,7 +39,7 @@
                     offset-lg="0"
                     xl="5"
                     offset-xl="1"
-                    class="text-left"
+                    class="text-start"
                 >
                     <vs-rich-text-wrapper variant="lead" class="mb-4">
                         <@hst.html hippohtml=module.copy/>

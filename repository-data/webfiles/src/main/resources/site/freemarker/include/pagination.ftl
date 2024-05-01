@@ -4,7 +4,7 @@
 <@hst.setBundle basename="essentials.pagination"/>
 <ul class="pagination">
     <li class="disabled">
-        <a href="#">${pageable.total}&nbsp;<@fmt.message key="results.indication" var="indication"/>${indication?html}</a>
+        <a href="#">${pageable.total}&nbsp; document(s)${indication?html}</a>
     </li>
   <#if pageable.totalPages gt 1>
     <#list pageable.pageNumbersArray as pageNr>

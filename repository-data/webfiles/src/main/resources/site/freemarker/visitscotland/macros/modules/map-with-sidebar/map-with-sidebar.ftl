@@ -95,11 +95,14 @@
             </#if>
         >
             <template v-slot:close-side-panel-text>
-                <span class="sr-only">
+                <span class="visually-hidden">
                     ${label('map', 'map.close-panel')}
                 </span>
             </template>
             <template v-slot:open-side-panel-text>
+                ${label('map', 'map.open-panel')}
+            </template>
+            <template v-slot:menu-btn-text>
                 ${label('map', 'map.open-panel')}
             </template>
             <template v-slot:back-btn-text>
