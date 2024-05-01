@@ -40,7 +40,7 @@
       <version>${project.version}</version>
       <type>pom</type>
     </dependency>
-    
+
     <!-- TODO review this dependency cms-site -->
     <dependency>
       <groupId>${project.groupId}</groupId>
@@ -48,14 +48,13 @@
       <version>${project.version}</version>
       <scope>compile</scope>
     </dependency>
-  
+
     <!-- This dependecy overrides the ones defined by data-service-api and swagger -->
     <dependency>
       <groupId>org.apache.commons</groupId>
       <artifactId>commons-lang3</artifactId>
-      <version>${commons-lan3.version}</version>
     </dependency>
-  
+
     <dependency>
       <groupId>com.visitscotland</groupId>
       <artifactId>data-service-api</artifactId>
