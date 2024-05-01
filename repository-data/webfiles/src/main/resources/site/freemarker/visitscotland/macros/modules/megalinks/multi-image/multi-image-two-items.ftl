@@ -26,7 +26,7 @@
                 transport-name="${label('transports', megalink.itineraryTransport)}"
             </#if>
             <#if megalink.itineraryDays??>
-                <#if megalink.itineraryDays = 1>
+                <#if megalink.itineraryDays == 1>
                     days-label="${label('itinerary', 'day')}"
                 <#else>
                     days-label="${label('itinerary', 'days')}"
@@ -40,10 +40,10 @@
                 video-btn-text="${label('video', 'video.play-btn')}"
             </#if>
         >
-            <template slot="vsMultiImageHeading">
+            <template v-slot:vs-multi-image-heading>
                 ${megalink.label}</template>
             <#if showTeaser == 'true'>
-                <template slot="vsMultiImageContent">
+                <template v-slot:vs-multi-image-content>
                     <p>${megalink.teaser}</p>
                 </template>
             </#if>

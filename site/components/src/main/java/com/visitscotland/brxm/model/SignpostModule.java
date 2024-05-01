@@ -8,6 +8,7 @@ public class SignpostModule extends Module {
     private String title;
     private HippoHtmlWrapper copy;
     private FlatLink cta;
+    private FlatImage image;
 
     public String getTitle() {
         return title;
@@ -31,5 +32,13 @@ public class SignpostModule extends Module {
 
     public void setCta(FlatLink cta) {
         this.cta = cta;
+    }
+
+    public FlatImage getImage() {
+        return image;
+    }
+
+    public void setImage(FlatImage image) {
+        this.image = image;
     }
 }

@@ -4,10 +4,12 @@ import com.visitscotland.brxm.components.content.GeneralContentComponent;
 import com.visitscotland.brxm.factory.*;
 import com.visitscotland.brxm.hippobeans.*;
 import com.visitscotland.brxm.model.*;
+import com.visitscotland.brxm.model.Module;
 import com.visitscotland.brxm.model.megalinks.LinksModule;
 import com.visitscotland.brxm.model.megalinks.MultiImageLinksModule;
 import com.visitscotland.brxm.model.megalinks.SingleImageLinksModule;
 import com.visitscotland.brxm.services.DocumentUtilsService;
+import com.visitscotland.brxm.services.ResourceBundleService;
 import com.visitscotland.utils.Contract;
 import org.hippoecm.hst.core.component.HstRequest;
 import org.slf4j.Logger;
@@ -15,9 +17,10 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.MissingResourceException;
+import java.util.*;
+
+import static com.visitscotland.brxm.components.content.PageContentComponent.LABELS;
+import static com.visitscotland.brxm.services.ResourceBundleService.GLOBAL_BUNDLE_FILE;
 
 @Component
 public class PageTemplateBuilder {
@@ -27,10 +30,10 @@ public class PageTemplateBuilder {
     //Static Constant
     static final String INTRO_THEME = "introTheme";
     static final String PAGE_ITEMS = "pageItems";
-    static final String SEARCH_RESULTS = "searchResultsPage";
 
+    static final String DEFAULT = "default";
 
-    static final String[] alignment = {"right", "left"};
+    static final String[] ALIGNMENT = {"right", "left"};
 
     /**
      * TODO: Convert into property?
@@ -46,37 +49,43 @@ public class PageTemplateBuilder {
     private final IKnowFactory iKnowFactory;
     private final ArticleFactory articleFactory;
     private final LongCopyFactory longCopyFactory;
-    private final IKnowCommunityFactory iKnowCommunityFactory;
-    private final StacklaFactory stacklaFactory;
+    private final UserGeneratedContentFactory userGeneratedContentFactory;
     private final TravelInformationFactory travelInformationFactory;
     private final CannedSearchFactory cannedSearchFactory;
     private final PreviewModeFactory previewFactory;
-    private final MarketoFormFactory marketoFormFactory;
-    private final MapGeneralFactory mapGeneralFactory;
-    private final MapDestinationFactory mapDestinationFactory;
+    private final FormFactory formFactory;
+    private final MapFactory mapFactory;
+    private final SkiFactory skiFactory;
+    private final DevModuleFactory devModuleFactory;
+    private final Properties properties;
+
+    private final ResourceBundleService bundle;
     private final Logger contentLogger;
 
 
     @Autowired
-    public PageTemplateBuilder(DocumentUtilsService documentUtils, MegalinkFactory linksFactory, ICentreFactory iCentre,
-                               IKnowFactory iKnow, ArticleFactory article, LongCopyFactory longcopy, IKnowCommunityFactory iKnowCommunityFactory,
-                               StacklaFactory stacklaFactory, TravelInformationFactory travelInformationFactory, CannedSearchFactory cannedSearchFactory,
-                               PreviewModeFactory previewFactory, MarketoFormFactory marketoFormFactory, MapGeneralFactory mapGeneralFactory,MapDestinationFactory mapDestinationFactory,
-                               ContentLogger contentLogger) {
-        this.linksFactory = linksFactory;
-        this.iCentreFactory = iCentre;
-        this.iKnowFactory = iKnow;
+    public PageTemplateBuilder(DocumentUtilsService documentUtils, MegalinkFactory linksFactory, ICentreFactory iCentreFactory,
+                               IKnowFactory iKnowFactory, ArticleFactory articleFactory, LongCopyFactory longCopyFactory,
+                               UserGeneratedContentFactory userGeneratedContentFactory, TravelInformationFactory travelInformationFactory,
+                               CannedSearchFactory cannedSearchFactory, PreviewModeFactory previewFactory, FormFactory marketoFormFactory,
+                               MapFactory mapFactory, SkiFactory skiFactory, Properties properties,
+                               DevModuleFactory devModuleFactory, ResourceBundleService bundle, Logger contentLogger) {
         this.documentUtils = documentUtils;
-        this.articleFactory = article;
-        this.longCopyFactory = longcopy;
-        this.iKnowCommunityFactory = iKnowCommunityFactory;
-        this.stacklaFactory = stacklaFactory;
+        this.linksFactory = linksFactory;
+        this.iCentreFactory = iCentreFactory;
+        this.iKnowFactory = iKnowFactory;
+        this.articleFactory = articleFactory;
+        this.longCopyFactory = longCopyFactory;
+        this.userGeneratedContentFactory = userGeneratedContentFactory;
         this.travelInformationFactory = travelInformationFactory;
         this.cannedSearchFactory = cannedSearchFactory;
         this.previewFactory = previewFactory;
-        this.marketoFormFactory = marketoFormFactory;
-        this.mapGeneralFactory = mapGeneralFactory;
-        this.mapDestinationFactory = mapDestinationFactory;
+        this.formFactory = marketoFormFactory;
+        this.mapFactory = mapFactory;
+        this.devModuleFactory = devModuleFactory;
+        this.skiFactory = skiFactory;
+        this.properties = properties;
+        this.bundle = bundle;
         this.contentLogger = contentLogger;
     }
 
@@ -94,27 +103,7 @@ public class PageTemplateBuilder {
         for (BaseDocument item : documentUtils.getAllowedDocuments(getDocument(request))) {
             try {
                 logger.debug("A {} module was found. Type {}", item.getClass(), item.getPath());
-                if (item instanceof Megalinks) {
-                    processMegalinks(request, page, (Megalinks) item);
-                } else if (item instanceof TourismInformation) {
-                    processTouristInformation(request,page, (TourismInformation) item, location);
-                } else if (item instanceof Article){
-                    page.modules.add(articleFactory.getModule(request, (Article) item));
-                } else if (item instanceof LongCopy){
-                    processLongCopy(request, page, (LongCopy) item);
-                } else if (item instanceof MapModule) {
-                    processMapModule(request, page, (MapModule) item);
-                } else if (item instanceof Stackla) {
-                    page.modules.add(stacklaFactory.getStacklaModule((Stackla) item, request.getLocale()));
-                }  else if (item instanceof TravelInformation) {
-                    page.modules.add(travelInformationFactory.getTravelInformation((TravelInformation) item, request.getLocale()));
-                }else if (item instanceof CannedSearch) {
-                    page.modules.add(cannedSearchFactory.getCannedSearchModule((CannedSearch) item, request.getLocale()));
-                } else if (item instanceof CannedSearchTours) {
-                    page.modules.add(cannedSearchFactory.getCannedSearchToursModule((CannedSearchTours) item, request.getLocale()));
-                } else if (item instanceof MarketoForm) {
-                    page.modules.add(marketoFormFactory.getModule((MarketoForm) item));
-                }
+                addModule(request, page, item, location);
             } catch (MissingResourceException e){
                 logger.error("The module for {} couldn't be built because some labels do not exist", item.getPath(), e);
             } catch (RuntimeException e){
@@ -123,89 +112,170 @@ public class PageTemplateBuilder {
         }
 
         setIntroTheme(request, page.modules);
-        //TODO try to move this to GeneralContentComponent
-        if (getDocument(request).getPath().contains("/site-search-results")){
-            request.setAttribute(SEARCH_RESULTS, true);
+
+        if (page.modules.isEmpty() && Boolean.FALSE.equals(getDocument(request).getSeoNoIndex())){
+            logger.warn("The page {} does not have any modules published", request.getRequestURI());
         }
 
-        request.setAttribute(PAGE_ITEMS, page.modules);
+        request.setModel(PAGE_ITEMS, page.modules);
+    }
+
+    private void addModule(HstRequest request, PageConfiguration page, BaseDocument item, String location){
+        if (item instanceof Megalinks) {
+            processMegalinks(request, page, (Megalinks) item);
+        } else if (item instanceof TourismInformation) {
+            processTouristInformation(request,page, (TourismInformation) item, location);
+        } else if (item instanceof Article){
+            page.modules.add(articleFactory.getModule(request, (Article) item));
+        } else if (item instanceof LongCopy){
+            processLongCopy(request, page, (LongCopy) item);
+        } else if (item instanceof MapModule) {
+            page.modules.add(mapFactory.getModule(request, (MapModule) item, getDocument(request)));
+        } else if (item instanceof Stackla) {
+            page.modules.add(userGeneratedContentFactory.getUGCModule((Stackla) item, request.getLocale()));
+        } else if (item instanceof TravelInformation) {
+            page.modules.add(travelInformationFactory.getTravelInformation((TravelInformation) item, request.getLocale()));
+        } else if (item instanceof CannedSearch) {
+            page.modules.add(cannedSearchFactory.getCannedSearchModule((CannedSearch) item, request.getLocale()));
+        } else if (item instanceof CannedSearchTours) {
+            page.modules.add(cannedSearchFactory.getCannedSearchToursModule((CannedSearchTours) item, request.getLocale()));
+        } else if (item instanceof MarketoForm || item instanceof Form) {
+            page.modules.add(getForm(request, item));
+        } else if (item instanceof SkiCentre){
+            page.modules.add(skiFactory.createSkyModule((SkiCentre) item, request.getLocale()));
+        } else if (item instanceof SkiCentreList){
+            page.modules.add(skiFactory.createSkyListModule((SkiCentreList) item, request.getLocale()));
+        } else if (item instanceof DevModule){
+            page.modules.add(devModuleFactory.getModule((DevModule) item));
+        } else {
+            logger.warn("Unrecognized Module Type: {}", item.getClass());
+        }
+    }
+    private FormModule getForm(HstRequest request, BaseDocument form){
+        addAllLabels(request, "forms");
+        Map<String, String> formLabels = labels(request).get("forms");
+
+        //The following files are required independent of the Form Framework
+        formLabels.put("cfg.form.json.countries", properties.getProperty("form.json.countries"));
+        formLabels.put("cfg.form.json.messages", properties.getProperty("form.json.messages"));
+
+        if (form instanceof MarketoForm) {
+            return formFactory.getModule((MarketoForm) form);
+        } else if (form instanceof Form) {
+            return formFactory.getModule((Form) form);
+        } else if (form != null) {
+            logger.error("Form Class not recognized {}, path = {}", form.getClass(), form.getPath());
+        }
+        return null;
     }
 
     /**
      * Convert a LongCopy into a LongCopy module and adds it to the list of modules
-     *
      * Note: Consider to create a factory if the creation of the Module requires more logic.
      */
-    private void processLongCopy(HstRequest request, PageConfiguration config, LongCopy document){
+    private void processLongCopy(HstRequest request, PageConfiguration config, LongCopy document) {
         Page page = getDocument(request);
         if (page instanceof General && ((General) page).getTheme().equals(GeneralContentComponent.SIMPLE)){
             if (config.modules.stream().anyMatch(LongCopyModule.class::isInstance)){
-                logger.error("Only one instance of this module is allowed");
+                logger.error("Only one instance of Long Module is allowed");
+                config.modules.add(new ErrorModule(document, "Only one instance of Long Module module is allowed"));
             } else {
                 config.modules.add(longCopyFactory.getModule(document));
             }
         } else {
             logger.error("The document type LongCopy is only allowed in Simple Pages");
             contentLogger.error("The document type LongCopy is not allowed in this page. Path {}", page.getPath());
+            config.modules.add(new ErrorModule(document, "The document type Long Copy is only allowed in Simple Pages"));
         }
     }
 
     /**
      * Creates a LinkModule from a Megalinks document
      */
-    private void processMegalinks(HstRequest request, PageConfiguration page, Megalinks item){
+    private void processMegalinks(HstRequest request, PageConfiguration page, Megalinks item) {
         LinksModule<?> al = linksFactory.getMegalinkModule(item, request.getLocale());
         int numLinks = al.getLinks().size();
         if (al instanceof MultiImageLinksModule) {
             numLinks += ((MultiImageLinksModule) al).getFeaturedLinks().size();
         }
         if (numLinks == 0) {
-            contentLogger.error("Megalinks module at {} contains no valid items", item.getPath());
+            contentLogger.warn("Megalinks module at {} contains no valid items", item.getPath());
             page.modules.add(previewFactory.createErrorModule(al));
             return;
-        } 
+        }
 
         if (al.getType().equalsIgnoreCase(SingleImageLinksModule.class.getSimpleName())) {
-            al.setAlignment(alignment[page.alignment++ % alignment.length]);
+            al.setAlignment(ALIGNMENT[page.alignment++ % ALIGNMENT.length]);
+            if (Contract.isEmpty(al.getAlignment())) {
+                logger.warn("The Single Image Megalink module for {} does not have the alignment field defined", item.getPath());
+            }
         }
+
         if (Contract.isEmpty(al.getTitle()) && page.style > 0) {
             page.style--;
         }
-
         al.setThemeIndex(page.style++ % THEMES);
         al.setHippoBean(item);
 
-        page.modules.add(al);
+        if (!item.getPersonalization().isEmpty()) {
+            PersonalisationModule personalisationModule = new PersonalisationModule();
+            List<Module> personalisationList = new ArrayList<>();
+            al.setMarketoId(DEFAULT);
+            personalisationList.add(al);
+            for (Personalization personalisationMegalink : item.getPersonalization()) {
+                personalisationList.add(processPersonalisation(request, (Megalinks)personalisationMegalink.getModule(), personalisationMegalink.getId(), al));
+            }
+            personalisationModule.setModules(personalisationList);
+
+            page.modules.add(personalisationModule);
+        } else {
+            page.modules.add(al);
+        }
+
+        addGlobalLabel(request, "third-party-error");
+    }
+    private Module<Megalinks> processPersonalisation(HstRequest request, Megalinks item, String marketoId, LinksModule<?> parent) {
+        LinksModule<?> al = linksFactory.getMegalinkModule(item, request.getLocale());
+
+        al.setThemeIndex(parent.getThemeIndex());
+        al.setHippoBean(item);
+
+        if (!Contract.isEmpty(marketoId)) {
+            al.setMarketoId(marketoId);
+        }
+
+        if (al.getType().equalsIgnoreCase(SingleImageLinksModule.class.getSimpleName())) {
+            al.setAlignment(parent.getAlignment());
+            if (Contract.isEmpty(al.getAlignment())) {
+                logger.warn("The Single Image Megalink module for {} does not have the alignment field defined", item.getPath());
+            }
+        }
+
+        return al;
+
     }
 
+    private boolean isICentreLanding(HstRequest request) {
+        return request.getPathInfo().equals(properties.getSiteICentre().substring(0, properties.getSiteICentre().length() - 8));
+    }
     /**
      * Creates a LinkModule from a TouristInformation document
      */
-    private void processTouristInformation(HstRequest request, PageConfiguration page, TourismInformation touristInfo, String location){
+    private void processTouristInformation(HstRequest request, PageConfiguration page, TourismInformation touristInfo, String location) {
+        if (!isICentreLanding(request)) {
+            ICentreModule iCentreModule = iCentreFactory.getModule(touristInfo.getICentre(), request.getLocale(), location);
 
-        ICentreModule iCentreModule = iCentreFactory.getModule(touristInfo.getICentre(), request.getLocale(), location);
-        if (iCentreModule != null) {
-            iCentreModule.setHippoBean(touristInfo);
-            page.modules.add(iCentreModule);
+            if (iCentreModule != null) {
+                iCentreModule.setHippoBean(touristInfo);
+                page.modules.add(iCentreModule);
+            }
         }
+        if (properties.isIknowEnabled()) {
+            IKnowModule iKnowModule = iKnowFactory.getIKnowModule(touristInfo.getIKnow(), location, request.getLocale());
+            iKnowModule.setHippoBean(touristInfo);
 
-        IKnowModule iKnowModule = iKnowFactory.getIKnowModule(touristInfo.getIKnow(), location, request.getLocale());
-        iKnowModule.setHippoBean(touristInfo);
-
-        page.modules.add(iKnowModule);
-    }
-
-    /**
-     * Creates a MapsModule from a destination or general page
-     */
-
-   private void processMapModule(HstRequest request, PageConfiguration page, MapModule item){
-       Page document = getDocument(request);
-       if (document instanceof Destination) {
-           page.modules.add(mapDestinationFactory.getModule(request, item,document));
-       }else if (document instanceof General){
-           page.modules.add(mapGeneralFactory.getModule(request, item));
-       }
+            page.modules.add(iKnowModule);
+        }
     }
 
     /**
@@ -213,18 +283,35 @@ public class PageTemplateBuilder {
      * @param request HstRequest request
      * @param modules List Modules
      */
-    private void setIntroTheme(HstRequest request, List<Module<?>> modules){
+    private void setIntroTheme(HstRequest request, List<Module<?>> modules) {
         if(!modules.isEmpty() && modules.get(0) instanceof LinksModule){
-            request.setAttribute(INTRO_THEME, ((LinksModule<?>) modules.get(0)).getThemeIndex());
+            request.setModel(INTRO_THEME, ((LinksModule<?>) modules.get(0)).getThemeIndex());
         }
+    }
+
+    private Map<String, Map<String, String>> labels(HstRequest request) {
+        if (request.getModel(LABELS) == null) {
+            Map<String, Map<String, String>> labels = new HashMap<>();
+            request.setModel(LABELS, labels);
+            return labels;
+        }
+
+        return request.getModel(LABELS);
+    }
+
+    private void addGlobalLabel(HstRequest request, String key) {
+        labels(request).get(GLOBAL_BUNDLE_FILE).put(key, bundle.getResourceBundle(GLOBAL_BUNDLE_FILE, key, request.getLocale()));
+    }
+
+    private void addAllLabels(HstRequest request, String bundleName) {
+        labels(request).put(bundleName, bundle.getAllLabels(bundleName, request.getLocale()));
     }
 
     /**
      * Controls the configuration of the page.
-     *
      * It handles the list of modules as well as the memory for style and the alignment
      */
-    class PageConfiguration {
+    static class PageConfiguration {
         List<Module<?>> modules = new ArrayList<>();
 
         int style = 0;

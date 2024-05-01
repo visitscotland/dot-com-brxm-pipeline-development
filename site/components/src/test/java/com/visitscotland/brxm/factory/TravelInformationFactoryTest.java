@@ -9,7 +9,6 @@ import com.visitscotland.brxm.mock.TravelInformationTabMockBuilder;
 import com.visitscotland.brxm.mock.TravelInformationTransportRowMockBuilder;
 import com.visitscotland.brxm.model.TravelInformationModule;
 import com.visitscotland.brxm.services.ResourceBundleService;
-import com.visitscotland.brxm.utils.HippoUtilsService;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;

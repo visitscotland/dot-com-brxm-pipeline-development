@@ -1,8 +1,9 @@
 package com.visitscotland.brxm.model;
 
+import com.visitscotland.brxm.hippobeans.TourismInformation;
 import com.visitscotland.brxm.utils.HippoHtmlWrapper;
 
-public class IKnowModule extends Module{
+public class IKnowModule extends Module<TourismInformation> {
 
     private String title;
     private HippoHtmlWrapper description;

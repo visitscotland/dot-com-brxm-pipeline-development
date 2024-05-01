@@ -8,7 +8,6 @@ import com.visitscotland.brxm.model.TravelInformationModule;
 import com.visitscotland.brxm.model.TravelInformationModuleTab;
 import com.visitscotland.brxm.model.TravelInformationTransportRowModule;
 import com.visitscotland.brxm.services.ResourceBundleService;
-import com.visitscotland.brxm.utils.HippoUtilsService;
 import com.visitscotland.utils.Contract;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -21,12 +20,10 @@ import java.util.stream.Collectors;
 public class TravelInformationFactory {
 
     private final String TRAVEL_INFO_TRANSPORTS_OPTIONS = "travel-information-transports";
-    private final HippoUtilsService utils;
     private final ResourceBundleService resourceBundleService;
     private static final Logger logger = LoggerFactory.getLogger(TravelInformationFactory.class);
 
-    public TravelInformationFactory(HippoUtilsService utils, ResourceBundleService resourceBundleService) {
-        this.utils = utils;
+    public TravelInformationFactory(ResourceBundleService resourceBundleService) {
         this.resourceBundleService = resourceBundleService;
     }
 

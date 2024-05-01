@@ -11,7 +11,7 @@ definitions:
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:uuid: 4066e217-4655-43b5-b247-98b93860d51a
+          jcr:uuid: 696a6f3d-937a-4783-ad09-63526391b28f
           hipposysedit:node: true
           hipposysedit:supertype: ['hippotranslation:translated', 'hippotaxonomy:classifiable',
             'visitscotland:basedocument', 'hippostd:relaxed']
@@ -56,6 +56,22 @@ definitions:
             hipposysedit:multiple: true
             hipposysedit:path: hippotaxonomy:keys
             hipposysedit:type: String
+          /mapType:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: visitscotland:mapType
+            hipposysedit:primary: false
+            hipposysedit:type: DynamicDropdown
+          /translation:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: visitscotland:translation
+            hipposysedit:primary: false
+            hipposysedit:type: OpenUiString
       /hipposysedit:prototypes:
         jcr:primaryType: hipposysedit:prototypeset
         /hipposysedit:prototype:
@@ -69,9 +85,11 @@ definitions:
           jcr:mixinTypes: ['mix:referenceable', 'hippotaxonomy:classifiable']
           visitscotland:title: ''
           visitscotland:tabTitle: ''
-          jcr:uuid: 61f36ba0-0ce5-46c3-9e39-6a04dea168fb
+          jcr:uuid: d1a11c99-7a95-4d60-948d-5398b425602b
           hippostdpubwf:lastModificationDate: 2022-06-10T13:36:38.111+01:00
           hippostdpubwf:creationDate: 2022-06-10T13:36:38.111+01:00
+          visitscotland:mapType: ''
+          visitscotland:translation: ''
       /editor:templates:
         jcr:primaryType: editor:templateset
         /_default_:
@@ -123,7 +141,8 @@ definitions:
             jcr:primaryType: frontend:plugin
             caption: Map Main Tab Title
             field: tabTitle
-            hint: ''
+            hint: For Destinations map ONLY this field will have a default value if
+              it is empty
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.left.item
             /cluster.options:
@@ -152,3 +171,23 @@ definitions:
             taxonomy.name: Visitscotland-categories
             wicket.id: ${cluster.id}.right.item
             wicket.model: ${wicket.model}
+          /mapType:
+            jcr:primaryType: frontend:plugin
+            caption: Bespoke map
+            field: mapType
+            hint: ''
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.right.item
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+              source: /content/documents/administration/options/maps---dms-categories
+          /translation:
+            jcr:primaryType: frontend:plugin
+            caption: Translation
+            field: translation
+            hint: ''
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.left.item
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+              ui.extension: translationDiff

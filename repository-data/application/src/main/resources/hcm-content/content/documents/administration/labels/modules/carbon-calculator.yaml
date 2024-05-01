@@ -1,0 +1,778 @@
+/content/documents/administration/labels/modules/carbon-calculator:
+  jcr:primaryType: hippo:handle
+  jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+  jcr:uuid: 315a4f94-dcf1-41ab-b0d0-a7d896d97861
+  hippo:name: Carbon Calculator
+  hippo:versionHistory: 0a250395-ffd0-4d0d-a03f-550e8841b19b
+  /carbon-calculator[1]:
+    jcr:primaryType: resourcebundle:resourcebundle
+    jcr:mixinTypes: ['mix:referenceable']
+    jcr:uuid: 912d33ec-838e-4da0-99d4-f234965d095c
+    hippo:availability: []
+    hippostd:retainable: false
+    hippostd:state: draft
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2023-08-09T17:31:48.480+01:00
+    hippostdpubwf:lastModificationDate: 2023-11-28T13:06:33.424+01:00
+    hippostdpubwf:lastModifiedBy: alma.garcia
+    resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '', '', '', '',
+      '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
+      '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
+      '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '']
+    resourcebundle:id: carbon-calculator
+    resourcebundle:keys: [next, previous, results, resultsIntro, chartTitle, comparison,
+      kilos, begin, introHeading, introContent, perDayTarget, perDaySuccess, topTip,
+      allTips, soFar, kgsOf, kgsPerDay, transport, accommodation, food, restart, stage-1.title,
+      stage-2.title, stage-3.title, stage-4.title, question-1.question, question-1.option-1,
+      question-1.option-2, question-1.option-3, question-1.option-4, question-1.option-5,
+      question-1.option-6, question-1.option-7, question-1.option-8, question-1.option-9,
+      question-1.option-10, question-1.option-11, question-1.option-12, question-2.question,
+      question-3.question, question-5.question, question-5.option-1, question-5.option-2,
+      question-5.option-3, question-5.option-4, question-5.option-5, question-5.option-6,
+      question-5.hint, form-url, formUrl, noJsMessage, progress, question-1.hint,
+      stage-1.tip, stage-2.tip, stage-3.tip, stage-4.tip, question-4.question, question-4.option-1,
+      question-4.option-2, question-4.option-3, question-4.option-4, question-4.option-5,
+      question-4.option-6, question-4.option-7, question-4.option-8, question-4.option-9,
+      question-4.option-10]
+    resourcebundle:messages: [Next, Previous, Results, Your estimated total carbon
+        emission for your trip is, Your emissions breakdown, 'That''s the equivalent
+        of xxx kms in a medium-sized petrol car, which would take you from Edinburgh
+        to London yyy times!', kilos, Start Questionnaire, 'Can your holiday be more
+        green?', Answer these simple questions about your trip to Scotland and we'll
+        calculate your emissions., '30', 'Congratulations! You''re emitting less than
+        xxx KGs of CO₂e per day on your trip, which is below average. We like to think
+        this makes you a Sustainability Unicorn - Scotland''s national animal, which
+        cares deeply about protecting our environment.', Top Tips!, 'Check out our
+        articles for handy tips on how to reduce your impact on the environment: <br/><br/>
+        <a href="https://www.visitscotland.com/inspiration/slow-travel"> Make the
+        most of your time in Scotland by savouring the journey</a> <br/><br/> <a href="https://www.visitscotland.com/accommodation/eco-green">
+        Reduce your carbon footprint with relaxing eco accommodation</a> <br/><br/>
+        <a href="https://www.visitscotland.com/things-to-do/food-drink/seasonal-food-calendar">
+        Connect with local farms and communities by experiencing our natural larder
+        seasonally</a> <br/><br/> <a href="https://www.visitscotland.com/travel-planning/responsible-tourism">Find
+        more top tips for sustainable travel in Scotland</a>', 'Your calculation so
+        far:', KGs of CO₂e, That's about xxx KGs of CO₂e per day., Transport, Accommodation,
+      Food, Restart, Travel to Scotland, Accommodation, Travel around Scotland, Food,
+      'How are you travelling to Scotland?', I live in Scotland, Domestic Flight*,
+      Short-Haul Flight*, Long-Haul Flight*, Car (Petrol), Car (Diesel), Car (Electric),
+      Train, Coach, Ferry, Campervan/Motorhome (Petrol), Campervan/Motorhome (Diesel),
+      'How many hours will your journey take?', 'How many nights are you staying for?',
+      'How would you describe your diet?', Frequent meat-eater*, Moderate meat-eater*,
+      Infrequent meat-eater*, Pescatarian, Vegetarian, Vegan, '*Frequent meat eater:
+        5 times a week, moderate meat eater: 3 times a week, infrequent meat eater:
+        1 - 2 times a week', 'https://static.visitscotland.com/forms/carbon-calculator/carbon-calculator-form-v-2.json',
+      'https://static.visitscotland.com/forms/carbon-calculator/carbon-calculator-form-v-2.json',
+      You need Javascript enabled to use this calculator, Step xxx of yyy, '*Domestic
+        flight: within the UK, short-haul flight: within Europe, long-haul flight:
+        from outside of Europe', 'Taking time to form deeper connections is a more
+        meaningful way to travel.<a href="https://www.visitscotland.com/inspiration/slow-travel"target="_blank">
+        Plan your slow travel adventure in Scotland</a>', 'You can protect Scotland''s
+        natural beauty by booking an eco-retreat for your visit.<a href="https://www.visitscotland.com/accommodation/eco-green"target="_blank">
+        Find eco-friendly accommodation</a>', 'You can reduce your carbon output by
+        exploring Scotland using public transport.<a href="https://www.visitscotland.com/inspiration/touring/easy-public-transport-trips"target="_blank">
+        Here are 10 easy ways to travel Scotland by public transport</a>', 'Sampling
+        Scotland''s natural food larder seasonally is a great way to support local
+        farms and communities.<a href="https://www.visitscotland.com/things-to-do/food-drink/seasonal-food-calendar"target="_blank">
+        Discover what''s in season with our food calendar</a>', 'What will your main
+        mode of transport be while travelling around Scotland?', Car (Petrol), Car
+        (Diesel), Car (Electric), Campervan/Motorhome (Petrol), Campervan/Motorhome
+        (Diesel), Coach, Bus, Train, Motorbike, Walking / Cycling]
+    resourcebundle:messages_de: [Weiter, Zurück, Ergebnis, 'Ihr geschätzter CO₂-Ausstoß
+        für diese Reise ist:', Aufschlüsselung Ihrer Emissionen, Das entspricht einer
+        Fahrt von xxx km in einem mittelgroßen Auto - damit könnten Sie yyy Mal von
+        Edinburgh nach London fahren!, Kilo, Fragebogen starten, 'Kann Ihr Urlaub
+        umweltfreundlicher sein?', Beantworten Sie diese einfachen Fragen über Ihre
+        Schottlandreise und wir berechnen Ihre Emissionen., '30', 'Herzlichen Glückwunsch!
+        Sie erzeugen auf Ihrer Reise täglich weniger als xxx kg CO₂-Äquivalente, was
+        unter dem Durchschnitt liegt. Für uns macht Sie das zu einem Nachhaltigkeits-Einhorn
+        - das schottische Nationaltier, das sich für den Schutz unserer Umwelt einsetzt.',
+      Top-Tipps!, 'Lesen Sie unsere Artikel für praktische Tipps zur Verringerung
+        Ihres ökologischen Fußabdrucks: <br/><br/> <a href="https://www.visitscotland.com/de-de/inspiration/slow-travel">
+        Genießen Sie Ihre Zeit in Schottland in vollen Zügen</a> <br/><br/> <a href="https://www.visitscotland.com/de-de/accommodation/eco-green">
+        Tun Sie der Umwelt in entspannten Öko-Unterkünften etwas Gutes</a> <br/><br/>
+        <a href="https://www.visitscotland.com/de-de/things-to-do/food-drink/taste-our-best">
+        Lassen Sie sich regionale und saisonale schottische Erzeugnisse schmecken</a>
+        <br/><br/> <a href="https://www.visitscotland.com/de-de/travel-planning/responsible-tourism">Finden
+        Sie noch mehr Tipps für nachhaltiges Reisen in Schottland</a>', 'Ihre bisherige
+        Berechnung:', CO₂-Äquivalente in kg, Das entspricht etwa xxx kg CO₂-Äquivalenten
+        pro Tag., Verkehr, Unterkunft, Ernährung, Neu starten, Anreise nach Schottland,
+      Unterkunft, Reisen innerhalb von Schottland, Ernährung, 'Wie reisen Sie nach
+        Schottland?', Ich lebe in Schottland, Inlandsflug*, Mittelstreckenflug*, Langstreckenflug*,
+      Auto (Benzin), Auto (Diesel), Auto (elektrisch), Zug, Reisebus, Fähre, Camper/Wohnmobil
+        (Benzin), Camper/Wohnmobil (Diesel), 'Wie viele Stunden dauert Ihre Reise
+        nach Schottland?', 'Wie viele Nächte verbringen Sie in Schottland?', 'Wie
+        würden Sie Ihre Ernährungsweise beschreiben?', Ich esse regelmäßig Fleisch*,
+      Ich esse gelegentlich Fleisch*, Ich esse selten Fleisch*, 'Ich esse kein Fleisch,
+        aber Fisch', Ich ernähre mich vegetarisch, Ich ernähre mich vegan, '* Regelmäßiger
+        Fleischkonsum: 5 Mal pro Woche, gelegentlicher Fleischkonsum: 3 Mal pro Woche,
+        seltener Fleischkonsum: 1-2 Mal pro Woche', '', '', 'Sie müssen JavaScript
+        aktivieren, um diesen Rechner zu benutzen.', Schritt xxx von yyy, '* Inlandsflug:
+        innerhalb Großbritanniens, Mittelstreckenflug: innerhalb Europas, Langstreckenflug:
+        außerhalb Europas', 'Wenn Sie sich die Zeit nehmen, intensivere Verbindungen
+        aufzubauen, wird Ihre Reise noch bedeutungsvoller. <a href="https://www.visitscotland.com/de-de/inspiration/slow-travel"target="_blank">
+        Planen Sie Ihr Slow-Travel-Abenteuer in Schottland</a>', 'Sie können die Schönheit
+        der schottischen Natur schützen, indem Sie eine umweltfreundliche Unterkunft
+        für Ihren Urlaub buchen. <a href="https://www.visitscotland.com/de-de/accommodation/eco-green"target="_blank">
+        Finden Sie Öko-Unterkünfte</a>', 'Sie können Ihre Emissionen in Schottland
+        verringern, indem Sie öffentliche Verkehrsmittel nutzen. <a href="https://www.visitscotland.com/de-de/inspiration/touring/easy-public-transport-trips"target="_blank">
+        Hier gibt’s 10 einfache Trips mit öffentlichen Verkehrsmitteln in Schottland</a>',
+      'Wenn Sie saisonale schottische Erzeugnisse probieren, unterstützen Sie lokale
+        Bauernhöfe und Gemeinschaften. <a href="https://www.visitscotland.com/de-de/things-to-do/food-drink#section-4"target="_blank">Finden
+        Sie die besten schottischen Erzeugnisse</a>', 'Was ist das Hauptverkehrsmittel,
+        das Sie in Schottland nutzen werden?', Auto (Benzin), Auto (Diesel), Auto
+        (elektrisch), Camper/Wohnmobil (Benzin), Camper/Wohnmobil (Diesel), Reisebus,
+      Bus, Zug, Motorrad, Zu Fuß / mit dem Rad]
+    resourcebundle:messages_es: [Siguiente, Anterior, Resultados, 'Tus emisiones de
+        CO₂ estimadas para este viaje son:', Desglose de tus emisiones, 'Esto equivale
+        a un trayecto de xx kilómetros en un coche de tamaño medio: ¡podrías viajar
+        de Edimburgo a Londres xx veces!', kilos, Empezar el cuestionario, '¿Pueden
+        tus vacaciones ser más ecológicas?', 'Desde el transporte hasta la comida,
+        responde a 4 sencillas preguntas sobre tu viaje a Escocia y calcularemos tus
+        emisiones.', '30', '¡Enhorabuena! Estás emitiendo menos de xxx kg de CO₂ al
+        día durante tu viaje, lo que está por debajo de la media. Esto te convierte
+        en un unicornio de la sostenibilidad: el animal nacional de Escocia, dedicado
+        a la protección y cuidado de nuestro medio ambiente.', ¡Los mejores consejos!,
+      'Echa un vistazo a nuestros mejores consejos para viajar de forma sostenible
+        por Escocia: <br/><br/> <a href= "https://www.visitscotland.com/es-es/inspiration/slow-travel">
+        Saca el máximo partido a tu estancia en Escocia y disfruta del viaje </a>
+        <br/><br/> <a href="https://www.visitscotland.com/es-es/accommodation/eco-green">
+        Reduce tu huella de carbono en un relajante alojamiento ecológico</a> <br/><br/>
+        <a href="https://www.visitscotland.com/es-es/things-to-do/food-drink/seasonal-food-calendar">
+        Conecta con las granjas y comunidades locales y disfruta de nuestra despensa
+        natural cada temporada</a> <br/><br/> <a href="https://www.visitscotland.com/es-es/travel-planning/responsible-tourism">Obtén
+        más consejos e inspiración para viajar de forma sostenible por Escocia</a>',
+      'Tus cálculos hasta ahora:', KGs de CO₂e, Esto corresponde a xxx kg de CO₂ al
+        día., Transporte, Alojamiento, Comida, Empezar de nuevo, Viajar a Escocia,
+      Alojamiento, Viajar por Escocia, Comida, '¿Cómo viajas por Escocia?', Vivo en
+        Escocia, Vuelo nacional*, Vuelo de corta distancia*, Vuelo de larga distancia*,
+      Coche (gasolina), Coche (diésel), Coche (eléctrico), Tren, Autobús, Ferri, Autocaravana
+        (gasolina), Autocaravana (gasóleo), '¿Cuántas horas durará tu viaje a Escocia?',
+      '¿Cuántas noches te alojarás en Escocia?', '¿Cómo describirías tu dieta?', Como
+        carne habitualmente*, Como carne de vez en cuando*, Rara vez como carne*,
+      Dieta pescetariana (o pescatariana), Sigo una dieta vegetariana, Sigo una dieta
+        vegana, '*Como carne habitualmente: 5 veces a la semana, como carne de vez
+        en cuando: 3 veces a la semana, como poca carne: 1-2 veces a la semana', '',
+      '', Debes activar JavaScript para poder utilizar esta calculadora., Paso xxx
+        de yyy, '*Vuelo nacional: dentro del Reino Unido, vuelo de corta distancia:
+        dentro de Europa, vuelo de larga distancia: desde fuera de Europa.', 'Dedicar
+        tiempo a crear vínculos más fuertes es una forma más positiva de viajar.<a
+        href="https://www.visitscotland.com/es-es/inspiration/slow-travel"target="_blank">
+        Planifica tu aventura por Escocia a un ritmo relajado</ un>', 'Reserva un
+        alojamiento ecológico para tu viaje y protege la belleza natural de Escocia.
+        <a href="https://www.visitscotland.com/es-es/accommodation/eco-green" target="_blank">Encuentra
+        alojamientos ecológicos</a>', 'Reduce tus emisiones de carbono explorando
+        Escocia en transporte público. <a href="https://www.visitscotland.com/es-es/inspiration/touring/easy-public-transport-trips
+        "target="_blank"> 10 formas sencillas de viajar por Escocia en transporte
+        público</a>', 'Saborear la despensa natural de Escocia es la mejor manera
+        de apoyar a las granjas y las comunidades locales. <a href="https://www.visitscotland.com/es-es/things-to-do/food-drink#section-4"target="_blank">Descubre
+        los alimentos de temporada con nuestro calendario</a>', '¿Cuál será tu principal
+        medio de transporte durante tu viaje por Escocia?', Coche (gasolina), Coche
+        (diésel), Coche (eléctrico), Autocaravana (gasolina), Autocaravana (diésel),
+      Autocar, Autobús, Tren, Moto, A pie / en bicicleta]
+    resourcebundle:messages_fr: [Suivant, Précédent, Résultats, 'Le total estimé de
+        vos émissions de CO₂ pour ce voyage s’élève à :', Le détail de vos émissions,
+      'Cela équivaut à xxx kilomètres dans une voiture de taille moyenne, ce qui vous
+        permettrait d’effectuer yyy fois le trajet entre Édimbourg et Londres !',
+      kilos, Commencer le questionnaire, Calculez votre empreinte carbone, 'Du transport
+        à la gastronomie, répondez à 4 questions simples sur votre voyage en Écosse,
+        et nous calculerons ensuite vos émissions de carbone.', '30', 'Félicitations
+        ! Vous émettez moins de xxx kg de CO₂e par jour pendant votre voyage, ce qui
+        est inférieur à la moyenne. Cela fait de vous une licorne de la durabilité
+        : la licorne est l’animal national de l’Écosse, qui se soucie profondément
+        de la protection de notre environnement.', Astuces !, Découvrez nos meilleurs
+        conseils pour voyager de manière écoresponsable en Écosse., 'Votre calcul
+        jusqu’à présent :', Kg de CO₂e, Cela équivaut à xxx kg de CO₂e par jour.,
+      Transports, Hébergements, Nourriture, Recommencer, Se rendre en Écosse, Hébergements,
+      Se déplacer en Écosse, Nourriture, 'Comment vous rendrez-vous en Écosse ?',
+      Je vis en Écosse, Vol intérieur*, Vol court-courrier*, Vol long-courrier*, Voiture
+        (essence), Voiture (diesel), Voiture (électrique), Train, Car, Ferry, Caravane
+        ou camping-car (essence), Caravane ou camping-car (diesel), 'Combien d’heures
+        durera votre trajet jusqu’en Écosse ?', 'Combien de nuits séjournerez-vous
+        en Écosse ?', 'Comment qualifieriez-vous votre régime alimentaire ?', Je mange
+        régulièrement de la viande*, Je mange occasionnellement de la viande*, Je
+        mange très peu souvent de la viande*, Pescétarien·ne (pesco-végétarien·ne),
+      Végétarien·ne, Végane, '*Je mange de la viande régulièrement : 5 fois par semaine,
+        de temps à autre : 3 fois par semaine, très peu souvent : 1 à 2 fois par semaine',
+      '', '', Vous devez activer JavaScript afin de pouvoir utiliser ce Calculateur.,
+      Étape xxx sur yyy, '*Vol domestique : vol à l’intérieur du Royaume-Uni, vol
+        court-courrier : vol au sein de l’Europe, vol long-courrier : vol depuis une
+        destination hors-Europe', 'Prendre le temps de nouer des liens plus profonds
+        est une façon plus significative de voyager.<a href="https://www.visitscotland.com/fr-fr/inspiration/slow-travel
+        "target="_blank"> Organisez votre aventure de slow travel en Écosse</a>',
+      'Vous pouvez protéger la beauté naturelle de l’Écosse en réservant une retraite
+        écologique pour votre séjour.<a href="https://www.visitscotland.com/fr-fr/accommodation/eco-green
+        "target="_blank"> Optez pour un hébergement écoresponsable</a>', 'Vous pouvez
+        réduire votre empreinte carbone en explorant l’Écosse à l’aide des transports
+        en commun. <a href="https://www.visitscotland.com/fr-fr/inspiration/touring/easy-public-transport-trips
+        "target="_blank"> Voici 10 façons simples de voyager en Écosse en transports
+        en commun</a>', 'Déguster les produits naturels de saison en Écosse est un
+        excellent moyen de soutenir les exploitations agricoles et les communautés
+        locales. <a href="https://www.visitscotland.com/fr-fr/things-to-do/food-drink#section-4"target="_blank">
+        Découvrez nos produits saisonniers grâce à notre calendrier alimentaire</a>.',
+      'Quel sera votre principal moyen de transport lors de votre voyage en Écosse
+        ?', Voiture (essence), Voiture (diesel), Voiture (électrique), Caravane ou
+        camping-car (essence), Caravane ou camping-car (diesel), Car, Bus, Train,
+      Moto, À pied / vélo]
+    resourcebundle:messages_it: [Avanti, Indietro, Risultato, 'Le tue emissioni di
+        CO₂ stimate per questo viaggio sono:', Ripartizione delle tue emissioni, 'È
+        l''equivalente di percorrere xxx kilometri in un''auto di medie dimensioni:
+        potresti guidare da Edimburgo a Londra yyy volte!', chilo, Inizia questionario,
+      'Può la tua vacanza essere più ecologica?', Rispondi a queste semplici domande
+        sul tuo viaggio in Scozia e noi calcoleremo le tue emissioni., '30', 'Congratulazioni!
+        Durante il tuo viaggio generi meno di xxx kg di CO₂ equivalenti al giorno,
+        una percentuale inferiore alla media. Per noi, questo ti rende un unicorno
+        della sostenibilità: l''animale nazionale scozzese impegnato a proteggere
+        il nostro ambiente.', I nostri migliori suggerimenti!, 'Leggi i nostri migliori
+        consigli su come ridurre il tuo impatto sull''ambiente: <br/><br/> <a href="https://www.visitscotland.com/it-it/inspiration/slow-travel">
+        Sfrutta al massimo il tuo tempo in Scozia</a> <br/><br/> <a href="https://www.visitscotland.com/it-it/accommodation/eco-green">
+        Fai la tua parte per l''ambiente e rilassati in un eco alloggio</a> <br/><br/>
+        <a href="https://www.visitscotland.com/it-it/things-to-do/food-drink/taste-our-best">
+        Goditi i prodotti scozzesi locali e stagionali</a> <br/><br/> <a href="https://www.visitscotland.com/it-it/travel-planning/responsible-tourism">Trova
+        ancora altri suggerimenti per viaggiare in Scozia in modo sostenibile</a>',
+      'Il tuo calcolo finora:', Equivalenti di CO₂ in kg, Ciò corrisponde a xxx kg
+        di CO₂ equivalenti al giorno., Trasporto, Alloggio, Alimentazione, Ricomincia,
+      Viaggiare verso la Scozia, Alloggi, Viaggiare in Scozia, Alimentazione, 'Come
+        viaggi in Scozia?', Io vivo in Scozia, Volo interno*, Volo a corto raggio*,
+      Volo a lungo raggio*, Auto (benzina), Auto (diesel), Auto (elettrica), Treno,
+      Bus, Traghetto, Camper (benzina), Camper (diesel), 'Quante ore durerà il tuo
+        viaggio verso la Scozia?', 'Quante notti rimani in Scozia?', 'Come descriveresti
+        la tua dieta?', Mangio carne regolarmente*, Mangio carne occasionalmente*,
+      Mangio raramente carne*, 'Non mangio carne, ma mangio pesce', Seguo una dieta
+        vegetariana, Seguo una dieta vegana, '*Consumo regolare di carne: 5 volte
+        a settimana, consumo occasionale di carne: 3 volte a settimana, consumo raramente
+        di carne: 1-2 volte a settimana', '', '', Per utilizzare questa calcolatrice
+        è necessario abilitare Javascript., Step xxx di yyy, '*Volo nazionale: nel
+        Regno Unito, volo a corto raggio: in Europa, volo a lungo raggio: da fuori
+        Europa', 'Prendersi del tempo per creare legami più profondi è un modo più
+        significativo di viaggiare.<a href="https://www.visitscotland.com/it-it/inspiration/slow-travel"target="_blank">
+        Pianifica la tua avventura di slow travel in Scozia</ un>', 'Puoi proteggere
+        la bellezza della natura scozzese prenotando una sistemazione ecologica per
+        le tue vacanze. <a href="https://www.visitscotland.com/it-it/accommodation/eco-green"
+        target="_blank">Trova eco-alloggi</a>', 'Potai ridurre le tue emissioni di
+        anidride carbonica esplorando la Scozia con i mezzi pubblici. <a href="https://www.visitscotland.com/it-it/inspiration/touring/easy-public-transport-trips
+        "target="_blank"> Ecco 10 modi semplici per viaggiare in Scozia con i mezzi
+        pubblici</a>', 'Quando assaggi i prodotti scozzesi stagionali, sostieni le
+        fattorie e le comunità locali. <a href="https://www.visitscotland.com/it-it/things-to-do/food-drink#section-4"target="_blank">Trova
+        i migliori prodotti scozzesi</a>', 'Quale sarà il tuo principale mezzo di
+        trasporto durante il viaggio in Scozia?', Macchina (benzina), Macchina (Diesel),
+      Macchina (elettrica), Camper/Motorhome (benzina), Camper/Motorhome (Diesel),
+      Autobus, Bus, Treno, Motocicletta, A piedi / in bicicletta]
+    resourcebundle:messages_nl: ['', '', '', '', '', '', '', '', '', '', '', '', '',
+      '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
+      '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
+      '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '']
+  /carbon-calculator[2]:
+    jcr:primaryType: resourcebundle:resourcebundle
+    jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+    jcr:uuid: d3e32ca5-faa3-411f-af30-de6161b94d39
+    hippo:availability: [preview]
+    hippostd:retainable: false
+    hippostd:state: unpublished
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2023-08-09T17:31:48.480+01:00
+    hippostdpubwf:lastModificationDate: 2023-11-28T13:06:33.123+01:00
+    hippostdpubwf:lastModifiedBy: alma.garcia
+    resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '', '', '', '',
+      '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
+      '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
+      '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '']
+    resourcebundle:id: carbon-calculator
+    resourcebundle:keys: [next, previous, results, resultsIntro, chartTitle, comparison,
+      kilos, begin, introHeading, introContent, perDayTarget, perDaySuccess, topTip,
+      allTips, soFar, kgsOf, kgsPerDay, transport, accommodation, food, restart, stage-1.title,
+      stage-2.title, stage-3.title, stage-4.title, question-1.question, question-1.option-1,
+      question-1.option-2, question-1.option-3, question-1.option-4, question-1.option-5,
+      question-1.option-6, question-1.option-7, question-1.option-8, question-1.option-9,
+      question-1.option-10, question-1.option-11, question-1.option-12, question-2.question,
+      question-3.question, question-5.question, question-5.option-1, question-5.option-2,
+      question-5.option-3, question-5.option-4, question-5.option-5, question-5.option-6,
+      question-5.hint, form-url, formUrl, noJsMessage, progress, question-1.hint,
+      stage-1.tip, stage-2.tip, stage-3.tip, stage-4.tip, question-4.question, question-4.option-1,
+      question-4.option-2, question-4.option-3, question-4.option-4, question-4.option-5,
+      question-4.option-6, question-4.option-7, question-4.option-8, question-4.option-9,
+      question-4.option-10]
+    resourcebundle:messages: [Next, Previous, Results, Your estimated total carbon
+        emission for your trip is, Your emissions breakdown, 'That''s the equivalent
+        of xxx kms in a medium-sized petrol car, which would take you from Edinburgh
+        to London yyy times!', kilos, Start Questionnaire, 'Can your holiday be more
+        green?', Answer these simple questions about your trip to Scotland and we'll
+        calculate your emissions., '30', 'Congratulations! You''re emitting less than
+        xxx KGs of CO₂e per day on your trip, which is below average. We like to think
+        this makes you a Sustainability Unicorn - Scotland''s national animal, which
+        cares deeply about protecting our environment.', Top Tips!, 'Check out our
+        articles for handy tips on how to reduce your impact on the environment: <br/><br/>
+        <a href="https://www.visitscotland.com/inspiration/slow-travel"> Make the
+        most of your time in Scotland by savouring the journey</a> <br/><br/> <a href="https://www.visitscotland.com/accommodation/eco-green">
+        Reduce your carbon footprint with relaxing eco accommodation</a> <br/><br/>
+        <a href="https://www.visitscotland.com/things-to-do/food-drink/seasonal-food-calendar">
+        Connect with local farms and communities by experiencing our natural larder
+        seasonally</a> <br/><br/> <a href="https://www.visitscotland.com/travel-planning/responsible-tourism">Find
+        more top tips for sustainable travel in Scotland</a>', 'Your calculation so
+        far:', KGs of CO₂e, That's about xxx KGs of CO₂e per day., Transport, Accommodation,
+      Food, Restart, Travel to Scotland, Accommodation, Travel around Scotland, Food,
+      'How are you travelling to Scotland?', I live in Scotland, Domestic Flight*,
+      Short-Haul Flight*, Long-Haul Flight*, Car (Petrol), Car (Diesel), Car (Electric),
+      Train, Coach, Ferry, Campervan/Motorhome (Petrol), Campervan/Motorhome (Diesel),
+      'How many hours will your journey take?', 'How many nights are you staying for?',
+      'How would you describe your diet?', Frequent meat-eater*, Moderate meat-eater*,
+      Infrequent meat-eater*, Pescatarian, Vegetarian, Vegan, '*Frequent meat eater:
+        5 times a week, moderate meat eater: 3 times a week, infrequent meat eater:
+        1 - 2 times a week', 'https://static.visitscotland.com/forms/carbon-calculator/carbon-calculator-form-v-2.json',
+      'https://static.visitscotland.com/forms/carbon-calculator/carbon-calculator-form-v-2.json',
+      You need Javascript enabled to use this calculator, Step xxx of yyy, '*Domestic
+        flight: within the UK, short-haul flight: within Europe, long-haul flight:
+        from outside of Europe', 'Taking time to form deeper connections is a more
+        meaningful way to travel.<a href="https://www.visitscotland.com/inspiration/slow-travel"target="_blank">
+        Plan your slow travel adventure in Scotland</a>', 'You can protect Scotland''s
+        natural beauty by booking an eco-retreat for your visit.<a href="https://www.visitscotland.com/accommodation/eco-green"target="_blank">
+        Find eco-friendly accommodation</a>', 'You can reduce your carbon output by
+        exploring Scotland using public transport.<a href="https://www.visitscotland.com/inspiration/touring/easy-public-transport-trips"target="_blank">
+        Here are 10 easy ways to travel Scotland by public transport</a>', 'Sampling
+        Scotland''s natural food larder seasonally is a great way to support local
+        farms and communities.<a href="https://www.visitscotland.com/things-to-do/food-drink/seasonal-food-calendar"target="_blank">
+        Discover what''s in season with our food calendar</a>', 'What will your main
+        mode of transport be while travelling around Scotland?', Car (Petrol), Car
+        (Diesel), Car (Electric), Campervan/Motorhome (Petrol), Campervan/Motorhome
+        (Diesel), Coach, Bus, Train, Motorbike, Walking / Cycling]
+    resourcebundle:messages_de: [Weiter, Zurück, Ergebnis, 'Ihr geschätzter CO₂-Ausstoß
+        für diese Reise ist:', Aufschlüsselung Ihrer Emissionen, Das entspricht einer
+        Fahrt von xxx km in einem mittelgroßen Auto - damit könnten Sie yyy Mal von
+        Edinburgh nach London fahren!, Kilo, Fragebogen starten, 'Kann Ihr Urlaub
+        umweltfreundlicher sein?', Beantworten Sie diese einfachen Fragen über Ihre
+        Schottlandreise und wir berechnen Ihre Emissionen., '30', 'Herzlichen Glückwunsch!
+        Sie erzeugen auf Ihrer Reise täglich weniger als xxx kg CO₂-Äquivalente, was
+        unter dem Durchschnitt liegt. Für uns macht Sie das zu einem Nachhaltigkeits-Einhorn
+        - das schottische Nationaltier, das sich für den Schutz unserer Umwelt einsetzt.',
+      Top-Tipps!, 'Lesen Sie unsere Artikel für praktische Tipps zur Verringerung
+        Ihres ökologischen Fußabdrucks: <br/><br/> <a href="https://www.visitscotland.com/de-de/inspiration/slow-travel">
+        Genießen Sie Ihre Zeit in Schottland in vollen Zügen</a> <br/><br/> <a href="https://www.visitscotland.com/de-de/accommodation/eco-green">
+        Tun Sie der Umwelt in entspannten Öko-Unterkünften etwas Gutes</a> <br/><br/>
+        <a href="https://www.visitscotland.com/de-de/things-to-do/food-drink/taste-our-best">
+        Lassen Sie sich regionale und saisonale schottische Erzeugnisse schmecken</a>
+        <br/><br/> <a href="https://www.visitscotland.com/de-de/travel-planning/responsible-tourism">Finden
+        Sie noch mehr Tipps für nachhaltiges Reisen in Schottland</a>', 'Ihre bisherige
+        Berechnung:', CO₂-Äquivalente in kg, Das entspricht etwa xxx kg CO₂-Äquivalenten
+        pro Tag., Verkehr, Unterkunft, Ernährung, Neu starten, Anreise nach Schottland,
+      Unterkunft, Reisen innerhalb von Schottland, Ernährung, 'Wie reisen Sie nach
+        Schottland?', Ich lebe in Schottland, Inlandsflug*, Mittelstreckenflug*, Langstreckenflug*,
+      Auto (Benzin), Auto (Diesel), Auto (elektrisch), Zug, Reisebus, Fähre, Camper/Wohnmobil
+        (Benzin), Camper/Wohnmobil (Diesel), 'Wie viele Stunden dauert Ihre Reise
+        nach Schottland?', 'Wie viele Nächte verbringen Sie in Schottland?', 'Wie
+        würden Sie Ihre Ernährungsweise beschreiben?', Ich esse regelmäßig Fleisch*,
+      Ich esse gelegentlich Fleisch*, Ich esse selten Fleisch*, 'Ich esse kein Fleisch,
+        aber Fisch', Ich ernähre mich vegetarisch, Ich ernähre mich vegan, '* Regelmäßiger
+        Fleischkonsum: 5 Mal pro Woche, gelegentlicher Fleischkonsum: 3 Mal pro Woche,
+        seltener Fleischkonsum: 1-2 Mal pro Woche', '', '', 'Sie müssen JavaScript
+        aktivieren, um diesen Rechner zu benutzen.', Schritt xxx von yyy, '* Inlandsflug:
+        innerhalb Großbritanniens, Mittelstreckenflug: innerhalb Europas, Langstreckenflug:
+        außerhalb Europas', 'Wenn Sie sich die Zeit nehmen, intensivere Verbindungen
+        aufzubauen, wird Ihre Reise noch bedeutungsvoller. <a href="https://www.visitscotland.com/de-de/inspiration/slow-travel"target="_blank">
+        Planen Sie Ihr Slow-Travel-Abenteuer in Schottland</a>', 'Sie können die Schönheit
+        der schottischen Natur schützen, indem Sie eine umweltfreundliche Unterkunft
+        für Ihren Urlaub buchen. <a href="https://www.visitscotland.com/de-de/accommodation/eco-green"target="_blank">
+        Finden Sie Öko-Unterkünfte</a>', 'Sie können Ihre Emissionen in Schottland
+        verringern, indem Sie öffentliche Verkehrsmittel nutzen. <a href="https://www.visitscotland.com/de-de/inspiration/touring/easy-public-transport-trips"target="_blank">
+        Hier gibt’s 10 einfache Trips mit öffentlichen Verkehrsmitteln in Schottland</a>',
+      'Wenn Sie saisonale schottische Erzeugnisse probieren, unterstützen Sie lokale
+        Bauernhöfe und Gemeinschaften. <a href="https://www.visitscotland.com/de-de/things-to-do/food-drink#section-4"target="_blank">Finden
+        Sie die besten schottischen Erzeugnisse</a>', 'Was ist das Hauptverkehrsmittel,
+        das Sie in Schottland nutzen werden?', Auto (Benzin), Auto (Diesel), Auto
+        (elektrisch), Camper/Wohnmobil (Benzin), Camper/Wohnmobil (Diesel), Reisebus,
+      Bus, Zug, Motorrad, Zu Fuß / mit dem Rad]
+    resourcebundle:messages_es: [Siguiente, Anterior, Resultados, 'Tus emisiones de
+        CO₂ estimadas para este viaje son:', Desglose de tus emisiones, 'Esto equivale
+        a un trayecto de xx kilómetros en un coche de tamaño medio: ¡podrías viajar
+        de Edimburgo a Londres xx veces!', kilos, Empezar el cuestionario, '¿Pueden
+        tus vacaciones ser más ecológicas?', 'Desde el transporte hasta la comida,
+        responde a 4 sencillas preguntas sobre tu viaje a Escocia y calcularemos tus
+        emisiones.', '30', '¡Enhorabuena! Estás emitiendo menos de xxx kg de CO₂ al
+        día durante tu viaje, lo que está por debajo de la media. Esto te convierte
+        en un unicornio de la sostenibilidad: el animal nacional de Escocia, dedicado
+        a la protección y cuidado de nuestro medio ambiente.', ¡Los mejores consejos!,
+      'Echa un vistazo a nuestros mejores consejos para viajar de forma sostenible
+        por Escocia: <br/><br/> <a href= "https://www.visitscotland.com/es-es/inspiration/slow-travel">
+        Saca el máximo partido a tu estancia en Escocia y disfruta del viaje </a>
+        <br/><br/> <a href="https://www.visitscotland.com/es-es/accommodation/eco-green">
+        Reduce tu huella de carbono en un relajante alojamiento ecológico</a> <br/><br/>
+        <a href="https://www.visitscotland.com/es-es/things-to-do/food-drink/seasonal-food-calendar">
+        Conecta con las granjas y comunidades locales y disfruta de nuestra despensa
+        natural cada temporada</a> <br/><br/> <a href="https://www.visitscotland.com/es-es/travel-planning/responsible-tourism">Obtén
+        más consejos e inspiración para viajar de forma sostenible por Escocia</a>',
+      'Tus cálculos hasta ahora:', KGs de CO₂e, Esto corresponde a xxx kg de CO₂ al
+        día., Transporte, Alojamiento, Comida, Empezar de nuevo, Viajar a Escocia,
+      Alojamiento, Viajar por Escocia, Comida, '¿Cómo viajas por Escocia?', Vivo en
+        Escocia, Vuelo nacional*, Vuelo de corta distancia*, Vuelo de larga distancia*,
+      Coche (gasolina), Coche (diésel), Coche (eléctrico), Tren, Autobús, Ferri, Autocaravana
+        (gasolina), Autocaravana (gasóleo), '¿Cuántas horas durará tu viaje a Escocia?',
+      '¿Cuántas noches te alojarás en Escocia?', '¿Cómo describirías tu dieta?', Como
+        carne habitualmente*, Como carne de vez en cuando*, Rara vez como carne*,
+      Dieta pescetariana (o pescatariana), Sigo una dieta vegetariana, Sigo una dieta
+        vegana, '*Como carne habitualmente: 5 veces a la semana, como carne de vez
+        en cuando: 3 veces a la semana, como poca carne: 1-2 veces a la semana', '',
+      '', Debes activar JavaScript para poder utilizar esta calculadora., Paso xxx
+        de yyy, '*Vuelo nacional: dentro del Reino Unido, vuelo de corta distancia:
+        dentro de Europa, vuelo de larga distancia: desde fuera de Europa.', 'Dedicar
+        tiempo a crear vínculos más fuertes es una forma más positiva de viajar.<a
+        href="https://www.visitscotland.com/es-es/inspiration/slow-travel"target="_blank">
+        Planifica tu aventura por Escocia a un ritmo relajado</ un>', 'Reserva un
+        alojamiento ecológico para tu viaje y protege la belleza natural de Escocia.
+        <a href="https://www.visitscotland.com/es-es/accommodation/eco-green" target="_blank">Encuentra
+        alojamientos ecológicos</a>', 'Reduce tus emisiones de carbono explorando
+        Escocia en transporte público. <a href="https://www.visitscotland.com/es-es/inspiration/touring/easy-public-transport-trips
+        "target="_blank"> 10 formas sencillas de viajar por Escocia en transporte
+        público</a>', 'Saborear la despensa natural de Escocia es la mejor manera
+        de apoyar a las granjas y las comunidades locales. <a href="https://www.visitscotland.com/es-es/things-to-do/food-drink#section-4"target="_blank">Descubre
+        los alimentos de temporada con nuestro calendario</a>', '¿Cuál será tu principal
+        medio de transporte durante tu viaje por Escocia?', Coche (gasolina), Coche
+        (diésel), Coche (eléctrico), Autocaravana (gasolina), Autocaravana (diésel),
+      Autocar, Autobús, Tren, Moto, A pie / en bicicleta]
+    resourcebundle:messages_fr: [Suivant, Précédent, Résultats, 'Le total estimé de
+        vos émissions de CO₂ pour ce voyage s’élève à :', Le détail de vos émissions,
+      'Cela équivaut à xxx kilomètres dans une voiture de taille moyenne, ce qui vous
+        permettrait d’effectuer yyy fois le trajet entre Édimbourg et Londres !',
+      kilos, Commencer le questionnaire, Calculez votre empreinte carbone, 'Du transport
+        à la gastronomie, répondez à 4 questions simples sur votre voyage en Écosse,
+        et nous calculerons ensuite vos émissions de carbone.', '30', 'Félicitations
+        ! Vous émettez moins de xxx kg de CO₂e par jour pendant votre voyage, ce qui
+        est inférieur à la moyenne. Cela fait de vous une licorne de la durabilité
+        : la licorne est l’animal national de l’Écosse, qui se soucie profondément
+        de la protection de notre environnement.', Astuces !, Découvrez nos meilleurs
+        conseils pour voyager de manière écoresponsable en Écosse., 'Votre calcul
+        jusqu’à présent :', Kg de CO₂e, Cela équivaut à xxx kg de CO₂e par jour.,
+      Transports, Hébergements, Nourriture, Recommencer, Se rendre en Écosse, Hébergements,
+      Se déplacer en Écosse, Nourriture, 'Comment vous rendrez-vous en Écosse ?',
+      Je vis en Écosse, Vol intérieur*, Vol court-courrier*, Vol long-courrier*, Voiture
+        (essence), Voiture (diesel), Voiture (électrique), Train, Car, Ferry, Caravane
+        ou camping-car (essence), Caravane ou camping-car (diesel), 'Combien d’heures
+        durera votre trajet jusqu’en Écosse ?', 'Combien de nuits séjournerez-vous
+        en Écosse ?', 'Comment qualifieriez-vous votre régime alimentaire ?', Je mange
+        régulièrement de la viande*, Je mange occasionnellement de la viande*, Je
+        mange très peu souvent de la viande*, Pescétarien·ne (pesco-végétarien·ne),
+      Végétarien·ne, Végane, '*Je mange de la viande régulièrement : 5 fois par semaine,
+        de temps à autre : 3 fois par semaine, très peu souvent : 1 à 2 fois par semaine',
+      '', '', Vous devez activer JavaScript afin de pouvoir utiliser ce Calculateur.,
+      Étape xxx sur yyy, '*Vol domestique : vol à l’intérieur du Royaume-Uni, vol
+        court-courrier : vol au sein de l’Europe, vol long-courrier : vol depuis une
+        destination hors-Europe', 'Prendre le temps de nouer des liens plus profonds
+        est une façon plus significative de voyager.<a href="https://www.visitscotland.com/fr-fr/inspiration/slow-travel
+        "target="_blank"> Organisez votre aventure de slow travel en Écosse</a>',
+      'Vous pouvez protéger la beauté naturelle de l’Écosse en réservant une retraite
+        écologique pour votre séjour.<a href="https://www.visitscotland.com/fr-fr/accommodation/eco-green
+        "target="_blank"> Optez pour un hébergement écoresponsable</a>', 'Vous pouvez
+        réduire votre empreinte carbone en explorant l’Écosse à l’aide des transports
+        en commun. <a href="https://www.visitscotland.com/fr-fr/inspiration/touring/easy-public-transport-trips
+        "target="_blank"> Voici 10 façons simples de voyager en Écosse en transports
+        en commun</a>', 'Déguster les produits naturels de saison en Écosse est un
+        excellent moyen de soutenir les exploitations agricoles et les communautés
+        locales. <a href="https://www.visitscotland.com/fr-fr/things-to-do/food-drink#section-4"target="_blank">
+        Découvrez nos produits saisonniers grâce à notre calendrier alimentaire</a>.',
+      'Quel sera votre principal moyen de transport lors de votre voyage en Écosse
+        ?', Voiture (essence), Voiture (diesel), Voiture (électrique), Caravane ou
+        camping-car (essence), Caravane ou camping-car (diesel), Car, Bus, Train,
+      Moto, À pied / vélo]
+    resourcebundle:messages_it: [Avanti, Indietro, Risultato, 'Le tue emissioni di
+        CO₂ stimate per questo viaggio sono:', Ripartizione delle tue emissioni, 'È
+        l''equivalente di percorrere xxx kilometri in un''auto di medie dimensioni:
+        potresti guidare da Edimburgo a Londra yyy volte!', chilo, Inizia questionario,
+      'Può la tua vacanza essere più ecologica?', Rispondi a queste semplici domande
+        sul tuo viaggio in Scozia e noi calcoleremo le tue emissioni., '30', 'Congratulazioni!
+        Durante il tuo viaggio generi meno di xxx kg di CO₂ equivalenti al giorno,
+        una percentuale inferiore alla media. Per noi, questo ti rende un unicorno
+        della sostenibilità: l''animale nazionale scozzese impegnato a proteggere
+        il nostro ambiente.', I nostri migliori suggerimenti!, 'Leggi i nostri migliori
+        consigli su come ridurre il tuo impatto sull''ambiente: <br/><br/> <a href="https://www.visitscotland.com/it-it/inspiration/slow-travel">
+        Sfrutta al massimo il tuo tempo in Scozia</a> <br/><br/> <a href="https://www.visitscotland.com/it-it/accommodation/eco-green">
+        Fai la tua parte per l''ambiente e rilassati in un eco alloggio</a> <br/><br/>
+        <a href="https://www.visitscotland.com/it-it/things-to-do/food-drink/taste-our-best">
+        Goditi i prodotti scozzesi locali e stagionali</a> <br/><br/> <a href="https://www.visitscotland.com/it-it/travel-planning/responsible-tourism">Trova
+        ancora altri suggerimenti per viaggiare in Scozia in modo sostenibile</a>',
+      'Il tuo calcolo finora:', Equivalenti di CO₂ in kg, Ciò corrisponde a xxx kg
+        di CO₂ equivalenti al giorno., Trasporto, Alloggio, Alimentazione, Ricomincia,
+      Viaggiare verso la Scozia, Alloggi, Viaggiare in Scozia, Alimentazione, 'Come
+        viaggi in Scozia?', Io vivo in Scozia, Volo interno*, Volo a corto raggio*,
+      Volo a lungo raggio*, Auto (benzina), Auto (diesel), Auto (elettrica), Treno,
+      Bus, Traghetto, Camper (benzina), Camper (diesel), 'Quante ore durerà il tuo
+        viaggio verso la Scozia?', 'Quante notti rimani in Scozia?', 'Come descriveresti
+        la tua dieta?', Mangio carne regolarmente*, Mangio carne occasionalmente*,
+      Mangio raramente carne*, 'Non mangio carne, ma mangio pesce', Seguo una dieta
+        vegetariana, Seguo una dieta vegana, '*Consumo regolare di carne: 5 volte
+        a settimana, consumo occasionale di carne: 3 volte a settimana, consumo raramente
+        di carne: 1-2 volte a settimana', '', '', Per utilizzare questa calcolatrice
+        è necessario abilitare Javascript., Step xxx di yyy, '*Volo nazionale: nel
+        Regno Unito, volo a corto raggio: in Europa, volo a lungo raggio: da fuori
+        Europa', 'Prendersi del tempo per creare legami più profondi è un modo più
+        significativo di viaggiare.<a href="https://www.visitscotland.com/it-it/inspiration/slow-travel"target="_blank">
+        Pianifica la tua avventura di slow travel in Scozia</ un>', 'Puoi proteggere
+        la bellezza della natura scozzese prenotando una sistemazione ecologica per
+        le tue vacanze. <a href="https://www.visitscotland.com/it-it/accommodation/eco-green"
+        target="_blank">Trova eco-alloggi</a>', 'Potai ridurre le tue emissioni di
+        anidride carbonica esplorando la Scozia con i mezzi pubblici. <a href="https://www.visitscotland.com/it-it/inspiration/touring/easy-public-transport-trips
+        "target="_blank"> Ecco 10 modi semplici per viaggiare in Scozia con i mezzi
+        pubblici</a>', 'Quando assaggi i prodotti scozzesi stagionali, sostieni le
+        fattorie e le comunità locali. <a href="https://www.visitscotland.com/it-it/things-to-do/food-drink#section-4"target="_blank">Trova
+        i migliori prodotti scozzesi</a>', 'Quale sarà il tuo principale mezzo di
+        trasporto durante il viaggio in Scozia?', Macchina (benzina), Macchina (Diesel),
+      Macchina (elettrica), Camper/Motorhome (benzina), Camper/Motorhome (Diesel),
+      Autobus, Bus, Treno, Motocicletta, A piedi / in bicicletta]
+    resourcebundle:messages_nl: ['', '', '', '', '', '', '', '', '', '', '', '', '',
+      '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
+      '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
+      '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '']
+  /carbon-calculator[3]:
+    jcr:primaryType: resourcebundle:resourcebundle
+    jcr:mixinTypes: ['mix:referenceable']
+    jcr:uuid: e5e12aae-bf7d-4089-824d-287c898bb6f3
+    hippo:availability: [live]
+    hippostd:retainable: false
+    hippostd:state: published
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2023-08-09T17:31:48.480+01:00
+    hippostdpubwf:lastModificationDate: 2023-11-28T13:06:33.123+01:00
+    hippostdpubwf:lastModifiedBy: alma.garcia
+    hippostdpubwf:publicationDate: 2023-11-28T13:06:42.202+01:00
+    resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '', '', '', '',
+      '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
+      '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
+      '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '']
+    resourcebundle:id: carbon-calculator
+    resourcebundle:keys: [next, previous, results, resultsIntro, chartTitle, comparison,
+      kilos, begin, introHeading, introContent, perDayTarget, perDaySuccess, topTip,
+      allTips, soFar, kgsOf, kgsPerDay, transport, accommodation, food, restart, stage-1.title,
+      stage-2.title, stage-3.title, stage-4.title, question-1.question, question-1.option-1,
+      question-1.option-2, question-1.option-3, question-1.option-4, question-1.option-5,
+      question-1.option-6, question-1.option-7, question-1.option-8, question-1.option-9,
+      question-1.option-10, question-1.option-11, question-1.option-12, question-2.question,
+      question-3.question, question-5.question, question-5.option-1, question-5.option-2,
+      question-5.option-3, question-5.option-4, question-5.option-5, question-5.option-6,
+      question-5.hint, form-url, formUrl, noJsMessage, progress, question-1.hint,
+      stage-1.tip, stage-2.tip, stage-3.tip, stage-4.tip, question-4.question, question-4.option-1,
+      question-4.option-2, question-4.option-3, question-4.option-4, question-4.option-5,
+      question-4.option-6, question-4.option-7, question-4.option-8, question-4.option-9,
+      question-4.option-10]
+    resourcebundle:messages: [Next, Previous, Results, Your estimated total carbon
+        emission for your trip is, Your emissions breakdown, 'That''s the equivalent
+        of xxx kms in a medium-sized petrol car, which would take you from Edinburgh
+        to London yyy times!', kilos, Start Questionnaire, 'Can your holiday be more
+        green?', Answer these simple questions about your trip to Scotland and we'll
+        calculate your emissions., '30', 'Congratulations! You''re emitting less than
+        xxx KGs of CO₂e per day on your trip, which is below average. We like to think
+        this makes you a Sustainability Unicorn - Scotland''s national animal, which
+        cares deeply about protecting our environment.', Top Tips!, 'Check out our
+        articles for handy tips on how to reduce your impact on the environment: <br/><br/>
+        <a href="https://www.visitscotland.com/inspiration/slow-travel"> Make the
+        most of your time in Scotland by savouring the journey</a> <br/><br/> <a href="https://www.visitscotland.com/accommodation/eco-green">
+        Reduce your carbon footprint with relaxing eco accommodation</a> <br/><br/>
+        <a href="https://www.visitscotland.com/things-to-do/food-drink/seasonal-food-calendar">
+        Connect with local farms and communities by experiencing our natural larder
+        seasonally</a> <br/><br/> <a href="https://www.visitscotland.com/travel-planning/responsible-tourism">Find
+        more top tips for sustainable travel in Scotland</a>', 'Your calculation so
+        far:', KGs of CO₂e, That's about xxx KGs of CO₂e per day., Transport, Accommodation,
+      Food, Restart, Travel to Scotland, Accommodation, Travel around Scotland, Food,
+      'How are you travelling to Scotland?', I live in Scotland, Domestic Flight*,
+      Short-Haul Flight*, Long-Haul Flight*, Car (Petrol), Car (Diesel), Car (Electric),
+      Train, Coach, Ferry, Campervan/Motorhome (Petrol), Campervan/Motorhome (Diesel),
+      'How many hours will your journey take?', 'How many nights are you staying for?',
+      'How would you describe your diet?', Frequent meat-eater*, Moderate meat-eater*,
+      Infrequent meat-eater*, Pescatarian, Vegetarian, Vegan, '*Frequent meat eater:
+        5 times a week, moderate meat eater: 3 times a week, infrequent meat eater:
+        1 - 2 times a week', 'https://static.visitscotland.com/forms/carbon-calculator/carbon-calculator-form-v-2.json',
+      'https://static.visitscotland.com/forms/carbon-calculator/carbon-calculator-form-v-2.json',
+      You need Javascript enabled to use this calculator, Step xxx of yyy, '*Domestic
+        flight: within the UK, short-haul flight: within Europe, long-haul flight:
+        from outside of Europe', 'Taking time to form deeper connections is a more
+        meaningful way to travel.<a href="https://www.visitscotland.com/inspiration/slow-travel"target="_blank">
+        Plan your slow travel adventure in Scotland</a>', 'You can protect Scotland''s
+        natural beauty by booking an eco-retreat for your visit.<a href="https://www.visitscotland.com/accommodation/eco-green"target="_blank">
+        Find eco-friendly accommodation</a>', 'You can reduce your carbon output by
+        exploring Scotland using public transport.<a href="https://www.visitscotland.com/inspiration/touring/easy-public-transport-trips"target="_blank">
+        Here are 10 easy ways to travel Scotland by public transport</a>', 'Sampling
+        Scotland''s natural food larder seasonally is a great way to support local
+        farms and communities.<a href="https://www.visitscotland.com/things-to-do/food-drink/seasonal-food-calendar"target="_blank">
+        Discover what''s in season with our food calendar</a>', 'What will your main
+        mode of transport be while travelling around Scotland?', Car (Petrol), Car
+        (Diesel), Car (Electric), Campervan/Motorhome (Petrol), Campervan/Motorhome
+        (Diesel), Coach, Bus, Train, Motorbike, Walking / Cycling]
+    resourcebundle:messages_de: [Weiter, Zurück, Ergebnis, 'Ihr geschätzter CO₂-Ausstoß
+        für diese Reise ist:', Aufschlüsselung Ihrer Emissionen, Das entspricht einer
+        Fahrt von xxx km in einem mittelgroßen Auto - damit könnten Sie yyy Mal von
+        Edinburgh nach London fahren!, Kilo, Fragebogen starten, 'Kann Ihr Urlaub
+        umweltfreundlicher sein?', Beantworten Sie diese einfachen Fragen über Ihre
+        Schottlandreise und wir berechnen Ihre Emissionen., '30', 'Herzlichen Glückwunsch!
+        Sie erzeugen auf Ihrer Reise täglich weniger als xxx kg CO₂-Äquivalente, was
+        unter dem Durchschnitt liegt. Für uns macht Sie das zu einem Nachhaltigkeits-Einhorn
+        - das schottische Nationaltier, das sich für den Schutz unserer Umwelt einsetzt.',
+      Top-Tipps!, 'Lesen Sie unsere Artikel für praktische Tipps zur Verringerung
+        Ihres ökologischen Fußabdrucks: <br/><br/> <a href="https://www.visitscotland.com/de-de/inspiration/slow-travel">
+        Genießen Sie Ihre Zeit in Schottland in vollen Zügen</a> <br/><br/> <a href="https://www.visitscotland.com/de-de/accommodation/eco-green">
+        Tun Sie der Umwelt in entspannten Öko-Unterkünften etwas Gutes</a> <br/><br/>
+        <a href="https://www.visitscotland.com/de-de/things-to-do/food-drink/taste-our-best">
+        Lassen Sie sich regionale und saisonale schottische Erzeugnisse schmecken</a>
+        <br/><br/> <a href="https://www.visitscotland.com/de-de/travel-planning/responsible-tourism">Finden
+        Sie noch mehr Tipps für nachhaltiges Reisen in Schottland</a>', 'Ihre bisherige
+        Berechnung:', CO₂-Äquivalente in kg, Das entspricht etwa xxx kg CO₂-Äquivalenten
+        pro Tag., Verkehr, Unterkunft, Ernährung, Neu starten, Anreise nach Schottland,
+      Unterkunft, Reisen innerhalb von Schottland, Ernährung, 'Wie reisen Sie nach
+        Schottland?', Ich lebe in Schottland, Inlandsflug*, Mittelstreckenflug*, Langstreckenflug*,
+      Auto (Benzin), Auto (Diesel), Auto (elektrisch), Zug, Reisebus, Fähre, Camper/Wohnmobil
+        (Benzin), Camper/Wohnmobil (Diesel), 'Wie viele Stunden dauert Ihre Reise
+        nach Schottland?', 'Wie viele Nächte verbringen Sie in Schottland?', 'Wie
+        würden Sie Ihre Ernährungsweise beschreiben?', Ich esse regelmäßig Fleisch*,
+      Ich esse gelegentlich Fleisch*, Ich esse selten Fleisch*, 'Ich esse kein Fleisch,
+        aber Fisch', Ich ernähre mich vegetarisch, Ich ernähre mich vegan, '* Regelmäßiger
+        Fleischkonsum: 5 Mal pro Woche, gelegentlicher Fleischkonsum: 3 Mal pro Woche,
+        seltener Fleischkonsum: 1-2 Mal pro Woche', '', '', 'Sie müssen JavaScript
+        aktivieren, um diesen Rechner zu benutzen.', Schritt xxx von yyy, '* Inlandsflug:
+        innerhalb Großbritanniens, Mittelstreckenflug: innerhalb Europas, Langstreckenflug:
+        außerhalb Europas', 'Wenn Sie sich die Zeit nehmen, intensivere Verbindungen
+        aufzubauen, wird Ihre Reise noch bedeutungsvoller. <a href="https://www.visitscotland.com/de-de/inspiration/slow-travel"target="_blank">
+        Planen Sie Ihr Slow-Travel-Abenteuer in Schottland</a>', 'Sie können die Schönheit
+        der schottischen Natur schützen, indem Sie eine umweltfreundliche Unterkunft
+        für Ihren Urlaub buchen. <a href="https://www.visitscotland.com/de-de/accommodation/eco-green"target="_blank">
+        Finden Sie Öko-Unterkünfte</a>', 'Sie können Ihre Emissionen in Schottland
+        verringern, indem Sie öffentliche Verkehrsmittel nutzen. <a href="https://www.visitscotland.com/de-de/inspiration/touring/easy-public-transport-trips"target="_blank">
+        Hier gibt’s 10 einfache Trips mit öffentlichen Verkehrsmitteln in Schottland</a>',
+      'Wenn Sie saisonale schottische Erzeugnisse probieren, unterstützen Sie lokale
+        Bauernhöfe und Gemeinschaften. <a href="https://www.visitscotland.com/de-de/things-to-do/food-drink#section-4"target="_blank">Finden
+        Sie die besten schottischen Erzeugnisse</a>', 'Was ist das Hauptverkehrsmittel,
+        das Sie in Schottland nutzen werden?', Auto (Benzin), Auto (Diesel), Auto
+        (elektrisch), Camper/Wohnmobil (Benzin), Camper/Wohnmobil (Diesel), Reisebus,
+      Bus, Zug, Motorrad, Zu Fuß / mit dem Rad]
+    resourcebundle:messages_es: [Siguiente, Anterior, Resultados, 'Tus emisiones de
+        CO₂ estimadas para este viaje son:', Desglose de tus emisiones, 'Esto equivale
+        a un trayecto de xx kilómetros en un coche de tamaño medio: ¡podrías viajar
+        de Edimburgo a Londres xx veces!', kilos, Empezar el cuestionario, '¿Pueden
+        tus vacaciones ser más ecológicas?', 'Desde el transporte hasta la comida,
+        responde a 4 sencillas preguntas sobre tu viaje a Escocia y calcularemos tus
+        emisiones.', '30', '¡Enhorabuena! Estás emitiendo menos de xxx kg de CO₂ al
+        día durante tu viaje, lo que está por debajo de la media. Esto te convierte
+        en un unicornio de la sostenibilidad: el animal nacional de Escocia, dedicado
+        a la protección y cuidado de nuestro medio ambiente.', ¡Los mejores consejos!,
+      'Echa un vistazo a nuestros mejores consejos para viajar de forma sostenible
+        por Escocia: <br/><br/> <a href= "https://www.visitscotland.com/es-es/inspiration/slow-travel">
+        Saca el máximo partido a tu estancia en Escocia y disfruta del viaje </a>
+        <br/><br/> <a href="https://www.visitscotland.com/es-es/accommodation/eco-green">
+        Reduce tu huella de carbono en un relajante alojamiento ecológico</a> <br/><br/>
+        <a href="https://www.visitscotland.com/es-es/things-to-do/food-drink/seasonal-food-calendar">
+        Conecta con las granjas y comunidades locales y disfruta de nuestra despensa
+        natural cada temporada</a> <br/><br/> <a href="https://www.visitscotland.com/es-es/travel-planning/responsible-tourism">Obtén
+        más consejos e inspiración para viajar de forma sostenible por Escocia</a>',
+      'Tus cálculos hasta ahora:', KGs de CO₂e, Esto corresponde a xxx kg de CO₂ al
+        día., Transporte, Alojamiento, Comida, Empezar de nuevo, Viajar a Escocia,
+      Alojamiento, Viajar por Escocia, Comida, '¿Cómo viajas por Escocia?', Vivo en
+        Escocia, Vuelo nacional*, Vuelo de corta distancia*, Vuelo de larga distancia*,
+      Coche (gasolina), Coche (diésel), Coche (eléctrico), Tren, Autobús, Ferri, Autocaravana
+        (gasolina), Autocaravana (gasóleo), '¿Cuántas horas durará tu viaje a Escocia?',
+      '¿Cuántas noches te alojarás en Escocia?', '¿Cómo describirías tu dieta?', Como
+        carne habitualmente*, Como carne de vez en cuando*, Rara vez como carne*,
+      Dieta pescetariana (o pescatariana), Sigo una dieta vegetariana, Sigo una dieta
+        vegana, '*Como carne habitualmente: 5 veces a la semana, como carne de vez
+        en cuando: 3 veces a la semana, como poca carne: 1-2 veces a la semana', '',
+      '', Debes activar JavaScript para poder utilizar esta calculadora., Paso xxx
+        de yyy, '*Vuelo nacional: dentro del Reino Unido, vuelo de corta distancia:
+        dentro de Europa, vuelo de larga distancia: desde fuera de Europa.', 'Dedicar
+        tiempo a crear vínculos más fuertes es una forma más positiva de viajar.<a
+        href="https://www.visitscotland.com/es-es/inspiration/slow-travel"target="_blank">
+        Planifica tu aventura por Escocia a un ritmo relajado</ un>', 'Reserva un
+        alojamiento ecológico para tu viaje y protege la belleza natural de Escocia.
+        <a href="https://www.visitscotland.com/es-es/accommodation/eco-green" target="_blank">Encuentra
+        alojamientos ecológicos</a>', 'Reduce tus emisiones de carbono explorando
+        Escocia en transporte público. <a href="https://www.visitscotland.com/es-es/inspiration/touring/easy-public-transport-trips
+        "target="_blank"> 10 formas sencillas de viajar por Escocia en transporte
+        público</a>', 'Saborear la despensa natural de Escocia es la mejor manera
+        de apoyar a las granjas y las comunidades locales. <a href="https://www.visitscotland.com/es-es/things-to-do/food-drink#section-4"target="_blank">Descubre
+        los alimentos de temporada con nuestro calendario</a>', '¿Cuál será tu principal
+        medio de transporte durante tu viaje por Escocia?', Coche (gasolina), Coche
+        (diésel), Coche (eléctrico), Autocaravana (gasolina), Autocaravana (diésel),
+      Autocar, Autobús, Tren, Moto, A pie / en bicicleta]
+    resourcebundle:messages_fr: [Suivant, Précédent, Résultats, 'Le total estimé de
+        vos émissions de CO₂ pour ce voyage s’élève à :', Le détail de vos émissions,
+      'Cela équivaut à xxx kilomètres dans une voiture de taille moyenne, ce qui vous
+        permettrait d’effectuer yyy fois le trajet entre Édimbourg et Londres !',
+      kilos, Commencer le questionnaire, Calculez votre empreinte carbone, 'Du transport
+        à la gastronomie, répondez à 4 questions simples sur votre voyage en Écosse,
+        et nous calculerons ensuite vos émissions de carbone.', '30', 'Félicitations
+        ! Vous émettez moins de xxx kg de CO₂e par jour pendant votre voyage, ce qui
+        est inférieur à la moyenne. Cela fait de vous une licorne de la durabilité
+        : la licorne est l’animal national de l’Écosse, qui se soucie profondément
+        de la protection de notre environnement.', Astuces !, Découvrez nos meilleurs
+        conseils pour voyager de manière écoresponsable en Écosse., 'Votre calcul
+        jusqu’à présent :', Kg de CO₂e, Cela équivaut à xxx kg de CO₂e par jour.,
+      Transports, Hébergements, Nourriture, Recommencer, Se rendre en Écosse, Hébergements,
+      Se déplacer en Écosse, Nourriture, 'Comment vous rendrez-vous en Écosse ?',
+      Je vis en Écosse, Vol intérieur*, Vol court-courrier*, Vol long-courrier*, Voiture
+        (essence), Voiture (diesel), Voiture (électrique), Train, Car, Ferry, Caravane
+        ou camping-car (essence), Caravane ou camping-car (diesel), 'Combien d’heures
+        durera votre trajet jusqu’en Écosse ?', 'Combien de nuits séjournerez-vous
+        en Écosse ?', 'Comment qualifieriez-vous votre régime alimentaire ?', Je mange
+        régulièrement de la viande*, Je mange occasionnellement de la viande*, Je
+        mange très peu souvent de la viande*, Pescétarien·ne (pesco-végétarien·ne),
+      Végétarien·ne, Végane, '*Je mange de la viande régulièrement : 5 fois par semaine,
+        de temps à autre : 3 fois par semaine, très peu souvent : 1 à 2 fois par semaine',
+      '', '', Vous devez activer JavaScript afin de pouvoir utiliser ce Calculateur.,
+      Étape xxx sur yyy, '*Vol domestique : vol à l’intérieur du Royaume-Uni, vol
+        court-courrier : vol au sein de l’Europe, vol long-courrier : vol depuis une
+        destination hors-Europe', 'Prendre le temps de nouer des liens plus profonds
+        est une façon plus significative de voyager.<a href="https://www.visitscotland.com/fr-fr/inspiration/slow-travel
+        "target="_blank"> Organisez votre aventure de slow travel en Écosse</a>',
+      'Vous pouvez protéger la beauté naturelle de l’Écosse en réservant une retraite
+        écologique pour votre séjour.<a href="https://www.visitscotland.com/fr-fr/accommodation/eco-green
+        "target="_blank"> Optez pour un hébergement écoresponsable</a>', 'Vous pouvez
+        réduire votre empreinte carbone en explorant l’Écosse à l’aide des transports
+        en commun. <a href="https://www.visitscotland.com/fr-fr/inspiration/touring/easy-public-transport-trips
+        "target="_blank"> Voici 10 façons simples de voyager en Écosse en transports
+        en commun</a>', 'Déguster les produits naturels de saison en Écosse est un
+        excellent moyen de soutenir les exploitations agricoles et les communautés
+        locales. <a href="https://www.visitscotland.com/fr-fr/things-to-do/food-drink#section-4"target="_blank">
+        Découvrez nos produits saisonniers grâce à notre calendrier alimentaire</a>.',
+      'Quel sera votre principal moyen de transport lors de votre voyage en Écosse
+        ?', Voiture (essence), Voiture (diesel), Voiture (électrique), Caravane ou
+        camping-car (essence), Caravane ou camping-car (diesel), Car, Bus, Train,
+      Moto, À pied / vélo]
+    resourcebundle:messages_it: [Avanti, Indietro, Risultato, 'Le tue emissioni di
+        CO₂ stimate per questo viaggio sono:', Ripartizione delle tue emissioni, 'È
+        l''equivalente di percorrere xxx kilometri in un''auto di medie dimensioni:
+        potresti guidare da Edimburgo a Londra yyy volte!', chilo, Inizia questionario,
+      'Può la tua vacanza essere più ecologica?', Rispondi a queste semplici domande
+        sul tuo viaggio in Scozia e noi calcoleremo le tue emissioni., '30', 'Congratulazioni!
+        Durante il tuo viaggio generi meno di xxx kg di CO₂ equivalenti al giorno,
+        una percentuale inferiore alla media. Per noi, questo ti rende un unicorno
+        della sostenibilità: l''animale nazionale scozzese impegnato a proteggere
+        il nostro ambiente.', I nostri migliori suggerimenti!, 'Leggi i nostri migliori
+        consigli su come ridurre il tuo impatto sull''ambiente: <br/><br/> <a href="https://www.visitscotland.com/it-it/inspiration/slow-travel">
+        Sfrutta al massimo il tuo tempo in Scozia</a> <br/><br/> <a href="https://www.visitscotland.com/it-it/accommodation/eco-green">
+        Fai la tua parte per l''ambiente e rilassati in un eco alloggio</a> <br/><br/>
+        <a href="https://www.visitscotland.com/it-it/things-to-do/food-drink/taste-our-best">
+        Goditi i prodotti scozzesi locali e stagionali</a> <br/><br/> <a href="https://www.visitscotland.com/it-it/travel-planning/responsible-tourism">Trova
+        ancora altri suggerimenti per viaggiare in Scozia in modo sostenibile</a>',
+      'Il tuo calcolo finora:', Equivalenti di CO₂ in kg, Ciò corrisponde a xxx kg
+        di CO₂ equivalenti al giorno., Trasporto, Alloggio, Alimentazione, Ricomincia,
+      Viaggiare verso la Scozia, Alloggi, Viaggiare in Scozia, Alimentazione, 'Come
+        viaggi in Scozia?', Io vivo in Scozia, Volo interno*, Volo a corto raggio*,
+      Volo a lungo raggio*, Auto (benzina), Auto (diesel), Auto (elettrica), Treno,
+      Bus, Traghetto, Camper (benzina), Camper (diesel), 'Quante ore durerà il tuo
+        viaggio verso la Scozia?', 'Quante notti rimani in Scozia?', 'Come descriveresti
+        la tua dieta?', Mangio carne regolarmente*, Mangio carne occasionalmente*,
+      Mangio raramente carne*, 'Non mangio carne, ma mangio pesce', Seguo una dieta
+        vegetariana, Seguo una dieta vegana, '*Consumo regolare di carne: 5 volte
+        a settimana, consumo occasionale di carne: 3 volte a settimana, consumo raramente
+        di carne: 1-2 volte a settimana', '', '', Per utilizzare questa calcolatrice
+        è necessario abilitare Javascript., Step xxx di yyy, '*Volo nazionale: nel
+        Regno Unito, volo a corto raggio: in Europa, volo a lungo raggio: da fuori
+        Europa', 'Prendersi del tempo per creare legami più profondi è un modo più
+        significativo di viaggiare.<a href="https://www.visitscotland.com/it-it/inspiration/slow-travel"target="_blank">
+        Pianifica la tua avventura di slow travel in Scozia</ un>', 'Puoi proteggere
+        la bellezza della natura scozzese prenotando una sistemazione ecologica per
+        le tue vacanze. <a href="https://www.visitscotland.com/it-it/accommodation/eco-green"
+        target="_blank">Trova eco-alloggi</a>', 'Potai ridurre le tue emissioni di
+        anidride carbonica esplorando la Scozia con i mezzi pubblici. <a href="https://www.visitscotland.com/it-it/inspiration/touring/easy-public-transport-trips
+        "target="_blank"> Ecco 10 modi semplici per viaggiare in Scozia con i mezzi
+        pubblici</a>', 'Quando assaggi i prodotti scozzesi stagionali, sostieni le
+        fattorie e le comunità locali. <a href="https://www.visitscotland.com/it-it/things-to-do/food-drink#section-4"target="_blank">Trova
+        i migliori prodotti scozzesi</a>', 'Quale sarà il tuo principale mezzo di
+        trasporto durante il viaggio in Scozia?', Macchina (benzina), Macchina (Diesel),
+      Macchina (elettrica), Camper/Motorhome (benzina), Camper/Motorhome (Diesel),
+      Autobus, Bus, Treno, Motocicletta, A piedi / in bicicletta]
+    resourcebundle:messages_nl: ['', '', '', '', '', '', '', '', '', '', '', '', '',
+      '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
+      '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
+      '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '']

@@ -5,6 +5,7 @@ import org.hippoecm.hst.core.sitemenu.HstSiteMenu;
 import org.hippoecm.hst.core.sitemenu.HstSiteMenuItem;
 import org.hippoecm.hst.core.sitemenu.HstSiteMenus;
 
+import java.util.Date;
 import java.util.List;
 
 public class RootMenuItem implements HstSiteMenu {
@@ -13,8 +14,13 @@ public class RootMenuItem implements HstSiteMenu {
 
     private List<HstSiteMenuItem> menuItems;
 
+    private Date timeStamp;
+
+    private Boolean cmsCached;
+
     public RootMenuItem(HstSiteMenu hstMenu) {
         this.hstMenu = hstMenu;
+        timeStamp = new Date();
     }
 
     public void setSiteMenuItems(List<HstSiteMenuItem> items) {
@@ -58,5 +64,17 @@ public class RootMenuItem implements HstSiteMenu {
     @Override
     public boolean isExpanded() {
         return hstMenu.isExpanded();
+    }
+
+    public Date getTimeStamp(){
+        return timeStamp;
+    }
+
+    public Boolean getCmsCached() {
+        return cmsCached;
+    }
+
+    public void setCmsCached(Boolean cmsCached) {
+        this.cmsCached = cmsCached;
     }
 }

@@ -14,7 +14,6 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
-import javax.annotation.Resource;
 import java.util.Locale;
 
 import static org.mockito.Mockito.*;
@@ -32,7 +31,6 @@ class ProductSearchBuilderTest {
     @Mock
     LocationLoader locationLoader;
 
-    @Resource
     @InjectMocks
     ProductSearchBuilder builder;
 
@@ -487,6 +485,21 @@ class ProductSearchBuilderTest {
         validateUrl(url);
         assertTrue(url.contains("fac_id=safetrav"),
                 String.format("The Generated URL is expected to have the parameter safe travels (%s) ", url)
+        );
+    }
+
+    @Test
+    @DisplayName("VS-4566 Days Out - Show results with Days out")
+    void daysOut() {
+        mockLocationLoader("Edinburgh");
+        String url = createBuilder().productTypes(DEFAULT_TYPE)
+                .location("Edinburgh").daysOut(true)
+                .proximity(null)
+                .build();
+
+        validateUrl(url);
+        assertTrue(url.contains("fac_id=daysoutscotland"),
+                String.format("The Generated URL is expected to have the parameter days out offer (%s) ", url)
         );
     }
 

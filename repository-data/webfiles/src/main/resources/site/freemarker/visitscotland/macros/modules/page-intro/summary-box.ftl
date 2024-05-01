@@ -4,9 +4,9 @@
 <#include "../../../../frontend/components/vs-summary-box-distance-list-item.ftl">
 
 <#macro summaryBox itinerary>
-<vs-col cols="12" md="6" lg="5" xl="4">
+<vs-col cols="12" md="6" lg="5" xl="4" class="position-relative">
     <vs-summary-box-list>
-        <#if itinerary.days?size = 1>
+        <#if itinerary.days?size == 1>
             <#assign daysLabel = label('itinerary', 'day')>
         <#else>
             <#assign daysLabel = label('itinerary', 'days')>
@@ -18,7 +18,7 @@
         </vs-summary-box-list-item>
         <vs-summary-box-distance-list-item
             miles="${itinerary.distance}"
-            kilometres="${(itinerary.distance*1.6)}"
+            kilometres="${(itinerary.distance*1.6)?round}"
             miles-label="${label("itinerary", "miles")}"
             kilometres-label="${label("itinerary", "kilometres-abbreviation")}"
             distance-label="${label("itinerary", "distance")}"

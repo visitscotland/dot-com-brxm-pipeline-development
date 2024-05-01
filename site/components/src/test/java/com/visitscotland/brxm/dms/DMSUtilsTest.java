@@ -10,15 +10,13 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.junit.jupiter.MockitoExtension;
 
-import javax.annotation.Resource;
 import java.util.List;
 
 @ExtendWith(MockitoExtension.class)
 class DMSUtilsTest {
 
-    @Resource @InjectMocks
+    @InjectMocks
     DMSUtils utils;
-
 
     @Test
     @DisplayName("Parse Key facilities into an array of entries (DataType)")

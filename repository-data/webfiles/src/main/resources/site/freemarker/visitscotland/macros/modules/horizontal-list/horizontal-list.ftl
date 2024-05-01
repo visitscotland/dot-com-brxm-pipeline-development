@@ -10,11 +10,11 @@
         theme="<#if themeName?has_content>${themeName}<#else>light</#if>"
         data-test="<#if testId?has_content>${testId}<#else>vs-otyml</#if>"
     >
-        <template slot="vsModuleWrapperHeading">
+        <template v-slot:vs-module-wrapper-heading>
             ${item.title}
         </template>
 
-        <template slot="vsModuleWrapperIntro">
+        <template v-slot:vs-module-wrapper-intro>
             <@hst.html hippohtml=item.introduction/>
         </template>
 

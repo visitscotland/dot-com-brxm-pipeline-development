@@ -6,6 +6,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import com.fasterxml.jackson.databind.node.ArrayNode;
 import com.visitscotland.brxm.services.CommonUtilsService;
+import com.visitscotland.brxm.utils.Properties;
 import com.visitscotland.utils.Contract;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -22,10 +23,12 @@ public class DMSDataService {
 
     private final DMSProxy proxy;
     private final CommonUtilsService utilsService;
+    private final Properties propertiesService;
 
-    public DMSDataService(DMSProxy proxy, CommonUtilsService utilsService) {
+    public DMSDataService(DMSProxy proxy, CommonUtilsService utilsService, Properties propertiesService) {
         this.proxy = proxy;
         this.utilsService = utilsService;
+        this.propertiesService = propertiesService;
     }
 
 
@@ -53,7 +56,7 @@ public class DMSDataService {
             logger.info("Requesting data to the dms: {}", dmsUrl);
             try {
                 responseString = proxy.request(dmsUrl);
-                if (responseString!=null) {
+                if (!Contract.isEmpty(responseString)) {
 
                     ObjectMapper mapper = new ObjectMapper();
                     JsonNode json = mapper.readTree(responseString);
@@ -74,21 +77,19 @@ public class DMSDataService {
     /**
      * This method invokes the legacy data Map endpoint from a ProductSearchBuilder
      *
-     * @param psb ProductSearchBuilder
+     * @param dmsUrl URL for the DMS
      *
      * @return Json node with DMS results
      */
     @Cacheable (value="dmsProductSearch")
-    public JsonNode legacyMapSearch(ProductSearchBuilder psb){
-
+    public JsonNode legacyMapSearch(String dmsUrl){
         String responseString = null;
-        String dmsUrl = psb.buildDataMap();
 
         logger.info("Requesting data to the dms: {}", dmsUrl);
         try {
             responseString = proxy.request(dmsUrl);
 
-            if (responseString!=null) {
+            if (!Contract.isEmpty(responseString)) {
 
                 ObjectMapper mapper = new ObjectMapper();
                 JsonNode json = mapper.readTree(responseString);
@@ -103,14 +104,13 @@ public class DMSDataService {
 
         return  null;
     }
-    @Cacheable (value="dmsProductSearch")
-    public JsonNode cannedSearch(ProductSearchBuilder psb){
 
-        String dmsUrl = psb.buildCannedSearchInternal();
+    @Cacheable (value="dmsProductSearch")
+    public JsonNode cannedSearch(String dmsUrl){
 
         logger.info("Requesting data to the canned search: {}", dmsUrl);
         String responseString = proxy.request(dmsUrl);
-        if (responseString != null) {
+        if (!Contract.isEmpty(responseString)) {
             try {
                 ObjectMapper m = new ObjectMapper();
                 if (m.readTree(responseString).has("data")){
@@ -139,7 +139,7 @@ public class DMSDataService {
         try {
             responseString = proxy.request(cannedSearch);
 
-            if (responseString!=null) {
+            if (!Contract.isEmpty(responseString)) {
                 ObjectMapper mapper = new ObjectMapper();
                 JsonNode json = mapper.readTree(responseString);
 
@@ -164,17 +164,16 @@ public class DMSDataService {
      */
     //TODO this cache should be for a longer period of time?
     @Cacheable (value="dmsProductSearch")
-    public JsonNode getPolygonCoordinates(String location){
+    public JsonNode getLocationBorders(String location, boolean isRegion){
         logger.info("Requesting data to retrieve the coordinates for the polygon: {}", location);
         if (!Contract.isEmpty(location)) {
-            /*String dmsUrl = DMSConstants.META_LOCATIONS_COORDINATES;*/
-            String dmsUrl ="https://api.visitscotland.com/dev/data/products/dms/meta/location/display-polygon?";
-            dmsUrl += location;
+            String apiUrl = propertiesService.getApiDataBackendHost() + "maps/meta/location/" + (isRegion? "polygon":"bounds")+"?";
+            apiUrl += location;
             String responseString = null;
             try {
-                responseString = utilsService.requestUrl(dmsUrl);
+                responseString = utilsService.requestUrl(apiUrl);
 
-                if (responseString != null) {
+                if (!Contract.isEmpty(responseString)) {
                         ObjectMapper m = new ObjectMapper();
                         return m.readTree(responseString).get("geometry");
                 }
@@ -214,7 +213,7 @@ public class DMSDataService {
      */
     private ArrayNode getArrayData(String dmsUrl) {
         String responseString = proxy.request(dmsUrl);
-        if (responseString != null) {
+        if (!Contract.isEmpty(responseString)) {
             try {
                 ObjectMapper m = new ObjectMapper();
                 return (ArrayNode) m.readTree(responseString).get("data");

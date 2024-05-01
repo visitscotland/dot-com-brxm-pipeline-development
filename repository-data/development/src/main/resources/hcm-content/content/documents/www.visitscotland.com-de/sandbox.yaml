@@ -1250,6 +1250,78 @@
               <p>Royal Deeside has been a favourite holiday destination of the Royal Family ever since Queen Victoria and Prince Albert first visited and fell in love with the Balmoral Estate in 1848. Since then successive generations of the Royal Family have adopted the area as their tranquil retreat.</p>
 
               <p>The&nbsp;<a href="http://visitroyaldeeside.com/victorian-heritage-trail-on-royal-deeside-infomation/" target="_blank">Victorian Heritage Trail</a>&nbsp;pinpoints many of the historic places that make the picturesque Dee and Don Valleys, in the north east of Scotland, a truly majestic place.</p>
+      /test:
+        jcr:primaryType: hippo:handle
+        jcr:mixinTypes: ['hippo:versionInfo', 'mix:referenceable']
+        jcr:uuid: 8dadcfdb-10b2-4419-a747-656ba8b65212
+        hippo:versionHistory: bfb9585c-7f5f-4d84-ab1b-ff45d15d6771
+        /test[1]:
+          jcr:primaryType: visitscotland:Day
+          jcr:mixinTypes: ['mix:referenceable']
+          jcr:uuid: 8aae39b5-f30d-44c1-888c-2f6de0f91deb
+          hippo:availability: []
+          hippostd:retainable: false
+          hippostd:state: draft
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2023-02-17T10:55:23.805Z
+          hippostdpubwf:lastModificationDate: 2023-02-17T10:55:23.805Z
+          hippostdpubwf:lastModifiedBy: admin
+          hippotranslation:id: c454641b-4daf-49a7-9f4c-c005cd17b172
+          hippotranslation:locale: de
+          visitscotland:title: Test item
+          visitscotland:translation: ''
+          visitscotland:transports: [boat]
+          /visitscotland:introduction:
+            jcr:primaryType: hippostd:html
+            hippostd:content: <p>Test copy</p>
+          /visitscotland:stops:
+            jcr:primaryType: hippo:mirror
+            hippo:docbase: 1f6b4f90-8cc6-42b9-a589-c907510887fa
+        /test[2]:
+          jcr:primaryType: visitscotland:Day
+          jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+          jcr:uuid: f1e147a5-e8a9-43e7-b8f9-be065fdd5251
+          hippo:availability: [preview]
+          hippostd:retainable: false
+          hippostd:state: unpublished
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2023-02-17T10:55:23.805Z
+          hippostdpubwf:lastModificationDate: 2023-02-17T10:56:39.810Z
+          hippostdpubwf:lastModifiedBy: admin
+          hippotranslation:id: c454641b-4daf-49a7-9f4c-c005cd17b172
+          hippotranslation:locale: de
+          visitscotland:title: Test item
+          visitscotland:translation: ''
+          visitscotland:transports: [boat]
+          /visitscotland:introduction:
+            jcr:primaryType: hippostd:html
+            hippostd:content: <p>Test copy</p>
+          /visitscotland:stops:
+            jcr:primaryType: hippo:mirror
+            hippo:docbase: 1f6b4f90-8cc6-42b9-a589-c907510887fa
+        /test[3]:
+          jcr:primaryType: visitscotland:Day
+          jcr:mixinTypes: ['mix:referenceable']
+          jcr:uuid: 34eea517-9d89-4d4e-95e5-77c600c99c3f
+          hippo:availability: [live]
+          hippostd:retainable: false
+          hippostd:state: published
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2023-02-17T10:55:23.805Z
+          hippostdpubwf:lastModificationDate: 2023-02-17T10:56:39.810Z
+          hippostdpubwf:lastModifiedBy: admin
+          hippostdpubwf:publicationDate: 2023-02-17T10:56:44.923Z
+          hippotranslation:id: c454641b-4daf-49a7-9f4c-c005cd17b172
+          hippotranslation:locale: de
+          visitscotland:title: Test item
+          visitscotland:translation: ''
+          visitscotland:transports: [boat]
+          /visitscotland:introduction:
+            jcr:primaryType: hippostd:html
+            hippostd:content: <p>Test copy</p>
+          /visitscotland:stops:
+            jcr:primaryType: hippo:mirror
+            hippo:docbase: 1f6b4f90-8cc6-42b9-a589-c907510887fa
     /short-break-itinerary:
       jcr:primaryType: hippostd:folder
       jcr:mixinTypes: ['hippo:named', 'hippotranslation:translated', 'mix:versionable']

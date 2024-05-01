@@ -20,7 +20,6 @@
                             ${listItem.image.externalImage}
                         </#assign>
                     </#if>
-
                     <vs-col
                         cols="12"
                         md="6"
@@ -36,7 +35,7 @@
                                 transport-name="${label('transports', listItem.itineraryTransport)}"
                             </#if>
                             <#if listItem.itineraryDays??>
-                                <#if listItem.itineraryDays = 1>
+                                <#if listItem.itineraryDays == 1>
                                     days-label="${label('itinerary', 'day')}"
                                 <#else>
                                     days-label="${label('itinerary', 'days')}"
@@ -50,11 +49,11 @@
                                 video-btn-text="${label('video', 'video.play-btn')}"
                             </#if>
                         >
-                            <template slot="vsLinkListHeading">
+                            <template v-slot:vs-link-list-heading>
                                 ${listItem.label}
                             </template>
                             <#if showTeaser == 'true'>
-                                <template slot="vsLinkListContent">
+                                <template v-slot:vs-link-list-content>
                                     <p>${listItem.teaser}</p>
                                 </template>
                             </#if>
@@ -62,7 +61,7 @@
                     </vs-col>
                 
                     <#if listItem.youtubeId??>
-                        <@videoModal videoId=listItem.youtubeId videoTitle=listItem.label />
+                        <@videoModal video=listItem />
                     </#if>
                 </#list>
             </vs-row>

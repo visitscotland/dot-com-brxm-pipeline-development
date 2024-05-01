@@ -60,21 +60,23 @@ public class VsBreadCrumbProvider extends BreadcrumbProvider {
      */
     @Override
     protected BreadcrumbItem getBreadcrumbItem(HstRequest request, HstSiteMenuItem menuItem) {
-        if (menuItem.resolveToSiteMapItem() != null) {
-            HippoBean bean = getComponent().getBeanForResolvedSiteMapItem(request, menuItem.resolveToSiteMapItem());
-            if (bean != null) {
-                return new BreadcrumbItem(menuItem.getHstLink(), getBreadcrumbText(bean));
+        if(menuItem.getHstLink() != null){
+            if (menuItem.resolveToSiteMapItem() != null) {
+                HippoBean bean = getComponent().getBeanForResolvedSiteMapItem(request, menuItem.resolveToSiteMapItem());
+                if (bean != null) {
+                    return new BreadcrumbItem(menuItem.getHstLink(), getBreadcrumbText(bean));
+                }
             } else {
-                return null;
+                //If this warning message is logged and it is required that a menu item appears in the breadcrumb even though it
+                //is not backed from a document, I'd be useful to use the logic of enhancedmenu.
+                getContentLogger().warn("The menu Item {} does point to a document.", menuItem.getName());
+                //The following error message flags a possible issue and a solution. If the implementation is required please remove the log message.
+                getContentLogger().warn("If previous message is not an unexpected issue, some extra logic might be required - {}", menuItem.getName());
+                return new BreadcrumbItem(menuItem.getHstLink(), menuItem.getName());
             }
-        } else {
-            //If this warning message is logged and it is required that a menu item appears in the breadcrumb even though it
-            //is not backed from a document, I'd be useful to use the logic of enhancedmenu.
-            getContentLogger().warn("The menu Item {} does point to a document.", menuItem.getName());
-            //The following error message flags a possible issue and a solution. If the implementation is required please remove the log message.
-            getContentLogger().warn("If previous message is not an unexpected issue, some extra logic might be required - {}", menuItem.getName());
-            return new BreadcrumbItem(menuItem.getHstLink(), menuItem.getName());
         }
+
+        return null;
     }
 
     /**

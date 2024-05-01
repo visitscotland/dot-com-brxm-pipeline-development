@@ -8,13 +8,13 @@
 <#include "../../../../frontend/components/vs-rich-text-wrapper.ftl">
 
 <#-- @ftlvariable name="module" type="com.visitscotland.brxm.model.SignpostModule" -->
-<#macro signpost module imgSrc>
-    <vs-module-wrapper theme="grey">
-        <template slot="vsModuleWrapperHeading">
+<#macro signpost module>
+    <vs-module-wrapper theme="neutral">
+        <template v-slot:vs-module-wrapper-heading>
             ${module.title}
         </template>
 
-        <vs-container class="text-center text-sm-left mt-2">
+        <vs-container class="text-center text-sm-start mt-2">
             <vs-row>
                 <vs-col
                     cols="12"
@@ -22,7 +22,7 @@
                     md="6"
                     lg="5"
                     offset-lg="1"
-                    class="text-center text-sm-left col-xxl-4"
+                    class="text-center text-sm-start col-xxl-4"
                 >   
                     <vs-rich-text-wrapper variant="lead" class="mb-9 mb-lg-10">
                         <p>
@@ -43,11 +43,13 @@
                     md="6"
                     lg="5"
                     xl="5"
-                    class="text-center text-lg-left col-xxl-5 offset-xxl-1"
+                    class="text-center text-lg-start col-xxl-5 offset-xxl-1"
                 >
-                    <vs-img 
-                        src="<@hst.webfile path='${imgSrc}'/>" 
-                        class="mt-10 mt-sm-2 w-100">
+                    <vs-img
+                        src="<@hst.webfile path='${module.image.externalImage}'/>"
+                        class="mt-10 mt-sm-2 w-100 h-auto"
+                        style="aspect-ratio:267/206"
+                    >
                     </vs-img>
                 </vs-col>
             </vs-row>

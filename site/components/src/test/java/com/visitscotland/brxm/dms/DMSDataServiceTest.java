@@ -13,7 +13,7 @@ import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.io.IOException;
 import java.util.Locale;
-
+import com.visitscotland.brxm.utils.Properties;
 import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
@@ -26,10 +26,13 @@ class DMSDataServiceTest {
 
     @Mock
     CommonUtilsService utilsService;
+
+    @Mock
+    Properties propertiesService;
     
     @BeforeEach
     void init (){
-        service = new DMSDataService(proxy,   utilsService);
+        service = new DMSDataService(proxy,   utilsService, propertiesService);
     }
 
     @Test
@@ -87,12 +90,9 @@ class DMSDataServiceTest {
                 "      \"type\": \"Feature\"\n" +
                 "   }]\n" +
                 "}";
-
-        ProductSearchBuilder psb = mock(ProductSearchBuilder.class);
-        when(psb.buildDataMap()).thenReturn(SAMPLE_URL);
         when(proxy.request(SAMPLE_URL)).thenReturn(SAMPLE_RESPONSE);
 
-        JsonNode output = service.legacyMapSearch(psb);
+        JsonNode output = service.legacyMapSearch(SAMPLE_URL);
 
         Assertions.assertEquals(1, output.size());
         Assertions.assertEquals("Feature", output.get(0).get("type").asText());
@@ -102,17 +102,15 @@ class DMSDataServiceTest {
     @DisplayName("legacyMapSeach - Errors are handled properly")
     void corruptedResponseReturnsNull_errorControl() throws IOException{
         //Tries different errors and verifies that the answer doesn't break the method
-        ProductSearchBuilder psb = mock(ProductSearchBuilder.class);
-        when(psb.buildDataMap()).thenReturn("URL");
 
         //No features nodes in the response
         when(proxy.request("URL")).thenReturn("{\"type\": \"FeatureCollection\"}");
-        JsonNode node = service.legacyMapSearch(psb);
+        JsonNode node = service.legacyMapSearch("URL");
         Assertions.assertNull(node);
 
         //Corrupted Response
         when(proxy.request("URL")).thenReturn("{ \"ty");
-        JsonNode corruptedNode = service.legacyMapSearch(psb);
+        JsonNode corruptedNode = service.legacyMapSearch("URL");
         Assertions.assertNull(corruptedNode);
     }
 }

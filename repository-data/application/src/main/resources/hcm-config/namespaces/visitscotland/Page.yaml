@@ -11,7 +11,7 @@ definitions:
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:uuid: ffe4e8b7-1184-4c5f-844c-9c8bbb3d08f2
+          jcr:uuid: 9dcf16eb-9ac7-4467-917e-c61c118eaa49
           hipposysedit:node: true
           hipposysedit:supertype: ['visitscotland:basedocument', 'hippostd:relaxed',
             'hippotranslation:translated']
@@ -121,6 +121,15 @@ definitions:
             hipposysedit:primary: false
             hipposysedit:type: visitscotland:VideoLink
             hipposysedit:validators: [optional]
+          /blog:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: visitscotland:blog
+            hipposysedit:primary: false
+            hipposysedit:type: visitscotland:Blog
+            hipposysedit:validators: [optional]
       /hipposysedit:prototypes:
         jcr:primaryType: hipposysedit:prototypeset
         /hipposysedit:prototype:
@@ -137,7 +146,7 @@ definitions:
           visitscotland:seoNoIndex: false
           visitscotland:seoDescription: ''
           visitscotland:title: ''
-          jcr:uuid: 2b9112c7-b68b-43c2-b9c3-9b520a3da929
+          jcr:uuid: 55357bd1-117e-4332-89c3-70ac42cf95e8
           hippostdpubwf:lastModificationDate: 2019-12-05T16:05:38.470Z
           hippostdpubwf:creationDate: 2019-12-05T16:05:38.470Z
           visitscotland:teaser: ''
@@ -300,3 +309,12 @@ definitions:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
               ui.extension: translationDiff
+          /blog:
+            jcr:primaryType: frontend:plugin
+            caption: Blog
+            field: blog
+            hint: ''
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
+            wicket.id: ${cluster.id}.right.item
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig

@@ -9,12 +9,12 @@
 <#-- @ftlvariable name="module" type="com.visitscotland.brxm.model.TravelInformationModule" -->
 
 <#macro travelInformation module>
-    <vs-module-wrapper theme="dark">
-        <template slot="vsModuleWrapperHeading">
+    <vs-module-wrapper theme="neutral">
+        <template v-slot:vs-module-wrapper-heading>
             ${module.title}
         </template>
 
-        <template slot="vsModuleWrapperIntro">
+        <template v-slot:vs-module-wrapper-intro>
             <@hst.html hippohtml=module.copy/>
         </template>
 

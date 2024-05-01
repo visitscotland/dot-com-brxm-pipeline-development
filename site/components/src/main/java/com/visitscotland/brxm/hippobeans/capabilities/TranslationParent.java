@@ -1,10 +1,11 @@
 package com.visitscotland.brxm.hippobeans.capabilities;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 public interface TranslationParent {
 
-//    List<BaseDocument> getModules();
-
+    @JsonIgnore
     default String[] getChildJcrTypes() {
         return new String[] {};
     }

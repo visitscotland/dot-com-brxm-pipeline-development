@@ -30,7 +30,10 @@ public class ArticleFactory {
         List<ArticleModuleSection> sections = new ArrayList<>();
           if (doc.getMediaItem() != null) {
             if (doc.getMediaItem() instanceof VideoLink){
-                module.setVideo(linkService.createVideo(((VideoLink)doc.getMediaItem()).getVideoLink(), module, request.getLocale()));
+                VideoLink videoLink = ((VideoLink)doc.getMediaItem());
+                if (videoLink.getVideoLink() != null) {
+                    module.setVideo(linkService.createVideo(videoLink.getVideoLink(), module, request.getLocale()));
+                }
             }else {
                 module.setImage(imageFactory.getImage(doc.getMediaItem(), module, request.getLocale()));
             }

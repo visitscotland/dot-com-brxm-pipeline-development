@@ -9,13 +9,14 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Scope;
+import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 
 import javax.jcr.Session;
 
 import static org.springframework.beans.factory.config.ConfigurableBeanFactory.SCOPE_PROTOTYPE;
 
 @Configuration
-@EnableAutoConfiguration
+@EnableAutoConfiguration(exclude={DataSourceAutoConfiguration.class})
 @ComponentScan(basePackages = {"com.visitscotland.brxm.translation", "com.visitscotland.brxm.report.translation"})
 public class TranslationConfig {
 
@@ -46,5 +47,4 @@ public class TranslationConfig {
     public JcrTemplateStore jcrTemplateStore(JcrTypeLocator locator) {
         return new JcrTemplateStore(locator);
     }
-
 }

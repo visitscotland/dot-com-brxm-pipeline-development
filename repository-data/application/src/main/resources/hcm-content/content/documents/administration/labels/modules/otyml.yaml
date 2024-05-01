@@ -1,10 +1,10 @@
 /content/documents/administration/labels/modules/otyml:
-  .meta:order-before: map
+  .meta:order-before: newsletter-signpost
   jcr:primaryType: hippo:handle
   jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
   jcr:uuid: 4abc3614-9c09-4d46-97b7-52f37b916d4a
   hippo:name: OTYML
-  hippo:versionHistory: 5f80acbd-e535-4da6-8f33-3d1e20ebd4b0
+  hippo:versionHistory: 6994ae68-9f25-4dc3-9aba-80db3cd9003e
   /otyml[1]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:referenceable']
@@ -14,8 +14,8 @@
     hippostd:state: draft
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2020-12-10T15:57:49.892Z
-    hippostdpubwf:lastModificationDate: 2022-09-09T12:31:32.891+02:00
-    hippostdpubwf:lastModifiedBy: nikki.sherret
+    hippostdpubwf:lastModificationDate: 2023-02-10T11:39:00.522Z
+    hippostdpubwf:lastModifiedBy: admin
     resourcebundle:descriptions: ['', '']
     resourcebundle:id: otyml
     resourcebundle:keys: [otyml.title.default, otyml.category]
@@ -24,7 +24,7 @@
     resourcebundle:messages_es: [Otras cosas que podrían gustarte, Categoría]
     resourcebundle:messages_fr: [Ceci pourrait vous intéresser, Catégorie]
     resourcebundle:messages_it: [Altre cose che ti potrebbero interessare, Categoria]
-    resourcebundle:messages_nl: [Andere dingen die je misschien leuk vindt, '']
+    resourcebundle:messages_nl: [Andere dingen die je misschien leuk vindt, Categorie]
   /otyml[2]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:versionable']
@@ -34,8 +34,8 @@
     hippostd:state: unpublished
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2020-12-10T15:57:49.892Z
-    hippostdpubwf:lastModificationDate: 2022-09-09T12:35:38.596+02:00
-    hippostdpubwf:lastModifiedBy: nikki.sherret
+    hippostdpubwf:lastModificationDate: 2023-02-10T11:39:43.709Z
+    hippostdpubwf:lastModifiedBy: admin
     resourcebundle:descriptions: ['', '']
     resourcebundle:id: otyml
     resourcebundle:keys: [otyml.title.default, otyml.category]
@@ -44,7 +44,7 @@
     resourcebundle:messages_es: [Otras cosas que podrían gustarte, Categoría]
     resourcebundle:messages_fr: [Ceci pourrait vous intéresser, Catégorie]
     resourcebundle:messages_it: [Altre cose che ti potrebbero interessare, Categoria]
-    resourcebundle:messages_nl: [Andere dingen die je misschien leuk vindt, '']
+    resourcebundle:messages_nl: [Andere dingen die je misschien leuk vindt, Categorie]
   /otyml[3]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:referenceable']
@@ -54,9 +54,9 @@
     hippostd:state: published
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2020-12-10T15:57:49.892Z
-    hippostdpubwf:lastModificationDate: 2022-09-09T12:35:38.596+02:00
-    hippostdpubwf:lastModifiedBy: nikki.sherret
-    hippostdpubwf:publicationDate: 2022-09-09T12:35:40.805+02:00
+    hippostdpubwf:lastModificationDate: 2023-02-10T11:39:43.709Z
+    hippostdpubwf:lastModifiedBy: admin
+    hippostdpubwf:publicationDate: 2023-02-10T11:39:46.958Z
     resourcebundle:descriptions: ['', '']
     resourcebundle:id: otyml
     resourcebundle:keys: [otyml.title.default, otyml.category]
@@ -65,4 +65,4 @@
     resourcebundle:messages_es: [Otras cosas que podrían gustarte, Categoría]
     resourcebundle:messages_fr: [Ceci pourrait vous intéresser, Catégorie]
     resourcebundle:messages_it: [Altre cose che ti potrebbero interessare, Categoria]
-    resourcebundle:messages_nl: [Andere dingen die je misschien leuk vindt, '']
+    resourcebundle:messages_nl: [Andere dingen die je misschien leuk vindt, Categorie]

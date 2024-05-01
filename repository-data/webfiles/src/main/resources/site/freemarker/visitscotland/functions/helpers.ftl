@@ -57,8 +57,7 @@
 <#--  Usage: ${getUrl(navItem)} -->
 <#function getUrl item>
     <#if item.page??>
-        <#assign href><@hst.link hippobean=item.page fullyQualified=fullyQualifiedURLs/></#assign>
-        <#return href>
+        <#return item.plainLink>
     <#elseif item.hstLink??>
         <#return "pagenotfound">
     <#elseif item.externalLink??>
@@ -78,6 +77,16 @@
         <#assign escaped = escaped?replace("\"", "&quot;")>
     </#if>
     <#return escaped>
+</#function>
+
+<#--  Get correct parameter depending on the number of paramters existing -->
+<#--  Usage: ${getParameter(imageURL)} -->
+<#function addParameter url>
+    <#if url?contains("?")>
+        <#return "&">
+    <#else>
+        <#return "?">
+    </#if>
 </#function>
 
 

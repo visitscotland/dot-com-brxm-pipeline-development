@@ -18,6 +18,7 @@ import com.visitscotland.utils.Contract;
 import com.visitscotland.utils.DataServiceUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import vs.ase.dms.ProductTypes;
 
@@ -39,15 +40,17 @@ public class ICentreFactory {
     private final QuoteFactory quoteEmbedder;
     private final ImageFactory imageFactory;
     private final Properties properties;
+    private final HippoUtilsService hippoUtilsService;
 
-
-    public ICentreFactory(HippoUtilsService utils, DMSDataService dmsData, ResourceBundleService bundle, QuoteFactory quoteEmbedder, ImageFactory image, Properties properties) {
+    @Autowired
+    public ICentreFactory(HippoUtilsService utils, DMSDataService dmsData, ResourceBundleService bundle, QuoteFactory quoteEmbedder, ImageFactory imageFactory, Properties properties, HippoUtilsService hippoUtilsService) {
         this.utils = utils;
         this.dmsData = dmsData;
         this.bundle = bundle;
         this.quoteEmbedder = quoteEmbedder;
-        this.imageFactory = image;
+        this.imageFactory = imageFactory;
         this.properties = properties;
+        this.hippoUtilsService = hippoUtilsService;
     }
 
     /**
@@ -60,8 +63,7 @@ public class ICentreFactory {
         module.setLinks(getLinks(location, locale));
 
         if (module.getLinks().isEmpty()) {
-            //The module disappears when there is no iCentres in the area
-            return null;
+            module.setLinks(getICentreLandingLink(locale));
         }
 
         //Populate Title
@@ -91,7 +93,7 @@ public class ICentreFactory {
             }
         }
 
-        //Default the Image if hasn't be set
+        //Default the Image if it hasn't been set
         if (module.getImage() == null) {
             try {
                 Image defaultImage = utils.getDocumentFromNode(bundle.getResourceBundle(BUNDLE_ID, "icentre.image.default", locale));
@@ -105,6 +107,8 @@ public class ICentreFactory {
     }
 
 
+
+
     /**
      * Get the list of links for a location and a locale. When the location is not provided a link to the iCentres page
      * would be returned
@@ -113,11 +117,16 @@ public class ICentreFactory {
         if (!Contract.isEmpty(location)) {
             return getVicList(location, locale);
         } else {
-            String url = bundle.getResourceBundle(BUNDLE_ID, "icentre.description.link", locale);
-            String text = bundle.getResourceBundle(BUNDLE_ID, "icentre.description.link.text", locale);
 
-            return Collections.singletonList(new FlatLink(text, url, LinkType.INTERNAL));
+            return getICentreLandingLink(locale);
         }
+    }
+
+    private List<FlatLink> getICentreLandingLink(Locale locale) {
+        String url = hippoUtilsService.createUrlFromNode(properties.getSiteICentre(), true);
+        String text = bundle.getResourceBundle(BUNDLE_ID, "icentre.description.link.text", locale);
+
+        return Collections.singletonList(new FlatLink(text, url, LinkType.INTERNAL));
     }
 
     /**
@@ -138,7 +147,7 @@ public class ICentreFactory {
                 .sortBy(DMSConstants.SORT_ALPHA);
 
         //Retrieves the iCenters for a location
-        JsonNode node = dmsData.legacyMapSearch(dmsQuery);
+        JsonNode node = dmsData.legacyMapSearch(dmsQuery.buildDataMap(true));
 
         for (JsonNode child : node) {
             if (child.has(DMSConstants.MapSearch.PROPERTIES) &&

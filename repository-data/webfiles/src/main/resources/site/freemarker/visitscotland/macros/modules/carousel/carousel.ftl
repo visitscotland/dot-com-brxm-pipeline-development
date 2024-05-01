@@ -34,7 +34,7 @@
                     transport-name="${label('transports', carouselItem.itineraryTransport)}"
                 </#if>
                 <#if carouselItem.itineraryDays??>
-                    <#if carouselItem.itineraryDays = 1>
+                    <#if carouselItem.itineraryDays == 1>
                         days-label="${label('itinerary', 'day')}"
                     <#else>
                         days-label="${label('itinerary', 'days')}"
@@ -44,17 +44,17 @@
                     days-label="${label('itinerary', 'day')}"
                 </#if>
             >
-                <template slot="vsCarouselSlideHeading">
+                <template v-slot:vs-carousel-slide-heading>
                     ${carouselItem.label}
                 </template>
             </vs-carousel-slide>
         </#list>
 
-        <template slot="vsCarouselNavigate">
+        <template v-slot:vs-carousel-navigate>
             ${label("essentials.pagination", "page.navigate-to-page")}
         </template>
 
-        <template slot="vsCarouselOf">
+        <template v-slot:vs-carousel-of>
             ${label("essentials.pagination", "page.of")}
         </template>
     </vs-carousel>

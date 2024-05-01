@@ -34,6 +34,8 @@ public class Properties {
     static final String CHANNEL_ORDER = "seo.alternate-link-locale-order";
     static final String GLOBAL_SEARCH_PATH = "global-search.path";
     static final String ENGINE_ID = "global-search.engine-id";
+    static final String SNIPPET_CACHE = "snippet-cache.enable";
+    static final String CONTENT_CACHE_ENABLED = "content-cache.enabled";
     static final String CONTENT_CACHE_RETENTION_PERIOD = "content-cache.retention-period";
     static final String CONTENT_CACHE_MAX_ELEMENTS = "content-cache.max-elements";
 
@@ -44,8 +46,10 @@ public class Properties {
     static final String CONVERT_TO_RELATIVE = "links.convert-to-relative";
     static final String SERVE_LECAGY_CSS = "data-internal.serve-legacy-css";
     static final String DMS_INTERNAL_PATH = "data-internal.path";
+    static final String NAVIGATION_CACHE= "navigation.cms.cache";
 
     // DMS Properties
+    public static final String API_DATA_BACKEND_HOST = "api-data.backend-url";
     public static final String DMS_DATA_HOST = "dms-data.private-url";
     static final String DMS_DATA_PUBLIC_HOST = "dms-data.public-url";
     static final String DMS_DATA_ENCODING = "dms-data.encoding";
@@ -55,6 +59,25 @@ public class Properties {
     static final String DMS_DATA_SLEEP_TIME = "dms-data.sleep-time";
     static final String DMS_HOST = "links.vs-dms-products.url";
     static final String DMS_MAP_DEFAULT_DISTANCE = "dms.default-distance";
+
+    //Page References
+    private static final String PATH_GLOBAL_SEARCH = "site.path.global-search";
+    private static final String PATH_SKI_SECTION = "site.path.ski-landing";
+    private static final String PATH_CAMPAIGN_SECTION = "site.path.campaigns";
+    private static final String PATH_ABOUT_US = "site.path.about-us";
+    private static final String PATH_NEWSLETTER = "site.path.newsletter";
+    private static final String PATH_ICENTRE = "site.path.icentre-landing";
+
+    //Modules References
+    static final String ENABLE_IKNOW_MODULE = "iknow-module.enabled";
+    static final String MAP_MULTIPOLYGONS = "map.multipolygon.regions";
+
+    //GTM Properties
+    public static final String GTM_CONTAINER_ID = "gtm.container-id";
+    public static final String GTM_IS_PRODUCTION = "gtm.is-production";
+    public static final String GTM_PREVIEW_QUERY_STRING = "gtm.preview-query-string";
+
+
 
     private final ResourceBundleService bundle;
 
@@ -122,6 +145,10 @@ public class Properties {
         }
     }
 
+    public String getApiDataBackendHost() {
+        return readString(API_DATA_BACKEND_HOST);
+    }
+
     public String getDmsDataHost() {
         return readString(DMS_DATA_HOST);
     }
@@ -165,12 +192,66 @@ public class Properties {
     public String getDmsInternalPath() {
         return readString(DMS_INTERNAL_PATH);
     }
+    public Boolean getNavigationCache() {
+        return readBoolean(NAVIGATION_CACHE);
+    }
+
+    public String getSiteSkiSection() {
+        return readString(PATH_SKI_SECTION);
+    }
+    public String getCampaignSection() {
+        return readString(PATH_CAMPAIGN_SECTION);
+    }
+
+    public String getSiteAboutUs() {
+        return readString(PATH_ABOUT_US);
+    }
+
+    public String getSiteGlobalSearch() {
+        return readString(PATH_GLOBAL_SEARCH);
+    }
+
+
+    public String getSiteNewsletter() {
+        return readString(PATH_NEWSLETTER);
+    }
+
+    public String getSiteICentre() {
+        return readString(PATH_ICENTRE);
+    }
+
+    public String getMapMultipolygons() {
+        return readString(MAP_MULTIPOLYGONS);
+    }
+
+    public String getGtmContainerId (){
+        return readString(GTM_CONTAINER_ID);
+    }
+
+    public String getGtmIsProduction() {
+        return readString(GTM_IS_PRODUCTION);
+    }
+
+    public String getGtmPreviewQueryString() {
+        return readString(GTM_PREVIEW_QUERY_STRING);
+    }
 
     public Integer getContentCacheRetention() {
         //Note that the retention period is defined in seconds and java.util.Date measures the time in seconds
         return readInteger(CONTENT_CACHE_RETENTION_PERIOD) * 1000;
     }
 
+    public boolean isContentCacheEnabled() {
+        return readBoolean(CONTENT_CACHE_ENABLED);
+    }
+
+    public boolean isSnippetCacheEnabled() {
+        return readBoolean(SNIPPET_CACHE);
+    }
+
+    public boolean isIknowEnabled() {
+        return readBoolean(ENABLE_IKNOW_MODULE);
+    }
     /**
      * Max number of elements cached. If the property is not defined in the CMS, there is no maximum
      */
@@ -198,8 +279,7 @@ public class Properties {
     public List<String> getInternalSites() {
         String sites = readString(INTERNAL_SITES);
         if (!Contract.isEmpty(sites)){
-            //TODO: Java 10 -> toUnmodifiableList()
-            //TODO: Java 11 -> Predicate.not(String::isEmpty)
+            // TODO Java 11: Replace & Test: Arrays.stream(sites.trim().split("\\s*,\\s*")).filter(Predicate.not(String::isEmpty)).collect(Collectors.toUnmodifiableList());
             return Arrays.stream(sites.trim().split("\\s*,\\s*")).filter(((Predicate<String>) String::isEmpty).negate()).collect(Collectors.toList());
         }
         return Collections.emptyList();
@@ -224,6 +304,15 @@ public class Properties {
             return value;
         } else {
             return "";
+        }
+    }
+
+    public String readString(String key, Locale locale){
+        String value = getProperty(key, locale);
+        if (value != null){
+            return value;
+        } else {
+            return getProperty(key);
         }
     }
 
@@ -314,6 +403,8 @@ public class Properties {
             logger.info("The property {} hasn't been set in the resourceBundle {}", key, bundleId);
         } else if (value.startsWith("$")){
             return getEnvironmentVariable(value.substring(1));
+        } else if (value.startsWith("%")){
+            return getSystemProperty(value.substring(1));
         } else {
             return value;
         }
@@ -327,5 +418,9 @@ public class Properties {
         } catch (RuntimeException e){
             return null;
         }
+    }
+
+    String getSystemProperty(String name){
+        return System.getProperty(name, "");
     }
 }

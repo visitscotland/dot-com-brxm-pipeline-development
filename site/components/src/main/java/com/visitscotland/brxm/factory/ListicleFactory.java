@@ -81,13 +81,17 @@ public class ListicleFactory {
         }
 
         //Set Extra Links
-        //Original designs used to had more that one link, so the logic is prepared to be opened to several links
+        //Original designs used to had more than one link, so the logic is prepared to be opened to several links
         for (HippoCompound compound : listicleItem.getExtraLinks()) {
             if (compound instanceof CMSLink) {
                 CMSLink cmsLink = (CMSLink) compound;
-                link = linksService.createSimpleLink((Linkable) cmsLink.getLink(),module, locale);
-                if(!Contract.isEmpty(cmsLink.getLabel())){
-                    link.setLabel(cmsLink.getLabel());
+                if (cmsLink.getLink() instanceof Linkable) {
+                    link = linksService.createSimpleLink((Linkable) cmsLink.getLink(), module, locale);
+                    if (!Contract.isEmpty(cmsLink.getLabel())) {
+                        link.setLabel(cmsLink.getLabel());
+                    }
+                }else{
+                    link = null;
                 }
             }else{
                 link = linksService.createFindOutMoreLink(module, locale, compound);
@@ -128,32 +132,35 @@ public class ListicleFactory {
             }
         } else if (link instanceof CMSLink) {
             CMSLink cmsLink = (CMSLink) link;
-            Optional<EnhancedLink> optionalLink = linksService.createEnhancedLink((Linkable) cmsLink.getLink(), module, locale,false);
-            if (!optionalLink.isPresent()) {
-                String linkPath = cmsLink.getLink() == null ? "" : cmsLink.getLink().getPath();
-                contentLogger.error("Failed to add main product link to listicle item {} - check link is valid and published", linkPath);
-                return null;
-            }
-            EnhancedLink eLink = optionalLink.get();
-            //Override default link label when the module has an override text
-            if (!Contract.isEmpty(cmsLink.getLabel())){
-                eLink.setCta(linksService.formatLabel(cmsLink.getLink(), cmsLink.getLabel(), module, locale));
-                eLink.setLabel(eLink.getCta());
-            }
+            if (cmsLink.getLink() instanceof Linkable){
+                Optional<EnhancedLink> optionalLink = linksService.createEnhancedLink((Linkable) cmsLink.getLink(), module, locale, false);
+                if (!optionalLink.isPresent()) {
+                    String linkPath = cmsLink.getLink() == null ? "" : cmsLink.getLink().getPath();
+                    contentLogger.warn("Failed to add main product link to listicle item {} - check link is valid and published", linkPath);
+                    return null;
+                }
+                EnhancedLink eLink = optionalLink.get();
+                //Override default link label when the module has an override text
+                if (!Contract.isEmpty(cmsLink.getLabel())) {
+                    eLink.setCta(linksService.formatLabel(cmsLink.getLink(), cmsLink.getLabel(), module, locale));
+                    eLink.setLabel(eLink.getCta());
+                }
 
-            if (module.getImage() == null) {
-                module.setImage(eLink.getImage());
-            }
-            if (eLink.getLink() == null){
-                contentLogger.warn("There is no product with the id '{}', ({}) ", cmsLink.getLink(), cmsLink.getLink().getPath());
-                module.addErrorMessage("Main Link: The DMS id is not valid, please review the document at: " + cmsLink.getLink().getPath());
-                return null;
-            }
-            return  eLink;
-        }  else if (link instanceof ExternalLink || link instanceof ProductSearchLink ) {
-                return linksService.createFindOutMoreLink(module, locale,link);
-        } else {
-            contentLogger.warn("The ListicleItem {} is pointing to a document that is not a page ", module.getHippoBean().getPath());
+                if (module.getImage() == null) {
+                    module.setImage(eLink.getImage());
+                }
+                if (eLink.getLink() == null) {
+                    contentLogger.warn("There is no product with the id '{}', ({}) ", cmsLink.getLink(), cmsLink.getLink().getPath());
+                    module.addErrorMessage("Main Link: The DMS id is not valid, please review the document at: " + cmsLink.getLink().getPath());
+                    return null;
+                }
+                return eLink;
+                }
+            } else if (link instanceof ExternalLink || link instanceof ProductSearchLink) {
+                return linksService.createFindOutMoreLink(module, locale, link);
+            } else {
+                contentLogger.warn("The ListicleItem {} is pointing to a document that is not a page ", module.getHippoBean().getPath());
+
         }
 
         return null;
@@ -161,7 +168,6 @@ public class ListicleFactory {
 
     /**
      * Loads as much information as it can from the DMS Product data:
-     *
      * Facilities are loaded from the dmsItem. Subtitle, Image and Coordinates are set only when the listicle item has
      * not defined the values
      */
@@ -191,13 +197,16 @@ public class ListicleFactory {
     public List<ListicleModule> generateItems(Locale locale, Listicle listicle) {
         final List<ListicleItem> listicleItems = documentUtils.getAllowedDocuments(listicle, ListicleItem.class);
         final List<ListicleModule> items = new ArrayList<>();
+        if(listicleItems != null && !listicleItems.isEmpty()){
+            boolean descOrder = Boolean.TRUE.equals(listicle.getDescOrder());
+            int index = descOrder ? listicleItems.size() : 1;
 
-        boolean descOrder = Boolean.TRUE.equals(listicle.getDescOrder());
-        int index = descOrder ? listicleItems.size() : 1;
-
-        for (ListicleItem listicleItem : listicleItems) {
-            Integer itemNumber = descOrder ? index-- : index++;
-            items.add(getListicleItem(locale, listicleItem, itemNumber));
+            for (ListicleItem listicleItem : listicleItems) {
+                Integer itemNumber = descOrder ? index-- : index++;
+                items.add(getListicleItem(locale, listicleItem, itemNumber));
+            }
+        }else{
+            logger.warn("The listicle page {} does not have any modules published", listicle.getPath());
         }
         return items;
     }

@@ -14,14 +14,12 @@ public class General extends Page {
     @Override
     public String[] getChildJcrTypes() {
         return new String[] { "visitscotland:Megalinks",
-                "visitscotland:TourismInformation",
-                "visitscotland:LongCopy",
-                "visitscotland:Article",
-                "visitscotland:Stackla",
-                "visitscotland:CannedSearchTours",
-                "visitscotland:CannedSearch",
-                "visitscotland:MapModule",
-                "visitscotland:MarketoForm"};
+                "visitscotland:TourismInformation", "visitscotland:LongCopy",
+                "visitscotland:Article", "visitscotland:Stackla",
+                "visitscotland:CannedSearchTours", "visitscotland:Form",
+                "visitscotland:CannedSearch", "visitscotland:MapModule",
+                "visitscotland:DevModule", "visitscotland:MarketoForm",
+                "visitscotland:SkiCentre", "visitscotland:SkiCentreList" };
     }
 
     @HippoEssentialsGenerated(internalName = "visitscotland:otherThings")
@@ -42,5 +40,15 @@ public class General extends Page {
     @HippoEssentialsGenerated(internalName = "visitscotland:heroVideo")
     public VideoLink getHeroVideo() {
         return getBean("visitscotland:heroVideo", VideoLink.class);
+    }
+
+    @HippoEssentialsGenerated(internalName = "visitscotland:blog")
+    public Blog getBlog() {
+        return getBean("visitscotland:blog", Blog.class);
+    }
+
+    @HippoEssentialsGenerated(internalName = "visitscotland:pswPosition")
+    public String getPswPosition() {
+        return getSingleProperty("visitscotland:pswPosition");
     }
 }

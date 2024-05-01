@@ -21,13 +21,11 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
-import javax.annotation.Resource;
 import java.util.Collections;
 import java.util.List;
 import java.util.Locale;
 import java.util.Optional;
 
-import static org.easymock.EasyMock.anyObject;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.mockito.Mockito.*;
@@ -55,7 +53,6 @@ public class MegalinkFactoryTest {
     @Mock
     ContentLogger logger;
 
-    @Resource
     @InjectMocks
     MegalinkFactory factory;
 

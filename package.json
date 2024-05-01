@@ -1,5 +1,22 @@
 {
+  "name": "@visitscotland/dot-com-brxm",
+  "version": "1.0.2",
+  "author": "VisitScotland",
+  "scripts": {
+    "commit": "cz",
+    "release:patch": "standard-version --release-as patch",
+    "release:minor": "standard-version --release-as minor",
+    "release:major": "standard-version --release-as major"
+  },
   "dependencies": {
-    "moxios": "^0.4.0"
+    "commitizen": "^4.3.0",
+    "cz-conventional-changelog": "^3.3.0",
+    "moxios": "^0.4.0",
+    "standard-version": "^9.5.0"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
   }
 }

@@ -80,4 +80,10 @@ public class Megalinks extends BaseDocument {
     public Calendar getTranslationDeadline() {
         return getSingleProperty("visitscotland:translationDeadline");
     }
+
+    @HippoEssentialsGenerated(internalName = "visitscotland:personalization")
+    public List<Personalization> getPersonalization() {
+        return getChildBeansByName("visitscotland:personalization",
+                Personalization.class);
+    }
 }

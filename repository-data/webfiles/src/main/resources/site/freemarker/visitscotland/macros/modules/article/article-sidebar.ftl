@@ -1,6 +1,7 @@
 <#include "../../../../frontend/components/vs-article-sidebar.ftl">
 <#include "../../../macros/modules/modal/modal.ftl">
 <#include "../../../macros/modules/video/video.ftl">
+<#include "../../global/quote.ftl">
 
 <#macro articleSidebar section alignSidebar>
     <vs-article-sidebar sidebar-align="${alignSidebar}">
@@ -13,7 +14,7 @@
                 <#assign media = section.video.image.externalImage!'' />
             </#if>
 
-            <template slot="vsArticleSidebarImg">
+            <template v-slot:vs-article-sidebar-img>
                 <@modal
                     modalId="${section.video.youtubeId}"
                     closeBtnText="${label('essentials.global', 'close')}"
@@ -48,6 +49,7 @@
                     videoId="${section.video.youtubeId}"
                     videoTitle="${videoTitle}"
                     smallPlayButton="true"
+                    showToggle="false"
                 />
             </template>
         <#elseif section.image??>
@@ -59,13 +61,13 @@
                 <#assign media = section.image.externalImage!'' />
             </#if>
             
-            <template slot="vsArticleSidebarImg">
+            <template v-slot:vs-article-sidebar-img>
                 <@imageWithCaption imageSrc=media imageDetails=section.image/>
             </template>
         </#if>
         
         <#if section.quote??>
-            <template slot="vsArticleSidebarQuote">
+            <template v-slot:vs-article-sidebar-quote>
                 <@quote quoteItem=section.quote />
             </template>
         </#if>

@@ -1,0 +1,115 @@
+/content/documents/administration/labels/modules/ugc:
+  .meta:order-before: carbon-calculator
+  jcr:primaryType: hippo:handle
+  jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+  jcr:uuid: 3e15d5d3-2a31-454e-9e21-ce45b727754e
+  hippo:name: UGC
+  /ugc[1]:
+    jcr:primaryType: resourcebundle:resourcebundle
+    jcr:mixinTypes: ['mix:referenceable']
+    jcr:uuid: 398f0cb3-ab9a-4a53-8ea7-f5f4cf3fcbd8
+    hippo:availability: []
+    hippostd:retainable: false
+    hippostd:state: draft
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2021-07-12T14:28:56.789+01:00
+    hippostdpubwf:lastModificationDate: 2022-11-25T15:04:41.679Z
+    hippostdpubwf:lastModifiedBy: admin
+    resourcebundle:descriptions: ['', '']
+    resourcebundle:id: ugc
+    resourcebundle:keys: [ugc.no-cookies-message, ugc.no-js-message]
+    resourcebundle:messages: [Cookies are needed to see social media images from this
+        place., JavaScript needs to be enabled to see social media images for this
+        place. You can turn this on in your browser settings.]
+    resourcebundle:messages_de: ['Es werden Cookies benötigt, um hier Bilder aus den
+        sozialen Medien anzuzeigen.', 'JavaScript muss aktiviert sein, um hier Bilder
+        aus den sozialen Medien anzuzeigen. Sie können es in Ihren Browser-Einstellungen
+        aktivieren.']
+    resourcebundle:messages_es: [Las cookies son necesarias para ver las imágenes
+        de las redes sociales de esta página., Es necesario activar JavaScript para
+        ver las imágenes de las redes sociales de esta página. Puedes activarlo en
+        la configuración de tu navegador.]
+    resourcebundle:messages_fr: ['Pour visualiser les images issues de réseaux sociaux
+        depuis ce site, vous devez activer les cookies.', 'Pour visualiser les images
+        issues de réseaux sociaux depuis ce site, vous devez activer JavaScript via
+        les paramètres de votre navigateur.']
+    resourcebundle:messages_it: [I cookie sono necessari per vedere le immagini dei
+        social media., JavaScript deve essere abilitato per vedere le immagini dei
+        social media. Puoi attivarlo nelle impostazioni del tuo browser.]
+    resourcebundle:messages_nl: ['Om afbeeldingen op sociale media van deze plek te
+        zien, dien je met de cookies akkoord te gaan.', 'Om afbeeldingen op sociale
+        media van deze plek te zien, dient JavaScript te zijn ingeschakeld. Je kunt
+        dit met je browserinstellingen doen.']
+  /ugc[2]:
+    jcr:primaryType: resourcebundle:resourcebundle
+    jcr:mixinTypes: ['mix:referenceable']
+    jcr:uuid: 2f4eb0eb-a487-4654-99ca-54401ff8ffd7
+    hippo:availability: [live]
+    hippostd:retainable: false
+    hippostd:state: published
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2021-07-12T14:28:56.789+01:00
+    hippostdpubwf:lastModificationDate: 2022-11-25T15:04:49.230Z
+    hippostdpubwf:lastModifiedBy: admin
+    hippostdpubwf:publicationDate: 2022-11-25T15:04:52.326Z
+    resourcebundle:descriptions: ['', '']
+    resourcebundle:id: ugc
+    resourcebundle:keys: [ugc.no-cookies-message, ugc.no-js-message]
+    resourcebundle:messages: [Cookies are needed to see social media images from this
+        place., JavaScript needs to be enabled to see social media images for this
+        place. You can turn this on in your browser settings.]
+    resourcebundle:messages_de: ['Es werden Cookies benötigt, um hier Bilder aus den
+        sozialen Medien anzuzeigen.', 'JavaScript muss aktiviert sein, um hier Bilder
+        aus den sozialen Medien anzuzeigen. Sie können es in Ihren Browser-Einstellungen
+        aktivieren.']
+    resourcebundle:messages_es: [Las cookies son necesarias para ver las imágenes
+        de las redes sociales de esta página., Es necesario activar JavaScript para
+        ver las imágenes de las redes sociales de esta página. Puedes activarlo en
+        la configuración de tu navegador.]
+    resourcebundle:messages_fr: ['Pour visualiser les images issues de réseaux sociaux
+        depuis ce site, vous devez activer les cookies.', 'Pour visualiser les images
+        issues de réseaux sociaux depuis ce site, vous devez activer JavaScript via
+        les paramètres de votre navigateur.']
+    resourcebundle:messages_it: [I cookie sono necessari per vedere le immagini dei
+        social media., JavaScript deve essere abilitato per vedere le immagini dei
+        social media. Puoi attivarlo nelle impostazioni del tuo browser.]
+    resourcebundle:messages_nl: ['Om afbeeldingen op sociale media van deze plek te
+        zien, dien je met de cookies akkoord te gaan.', 'Om afbeeldingen op sociale
+        media van deze plek te zien, dient JavaScript te zijn ingeschakeld. Je kunt
+        dit met je browserinstellingen doen.']
+  /ugc[3]:
+    jcr:primaryType: resourcebundle:resourcebundle
+    jcr:mixinTypes: ['mix:versionable']
+    jcr:uuid: 34fdd0cc-b604-4550-b6cc-b8e719aec1a1
+    hippo:availability: [preview]
+    hippostd:retainable: false
+    hippostd:state: unpublished
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2021-07-12T14:28:56.789+01:00
+    hippostdpubwf:lastModificationDate: 2022-11-25T15:04:49.230Z
+    hippostdpubwf:lastModifiedBy: admin
+    resourcebundle:descriptions: ['', '']
+    resourcebundle:id: ugc
+    resourcebundle:keys: [ugc.no-cookies-message, ugc.no-js-message]
+    resourcebundle:messages: [Cookies are needed to see social media images from this
+        place., JavaScript needs to be enabled to see social media images for this
+        place. You can turn this on in your browser settings.]
+    resourcebundle:messages_de: ['Es werden Cookies benötigt, um hier Bilder aus den
+        sozialen Medien anzuzeigen.', 'JavaScript muss aktiviert sein, um hier Bilder
+        aus den sozialen Medien anzuzeigen. Sie können es in Ihren Browser-Einstellungen
+        aktivieren.']
+    resourcebundle:messages_es: [Las cookies son necesarias para ver las imágenes
+        de las redes sociales de esta página., Es necesario activar JavaScript para
+        ver las imágenes de las redes sociales de esta página. Puedes activarlo en
+        la configuración de tu navegador.]
+    resourcebundle:messages_fr: ['Pour visualiser les images issues de réseaux sociaux
+        depuis ce site, vous devez activer les cookies.', 'Pour visualiser les images
+        issues de réseaux sociaux depuis ce site, vous devez activer JavaScript via
+        les paramètres de votre navigateur.']
+    resourcebundle:messages_it: [I cookie sono necessari per vedere le immagini dei
+        social media., JavaScript deve essere abilitato per vedere le immagini dei
+        social media. Puoi attivarlo nelle impostazioni del tuo browser.]
+    resourcebundle:messages_nl: ['Om afbeeldingen op sociale media van deze plek te
+        zien, dien je met de cookies akkoord te gaan.', 'Om afbeeldingen op sociale
+        media van deze plek te zien, dient JavaScript te zijn ingeschakeld. Je kunt
+        dit met je browserinstellingen doen.']

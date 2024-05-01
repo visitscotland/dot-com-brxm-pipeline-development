@@ -46,6 +46,9 @@ public class HippoUtilsService {
 
     private static final Logger logger = LoggerFactory.getLogger(HippoUtilsService.class);
 
+    private final static String SITE_ID = "visitscotland:site";
+    public final static String BUSINESS_EVENTS_SITE = "business-events";
+
     /**
      * Convert and HstLink or a HippoBean into a URL String
      *
@@ -58,6 +61,16 @@ public class HippoUtilsService {
     @NonTestable(NonTestable.Cause.BRIDGE)
     public String createUrl(Page document) {
         return createUrl(document, true);
+    }
+
+    @NonTestable(NonTestable.Cause.BRIDGE)
+    public String createUrlFromNode(String path, boolean localize) {
+        try {
+            return createUrl(getDocumentFromContent(path), localize);
+        } catch (QueryException | ObjectBeanManagerException | RepositoryException e) {
+            logger.warn("A link could not be created for {}", path);
+            return null;
+        }
     }
 
     public String createUrl(Page document, boolean localize) {
@@ -135,10 +148,14 @@ public class HippoUtilsService {
      */
     @NonTestable(NonTestable.Cause.BRIDGE)
     public <T extends HippoBean> T getDocumentFromNode(Node jcrNode) throws QueryException, ObjectBeanManagerException {
-        HippoBean bean = RequestContextProvider.get().getQueryManager()
-                .createQuery(jcrNode).execute().getHippoBeans().nextHippoBean();
+        HstQueryResult result = RequestContextProvider.get().getQueryManager().createQuery(jcrNode).execute();
 
-        return (T) bean.getObjectConverter().getObject(bean.getNode());
+        if (result.getSize() > 0){
+            HippoBean bean = result.getHippoBeans().nextHippoBean();
+            return (T) bean.getObjectConverter().getObject(bean.getNode());
+        }
+
+        return null;
     }
 
     /**
@@ -171,8 +188,9 @@ public class HippoUtilsService {
      *
      * @param request the HstRequest request
      * @param resolvedSiteMapItem item from the cms sitemap
-     * @param resolvedMount
-     * @return
+     * @param resolvedMount ResolvedSiteMapItem
+     *
+     * @return Main Document model for the request
      *
      * @see org.hippoecm.hst.component.support.bean.BaseHstComponent#getBeanForResolvedSiteMapItem(HstRequest, ResolvedSiteMapItem)
      */
@@ -198,8 +216,9 @@ public class HippoUtilsService {
     /**
      * TODO Comment
      * @param request the HstRequest request
-     * @param mount
-     * @return
+     * @param mount String (i.e: "es-es", "business-events", ...)
+     *
+     * @return Resolved BR Mount
      */
     public ResolvedMount getMount(HstRequest request, String mount) {
         ResolvedVirtualHost resolvedVirtualHost = (ResolvedVirtualHost) request.getAttribute(ContainerConstants.VIRTUALHOSTS_REQUEST_ATTR);
@@ -277,12 +296,13 @@ public class HippoUtilsService {
      */
     @NonTestable(NonTestable.Cause.BRIDGE)
     public Locale getRequestLocale(){
-        return RequestContextProvider.get().getPreferredLocale();
+        Locale locale = RequestContextProvider.get().getPreferredLocale();
+        return locale==null?Locale.UK:locale;
     }
 
     /**
      * Retrieves a ValueList as a Map
-     *
+     * <br>
      * New value lists can be configured in essentials and must be added to META-INF/valueList.xml
      * @param valueListIdentifier The identifier as specified in the value list YAML
      * @return A mapping from the value list key to the value list value
@@ -325,4 +345,30 @@ public class HippoUtilsService {
         }
         return null;
     }
+
+    /**
+     * Verifies if the request is being resolved by the Business Events subdomain. This is determined
+     * by checking the {@code visitscotland:site}  node in the Mount node.
+     * <br>
+     * The only allowed subdomain is currently business-events. If that changes in the future this method
+     * might need to be redesigned
+     *
+     * @param request HstRequest
+     *
+     * @return {@code true} if the request is being resolved by the business events subdomain
+     */
+    @NonTestable(NonTestable.Cause.BRIDGE)
+    public boolean isBusinessEventsSite(HstRequest request){
+        String site = request.getRequestContext().getResolvedMount().getMount().getProperty(SITE_ID);
+        if (site != null){
+            if (site.equals(BUSINESS_EVENTS_SITE)){
+                return true;
+            } else {
+                logger.error("The configuration for the mount cannot be interpreted ({} = {}) for the following request: {}",
+                        SITE_ID, site, request.getRequestURI());
+            }
+        }
+        return false;
+    }
+
 }

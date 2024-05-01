@@ -3,7 +3,6 @@ package com.visitscotland.brxm.factory;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.visitscotland.brxm.hippobeans.ExternalLink;
 import com.visitscotland.brxm.hippobeans.Image;
 import com.visitscotland.brxm.hippobeans.ImageData;
 import com.visitscotland.brxm.hippobeans.InstagramImage;
@@ -21,7 +20,6 @@ import com.visitscotland.brxm.utils.Properties;
 import org.hippoecm.hst.content.beans.ObjectBeanManagerException;
 import org.hippoecm.hst.content.beans.query.exceptions.QueryException;
 import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -29,7 +27,6 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
-import javax.annotation.Resource;
 import javax.jcr.RepositoryException;
 import java.io.IOException;
 import java.util.Locale;
@@ -40,7 +37,6 @@ import static org.junit.jupiter.api.Assertions.*;
 @ExtendWith(MockitoExtension.class)
 class ImageFactoryTest {
 
-    @Resource
     @InjectMocks
     ImageFactory imageFactory;
 
@@ -71,7 +67,7 @@ class ImageFactoryTest {
     @Test
     @DisplayName("Request information about the image to instagram. (Happy Path)")
     void getImageFromInstagram() throws IOException {
-        LocationObject location = new LocationObject(null, null,"The Highlands",null, 1., -1., null,null);
+        LocationObject location = new LocationObject(null, null,"The Highlands",null, 1., -1., null,null, null);
         InstagramImage insta = mock(InstagramImage.class);
 
         when(insta.getCaption()).thenReturn("The magnificent coo");
@@ -108,7 +104,7 @@ class ImageFactoryTest {
     @Test
     @DisplayName("The image retrieves the information from the CMS. (Happy Path)")
     void getImageFromCMS(){
-        LocationObject location = new LocationObject(null, null,"The Highlands",null, 1., -1., null,null);
+        LocationObject location = new LocationObject(null, null,"The Highlands",null, 1., -1., null,null, null);
         Module module = new Module();
         Image cmsImage = mock(Image.class);
 

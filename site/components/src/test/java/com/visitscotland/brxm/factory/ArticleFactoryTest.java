@@ -13,7 +13,6 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
-import javax.annotation.Resource;
 import java.util.Arrays;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -23,7 +22,6 @@ import static org.mockito.Mockito.*;
 class ArticleFactoryTest {
 
     @InjectMocks
-    @Resource
     ArticleFactory factory;
 
     @Mock

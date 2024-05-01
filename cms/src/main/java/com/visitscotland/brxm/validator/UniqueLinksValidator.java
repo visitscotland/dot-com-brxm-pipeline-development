@@ -1,5 +1,6 @@
 package com.visitscotland.brxm.validator;
 
+import com.visitscotland.utils.Contract;
 import org.onehippo.cms.services.validation.api.ValidationContext;
 import org.onehippo.cms.services.validation.api.ValidationContextException;
 import org.onehippo.cms.services.validation.api.Validator;
@@ -54,16 +55,15 @@ public class UniqueLinksValidator implements Validator<Node> {
             boolean seenLinkId = false;
             String targetLinkId = getLinkId(node);
             // ID given to link that is not set. Mandatory validator takes care of ensuring links are set
-            if (targetLinkId == null || targetLinkId.equals(JcrConstants.ROOT_NODE_ID)) {
+            if (Contract.isEmpty(targetLinkId)|| targetLinkId.equals(JcrConstants.ROOT_NODE_ID)) {
                 return Optional.empty();
             }
 
             while (linkNodes.hasNext()) {
                 Node linkNode = linkNodes.nextNode();
                 String id = getLinkId(linkNode);
-                if (id == null) {
-                    logger.error("Link on node `{}` does not have a linkIdProperty `{}` or property with hippo:docbase",node.getPath(), linkIdProperty);
-                    continue;
+                if (Contract.isEmpty(id)) {
+                    return Optional.empty();
                 }
                 if (id.equals(targetLinkId)) {
                     if (seenLinkId) {
@@ -98,7 +98,7 @@ public class UniqueLinksValidator implements Validator<Node> {
             }
         }
 
-        if (id == null || id.equals(JcrConstants.ROOT_NODE_ID) && linkNode.hasProperty(linkIdProperty)) {
+        if ((id == null || id.equals(JcrConstants.ROOT_NODE_ID)) && linkNode.hasProperty(linkIdProperty)) {
             return linkNode.getProperty(linkIdProperty).getString();
         }
         return id;

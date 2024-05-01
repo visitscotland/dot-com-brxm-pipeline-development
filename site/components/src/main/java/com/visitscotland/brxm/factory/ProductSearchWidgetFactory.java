@@ -1,21 +1,22 @@
 package com.visitscotland.brxm.factory;
 
+import com.visitscotland.brxm.components.content.GeneralContentComponent;
+import com.visitscotland.brxm.components.content.PageContentComponent;
 import com.visitscotland.brxm.dms.DMSConstants;
 import com.visitscotland.brxm.dms.LocationLoader;
 import com.visitscotland.brxm.dms.PSType;
 import com.visitscotland.brxm.dms.model.LocationObject;
 import com.visitscotland.brxm.hippobeans.Destination;
+import com.visitscotland.brxm.hippobeans.General;
 import com.visitscotland.brxm.hippobeans.Page;
 import com.visitscotland.brxm.model.PSModule;
 import com.visitscotland.brxm.services.ResourceBundleService;
 import com.visitscotland.brxm.utils.Language;
 import com.visitscotland.brxm.utils.Properties;
+import com.visitscotland.utils.Contract;
 import org.hippoecm.hst.core.component.HstRequest;
 import org.jetbrains.annotations.NotNull;
 import org.springframework.stereotype.Component;
-
-import java.util.HashMap;
-import java.util.Map;
 
 @Component
 public class ProductSearchWidgetFactory {
@@ -25,6 +26,11 @@ public class ProductSearchWidgetFactory {
     final ResourceBundleService bundle;
     final LocationLoader locationLoader;
     final Properties properties;
+
+    public static final String POSITION_TOP = "Top";
+    public static final String POSITION_BOTTOM = "Bottom";
+    //TODO: This option will disappear after the regular expressions are removed
+    public static final String POSITION_DEFAULT = "Default";
 
     public ProductSearchWidgetFactory(ResourceBundleService bundle, LocationLoader locationLoader, Properties properties) {
         this.bundle = bundle;
@@ -44,13 +50,33 @@ public class ProductSearchWidgetFactory {
 
         // Non-JavaScript fall-back URL
         module.setSearchUrl(properties.getDmsHost() + Language.getLanguageForLocale(request.getLocale()).getPathVariable() + String.format(DMSConstants.PRODUCT_SEARCH, type.getPathVariable()));
+        module.setPosition(calculatePosition(request));
 
         return module;
     }
 
+    private String calculatePosition(HstRequest request){
+        Page page = (Page) request.getAttribute(PageContentComponent.DOCUMENT);
+        if (page instanceof General){
+            General general = ((General) page);
+
+            if (general.getBlog() != null) {
+                return POSITION_BOTTOM;
+            } else if (!Contract.isEmpty(general.getPswPosition()) && !general.getPswPosition().equals(POSITION_DEFAULT)) {
+                return general.getPswPosition();
+            } else if (!general.getTheme().equals(GeneralContentComponent.SIMPLE)) {
+                return POSITION_TOP;
+            }
+        } else if (page instanceof Destination){
+            return POSITION_TOP;
+        }
+
+        return POSITION_BOTTOM;
+    }
+
     /**
-     * @param request
-     * @return
+     * @param request the HstRequest request
+     * @return Location object populated
      */
     private LocationObject getLocation(HstRequest request){
         Page page = request.getModel("document");

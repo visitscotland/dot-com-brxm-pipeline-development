@@ -14,32 +14,23 @@
         <#assign image = item.image.externalImage!'' />
     </#if>
 
-    <#if theme == 'light'>
-        <#assign linkVariant>primary</#assign>
-    <#else>
-        <#assign linkVariant>on-dark</#assign>
-    </#if>
-
     <vs-col cols="12">
         <vs-megalink-single-image 
             title="${item.innerTitle}"
             <#if (item.cta.link)??>button-link="${item.cta.link}"</#if>
-            <#if item.alignment == 'left'>alternate</#if>
-            theme="${theme}"
+            <#if item.alignment?? && item.alignment == 'left'>alternate</#if>
         >
-            <template slot="vsSingleImage">
+            <template v-slot:vs-single-image>
                 <@imageWithCaption imageSrc=image imageDetails=item.image mobileOverlap="true" alignment=item.alignment/>
             </template>
 
-            <template slot="vsSingleImageContent">
+            <template v-slot:vs-single-image-content>
                 <@hst.html hippohtml=item.innerIntroduction/>
             </template>
 
-            <template slot="vsSingleImageLinks">
+            <template v-slot:vs-single-image-links>
                 <#list item.links as listItem>
                     <vs-link-list-item
-                        variant="${linkVariant}"
-
                         <#if listItem.youtubeId??>
                             type="video"
                             href="#"
@@ -48,7 +39,6 @@
                         <#else>
                             href="${listItem.link}"
                             link-type="${listItem.type}"
-
                             <#if listItem.type != "internal">type="${listItem.type}"</#if>
                         </#if>
                     >
@@ -56,15 +46,16 @@
                     </vs-link-list-item>
 
                     <#if listItem.youtubeId??>
-                        <@videoModal videoId=listItem.youtubeId videoTitle=listItem.label />
+                        <@videoModal video=listItem/>
                     </#if>
                 </#list>
             </template>
             
-            <template slot="vsSingleImageButtonText">
-                <#if (item.cta.link)??>${item.cta.label}</#if>
-            </template>
-            
+            <#if (item.cta.link)??>
+                <template v-slot:vs-single-image-button-text>
+                    ${item.cta.label}
+                </template>
+            </#if>            
         </vs-megalink-single-image>
     </vs-col>
 </#macro>

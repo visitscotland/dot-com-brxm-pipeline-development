@@ -18,21 +18,21 @@
     <#if ciBranch??>
         <@devEnvMenu />
     </#if>
-
-    <div class="has-edit-button">
+    <@hst.cmseditmenu menu=menu />
+    <div class="has-edit-button vs-sticky-nav">
         <@headerSkipTo />
-        <header class="position-relative zindex-fixed">
+        <header>
             <@headerGlobalMenu />
+            <!-- Navigation generated at ${menu.timeStamp?string["yyyy-MM-dd HH:mm:ss"]} -->
             <@headerMegaNav menu=menu/>
         </header>
-        <@hst.cmseditmenu menu=menu />
     </div>
     <#if widgetList??>
         <#list widgetList as navigationWidget>
             <@previewWarning editMode navigationWidget navigationWidget.errorMessages/>
         </#list>
     </#if>
-<#elseif integration??>
+<#elseif !integration??>
     <@log "The main navigation menu is not available" />
 </#if>
 

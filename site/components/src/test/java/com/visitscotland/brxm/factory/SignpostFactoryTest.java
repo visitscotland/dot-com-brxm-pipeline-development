@@ -3,6 +3,8 @@ package com.visitscotland.brxm.factory;
 import com.visitscotland.brxm.model.LinkType;
 import com.visitscotland.brxm.model.SignpostModule;
 import com.visitscotland.brxm.services.ResourceBundleService;
+import com.visitscotland.brxm.utils.HippoUtilsService;
+import com.visitscotland.brxm.utils.Properties;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -21,6 +23,10 @@ class SignpostFactoryTest {
 
     @Mock
     ResourceBundleService bundle;
+    @Mock
+    HippoUtilsService utils;
+    @Mock
+    Properties properties;
 
     @InjectMocks
     SignpostFactory signpostFactory;
@@ -29,9 +35,12 @@ class SignpostFactoryTest {
     @Test
     void newsletterSignpost() {
         when(bundle.getResourceBundle(BUNDLE_ID, "newsletter.cta.text", Locale.UK)).thenReturn("cta.text");
-        when(bundle.getResourceBundle(BUNDLE_ID, "newsletter.cta.link", Locale.UK)).thenReturn("cta.link");
         when(bundle.getResourceBundle(BUNDLE_ID, "newsletter.title", Locale.UK)).thenReturn("title");
         when(bundle.getResourceBundle(BUNDLE_ID, "newsletter.copy", Locale.UK)).thenReturn("copy");
+        when(bundle.getResourceBundle(BUNDLE_ID, "newsletter.image", Locale.UK)).thenReturn("image.jpeg");
+        when(bundle.getResourceBundle(BUNDLE_ID, "newsletter.cta.link", Locale.UK)).thenReturn("dummy-url");
+
+        when(utils.createUrlFromNode(any(), anyBoolean())).thenReturn("cta.link");
 
         SignpostModule module = signpostFactory.createNewsletterSignpostModule(Locale.UK);
 
@@ -40,6 +49,7 @@ class SignpostFactoryTest {
         Assertions.assertEquals(LinkType.INTERNAL, module.getCta().getType());
         Assertions.assertEquals("title", module.getTitle());
         Assertions.assertEquals("copy", module.getCopy().getContent());
+        Assertions.assertEquals("image.jpeg", module.getImage().getExternalImage());
     }
 
 }

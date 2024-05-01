@@ -94,9 +94,13 @@ public class LinkService {
 
             return new FlatLink(bundle.getCtaLabel(productSearchLink.getLabel(), locale), psb.build(), LinkType.INTERNAL);
         } else if (item instanceof ExternalLink) {
-            return createExternalLink(locale, ((ExternalLink) item).getLink(), bundle.getCtaLabel(((ExternalLink) item).getLabel(), locale));
+            return createExternalLink(locale, ((ExternalLink) item).getLink(), bundle.getCtaLabel(((ExternalLink) item).getLabel(), locale), item.getPath());
         } else if (item instanceof CMSLink) {
             return createCMSLink(module, locale, (CMSLink) item);
+        } else if (item instanceof ProductsSearch) {
+            ProductSearchBuilder psb = productSearch().fromHippoBean((ProductsSearch)item ).locale(locale);
+
+            return new FlatLink(bundle.getCtaLabel(null, locale), psb.build(), LinkType.INTERNAL);
         }
         logger.warn("The document {} could not be turned into a link", item.getPath());
         module.addErrorMessage("The link was not correctly processed");
@@ -140,16 +144,20 @@ public class LinkService {
      *
      * @param url: URl
      */
-    public FlatLink createExternalLink(final String url) {
-        return createExternalLink(utils.getRequestLocale(), url, null);
+    public FlatLink createExternalLink(final String url, String parentDocument) {
+        return createExternalLink(utils.getRequestLocale(), url, null, parentDocument);
     }
 
-   public FlatLink createExternalLink(final Locale locale, final String url, final String label) {
+   public FlatLink createExternalLink(final Locale locale, final String url, final String label, String parentDocument) {
         LinkType linkType = getType(url);
         String localizedUrl = processURL(locale, url);
 
-        if (!locale.equals(Locale.UK) && url != null && url.equals(localizedUrl) && linkType == LinkType.INTERNAL && !url.startsWith("#")) {
-            logger.warn("The URL {} could not be localized", url);
+        if (url != null && url.contains("pagenotfound")){
+            logger.warn("The document {} contains an invalid URL{} ", parentDocument, url);
+        } else if (localizedUrl != null && !localizedUrl.contains(locale.toLanguageTag().toLowerCase())){
+            if (!locale.equals(Locale.UK) && linkType == LinkType.INTERNAL && !url.startsWith("#")) {
+                logger.warn("The URL {} could not be localized added to the document {} the label for the link is {}", url, parentDocument, label);
+            }
         }
 
         return new FlatLink(label, localizedUrl, linkType);
@@ -160,6 +168,8 @@ public class LinkService {
             return null;
         } else if (url.startsWith("/")) {
             return localize(locale, "", url);
+        }else if (url.startsWith("#")) {
+            return url;
         }
 
         if (!Contract.isEmpty(properties.getInternalSites())) {
@@ -189,6 +199,20 @@ public class LinkService {
         } else {
             return site + languagePath + path;
         }
+    }
+
+    public String localize(Locale locale, String url) {
+        if (isInternalDomain(url)){
+            try {
+                String authority = new URL(url).getAuthority();
+                String domain = url.substring(0, url.indexOf(authority)) + authority;
+                return localize(locale, domain, url.substring(domain.length()));
+            } catch (MalformedURLException e) {
+                //Note: this exception would never happen as isInternalDomain(url) does the same operation.
+                logger.error("Unexpected Exception. The link could not be localized");
+            }
+        }
+        return url;
     }
 
     public FlatLink createDmsLink(Locale locale, DMSLink dmsLink, JsonNode dmsProductJson, String defaultCta) {
@@ -582,7 +606,11 @@ public class LinkService {
     }
 
     private String getYoutubeId(String url) {
-        return UriComponentsBuilder.fromUriString(url).build().getQueryParams().getFirst("v");
+        String id = UriComponentsBuilder.fromUriString(url).build().getQueryParams().getFirst("v");
+        if (Contract.isEmpty(id)){
+            logger.warn("The Youtube ID could not be calculated from the URL {}", url);
+        }
+        return id;
     }
 
 }

@@ -41,15 +41,15 @@
                     recaptcha-textarea-label="${label('forms', 'form.recaptcha-textarea-label')}"
                 >
 
-                    <template slot="no-js">
+                    <template v-slot:no-js>
                         ${label('forms', 'form.no-js')}
                     </template>
 
-                    <template slot="submitError">
+                    <template v-slot:submit-error>
                         ${label('forms', 'form.error')}
                     </template>
 
-                    <template slot="submitting">
+                    <template v-slot:submitting>
                         ${label('forms', 'form.submitting')}
                     </template>
                 </vs-marketo-form>

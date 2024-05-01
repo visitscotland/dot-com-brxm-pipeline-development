@@ -185,7 +185,6 @@ public class ImageFactory {
 
     /**
      * Creates an Image from a DMS product node.
-     *
      * If the product does not contain an image a Placeholder image is returned instead
      *
      * @param dmsProduct JsonNode with the information of the product.
@@ -248,11 +247,16 @@ public class ImageFactory {
      * all images.
      */
     private void populateLocation(FlatImage image, String location, Locale locale) {
-        LocationObject locationObject = locationLoader.getLocation(location, locale);
-        if (locationObject != null) {
-            image.setCoordinates(new Coordinates(locationObject.getLatitude(), locationObject.getLongitude()));
+        try {
+            LocationObject locationObject = locationLoader.getLocation(location, locale);
 
-            image.setLocation(locationObject.getName());
+            if (locationObject != null) {
+                image.setCoordinates(new Coordinates(locationObject.getLatitude(), locationObject.getLongitude()));
+
+                image.setLocation(locationObject.getName());
+            }
+        } catch (NullPointerException e) {
+            logger.error("An error was encountered at populateLocation. It will result in no locations available until the system is restarted", e);
         }
     }
 }

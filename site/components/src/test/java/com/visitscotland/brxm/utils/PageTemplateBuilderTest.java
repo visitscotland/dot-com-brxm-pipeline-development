@@ -2,6 +2,7 @@ package com.visitscotland.brxm.utils;
 
 import com.visitscotland.brxm.hippobeans.*;
 import com.visitscotland.brxm.mock.LinksModuleMockBuilder;
+import com.visitscotland.brxm.model.Module;
 import com.visitscotland.brxm.model.*;
 import com.visitscotland.brxm.model.megalinks.*;
 import com.visitscotland.brxm.factory.*;
@@ -15,7 +16,6 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
-import javax.annotation.Resource;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
@@ -58,9 +58,11 @@ class PageTemplateBuilderTest {
     PreviewModeFactory previewModeFactory;
 
     @Mock
+    Properties properties;
+
+    @Mock
     ContentLogger logger;
 
-    @Resource
     @InjectMocks
     PageTemplateBuilder builder;
 
@@ -70,7 +72,7 @@ class PageTemplateBuilderTest {
         request.setLocale(Locale.UK);
 
         //Adds a mock document to the Request
-        request.setAttribute("document", page);
+        request.setModel("document", page);
     }
 
     /**
@@ -79,10 +81,10 @@ class PageTemplateBuilderTest {
     @Test
     void pageWithoutElements() {
         when(utils.getAllowedDocuments(page)).thenReturn(Collections.emptyList());
-        when(page.getPath()).thenReturn("/home");
+
         builder.addModules(request);
 
-        List items = (List) request.getAttribute(PageTemplateBuilder.PAGE_ITEMS);
+        List<?> items = (List<?>) request.getAttribute(PageTemplateBuilder.PAGE_ITEMS);
 
         assertEquals(0, items.size());
     }
@@ -96,11 +98,10 @@ class PageTemplateBuilderTest {
         LinksModule<?> module = new LinksModuleMockBuilder().withLink(mock(EnhancedLink.class)).build();
 
         when(utils.getAllowedDocuments(page)).thenReturn(Collections.singletonList(megalinks));
-        when(page.getPath()).thenReturn("/home");
         doReturn(module).when(linksFactory).getMegalinkModule(megalinks, Locale.UK);
 
         builder.addModules(request);
-        List items = (List) request.getAttribute(PageTemplateBuilder.PAGE_ITEMS);
+        List<?> items = (List<?>) request.getAttribute(PageTemplateBuilder.PAGE_ITEMS);
 
         assertEquals(1, items.size());
     }
@@ -117,11 +118,11 @@ class PageTemplateBuilderTest {
 
         when(utils.getAllowedDocuments(page)).thenReturn(Collections.singletonList(megalinks));
         doReturn(module).when(linksFactory).getMegalinkModule(megalinks, Locale.UK);
-        when(previewModeFactory.createErrorModule(any())).thenReturn(new Module());
+        when(previewModeFactory.createErrorModule(any())).thenReturn(new Module<>());
 
-        when(page.getPath()).thenReturn("/home");
+
         builder.addModules(request);
-        List items = (List) request.getAttribute(PageTemplateBuilder.PAGE_ITEMS);
+        List<?> items = (List<?>) request.getAttribute(PageTemplateBuilder.PAGE_ITEMS);
 
         assertEquals(1, items.size());
         assertSame(items.get(0).getClass(), Module.class);
@@ -148,9 +149,9 @@ class PageTemplateBuilderTest {
         doReturn(module3).when(linksFactory).getMegalinkModule((Megalinks) list.get(2), Locale.UK);
         doReturn(module4).when(linksFactory).getMegalinkModule((Megalinks) list.get(3), Locale.UK);
 
-        when(page.getPath()).thenReturn("/home");
+
         builder.addModules(request);
-        List<LinksModule> items = (List<LinksModule>) request.getAttribute(PageTemplateBuilder.PAGE_ITEMS);
+        List<LinksModule<?>> items = request.getModel(PageTemplateBuilder.PAGE_ITEMS);
 
         assertEquals(4, items.size());
 
@@ -182,9 +183,9 @@ class PageTemplateBuilderTest {
         doReturn(module3).when(linksFactory).getMegalinkModule((Megalinks) list.get(2), Locale.UK);
         doReturn(module4).when(linksFactory).getMegalinkModule((Megalinks) list.get(3), Locale.UK);
 
-        when(page.getPath()).thenReturn("/home");
+
         builder.addModules(request);
-        List<LinksModule> items = (List<LinksModule>) request.getAttribute(PageTemplateBuilder.PAGE_ITEMS);
+        List<?> items = request.getModel(PageTemplateBuilder.PAGE_ITEMS);
 
         assertEquals(4, items.size());
 
@@ -203,10 +204,10 @@ class PageTemplateBuilderTest {
         when(utils.getAllowedDocuments(page)).thenReturn(Collections.singletonList(mega));
 
         // Build the first case where the first element has no title
-        LinksModule module1 = new LinksModuleMockBuilder().withLink(mock(EnhancedLink.class)).build();
-        LinksModule module2 = new LinksModuleMockBuilder().withLink(mock(EnhancedLink.class)).title("h2").build();
+        LinksModule<?> module1 = new LinksModuleMockBuilder().withLink(mock(EnhancedLink.class)).build();
+        LinksModule<?> module2 = new LinksModuleMockBuilder().withLink(mock(EnhancedLink.class)).title("h2").build();
         doReturn(module1).when(linksFactory).getMegalinkModule(mega, Locale.UK);
-        when(page.getPath()).thenReturn("/home");
+
         builder.addModules(request);
 
         // Build the second case where the first element has a title
@@ -230,25 +231,25 @@ class PageTemplateBuilderTest {
 
         when(utils.getAllowedDocuments(page)).thenReturn(list);
 
-        LinksModule module1 = new LinksModuleMockBuilder().withLink(mock(EnhancedLink.class)).type(SingleImageLinksModule.class).build();
-        LinksModule module2 = new LinksModuleMockBuilder().withLink(mock(EnhancedLink.class)).type(SingleImageLinksModule.class).build();
-        LinksModule module3 = new LinksModuleMockBuilder().withLink(mock(EnhancedLink.class)).type(SingleImageLinksModule.class).build();
-        LinksModule module4 = new LinksModuleMockBuilder().withLink(mock(EnhancedLink.class)).type(SingleImageLinksModule.class).build();
+        LinksModule<?> module1 = new LinksModuleMockBuilder().withLink(mock(EnhancedLink.class)).type(SingleImageLinksModule.class).build();
+        LinksModule<?> module2 = new LinksModuleMockBuilder().withLink(mock(EnhancedLink.class)).type(SingleImageLinksModule.class).build();
+        LinksModule<?> module3 = new LinksModuleMockBuilder().withLink(mock(EnhancedLink.class)).type(SingleImageLinksModule.class).build();
+        LinksModule<?> module4 = new LinksModuleMockBuilder().withLink(mock(EnhancedLink.class)).type(SingleImageLinksModule.class).build();
 
         doReturn(module1).when(linksFactory).getMegalinkModule((Megalinks) list.get(0), Locale.UK);
         doReturn(module2).when(linksFactory).getMegalinkModule((Megalinks) list.get(1), Locale.UK);
         doReturn(module3).when(linksFactory).getMegalinkModule((Megalinks) list.get(2), Locale.UK);
         doReturn(module4).when(linksFactory).getMegalinkModule((Megalinks) list.get(3), Locale.UK);
 
-        when(page.getPath()).thenReturn("/home");
+
         builder.addModules(request);
-        List<LinksModule> items = (List<LinksModule>) request.getAttribute(PageTemplateBuilder.PAGE_ITEMS);
+        List<?> items = request.getModel(PageTemplateBuilder.PAGE_ITEMS);
         assertEquals(4, items.size());
 
-        verify(module1).setAlignment(PageTemplateBuilder.alignment[0 % 2]);
-        verify(module2).setAlignment(PageTemplateBuilder.alignment[1 % 2]);
-        verify(module3).setAlignment(PageTemplateBuilder.alignment[2 % 2]);
-        verify(module4).setAlignment(PageTemplateBuilder.alignment[3 % 2]);
+        verify(module1).setAlignment(PageTemplateBuilder.ALIGNMENT[0 % 2]);
+        verify(module2).setAlignment(PageTemplateBuilder.ALIGNMENT[1 % 2]);
+        verify(module3).setAlignment(PageTemplateBuilder.ALIGNMENT[2 % 2]);
+        verify(module4).setAlignment(PageTemplateBuilder.ALIGNMENT[3 % 2]);
     }
 
     /**
@@ -260,12 +261,55 @@ class PageTemplateBuilderTest {
         TourismInformation ti = new TouristInformationMockBuilder().build();
 
         when(utils.getAllowedDocuments(page)).thenReturn(Collections.singletonList(ti));
+        when (properties.isIknowEnabled()).thenReturn(true);
         when(iKnowFactory.getIKnowModule(any(), eq(null), eq(request.getLocale()))).thenReturn(new IKnowModule());
 
-        when(page.getPath()).thenReturn("/home");
+        when(properties.getSiteICentre()).thenReturn("/icentre-landing");
+        request.setPathInfo("/destination/edinburgh");
+
         builder.addModules(request);
 
-        List<Module> items = (List<Module>) request.getAttribute(PageTemplateBuilder.PAGE_ITEMS);
+        List<Module<?>> items = request.getModel(PageTemplateBuilder.PAGE_ITEMS);
+        assertEquals(1, items.size());
+        assertEquals(ti, items.get(0).getHippoBean());
+    }
+
+    /**
+     * Verifies that is able to hide an iKnowModule when boolean is set to false
+     */
+    @Test
+    void hideTouristInformation_iKnowModule() {
+        TourismInformation ti = new TouristInformationMockBuilder().build();
+
+        when(utils.getAllowedDocuments(page)).thenReturn(Collections.singletonList(ti));
+        when (properties.isIknowEnabled()).thenReturn(false);
+
+        when(properties.getSiteICentre()).thenReturn("/icentre-landing");
+        request.setPathInfo("/destination/edinburgh");
+
+        builder.addModules(request);
+
+        List<?> items = request.getModel(PageTemplateBuilder.PAGE_ITEMS);
+        assertEquals(0, items.size());
+    }
+
+    @Test
+    @DisplayName("VS-4404 -  The iCentre module should not appear on the iCentre landing page")
+    void getModule_iCentreLanding(){
+        TourismInformation ti = new TouristInformationMockBuilder().build();
+
+        when(utils.getAllowedDocuments(page)).thenReturn(Collections.singletonList(ti));
+
+        lenient().when(iCentreFactory.getModule(any(), eq(request.getLocale()), eq(null))).thenReturn(new ICentreModule());
+        when (properties.isIknowEnabled()).thenReturn(true);
+        when(iKnowFactory.getIKnowModule(any(), eq(null), eq(request.getLocale()))).thenReturn(new IKnowModule());
+
+        when(properties.getSiteICentre()).thenReturn("/icentre-landing/content");
+        request.setPathInfo("/icentre-landing");
+
+        builder.addModules(request);
+
+        List<Module<?>> items = request.getModel(PageTemplateBuilder.PAGE_ITEMS);
         assertEquals(1, items.size());
         assertEquals(ti, items.get(0).getHippoBean());
     }
@@ -289,30 +333,10 @@ class PageTemplateBuilderTest {
 
         builder.addModules(request);
 
-        List<Module> items = (List<Module>) request.getAttribute(PageTemplateBuilder.PAGE_ITEMS);
+        List<Module<?>> items = request.getModel(PageTemplateBuilder.PAGE_ITEMS);
         assertEquals(2, items.size());
         assertEquals(ti, items.get(0).getHippoBean());
         assertNull(items.get(1).getHippoBean());
-    }
-
-    /**
-     * Build a page with one OTYML section associated.
-     *
-     * TODO: Do we want to move this test to PageContentComponent Test?
-     */
-    @Test
-    @Disabled("OTYML is no longer controlled by PageTemplateBuilder but PageContentComponent")
-    void addOTYMLModule() {
-        HorizontalListLinksModule module = new HorizontalListLinksModule();
-
-        when(page.getOtherThings()).thenReturn(new OTYML());
-        when(linksFactory.horizontalListLayout(page.getOtherThings(), Locale.UK)).thenReturn(module);
-
-        builder.addModules(request);
-        List<LinksModule> items = (List<LinksModule>) request.getAttribute(PageTemplateBuilder.PAGE_ITEMS);
-
-        assertEquals(1, items.size());
-        assertEquals(module.getType(), items.get(0).getType());
     }
 
     @Test
@@ -322,9 +346,9 @@ class PageTemplateBuilderTest {
         when(utils.getAllowedDocuments(page)).thenReturn(Collections.singletonList(mega));
 
         doReturn(new LinksModuleMockBuilder().withLink(mock(EnhancedLink.class)).build()).when(linksFactory).getMegalinkModule(mega, Locale.UK);
-        when(page.getPath()).thenReturn("/home");
+
         builder.addModules(request);
-        LinksModule module = (LinksModule) ((List<Module>) request.getAttribute(PageTemplateBuilder.PAGE_ITEMS)).get(0);
+        LinksModule<?> module = (LinksModule<?>) ((List<?>) request.getModel(PageTemplateBuilder.PAGE_ITEMS)).get(0);
 
         assertNotNull(request.getAttribute(PageTemplateBuilder.INTRO_THEME));
         assertEquals(request.getAttribute(PageTemplateBuilder.INTRO_THEME), module.getThemeIndex());
@@ -334,7 +358,7 @@ class PageTemplateBuilderTest {
     @DisplayName("VS-2015 - introTheme is populated with a neutral theme when the theme cannot be inferred")
     void setIntroTheme_forNonMegalinks(){
         when(utils.getAllowedDocuments(page)).thenReturn(Collections.emptyList());
-        when(page.getPath()).thenReturn("/home");
+
         builder.addModules(request);
 
         assertNull(request.getAttribute(PageTemplateBuilder.INTRO_THEME));
@@ -348,15 +372,15 @@ class PageTemplateBuilderTest {
 
         //The module is only allowed got general pages.
         when(page.getTheme()).thenReturn("Simple");
-        request.setAttribute("document", page);
+        request.setModel("document", page);
 
         when(utils.getAllowedDocuments(page)).thenReturn(Collections.singletonList(longCopy));
         when(longCopyFactory.getModule(any(LongCopy.class))).thenReturn(new LongCopyModule());
-        when(page.getPath()).thenReturn("/home");
+
         builder.addModules(request);
 
         //List<Module> items = (List<Module>) request.getAttribute(PageTemplateBuilder.PAGE_ITEMS);
-        LongCopyModule module = (LongCopyModule) ((List<Module>) request.getAttribute(PageTemplateBuilder.PAGE_ITEMS)).get(0);
+        LongCopyModule module = (LongCopyModule) ((List<Module>) request.getModel(PageTemplateBuilder.PAGE_ITEMS)).get(0);
         assertNotNull(module);
     }
 
@@ -367,13 +391,13 @@ class PageTemplateBuilderTest {
         LongCopy longCopy = mock(LongCopy.class);
 
         //The module is only allowed got general pages.
-        request.setAttribute("document", page);
+        request.setModel("document", page);
 
         when(utils.getAllowedDocuments(page)).thenReturn(Collections.singletonList(longCopy));
-        when(page.getPath()).thenReturn("/home");
+
         builder.addModules(request);
 
-        assertEquals(0, ((List<Module>) request.getAttribute(PageTemplateBuilder.PAGE_ITEMS)).size());
+        assertEquals(0, ((List<?>) request.getModel(PageTemplateBuilder.PAGE_ITEMS)).stream().filter(m -> m instanceof LongCopyModule).count());
     }
 
     @Test
@@ -384,13 +408,13 @@ class PageTemplateBuilderTest {
 
         //The module is only allowed got general pages.
         when(page.getTheme()).thenReturn("Standard");
-        request.setAttribute("document", page);
+        request.setModel("document", page);
 
         when(utils.getAllowedDocuments(page)).thenReturn(Collections.singletonList(longCopy));
-        when(page.getPath()).thenReturn("/home");
+
         builder.addModules(request);
 
-        assertEquals(0, ((List<Module>) request.getAttribute(PageTemplateBuilder.PAGE_ITEMS)).size());
+        assertEquals(0,((List<?>) request.getAttribute(PageTemplateBuilder.PAGE_ITEMS)).stream().filter(m -> !(m instanceof ErrorModule)).count());
     }
 
     @Test
@@ -400,30 +424,13 @@ class PageTemplateBuilderTest {
 
         //The module is only allowed got general pages.
         when(page.getTheme()).thenReturn("Simple");
-        request.setAttribute("document", page);
+        request.setModel("document", page);
 
         when(utils.getAllowedDocuments(page)).thenReturn(Arrays.asList(mock(LongCopy.class), mock(LongCopy.class), mock(LongCopy.class)));
         when(longCopyFactory.getModule(any(LongCopy.class))).thenReturn(new LongCopyModule());
-        when(page.getPath()).thenReturn("/home");
+
         builder.addModules(request);
 
-        assertEquals(1, ((List<Module>) request.getAttribute(PageTemplateBuilder.PAGE_ITEMS)).size());
-    }
-
-    @Test
-    @DisplayName("VS-3168 - Test global search page")
-    void globalSearchPage(){
-        General page = mock(General.class);
-
-        //The module is only allowed got general pages.
-        when(page.getTheme()).thenReturn("Simple");
-        request.setAttribute("document", page);
-
-        when(utils.getAllowedDocuments(page)).thenReturn(Arrays.asList(mock(LongCopy.class), mock(LongCopy.class), mock(LongCopy.class)));
-        when(longCopyFactory.getModule(any(LongCopy.class))).thenReturn(new LongCopyModule());
-        when(page.getPath()).thenReturn("/site-search-results");
-        builder.addModules(request);
-
-        assertNotNull(request.getAttribute(PageTemplateBuilder.SEARCH_RESULTS));
+        assertEquals(1, ((List<?>) request.getModel(PageTemplateBuilder.PAGE_ITEMS)).stream().filter(m -> m instanceof LongCopyModule).count());
     }
 }

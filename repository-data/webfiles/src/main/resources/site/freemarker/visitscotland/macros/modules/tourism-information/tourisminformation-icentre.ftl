@@ -20,21 +20,21 @@
     </#if>
 
     <vs-module-wrapper theme="<#if themeName?has_content>${themeName}<#else>light</#if>">
-        <template slot="vsModuleWrapperHeading">
+        <template v-slot:vs-module-wrapper-heading>
             ${module.title}
         </template>
         <vs-container>
             <vs-icentre>
-                <template slot="icentreImageWithCaption">
+                <template v-slot:icentre-image-with-caption>
                     <@imageWithCaption imageSrc=image imageDetails=module.image noAltText="true" />
                 </template>
 
-                <template slot="icentreLinks">
+                <template v-slot:icentre-links>
                     ${module.description}
                     <#list module.links as iCentre>
                         <vs-link href="${iCentre.link}">${iCentre.label}</vs-link><#t>
                         <#if iCentre?counter == (module.links?size - 1)>
-                            &nbsp;and&nbsp;<#t>
+                            &nbsp;${label("tourism.information","icentre.and")}&nbsp;<#t>
                         <#else>
                             <#if iCentre?has_next>,&nbsp;</#if><#t>
                         </#if>
@@ -43,12 +43,11 @@
                 </template>
                 
                 <#if module.quote??>
-                    <template slot="icentreQuote">
+                    <template v-slot:icentre-quote>
                         <@quote quoteItem=module.quote variant="wide"/>
                     </template>
                 </#if>
             </vs-icentre>
         </vs-container>
     </vs-module-wrapper>
-
 </#macro>

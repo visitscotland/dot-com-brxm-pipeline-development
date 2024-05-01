@@ -24,23 +24,25 @@ public class MessageSuppressor {
     }
 
     public boolean canLog(String message, Object... args){
-        Message issue = new Message(message, args);
+        if (properties.isContentCacheEnabled()) {
+            Message issue = new Message(message, args);
 
-        int index = messages.indexOf(issue);
+            int index = messages.indexOf(issue);
 
-        if (index < 0) {
-            cleanUpIfNeeded();
-            issue.log();
-            messages.add(issue);
-        } else {
-            issue = messages.get(index);
-            Date doNotLogUntil = new Date(issue.getFirstOccurrence().getTime() + properties.getContentCacheRetention());
-            if (new Date().after(doNotLogUntil)){
-                logger.info("The next content message has been logged {} time(s) in the last {}s", issue.getCount(),
-                        properties.getContentCacheRetention()/1000);
-                issue.reset();
+            if (index < 0) {
+                cleanUpIfNeeded();
+                issue.log();
+                messages.add(issue);
             } else {
-                return false;
+                issue = messages.get(index);
+                Date doNotLogUntil = new Date(issue.getFirstOccurrence().getTime() + properties.getContentCacheRetention());
+                if (new Date().after(doNotLogUntil)) {
+                    logger.info("The next content message has been logged {} time(s) in the last {}s", issue.getCount(),
+                            properties.getContentCacheRetention() / 1000);
+                    issue.reset();
+                } else {
+                    return false;
+                }
             }
         }
         return true;
@@ -67,7 +69,7 @@ public class MessageSuppressor {
                         "It is advised to increase the maximum number of elements for the cache", percentage, messages.size(), properties.getContentCacheMaxElements());
             } else {
                 logger.warn("Suppressor Clean up invoked because more than {} messages were recorded. The size of the cache was reduced by {}%",
-                        properties.getContentCacheRetention(), (int) percentage);
+                        properties.getContentCacheMaxElements(), (int) percentage);
             }
         }
     }

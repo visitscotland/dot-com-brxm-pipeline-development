@@ -71,11 +71,12 @@ pipeline {
     VS_BRC_ENV = 'demo'
     VS_BRC_STACK_URL = "https://api-${VS_BRC_STACK_URI}.onehippo.io"
     VS_BRC_STACK_API_VERSION = 'v3'
+    VS_DOCKER_IMAGE_NAME = 'vs/vs-brxm15:node16'
   }
 
   tools {
-    maven 'Maven 3.5.0'
-    jdk 'jdk1.8.0'
+    maven 'Maven 3.5.4'
+    jdk 'jdk11'
   }
 
   stages {
@@ -245,7 +246,7 @@ pipeline {
             withSonarQubeEnv(installationName: 'SonarQube', credentialsId: 'sonarqube') {
               sh '''
                 PATH=/usr/bin:$PATH; ${scannerHome}/bin/sonar-scanner \
-                -Dsonar.sources=./frontend \
+                -Dsonar.sources=./ui-integration \
                 -Dsonar.projectKey=VS2019-FE \
                 -Dsonar.host.url=http://172.28.87.209:9000 \
                 -Dsonar.login=9fa63cfd51d94fb8e437b536523c15a9b45ee2c1
@@ -407,7 +408,7 @@ pipeline {
             allowMissing: false,
             alwaysLinkToLastBuild: false,
             keepAll: false,
-            reportDir: 'frontend/.lighthouseci',
+            reportDir: 'ui-integration/.lighthouseci',
             reportFiles: 'lhr-**.html',
             reportName: "LH Report"
           ])

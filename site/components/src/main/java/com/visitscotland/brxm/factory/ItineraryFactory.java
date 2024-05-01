@@ -76,6 +76,11 @@ public class ItineraryFactory {
 
                 ItineraryStopModule module = generateStop(locale, stop, itinerary, index++);
 
+                if (module.getCoordinates() == null){
+                    contentLogger.error("The Itinerary {} located at {} has a stop without coordinates," +
+                            " the stop affected is {} located at {}", itinerary.getName(), itinerary.getPath(), stop.getName(), stop.getPath());
+                }
+
                 lastStop = module;
                 if (firstStop == null) {
                     firstStop = lastStop;
@@ -89,8 +94,11 @@ public class ItineraryFactory {
                 page.addStop(module);
             }
         }
+        if (page.getDays() == null || page.getDays().isEmpty()) {
+            logger.warn("The itinerary page {} does not have any modules published", itinerary.getPath());
+        }
 
-        page.setDistance(calculateDistance ? totalDistance :BigDecimal.valueOf(itinerary.getDistance()));
+        page.setDistance(calculateDistance ? totalDistance.setScale(0, BigDecimal.ROUND_HALF_UP) :BigDecimal.valueOf(itinerary.getDistance()));
 
         populateFirstAndLastStopTexts(page, firstStop, lastStop);
 
@@ -132,7 +140,7 @@ public class ItineraryFactory {
     }
 
     /**
-     * Transform an Stop document in a ItineraryStopModule and add extra information depending on the type
+     * Transform a Stop document in a ItineraryStopModule and add extra information depending on the type
      */
     public ItineraryStopModule generateStop(Locale locale, Stop stop, Itinerary itinerary, Integer index){
         ItineraryStopModule module = initializeStop(stop);
@@ -162,7 +170,7 @@ public class ItineraryFactory {
     }
 
     /**
-     * Creates an Stop from the stop Document type
+     * Creates a Stop from the stop Document type
      */
     private ItineraryStopModule initializeStop(Stop stop) {
         ItineraryStopModule module = new ItineraryStopModule();
@@ -196,7 +204,8 @@ public class ItineraryFactory {
 
         if (externalLink.getExternalLink() != null) {
             FlatLink ctaLink = linkService.createExternalLink(locale, externalLink.getExternalLink().getLink(),
-                    !externalLink.getExternalLink().getLabel().isEmpty()? externalLink.getExternalLink().getLabel(): bundle.getFindOutMoreAboutCta(module.getTitle(), locale));
+                    !externalLink.getExternalLink().getLabel().isEmpty()? externalLink.getExternalLink().getLabel(): bundle.getFindOutMoreAboutCta(module.getTitle(), locale),
+                    externalLink.getPath());
             module.setCtaLink(ctaLink);
         }
 
@@ -237,6 +246,12 @@ public class ItineraryFactory {
 
         if (product.has(LATITUDE) && product.has(LONGITUDE)) {
             module.setCoordinates(new Coordinates(product.get(LATITUDE).asDouble(), product.get(LONGITUDE).asDouble()));
+        } else {
+            String message = String.format("The DMS product added to '%s' does not have coordinates, please review the DMS Product id field at: %s ", module.getTitle(), dmsLink.getPath());
+            module.addErrorMessage(message);
+            if (logger.isWarnEnabled()) {
+                contentLogger.error(message);
+            }
         }
 
         if (product.has(TIME_TO_EXPLORE)) {

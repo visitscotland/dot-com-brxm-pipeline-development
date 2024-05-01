@@ -11,7 +11,7 @@ definitions:
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:uuid: 4b093934-a1a0-4716-87ac-324f0deea67d
+          jcr:uuid: e90e8e60-c326-4fd3-a76e-6831f04b1890
           hipposysedit:node: true
           hipposysedit:supertype: ['visitscotland:basedocument', 'hippostd:relaxed',
             'hippotranslation:translated']
@@ -42,7 +42,6 @@ definitions:
             hipposysedit:path: visitscotland:stacklaId
             hipposysedit:primary: false
             hipposysedit:type: String
-            hipposysedit:validators: [required]
           /stacklaHash:
             jcr:primaryType: hipposysedit:field
             hipposysedit:mandatory: false
@@ -51,7 +50,6 @@ definitions:
             hipposysedit:path: visitscotland:stacklaHash
             hipposysedit:primary: false
             hipposysedit:type: String
-            hipposysedit:validators: [required]
           /translation:
             jcr:primaryType: hipposysedit:field
             hipposysedit:mandatory: false
@@ -60,6 +58,15 @@ definitions:
             hipposysedit:path: visitscotland:translation
             hipposysedit:primary: false
             hipposysedit:type: OpenUiString
+          /storystreamId:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: visitscotland:storystreamId
+            hipposysedit:primary: false
+            hipposysedit:type: String
+            hipposysedit:validators: [required]
       /hipposysedit:prototypes:
         jcr:primaryType: hipposysedit:prototypeset
         /hipposysedit:prototype:
@@ -74,10 +81,11 @@ definitions:
           visitscotland:title: ''
           visitscotland:stacklaId: ''
           visitscotland:stacklaHash: ''
-          jcr:uuid: 22f64408-9d5f-415b-938a-d9830c972824
+          jcr:uuid: 4b45e0f0-6adf-423e-af2d-325d0cc56193
           hippostdpubwf:lastModificationDate: 2021-05-06T14:34:32.434+01:00
           hippostdpubwf:creationDate: 2021-05-06T14:34:32.434+01:00
           visitscotland:translation: ''
+          visitscotland:storystreamId: ''
       /editor:templates:
         jcr:primaryType: editor:templateset
         /_default_:
@@ -111,6 +119,15 @@ definitions:
               ckeditor.config.overlayed.json: '{disallowedContent: ''p[align]'', toolbarGroups:
                 [{ name: ''basicstyles''},{ name: ''links'' },{name:''insert''},{name:''clipboard''},{name:''tools''},{name:''undo''}]
                 , removeButtons: ''PickImage,Youtube,Table,Bold,Underline,Strike,Subscript,Superscript''}'
+          /storystreamId:
+            jcr:primaryType: frontend:plugin
+            caption: StoryStream ID
+            field: storystreamId
+            hint: ''
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
           /stacklaHash:
             jcr:primaryType: frontend:plugin
             caption: Stackla Data Hash
@@ -130,7 +147,7 @@ definitions:
             wicket.id: ${cluster.id}.field
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-              maxlength: '10'
+              maxlength: '20'
           /translation:
             jcr:primaryType: frontend:plugin
             caption: Translation

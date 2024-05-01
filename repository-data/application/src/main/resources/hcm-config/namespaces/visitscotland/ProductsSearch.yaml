@@ -11,7 +11,7 @@ definitions:
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:uuid: 487d919e-fa61-4c2a-89ad-53dc035b3be1
+          jcr:uuid: 25b5f8ba-0146-461d-bc50-9c3539491c87
           hipposysedit:node: true
           hipposysedit:supertype: ['hippo:compound', 'hippostd:relaxed']
           hipposysedit:uri: http://www.visitscotland.com/visitscotland/nt/1.0
@@ -90,6 +90,14 @@ definitions:
             hipposysedit:path: visitscotland:channel
             hipposysedit:primary: false
             hipposysedit:type: DynamicDropdown
+          /daysOut:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: visitscotland:daysOut
+            hipposysedit:primary: false
+            hipposysedit:type: Boolean
       /hipposysedit:prototypes:
         jcr:primaryType: hipposysedit:prototypeset
         /hipposysedit:prototype:
@@ -106,6 +114,7 @@ definitions:
           visitscotland:safeTravels: false
           visitscotland:keywords: ''
           visitscotland:channel: ''
+          visitscotland:daysOut: false
       /editor:templates:
         jcr:primaryType: editor:templateset
         /_default_:
@@ -236,6 +245,15 @@ definitions:
             jcr:primaryType: frontend:plugin
             caption: Safe Travels
             field: safeTravels
+            hint: ''
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.right.item
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+          /daysOut:
+            jcr:primaryType: frontend:plugin
+            caption: Days Out
+            field: daysOut
             hint: ''
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.right.item

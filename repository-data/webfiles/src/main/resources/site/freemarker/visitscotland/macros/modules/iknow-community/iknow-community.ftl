@@ -11,9 +11,10 @@
 <#-- @ftlvariable name="module" type="com.visitscotland.brxm.model.IKnowCommunityModule" -->
 
 <#macro iknowCommunity module>
+    <#-- THIS MODULE IS NOT CURRENTLY IN USE, CONSIDER REMOVING IT -->
     <@previewWarning editMode module module.errorMessages />
     <vs-module-wrapper theme="<#if themeName?has_content>${themeName}<#else>light</#if>">
-        <template slot="vsModuleWrapperHeading">
+        <template v-slot:vs-module-wrapper-heading>
             ${module.title}
         </template>
         <vs-container>
@@ -38,7 +39,7 @@
                     offset-lg="0"
                     xl="5"
                     offset-xl="1"
-                    class="text-left"
+                    class="text-start"
                 >
                     <vs-rich-text-wrapper variant="lead" class="mb-4">
                         <@hst.html hippohtml=module.copy/>

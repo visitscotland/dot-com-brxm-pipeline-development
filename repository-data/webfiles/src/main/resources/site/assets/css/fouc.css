@@ -3,6 +3,10 @@
  * flash of unstyled content (FOUC).
  */
 
-body {
-    visibility: visible;
+.skeleton-site {
+    display: none;
+}
+
+.hydrate {
+    display: block;
 }

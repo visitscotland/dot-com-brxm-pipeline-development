@@ -1,18 +1,18 @@
 <#include "../../../../include/imports.ftl">
 <#--  This needs to be commented out for now because the ItineraryMap component is currently excluded from the build  -->
-<#include "../../../../frontend/components/vs-itinerary-map.ftl">
-<#include "../../../../frontend/components/vs-itinerary-map-marker.ftl">
+<#include "../../../../frontend/components/vs-map.ftl">
 
 <#-- @ftlvariable name="stopDocument" type="com.visitscotland.brxm.hippobeans.Stop" -->
 <#-- @ftlvariable name="stop" type="com.visitscotland.brxm.model.ItineraryStopModule" -->
 
 <#macro itineraryMap itinerary>
-    <vs-itinerary-map
-        slot="map"
-        overview-map-longitude="57.81"
-        overview-map-latitude="-4.13"
-        overview-map-zoom="5"
-        :stops="[
+    <vs-map
+        list-view-text="${label('itinerary', 'list-view')}"
+        map-view-text="${label('itinerary', 'map-view')}"
+        map-id="vs-itinerary-map"
+        :is-visible="true"
+        :fit-to-markers="true"
+        :places="[
             <#list itinerary.days as day>
                 <#list day.stops as stopDocument>
                     <#assign stop = itinerary.stops[stopDocument.identifier]>
@@ -40,15 +40,6 @@
                 </#list>
             </#list>
         ]"
-        :labels="{
-            stopLabel: '${label('itinerary', 'stop.title')}',
-            mapControlsFullscreenOpen:'${label('map', 'map.fullscreen')}',
-            mapControlsFullscreenClose: '${label('map', 'map.exitfullscreen')}',
-            mapControlsCompass: '${label('map', 'map.reset')}',
-            mapControlsZoomIn: '${label('map', 'map.zoomin')}',
-            mapControlsZoomOut: '${label('map', 'map.zoomout')}'
-        }"
     >
-    </vs-itinerary-map>
-
+    </vs-map>
 </#macro>

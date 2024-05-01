@@ -1,8 +1,10 @@
 package com.visitscotland.brxm.model;
 
+import com.visitscotland.brxm.hippobeans.TourismInformation;
+
 import java.util.List;
 
-public class ICentreModule extends Module {
+public class ICentreModule extends Module<TourismInformation> {
 
     private String title;
     private FlatImage image;

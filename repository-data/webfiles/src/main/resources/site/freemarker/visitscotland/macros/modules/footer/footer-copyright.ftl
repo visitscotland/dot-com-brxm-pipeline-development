@@ -3,11 +3,13 @@
 
 <#macro footerCopyright>
     <vs-footer-copyright 
-        href="<@hst.link fullyQualified=fullyQualifiedURLs siteMapItemRefId='root'/>"
+        href="${label('navigation.static', 'footer.logo-url')}"
         link-alt-text="${label('navigation.static', 'footer.logo-alt-text')}"
     >
-        <span slot="copyright">
-            ${label('navigation.static', 'footer.text')}
-        </span>
+        <template v-slot:copyright>
+            <span>
+                ${label('navigation.static', 'footer.text')}
+            </span>
+        </template>
     </vs-footer-copyright>
 </#macro>

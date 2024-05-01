@@ -13,49 +13,56 @@
                     <@log "The Top Navigation element "+ item.title +
                         " has not defined a link  " />
                 </#if>
+
                 <vs-mega-nav-accordion-item
                     title="${item.title}"
                     level="1"
                     control-id="${item?index}"
                     cta-link="${getUrl(item)}"
                     cta-text="${item.cta!''}"
-                    @click.native="$root.$emit('navAccordionClick', '${item.title}')"
+                    @click.native="$root.$emit('navAccordionClick', `${item.title}`)"
                 >
-                    <#list item.childMenuItems as childItem>
-                        <#if childItem.title??>
-                            <vs-mega-nav-accordion-item
-                                title="${childItem.title}"
-                                level="2"
-                                control-id="${childItem?index}"
-                                @click.native="$root.$emit('navAccordionClick', '${item.title}')"
-                            >
-                                <vs-mega-nav-list>
-                                    <#list childItem.childMenuItems as thirdChildItem>
-                                        <#if thirdChildItem.title??>
-                                            <vs-mega-nav-list-item
-                                                slot="navListItems"
-                                                href="${getUrl(thirdChildItem)}"                                                
-                                            >   
-                                                ${thirdChildItem.title}
-                                            </vs-mega-nav-list-item>
-                                        </#if>
-                                    </#list>
+                    <#if (!menu.cmsCached)>
+                        <#list item.childMenuItems as childItem>
+                            <#if childItem.title??>
+                                <vs-mega-nav-accordion-item
+                                    title="${childItem.title}"
+                                    level="2"
+                                    control-id="${childItem?index}"
+                                    @click.native="$root.$emit('navAccordionClick', `${item.title}`)"
+                                >
+                                    <vs-mega-nav-list>
+                                        <template v-slot:nav-list-items>
+                                            <#list childItem.childMenuItems as thirdChildItem>
+                                                <#if thirdChildItem.title??>
+                                                    <vs-mega-nav-list-item
+                                                        href="${getUrl(thirdChildItem)}"
+                                                    >
+                                                        ${thirdChildItem.title}
+                                                    </vs-mega-nav-list-item>
+                                                </#if>
+                                            </#list>
+                                        </template>
 
-                                    <#if childItem.cta?? && childItem.hstLink??>
-                                        <vs-mega-nav-list-item
-                                            href="${getUrl(childItem)}"
-                                            subheading-link
-                                            slot="navHeadingCtaLink"
-                                        >
-                                            ${childItem.cta}
-                                        </vs-mega-nav-list-item>
-                                    </#if>
-                                </vs-mega-nav-list>
-                            </vs-mega-nav-accordion-item>
+                                        <#if childItem.cta?? && childItem.hstLink??>
+                                            <template
+                                                v-slot:nav-heading-cta-link
+                                            >
+                                                <vs-mega-nav-list-item
+                                                    href="${getUrl(childItem)}"
+                                                    subheading-link
+                                                >
+                                                    ${childItem.cta}
+                                                </vs-mega-nav-list-item>
+                                            </template>
+                                        </#if>
+                                    </vs-mega-nav-list>
+                                </vs-mega-nav-accordion-item>
+                            </#if>
+                        </#list>
+                        <#if item.widget?? >
+                            <@headerWidget item.widget true />
                         </#if>
-                    </#list>  
-                    <#if item.widget?? >
-                        <@headerWidget item.widget true />
                     </#if>
                 </vs-mega-nav-accordion-item>
             </#if>

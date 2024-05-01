@@ -3,7 +3,7 @@
   jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
   jcr:uuid: a8a8926f-e625-4162-98b4-29f3c3b819b8
   hippo:name: Default Properties
-  hippo:versionHistory: fcb1278f-761e-4673-b6b2-b81be3e930f5
+  hippo:versionHistory: 366c96f4-7e7f-427c-b761-1224e4fcda3e
   /default-properties[1]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:versionable']
@@ -13,7 +13,7 @@
     hippostd:state: unpublished
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2021-02-05T15:37:26.056Z
-    hippostdpubwf:lastModificationDate: 2022-11-14T10:24:18.269Z
+    hippostdpubwf:lastModificationDate: 2024-03-12T17:53:46.118Z
     hippostdpubwf:lastModifiedBy: admin
     resourcebundle:descriptions: [URL prefix for Instagram endpoints, '', Client Token
         for Instagram request, '', Encoding for requests made to dms data endpoints,
@@ -47,7 +47,14 @@
         \ stored in the cache.\r\n\r\nWhen the maximum is exceeded the clean up job\
         \ will trigger cleaning any messages  that its last occurrence exceeds the\
         \ retention period", "Retention time for the message in seconds\r\n\r\nContent\
-        \ warnings will not be logged again until the retention time expires"]
+        \ warnings will not be logged again until the retention time expires", '',
+      '', '', '', '', '', '', '', '', '', '', '', '', '', 'JSON file with the list
+        of Countries including the United Kingdom countries: Scotland, England, Wales
+        & Northern Ireland', Static file with all validation messages translated into
+        different languages, "Marketo Configuration \r\n\r\n\r\nMunchkin Id for Live:\
+        \   638-HHZ-510\r\nMunchkin Id for Test:    830-QYE-256", "URL for Live :\
+        \ //e.visitscotland.com\r\nURL for Test: //830-QYE-256.mktoweb.com", Public
+        Recaptcha Key for Forms, '', Marketo Script required for the form to work]
     resourcebundle:id: default.config
     resourcebundle:keys: [instagram.api, helpdesk-email, instagram.accesstoken, instagram.post-url,
       dms-data.encoding, dms-data.api-key, dms-data.timeout, dms-data.tries, dms-data.sleep-time,
@@ -58,7 +65,12 @@
       seo.og.site-name, seo.og.twitter.site, gtm.is-production, gtm.container-id,
       gtm.preview-query-string, data-internal.serve-legacy-css, form.is-production,
       data-internal.path, global-search.path, global-search.engine-id, content-cache.max-elements,
-      content-cache.retention-period]
+      content-cache.retention-period, ski.timeout, site.path.global-search, site.path.ski-landing,
+      api-data.backend-url, content-cache.enabled, dms.default-distance, site.path.about-us,
+      site.path.icentre-landing, site.path.newsletter, site.path.campaigns, snippet-cache.enable,
+      iknow-module.enabled, map.multipolygon.regions, navigation.cms.cache, form.json.countries,
+      form.json.messages, form.marketo.munchkin, form.maketo.instance-url, form.recaptcha-key,
+      form.marketo.scripts, form.marketo.script]
     resourcebundle:messages: ['https://graph.facebook.com/v9.0/instagram_oembed?url=http://instagr.am/p/',
       helpdesk@visitscotland.com, 0d41c47eaf42b43fe20de05201c798ec, 'https://www.instagram.com/p/',
       UTF-8, $VS_API_KEY, '2000', '3', '60000', 'https://community.visitscotland.com/',
@@ -66,23 +78,33 @@
       'true', '', 'http://172.28.81.65:8089', /data, 'http://172.28.81.65:8089/data',
       www.visitscotland.com, $YOUTUBE_API_KEY, VisitScotland, '@VisitScotland', 'en,fr,de,nl,it,es',
       '| VisitScotland', VisitScotland, '@VisitScotland', 'false', GTM-WWKWV5K, '&gtm_auth=YWMt6gew5Au1PAnzyzMADQ&gtm_preview=env-3&gtm_cookies_win=x',
-      'true', 'false', /site/data/internal, /site-search-results, '12809', '1000',
-      '3600']
+      'true', 'false', /data/internal, /site-search-results, '12809', '1000', '3600',
+      '30000', /site-search-results, /test/examples/snow-sports, 'https://api.visitscotland.com/dev/data/',
+      'true', '10.0', /test/examples/about-us, /test/examples/icentres/content, /test/modules/form/content,
+      /test/examples/campaigns, 'false', 'false', 'argyll-isles,ayrshire-arran,dumfries-galloway,highlands,kingdom-fife,orkney,outer-hebrides,shetland',
+      'true', 'https://static.visitscotland.com/forms/common/countries.json', 'https://static.visitscotland.com/forms/common/messaging.json',
+      830-QYE-256, //830-QYE-256.mktoweb.com, 6LfqqfcZAAAAACbkbPaHRZTIFpKZGAPZBDkwBKhe,
+      //e.visitscotland.com/js/forms2/js/forms2.min.js, //e.visitscotland.com/js/forms2/js/forms2.min.js]
     resourcebundle:messages_de: ['', '', '', '', '', '', '', '', '', '', '', '', '',
       '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
-      /de-de/site-search-results, '12812', '', '']
+      /de-de/site-search-results, '12812', '', '', '', '', '', '', '', '', '', '',
+      '', '', '', '', '', '', '', '', '', '', '', '', '']
     resourcebundle:messages_es: ['', '', '', '', '', '', '', '', '', '', '', '', '',
       '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
-      /es-es/site-search-results, '12814', '', '']
+      /es-es/site-search-results, '12814', '', '', '', '', '', '', '', '', '', '',
+      '', '', '', '', '', '', '', '', '', '', '', '', '']
     resourcebundle:messages_fr: ['', '', '', '', '', '', '', '', '', '', '', '', '',
       '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
-      /fr-fr/site-search-results, '12811', '', '']
+      /fr-fr/site-search-results, '12811', '', '', '', '', '', '', '', '', '', '',
+      '', '', '', '', '', '', '', '', '', '', '', '', '']
     resourcebundle:messages_it: ['', '', '', '', '', '', '', '', '', '', '', '', '',
       '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
-      /it-it/site-search-results, '12813', '', '']
+      /it-it/site-search-results, '12813', '', '', '', '', '', '', '', '', '', '',
+      '', '', '', '', '', '', '', '', '', '', '', '', '']
     resourcebundle:messages_nl: ['', '', '', '', '', '', '', '', '', '', '', '', '',
       '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
-      /nl-nl/site-search-results, '12810', '', '']
+      /nl-nl/site-search-results, '12810', '', '', '', '', '', '', '', '', '', '',
+      '', '', '', '', '', '', '', '', '', '', '', '', '']
   /default-properties[2]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:referenceable']
@@ -92,7 +114,7 @@
     hippostd:state: draft
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2021-02-05T15:37:26.056Z
-    hippostdpubwf:lastModificationDate: 2022-11-14T10:06:16.517Z
+    hippostdpubwf:lastModificationDate: 2024-03-12T17:32:09.350Z
     hippostdpubwf:lastModifiedBy: admin
     resourcebundle:descriptions: [URL prefix for Instagram endpoints, '', Client Token
         for Instagram request, '', Encoding for requests made to dms data endpoints,
@@ -126,7 +148,14 @@
         \ stored in the cache.\r\n\r\nWhen the maximum is exceeded the clean up job\
         \ will trigger cleaning any messages  that its last occurrence exceeds the\
         \ retention period", "Retention time for the message in seconds\r\n\r\nContent\
-        \ warnings will not be logged again until the retention time expires"]
+        \ warnings will not be logged again until the retention time expires", '',
+      '', '', '', '', '', '', '', '', '', '', '', '', '', 'JSON file with the list
+        of Countries including the United Kingdom countries: Scotland, England, Wales
+        & Northern Ireland', Static file with all validation messages translated into
+        different languages, "Marketo Configuration \r\n\r\n\r\nMunchkin Id for Live:\
+        \   638-HHZ-510\r\nMunchkin Id for Test:    830-QYE-256", "URL for Live :\
+        \ //e.visitscotland.com\r\nURL for Test: //830-QYE-256.mktoweb.com", Public
+        Recaptcha Key for Forms, '', Marketo Script required for the form to work]
     resourcebundle:id: default.config
     resourcebundle:keys: [instagram.api, helpdesk-email, instagram.accesstoken, instagram.post-url,
       dms-data.encoding, dms-data.api-key, dms-data.timeout, dms-data.tries, dms-data.sleep-time,
@@ -137,7 +166,12 @@
       seo.og.site-name, seo.og.twitter.site, gtm.is-production, gtm.container-id,
       gtm.preview-query-string, data-internal.serve-legacy-css, form.is-production,
       data-internal.path, global-search.path, global-search.engine-id, content-cache.max-elements,
-      content-cache.retention-period]
+      content-cache.retention-period, ski.timeout, site.path.global-search, site.path.ski-landing,
+      api-data.backend-url, content-cache.enabled, dms.default-distance, site.path.about-us,
+      site.path.icentre-landing, site.path.newsletter, site.path.campaigns, snippet-cache.enable,
+      iknow-module.enabled, map.multipolygon.regions, navigation.cms.cache, form.json.countries,
+      form.json.messages, form.marketo.munchkin, form.maketo.instance-url, form.recaptcha-key,
+      form.marketo.scripts, form.marketo.script]
     resourcebundle:messages: ['https://graph.facebook.com/v9.0/instagram_oembed?url=http://instagr.am/p/',
       helpdesk@visitscotland.com, 0d41c47eaf42b43fe20de05201c798ec, 'https://www.instagram.com/p/',
       UTF-8, $VS_API_KEY, '2000', '3', '60000', 'https://community.visitscotland.com/',
@@ -145,23 +179,33 @@
       'true', '', 'http://172.28.81.65:8089', /data, 'http://172.28.81.65:8089/data',
       www.visitscotland.com, $YOUTUBE_API_KEY, VisitScotland, '@VisitScotland', 'en,fr,de,nl,it,es',
       '| VisitScotland', VisitScotland, '@VisitScotland', 'false', GTM-WWKWV5K, '&gtm_auth=YWMt6gew5Au1PAnzyzMADQ&gtm_preview=env-3&gtm_cookies_win=x',
-      'true', 'false', /site/data/internal, /site-search-results, '12809', '1000',
-      '3600']
+      'true', 'false', /data/internal, /site-search-results, '12809', '1000', '3600',
+      '30000', /site-search-results, /test/examples/snow-sports, 'https://api.visitscotland.com/dev/data/',
+      'true', '10.0', /test/examples/about-us, /test/examples/icentres/content, /test/modules/form/content,
+      /test/examples/campaigns, 'false', 'false', 'argyll-isles,ayrshire-arran,dumfries-galloway,highlands,kingdom-fife,orkney,outer-hebrides,shetland',
+      'true', 'https://static.visitscotland.com/forms/common/countries.json', 'https://static.visitscotland.com/forms/common/messaging.json',
+      830-QYE-256, //830-QYE-256.mktoweb.com, 6LfqqfcZAAAAACbkbPaHRZTIFpKZGAPZBDkwBKhe,
+      //e.visitscotland.com/js/forms2/js/forms2.min.js, //e.visitscotland.com/js/forms2/js/forms2.min.js]
     resourcebundle:messages_de: ['', '', '', '', '', '', '', '', '', '', '', '', '',
       '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
-      /de-de/site-search-results, '12812', '', '']
+      /de-de/site-search-results, '12812', '', '', '', '', '', '', '', '', '', '',
+      '', '', '', '', '', '', '', '', '', '', '', '', '']
     resourcebundle:messages_es: ['', '', '', '', '', '', '', '', '', '', '', '', '',
       '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
-      /es-es/site-search-results, '12814', '', '']
+      /es-es/site-search-results, '12814', '', '', '', '', '', '', '', '', '', '',
+      '', '', '', '', '', '', '', '', '', '', '', '', '']
     resourcebundle:messages_fr: ['', '', '', '', '', '', '', '', '', '', '', '', '',
       '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
-      /fr-fr/site-search-results, '12811', '', '']
+      /fr-fr/site-search-results, '12811', '', '', '', '', '', '', '', '', '', '',
+      '', '', '', '', '', '', '', '', '', '', '', '', '']
     resourcebundle:messages_it: ['', '', '', '', '', '', '', '', '', '', '', '', '',
       '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
-      /it-it/site-search-results, '12813', '', '']
+      /it-it/site-search-results, '12813', '', '', '', '', '', '', '', '', '', '',
+      '', '', '', '', '', '', '', '', '', '', '', '', '']
     resourcebundle:messages_nl: ['', '', '', '', '', '', '', '', '', '', '', '', '',
       '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
-      /nl-nl/site-search-results, '12810', '', '']
+      /nl-nl/site-search-results, '12810', '', '', '', '', '', '', '', '', '', '',
+      '', '', '', '', '', '', '', '', '', '', '', '', '']
   /default-properties[3]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:referenceable']
@@ -171,9 +215,9 @@
     hippostd:state: published
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2021-02-05T15:37:26.056Z
-    hippostdpubwf:lastModificationDate: 2022-11-14T10:24:18.269Z
+    hippostdpubwf:lastModificationDate: 2024-03-12T17:53:46.118Z
     hippostdpubwf:lastModifiedBy: admin
-    hippostdpubwf:publicationDate: 2022-11-14T10:24:21.342Z
+    hippostdpubwf:publicationDate: 2024-03-12T17:53:51.396Z
     resourcebundle:descriptions: [URL prefix for Instagram endpoints, '', Client Token
         for Instagram request, '', Encoding for requests made to dms data endpoints,
       "Token that identifies calls made to vs-dms-products as internal calls giving\
@@ -206,7 +250,14 @@
         \ stored in the cache.\r\n\r\nWhen the maximum is exceeded the clean up job\
         \ will trigger cleaning any messages  that its last occurrence exceeds the\
         \ retention period", "Retention time for the message in seconds\r\n\r\nContent\
-        \ warnings will not be logged again until the retention time expires"]
+        \ warnings will not be logged again until the retention time expires", '',
+      '', '', '', '', '', '', '', '', '', '', '', '', '', 'JSON file with the list
+        of Countries including the United Kingdom countries: Scotland, England, Wales
+        & Northern Ireland', Static file with all validation messages translated into
+        different languages, "Marketo Configuration \r\n\r\n\r\nMunchkin Id for Live:\
+        \   638-HHZ-510\r\nMunchkin Id for Test:    830-QYE-256", "URL for Live :\
+        \ //e.visitscotland.com\r\nURL for Test: //830-QYE-256.mktoweb.com", Public
+        Recaptcha Key for Forms, '', Marketo Script required for the form to work]
     resourcebundle:id: default.config
     resourcebundle:keys: [instagram.api, helpdesk-email, instagram.accesstoken, instagram.post-url,
       dms-data.encoding, dms-data.api-key, dms-data.timeout, dms-data.tries, dms-data.sleep-time,
@@ -217,7 +268,12 @@
       seo.og.site-name, seo.og.twitter.site, gtm.is-production, gtm.container-id,
       gtm.preview-query-string, data-internal.serve-legacy-css, form.is-production,
       data-internal.path, global-search.path, global-search.engine-id, content-cache.max-elements,
-      content-cache.retention-period]
+      content-cache.retention-period, ski.timeout, site.path.global-search, site.path.ski-landing,
+      api-data.backend-url, content-cache.enabled, dms.default-distance, site.path.about-us,
+      site.path.icentre-landing, site.path.newsletter, site.path.campaigns, snippet-cache.enable,
+      iknow-module.enabled, map.multipolygon.regions, navigation.cms.cache, form.json.countries,
+      form.json.messages, form.marketo.munchkin, form.maketo.instance-url, form.recaptcha-key,
+      form.marketo.scripts, form.marketo.script]
     resourcebundle:messages: ['https://graph.facebook.com/v9.0/instagram_oembed?url=http://instagr.am/p/',
       helpdesk@visitscotland.com, 0d41c47eaf42b43fe20de05201c798ec, 'https://www.instagram.com/p/',
       UTF-8, $VS_API_KEY, '2000', '3', '60000', 'https://community.visitscotland.com/',
@@ -225,20 +281,30 @@
       'true', '', 'http://172.28.81.65:8089', /data, 'http://172.28.81.65:8089/data',
       www.visitscotland.com, $YOUTUBE_API_KEY, VisitScotland, '@VisitScotland', 'en,fr,de,nl,it,es',
       '| VisitScotland', VisitScotland, '@VisitScotland', 'false', GTM-WWKWV5K, '&gtm_auth=YWMt6gew5Au1PAnzyzMADQ&gtm_preview=env-3&gtm_cookies_win=x',
-      'true', 'false', /site/data/internal, /site-search-results, '12809', '1000',
-      '3600']
+      'true', 'false', /data/internal, /site-search-results, '12809', '1000', '3600',
+      '30000', /site-search-results, /test/examples/snow-sports, 'https://api.visitscotland.com/dev/data/',
+      'true', '10.0', /test/examples/about-us, /test/examples/icentres/content, /test/modules/form/content,
+      /test/examples/campaigns, 'false', 'false', 'argyll-isles,ayrshire-arran,dumfries-galloway,highlands,kingdom-fife,orkney,outer-hebrides,shetland',
+      'true', 'https://static.visitscotland.com/forms/common/countries.json', 'https://static.visitscotland.com/forms/common/messaging.json',
+      830-QYE-256, //830-QYE-256.mktoweb.com, 6LfqqfcZAAAAACbkbPaHRZTIFpKZGAPZBDkwBKhe,
+      //e.visitscotland.com/js/forms2/js/forms2.min.js, //e.visitscotland.com/js/forms2/js/forms2.min.js]
     resourcebundle:messages_de: ['', '', '', '', '', '', '', '', '', '', '', '', '',
       '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
-      /de-de/site-search-results, '12812', '', '']
+      /de-de/site-search-results, '12812', '', '', '', '', '', '', '', '', '', '',
+      '', '', '', '', '', '', '', '', '', '', '', '', '']
     resourcebundle:messages_es: ['', '', '', '', '', '', '', '', '', '', '', '', '',
       '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
-      /es-es/site-search-results, '12814', '', '']
+      /es-es/site-search-results, '12814', '', '', '', '', '', '', '', '', '', '',
+      '', '', '', '', '', '', '', '', '', '', '', '', '']
     resourcebundle:messages_fr: ['', '', '', '', '', '', '', '', '', '', '', '', '',
       '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
-      /fr-fr/site-search-results, '12811', '', '']
+      /fr-fr/site-search-results, '12811', '', '', '', '', '', '', '', '', '', '',
+      '', '', '', '', '', '', '', '', '', '', '', '', '']
     resourcebundle:messages_it: ['', '', '', '', '', '', '', '', '', '', '', '', '',
       '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
-      /it-it/site-search-results, '12813', '', '']
+      /it-it/site-search-results, '12813', '', '', '', '', '', '', '', '', '', '',
+      '', '', '', '', '', '', '', '', '', '', '', '', '']
     resourcebundle:messages_nl: ['', '', '', '', '', '', '', '', '', '', '', '', '',
       '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
-      /nl-nl/site-search-results, '12810', '', '']
+      /nl-nl/site-search-results, '12810', '', '', '', '', '', '', '', '', '', '',
+      '', '', '', '', '', '', '', '', '', '', '', '', '']

@@ -37,4 +37,12 @@
          diskPersistent="false"
          memoryStoreEvictionPolicy="LRU"
          overflowToDisk="false" />
+  <!-- Minimum number of elements is 18 = 6 (languages) x 3 (types of menu) -->
+  <cache name="navigation"
+         maxElementsInMemory="36"
+         eternal="false"
+         timeToLiveSeconds="1800"
+         diskPersistent="false"
+         memoryStoreEvictionPolicy="LRU"
+         overflowToDisk="false" />
 </ehcache>

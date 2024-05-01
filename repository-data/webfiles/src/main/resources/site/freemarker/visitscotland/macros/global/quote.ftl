@@ -1,3 +1,5 @@
+<#include "../../../frontend/components/vs-quote.ftl">
+
 <#macro quote quoteItem variant="narrow">    
     <vs-quote variant="${variant}">
         <#if quoteItem.image??>
@@ -8,35 +10,42 @@
             <#assign imageQuote="" />
         </#if>
         <#if imageQuote?has_content>
-            <vs-img
-                alt=""
-                src="${imageQuote}"
-                sizes="25vw"
-                srcset="${imageQuote}?size=xs 300w, 
-                    ${imageQuote}?size=sm 600w,
-                    ${imageQuote}?size=md 1200w, 
-                    ${imageQuote}?size=lg 2048w"
-                low-res-image="${imageQuote}?size=xxs"
-                slot="quoteImage">
-            </vs-img>
+          <#compress>
+            <#assign imageParameter=addParameter(imageQuote)>
+            <template v-slot:quote-image>
+                <vs-img
+                    alt=""
+                    src="${imageQuote}"
+                    sizes="25vw"
+                    srcset="${imageQuote}${imageParameter}size=xs 300w,
+                        ${imageQuote}${imageParameter}size=sm 600w,
+                        ${imageQuote}${imageParameter}size=md 1200w,
+                        ${imageQuote}${imageParameter}size=lg 2048w"
+                    low-res-image="${imageQuote}${imageParameter}size=xxs"
+                >
+                </vs-img>
+            </template>
+           </#compress>
         </#if>
-        <template slot="quoteContent">
+        <template v-slot:quote-content>
             <@hst.html hippohtml=quoteItem.quote/>
         </template>
         <#if quoteItem.authorName?? && quoteItem.authorName?has_content>
-            <template slot="quoteAuthorName">
+            <template v-slot:quote-author-name>
                 ${quoteItem.authorName}
             </template>
         </#if>
         <#if quoteItem.authorTitle?? && quoteItem.authorTitle?has_content>
-            <template slot="quoteAuthorTitle">
+            <template v-slot:quote-author-title>
                 ${quoteItem.authorTitle}
             </template>
         </#if>
         <#if quoteItem.link?? && quoteItem.link?has_content>
-            <vs-button href="${quoteItem.link.link}" slot="quoteLink">
-                ${quoteItem.link.label}
-            </vs-button>
+            <template v-slot:quote-link>
+                <vs-button href="${quoteItem.link.link}">
+                    ${quoteItem.link.label}
+                </vs-button>
+            </template>
         </#if>
     </vs-quote>
 </#macro>

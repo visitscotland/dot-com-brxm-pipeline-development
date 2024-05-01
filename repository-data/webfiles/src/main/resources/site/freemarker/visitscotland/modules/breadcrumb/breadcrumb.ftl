@@ -5,6 +5,7 @@
 
 <#include "content-driven-seo.ftl">
 <#include "breadcrumb-schema.ftl">
+<#include "schema-org.ftl">
 
 <@hst.setBundle basename="navigation.static"/>
 

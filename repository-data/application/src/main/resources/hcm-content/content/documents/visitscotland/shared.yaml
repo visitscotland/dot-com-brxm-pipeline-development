@@ -223,3 +223,212 @@
       hippostd:foldertype: [new-translated-folder-videos, new-video]
       hippotranslation:id: 9b4c4032-de7b-47fe-8b58-94f9f688347b
       hippotranslation:locale: en
+  /Author Profile:
+    jcr:primaryType: hippostd:folder
+    jcr:mixinTypes: ['hippo:named', 'hippotranslation:translated', 'mix:versionable']
+    jcr:uuid: a8f845bb-da4d-4c6d-8f24-cd4f8e5d3436
+    hippo:name: Author Profile
+    hippostd:foldertype: [new-author-profile]
+    hippotranslation:id: c72ea5ad-fbe9-43d8-991d-0cdbf77a2ef3
+    hippotranslation:locale: en
+    /maria-garcia-tena:
+      jcr:primaryType: hippo:handle
+      jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+      jcr:uuid: 53eb6029-0c67-4e94-9590-27063460cd1a
+      hippo:name: Maria Garcia Tena
+      hippo:versionHistory: af22c4c5-891e-460b-95b8-3cc5fe853c39
+      /maria-garcia-tena[1]:
+        jcr:primaryType: visitscotland:Profile
+        jcr:mixinTypes: ['mix:referenceable']
+        jcr:uuid: a4a47975-aba2-4f1e-94e8-ccb091de5a71
+        hippo:availability: []
+        hippostd:retainable: false
+        hippostd:state: draft
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2023-05-10T14:24:59.053+01:00
+        hippostdpubwf:lastModificationDate: 2023-05-10T14:24:59.054+01:00
+        hippostdpubwf:lastModifiedBy: admin
+        hippotranslation:id: f8a9aeae-ff0e-46f6-b072-149f1818eb84
+        hippotranslation:locale: en
+        visitscotland:name: Maria Garcia Tena
+        /visitscotland:photo:
+          jcr:primaryType: hippogallerypicker:imagelink
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+      /maria-garcia-tena[2]:
+        jcr:primaryType: visitscotland:Profile
+        jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+        jcr:uuid: c1cb40f6-e1dc-417e-8be5-0aac4c164d18
+        hippo:availability: [preview]
+        hippostd:retainable: false
+        hippostd:state: unpublished
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2023-05-10T14:24:59.053+01:00
+        hippostdpubwf:lastModificationDate: 2023-05-10T14:25:11.743+01:00
+        hippostdpubwf:lastModifiedBy: admin
+        hippotranslation:id: f8a9aeae-ff0e-46f6-b072-149f1818eb84
+        hippotranslation:locale: en
+        visitscotland:name: Maria Garcia Tena
+        /visitscotland:photo:
+          jcr:primaryType: hippogallerypicker:imagelink
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+      /maria-garcia-tena[3]:
+        jcr:primaryType: visitscotland:Profile
+        jcr:mixinTypes: ['mix:referenceable']
+        jcr:uuid: cd696269-1ed4-4939-bb79-4a9d8e19b167
+        hippo:availability: [live]
+        hippostd:retainable: false
+        hippostd:state: published
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2023-05-10T14:24:59.053+01:00
+        hippostdpubwf:lastModificationDate: 2023-05-10T14:25:11.743+01:00
+        hippostdpubwf:lastModifiedBy: admin
+        hippostdpubwf:publicationDate: 2023-05-10T14:25:40.010+01:00
+        hippotranslation:id: f8a9aeae-ff0e-46f6-b072-149f1818eb84
+        hippotranslation:locale: en
+        visitscotland:name: Maria Garcia Tena
+        /visitscotland:photo:
+          jcr:primaryType: hippogallerypicker:imagelink
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+    /mairi-scobie:
+      jcr:primaryType: hippo:handle
+      jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+      jcr:uuid: 35a5e0fa-6c66-41d8-bd15-31a06da50d10
+      hippo:name: Mairi Scobie
+      hippo:versionHistory: 86f57a77-b7bf-41c1-ad87-c45798f3a83c
+      /mairi-scobie[1]:
+        jcr:primaryType: visitscotland:Profile
+        jcr:mixinTypes: ['mix:referenceable']
+        jcr:uuid: c6fea2db-2ece-4566-bcd8-ddeb269d720a
+        hippo:availability: []
+        hippostd:retainable: false
+        hippostd:state: draft
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2023-05-11T12:12:37.323+01:00
+        hippostdpubwf:lastModificationDate: 2023-05-11T12:12:37.328+01:00
+        hippostdpubwf:lastModifiedBy: admin
+        hippotranslation:id: aca19a53-1c1f-4224-98f8-ad552ec1c6f2
+        hippotranslation:locale: en
+        visitscotland:name: Mairi Scobie
+        /visitscotland:photo:
+          jcr:primaryType: hippogallerypicker:imagelink
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+      /mairi-scobie[2]:
+        jcr:primaryType: visitscotland:Profile
+        jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+        jcr:uuid: 1b1ef209-96ae-4742-bab2-4fb7ac503ab4
+        hippo:availability: [preview]
+        hippostd:retainable: false
+        hippostd:state: unpublished
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2023-05-11T12:12:37.323+01:00
+        hippostdpubwf:lastModificationDate: 2023-05-11T12:12:43.089+01:00
+        hippostdpubwf:lastModifiedBy: admin
+        hippotranslation:id: aca19a53-1c1f-4224-98f8-ad552ec1c6f2
+        hippotranslation:locale: en
+        visitscotland:name: Mairi Scobie
+        /visitscotland:photo:
+          jcr:primaryType: hippogallerypicker:imagelink
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+      /mairi-scobie[3]:
+        jcr:primaryType: visitscotland:Profile
+        jcr:mixinTypes: ['mix:referenceable']
+        jcr:uuid: 11145647-a191-4b7f-bc70-bb1eb116a84f
+        hippo:availability: [live]
+        hippostd:retainable: false
+        hippostd:state: published
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2023-05-11T12:12:37.323+01:00
+        hippostdpubwf:lastModificationDate: 2023-05-11T12:12:43.089+01:00
+        hippostdpubwf:lastModifiedBy: admin
+        hippostdpubwf:publicationDate: 2023-05-11T12:12:47.557+01:00
+        hippotranslation:id: aca19a53-1c1f-4224-98f8-ad552ec1c6f2
+        hippotranslation:locale: en
+        visitscotland:name: Mairi Scobie
+        /visitscotland:photo:
+          jcr:primaryType: hippogallerypicker:imagelink
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+    /nikki-sherret:
+      jcr:primaryType: hippo:handle
+      jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+      jcr:uuid: 1a59d780-8b75-4ddf-aca6-5dd32d6092ac
+      hippo:name: Nikki Sherret
+      hippo:versionHistory: 0a420cdd-82f3-4b5f-b8b7-798d9e67e5b7
+      /nikki-sherret[1]:
+        jcr:primaryType: visitscotland:Profile
+        jcr:mixinTypes: ['mix:referenceable']
+        jcr:uuid: 4be1be7b-7aab-4e87-bc76-7f4463ad25d9
+        hippo:availability: []
+        hippostd:retainable: false
+        hippostd:state: draft
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2023-05-11T12:13:02.739+01:00
+        hippostdpubwf:lastModificationDate: 2023-05-11T12:13:02.739+01:00
+        hippostdpubwf:lastModifiedBy: admin
+        hippotranslation:id: 8ff40225-c71d-470a-95a0-8d5c3af76c27
+        hippotranslation:locale: en
+        visitscotland:name: Nikki Sherret
+        /visitscotland:photo:
+          jcr:primaryType: hippogallerypicker:imagelink
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+      /nikki-sherret[2]:
+        jcr:primaryType: visitscotland:Profile
+        jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+        jcr:uuid: a9422dcf-35e0-4959-91bb-da76c0d521a0
+        hippo:availability: [preview]
+        hippostd:retainable: false
+        hippostd:state: unpublished
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2023-05-11T12:13:02.739+01:00
+        hippostdpubwf:lastModificationDate: 2023-05-11T12:13:07.544+01:00
+        hippostdpubwf:lastModifiedBy: admin
+        hippotranslation:id: 8ff40225-c71d-470a-95a0-8d5c3af76c27
+        hippotranslation:locale: en
+        visitscotland:name: Nikki Sherret
+        /visitscotland:photo:
+          jcr:primaryType: hippogallerypicker:imagelink
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+      /nikki-sherret[3]:
+        jcr:primaryType: visitscotland:Profile
+        jcr:mixinTypes: ['mix:referenceable']
+        jcr:uuid: 2c680fe5-e383-485f-b26f-5b5bdc5ed019
+        hippo:availability: [live]
+        hippostd:retainable: false
+        hippostd:state: published
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2023-05-11T12:13:02.739+01:00
+        hippostdpubwf:lastModificationDate: 2023-05-11T12:13:07.544+01:00
+        hippostdpubwf:lastModifiedBy: admin
+        hippostdpubwf:publicationDate: 2023-05-11T12:13:09.710+01:00
+        hippotranslation:id: 8ff40225-c71d-470a-95a0-8d5c3af76c27
+        hippotranslation:locale: en
+        visitscotland:name: Nikki Sherret
+        /visitscotland:photo:
+          jcr:primaryType: hippogallerypicker:imagelink
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []

@@ -6,8 +6,6 @@
 <#include "../../global/preview-warning.ftl">
 
 <#macro megalinks item type theme="">
-
-
     <#if type=="MultiImageLinksModule">
         <#assign variant = "multi-image">
     <#elseif type=="ListLinksModule">
@@ -21,7 +19,13 @@
     </#if>
 
     <@previewWarning editMode item item.errorMessages/>
-    <vs-megalinks 
+    <vs-megalinks
+        <#if item.marketoId?? && item.marketoId != "default">
+            data-personalisation-type="${item.marketoId}"
+            class="personalisation--hidden"    
+        <#else>
+            data-personalisation-type="default" 
+        </#if>  
         variant="${variant}"
         title="${item.title}"
         theme="${theme}"
@@ -30,16 +34,11 @@
         cookie-link-text="${label('essentials.global', 'cookie.link-message')}"
         no-js-message="${label('video', 'video.no-js')}"
     >
-
-        <template slot="vsMegalinksHeading">
-            ${item.title}
-        </template>
-        <vs-rich-text-wrapper
-            variant="lead"
-            slot="vsMegalinksIntro"
-        >
-            <@hst.html hippohtml=item.introduction/>
-        </vs-rich-text-wrapper>
+        <#if item.introduction??>
+            <template v-slot:vs-megalinks-intro>
+                <@hst.html hippohtml=item.introduction/>
+            </template>
+        </#if>
 
         <#if type == "MultiImageLinksModule">
             <@multiImage item=item showTeaser=showTeaser theme=theme />
@@ -52,10 +51,9 @@
         </#if>
 
         <#if item.cta?? >     
-            <template slot="vsMegalinksButton">
+            <template v-slot:vs-megalinks-button>
                 ${item.cta.label}
             </template>
         </#if>
-         
     </vs-megalinks>
 </#macro>

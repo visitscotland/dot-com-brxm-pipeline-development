@@ -66,4 +66,9 @@ public class ProductsSearch extends HippoCompound {
     public String getChannel() {
         return getSingleProperty("visitscotland:channel");
     }
+
+    @HippoEssentialsGenerated(internalName = "visitscotland:daysOut")
+    public Boolean getDaysOut() {
+        return getSingleProperty("visitscotland:daysOut");
+    }
 }

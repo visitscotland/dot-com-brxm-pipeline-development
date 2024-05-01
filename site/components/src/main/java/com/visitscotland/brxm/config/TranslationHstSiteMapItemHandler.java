@@ -29,7 +29,7 @@ public class TranslationHstSiteMapItemHandler implements HstSiteMapItemHandler {
     /**
      * Implement the translation fallback mechanism.
      * For a non-english locale, if the translated content is not found but the english version exists, then the english content should be shown instead
-     * By returning an English sitemap but keeping the translated mount, brxm will attempt to look up all  content (including menus, breadcrunmb etc) in
+     * By returning an English sitemap but keeping the translated mount, brxm will attempt to look up all  content (including menus, breadcrumb etc.) in
      * the translated repository (instead of returning to a pagenotfound sitemap). Then the content component can override the
      * content lookup to check the english repository instead of the translated repository
      */

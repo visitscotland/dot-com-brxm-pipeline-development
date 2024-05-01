@@ -27,7 +27,7 @@ public class LocationObject implements Comparable<LocationObject> {
 
     }
 
-    public LocationObject(String id, String key, String name, String type, Double latitude, Double longitude, List<String> children, Set<String> types) {
+    public LocationObject(String id, String key, String name, String type, Double latitude, Double longitude, List<String> children, Set<String> types, String parentId) {
         this.id = id;
         this.key = key;
         this.name = name;
@@ -36,6 +36,7 @@ public class LocationObject implements Comparable<LocationObject> {
         this.longitude = longitude;
         this.children = children;
         this.types = types;
+        this.parentId = parentId;
     }
 
     public String getId() {

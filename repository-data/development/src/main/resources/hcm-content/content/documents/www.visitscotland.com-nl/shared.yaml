@@ -1542,3 +1542,11 @@
     hippostd:foldertype: [new-translated-folder-videos]
     hippotranslation:id: cae74ed6-9a80-4370-9e8a-28ee2c1f9594
     hippotranslation:locale: nl
+  /Author Profile:
+    jcr:primaryType: hippostd:folder
+    jcr:mixinTypes: ['hippo:named', 'hippotranslation:translated', 'mix:versionable']
+    jcr:uuid: a636cc41-441a-4af0-ba4e-0495aa382e62
+    hippo:name: Author Profile
+    hippostd:foldertype: [new-author-profile]
+    hippotranslation:id: 7ecb8c94-db14-442f-8bf8-e236d908ec15
+    hippotranslation:locale: nl
