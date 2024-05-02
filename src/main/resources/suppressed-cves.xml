@@ -1,0 +1,49 @@
+<!--<?xml version="1.0" encoding="UTF-8"?>-->
+<suppressions xmlns="https://jeremylong.github.io/DependencyCheck/dependency-suppression.1.3.xsd">
+    <suppress until="2025-03-12">
+        <notes>
+            <![CDATA[
+            Pivotal Spring Framework through 5.3.16 suffers from a potential remote code execution (RCE) issue if used
+            for Java deserialization of untrusted data. Depending on how the library is implemented within a product,
+            this issue may or not occur, and authentication may be required. NOTE: the vendor's position is that
+            untrusted data is not an intended use case. The product's behavior will not be changed because some users
+            rely on deserialization of trusted data.
+
+            ]]>
+        </notes>
+        <cve>CVE-2016-1000027</cve>
+    </suppress>
+
+    <suppress until="2025-03-12">
+        <notes>
+            <![CDATA[
+            The mentioned vulnerability is actually for quartz-jobs but brXM only has quartz and therefore this is
+            considered a false positive.
+            ]]>
+        </notes>
+        <!--
+            Once this waiver expires:
+            - Validate that This is still a false positive from BR side
+            - Validate this package is not used in the project
+        -->
+        <cve>CVE-2023-39017</cve>
+        <vulnerabilityName>quartz-2.3.2.jar</vulnerabilityName>
+    </suppress>
+
+    <suppress until="2025-03-12">
+        <notes>
+            <![CDATA[
+            BloomReach don't use this version of the library but use for v15.5.0 have jackrabbit-spi:2.21.19-h2
+
+            Please notice that two packages are excluding by this waiver: spi and spi-commons
+            ]]>
+        </notes>
+        <!--
+            Once this waiver expires:
+            - Validate that the SBOM doesn't contain this version of the library.
+        -->
+        <packageUrl regex="true">^pkg:maven/org\.apache\.jackrabbit/jackrabbit\-spi(\-commons)?@2.7.4$</packageUrl>
+        <cpe>cpe:/a:apache:jackrabbit</cpe>
+        <vulnerabilityName>jackrabbit-spi-2.7.4.jar</vulnerabilityName>
+    </suppress>
+</suppressions>
