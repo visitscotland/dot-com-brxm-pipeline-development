@@ -328,7 +328,7 @@
           <artifactId>dependency-check-maven</artifactId>
           <version>9.0.9</version>
           <configuration>
-            <outputDirectory>report/owasp/</outputDirectory>
+            <outputDirectory>report/owasp</outputDirectory>
             <suppressionFiles>
               <file>src/main/resources/suppressed-cves.xml</file>
             </suppressionFiles>
@@ -344,6 +344,7 @@
             <!-- JavaScript Dependencies are resolved via Node -->
             <nodeAnalyzerEnabled>false</nodeAnalyzerEnabled>
             <nodeAuditAnalyzerEnabled>false</nodeAuditAnalyzerEnabled>
+            <yarnAuditAnalyzerEnabled>false</yarnAuditAnalyzerEnabled>
             <retireJsAnalyzerEnabled>false</retireJsAnalyzerEnabled>
             <formats>
               <format>HTML</format>
