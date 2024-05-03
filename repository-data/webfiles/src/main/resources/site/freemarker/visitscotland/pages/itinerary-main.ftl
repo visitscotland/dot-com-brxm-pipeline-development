@@ -4,6 +4,8 @@
     <#include "../../frontend/components/vs-tooltip.ftl">
     <#include "../../frontend/components/vs-itinerary-day.ftl">
     <#include "../../frontend/components/vs-itinerary.ftl">
+    <#include "../../frontend/components/vs-description-list.ftl">
+    <#include "../../frontend/components/vs-description-list-item.ftl">
     <#include "../macros/modules/page-intro/social-share.ftl">
     <#include "../macros/modules/itineraries/itinerary-stop.ftl">
     <#include "../macros/modules/itineraries/itinerary-map.ftl">
@@ -54,16 +56,21 @@
                     <#if day.transports?has_content>
                         <#assign dayTransport = day.transports[0]>
                         <template v-slot:day-transport> 
-                            <vs-description-list class="text-center justify-content-center align-items-center has-edit-button">
+                            <vs-description-list 
+                                class="text-center justify-content-center align-items-center mb-3 has-edit-button"
+                                inline
+                            >
                                 <@hst.manageContent hippobean=day />
-                                <#-- 
-                                    Note - can't use vs-description-list-item
-                                    here yet as font style and layout are different 
-                                    #VS-2985
-                                -->
-                                <dt class="list-inline-item">${label("itinerary", "transport")}:</dt>
+                                <vs-description-list-item 
+                                    title
+                                    class="col-auto px-0"
+                                >
+                                    ${label("itinerary", "transport")}:
+                                </vs-description-list-item>
                                 <#list day.transports as transport>
-                                    <dd class="list-inline-item">
+                                    <vs-description-list-item 
+                                        class="col-auto px-0"
+                                    >
                                         <vs-tooltip
                                             title="${label('transports', '${transport}')}"
                                             href="#"
@@ -76,7 +83,7 @@
                                                 ${label("transports", "${transport}")}
                                             </span>
                                         </vs-tooltip>
-                                    </dd>
+                                    </vs-description-list-item>
                                 </#list>
                             </vs-description-list>
                         </template>
