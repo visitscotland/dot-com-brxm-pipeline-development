@@ -168,7 +168,7 @@ public abstract class AbstractDMSPicker implements ExternalDocumentServiceFacade
     }
 
     /**
-     * Request the the resource taking into account the language.
+     * Request the resource taking into account the language.
      *
      * @param locale: Specific locale for the fragment or null if the locale is English (default locale)
      *
@@ -190,10 +190,10 @@ public abstract class AbstractDMSPicker implements ExternalDocumentServiceFacade
     }
 
 
-    protected static Set<DataType> deserialize(String data) throws IOException {
+    protected static List<DataType> deserialize(String data) throws IOException {
         ObjectMapper jsonMapper = new ObjectMapper();
         JsonNode dataObject = jsonMapper.readTree(data);
-        Set<DataType> dataTypes = new TreeSet<>();
+        List<DataType> dataTypes = new ArrayList<>();
         for (JsonNode elm: dataObject.get("data")){
             DataType dataType = new DataType(elm.get("id").asText(),elm.get("name").asText());
             dataTypes.add(dataType);
