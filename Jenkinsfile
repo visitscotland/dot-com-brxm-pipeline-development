@@ -228,9 +228,11 @@ pipeline {
             branch 'develop' 
           }
           steps {
-            withSonarQubeEnv(installationName: 'SonarQube', credentialsId: 'sonarqube') {
-              sh "PATH=/usr/bin:$PATH; mvn sonar:sonar -Dsonar.host.url=http://172.28.87.209:9000 -s $MAVEN_SETTINGS"
-              // setting PATH=/usr/bin:$PATH; above allows NodeJS 10.16.3 to be the default and prevents and error at the CSS scan
+            catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
+              withSonarQubeEnv(installationName: 'SonarQube', credentialsId: 'sonarqube') {
+                 sh "PATH=/usr/bin:$PATH; mvn sonar:sonar -Dsonar.host.url=http://172.28.87.209:9000 -s $MAVEN_SETTINGS"
+                // setting PATH=/usr/bin:$PATH; above allows NodeJS 10.16.3 to be the default and prevents and error at the CSS scan
+              }
             }
           }
         }
@@ -243,14 +245,16 @@ pipeline {
             scannerHome = tool 'SonarQube_4.0'
           }
           steps {
-            withSonarQubeEnv(installationName: 'SonarQube', credentialsId: 'sonarqube') {
-              sh '''
-                PATH=/usr/bin:$PATH; ${scannerHome}/bin/sonar-scanner \
-                -Dsonar.sources=./ui-integration \
-                -Dsonar.projectKey=VS2019-FE \
-                -Dsonar.host.url=http://172.28.87.209:9000 \
-                -Dsonar.login=9fa63cfd51d94fb8e437b536523c15a9b45ee2c1
-              '''
+            catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
+              withSonarQubeEnv(installationName: 'SonarQube', credentialsId: 'sonarqube') {
+                sh '''
+                  PATH=/usr/bin:$PATH; ${scannerHome}/bin/sonar-scanner \
+                  -Dsonar.sources=./ui-integration \
+                  -Dsonar.projectKey=VS2019-FE \
+                  -Dsonar.host.url=http://172.28.87.209:9000 \
+                 -Dsonar.login=9fa63cfd51d94fb8e437b536523c15a9b45ee2c1
+                '''
+                }
               // setting PATH=/usr/bin:$PATH; above allows NodeJS 10.16.3 to be the default and prevents and error at the CSS scan
             }
           }
