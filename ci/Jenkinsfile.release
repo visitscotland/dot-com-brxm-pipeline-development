@@ -120,16 +120,26 @@ pipeline {
                 }
             }
             steps {
-                sh 'sh ./infrastructure/scripts/infrastructure.sh setvars'
-                // -- 20200712: QUESTION FOR SE, "why do we not build with-development-data?"
                 sh '''
-          git config --global user.name "${GIT_COMMITER_NAME}"
-          git config --global user.email "${GIT_COMMITER_EMAIL}"
-          echo; echo "= GIT CONFIG AFTER CONFIG ="; git config -l; echo
-        '''
-//        sh 'mvn versions:use-releases scm:checkin -Dmessage="Updated snapshot dependencies to release versions" -DpushChanges=false'
+                  set +x
+                  echo "== setting essential git variables =="
+                  git config --global user.name "${GIT_COMMITER_NAME}"
+                  git config --global user.email "${GIT_COMMITER_EMAIL}"
+                  echo; echo "= GIT CONFIG AFTER CONFIG ="; git config -l; echo
+                '''
+                //sh 'mvn versions:use-releases scm:checkin -Dmessage="Updated snapshot dependencies to release versions" -DpushChanges=false'
                 sh 'mvn versions:use-releases'
-                sh 'mvn clean package' // we are using "package" rather than "verify" for now since we don't have IT tests yet
+                sh '''
+                  set +x
+                  # unsetting BRANCH_NAME variable as the Java build uses its presence to determine whether or not to add the development banner
+                  set BRANCH_NAME_TEMP=$BRANCH_NAME; unset BRANCH_NAME
+                  # we are using "package" rather than "verify" for now since we don't have IT tests yet
+                  mvn clean package
+                  # reinstating BRANCH_NAME variable
+                  set BRANCH_NAME=$BRANCH_NAME_TEMP; unset BRANCH_NAME_TEMP
+                '''
+                // running "infrastructure.sh setvars" here to prevent earlier creation of build-info.properties which causes the addition of the development banner
+                sh 'sh ./infrastructure/scripts/infrastructure.sh setvars'
             }
             post {
                 success {
