@@ -1,27 +1,11 @@
 <#macro skeleton>
-    <div 
-        class="skeleton-site"
-        style="opacity: 0.4;
-            width: 100vw;
-            height: 100vh;
-            overflow: hidden;"
-    >
-        <div
-            style="height: 32px;
-                background-color: #700e57;"
-        >
+    <div class="skeleton-site">
+        <div class="fake-global-menu">
             <div class="fake-container">
-                <div class="fake-link"
-                    style="height: 1.25em;
-                        margin-top: .25em;
-                        background-color: white;"
-                ></div>
+                <div class="global-link"></div>
             </div>
         </div>
-        <div
-            style="height: 45px;
-                background-color: #eeeeee"
-        >
+        <div class="fake-header">
             <div class="fake-container">
                 <div class="fake-link"></div>
                 <div class="fake-link"></div>
@@ -29,25 +13,20 @@
                 <div class="fake-search"></div>
             </div>
         </div>
-        <div
-            style="height: 100vh;
-                background-color: #bbbbbb;
-                position: relative;"
-        >
-        </div>
-        <div
-            class="fake-container"
-            style="bottom: 0;
-                height: 120px;
-                background-color: #ffffff;
-                z-index: 2;
-                padding: 1em 4em;"
-        >
+        <div class="fake-main"></div>
+        <div class="fake-container fake-footer">
             <div class="fake-link"></div>
         </div>
     </div>
 
     <style>
+        .skeleton-site {
+            opacity: 0.4;
+            width: 100vw;
+            height: 100vh;
+            overflow: hidden;
+        }
+
         .fake-container {
             position: absolute;
             width: 90%;
@@ -58,11 +37,33 @@
 
         .fake-link {
             height: 1.5em;
-            width: 8em;
+            width: 7em;
             border-radius: 0.25em;
-            background-color: #bbbbbb;
+            background-color: #C3BFD6;
             display: inline-block;
-            margin: 0.5em 1em;
+            margin: 0.5em 1.5em 0.5em 0;
+        }
+
+        .fake-global-menu {
+            height: 32px;
+            background-color: #5B2487;
+        }
+
+        .global-link {
+            height: 32px;
+            width: 6em;
+            background-color: #ffffff;
+        }
+
+        .fake-header {
+            height: 45px;
+            background-color: #ffffff;
+        }
+
+        .fake-main {
+            height: 100vh;
+            background-color: #C3BFD6;
+            position: relative;
         }
 
         .fake-search {
@@ -70,8 +71,16 @@
             right: 0;
             top: 0;
             bottom: 0;
-            width: 8em;
-            background-color: #af006e;
+            width: 7em;
+            background-color: #1F49D6;
+        }
+
+        .fake-footer {
+            bottom: 0;
+            height: 120px;
+            background-color: #ffffff;
+            z-index: 2;
+            padding: 1em 4em;
         }
     </style>
 </#macro>
