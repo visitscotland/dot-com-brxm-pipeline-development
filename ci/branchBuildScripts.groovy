@@ -104,7 +104,29 @@ Map getPropParsers () {
         //       the environment variable to either 'true' or 'false' like we need.
         String parsedValue = rawValue?.toString()?.toBoolean()?.toString()
         if ( parsedValue == null ) {
-          error("Could not parse build property VS_BUILD_FEATURE_ENVIRONMENT (value: ${rawValue}) to boolean!")
+          error("Could not parse build property VS_SKIP_LIGHTHOUSE_TESTS (value: ${rawValue}) to boolean!")
+        }
+        return parsedValue
+      }
+    ],
+
+    VS_SKIP_MAVEN_BUILD : [ 
+      default: "false", 
+      parser : { rawValue ->
+        String parsedValue = rawValue?.toString()?.toBoolean()?.toString()
+        if ( parsedValue == null ) {
+          error("Could not parse build property VS_SKIP_MAVEN_BUILD (value: ${rawValue}) to boolean!")
+        }
+        return parsedValue
+      }
+    ],
+
+    VS_REBUILD_NODE_MODULES : [ 
+      default: "false", 
+      parser : { rawValue ->
+        String parsedValue = rawValue?.toString()?.toBoolean()?.toString()
+        if ( parsedValue == null ) {
+          error("Could not parse build property VS_REBUILD_NODE_MODULES (value: ${rawValue}) to boolean!")
         }
         return parsedValue
       }

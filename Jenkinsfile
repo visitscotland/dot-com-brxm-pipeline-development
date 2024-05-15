@@ -110,10 +110,11 @@ pipeline {
           expression {return env.VS_RUN_BRC_STAGES != 'TRUE'}
 	        expression {return env.VS_SKIP_VS_BLD != 'TRUE'}
           expression {return env.BRANCH_NAME != env.VS_SKIP_BUILD_FOR_BRANCH}
+          expression {return env.VS_SKIP_MAVEN_BUILD != 'true'}
         }
       }
       steps {
-        sh 'sh ./infrastructure/scripts/infrastructure.sh setvars'
+        sh 'sh ./ci/infrastructure/scripts/infrastructure.sh setvars'
         // -- 20200712: QUESTION FOR SE, "why do we not build with-development-data?"
         sh 'mvn -f pom.xml clean package'
       }
@@ -204,14 +205,13 @@ pipeline {
       }
       steps{
         script{
-          //sh 'sh ./infrastructure/scripts/docker.sh'
-          sh 'sh ./infrastructure/scripts/infrastructure.sh --debug'
+          sh 'sh ./ci/infrastructure/scripts/infrastructure.sh --debug'
         }
         // make all VS_ variables available to pipeline, load file must be in env.VARIABLE="VALUE" format
         script {
-          if (fileExists("$WORKSPACE/vs-last-env.quoted")) {
-            echo "loading environment variables from $WORKSPACE/vs-last-env.quoted"
-            load "$WORKSPACE/vs-last-env.quoted"
+          if (fileExists("$WORKSPACE/ci/vs-last-env.quoted")) {
+            echo "loading environment variables from $WORKSPACE/ci/vs-last-env.quoted"
+            load "$WORKSPACE/ci/vs-last-env.quoted"
             echo "found ${env.VS_COMMIT_AUTHOR}"
           } else {
             echo "cannot load environment variables, file does not exist"
@@ -440,7 +440,7 @@ pipeline {
   post{
     success{
       script{
-        sh 'sh ./infrastructure/scripts/infrastructure.sh displayreport'
+        sh 'sh ./ci/infrastructure/scripts/infrastructure.sh displayreport'
       }
     }
     aborted{
