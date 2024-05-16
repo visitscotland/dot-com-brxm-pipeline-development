@@ -14,18 +14,11 @@
         <#assign image = item.image.externalImage!'' />
     </#if>
 
-    <#if theme == 'light'>
-        <#assign linkVariant>primary</#assign>
-    <#else>
-        <#assign linkVariant>on-dark</#assign>
-    </#if>
-
     <vs-col cols="12">
         <vs-megalink-single-image 
             title="${item.innerTitle}"
             <#if (item.cta.link)??>button-link="${item.cta.link}"</#if>
             <#if item.alignment?? && item.alignment == 'left'>alternate</#if>
-            theme="${theme}"
         >
             <template v-slot:vs-single-image>
                 <@imageWithCaption imageSrc=image imageDetails=item.image mobileOverlap="true" alignment=item.alignment/>
@@ -38,7 +31,6 @@
             <template v-slot:vs-single-image-links>
                 <#list item.links as listItem>
                     <vs-link-list-item
-                        variant="${linkVariant}"
                         <#if listItem.youtubeId??>
                             type="video"
                             href="#"

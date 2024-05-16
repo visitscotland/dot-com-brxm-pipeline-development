@@ -11,6 +11,31 @@ echo ""
 #set | egrep "BRANCH|BUILD|JENKINS|JOB|WORKSPACE"
 #echo ====/selected Jenkins environment variables ====
 
+# ==== PARSE COMMAND LINE ARGUMENTS ====
+METHOD=$1
+while [[ $# -gt 0 ]]; do
+  argument="$1"
+  THIS_VAR=`echo $argument | sed -e "s/=.*//g"`; #echo $THIS_VAR
+  THIS_VAL=`echo $argument | sed -e "s/.*=//g" | sed -s "s/--.*//g"`; #echo $THIS_VAL
+  if [ ! -z "$THIS_VAL" ]; then THIS_RESULT="$THIS_VAL"; elif [ ! "${2:0:2}" = "--" ]; then THIS_RESULT="$2"; else THIS_RESULT=""; fi
+  if [ "$VS_DEBUG" == "TRUE" ]; then echo -en "\nread \"$THIS_VAR\" from command line"; fi
+  case $THIS_VAR in
+    --debug) if [ ! -z "$THIS_RESULT" ]; then VS_DEBUG=$THIS_RESULT; else VS_DEBUG=TRUE; fi;;
+    --no-db) VS_BRXM_PERSISTENCE_METHOD=h2;;
+    --nodb) VS_BRXM_PERSISTENCE_METHOD=h2;;
+    --persistence-method) if [ ! -z "$THIS_RESULT" ]; then VS_BRXM_PERSISTENCE_METHOD=$THIS_RESULT; else VS_BRXM_PERSISTENCE_METHOD=h2; fi;;
+    --repository-dir) if [ ! -z "$THIS_RESULT" ]; then VS_BRXM_REPOSITORY=$THIS_RESULT; fi;;
+    --ssr-package-version) if [ ! -z "$THIS_RESULT" ]; then VS_SSR_PACKAGE_VERSION=$THIS_RESULT; fi;;
+    --ssr-package-name) if [ ! -z "$THIS_RESULT" ]; then VS_SSR_PACKAGE_NAME=$THIS_RESULT; fi;;
+    *)
+      if [ "$DEBUG" == "TRUE" ]; then echo -en " - not a valid argument - SKIPPING"; fi
+    ;;
+  esac
+  shift
+done
+echo -en "\n"
+# ====/PARSE COMMAND LINE ARGUMENTS ====
+
 # ==== ADJUSTABLE VARIABLES ====
 # we need to update these to set only if they're not set already, that way the Dev can override in the job template
 #  == Tomcat Variables ==
@@ -21,8 +46,9 @@ TOMCAT_PATCH_VERSION=21
 TOMCAT_PORT_NUMBER=8080
 TOMCAT_DIR_PREFIX=tomcat_
 #  == Java Variables ==
-JAVA_MAJOR_VERSION=8
+JAVA_MAJOR_VERSION=11
 #  == VS Variables ==
+if [ -z $VS_BRXM_PERSISTENCE_METHOD]; then VS_BRXM_PERSISTENCE_METHOD=h2; fi
 if [ -z $VS_HIPPO_REPOSITORY_CLEAN ]; then VS_HIPPO_REPOSITORY_CLEAN=FALSE; fi
 if [ -z $VS_HIPPO_REPOSITORY_PERSIST ]; then VS_HIPPO_REPOSITORY_PERSIST=FALSE; fi
 # - use with caution as this can add ~20 minutes to environment-ready time while Lucene rebuilds its index
@@ -32,8 +58,9 @@ VS_OPTIONAL_SOFTWARE_DIR=/opt
 VS_PROJECT_BASE_DIR=/home/$TOMCAT_OS_USER
 VS_HIPPO_CMS_PATH=cms
 VS_HIPPO_SITE_PATH=site
+if [ -z "$VS_SSR_PACKAGE_VERSION"]; then VS_SSR_PACKAGE_VERSION="package"; fi
+if [ -z "$VS_SSR_PACKAGE_NAME" ]; then VS_SSR_PACKAGE_NAME=vs-ssr-$VS_SSR_PACKAGE_VERSION.tar.gz; fi
 if [ -z "$VS_SSR_PACKAGE_DIR" ]; then VS_SSR_PACKAGE_DIR=ui-integration; fi
-if [ -z "$VS_SSR_PACKAGE_NAME" ]; then VS_SSR_PACKAGE_NAME=vs-ssr-package.tar.gz; fi
 if [ -z "$VS_SSR_PACKAGE_PATH" ]; then VS_SSR_PACKAGE_PATH=ssr/server; fi
 if [ -z "$VS_SSR_PROXY_ON" ]; then VS_SSR_PROXY_ON=FALSE; fi
 if [ -z "$VS_SSR_PROXY_TARGET_HOST" ]; then VS_SSR_PROXY_TARGET_HOST="http://localhost:8080"; fi
@@ -55,6 +82,8 @@ JAVA_OPTS="-Dlog4j2.formatMsgNoLookups=true"
 VS_HIPPO_REPOSITORY_SUFFIX="$TOMCAT_PORT_NUMBER"_"$VS_DATESTAMP"
 # set VS_HIPPO_REPOSITORY_DIR to the computed value unless it is already set
 if [ -z "$VS_HIPPO_REPOSITORY_DIR" ]; then VS_HIPPO_REPOSITORY_DIR=$CATALINA_BASE/../$VS_HIPPO_REPOSITORY_PREFIX$VS_HIPPO_REPOSITORY_SUFFIX; else VS_HIPPO_REPOSITORY_OVERRIDE_DIR=TRUE; fi
+
+# ====/SETUP ====
 
 echo ""
 echo ==== VARIABLES ====
@@ -137,6 +166,8 @@ mkdir $CATALINA_BASE/bin
 if [ -d $CATALINA_BASE/bin ]; then echo " - success $CATALINA_BASE/bin"; fi
 mkdir $CATALINA_BASE/logs
 if [ -d $CATALINA_BASE/logs ]; then echo " - success $CATALINA_BASE/logs"; fi
+if [ -d $CATALINA_BASE/logs ]&&[ ! -h $CATALINA_BASE/logs/console.out ]; then ln -s /tmp/console.out $CATALINA_BASE/logs/; fi
+if [ -h $CATALINA_BASE/logs/console.out ]; then echo " - success $CATALINA_BASE/logs/console.out"; fi
 
 # copy necessary files from CATALINA_HOME to CATALINA_BASE
 #  if these are not readable - because Tomcat was installed by root - we may need to use CATALINA_REF
@@ -170,10 +201,10 @@ else
   echo "ZIP was not found - a vulnerable log4j JAR may still be in use"
 fi
 
-if [ "$1" == "no-db" ]||[ "$1" == "nodb" ]; then
-  echo " - $1 stated, applying basic context.xml"
+if [ "$VS_BRXM_PERSISTENCE_METHOD" == "h2" ]||[ "$VS_BRXM_PERSISTENCE_METHOD" == "nodb" ]; then
+  echo " - called with VS_BRXM_PERSISTENCE_METHOD=$VS_BRXM_PERSISTENCE_METHOD, applying basic context.xml"
   cp -f $CATALINA_BASE/conf/context.xml.nodb $CATALINA_BASE/conf/context.xml
-  echo " - $1 stated, applying basic setenv.sh"
+  echo " - called with VS_BRXM_PERSISTENCE_METHOD=$VS_BRXM_PERSISTENCE_METHOD, applying basic setenv.sh"
   cp -f $CATALINA_BASE/bin/setenv.sh.nodb $CATALINA_BASE/bin/setenv.sh
 fi
 
