@@ -3,10 +3,9 @@ package com.visitscotland.brxm.dms;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-
 import com.fasterxml.jackson.databind.node.ArrayNode;
 import com.visitscotland.brxm.services.CommonUtilsService;
-import com.visitscotland.brxm.utils.Properties;
+import com.visitscotland.brxm.utils.CMSProperties;
 import com.visitscotland.utils.Contract;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -23,12 +22,12 @@ public class DMSDataService {
 
     private final DMSProxy proxy;
     private final CommonUtilsService utilsService;
-    private final Properties propertiesService;
+    private final CMSProperties properties;
 
-    public DMSDataService(DMSProxy proxy, CommonUtilsService utilsService, Properties propertiesService) {
+    public DMSDataService(DMSProxy proxy, CommonUtilsService utilsService, CMSProperties propertiesService) {
         this.proxy = proxy;
         this.utilsService = utilsService;
-        this.propertiesService = propertiesService;
+        this.properties = propertiesService;
     }
 
 
@@ -167,7 +166,7 @@ public class DMSDataService {
     public JsonNode getLocationBorders(String location, boolean isRegion){
         logger.info("Requesting data to retrieve the coordinates for the polygon: {}", location);
         if (!Contract.isEmpty(location)) {
-            String apiUrl = propertiesService.getApiDataBackendHost() + "maps/meta/location/" + (isRegion? "polygon":"bounds")+"?";
+            String apiUrl = properties.getApiDataBackendHost() + "maps/meta/location/" + (isRegion? "polygon":"bounds")+"?";
             apiUrl += location;
             String responseString = null;
             try {

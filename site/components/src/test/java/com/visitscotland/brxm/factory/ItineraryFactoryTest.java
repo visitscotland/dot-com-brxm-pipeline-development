@@ -5,14 +5,17 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.visitscotland.brxm.dms.DMSDataService;
 import com.visitscotland.brxm.dms.DMSUtils;
-import com.visitscotland.brxm.hippobeans.*;
+import com.visitscotland.brxm.hippobeans.DMSLink;
+import com.visitscotland.brxm.hippobeans.Day;
+import com.visitscotland.brxm.hippobeans.Image;
+import com.visitscotland.brxm.hippobeans.Itinerary;
 import com.visitscotland.brxm.mock.ItineraryDayMockBuilder;
 import com.visitscotland.brxm.model.*;
 import com.visitscotland.brxm.services.DocumentUtilsService;
 import com.visitscotland.brxm.services.LinkService;
 import com.visitscotland.brxm.services.ResourceBundleService;
 import com.visitscotland.brxm.utils.ContentLogger;
-import com.visitscotland.brxm.utils.Properties;
+import com.visitscotland.brxm.utils.SiteProperties;
 import com.visitscotland.utils.Contract;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -53,8 +56,6 @@ class ItineraryFactoryTest {
     DMSUtils utils;
     @Mock
     DocumentUtilsService documentUtils;
-    @Mock
-    Properties properties;
     @Mock
     LinkService linkService;
     @Mock

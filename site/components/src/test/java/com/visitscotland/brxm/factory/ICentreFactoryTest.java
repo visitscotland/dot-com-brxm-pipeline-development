@@ -3,20 +3,21 @@ package com.visitscotland.brxm.factory;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.visitscotland.brxm.config.VsComponentManager;
+import com.visitscotland.brxm.dms.DMSDataService;
+import com.visitscotland.brxm.dms.ProductSearchBuilder;
 import com.visitscotland.brxm.hippobeans.ICentre;
 import com.visitscotland.brxm.hippobeans.Image;
 import com.visitscotland.brxm.hippobeans.Quote;
+import com.visitscotland.brxm.mock.TouristInformationMockBuilder;
 import com.visitscotland.brxm.model.FlatImage;
 import com.visitscotland.brxm.model.FlatQuote;
 import com.visitscotland.brxm.model.ICentreModule;
 import com.visitscotland.brxm.model.megalinks.EnhancedLink;
-import com.visitscotland.brxm.config.VsComponentManager;
-import com.visitscotland.brxm.dms.DMSDataService;
-import com.visitscotland.brxm.dms.ProductSearchBuilder;
-import com.visitscotland.brxm.mock.TouristInformationMockBuilder;
 import com.visitscotland.brxm.services.ResourceBundleService;
+import com.visitscotland.brxm.utils.CMSProperties;
 import com.visitscotland.brxm.utils.HippoUtilsService;
-import com.visitscotland.brxm.utils.Properties;
+import com.visitscotland.brxm.utils.SiteProperties;
 import org.hippoecm.hst.content.beans.ObjectBeanManagerException;
 import org.hippoecm.hst.content.beans.query.exceptions.QueryException;
 import org.hippoecm.hst.core.container.ComponentManager;
@@ -26,7 +27,6 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Answers;
-import org.mockito.ArgumentCaptor;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
@@ -56,7 +56,11 @@ class ICentreFactoryTest {
     ResourceBundleService bundle;
 
     @Mock
-    Properties properties;
+    CMSProperties properties;
+
+    @Mock
+    SiteProperties siteProperties;
+
 
     @InjectMocks
     ICentreFactory factory;
@@ -88,7 +92,7 @@ class ICentreFactoryTest {
 
     @BeforeEach
     void init() {
-        factory = new ICentreFactory(utils, dmsData, bundle, quoteEmbedder, imageFactory, properties, utils);
+        factory = new ICentreFactory(utils, dmsData, bundle, quoteEmbedder, imageFactory, properties, siteProperties, utils);
         mockBuilder = new TouristInformationMockBuilder().addICentre();
     }
 
@@ -240,14 +244,14 @@ class ICentreFactoryTest {
 
         //Single VIC
         when(dmsData.legacyMapSearch(any())).thenReturn(new ObjectMapper().readTree(MOCK_JSON));
-        when(bundle.getResourceBundle(eq(ICentreFactory.BUNDLE_ID), eq("icentre.description.singleVic"), eq(Locale.UK)))
+        when(bundle.getResourceBundle(ICentreFactory.BUNDLE_ID, "icentre.description.singleVic", Locale.UK))
                 .thenReturn("Single VIC");
         module = factory.getModule(mockBuilder.build().getICentre(), Locale.UK, "Skye");
         assertEquals("Single VIC", module.getDescription());
 
         //Multiple VIC
         when(dmsData.legacyMapSearch(any())).thenReturn(new ObjectMapper().readTree(MOCK_JSON_MULTIPLE));
-        when(bundle.getResourceBundle(eq(ICentreFactory.BUNDLE_ID), eq("icentre.description.multipleVic"), eq(Locale.UK)))
+        when(bundle.getResourceBundle(ICentreFactory.BUNDLE_ID, "icentre.description.multipleVic", Locale.UK))
                 .thenReturn("Multiple VICs");
         module = factory.getModule(mockBuilder.build().getICentre(), Locale.UK, "Highlands");
         assertEquals("Multiple VICs", module.getDescription());

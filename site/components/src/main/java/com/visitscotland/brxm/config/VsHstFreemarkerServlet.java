@@ -1,6 +1,7 @@
 package com.visitscotland.brxm.config;
 
 import com.visitscotland.brxm.utils.NonTestable;
+import com.visitscotland.brxm.utils.SiteProperties;
 import com.visitscotland.utils.info.About;
 import com.visitscotland.brxm.services.ResourceBundleService;
 import freemarker.template.TemplateModelException;
@@ -49,7 +50,7 @@ public class VsHstFreemarkerServlet extends HstFreemarkerServlet {
         try {
             if (getConfiguration().getSharedVariable(VAR_RESOURCE_BUNDLE) == null) {
                 addObject(VAR_RESOURCE_BUNDLE, VsComponentManager.get(ResourceBundleService.class));
-                addObject(VAR_PROPERTIES, VsComponentManager.get(com.visitscotland.brxm.utils.Properties.class));
+                addObject(VAR_PROPERTIES, VsComponentManager.get(SiteProperties.class));
             }
         } catch (Exception e){
             logger.error("Unable initialize Spring Components for FreeMarker Templates.", e);
