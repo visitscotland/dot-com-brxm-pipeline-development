@@ -1,10 +1,8 @@
 package com.visitscotland.brxm.factory;
 
-import com.visitscotland.brxm.hippobeans.Form;
-import com.visitscotland.brxm.hippobeans.FormCompoundFepl;
-import com.visitscotland.brxm.hippobeans.FormCompoundMarketo;
-import com.visitscotland.brxm.hippobeans.MarketoForm;
+import com.visitscotland.brxm.hippobeans.*;
 import com.visitscotland.brxm.model.FormModule;
+import com.visitscotland.brxm.model.form.BregConfiguration;
 import com.visitscotland.brxm.model.form.FeplConfiguration;
 import com.visitscotland.brxm.model.form.MarketoConfiguration;
 import com.visitscotland.brxm.utils.ContentLogger;
@@ -73,6 +71,19 @@ public class FormFactory {
         return cfg;
     }
 
+    private BregConfiguration getBregConfiguration(FormCompoundBreg breg){
+        BregConfiguration cfg = new BregConfiguration();
+        cfg.setRecaptcha(properties.getProperty(PROP_RECAPTCHA));
+        cfg.setSubmitURL(breg.getUrl());
+        cfg.setJsonUrl(breg.getJsonUrl());
+        cfg.setActivityCode(breg.getActivityCode());
+        cfg.setActivityDescription(breg.getActivityDescription());
+        cfg.setActivitySource(breg.getActivitySource());
+        cfg.setConsents(breg.getConsents());
+
+        return cfg;
+    }
+
     public FormModule getModule(Form document) {
         HippoCompound cfg = document.getFormConfiguration();
 
@@ -83,8 +94,10 @@ public class FormFactory {
 
         if (cfg instanceof FormCompoundFepl) {
             module.setConfig(getFeplConfiguration((FormCompoundFepl) document.getFormConfiguration()));
-        } else if (cfg instanceof FormCompoundMarketo){
+        } else if (cfg instanceof FormCompoundMarketo) {
             module.setConfig(getMarketoConfiguration(document.getFormConfiguration()));
+        } else if (cfg instanceof FormCompoundBreg) {
+            module.setConfig(getBregConfiguration((FormCompoundBreg) document.getFormConfiguration()));
         } else {
             contentLogger.warn("The Form document '{}' does not have a valid configuration. It won't appear on the page", document.getPath());
             return null;
