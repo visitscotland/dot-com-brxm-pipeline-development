@@ -21,7 +21,7 @@
             >
                 <div>
                     <b>Recaptcha</b> ${form.config.recaptcha}<br>
-                    <b>Action URL</b> ${form.config.submitURL}<br>
+                    <b>Action URL</b> ${form.config.submitUrl}<br>
                     <!-- This might be the equivalent of the form.script-url added in the headContributions -->
                     <b>Form Configuration URL (JSON)</b> ${form.config.jsonUrl}<br>
                     Hidden fields:

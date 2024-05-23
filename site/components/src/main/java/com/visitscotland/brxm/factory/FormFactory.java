@@ -74,7 +74,7 @@ public class FormFactory {
     private BregConfiguration getBregConfiguration(FormCompoundBreg breg){
         BregConfiguration cfg = new BregConfiguration();
         cfg.setRecaptcha(properties.getProperty(PROP_RECAPTCHA));
-        cfg.setSubmitURL(breg.getUrl());
+        cfg.setSubmitUrl(breg.getUrl());
         cfg.setJsonUrl(breg.getJsonUrl());
         cfg.setActivityCode(breg.getActivityCode());
         cfg.setActivityDescription(breg.getActivityDescription());
