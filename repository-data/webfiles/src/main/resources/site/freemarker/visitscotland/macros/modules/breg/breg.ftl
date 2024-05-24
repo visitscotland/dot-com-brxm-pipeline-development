@@ -28,10 +28,8 @@
                     <li>activity_code = ${form.config.activityCode}<br></li>
                     <li>activity_description = ${form.config.activityDescription}<br></li>
                     <li>activity_source = ${form.config.activitySource}<br></li>
-                    <li>category =
-                    <#list form.config.consents as consent>
-                        ${consent}<#sep>,
-                    </#list><br><br>
+                    <li>consents =${form.config.consents}<br></li>
+                    <li>legalBasis =${form.config.legalBasis}<br></li>
 
                     ${label('forms', 'form.no-js')}<br>
                     ${label('forms', 'form.error')}<br>

@@ -13,7 +13,9 @@ public class BregConfiguration implements  FormConfiguration {
     private String activityCode;
     private String activityDescription;
     private String activitySource;
-    private String[] consents;
+    private String consents;
+    private String legalBasis;
+
 
 
     public String getRecaptcha() {
@@ -64,16 +66,24 @@ public class BregConfiguration implements  FormConfiguration {
         this.activitySource = activitySource;
     }
 
-    public String[] getConsents() {
+    public String getConsents() {
         return consents;
     }
 
-    public void setConsents(String[] consents) {
+    public void setConsents(String consents) {
         this.consents = consents;
     }
 
     @Override
     public String getType() {
         return FORM_TYPE;
+    }
+
+    public String getLegalBasis() {
+        return legalBasis;
+    }
+
+    public void setLegalBasis(String legalBasis) {
+        this.legalBasis = legalBasis;
     }
 }
