@@ -4,6 +4,8 @@ import org.onehippo.cms7.essentials.dashboard.annotations.HippoEssentialsGenerat
 import org.hippoecm.hst.content.beans.Node;
 import org.hippoecm.hst.content.beans.standard.HippoCompound;
 
+import java.util.List;
+
 @HippoEssentialsGenerated(internalName = "visitscotland:FormCompoundBreg")
 @Node(jcrType = "visitscotland:FormCompoundBreg")
 public class FormCompoundBreg extends HippoCompound {
@@ -33,7 +35,8 @@ public class FormCompoundBreg extends HippoCompound {
     }
 
     @HippoEssentialsGenerated(internalName = "visitscotland:consents")
-    public String[] getConsents() {
-        return getMultipleProperty("visitscotland:consents");
+    public List<Entry> getConsents() {
+        return getChildBeansByName("visitscotland:consents",
+                Entry.class);
     }
 }

@@ -11,7 +11,7 @@ definitions:
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:uuid: 24aff1c3-81d3-44d9-a8ed-93f5a9d1d69b
+          jcr:uuid: faefdaf8-93aa-41a7-be47-6ab67f79e038
           hipposysedit:node: true
           hipposysedit:supertype: ['hippo:compound', 'hippostd:relaxed']
           hipposysedit:uri: http://www.visitscotland.com/visitscotland/nt/1.0
@@ -62,13 +62,11 @@ definitions:
             hipposysedit:validators: [required]
           /consents:
             jcr:primaryType: hipposysedit:field
-            hipposysedit:mandatory: false
             hipposysedit:multiple: true
-            hipposysedit:ordered: false
+            hipposysedit:ordered: true
             hipposysedit:path: visitscotland:consents
-            hipposysedit:primary: false
-            hipposysedit:type: String
-            hipposysedit:validators: [required]
+            hipposysedit:type: hippo:compound
+            hipposysedit:validators: [contentblocks-validator, required]
       /hipposysedit:prototypes:
         jcr:primaryType: hipposysedit:prototypeset
         /hipposysedit:prototype:
@@ -78,7 +76,10 @@ definitions:
           visitscotland:activitySource: ''
           visitscotland:activityCode: ''
           visitscotland:activityDescription: ''
-          visitscotland:consents: ['']
+          /visitscotland:consents:
+            jcr:primaryType: visitscotland:Entry
+            visitscotland:key: ''
+            visitscotland:value: ''
       /editor:templates:
         jcr:primaryType: editor:templateset
         /_default_:
@@ -132,10 +133,16 @@ definitions:
               jcr:primaryType: frontend:pluginconfig
           /consents:
             jcr:primaryType: frontend:plugin
-            caption: Consent(s) category
+            caption: Consents
+            compoundList: visitscotland:Entry
+            contentPickerType: links
             field: consents
-            hint: ''
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            plugin.class: org.onehippo.forge.contentblocks.ContentBlocksFieldPlugin
             wicket.id: ${cluster.id}.field
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
+              compoundNamesMaxLength: 90
+              showCompoundNames: false
+              showTitles: false
+              startCollapsed: false
+              titleMapping: []

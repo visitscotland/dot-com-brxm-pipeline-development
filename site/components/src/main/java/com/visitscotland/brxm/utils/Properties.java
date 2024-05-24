@@ -38,6 +38,7 @@ public class Properties {
     static final String CONTENT_CACHE_ENABLED = "content-cache.enabled";
     static final String CONTENT_CACHE_RETENTION_PERIOD = "content-cache.retention-period";
     static final String CONTENT_CACHE_MAX_ELEMENTS = "content-cache.max-elements";
+    static final String FORM_BREG_LEGAL_BASIS = "form.breg.legal-basis";
 
     //Environment
     static final String USE_RELATIVE_URLS = "links.use-relative-urls";
@@ -234,6 +235,10 @@ public class Properties {
 
     public String getGtmPreviewQueryString() {
         return readString(GTM_PREVIEW_QUERY_STRING);
+    }
+
+    public String getFormBregLegalBasis() {
+        return readString(FORM_BREG_LEGAL_BASIS);
     }
 
     public Integer getContentCacheRetention() {

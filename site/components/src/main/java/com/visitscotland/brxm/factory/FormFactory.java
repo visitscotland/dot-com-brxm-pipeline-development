@@ -6,10 +6,14 @@ import com.visitscotland.brxm.model.form.BregConfiguration;
 import com.visitscotland.brxm.model.form.FeplConfiguration;
 import com.visitscotland.brxm.model.form.MarketoConfiguration;
 import com.visitscotland.brxm.utils.ContentLogger;
+import com.visitscotland.brxm.utils.HippoUtilsService;
 import com.visitscotland.brxm.utils.Properties;
+import com.visitscotland.utils.Contract;
 import org.hippoecm.hst.content.beans.standard.HippoBean;
 import org.hippoecm.hst.content.beans.standard.HippoCompound;
 import org.springframework.stereotype.Component;
+
+import java.util.List;
 
 @Component
 public class FormFactory {
@@ -21,6 +25,7 @@ public class FormFactory {
     static final String PROP_MARKETO_IS_PRODUCTION = "form.is-production";
 
     private final Properties properties;
+
 
     private final ContentLogger contentLogger;
 
@@ -71,7 +76,7 @@ public class FormFactory {
         return cfg;
     }
 
-    private BregConfiguration getBregConfiguration(FormCompoundBreg breg){
+    private BregConfiguration getBregConfiguration(FormCompoundBreg breg, boolean isBE){
         BregConfiguration cfg = new BregConfiguration();
         cfg.setRecaptcha(properties.getProperty(PROP_RECAPTCHA));
         cfg.setSubmitUrl(breg.getUrl());
@@ -79,12 +84,26 @@ public class FormFactory {
         cfg.setActivityCode(breg.getActivityCode());
         cfg.setActivityDescription(breg.getActivityDescription());
         cfg.setActivitySource(breg.getActivitySource());
-        cfg.setConsents(breg.getConsents());
+        List<Entry> consents = breg.getConsents();
+        String consentValue = "";
+        for (Entry cons : consents) {
+            if (Contract.isEmpty(consentValue)){
+                consentValue = cons.getKey() + "," + cons.getValue();
+            } else {
+                consentValue = consentValue + ";" + cons.getKey() + "," + cons.getValue();
+            }
+
+        }
+
+        cfg.setConsents(consentValue);
+        if (!isBE) {
+            cfg.setLegalBasis(properties.getFormBregLegalBasis());
+        }
 
         return cfg;
     }
 
-    public FormModule getModule(Form document) {
+    public FormModule getModule(Form document, boolean isBE) {
         HippoCompound cfg = document.getFormConfiguration();
 
         FormModule module = new FormModule();
@@ -97,7 +116,7 @@ public class FormFactory {
         } else if (cfg instanceof FormCompoundMarketo) {
             module.setConfig(getMarketoConfiguration(document.getFormConfiguration()));
         } else if (cfg instanceof FormCompoundBreg) {
-            module.setConfig(getBregConfiguration((FormCompoundBreg) document.getFormConfiguration()));
+            module.setConfig(getBregConfiguration((FormCompoundBreg) document.getFormConfiguration(),isBE));
         } else {
             contentLogger.warn("The Form document '{}' does not have a valid configuration. It won't appear on the page", document.getPath());
             return null;

@@ -58,6 +58,7 @@ public class PageTemplateBuilder {
     private final SkiFactory skiFactory;
     private final DevModuleFactory devModuleFactory;
     private final Properties properties;
+    private final HippoUtilsService utils;
 
     private final ResourceBundleService bundle;
     private final Logger contentLogger;
@@ -69,7 +70,7 @@ public class PageTemplateBuilder {
                                UserGeneratedContentFactory userGeneratedContentFactory, TravelInformationFactory travelInformationFactory,
                                CannedSearchFactory cannedSearchFactory, PreviewModeFactory previewFactory, FormFactory marketoFormFactory,
                                MapFactory mapFactory, SkiFactory skiFactory, Properties properties,
-                               DevModuleFactory devModuleFactory, ResourceBundleService bundle, Logger contentLogger) {
+                               DevModuleFactory devModuleFactory, ResourceBundleService bundle, Logger contentLogger, HippoUtilsService utils) {
         this.documentUtils = documentUtils;
         this.linksFactory = linksFactory;
         this.iCentreFactory = iCentreFactory;
@@ -87,6 +88,7 @@ public class PageTemplateBuilder {
         this.properties = properties;
         this.bundle = bundle;
         this.contentLogger = contentLogger;
+        this.utils = utils;
     }
 
     private Page getDocument(HstRequest request) {
@@ -162,7 +164,7 @@ public class PageTemplateBuilder {
         if (form instanceof MarketoForm) {
             return formFactory.getModule((MarketoForm) form);
         } else if (form instanceof Form) {
-            return formFactory.getModule((Form) form);
+            return formFactory.getModule((Form) form, utils.isBusinessEventsSite(request));
         } else if (form != null) {
             logger.error("Form Class not recognized {}, path = {}", form.getClass(), form.getPath());
         }

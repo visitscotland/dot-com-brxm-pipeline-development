@@ -23956,7 +23956,7 @@
           jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
           jcr:uuid: c2e720c2-f819-47a4-a269-29b395e328b0
           hippo:name: BREG Form
-          hippo:versionHistory: b6730408-66a3-4d37-ac9a-de49fcc2074b
+          hippo:versionHistory: d5dbc76e-fc4e-40bc-af65-c96f3a0da7a6
           /breg-form[1]:
             jcr:primaryType: visitscotland:Form
             jcr:mixinTypes: ['mix:referenceable']
@@ -23964,10 +23964,9 @@
             hippo:availability: []
             hippostd:retainable: false
             hippostd:state: draft
-            hippostd:transferable: false
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2024-05-22T12:24:38.758+01:00
-            hippostdpubwf:lastModificationDate: 2024-05-23T09:51:18.668+01:00
+            hippostdpubwf:lastModificationDate: 2024-05-24T11:59:22.985+01:00
             hippostdpubwf:lastModifiedBy: admin
             hippotranslation:id: b6ef5445-e71d-4545-b832-b55c5875c9b7
             hippotranslation:locale: en
@@ -23983,6 +23982,14 @@
               visitscotland:consents: [newsletter, snow]
               visitscotland:jsonUrl: https://static.visitscotland.com/forms/newsletter-sign-up/newsletter-sign-up.json
               visitscotland:url: https://api.visitscotland.net/dev/submit/breg/forms/consumer/snow
+              /visitscotland:consents[1]:
+                jcr:primaryType: visitscotland:Entry
+                visitscotland:key: snow
+                visitscotland:value: SKIEMAIL_002
+              /visitscotland:consents[2]:
+                jcr:primaryType: visitscotland:Entry
+                visitscotland:key: newsletter
+                visitscotland:value: VSEMAIL_0026
           /breg-form[2]:
             jcr:primaryType: visitscotland:Form
             jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
@@ -23992,7 +23999,7 @@
             hippostd:state: unpublished
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2024-05-22T12:24:38.758+01:00
-            hippostdpubwf:lastModificationDate: 2024-05-22T15:09:14.406+01:00
+            hippostdpubwf:lastModificationDate: 2024-05-24T12:00:01.079+01:00
             hippostdpubwf:lastModifiedBy: admin
             hippotranslation:id: b6ef5445-e71d-4545-b832-b55c5875c9b7
             hippotranslation:locale: en
@@ -24008,6 +24015,14 @@
               visitscotland:consents: [newsletter, snow]
               visitscotland:jsonUrl: https://static.visitscotland.com/forms/newsletter-sign-up/newsletter-sign-up.json
               visitscotland:url: https://api.visitscotland.net/dev/submit/breg/forms/consumer/snow
+              /visitscotland:consents[1]:
+                jcr:primaryType: visitscotland:Entry
+                visitscotland:key: snow
+                visitscotland:value: SKIEMAIL_002
+              /visitscotland:consents[2]:
+                jcr:primaryType: visitscotland:Entry
+                visitscotland:key: newsletter
+                visitscotland:value: VSEMAIL_0026
           /breg-form[3]:
             jcr:primaryType: visitscotland:Form
             jcr:mixinTypes: ['mix:referenceable']
@@ -24017,9 +24032,9 @@
             hippostd:state: published
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2024-05-22T12:24:38.758+01:00
-            hippostdpubwf:lastModificationDate: 2024-05-22T15:09:14.406+01:00
+            hippostdpubwf:lastModificationDate: 2024-05-24T12:00:01.079+01:00
             hippostdpubwf:lastModifiedBy: admin
-            hippostdpubwf:publicationDate: 2024-05-22T15:09:38.964+01:00
+            hippostdpubwf:publicationDate: 2024-05-24T12:00:05.348+01:00
             hippotranslation:id: b6ef5445-e71d-4545-b832-b55c5875c9b7
             hippotranslation:locale: en
             visitscotland:nonJavaScriptMessage: ''
@@ -24034,3 +24049,11 @@
               visitscotland:consents: [newsletter, snow]
               visitscotland:jsonUrl: https://static.visitscotland.com/forms/newsletter-sign-up/newsletter-sign-up.json
               visitscotland:url: https://api.visitscotland.net/dev/submit/breg/forms/consumer/snow
+              /visitscotland:consents[1]:
+                jcr:primaryType: visitscotland:Entry
+                visitscotland:key: snow
+                visitscotland:value: SKIEMAIL_002
+              /visitscotland:consents[2]:
+                jcr:primaryType: visitscotland:Entry
+                visitscotland:key: newsletter
+                visitscotland:value: VSEMAIL_0026
