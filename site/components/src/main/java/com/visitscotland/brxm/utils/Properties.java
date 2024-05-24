@@ -39,6 +39,7 @@ public class Properties {
     static final String CONTENT_CACHE_RETENTION_PERIOD = "content-cache.retention-period";
     static final String CONTENT_CACHE_MAX_ELEMENTS = "content-cache.max-elements";
     static final String FORM_BREG_LEGAL_BASIS = "form.breg.legal-basis";
+    static final String FORM_BREG_LEGAL_BASIS_ENABLE = "form.breg.legal-basis.enable";
 
     //Environment
     static final String USE_RELATIVE_URLS = "links.use-relative-urls";
@@ -239,6 +240,9 @@ public class Properties {
 
     public String getFormBregLegalBasis() {
         return readString(FORM_BREG_LEGAL_BASIS);
+    }
+    public Boolean isFormBregLegalBasisEnabled() {
+        return readBoolean(FORM_BREG_LEGAL_BASIS_ENABLE);
     }
 
     public Integer getContentCacheRetention() {

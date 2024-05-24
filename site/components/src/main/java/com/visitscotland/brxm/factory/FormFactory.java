@@ -76,7 +76,7 @@ public class FormFactory {
         return cfg;
     }
 
-    private BregConfiguration getBregConfiguration(FormCompoundBreg breg, boolean isBE){
+    private BregConfiguration getBregConfiguration(FormCompoundBreg breg){
         BregConfiguration cfg = new BregConfiguration();
         cfg.setRecaptcha(properties.getProperty(PROP_RECAPTCHA));
         cfg.setSubmitUrl(breg.getUrl());
@@ -96,14 +96,14 @@ public class FormFactory {
         }
 
         cfg.setConsents(consentValue);
-        if (!isBE) {
+        if (properties.isFormBregLegalBasisEnabled()) {
             cfg.setLegalBasis(properties.getFormBregLegalBasis());
         }
 
         return cfg;
     }
 
-    public FormModule getModule(Form document, boolean isBE) {
+    public FormModule getModule(Form document) {
         HippoCompound cfg = document.getFormConfiguration();
 
         FormModule module = new FormModule();
@@ -116,7 +116,7 @@ public class FormFactory {
         } else if (cfg instanceof FormCompoundMarketo) {
             module.setConfig(getMarketoConfiguration(document.getFormConfiguration()));
         } else if (cfg instanceof FormCompoundBreg) {
-            module.setConfig(getBregConfiguration((FormCompoundBreg) document.getFormConfiguration(),isBE));
+            module.setConfig(getBregConfiguration((FormCompoundBreg) document.getFormConfiguration()));
         } else {
             contentLogger.warn("The Form document '{}' does not have a valid configuration. It won't appear on the page", document.getPath());
             return null;
