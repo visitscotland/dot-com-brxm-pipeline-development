@@ -77,7 +77,7 @@ pipeline {
         stage ('Build environment'){
             steps{
                 script{
-                    sh 'sh ./infrastructure/scripts/docker.sh'
+                    sh 'sh ./ci/infrastructure/scripts/docker.sh'
                 }
             }
         }
@@ -271,8 +271,8 @@ pipeline {
     stage ('vs build feature env') {
       steps{
         script{
-          //sh 'sh ./infrastructure/scripts/docker.sh'
-          sh 'sh ./infrastructure/scripts/infrastructure.sh --debug'
+          //sh 'sh ./ci/infrastructure/scripts/docker.sh'
+          sh 'sh ./ci/infrastructure/scripts/infrastructure.sh --debug'
         }
       }
     } //end stage
