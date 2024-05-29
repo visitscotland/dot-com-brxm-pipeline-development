@@ -1,5 +1,5 @@
 <#include "../../../../include/imports.ftl">
-<#include "../../../../frontend/components/vs-marketo-form.ftl">
+<#include "../../../../frontend/components/vs-form.ftl">
 <#include "../../../../frontend/components/vs-container.ftl">
 <#include "../../../../frontend/components/vs-row.ftl">
 <#include "../../../../frontend/components/vs-col.ftl">
@@ -19,22 +19,48 @@
                 lg="7"
                 class="col-xxl-6"
             >
-                <div>
-                    <b>Recaptcha</b> ${form.config.recaptcha}<br>
-                    <b>Action URL</b> ${form.config.submitUrl}<br>
-                    <!-- This might be the equivalent of the form.script-url added in the headContributions -->
-                    <b>Form Configuration URL (JSON)</b> ${form.config.jsonUrl}<br>
-                    Hidden fields:
-                    <li>activity_code = ${form.config.activityCode}<br></li>
-                    <li>activity_description = ${form.config.activityDescription}<br></li>
-                    <li>activity_source = ${form.config.activitySource}<br></li>
-                    <li>consents =${form.config.consents}<br></li>
-                    <li>legalBasis =${form.config.legalBasis}<br></li>
+            
+                <#assign language = locale?keep_before("-")>
 
-                    ${label('forms', 'form.no-js')}<br>
-                    ${label('forms', 'form.error')}<br>
-                    ${label('forms', 'form.submitting')}<br>
-                </div>
+                <vs-form
+                    :is-marketo="false"
+                    submit-url="${form.config.submitUrl}"
+                    data-url="${form.config.jsonUrl}"
+                    recaptcha-key="${form.config.recaptcha}"
+                    recaptcha-textarea-label="${label('forms', 'form.recaptcha-textarea-label')}"
+                    :is-prod="${property('form.is-production')}"
+                    language="${language}"
+                    messaging-url="${label('forms', 'form.messaging-url')}"
+                    country-list-url="${label('forms', 'form.country-url')}"
+                >
+                    <template v-slot:hidden-fields>
+                        <input
+                            type="hidden"
+                            name="activity_code"
+                            value="${form.config.activityCode}"
+                        />
+                        <input
+                            type="hidden"
+                            name="activity_description"
+                            value="${form.config.activityDescription}"
+                        />
+                        <input
+                            type="hidden"
+                            name="activity_source"
+                            value="${form.config.activitySource}"
+                        />
+                        <input
+                            type="hidden"
+                            name="consents"
+                            value="${form.config.consents}"
+                        />
+                        <input
+                            type="hidden"
+                            name="legalBasis"
+                            value="${form.config.legalBasis}"
+                        />
+                    </template>
+                </vs-form>
             </vs-col>
         </vs-row>
     </vs-container>
