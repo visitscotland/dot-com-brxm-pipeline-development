@@ -1003,17 +1003,8 @@ sendSiteReport() {
 # ==== RUN ====
 echo "`eval $VS_LOG_DATESTAMP` INFO  [$VS_SCRIPTNAME] $0 was called with $METHOD"
 case $METHOD in
-  other)
-    false
-  ;;
   default)
     false
-  ;;
-  setvars)
-    checkVariables
-    defaultSettings
-    exportVSVariables
-    copyVSVariables
   ;;
   displayreport)
     #checkVariables
@@ -1024,6 +1015,20 @@ case $METHOD in
     checkVariables
     defaultSettings
     findHippoArtifact
+  ;;
+  packagesstartifact)
+    checkVariables
+    defaultSettings
+    packageSSRArtifact
+  ;;
+  other)
+    false
+  ;;
+  setvars)
+    checkVariables
+    defaultSettings
+    exportVSVariables
+    copyVSVariables
   ;;
   upload-to-brcloud)
     checkVariables
