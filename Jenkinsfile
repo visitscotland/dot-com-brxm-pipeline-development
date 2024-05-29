@@ -39,17 +39,18 @@ import groovy.json.JsonSlurper
 pipeline {
   options {
     buildDiscarder(logRotator(numToKeepStr: '10'))
+    disableConcurrentBuilds()
     // to-do
     // gp: investigate milestone caclulation to cancel current build if a new one starts
     // - see: https://stackoverflow.com/questions/40760716/jenkins-abort-running-build-if-new-one-is-started/44326216
     // - see: https://www.jenkins.io/doc/pipeline/steps/pipeline-milestone-step/#pipeline-milestone-step
     // gp: investigate the use of stash/unstash to make build artefacts available to other nodes
-    // - see: https://www.cloudbees.com/blog/parallelism-and-distributed-builds-jenkins
-    // - this could potentially allow the running of all Lighthouse tests on a separate node
-    // - experiment with a simple echo on a different node (stash/unstash)
+    //     - see: https://www.cloudbees.com/blog/parallelism-and-distributed-builds-jenkins
+    //     - this could potentially allow the running of all Lighthouse tests on a separate node
+    //     - experiment with a simple echo on a different node (stash/unstash)
+    //     DONE
     // gp: change sonarqube project target to a short version of the project name
-
-    disableConcurrentBuilds()
+    timestamps()
   }
   agent {label thisAgent}
   triggers { cron( cron_string ) }
@@ -162,12 +163,18 @@ stage ('vs compile & package in docker') {
           echo; echo "running stage $STAGE_NAME on $HOSTNAME"
           export HOME=$WORKSPACE
           export MAVEN_OPTS="-Duser.home=$HOME"
-          mvn --batch-mode -f pom.xml clean package
+          mvn --batch-mode clean package
         '''
       }
       post {
         success {
-          sh 'export HOME=$WORKSPACE; mvn -s /usr/share/maven/ref/settings.xml -f pom.xml install -Pdist-with-development-data'
+          sh '''
+            set +x
+            echo; echo "running stage $STAGE_NAME post-success on $HOSTNAME"
+            export HOME=$WORKSPACE
+            export MAVEN_OPTS="-Duser.home=$HOME"
+            mvn --batch-mode install -Pdist-with-development-data
+          '''
           stash allowEmpty: true, includes: 'target/*', name: 'brxm-artifact'
           stash allowEmpty: true, includes: 'ui-integration/ssr/server/*,ui-integration/node_modules/**/*,ui-integration/build/*', name: 'ssr-files'
           mail bcc: '', body: "<b>Notification</b><br>Project: ${env.JOB_NAME} <br>Build Number: ${env.BUILD_NUMBER} <br> build URL: ${env.BUILD_URL}", cc: '', charset: 'UTF-8', from: '', mimeType: 'text/html', replyTo: '', subject: "Maven build succeeded at ${env.STAGE_NAME} for ${env.JOB_NAME}", to: "${MAIL_TO}";
