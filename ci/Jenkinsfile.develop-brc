@@ -135,7 +135,6 @@ stage ('vs compile & package in docker') {
       }
     }
 
-
     // -- 20200712: The three 'brxm' and the two 'brc' stages are based on https://developers.bloomreach.com/blog/2019/set-up-continuous-deployment-of-your-brxm-project-in-brcloud-using-jenkins.html
     // --           in time, the connect, upload and deploy stages will be moved into bash scripts and run from a different Jenkins server
 
