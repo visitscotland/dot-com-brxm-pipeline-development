@@ -4,29 +4,34 @@ def thisAgent
 def VS_CONTAINER_BASE_PORT_OVERRIDE
 cron_string = ""
 if (BRANCH_NAME == "develop" && (JOB_NAME == "develop.visitscotland.com/develop" || JOB_NAME == "develop.visitscotland.com-mb/develop")) {
-  thisAgent = "op-dev-xvcdocker-01"
+  //thisAgent = "op-dev-xvcdocker-01"
+  thisAgent = "docker-02"
   env.VS_CONTAINER_BASE_PORT_OVERRIDE = "8099"
   env.VS_RELEASE_SNAPSHOT = "FALSE"
 } else if (BRANCH_NAME == "develop" && (JOB_NAME == "develop-nightly.visitscotland.com/develop" || JOB_NAME == "develop-nightly.visitscotland.com-mb/develop")) {
-  thisAgent = "op-dev-xvcdocker-01"
+  //thisAgent = "op-dev-xvcdocker-01"
+  thisAgent = "docker-02"
   env.VS_CONTAINER_BASE_PORT_OVERRIDE = "8098"
   env.VS_CONTAINER_PRESERVE = "FALSE"
   cron_string = "@midnight"
 } else if (BRANCH_NAME == "develop" && (JOB_NAME == "develop-stable.visitscotland.com/develop" || JOB_NAME == "develop-stable.visitscotland.com-mb/develop")) {
-  thisAgent = "op-dev-xvcdocker-01"
+  //thisAgent = "op-dev-xvcdocker-01"
+  thisAgent = "docker-02"
   env.VS_CONTAINER_BASE_PORT_OVERRIDE = "8100"
 } else if (BRANCH_NAME == "develop" && (JOB_NAME == "feature.visitscotland.com/develop" || JOB_NAME == "feature.visitscotland.com-mb/develop")) {
-  thisAgent = "op-dev-xvcdocker-01"
+  //thisAgent = "op-dev-xvcdocker-01"
+  thisAgent = "docker-02"
   env.VS_CONTAINER_BASE_PORT_OVERRIDE = "8097"
 } else if (BRANCH_NAME == "feature/VS-1865-feature-environments-enhancements" && (JOB_NAME == "feature.visitscotland.com-mb/feature%2FVS-1865-feature-environments-enhancements")) {
-  thisAgent = "op-dev-xvcdocker-01"
+  //thisAgent = "op-dev-xvcdocker-01"
+  thisAgent = "docker-02"
   //env.VS_CONTAINER_BASE_PORT_OVERRIDE = "8096"
   //cron_string = "*/2 * * * *"
 } else {
   env.VS_RELEASE_SNAPSHOT = "FALSE"
   // thisAgent should always be set to op-dev-xvcdocker-01 unless you have been informed otherwise!
-  thisAgent = "op-dev-xvcdocker-01"
-  //thisAgent = "docker-02"
+  //thisAgent = "op-dev-xvcdocker-01"
+  thisAgent = "docker-02"
 }
 
 import groovy.json.JsonSlurper
@@ -73,8 +78,8 @@ pipeline {
     VS_BRC_STACK_URL = "https://api-${VS_BRC_STACK_URI}.onehippo.io"
     VS_BRC_STACK_API_VERSION = 'v3'
     VS_DOCKER_IMAGE_NAME = 'vs/vs-brxm15:node18'
-    VS_DOCKER_BUILDER_IMAGE_NAME = 'vs/vs-brxm15:node18-builder'
-    VS_USE_DOCKER_BUILDER = "FALSE"
+    VS_DOCKER_BUILDER_IMAGE_NAME = 'vs/vs-brxm15-builder:node18'
+    VS_USE_DOCKER_BUILDER = "TRUE"
   }
 
   tools {
@@ -111,7 +116,7 @@ pipeline {
       when {
         allOf {
           expression {return env.VS_RUN_BRC_STAGES != 'TRUE'}
-	        expression {return env.VS_SKIP_VS_BLD != 'TRUE'}
+          expression {return env.VS_SKIP_VS_BLD != 'TRUE'}
           expression {return env.VS_USE_DOCKER_BUILDER != 'TRUE'}
           expression {return env.BRANCH_NAME != env.VS_SKIP_BUILD_FOR_BRANCH}
           expression {return env.VS_SKIP_MAVEN_BUILD != 'true'}
@@ -137,7 +142,7 @@ stage ('vs compile & package in docker') {
       when {
         allOf {
           expression {return env.VS_RUN_BRC_STAGES != 'TRUE'}
-	        expression {return env.VS_SKIP_VS_BLD != 'TRUE'}
+          expression {return env.VS_SKIP_VS_BLD != 'TRUE'}
           expression {return env.VS_USE_DOCKER_BUILDER == 'TRUE'}
           expression {return env.BRANCH_NAME != env.VS_SKIP_BUILD_FOR_BRANCH}
         }
