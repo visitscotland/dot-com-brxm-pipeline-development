@@ -4,29 +4,34 @@ def thisAgent
 def VS_CONTAINER_BASE_PORT_OVERRIDE
 cron_string = ""
 if (BRANCH_NAME == "develop" && (JOB_NAME == "develop.visitscotland.com/develop" || JOB_NAME == "develop.visitscotland.com-mb/develop")) {
-  thisAgent = "op-dev-xvcdocker-01"
+  //thisAgent = "op-dev-xvcdocker-01"
+  thisAgent = "docker-02"
   env.VS_CONTAINER_BASE_PORT_OVERRIDE = "8099"
   env.VS_RELEASE_SNAPSHOT = "FALSE"
 } else if (BRANCH_NAME == "develop" && (JOB_NAME == "develop-nightly.visitscotland.com/develop" || JOB_NAME == "develop-nightly.visitscotland.com-mb/develop")) {
-  thisAgent = "op-dev-xvcdocker-01"
+  //thisAgent = "op-dev-xvcdocker-01"
+  thisAgent = "docker-02"
   env.VS_CONTAINER_BASE_PORT_OVERRIDE = "8098"
   env.VS_CONTAINER_PRESERVE = "FALSE"
   cron_string = "@midnight"
 } else if (BRANCH_NAME == "develop" && (JOB_NAME == "develop-stable.visitscotland.com/develop" || JOB_NAME == "develop-stable.visitscotland.com-mb/develop")) {
-  thisAgent = "op-dev-xvcdocker-01"
+  //thisAgent = "op-dev-xvcdocker-01"
+  thisAgent = "docker-02"
   env.VS_CONTAINER_BASE_PORT_OVERRIDE = "8100"
 } else if (BRANCH_NAME == "develop" && (JOB_NAME == "feature.visitscotland.com/develop" || JOB_NAME == "feature.visitscotland.com-mb/develop")) {
-  thisAgent = "op-dev-xvcdocker-01"
+  //thisAgent = "op-dev-xvcdocker-01"
+  thisAgent = "docker-02"
   env.VS_CONTAINER_BASE_PORT_OVERRIDE = "8097"
 } else if (BRANCH_NAME == "feature/VS-1865-feature-environments-enhancements" && (JOB_NAME == "feature.visitscotland.com-mb/feature%2FVS-1865-feature-environments-enhancements")) {
-  thisAgent = "op-dev-xvcdocker-01"
+  //thisAgent = "op-dev-xvcdocker-01"
+  thisAgent = "docker-02"
   //env.VS_CONTAINER_BASE_PORT_OVERRIDE = "8096"
   //cron_string = "*/2 * * * *"
 } else {
   env.VS_RELEASE_SNAPSHOT = "FALSE"
   // thisAgent should always be set to op-dev-xvcdocker-01 unless you have been informed otherwise!
-  thisAgent = "op-dev-xvcdocker-01"
-  //thisAgent = "docker-02"
+  //thisAgent = "op-dev-xvcdocker-01"
+  thisAgent = "docker-02"
 }
 
 import groovy.json.JsonSlurper
@@ -34,17 +39,18 @@ import groovy.json.JsonSlurper
 pipeline {
   options {
     buildDiscarder(logRotator(numToKeepStr: '10'))
+    disableConcurrentBuilds()
     // to-do
     // gp: investigate milestone caclulation to cancel current build if a new one starts
     // - see: https://stackoverflow.com/questions/40760716/jenkins-abort-running-build-if-new-one-is-started/44326216
     // - see: https://www.jenkins.io/doc/pipeline/steps/pipeline-milestone-step/#pipeline-milestone-step
     // gp: investigate the use of stash/unstash to make build artefacts available to other nodes
-    // - see: https://www.cloudbees.com/blog/parallelism-and-distributed-builds-jenkins
-    // - this could potentially allow the running of all Lighthouse tests on a separate node
-    // - experiment with a simple echo on a different node (stash/unstash)
+    //     - see: https://www.cloudbees.com/blog/parallelism-and-distributed-builds-jenkins
+    //     - this could potentially allow the running of all Lighthouse tests on a separate node
+    //     - experiment with a simple echo on a different node (stash/unstash)
+    //     DONE
     // gp: change sonarqube project target to a short version of the project name
-
-    disableConcurrentBuilds()
+    timestamps()
   }
   agent {label thisAgent}
   triggers { cron( cron_string ) }
@@ -72,7 +78,9 @@ pipeline {
     VS_BRC_ENV = 'demo'
     VS_BRC_STACK_URL = "https://api-${VS_BRC_STACK_URI}.onehippo.io"
     VS_BRC_STACK_API_VERSION = 'v3'
-    VS_DOCKER_IMAGE_NAME = 'vs/vs-brxm15:node16'
+    VS_DOCKER_IMAGE_NAME = 'vs/vs-brxm15:node18'
+    VS_DOCKER_BUILDER_IMAGE_NAME = 'vs/vs-brxm15-builder:node18'
+    VS_USE_DOCKER_BUILDER = "TRUE"
   }
 
   tools {
@@ -109,7 +117,8 @@ pipeline {
       when {
         allOf {
           expression {return env.VS_RUN_BRC_STAGES != 'TRUE'}
-	        expression {return env.VS_SKIP_VS_BLD != 'TRUE'}
+          expression {return env.VS_SKIP_VS_BLD != 'TRUE'}
+          expression {return env.VS_USE_DOCKER_BUILDER != 'TRUE'}
           expression {return env.BRANCH_NAME != env.VS_SKIP_BUILD_FOR_BRANCH}
           expression {return env.VS_SKIP_MAVEN_BUILD != 'true'}
         }
@@ -130,6 +139,51 @@ pipeline {
       }
     }
 
+stage ('vs compile & package in docker') {
+      when {
+        allOf {
+          expression {return env.VS_RUN_BRC_STAGES != 'TRUE'}
+          expression {return env.VS_SKIP_VS_BLD != 'TRUE'}
+          expression {return env.VS_USE_DOCKER_BUILDER == 'TRUE'}
+          expression {return env.BRANCH_NAME != env.VS_SKIP_BUILD_FOR_BRANCH}
+        }
+      }
+      agent {
+        docker {
+          image '$VS_DOCKER_BUILDER_IMAGE_NAME'
+          args '-v $JENKINS_HOME/.m2:$WORKSPACE/.m2:rw,z'
+          label 'thisAgent'
+          reuseNode true
+        }
+      }
+      steps {   
+        //sh 'sh ./ci/infrastructure/scripts/infrastructure.sh setvars'
+        sh '''
+          set +x
+          echo; echo "running stage $STAGE_NAME on $HOSTNAME"
+          export HOME=$WORKSPACE
+          export MAVEN_OPTS="-Duser.home=$HOME"
+          mvn --batch-mode clean package
+        '''
+      }
+      post {
+        success {
+          sh '''
+            set +x
+            echo; echo "running stage $STAGE_NAME post-success on $HOSTNAME"
+            export HOME=$WORKSPACE
+            export MAVEN_OPTS="-Duser.home=$HOME"
+            mvn --batch-mode install -Pdist-with-development-data
+          '''
+          stash allowEmpty: true, includes: 'target/*', name: 'brxm-artifact'
+          stash allowEmpty: true, includes: 'ui-integration/ssr/server/*,ui-integration/node_modules/**/*,ui-integration/build/*', name: 'ssr-files'
+          mail bcc: '', body: "<b>Notification</b><br>Project: ${env.JOB_NAME} <br>Build Number: ${env.BUILD_NUMBER} <br> build URL: ${env.BUILD_URL}", cc: '', charset: 'UTF-8', from: '', mimeType: 'text/html', replyTo: '', subject: "Maven build succeeded at ${env.STAGE_NAME} for ${env.JOB_NAME}", to: "${MAIL_TO}";
+        }
+        failure {
+          mail bcc: '', body: "<b>Notification</b><br>Project: ${env.JOB_NAME} <br>Build Number: ${env.BUILD_NUMBER} <br> build URL: ${env.BUILD_URL}", cc: '', charset: 'UTF-8', from: '', mimeType: 'text/html', replyTo: '', subject: "Maven build FAILED at ${env.STAGE_NAME} for  ${env.JOB_NAME}", to: "${MAIL_TO}";
+        }
+      }
+    }
 
     // -- 20200712: The three 'brxm' and the two 'brc' stages are based on https://developers.bloomreach.com/blog/2019/set-up-continuous-deployment-of-your-brxm-project-in-brcloud-using-jenkins.html
     // --           in time, the connect, upload and deploy stages will be moved into bash scripts and run from a different Jenkins server
@@ -205,6 +259,20 @@ pipeline {
         }
       }
       steps{
+        dir("${env.WORKSPACE}") {
+          script {
+            try {
+              unstash 'brxm-artifact'
+            } catch (e) {
+              print "Unstash brxm-artifact failed, ignoring"
+            }
+            try {
+              unstash 'ssr-files'
+            } catch (e) {
+              print "Unstash ssr-files failed, ignoring"
+            }
+          }
+        }
         script{
           sh 'sh ./ci/infrastructure/scripts/infrastructure.sh --debug'
         }
