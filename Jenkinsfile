@@ -39,17 +39,18 @@ import groovy.json.JsonSlurper
 pipeline {
   options {
     buildDiscarder(logRotator(numToKeepStr: '10'))
+    disableConcurrentBuilds()
     // to-do
     // gp: investigate milestone caclulation to cancel current build if a new one starts
     // - see: https://stackoverflow.com/questions/40760716/jenkins-abort-running-build-if-new-one-is-started/44326216
     // - see: https://www.jenkins.io/doc/pipeline/steps/pipeline-milestone-step/#pipeline-milestone-step
     // gp: investigate the use of stash/unstash to make build artefacts available to other nodes
-    // - see: https://www.cloudbees.com/blog/parallelism-and-distributed-builds-jenkins
-    // - this could potentially allow the running of all Lighthouse tests on a separate node
-    // - experiment with a simple echo on a different node (stash/unstash)
+    //     - see: https://www.cloudbees.com/blog/parallelism-and-distributed-builds-jenkins
+    //     - this could potentially allow the running of all Lighthouse tests on a separate node
+    //     - experiment with a simple echo on a different node (stash/unstash)
+    //     DONE
     // gp: change sonarqube project target to a short version of the project name
-
-    disableConcurrentBuilds()
+    timestamps()
   }
   agent {label thisAgent}
   triggers { cron( cron_string ) }
@@ -155,19 +156,25 @@ stage ('vs compile & package in docker') {
           reuseNode true
         }
       }
-      steps {   
+      steps {
         //sh 'sh ./ci/infrastructure/scripts/infrastructure.sh setvars'
         sh '''
           set +x
           echo; echo "running stage $STAGE_NAME on $HOSTNAME"
           export HOME=$WORKSPACE
           export MAVEN_OPTS="-Duser.home=$HOME"
-          mvn --batch-mode -f pom.xml clean package
+          mvn --batch-mode clean package
         '''
       }
       post {
         success {
-          sh 'export HOME=$WORKSPACE; mvn -s /usr/share/maven/ref/settings.xml -f pom.xml install -Pdist-with-development-data'
+          sh '''
+            set +x
+            echo; echo "running stage $STAGE_NAME post-success on $HOSTNAME"
+            export HOME=$WORKSPACE
+            export MAVEN_OPTS="-Duser.home=$HOME"
+            mvn --batch-mode install -Pdist-with-development-data
+          '''
           stash allowEmpty: true, includes: 'target/*', name: 'brxm-artifact'
           stash allowEmpty: true, includes: 'ui-integration/ssr/server/*,ui-integration/node_modules/**/*,ui-integration/build/*', name: 'ssr-files'
           mail bcc: '', body: "<b>Notification</b><br>Project: ${env.JOB_NAME} <br>Build Number: ${env.BUILD_NUMBER} <br> build URL: ${env.BUILD_URL}", cc: '', charset: 'UTF-8', from: '', mimeType: 'text/html', replyTo: '', subject: "Maven build succeeded at ${env.STAGE_NAME} for ${env.JOB_NAME}", to: "${MAIL_TO}";
@@ -287,7 +294,7 @@ stage ('vs compile & package in docker') {
 
         stage('SonarQube BE Scan') {
           when {
-            branch 'develop' 
+            branch 'develop'
           }
           steps {
             catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
@@ -301,7 +308,7 @@ stage ('vs compile & package in docker') {
 
         stage('SonarQube FE scan') {
           when {
-            branch 'develop' 
+            branch 'develop'
           }
           environment {
             scannerHome = tool 'SonarQube_4.0'
@@ -326,8 +333,8 @@ stage ('vs compile & package in docker') {
           when {
             anyOf {
               // Always run Nexus IQ scan for builds on 'develop'
-              branch 'develop' 
- 
+              branch 'develop'
+
               // Always run Nexus IQ scan for pull requests
               changeRequest()
             }
@@ -338,7 +345,7 @@ stage ('vs compile & package in docker') {
                 def policyEvaluation = nexusPolicyEvaluation failBuildOnNetworkError: true, enableDebugLogging: true, iqApplication: selectedApplication('visitscotland-site'), iqScanPatterns: [[scanPattern: '**/site.war']], iqStage: 'build', jobCredentialsId: 'nexusiq'
                 echo "Nexus IQ scan succeeded: ${policyEvaluation.applicationCompositionReportUrl}"
                 IQ_SCAN_URL = "${policyEvaluation.applicationCompositionReportUrl}"
-              } 
+              }
               catch (error) {
                 def policyEvaluation = error.policyEvaluation
                 echo "Nexus IQ scan vulnerabilities detected', ${policyEvaluation.applicationCompositionReportUrl}"
@@ -352,8 +359,8 @@ stage ('vs compile & package in docker') {
           when {
             anyOf {
               // Always run Nexus IQ scan for builds on 'develop'
-              branch 'develop' 
- 
+              branch 'develop'
+
               // Always run Nexus IQ scan for pull requests
               changeRequest()
             }
@@ -364,7 +371,7 @@ stage ('vs compile & package in docker') {
                 def policyEvaluation = nexusPolicyEvaluation failBuildOnNetworkError: true, enableDebugLogging: true, iqApplication: selectedApplication('visitscotland-cms'), iqScanPatterns: [[scanPattern: '**/cms.war']], iqStage: 'build', jobCredentialsId: 'nexusiq'
                 echo "Nexus IQ scan succeeded: ${policyEvaluation.applicationCompositionReportUrl}"
                 IQ_SCAN_URL = "${policyEvaluation.applicationCompositionReportUrl}"
-              } 
+              }
               catch (error) {
                 def policyEvaluation = error.policyEvaluation
                 echo "Nexus IQ scan vulnerabilities detected', ${policyEvaluation.applicationCompositionReportUrl}"
@@ -378,8 +385,8 @@ stage ('vs compile & package in docker') {
           when {
             anyOf {
               // Always run Nexus IQ scan for builds on 'develop'
-              branch 'develop' 
- 
+              branch 'develop'
+
               // Always run Nexus IQ scan for pull requests
               changeRequest()
             }
@@ -390,7 +397,7 @@ stage ('vs compile & package in docker') {
                 def policyEvaluation = nexusPolicyEvaluation failBuildOnNetworkError: true, enableDebugLogging: true, iqApplication: selectedApplication('visitscotland-ssr'), iqScanPatterns: [[scanPattern: '**/*ssr*.tar.gz']], iqStage: 'build', jobCredentialsId: 'nexusiq'
                 echo "Nexus IQ scan succeeded: ${policyEvaluation.applicationCompositionReportUrl}"
                 IQ_SCAN_URL = "${policyEvaluation.applicationCompositionReportUrl}"
-              } 
+              }
               catch (error) {
                 def policyEvaluation = error.policyEvaluation
                 echo "Nexus IQ scan vulnerabilities detected', ${policyEvaluation.applicationCompositionReportUrl}"
@@ -438,7 +445,7 @@ stage ('vs compile & package in docker') {
         }
       }
     }
- 
+
     stage('Lighthouse Testing'){
       when {
         allOf {
@@ -448,7 +455,7 @@ stage ('vs compile & package in docker') {
           }
           anyOf {
             // Always run the Lighthouse Tests for 'develop' builds
-            branch 'develop' 
+            branch 'develop'
 
             // Always run the Lighthouse Tests for pull requests
             changeRequest()
@@ -459,7 +466,7 @@ stage ('vs compile & package in docker') {
         }
       }
       steps{
-        catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') { 
+        catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
           echo "Lighthouse test failure notification will be emailed to ${env.VS_COMMIT_AUTHOR}"
           script{
             // to-do: replace this sleep with a "wait for 200" in the script
