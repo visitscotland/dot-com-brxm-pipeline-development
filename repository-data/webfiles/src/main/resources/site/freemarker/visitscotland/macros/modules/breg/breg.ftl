@@ -48,17 +48,19 @@
                             type="hidden"
                             name="activity_source"
                             value="${form.config.activitySource}"
-                        />
+                        /> 
                         <input
                             type="hidden"
                             name="consents"
                             value="${form.config.consents}"
                         />
+                        <#if form.config.legalBasis?has_content>
                         <input
                             type="hidden"
                             name="legalBasis"
                             value="${form.config.legalBasis}"
                         />
+                        </#if>
                     </template>
                 </vs-form>
             </vs-col>
