@@ -11,8 +11,8 @@ import com.visitscotland.brxm.hippobeans.*;
 import com.visitscotland.brxm.model.*;
 import com.visitscotland.brxm.services.MapService;
 import com.visitscotland.brxm.services.ResourceBundleService;
+import com.visitscotland.brxm.utils.CMSProperties;
 import com.visitscotland.brxm.utils.HippoUtilsService;
-import com.visitscotland.brxm.utils.Properties;
 import com.visitscotland.utils.Contract;
 import org.hippoecm.hst.core.component.HstRequest;
 import org.onehippo.taxonomy.api.Category;
@@ -46,17 +46,17 @@ public class MapFactory {
     private final ObjectMapper mapper;
     private final DMSDataService dmsDataService;
     private final ResourceBundleService bundle;
-    private final Properties propertiesService;
+    private final CMSProperties properties;
     private final ImageFactory imageFactory;
     private final LocationLoader locationLoader;
 
-    public MapFactory(MapService mapService, HippoUtilsService hippoUtilsService, DMSDataService dmsDataService, ResourceBundleService bundle, Properties properties, ImageFactory imageFactory,LocationLoader locationLoader) {
+    public MapFactory(MapService mapService, HippoUtilsService hippoUtilsService, DMSDataService dmsDataService, ResourceBundleService bundle, CMSProperties properties, ImageFactory imageFactory,LocationLoader locationLoader) {
         this.hippoUtilsService = hippoUtilsService;
         this.mapper = new ObjectMapper();
         this.mapService = mapService;
         this.dmsDataService = dmsDataService;
         this.bundle = bundle;
-        this.propertiesService = properties;
+        this.properties = properties;
         this.imageFactory = imageFactory;
         this.locationLoader = locationLoader;
     }
@@ -184,7 +184,7 @@ public class MapFactory {
                 //Endpoint base to bring 24 random results
                 filter.put("listProductsEndPoint", dmsQuery.buildCannedSearch());
 
-                filter.put("pinClickEndPoint", propertiesService.getDmsDataPublicHost() + DMSConstants.VS_DMS_PRODUCT_MAP_CARD
+                filter.put("pinClickEndPoint", properties.getDmsDataPublicHost() + DMSConstants.VS_DMS_PRODUCT_MAP_CARD
                         +"locale="+locale.toLanguageTag()+"&id=");
 
                 //subcategories added
@@ -195,13 +195,13 @@ public class MapFactory {
         }else{
             module.setMapType(MapType.REGIONAL.getMapType());
             //for multipolygon regions we need the bounds to get the zoom level.
-            geometryNode = dmsDataService.getLocationBorders(location.getId(), !propertiesService.getMapMultipolygons().contains(location.getId()));
+            geometryNode = dmsDataService.getLocationBorders(location.getId(), !properties.getMapMultipolygons().contains(location.getId()));
 
             for (RegionsMapTab regionMap: RegionsMapTab.values()) {
                 buildDMSMapPages(regionMap, module, keys, features, locale, destinationPage);
             }
         }
-        module.setDetailsEndpoint(propertiesService.getDmsDataPublicHost() + DMSConstants.VS_DMS_PRODUCT_MAP_CARD+"locale="+locale.toLanguageTag()+"&id=");
+        module.setDetailsEndpoint(properties.getDmsDataPublicHost() + DMSConstants.VS_DMS_PRODUCT_MAP_CARD+"locale="+locale.toLanguageTag()+"&id=");
         if (geometryNode != null) {
             module.setMapPosition((ObjectNode) geometryNode);
         }else{

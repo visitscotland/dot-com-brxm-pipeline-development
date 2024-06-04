@@ -1,13 +1,16 @@
 package com.visitscotland.brxm.dms;
 
+import com.visitscotland.brxm.utils.CMSProperties;
 import com.visitscotland.brxm.utils.Language;
-import com.visitscotland.brxm.utils.Properties;
 import com.visitscotland.utils.Contract;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.net.*;
 import java.nio.charset.Charset;
 import java.util.Date;
@@ -28,9 +31,9 @@ public class DMSProxy {
      */
     static Long lastRegisteredFailure = null;
 
-    private final Properties properties;
+    private final CMSProperties properties;
 
-    public DMSProxy(Properties properties){
+    public DMSProxy(CMSProperties properties){
         this.properties = properties;
     }
 

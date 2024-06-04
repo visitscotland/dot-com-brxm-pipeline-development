@@ -1,0 +1,25 @@
+return [
+
+// Build Property: VS_BUILD_FEATURE_ENVIRONMENT 
+// Type: Boolean
+// Supported Values: true, false
+// Description: If true then Jenkins will create a feature environment for testing this branch prior to moving to a pull request
+VS_BUILD_FEATURE_ENVIRONMENT : true,
+
+// Build Property: VS_SKIP_LIGHTHOUSE_TESTS 
+// Type: Boolean
+// Supported Values: true, false
+// Description: If true then Jenkins will skip running Lighthouse tests even if a feature environment was built
+VS_SKIP_LIGHTHOUSE_TESTS : false,
+
+// Build Property: VS_BUILD_DESCRIPTION 
+// Type: String
+// Valid Values: any non-empty string (in quotes)
+// Description: Describes this build for logging purposes
+VS_BUILD_DESCRIPTION : "VS.COM Jenkins Build",
+
+//VS_SKIP_MAVEN_BUILD: true,
+
+//VS_REBUILD_NODE_MODULES: true,
+
+]

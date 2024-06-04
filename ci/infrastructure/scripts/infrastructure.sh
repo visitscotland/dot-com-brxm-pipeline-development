@@ -78,10 +78,11 @@ if [ -z "$VS_CONTAINER_SSH_PASS_ROOT" ]; then VS_CONTAINER_SSH_PASS_ROOT=rootssh
 if [ -z "$VS_CONTAINER_SSH_PASS_HIPPO" ]; then VS_CONTAINER_SSH_PASS_HIPPO=hippossh; fi
 if [ -z "$VS_CONTAINER_UPDATES_DIR" ]; then VS_CONTAINER_UPDATES_DIR="../files"; fi
 #  ==== SSR Application Variables ====
+if [ -z "$VS_SSR_PACKAGE_VERSION" ]; then VS_SSR_PACKAGE_VERSION="package"; fi
 if [ -z "$VS_FRONTEND_DIR" ]; then VS_FRONTEND_DIR=ui-integration; fi
 if [ -z "$VS_SSR_PACKAGE_SOURCE" ]; then VS_SSR_PACKAGE_SOURCE="$VS_FRONTEND_DIR/ssr/server/ $VS_FRONTEND_DIR/node_modules/@visitscotland/component-library/dist/ssr/ $VS_FRONTEND_DIR/node_modules/ $VS_FRONTEND_DIR/build/"; fi
 if [ -z "$VS_SSR_PACKAGE_TARGET" ]; then VS_SSR_PACKAGE_TARGET="./target"; fi
-if [ -z "$VS_SSR_PACKAGE_NAME" ]; then VS_SSR_PACKAGE_NAME="vs-ssr-package.tar.gz"; fi
+if [ -z "$VS_SSR_PACKAGE_NAME" ]; then VS_SSR_PACKAGE_NAME="vs-ssr-$VS_SSR_PACKAGE_VERSION.tar.gz"; fi
 if [ -z "$VS_SSR_PROXY_ON" ]; then VS_SSR_PROXY_ON="TRUE"; fi
 if [ -z "$VS_SSR_APP_PORT" ]; then VS_SSR_APP_PORT=8082; fi
 if [ -z "$VS_SSR_PROXY_TARGET_HOST" ]; then VS_SSR_PROXY_TARGET_HOST="http://localhost:8080"; fi
@@ -93,6 +94,7 @@ if [ -z "$VS_BRC_API_REMOTE_TRANSFER_METHOD" ]; then VS_BRC_API_REMOTE_TRANSFER_
 if [ -z "$VS_BRC_API_STACK_NAME" ]; then VS_BRC_API_STACK_NAME=not-set; fi
 if [ -z "$VS_BRC_API_ENVIRONMENT_NAME" ]; then VS_BRC_API_ENVIRONMENT_NAME=development; fi
 # note: valid environment names are listed in defaultSettings function
+if [ -z "$VS_BRC_API_ENVIRONMENT_JOB_PATH" ]; then VS_BRC_API_ENVIRONMENT_JOB_PATH=$VS_BRC_API_ENVIRONMENT_NAME; fi
 if [ -z "$VS_BRC_API_JOB_NAME" ]; then VS_BRC_API_JOB_NAME=upload-distribution; fi
 if [ -z "$VS_BRC_API_DEPLOY_AFTER_UPLOAD" ]; then VS_BRC_API_DEPLOY_AFTER_UPLOAD=true; fi
 if [ -z "$VS_BRC_API_ARTIFACT_OVERWRITE" ]; then VS_BRC_API_ARTIFACT_OVERWRITE=false; fi
@@ -117,6 +119,7 @@ while [[ $# -gt 0 ]]; do
     --debug) if [ ! -z "$THIS_RESULT" ]; then VS_DEBUG=$THIS_RESULT; else VS_DEBUG=TRUE; fi;;
     --ci-dir) if [ ! -z "$THIS_RESULT" ]; then VS_CI_DIR=$THIS_RESULT; fi;;
     --frontend-dir) if [ ! -z "$THIS_RESULT" ]; then VS_FRONTEND_DIR=$THIS_RESULT; fi;;
+    --ssr-package-version)  if [ ! -z "$THIS_RESULT" ]; then VS_SSR_PACKAGE_VERSION=$THIS_RESULT; fi;;
     --persistence) if [ ! -z "$THIS_RESULT" ]; then VS_BRXM_PERSISTENCE_METHOD=$THIS_RESULT; fi;;
     --persistence-method) if [ ! -z "$THIS_RESULT" ]; then VS_BRXM_PERSISTENCE_METHOD=$THIS_RESULT; fi;;
     --preserve-container) if [ ! -z "$THIS_RESULT" ]; then VS_CONTAINER_PRESERVE=$THIS_RESULT; else VS_CONTAINER_PRESERVE=TRUE; fi;;
@@ -566,7 +569,7 @@ findBasePort() {
     echo "`eval $VS_LOG_DATESTAMP` INFO  [$VS_SCRIPTNAME]  - VS_CONTAINER_BASE_PORT set to $VS_CONTAINER_BASE_PORT"
   elif [ $THIS_PORT -gt $MAX_PORT ] && [ ! -z "$VS_CONTAINER_BASE_PORT_OVERRIDE" ] && [ "$PORT_IN_USE" = "TRUE" ]; then
     echo "`eval $VS_LOG_DATESTAMP` INFO  [$VS_SCRIPTNAME]  - override port $VS_CONTAINER_BASE_PORT_OVERRIDE is in-use - checking if it's reserved by this branch"
-    HAS_PORT_ID=`docker ps -a | grep $VS_CONTAINER_BASE_PORT_OVERRIDE | tail -1 | awk '{print $1}'`
+    HAS_PORT_ID=`docker ps -a | grep ":$VS_CONTAINER_BASE_PORT_OVERRIDE" | tail -1 | awk '{print $1}'`
     HAS_PORT_NAME=`docker ps -a --filter="id=$HAS_PORT_ID" --format "table {{.Names}}" | tail -n +2`
     if [ "$HAS_PORT_NAME" == "$VS_CONTAINER_NAME" ]; then
       echo "`eval $VS_LOG_DATESTAMP` INFO  [$VS_SCRIPTNAME]  -- success - port is owned by $HAS_PORT_NAME"
@@ -665,6 +668,33 @@ findHippoArtifact() {
   fi
   echo ""
 }
+# prepare SSR app
+rebuildNodeModules() {
+  if [[ "$VS_SSR_PROXY_ON" = "TRUE" && ( "$VS_REBUILD_NODE_MODULES" = "TRUE" || "$VS_REBUILD_NODE_MODULES" = "true" ) && ! "$SAFE_TO_PROCEED" = "FALSE" ]]; then
+    echo "`eval $VS_LOG_DATESTAMP` INFO  [$VS_SCRIPTNAME] rebuilding node_modules directory"
+    VS_FUNCTION_STARTTIME=`date +%s`
+    if [ -d "$VS_FRONTEND_DIR" ]; then
+      cd $VS_FRONTEND_DIR
+      VS_NODE_MODULES_SIZE=`du -hs node_modules | awk '{print $1}'`
+      echo "`eval $VS_LOG_DATESTAMP` DEBUG [$VS_SCRIPTNAME] node_modules directory is $VS_NODE_MODULES_SIZE in size"
+      if [ -d "node_modules.build" ]; then rm -rf node_modules.build; fi
+      mv --force node_modules node_modules.build
+      echo "`eval $VS_LOG_DATESTAMP` INFO  [$VS_SCRIPTNAME] running npm install"
+      npm install > $VS_CI_DIR/logs/npm_install.log 2>&1
+      RETURN_CODE=$?; echo "`eval $VS_LOG_DATESTAMP` INFO  [$VS_SCRIPTNAME]  - return code: " $RETURN_CODE
+      VS_NODE_MODULES_SIZE=`du -hs node_modules | awk '{print $1}'`
+      echo "`eval $VS_LOG_DATESTAMP` DEBUG [$VS_SCRIPTNAME] node_modules directory is $VS_NODE_MODULES_SIZE in size"
+      cd $OLDPWD
+      VS_FUNCTION_ENDTIME=`date +%s`
+      VS_FUNCTION_RUNTIME=$((VS_FUNCTION_ENDTIME-VS_FUNCTION_STARTTIMETIME))
+      echo "`eval $VS_LOG_DATESTAMP` DEBUG [$VS_SCRIPTNAME] ${FUNCNAME[0]} took $VS_FUNCTION_RUNTIME seconds to run"
+      echo ""
+    fi
+  else
+    echo "`eval $VS_LOG_DATESTAMP` INFO  [$VS_SCRIPTNAME] VS_REBUILD_NODE_MODULES was set to" $VS_REBUILD_NODE_MODULES "skipping node_modules rebuild"
+    echo ""
+  fi
+}
 
 uploadHippoArtifactBRC() {
   if [ ! "$SAFE_TO_PROCEED" = "FALSE" ]; then
@@ -694,20 +724,24 @@ uploadHippoArtifactBRC() {
 # package SSR app files
 packageSSRArtifact() {
   if [ "$VS_SSR_PROXY_ON" = "TRUE" ] && [ ! "$SAFE_TO_PROCEED" = "FALSE" ]; then
+    VS_FUNCTION_STARTTIME=`date +%s`
     echo "`eval $VS_LOG_DATESTAMP` INFO  [$VS_SCRIPTNAME] packaging SSR application"
     if [ -d "$VS_FRONTEND_DIR" ]; then
       tar -zcf $VS_SSR_PACKAGE_TARGET/$VS_SSR_PACKAGE_NAME $VS_SSR_PACKAGE_SOURCE
       RETURN_CODE=$?; echo "`eval $VS_LOG_DATESTAMP` INFO  [$VS_SCRIPTNAME]  - return code: " $RETURN_CODE
       if [ -a $VS_SSR_PACKAGE_TARGET/$VS_SSR_PACKAGE_NAME ]; then
         VS_SSR_PACKAGE_SIZE=`ls -alh $VS_SSR_PACKAGE_TARGET/$VS_SSR_PACKAGE_NAME | awk '{print $5}'`
-        echo "`eval $VS_LOG_DATESTAMP` INFO  [$VS_SCRIPTNAME] " $VS_SSR_PACKAGE_NAME " is " $VS_SSR_PACKAGE_SIZE " in size"
+        echo "`eval $VS_LOG_DATESTAMP` INFO  [$VS_SCRIPTNAME] $VS_SSR_PACKAGE_NAME is $VS_SSR_PACKAGE_SIZE in size"
       fi
       if [ ! "$RETURN_CODE" = "0" ]; then
         SAFE_TO_PROCEED=FALSE
         FAIL_REASON="Failed to package SSR app from $VS_FRONTEND_DIR, command exited with $RETURN_CODE"
       fi
-      echo ""
     fi
+    VS_FUNCTION_ENDTIME=`date +%s`
+    VS_FUNCTION_RUNTIME=$((VS_FUNCTION_ENDTIME-VS_FUNCTION_STARTTIME))
+    echo "`eval $VS_LOG_DATESTAMP` DEBUG [$VS_SCRIPTNAME] ${FUNCNAME[0]} took $VS_FUNCTION_RUNTIME seconds to run"
+    echo ""
   fi
 }
 
@@ -738,9 +772,11 @@ containerCreateAndStart() {
 }
 
 containerUpdates() {
-  # check files for updated versions, if the checksum matches we want to update
-  TEST_FILES=("/usr/local/bin/vs-hippo" "/usr/local/bin/vs-hippo" "/usr/local/bin/vs-hippo" "/usr/local/bin/vs-test")
-  TEST_SUMS=("5c92fa2dfbc167d0163c1dc1d8690bfa" "a15eed06d6840e95cc7d68c5223b79ae" "165ae4f494a092da25a68d70070d85fb" "")
+  # check files for updated versions, if the checksum matches we've found a version of the file earlier than this script requires and want to update
+  #  - this was originally seen as better than a pure versioning system as it allows a locally modified version to be used for testing without fear of overwrite
+  #  - to-do: gp-20240513 replace the MD5 check with a versioning system, always overwrite the scripts with SCM versions, remove scripts from the image
+  TEST_FILES=("/usr/local/bin/vs-hippo" "/usr/local/bin/vs-hippo" "/usr/local/bin/vs-hippo" "/usr/local/bin/vs-hippo" "" "/usr/local/bin/vs-test")
+  TEST_SUMS=("5c92fa2dfbc167d0163c1dc1d8690bfa" "a15eed06d6840e95cc7d68c5223b79ae" "165ae4f494a092da25a68d70070d85fb" "69f81c5752890bcaaf237c7a92a39e5d" "" "")
   for i in ${!TEST_FILES[@]}; do
     THIS_FILE="${TEST_FILES[$i]}"
     THIS_SUM="${TEST_SUMS[$i]}"
@@ -754,7 +790,7 @@ containerUpdates() {
       THIS_TEST=`docker exec $VS_CONTAINER_NAME md5sum $THIS_FILE 2>>$VS_CONTAINER_CONSOLE_FILE | awk '{print $1}'`
       echo "`eval $VS_LOG_DATESTAMP` INFO  [$VS_SCRIPTNAME]  - sum now: $THIS_TEST"
     else
-      echo "`eval $VS_LOG_DATESTAMP` INFO  [$VS_SCRIPTNAME]  - no match"
+      echo "`eval $VS_LOG_DATESTAMP` INFO  [$VS_SCRIPTNAME]  - no match for: $THIS_TEST"
     fi
   done
   docker exec $VS_CONTAINER_NAME /bin/bash -c "find /usr/local/bin -type f | xargs chmod +x"
@@ -824,9 +860,9 @@ containerStartHippo() {
     #echo "about to execute $VS_DOCKER_CMD in container $VS_CONTAINER_NAME"
     #eval $VS_DOCKER_CMD 
     if [ "$VS_BRXM_PERSISTENCE_METHOD" == "mysql" ]; then
-      VS_DOCKER_CMD='docker exec -d $VS_CONTAINER_NAME /bin/bash -c "/usr/local/bin/vs-hippo >> $VS_CONTAINER_CONSOLE_FILE"'
+      VS_DOCKER_CMD='docker exec -d $VS_CONTAINER_NAME /bin/bash -c "/usr/local/bin/vs-hippo --persistence-method=mysql >> $VS_CONTAINER_CONSOLE_FILE"'
     else
-      VS_DOCKER_CMD='docker exec -d $VS_CONTAINER_NAME /bin/bash -c "/usr/local/bin/vs-hippo nodb >> $VS_CONTAINER_CONSOLE_FILE"'
+      VS_DOCKER_CMD='docker exec -d $VS_CONTAINER_NAME /bin/bash -c "/usr/local/bin/vs-hippo --persistence-method=h2 >> $VS_CONTAINER_CONSOLE_FILE"'
     fi
     echo "`eval $VS_LOG_DATESTAMP` INFO  [$VS_SCRIPTNAME] about to execute VS_DOCKER_CMD in container $VS_CONTAINER_NAME"
     echo "`eval $VS_LOG_DATESTAMP` INFO  [$VS_SCRIPTNAME]  - $VS_DOCKER_CMD"
@@ -862,7 +898,7 @@ containerStartTailon() {
 
 exportVSVariables() {
   echo "`eval $VS_LOG_DATESTAMP` INFO  [$VS_SCRIPTNAME] exporting VS variables to $VS_LAST_ENV and $VS_LAST_ENV$VS_LAST_ENV_QUOTED_SUFFIX and $VS_LAST_ENV$VS_LAST_ENV_GROOVY_SUFFIX to $PWD" | tee -a $VS_SCRIPT_LOG
-  set | egrep "^(VS_)" | egrep -v "^VS_LOG_DATESTAMP" | tee $VS_LAST_ENV | sed -e "s/^/env./" -e "s/=\([^'$]\)/=\"\1/" -e "s/\([^'=]\)$/\1\"/" | tee $VS_LAST_ENV$VS_LAST_ENV_QUOTED_SUFFIX | sed -e "s/=/ = /" > $VS_LAST_ENV$VS_LAST_ENV_GROOVY_SUFFIX
+  set | egrep "^(VS_)" | egrep -v "^VS_LOG_DATESTAMP" | tee $VS_CI_DIR/$VS_LAST_ENV | sed -e "s/^/env./" -e "s/=\([^'$]\)/=\"\1/" -e "s/\([^'=]\)$/\1\"/" | tee $VS_CI_DIR/$VS_LAST_ENV$VS_LAST_ENV_QUOTED_SUFFIX | sed -e "s/=/ = /" > $VS_CI_DIR/$VS_LAST_ENV$VS_LAST_ENV_GROOVY_SUFFIX
 }
 
 copyVSVariables() {
@@ -967,17 +1003,8 @@ sendSiteReport() {
 # ==== RUN ====
 echo "`eval $VS_LOG_DATESTAMP` INFO  [$VS_SCRIPTNAME] $0 was called with $METHOD"
 case $METHOD in
-  other)
-    false
-  ;;
   default)
     false
-  ;;
-  setvars)
-    checkVariables
-    defaultSettings
-    exportVSVariables
-    copyVSVariables
   ;;
   displayreport)
     #checkVariables
@@ -988,6 +1015,20 @@ case $METHOD in
     checkVariables
     defaultSettings
     findHippoArtifact
+  ;;
+  packagesstartifact)
+    checkVariables
+    defaultSettings
+    packageSSRArtifact
+  ;;
+  other)
+    false
+  ;;
+  setvars)
+    checkVariables
+    defaultSettings
+    exportVSVariables
+    copyVSVariables
   ;;
   upload-to-brcloud)
     checkVariables
@@ -1016,6 +1057,7 @@ case $METHOD in
     findBasePort
     findDynamicPorts
     findHippoArtifact
+    rebuildNodeModules
     packageSSRArtifact
     if [ ! "$VS_CONTAINER_PRESERVE" == "TRUE" ]; then
       containerCreateAndStart

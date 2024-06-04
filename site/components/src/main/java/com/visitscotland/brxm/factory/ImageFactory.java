@@ -12,10 +12,7 @@ import com.visitscotland.brxm.model.FlatImage;
 import com.visitscotland.brxm.model.Module;
 import com.visitscotland.brxm.services.CommonUtilsService;
 import com.visitscotland.brxm.services.ResourceBundleService;
-import com.visitscotland.brxm.utils.ContentLogger;
-import com.visitscotland.brxm.utils.HippoUtilsService;
-import com.visitscotland.brxm.utils.Language;
-import com.visitscotland.brxm.utils.Properties;
+import com.visitscotland.brxm.utils.*;
 import com.visitscotland.utils.Contract;
 import org.hippoecm.hst.content.beans.standard.HippoBean;
 import org.slf4j.Logger;
@@ -39,12 +36,12 @@ public class ImageFactory {
     private final LocationLoader locationLoader;
     private final CommonUtilsService utils;
     private final HippoUtilsService hippoUtils;
-    private final Properties properties;
+    private final CMSProperties properties;
     private final ResourceBundleService bundle;
     private final Logger contentLogger;
 
     @Autowired
-    public ImageFactory(LocationLoader locationLoader, CommonUtilsService utils, Properties properties, HippoUtilsService hippoUtils, ResourceBundleService bundle,
+    public ImageFactory(LocationLoader locationLoader, CommonUtilsService utils, CMSProperties properties, HippoUtilsService hippoUtils, ResourceBundleService bundle,
                         ContentLogger contentLogger) {
         this.locationLoader = locationLoader;
         this.utils = utils;

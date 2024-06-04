@@ -2,27 +2,24 @@ package com.visitscotland.brxm.services;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.visitscotland.brxm.config.VsComponentManager;
+import com.visitscotland.brxm.dms.DMSConstants;
+import com.visitscotland.brxm.dms.DMSDataService;
+import com.visitscotland.brxm.dms.ProductSearchBuilder;
 import com.visitscotland.brxm.factory.ImageFactory;
 import com.visitscotland.brxm.hippobeans.*;
 import com.visitscotland.brxm.mock.MegalinksMockBuilder;
 import com.visitscotland.brxm.mock.SharedLinkMockBuilder;
 import com.visitscotland.brxm.mock.VideoMockBuilder;
-import com.visitscotland.brxm.model.FlatImage;
-import com.visitscotland.brxm.model.FlatLink;
-import com.visitscotland.brxm.model.LinkType;
-import com.visitscotland.brxm.config.VsComponentManager;
-import com.visitscotland.brxm.dms.DMSDataService;
-import com.visitscotland.brxm.dms.ProductSearchBuilder;
 import com.visitscotland.brxm.model.Module;
+import com.visitscotland.brxm.model.*;
 import com.visitscotland.brxm.model.megalinks.EnhancedLink;
-import com.visitscotland.brxm.model.YoutubeVideo;
-import com.visitscotland.brxm.utils.ContentLogger;
-import com.visitscotland.brxm.utils.HippoUtilsService;
-import com.visitscotland.brxm.utils.Properties;
-import com.visitscotland.brxm.dms.DMSConstants;
+import com.visitscotland.brxm.utils.*;
 import org.hippoecm.hst.content.beans.standard.HippoCompound;
 import org.hippoecm.hst.core.container.ComponentManager;
-import org.junit.jupiter.api.*;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
@@ -38,7 +35,6 @@ import java.text.SimpleDateFormat;
 import java.util.*;
 
 import static org.junit.jupiter.api.Assertions.*;
-import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
@@ -57,8 +53,10 @@ class LinkServiceTest {
     private HippoUtilsService utils;
 
     @Mock
-    private Properties properties;
+    private CMSProperties properties;
 
+    @Mock
+    private SiteProperties siteProperties;
     @Mock
     private CommonUtilsService commonUtils;
 
@@ -306,7 +304,7 @@ class LinkServiceTest {
     @DisplayName("Identifies internal URL patterns")
     void internalURLs(String url) {
         if (url.startsWith("http")) {
-            when(properties.getInternalSites()).thenReturn(Arrays.asList("localhost,www.visitscotland.com".split(",")));
+            when(siteProperties.getInternalSites()).thenReturn(Arrays.asList("localhost,www.visitscotland.com".split(",")));
         }
         assertEquals(LinkType.INTERNAL, service.getType(url));
     }
@@ -320,7 +318,7 @@ class LinkServiceTest {
     })
     @DisplayName("Identifies external URL patterns")
     void externalURLs(String url) {
-        when(properties.getInternalSites()).thenReturn(Arrays.asList("localhost,www.visitscotland.com".split(",")));
+        when(siteProperties.getInternalSites()).thenReturn(Arrays.asList("localhost,www.visitscotland.com".split(",")));
         assertEquals(LinkType.EXTERNAL, service.getType(url));
     }
 
@@ -365,7 +363,7 @@ class LinkServiceTest {
     @DisplayName("Return the category for the link/page")
     void getLinkCategory() {
         when(properties.getDmsHost()).thenReturn("http://localhost:8080");
-        when(properties.getInternalSites()).thenReturn(Arrays.asList("www.visitscotland.com,ebooks.visitscotland.com,blog.visitscotland.com".split(",")));
+        when(siteProperties.getInternalSites()).thenReturn(Arrays.asList("www.visitscotland.com,ebooks.visitscotland.com,blog.visitscotland.com".split(",")));
 
         when(resourceBundle.getResourceBundle("navigation.categories", "ebooks", Locale.UK )).thenReturn("eBooks");
         assertEquals("eBooks", service.getLinkCategory("https://ebooks.visitscotland.com/whisky-distilleries-guides/",Locale.UK));
@@ -535,7 +533,7 @@ class LinkServiceTest {
     @Test
     @DisplayName("VS-2756 - create an External Link for an English page")
     void createExternalLink(){
-        when(properties.getInternalSites()).thenReturn(Collections.singletonList("www.visitscotland.com"));
+        when(siteProperties.getInternalSites()).thenReturn(Collections.singletonList("www.visitscotland.com"));
 
         assertEquals("/unit-test/", service.createExternalLink(Locale.UK, "/unit-test/",null, null).getLink());
         assertEquals("/info/accommodation/unit-test/", service.createExternalLink(Locale.UK, "/info/accommodation/unit-test/",null, null).getLink());
@@ -546,7 +544,7 @@ class LinkServiceTest {
     @Test
     @DisplayName("VS-2756 - Create an External Link for a lacocalized page from a fully qualified URLs")
     void createExternalLink_languange_fullyqualified(){
-        when(properties.getInternalSites()).thenReturn(Arrays.asList("www.visitscotland.com,x.y.z".split(",")));
+        when(siteProperties.getInternalSites()).thenReturn(Arrays.asList("www.visitscotland.com,x.y.z".split(",")));
 
         assertEquals("https://www.visitscotland.com/fr-fr/unit-test/", service.createExternalLink(Locale.FRANCE, "https://www.visitscotland.com/unit-test/",null, null).getLink());
         assertEquals("https://www.visitscotland.com/fr-fr/info/accommodation/unit-test/", service.createExternalLink(Locale.FRANCE, "https://www.visitscotland.com/info/accommodation/unit-test/",null, null).getLink());
@@ -557,8 +555,8 @@ class LinkServiceTest {
     @Test
     @DisplayName("VS-2756 - When the URL is already localized it doesn't add the path language path again")
     void createExternalLink_relativeUrls(){
-        when(properties.getInternalSites()).thenReturn(Collections.singletonList("www.visitscotland.com"));
-        when(properties.getConvertToRelative()).thenReturn("www.visitscotland.com");
+        when(siteProperties.getInternalSites()).thenReturn(Collections.singletonList("www.visitscotland.com"));
+        when(siteProperties.getConvertToRelative()).thenReturn("www.visitscotland.com");
 
         assertEquals("/unit-test/", service.createExternalLink(Locale.UK, "https://www.visitscotland.com/unit-test/",null, null).getLink());
         assertEquals("/info/accommodation/unit-test/", service.createExternalLink(Locale.UK, "https://www.visitscotland.com/info/accommodation/unit-test/",null, null).getLink());
@@ -578,7 +576,7 @@ class LinkServiceTest {
     @Test
     @DisplayName("VS-2756 - Create a localized  External Link for a non-existing locale page")
     void createExternalLink_unrecognized_language(){
-        when(properties.getInternalSites()).thenReturn(Collections.singletonList("www.visitscotland.com"));
+        when(siteProperties.getInternalSites()).thenReturn(Collections.singletonList("www.visitscotland.com"));
 
         assertEquals("/unit-test/", service.createExternalLink(Locale.JAPAN, "/unit-test/","Label", null).getLink());
         assertEquals("/info/accommodation/unit-test/", service.createExternalLink(Locale.JAPAN, "/info/accommodation/unit-test/",null, null).getLink());
@@ -599,7 +597,7 @@ class LinkServiceTest {
     @Test
     @DisplayName("VS-2756 - When the URL is already localized it doesn't add the path language path again")
     void createExternalLink_double_localization(){
-        when(properties.getInternalSites()).thenReturn(Collections.singletonList("www.visitscotland.com"));
+        when(siteProperties.getInternalSites()).thenReturn(Collections.singletonList("www.visitscotland.com"));
 
         assertEquals("https://www.visitscotland.com/fr/unit-test/", service.createExternalLink(Locale.FRANCE, "https://www.visitscotland.com/fr/unit-test/",null, null).getLink());
         assertEquals("https://www.visitscotland.com/fr-fr/info/accommodation/unit-test/", service.createExternalLink(Locale.FRANCE, "https://www.visitscotland.com/fr-fr/info/accommodation/unit-test/",null, null).getLink());
@@ -610,7 +608,7 @@ class LinkServiceTest {
     void createSimpleLink(){
         SharedLink sl = new SharedLinkMockBuilder().externalDocument("title", "doc.pdf", null).build();
 
-        when(properties.getInternalSites()).thenReturn(Collections.singletonList("www.visitscotland.com"));
+        when(siteProperties.getInternalSites()).thenReturn(Collections.singletonList("www.visitscotland.com"));
 
         FlatLink link = service.createSimpleLink(sl, null, Locale.UK);
 

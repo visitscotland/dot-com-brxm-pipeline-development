@@ -2,38 +2,27 @@ package com.visitscotland.brxm.rest;
 
 import com.visitscotland.brxm.config.VsComponentManager;
 import com.visitscotland.brxm.hippobeans.*;
-import com.visitscotland.brxm.model.sitemap.Sitemap;
 import com.visitscotland.brxm.model.sitemap.SitemapEntry;
 import com.visitscotland.brxm.services.CommonUtilsService;
 import com.visitscotland.brxm.services.DocumentUtilsService;
-import com.visitscotland.brxm.services.LinkService;
-import com.visitscotland.brxm.utils.HippoUtilsService;
-import com.visitscotland.brxm.utils.Properties;
 import com.visitscotland.brxm.utils.VsException;
 import org.hippoecm.hst.configuration.hosting.Mount;
-import org.hippoecm.hst.configuration.hosting.VirtualHosts;
 import org.hippoecm.hst.container.RequestContextProvider;
 import org.hippoecm.hst.content.beans.query.HstQuery;
 import org.hippoecm.hst.content.beans.query.HstQueryManager;
 import org.hippoecm.hst.content.beans.query.HstQueryResult;
 import org.hippoecm.hst.content.beans.query.exceptions.QueryException;
 import org.hippoecm.hst.content.beans.query.filter.Filter;
-import org.hippoecm.hst.content.beans.standard.HippoBean;
 import org.hippoecm.hst.content.beans.standard.HippoBeanIterator;
 import org.hippoecm.hst.core.component.HstRequest;
 import org.hippoecm.hst.core.request.HstRequestContext;
 import org.hippoecm.hst.jaxrs.services.AbstractResource;
-import org.hippoecm.hst.util.HstRequestUtils;
-import org.hippoecm.hst.util.HstSiteMapUtils;
 import org.hippoecm.hst.util.PathUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 
 import javax.jcr.Node;
 import javax.jcr.RepositoryException;
-import javax.servlet.http.HttpServletRequest;
 import javax.ws.rs.*;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.Response;
@@ -56,11 +45,8 @@ public class SitemapRestService extends AbstractResource {
 
     private final CommonUtilsService utils;
 
-    private final Properties properties;
-
-    public SitemapRestService(CommonUtilsService utils, Properties properties) {
+    public SitemapRestService(CommonUtilsService utils) {
         this.utils = utils;
-        this.properties = properties;
     }
 
     @GET
@@ -175,16 +161,18 @@ public class SitemapRestService extends AbstractResource {
         HstRequestContext context = RequestContextProvider.get();
         String currentHost = context.getVirtualHost().getHostGroupName();
 
-        for (Mount mount : context.getVirtualHost().getVirtualHosts().getMountsByHostGroup(currentHost)) {
-            if (mount.getParent() == null){
-                if (channel.equals("hst:root")){
-                    return mount;
-                }
-            } else if (channel.equals(mount.getName())){
-                return mount;
+        Mount rootMount = context.getResolvedMount().getMount().getParent();
+
+        if (channel.equals("hst:root")){
+            return rootMount;
+        } else {
+            Mount lang = rootMount.getChildMount(channel);
+            if (lang == null) {
+                logger.warn("The mount point for the channel {} was not located. Defaulting to English", channel);
+                throw new VsException("The requested channel was not found");
+            } else {
+                return lang;
             }
         }
-        logger.warn("The mount point for the channel {} was not located. Defaulting to English", channel);
-        throw new VsException("The requested channel was not found");
     }
 }

@@ -4,26 +4,25 @@ import com.visitscotland.brxm.hippobeans.MarketoForm;
 import com.visitscotland.brxm.mock.MarketoFormMockBuilder;
 import com.visitscotland.brxm.model.FormModule;
 import com.visitscotland.brxm.model.form.MarketoConfiguration;
-import com.visitscotland.brxm.utils.Properties;
+import com.visitscotland.brxm.utils.SiteProperties;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
-import static org.junit.jupiter.api.Assertions.*;
-
-import org.junit.jupiter.api.Test;
-
-import static org.mockito.Mockito.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertInstanceOf;
+import static org.mockito.Mockito.when;
 
 
 @ExtendWith(MockitoExtension.class)
-class FactoryTest {
+class FormFactoryTest {
 
     @Mock
-    Properties properties;
+    SiteProperties properties;
 
     @InjectMocks
     FormFactory marketoFormFactory;
@@ -34,11 +33,11 @@ class FactoryTest {
         MarketoForm form = new MarketoFormMockBuilder().title("title")
                 .configuration("config").noJavascriptMessage("nojs").copy("copy").build();
 
-        when(properties.getProperty(FormFactory.PROP_RECAPTCHA)).thenReturn("recaptcha");
-        when(properties.getProperty(FormFactory.PROP_MARKETO_URL)).thenReturn("url");
-        when(properties.getProperty(FormFactory.PROP_MARKETO_MUNCHKIN)).thenReturn("munchkin");
-        when(properties.getProperty(FormFactory.PROP_MARKETO_SCRIPT)).thenReturn("script.js");
-        when(properties.readBoolean(FormFactory.PROP_MARKETO_IS_PRODUCTION)).thenReturn(true);
+        when(properties.getFormsRecaptcha()).thenReturn("recaptcha");
+        when(properties.getFormsMarketoUrl()).thenReturn("url");
+        when(properties.getFormsMarketoMunchkin()).thenReturn("munchkin");
+        when(properties.getFormsMarketoScript()).thenReturn("script.js");
+        when(properties.getFormsMarketoIsProduction()).thenReturn(true);
 
         FormModule module = marketoFormFactory.getModule(form);
 

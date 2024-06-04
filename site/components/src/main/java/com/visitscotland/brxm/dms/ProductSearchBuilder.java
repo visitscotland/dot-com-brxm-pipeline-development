@@ -1,10 +1,10 @@
 package com.visitscotland.brxm.dms;
 
-import com.visitscotland.brxm.hippobeans.ProductsSearch;
-import com.visitscotland.brxm.dms.model.LocationObject;
 import com.visitscotland.brxm.config.VsComponentManager;
+import com.visitscotland.brxm.dms.model.LocationObject;
+import com.visitscotland.brxm.hippobeans.ProductsSearch;
+import com.visitscotland.brxm.utils.CMSProperties;
 import com.visitscotland.brxm.utils.Language;
-import com.visitscotland.brxm.utils.Properties;
 import com.visitscotland.brxm.utils.VsException;
 import com.visitscotland.utils.Contract;
 import org.slf4j.Logger;
@@ -14,10 +14,13 @@ import org.springframework.stereotype.Component;
 
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
-import java.util.*;
+import java.util.Collection;
+import java.util.Locale;
+import java.util.Set;
+import java.util.TreeSet;
 
-import static org.springframework.beans.factory.config.ConfigurableBeanFactory.SCOPE_PROTOTYPE;
 import static com.visitscotland.brxm.dms.DMSConstants.ProductSearch.*;
+import static org.springframework.beans.factory.config.ConfigurableBeanFactory.SCOPE_PROTOTYPE;
 
 /**
  * @author jose.calcines
@@ -70,9 +73,9 @@ public class ProductSearchBuilder {
 
     private final LocationLoader locationLoader;
 
-    private final Properties properties;
+    private final CMSProperties properties;
 
-    public ProductSearchBuilder(LocationLoader locationLoader, Properties properties){
+    public ProductSearchBuilder(LocationLoader locationLoader, CMSProperties properties){
         this.locationLoader = locationLoader;
         this.properties = properties;
         this.order = Order.NONE;
@@ -351,7 +354,7 @@ public class ProductSearchBuilder {
             if ("DISTRICT".equals(loc.getType())){
                 locProx = "1";
             }
-            
+
             try {
                 compose = addParams(compose, LOCATION_NAME_PARAM, URLEncoder.encode(loc.getName(), "UTF-8"));
             } catch (UnsupportedEncodingException e) {
