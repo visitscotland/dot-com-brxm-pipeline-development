@@ -2,10 +2,7 @@ package com.visitscotland.brxm.services;
 
 import com.visitscotland.brxm.hippobeans.*;
 import com.visitscotland.brxm.model.LocalizedURL;
-import com.visitscotland.brxm.utils.ContentLogger;
-import com.visitscotland.brxm.utils.HippoUtilsService;
-import com.visitscotland.brxm.utils.Language;
-import com.visitscotland.brxm.utils.Properties;
+import com.visitscotland.brxm.utils.*;
 import org.apache.jackrabbit.commons.iterator.NodeIteratorAdapter;
 import org.hippoecm.hst.content.beans.ObjectBeanManagerException;
 import org.hippoecm.hst.content.beans.query.exceptions.QueryException;
@@ -42,7 +39,10 @@ class DocumentUtilsServiceTest {
     @Mock
     ResourceBundleService bundle;
     @Mock
-    Properties properties;
+    CMSProperties properties;
+
+    @Mock
+    SiteProperties siteProperties;
     @Mock
     ContentLogger logger;
 
@@ -217,7 +217,7 @@ class DocumentUtilsServiceTest {
     @Test
     @DisplayName("Translations sorted by SEO order")
     void sortTranslationsBySeoOrdering() {
-        when(properties.getChannelOrder()).thenReturn("en,fr,es");
+        when(siteProperties.getChannelOrder()).thenReturn("en,fr,es");
         General englishDoc = mock(General.class);
         when(englishDoc.getLocale()).thenReturn(Locale.UK);
         General frenchDoc = mock(General.class);
@@ -237,7 +237,7 @@ class DocumentUtilsServiceTest {
     @NullSource
     @ValueSource(strings = {"", "en,fr", "notalocale"})
     void sortTranslations_invalidSeoProperty(String seoProperty) {
-        when(properties.getChannelOrder()).thenReturn(seoProperty);
+        when(siteProperties.getChannelOrder()).thenReturn(seoProperty);
         General englishDoc = mock(General.class);
         when(englishDoc.getLocale()).thenReturn(Locale.UK);
         General frenchDoc = mock(General.class);

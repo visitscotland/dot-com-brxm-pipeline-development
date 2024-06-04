@@ -3,10 +3,7 @@ package com.visitscotland.brxm.services;
 import com.visitscotland.brxm.hippobeans.BaseDocument;
 import com.visitscotland.brxm.hippobeans.Page;
 import com.visitscotland.brxm.model.LocalizedURL;
-import com.visitscotland.brxm.utils.ContentLogger;
-import com.visitscotland.brxm.utils.HippoUtilsService;
-import com.visitscotland.brxm.utils.Language;
-import com.visitscotland.brxm.utils.Properties;
+import com.visitscotland.brxm.utils.*;
 import com.visitscotland.utils.Contract;
 import org.hippoecm.hst.content.beans.ObjectBeanManagerException;
 import org.hippoecm.hst.content.beans.query.exceptions.QueryException;
@@ -19,7 +16,10 @@ import org.springframework.stereotype.Component;
 import javax.jcr.Node;
 import javax.jcr.NodeIterator;
 import javax.jcr.RepositoryException;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Locale;
+import java.util.Optional;
 
 /**
  * Singleton
@@ -34,14 +34,16 @@ public class DocumentUtilsService {
 
     private final HippoUtilsService utils;
     private final ResourceBundleService bundle;
-    private final Properties properties;
+    private final CMSProperties cmsProperties;
+    private final SiteProperties siteProperties;
     private final Logger contentLog;
 
-    public DocumentUtilsService(HippoUtilsService utils, ResourceBundleService bundle, Properties properties,
-                                ContentLogger contentLogger) {
+    public DocumentUtilsService(HippoUtilsService utils, ResourceBundleService bundle, CMSProperties cmsProperties,
+                                SiteProperties siteProperties, ContentLogger contentLogger) {
         this.utils = utils;
         this.bundle = bundle;
-        this.properties = properties;
+        this.cmsProperties = cmsProperties;
+        this.siteProperties = siteProperties;
         this.contentLog = contentLogger;
     }
 
@@ -161,7 +163,7 @@ public class DocumentUtilsService {
         List<B> sortedTranslations = new ArrayList<>();
         // The ordering of translations for SEO purposes is defined in VS-1416 (see issue comments)
         // This is stored as a comma separated list in the channel properties file
-        String seoSortOrderProperty = Contract.defaultIfNull(properties.getChannelOrder(), "");
+        String seoSortOrderProperty = Contract.defaultIfNull(siteProperties.getChannelOrder(), "");
         for (String locale: seoSortOrderProperty.split(",")) {
             for (BaseDocument bean : availableTranslations){
                 if (locale != null && bean.getLocale().getLanguage().equals(locale)){
@@ -188,7 +190,7 @@ public class DocumentUtilsService {
             languagePath += Language.getLanguageForLocale(locale).getPathVariable();
         }
 
-        return properties.getCmsBasePath() +
+        return cmsProperties.getCmsBasePath() +
                 languagePath + request.getRequestContext().getBaseURL().getPathInfo();
     }
 

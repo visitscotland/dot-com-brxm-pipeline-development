@@ -5,7 +5,7 @@
   <parent>
     <groupId>com.onehippo.cms7</groupId>
     <artifactId>hippo-cms7-enterprise-release</artifactId>
-    <version>15.5.0</version>
+    <version>15.6.0</version>
     <!--Remember to upgrade essentials when this version is updated -->
   </parent>
 
@@ -13,7 +13,7 @@
   <description>www.visitscotland.com CMS Pages</description>
   <groupId>com.visitscotland</groupId>
   <artifactId>dot-com-brxm</artifactId>
-  <version>2.1.1-SNAPSHOT</version>
+  <version>2.2.0-SNAPSHOT</version>
   <packaging>pom</packaging>
 
   <properties>
@@ -25,13 +25,12 @@
     <cliOptions></cliOptions>
 
     <!-- BloomReach Dependencies -->
-
-    <essentials.version>15.5.0</essentials.version>
+    <essentials.version>15.6.0</essentials.version>
     <!-- Documentation: https://bloomreach-forge.github.io/external-document-picker/index.html -->
     <forge.exdocpickerbase.version>8.0.0</forge.exdocpickerbase.version>
     <!-- Documentation: https://bloomreach-forge.github.io/breadcrumb/ -->
     <forge.breadcrumb.version>5.0.0</forge.breadcrumb.version>
-<!--    <bloomreach.forge.ipfilter.version>3.1.0</bloomreach.forge.ipfilter.version>-->
+    <!--    <bloomreach.forge.ipfilter.version>3.1.0</bloomreach.forge.ipfilter.version>-->
 
     <!-- Other dependencies -->
     <commons-lan3.version>3.8.1</commons-lan3.version>
@@ -87,22 +86,22 @@
     </snapshotRepository>
   </distributionManagement>
 
-<!--  <repositories>-->
-<!--    <repository>-->
-<!--      <id>hippo</id>-->
-<!--      <name>Hippo maven 2 repository.</name>-->
-<!--      <url>https://maven.bloomreach.com/repository/maven2/</url>-->
-<!--    </repository>-->
-<!--    <repository>-->
-<!--      <id>hippo-maven2-enterprise</id>-->
-<!--      <name>Hippo Enterprise Maven 2</name>-->
-<!--      <url>https://maven.bloomreach.com/repository/maven2-enterprise/</url>-->
-<!--      <releases>-->
-<!--        <updatePolicy>never</updatePolicy>-->
-<!--        <checksumPolicy>fail</checksumPolicy>-->
-<!--      </releases>-->
-<!--    </repository>-->
-<!--  </repositories>-->
+  <!--  <repositories>-->
+  <!--    <repository>-->
+  <!--      <id>hippo</id>-->
+  <!--      <name>Hippo maven 2 repository.</name>-->
+  <!--      <url>https://maven.bloomreach.com/repository/maven2/</url>-->
+  <!--    </repository>-->
+  <!--    <repository>-->
+  <!--      <id>hippo-maven2-enterprise</id>-->
+  <!--      <name>Hippo Enterprise Maven 2</name>-->
+  <!--      <url>https://maven.bloomreach.com/repository/maven2-enterprise/</url>-->
+  <!--      <releases>-->
+  <!--        <updatePolicy>never</updatePolicy>-->
+  <!--        <checksumPolicy>fail</checksumPolicy>-->
+  <!--      </releases>-->
+  <!--    </repository>-->
+  <!--  </repositories>-->
 
   <dependencyManagement>
     <dependencies>
@@ -153,17 +152,17 @@
         <version>${freemarker.version}</version>
       </dependency>
 
-<!--      <dependency>-->
-<!--        <groupId>org.bloomreach.forge.ipfilter</groupId>-->
-<!--        <artifactId>bloomreach-ipfilter-hst</artifactId>-->
-<!--        <version>${bloomreach.forge.ipfilter.version}</version>-->
-<!--      </dependency>-->
+      <!--      <dependency>-->
+      <!--        <groupId>org.bloomreach.forge.ipfilter</groupId>-->
+      <!--        <artifactId>bloomreach-ipfilter-hst</artifactId>-->
+      <!--        <version>${bloomreach.forge.ipfilter.version}</version>-->
+      <!--      </dependency>-->
 
-<!--      <dependency>-->
-<!--        <groupId>org.bloomreach.forge.ipfilter</groupId>-->
-<!--        <artifactId>bloomreach-ipfilter-cms</artifactId>-->
-<!--        <version>${bloomreach.forge.ipfilter.version}</version>-->
-<!--      </dependency>-->
+      <!--      <dependency>-->
+      <!--        <groupId>org.bloomreach.forge.ipfilter</groupId>-->
+      <!--        <artifactId>bloomreach-ipfilter-cms</artifactId>-->
+      <!--        <version>${bloomreach.forge.ipfilter.version}</version>-->
+      <!--      </dependency>-->
 
 
       <dependency>

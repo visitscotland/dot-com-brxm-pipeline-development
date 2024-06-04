@@ -37,7 +37,7 @@
                     <@imageWithCaption 
                         imageSrc=image 
                         imageDetails=item.image 
-                        variant="large" 
+                        variant="fullwidth" 
                         noAltText="true"
                         useLazyLoading=isFirstListicle
                     />
