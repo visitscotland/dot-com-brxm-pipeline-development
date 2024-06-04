@@ -15,7 +15,7 @@ import com.visitscotland.brxm.services.ResourceBundleService;
 import com.visitscotland.brxm.utils.ContentLogger;
 import com.visitscotland.brxm.utils.HippoUtilsService;
 import com.visitscotland.brxm.utils.MetadataFactory;
-import com.visitscotland.brxm.utils.Properties;
+import com.visitscotland.brxm.utils.SiteProperties;
 import com.visitscotland.utils.Contract;
 import org.hippoecm.hst.core.component.HstRequest;
 import org.hippoecm.hst.core.component.HstResponse;
@@ -61,7 +61,7 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
     private final PreviewModeFactory previewFactory;
     private final HippoUtilsService hippoUtils;
     private final ResourceBundleService bundle;
-    private final Properties properties;
+    private final SiteProperties properties;
     private final Logger contentLogger;
 
     private final MetadataFactory metadata;
@@ -76,7 +76,7 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
         previewFactory = VsComponentManager.get(PreviewModeFactory.class);
         contentLogger = VsComponentManager.get(ContentLogger.class);
         hippoUtils = VsComponentManager.get(HippoUtilsService.class);
-        properties = VsComponentManager.get(Properties.class);
+        properties = VsComponentManager.get(SiteProperties.class);
         bundle = VsComponentManager.get(ResourceBundleService.class);
         metadata = VsComponentManager.get(MetadataFactory.class);
 
@@ -152,9 +152,9 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
 
         Map<String, String> gtmProperties = new HashMap<>();
 
-        gtmProperties.put(Properties.GTM_CONTAINER_ID, properties.getGtmContainerId());
-        gtmProperties.put(Properties.GTM_PREVIEW_QUERY_STRING, properties.getGtmPreviewQueryString());
-        gtmProperties.put(Properties.GTM_IS_PRODUCTION, properties.getGtmIsProduction());
+        gtmProperties.put(SiteProperties.GTM_CONTAINER_ID, properties.getGtmContainerId());
+        gtmProperties.put(SiteProperties.GTM_PREVIEW_QUERY_STRING, properties.getGtmPreviewQueryString());
+        gtmProperties.put(SiteProperties.GTM_IS_PRODUCTION, properties.getGtmIsProduction());
 
         request.setModel(GTM, gtmProperties);
     }

@@ -30,7 +30,7 @@
     <forge.exdocpickerbase.version>8.0.0</forge.exdocpickerbase.version>
     <!-- Documentation: https://bloomreach-forge.github.io/breadcrumb/ -->
     <forge.breadcrumb.version>5.0.0</forge.breadcrumb.version>
-<!--    <bloomreach.forge.ipfilter.version>3.1.0</bloomreach.forge.ipfilter.version>-->
+    <!--    <bloomreach.forge.ipfilter.version>3.1.0</bloomreach.forge.ipfilter.version>-->
 
     <!-- Other dependencies -->
     <commons-lan3.version>3.8.1</commons-lan3.version>
@@ -86,22 +86,22 @@
     </snapshotRepository>
   </distributionManagement>
 
-<!--  <repositories>-->
-<!--    <repository>-->
-<!--      <id>hippo</id>-->
-<!--      <name>Hippo maven 2 repository.</name>-->
-<!--      <url>https://maven.bloomreach.com/repository/maven2/</url>-->
-<!--    </repository>-->
-<!--    <repository>-->
-<!--      <id>hippo-maven2-enterprise</id>-->
-<!--      <name>Hippo Enterprise Maven 2</name>-->
-<!--      <url>https://maven.bloomreach.com/repository/maven2-enterprise/</url>-->
-<!--      <releases>-->
-<!--        <updatePolicy>never</updatePolicy>-->
-<!--        <checksumPolicy>fail</checksumPolicy>-->
-<!--      </releases>-->
-<!--    </repository>-->
-<!--  </repositories>-->
+  <!--  <repositories>-->
+  <!--    <repository>-->
+  <!--      <id>hippo</id>-->
+  <!--      <name>Hippo maven 2 repository.</name>-->
+  <!--      <url>https://maven.bloomreach.com/repository/maven2/</url>-->
+  <!--    </repository>-->
+  <!--    <repository>-->
+  <!--      <id>hippo-maven2-enterprise</id>-->
+  <!--      <name>Hippo Enterprise Maven 2</name>-->
+  <!--      <url>https://maven.bloomreach.com/repository/maven2-enterprise/</url>-->
+  <!--      <releases>-->
+  <!--        <updatePolicy>never</updatePolicy>-->
+  <!--        <checksumPolicy>fail</checksumPolicy>-->
+  <!--      </releases>-->
+  <!--    </repository>-->
+  <!--  </repositories>-->
 
   <dependencyManagement>
     <dependencies>
@@ -152,17 +152,17 @@
         <version>${freemarker.version}</version>
       </dependency>
 
-<!--      <dependency>-->
-<!--        <groupId>org.bloomreach.forge.ipfilter</groupId>-->
-<!--        <artifactId>bloomreach-ipfilter-hst</artifactId>-->
-<!--        <version>${bloomreach.forge.ipfilter.version}</version>-->
-<!--      </dependency>-->
+      <!--      <dependency>-->
+      <!--        <groupId>org.bloomreach.forge.ipfilter</groupId>-->
+      <!--        <artifactId>bloomreach-ipfilter-hst</artifactId>-->
+      <!--        <version>${bloomreach.forge.ipfilter.version}</version>-->
+      <!--      </dependency>-->
 
-<!--      <dependency>-->
-<!--        <groupId>org.bloomreach.forge.ipfilter</groupId>-->
-<!--        <artifactId>bloomreach-ipfilter-cms</artifactId>-->
-<!--        <version>${bloomreach.forge.ipfilter.version}</version>-->
-<!--      </dependency>-->
+      <!--      <dependency>-->
+      <!--        <groupId>org.bloomreach.forge.ipfilter</groupId>-->
+      <!--        <artifactId>bloomreach-ipfilter-cms</artifactId>-->
+      <!--        <version>${bloomreach.forge.ipfilter.version}</version>-->
+      <!--      </dependency>-->
 
 
       <dependency>

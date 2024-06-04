@@ -20,7 +20,7 @@ class MessageSuppressorTest {
     MessageSuppressor cache;
 
     @Mock
-    Properties properties;
+    CMSProperties properties;
 
     @BeforeEach
     void init(){

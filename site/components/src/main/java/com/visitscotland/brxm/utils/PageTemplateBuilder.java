@@ -57,7 +57,7 @@ public class PageTemplateBuilder {
     private final MapFactory mapFactory;
     private final SkiFactory skiFactory;
     private final DevModuleFactory devModuleFactory;
-    private final Properties properties;
+    private final SiteProperties properties;
 
     private final ResourceBundleService bundle;
     private final Logger contentLogger;
@@ -68,7 +68,7 @@ public class PageTemplateBuilder {
                                IKnowFactory iKnowFactory, ArticleFactory articleFactory, LongCopyFactory longCopyFactory,
                                UserGeneratedContentFactory userGeneratedContentFactory, TravelInformationFactory travelInformationFactory,
                                CannedSearchFactory cannedSearchFactory, PreviewModeFactory previewFactory, FormFactory marketoFormFactory,
-                               MapFactory mapFactory, SkiFactory skiFactory, Properties properties,
+                               MapFactory mapFactory, SkiFactory skiFactory, SiteProperties properties,
                                DevModuleFactory devModuleFactory, ResourceBundleService bundle, Logger contentLogger) {
         this.documentUtils = documentUtils;
         this.linksFactory = linksFactory;

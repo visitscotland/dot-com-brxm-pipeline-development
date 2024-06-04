@@ -2,6 +2,7 @@ package com.visitscotland.brxm.utils;
 
 import com.visitscotland.brxm.hippobeans.Image;
 import com.visitscotland.brxm.hippobeans.Page;
+import com.visitscotland.utils.Contract;
 import org.hippoecm.hst.configuration.hosting.Mount;
 import org.hippoecm.hst.container.RequestContextProvider;
 import org.hippoecm.hst.content.beans.ObjectBeanManagerException;
@@ -28,6 +29,7 @@ import org.onehippo.taxonomy.api.Taxonomy;
 import org.onehippo.taxonomy.api.TaxonomyManager;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Component;
 
 import javax.jcr.Node;
@@ -46,8 +48,14 @@ public class HippoUtilsService {
 
     private static final Logger logger = LoggerFactory.getLogger(HippoUtilsService.class);
 
-    private final static String SITE_ID = "visitscotland:site";
-    public final static String BUSINESS_EVENTS_SITE = "business-events";
+    public static final String BUSINESS_EVENTS_SITE = "business-events";
+
+
+    private SiteProperties properties;
+
+    public HippoUtilsService(@Lazy SiteProperties properties){
+        this.properties = properties;
+    }
 
     /**
      * Convert and HstLink or a HippoBean into a URL String
@@ -214,7 +222,8 @@ public class HippoUtilsService {
     }
 
     /**
-     * TODO Comment
+     * Resolves the mount for the current request
+     *
      * @param request the HstRequest request
      * @param mount String (i.e: "es-es", "business-events", ...)
      *
@@ -359,13 +368,13 @@ public class HippoUtilsService {
      */
     @NonTestable(NonTestable.Cause.BRIDGE)
     public boolean isBusinessEventsSite(HstRequest request){
-        String site = request.getRequestContext().getResolvedMount().getMount().getProperty(SITE_ID);
-        if (site != null){
+        String site = properties.getSiteId();
+        if (!Contract.isEmpty(site)){
             if (site.equals(BUSINESS_EVENTS_SITE)){
                 return true;
             } else {
-                logger.error("The configuration for the mount cannot be interpreted ({} = {}) for the following request: {}",
-                        SITE_ID, site, request.getRequestURI());
+                logger.error("The configuration for the mount cannot be interpreted (site-id = {}) for the following request: {}",
+                        site, request.getRequestURI());
             }
         }
         return false;

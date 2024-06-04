@@ -4,7 +4,7 @@ import com.visitscotland.brxm.components.navigation.info.MenuComponentInfo;
 import com.visitscotland.brxm.config.VsComponentManager;
 import com.visitscotland.brxm.factory.BannerFactory;
 import com.visitscotland.brxm.services.DocumentUtilsService;
-import com.visitscotland.brxm.utils.Properties;
+import com.visitscotland.brxm.utils.CMSProperties;
 import org.hippoecm.hst.core.component.HstRequest;
 import org.hippoecm.hst.core.component.HstResponse;
 import org.hippoecm.hst.core.parameters.ParametersInfo;
@@ -18,12 +18,12 @@ public class MainMenuComponent extends MenuComponent {
 
     private final BannerFactory bannerFactory;
     private final DocumentUtilsService utils;
-    private final Properties properties;
+    private final CMSProperties properties;
 
     public MainMenuComponent() {
         bannerFactory = VsComponentManager.get(BannerFactory.class);
         utils = VsComponentManager.get(DocumentUtilsService.class);
-        properties = VsComponentManager.get(Properties.class);
+        properties = VsComponentManager.get(CMSProperties.class);
     }
 
     @Override
