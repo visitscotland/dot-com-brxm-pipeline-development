@@ -13,10 +13,7 @@ import com.visitscotland.brxm.model.LinkType;
 import com.visitscotland.brxm.model.Module;
 import com.visitscotland.brxm.model.megalinks.EnhancedLink;
 import com.visitscotland.brxm.model.YoutubeVideo;
-import com.visitscotland.brxm.utils.ContentLogger;
-import com.visitscotland.brxm.utils.HippoUtilsService;
-import com.visitscotland.brxm.utils.Language;
-import com.visitscotland.brxm.utils.Properties;
+import com.visitscotland.brxm.utils.*;
 import com.visitscotland.utils.Contract;
 import org.hippoecm.hst.content.beans.standard.HippoBean;
 import org.jetbrains.annotations.NotNull;
@@ -40,7 +37,8 @@ public class LinkService {
     private final DMSDataService dmsData;
     private final ResourceBundleService bundle;
     private final HippoUtilsService utils;
-    private final Properties properties;
+    private final CMSProperties cmsProperties;
+    private final SiteProperties siteProperties;
     private final ImageFactory imageFactory;
     private final CommonUtilsService commonUtils;
     private final DocumentUtilsService documentUtilsService;
@@ -48,14 +46,15 @@ public class LinkService {
     private final Logger contentLogger;
 
     @Autowired
-    public LinkService(DMSDataService dmsData, ResourceBundleService bundle, HippoUtilsService utils, Properties properties,
+    public LinkService(DMSDataService dmsData, ResourceBundleService bundle, HippoUtilsService utils, CMSProperties cmsProperties, SiteProperties siteProperties,
                        ImageFactory imageFactory, CommonUtilsService commonUtils, DocumentUtilsService documentUtilsService,
                        YoutubeApiService youtubeApiService, ContentLogger contentLogger) {
 
         this.dmsData = dmsData;
         this.bundle = bundle;
         this.utils = utils;
-        this.properties = properties;
+        this.cmsProperties = cmsProperties;
+        this.siteProperties = siteProperties;
         this.imageFactory = imageFactory;
         this.commonUtils = commonUtils;
         this.documentUtilsService = documentUtilsService;
@@ -172,13 +171,13 @@ public class LinkService {
             return url;
         }
 
-        if (!Contract.isEmpty(properties.getInternalSites())) {
+        if (!Contract.isEmpty(siteProperties.getInternalSites())) {
             try {
                 URL urlObject = new URL(url);
 
-                for (String host : properties.getInternalSites()) {
+                for (String host : siteProperties.getInternalSites()) {
                     if (urlObject.getHost().equals(host)) {
-                        String site = host.equals(properties.getConvertToRelative()) ? "" : url.substring(0, url.lastIndexOf(urlObject.getFile()));
+                        String site = host.equals(siteProperties.getConvertToRelative()) ? "" : url.substring(0, url.lastIndexOf(urlObject.getFile()));
                         return localize(locale, site, urlObject.getFile());
                     }
                 }
@@ -250,7 +249,7 @@ public class LinkService {
             if (product == null) {//((DMSLink) link).getDmsData(locale)
                 contentLogger.warn("The product id '{}' does not exist but is linked - {}", ((DMSLink) link).getProduct(), link.getPath());
             } else {
-                url = properties.getDmsHost() + product.get(DMSConstants.DMSProduct.URL).get(DMSConstants.DMSProduct.URL_LINK).asText();
+                url = cmsProperties.getDmsHost() + product.get(DMSConstants.DMSProduct.URL).get(DMSConstants.DMSProduct.URL_LINK).asText();
             }
         } else if (link instanceof ExternalLink) {
             url = ((ExternalLink) link).getLink();
@@ -302,8 +301,8 @@ public class LinkService {
     private boolean isInternalDomain(String url) {
         try {
             String host = new URL(url).getHost();
-            return ((!Contract.isEmpty(properties.getInternalSites()) && properties.getInternalSites().contains(host)) ||
-                    (!Contract.isEmpty(properties.getDmsHost()) && host.equals(properties.getDmsHost())));
+            return ((!Contract.isEmpty(siteProperties.getInternalSites()) && siteProperties.getInternalSites().contains(host)) ||
+                    (!Contract.isEmpty(cmsProperties.getDmsHost()) && host.equals(cmsProperties.getDmsHost())));
         } catch (MalformedURLException e) {
             logger.info("Malformed URL detected {}", url);
         }

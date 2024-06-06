@@ -34,7 +34,7 @@ class InternalParameterProcessorTest {
     ResourceBundleService bundle;
 
     @Mock
-    Properties properties;
+    CMSProperties properties;
 
     /**
      * Note: We usually prefer to use the out-of-the-box class MockRequest, however, in this class we need to mock

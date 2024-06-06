@@ -6,7 +6,7 @@ import com.visitscotland.brxm.model.IKnowCommunityModule;
 import com.visitscotland.brxm.model.LinkType;
 import com.visitscotland.brxm.services.ResourceBundleService;
 import com.visitscotland.brxm.utils.HippoHtmlWrapper;
-import com.visitscotland.brxm.utils.Properties;
+import com.visitscotland.brxm.utils.SiteProperties;
 import com.visitscotland.utils.Contract;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -21,13 +21,13 @@ import java.util.stream.Collectors;
 public class IKnowCommunityFactory {
 
     private final ResourceBundleService bundle;
-    private final Properties properties;
+    private final SiteProperties properties;
     private static final String BUNDLE_ID = "iknow-community";
     private static final String TAGS_BUNDLE_ID = "iknow-community-tags";
     private static final Logger logger = LoggerFactory.getLogger(IKnowCommunityFactory.class);
 
 
-    public IKnowCommunityFactory(ResourceBundleService bundle, Properties properties){
+    public IKnowCommunityFactory(ResourceBundleService bundle, SiteProperties properties){
         this.bundle = bundle;
         this.properties = properties;
     }
