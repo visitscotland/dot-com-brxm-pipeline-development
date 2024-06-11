@@ -162,20 +162,30 @@ pipeline {
                 }
             }
             steps {
-                sh 'sh ./ci/infrastructure/scripts/infrastructure.sh setvars'
-                // -- 20200712: QUESTION FOR SE, "why do we not build with-development-data?"
                 sh '''
-          git config --global user.name "${GIT_COMMITER_NAME}"
-          git config --global user.email "${GIT_COMMITER_EMAIL}"
-          echo; echo "= GIT CONFIG AFTER CONFIG ="; git config -l; echo
-        '''
-//        sh 'mvn versions:use-releases scm:checkin -Dmessage="Updated snapshot dependencies to release versions" -DpushChanges=false'
+                  set +x
+                  echo "== setting essential git variables =="
+                  git config --global user.name "${GIT_COMMITER_NAME}"
+                  git config --global user.email "${GIT_COMMITER_EMAIL}"
+                  echo; echo "= GIT CONFIG AFTER CONFIG ="; git config -l; echo
+                '''
+                //sh 'mvn versions:use-releases scm:checkin -Dmessage="Updated snapshot dependencies to release versions" -DpushChanges=false'
                 sh 'mvn versions:use-releases'
-                sh 'mvn clean package' // we are using "package" rather than "verify" for now since we don't have IT tests yet
+                sh '''
+                  set +x
+                  # unsetting BRANCH_NAME variable as the Java build uses its presence to determine whether or not to add the development banner
+                  set BRANCH_NAME_TEMP=$BRANCH_NAME; unset BRANCH_NAME
+                  # we are using "package" rather than "verify" for now since we don't have IT tests yet
+                  mvn clean package
+                  # reinstating BRANCH_NAME variable
+                  set BRANCH_NAME=$BRANCH_NAME_TEMP; unset BRANCH_NAME_TEMP
+                '''
                 script {
-                    VS_MVN_BUILD_SUCCESS = 'TRUE'
-                    echo "VS_MVN_BUILD_SUCCESS is set to ${VS_MVN_BUILD_SUCCESS}"
-                }
+		    VS_MVN_BUILD_SUCCESS = 'TRUE'
+		    echo "VS_MVN_BUILD_SUCCESS is set to ${VS_MVN_BUILD_SUCCESS}"
+		}
+                // running "infrastructure.sh setvars" here to prevent earlier creation of build-info.properties which causes the addition of the development banner
+                sh 'sh ./ci/infrastructure/scripts/infrastructure.sh setvars'
             }
             post {
                 success {
@@ -206,14 +216,26 @@ pipeline {
                 }
             }
             steps {
-                //sh 'sh ./ci/infrastructure/scripts/infrastructure.sh setvars'
                 sh '''
-          set +x
-          echo; echo "running stage $STAGE_NAME on $HOSTNAME"
-          export HOME=$WORKSPACE
-          export MAVEN_OPTS="-Duser.home=$HOME"
-          mvn --batch-mode clean package
-        '''
+                  set +x
+                  echo; echo "running stage $STAGE_NAME on $HOSTNAME"
+                  export HOME=$WORKSPACE
+                  export MAVEN_OPTS="-Duser.home=$HOME"
+                  #echo "== setting essential git variables =="
+                  #git config --global user.name "${GIT_COMMITER_NAME}"
+                  #git config --global user.email "${GIT_COMMITER_EMAIL}"
+                  #echo; echo "= GIT CONFIG AFTER CONFIG ="; git config -l; echo
+                  #mvn versions:use-releases scm:checkin -Dmessage="Updated snapshot dependencies to release versions" -DpushChanges=false
+                  mvn --batch-mode versions:use-releases
+                  # unsetting BRANCH_NAME variable as the Java build uses its presence to determine whether or not to add the development banner
+                  set BRANCH_NAME_TEMP=$BRANCH_NAME; unset BRANCH_NAME
+                  # we are using "package" rather than "verify" for now since we don't have IT tests yet
+                  mvn --batch-mode clean package
+                  # reinstating BRANCH_NAME variable
+                  set BRANCH_NAME=$BRANCH_NAME_TEMP; unset BRANCH_NAME_TEMP
+                '''
+                // running "infrastructure.sh setvars" here to prevent earlier creation of build-info.properties which causes the addition of the development banner
+                //sh 'sh ./ci/infrastructure/scripts/infrastructure.sh setvars'
             }
             post {
                 success {
@@ -222,12 +244,12 @@ pipeline {
                         echo "VS_MVN_BUILD_SUCCESS is set to ${VS_MVN_BUILD_SUCCESS} (build performed via docker)"
                     }
                     sh '''
-            set +x
-            echo; echo "running stage $STAGE_NAME post-success on $HOSTNAME"
-            export HOME=$WORKSPACE
-            export MAVEN_OPTS="-Duser.home=$HOME"
-            mvn --batch-mode install -Pdist
-          '''
+                      set +x
+                      echo; echo "running stage $STAGE_NAME post-success on $HOSTNAME"
+                      export HOME=$WORKSPACE
+                      export MAVEN_OPTS="-Duser.home=$HOME"
+                      mvn --batch-mode install -Pdist
+                    '''
                     stash allowEmpty: true, includes: 'target/*', name: 'brxm-artifact'
                     stash allowEmpty: true, includes: 'ui-integration/ssr/server/*,ui-integration/node_modules/**/*,ui-integration/build/*', name: 'ssr-files'
                     mail bcc: '', body: "<b>Notification</b><br>Project: ${env.JOB_NAME} <br>Build Number: ${env.BUILD_NUMBER} <br> build URL: ${env.BUILD_URL}", cc: '', charset: 'UTF-8', from: '', mimeType: 'text/html', replyTo: '', subject: "Maven build succeeded at ${env.STAGE_NAME} for ${env.JOB_NAME}", to: "${MAIL_TO}";
@@ -391,12 +413,12 @@ pipeline {
                         catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') { // SonarQube timeouts for now
                             withSonarQubeEnv(installationName: 'SonarQube', credentialsId: 'sonarqube') {
                                 sh '''
-                PATH=/usr/bin:$PATH; ${scannerHome}/bin/sonar-scanner \
-                -Dsonar.sources=./ui-integration \
-                -Dsonar.projectKey=VS2019-FE \
-                -Dsonar.host.url=http://172.28.87.209:9000 \
-                -Dsonar.login=9fa63cfd51d94fb8e437b536523c15a9b45ee2c1
-              '''
+                                  PATH=/usr/bin:$PATH; ${scannerHome}/bin/sonar-scanner \
+                                  -Dsonar.sources=./ui-integration \
+                                  -Dsonar.projectKey=VS2019-FE \
+                                  -Dsonar.host.url=http://172.28.87.209:9000 \
+                                  -Dsonar.login=9fa63cfd51d94fb8e437b536523c15a9b45ee2c1
+                                '''
                             }
                             // setting PATH=/usr/bin:$PATH; above allows NodeJS 10.16.3 to be the default and prevents and error at the CSS scan
                         }
