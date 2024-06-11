@@ -110,6 +110,12 @@
         <groupId>com.visitscotland</groupId>
         <artifactId>data-service-api</artifactId>
         <version>1.3.2</version>
+        <exclusions>
+          <exclusion>
+            <groupId>joda-time</groupId>
+            <artifactId>joda-time</artifactId>
+          </exclusion>
+        </exclusions>
       </dependency>
 
       <dependency>
