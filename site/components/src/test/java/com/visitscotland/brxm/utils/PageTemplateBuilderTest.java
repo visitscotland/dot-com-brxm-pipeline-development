@@ -58,7 +58,7 @@ class PageTemplateBuilderTest {
     PreviewModeFactory previewModeFactory;
 
     @Mock
-    Properties properties;
+    SiteProperties properties;
 
     @Mock
     ContentLogger logger;

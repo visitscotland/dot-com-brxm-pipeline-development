@@ -7,7 +7,7 @@ import com.visitscotland.brxm.model.form.FeplConfiguration;
 import com.visitscotland.brxm.model.form.MarketoConfiguration;
 import com.visitscotland.brxm.utils.ContentLogger;
 import com.visitscotland.brxm.utils.HippoUtilsService;
-import com.visitscotland.brxm.utils.Properties;
+import com.visitscotland.brxm.utils.SiteProperties;
 import com.visitscotland.utils.Contract;
 import org.hippoecm.hst.content.beans.standard.HippoBean;
 import org.hippoecm.hst.content.beans.standard.HippoCompound;
@@ -18,18 +18,12 @@ import java.util.List;
 @Component
 public class FormFactory {
 
-    static final String PROP_RECAPTCHA = "form.recaptcha-key";
-    static final String PROP_MARKETO_URL = "form.maketo.instance-url";
-    static final String PROP_MARKETO_MUNCHKIN = "form.marketo.munchkin";
-    static final String PROP_MARKETO_SCRIPT = "form.marketo.script";
-    static final String PROP_MARKETO_IS_PRODUCTION = "form.is-production";
-
-    private final Properties properties;
+    private final SiteProperties properties;
 
 
     private final ContentLogger contentLogger;
 
-    public FormFactory(Properties properties, ContentLogger contentLogger) {
+    public FormFactory(SiteProperties properties, ContentLogger contentLogger) {
         this.properties = properties;
         this.contentLogger = contentLogger;
     }
@@ -49,14 +43,14 @@ public class FormFactory {
 
     private MarketoConfiguration getMarketoConfiguration(HippoBean bean) {
         MarketoConfiguration cfg = new MarketoConfiguration();
-        cfg.setRecaptcha(properties.getProperty(PROP_RECAPTCHA));
-        cfg.setMarketoInstance(properties.getProperty(PROP_MARKETO_URL));
-        cfg.setMunchkinId(properties.getProperty(PROP_MARKETO_MUNCHKIN));
-        cfg.setScript(properties.getProperty(PROP_MARKETO_SCRIPT));
+        cfg.setRecaptcha(properties.getFormsRecaptcha());
+        cfg.setMarketoInstance(properties.getFormsMarketoUrl());
+        cfg.setMunchkinId(properties.getFormsMarketoMunchkin());
+        cfg.setScript(properties.getFormsMarketoScript());
         /** TODO: This property should go away
          * @see MarketoConfiguration.production
          */
-        cfg.setProduction(properties.readBoolean(PROP_MARKETO_IS_PRODUCTION));
+        cfg.setProduction(properties.getFormsMarketoIsProduction());
 
         if (bean instanceof FormCompoundMarketo) {
             cfg.setJsonUrl(((FormCompoundMarketo) bean).getJsonUrl());
@@ -69,7 +63,7 @@ public class FormFactory {
 
     private FeplConfiguration getFeplConfiguration(FormCompoundFepl fepl){
         FeplConfiguration cfg = new FeplConfiguration();
-        cfg.setRecaptcha(properties.getProperty(PROP_RECAPTCHA));
+        cfg.setRecaptcha(properties.getFormsRecaptcha());
         cfg.setSubmitURL(fepl.getUrl());
         cfg.setJsonUrl(fepl.getJsonURL());
 

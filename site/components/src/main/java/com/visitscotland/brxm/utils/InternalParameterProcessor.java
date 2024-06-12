@@ -21,10 +21,10 @@ public class InternalParameterProcessor {
     private static final Logger logger = LoggerFactory.getLogger(InternalParameterProcessor.class);
 
     private ResourceBundleService bundle;
-    private Properties properties;
+    private CMSProperties properties;
     private HippoUtilsService utils;
 
-    public InternalParameterProcessor(ResourceBundleService bundle, HippoUtilsService utils, Properties properties) {
+    public InternalParameterProcessor(ResourceBundleService bundle, HippoUtilsService utils, CMSProperties properties) {
         this.bundle = bundle;
         this.utils = utils;
         this.properties = properties;

@@ -2,35 +2,68 @@
 // April 2024
 // requires ci/start-release.bat, ci/finish-release.bat scripts (or their .sh equivalents)
 // based on Jenkinsfile, modified by Matthew Syrigos, Gavin Park
+// phase 2: June 2024
 
 def MAIL_TO = "webops@visitscotland.net"
 
-def thisAgent = "op-dev-xvcdocker-01"
+def thisAgent
+// Define the SSR filename
+def VS_SSR_PACKAGE_NAME= "vs-ssr-package.tar.gz"
+// Define the path to the ssr artefact within the workspace
+def VS_SSR_PACKAGE_PATH = "target/${VS_SSR_PACKAGE_NAME}"
 def VS_CONTAINER_BASE_PORT_OVERRIDE
 cron_string = ""
+
+// Boolean variable for when the distribution build is successful (will be used in the URL stage)
+def VS_MVN_BUILD_SUCCESS = 'FALSE'
+def VS_SSR_BUILD_SUCCESS = 'FALSE'
+
+// stage: 'SSR Package Email Info' related variables
+def VS_SSR_ARCHIVED_PACKAGE_URL = ''
+def VS_SSR_ARCHIVED_PACKAGE_MD5 = ''
+
+// stage: 'Release Package Email Info' related variables
+def VS_RELEASE_PACKAGE_WORKSPACE_MD5 = ''
+def VS_SITE_WAR_BUILD_NUMBER = ''
+//def VS_SITE_WAR_BUILD_NUMBER_VIA_MVN = ''
+
+// variables to store error lines, should there be any
+def VS_RELEASE_PACKAGE_NEXUS_URL = ''
+def VS_ERROR_LINES_EMAIL = ''
+def VS_PIPELINE_OUTCOME_EMAIL = ''
+// the filename of the release in the Nexus (if not rejected by rules)
+def VS_RELEASE_CANDIDATE_NEXUS_FILENAME = ''
+
 if (BRANCH_NAME == "develop" && (JOB_NAME == "develop.visitscotland.com/develop" || JOB_NAME == "develop.visitscotland.com-mb/develop")) {
-    thisAgent = "op-dev-xvcdocker-01"
+    //thisAgent = "op-dev-xvcdocker-01"
+    thisAgent = "docker-02"
     env.VS_CONTAINER_BASE_PORT_OVERRIDE = "8099"
     env.VS_RELEASE_SNAPSHOT = "FALSE"
+    env.VS_RELEASE_SNAPSHOT_DEV_DATA = "FALSE"
 } else if (BRANCH_NAME == "develop" && (JOB_NAME == "develop-nightly.visitscotland.com/develop" || JOB_NAME == "develop-nightly.visitscotland.com-mb/develop")) {
-    thisAgent = "op-dev-xvcdocker-01"
+    //thisAgent = "op-dev-xvcdocker-01"
+    thisAgent = "docker-02"
     env.VS_CONTAINER_BASE_PORT_OVERRIDE = "8098"
+    env.VS_CONTAINER_PRESERVE = "FALSE"
     cron_string = "@midnight"
 } else if (BRANCH_NAME == "develop" && (JOB_NAME == "develop-stable.visitscotland.com/develop" || JOB_NAME == "develop-stable.visitscotland.com-mb/develop")) {
-    thisAgent = "op-dev-xvcdocker-01"
+    //thisAgent = "op-dev-xvcdocker-01"
+    thisAgent = "docker-02"
     env.VS_CONTAINER_BASE_PORT_OVERRIDE = "8100"
 } else if (BRANCH_NAME == "develop" && (JOB_NAME == "feature.visitscotland.com/develop" || JOB_NAME == "feature.visitscotland.com-mb/develop")) {
-    thisAgent = "op-dev-xvcdocker-01"
+    //thisAgent = "op-dev-xvcdocker-01"
+    thisAgent = "docker-02"
     env.VS_CONTAINER_BASE_PORT_OVERRIDE = "8097"
 } else if (BRANCH_NAME == "feature/VS-1865-feature-environments-enhancements" && (JOB_NAME == "feature.visitscotland.com-mb/feature%2FVS-1865-feature-environments-enhancements")) {
-    thisAgent = "op-dev-xvcdocker-01"
+    //thisAgent = "op-dev-xvcdocker-01"
+    thisAgent = "docker-02"
     //env.VS_CONTAINER_BASE_PORT_OVERRIDE = "8096"
     //cron_string = "*/2 * * * *"
 } else {
-    env.VS_RELEASE_SNAPSHOT = "FALSE"
-    // thisAgent should always be set to op-dev-xvcdocker-01 unless you have been informed otherwise!
-    thisAgent = "op-dev-xvcdocker-01"
-    //thisAgent = "docker-02"
+    env.VS_RELEASE_SNAPSHOT = "TRUE"
+    env.VS_RELEASE_SNAPSHOT_DEV_DATA = "FALSE"
+    //thisAgent = "op-dev-xvcdocker-01"
+    thisAgent = "docker-02"
 }
 
 import groovy.json.JsonSlurper // unused import? To be removed if so
@@ -38,21 +71,22 @@ import groovy.json.JsonSlurper // unused import? To be removed if so
 pipeline {
     options {
         buildDiscarder(logRotator(numToKeepStr: '10'))
+        disableConcurrentBuilds()
         // to-do
         // gp: investigate milestone caclulation to cancel current build if a new one starts
         // - see: https://stackoverflow.com/questions/40760716/jenkins-abort-running-build-if-new-one-is-started/44326216
         // - see: https://www.jenkins.io/doc/pipeline/steps/pipeline-milestone-step/#pipeline-milestone-step
         // gp: investigate the use of stash/unstash to make build artefacts available to other nodes
-        // - see: https://www.cloudbees.com/blog/parallelism-and-distributed-builds-jenkins
-        // - this could potentially allow the running of all Lighthouse tests on a separate node
-        // - experiment with a simple echo on a different node (stash/unstash)
+        //     - see: https://www.cloudbees.com/blog/parallelism-and-distributed-builds-jenkins
+        //     - this could potentially allow the running of all Lighthouse tests on a separate node
+        //     - experiment with a simple echo on a different node (stash/unstash)
+        //     DONE
         // gp: change sonarqube project target to a short version of the project name
-
-        disableConcurrentBuilds()
         timestamps()
     }
-    agent {label thisAgent} // op-dev-xvcdocker-01
+    agent {label thisAgent}
     triggers { cron( cron_string ) }
+    // environment variables act as finals or singletons (empirical observation)
     environment {
         MAVEN_SETTINGS = credentials('maven-settings')
         GIT_COMMITER_NAME = 'JenkinsCI'
@@ -79,7 +113,13 @@ pipeline {
         VS_BRC_ENV = 'demo'
         VS_BRC_STACK_URL = "https://api-${VS_BRC_STACK_URI}.onehippo.io"
         VS_BRC_STACK_API_VERSION = 'v3'
-        VS_DOCKER_IMAGE_NAME = 'vs/vs-brxm15:node16'
+        VS_DOCKER_IMAGE_NAME = 'vs/vs-brxm15:node18'
+        VS_DOCKER_BUILDER_IMAGE_NAME = 'vs/vs-brxm15-builder:node18'
+        VS_USE_DOCKER_BUILDER = "TRUE"
+        // variables needed for the construction of the artefacts' url
+        VS_JOB_NAME_TOKENS = env.JOB_NAME.tokenize('/')
+        VS_JOB_NAME_WITH_JOB_IN_PATH = env.VS_JOB_NAME_TOKENS.join('/job/')
+        VS_JOB_NAME_NO_DIR = env.JOB_NAME.tokenize('/').first()
     }
     tools {
         maven 'Maven 3.5.4'
@@ -116,7 +156,9 @@ pipeline {
                 allOf {
                     expression {return env.VS_RUN_BRC_STAGES != 'TRUE'}
                     expression {return env.VS_SKIP_VS_BLD != 'TRUE'}
+                    expression {return env.VS_USE_DOCKER_BUILDER != 'TRUE'}
                     expression {return env.BRANCH_NAME != env.VS_SKIP_BUILD_FOR_BRANCH}
+                    expression {return env.VS_SKIP_MAVEN_BUILD != 'true'}
                 }
             }
             steps {
@@ -138,12 +180,78 @@ pipeline {
                   # reinstating BRANCH_NAME variable
                   set BRANCH_NAME=$BRANCH_NAME_TEMP; unset BRANCH_NAME_TEMP
                 '''
+                script {
+		    VS_MVN_BUILD_SUCCESS = 'TRUE'
+		    echo "VS_MVN_BUILD_SUCCESS is set to ${VS_MVN_BUILD_SUCCESS}"
+		}
                 // running "infrastructure.sh setvars" here to prevent earlier creation of build-info.properties which causes the addition of the development banner
-                sh 'sh ./infrastructure/scripts/infrastructure.sh setvars'
+                sh 'sh ./ci/infrastructure/scripts/infrastructure.sh setvars'
             }
             post {
                 success {
                     sh 'mvn install -Pdist'
+                    mail bcc: '', body: "<b>Notification</b><br>Project: ${env.JOB_NAME} <br>Build Number: ${env.BUILD_NUMBER} <br> build URL: ${env.BUILD_URL}", cc: '', charset: 'UTF-8', from: '', mimeType: 'text/html', replyTo: '', subject: "Maven build succeeded at ${env.STAGE_NAME} for ${env.JOB_NAME}", to: "${MAIL_TO}";
+                }
+                failure {
+                    mail bcc: '', body: "<b>Notification</b><br>Project: ${env.JOB_NAME} <br>Build Number: ${env.BUILD_NUMBER} <br> build URL: ${env.BUILD_URL}", cc: '', charset: 'UTF-8', from: '', mimeType: 'text/html', replyTo: '', subject: "Maven build FAILED at ${env.STAGE_NAME} for  ${env.JOB_NAME}", to: "${MAIL_TO}";
+                }
+            }
+        }
+
+        stage ('vs compile & package in docker') {
+            when {
+                allOf {
+                    expression {return env.VS_RUN_BRC_STAGES != 'TRUE'}
+                    expression {return env.VS_SKIP_VS_BLD != 'TRUE'}
+                    expression {return env.VS_USE_DOCKER_BUILDER == 'TRUE'}
+                    expression {return env.BRANCH_NAME != env.VS_SKIP_BUILD_FOR_BRANCH}
+                }
+            }
+            agent {
+                docker {
+                    image '$VS_DOCKER_BUILDER_IMAGE_NAME'
+                    args '-v $JENKINS_HOME/.m2:$WORKSPACE/.m2:rw,z'
+                    label 'thisAgent'
+                    reuseNode true
+                }
+            }
+            steps {
+                sh '''
+                  set +x
+                  echo; echo "running stage $STAGE_NAME on $HOSTNAME"
+                  export HOME=$WORKSPACE
+                  export MAVEN_OPTS="-Duser.home=$HOME"
+                  #echo "== setting essential git variables =="
+                  #git config --global user.name "${GIT_COMMITER_NAME}"
+                  #git config --global user.email "${GIT_COMMITER_EMAIL}"
+                  #echo; echo "= GIT CONFIG AFTER CONFIG ="; git config -l; echo
+                  #mvn versions:use-releases scm:checkin -Dmessage="Updated snapshot dependencies to release versions" -DpushChanges=false
+                  mvn --batch-mode versions:use-releases
+                  # unsetting BRANCH_NAME variable as the Java build uses its presence to determine whether or not to add the development banner
+                  set BRANCH_NAME_TEMP=$BRANCH_NAME; unset BRANCH_NAME
+                  # we are using "package" rather than "verify" for now since we don't have IT tests yet
+                  mvn --batch-mode clean package
+                  # reinstating BRANCH_NAME variable
+                  set BRANCH_NAME=$BRANCH_NAME_TEMP; unset BRANCH_NAME_TEMP
+                '''
+                // running "infrastructure.sh setvars" here to prevent earlier creation of build-info.properties which causes the addition of the development banner
+                //sh 'sh ./ci/infrastructure/scripts/infrastructure.sh setvars'
+            }
+            post {
+                success {
+                    script {
+                        VS_MVN_BUILD_SUCCESS = 'TRUE'
+                        echo "VS_MVN_BUILD_SUCCESS is set to ${VS_MVN_BUILD_SUCCESS} (build performed via docker)"
+                    }
+                    sh '''
+                      set +x
+                      echo; echo "running stage $STAGE_NAME post-success on $HOSTNAME"
+                      export HOME=$WORKSPACE
+                      export MAVEN_OPTS="-Duser.home=$HOME"
+                      mvn --batch-mode install -Pdist
+                    '''
+                    stash allowEmpty: true, includes: 'target/*', name: 'brxm-artifact'
+                    stash allowEmpty: true, includes: 'ui-integration/ssr/server/*,ui-integration/node_modules/**/*,ui-integration/build/*', name: 'ssr-files'
                     mail bcc: '', body: "<b>Notification</b><br>Project: ${env.JOB_NAME} <br>Build Number: ${env.BUILD_NUMBER} <br> build URL: ${env.BUILD_URL}", cc: '', charset: 'UTF-8', from: '', mimeType: 'text/html', replyTo: '', subject: "Maven build succeeded at ${env.STAGE_NAME} for ${env.JOB_NAME}", to: "${MAIL_TO}";
                 }
                 failure {
@@ -227,18 +335,44 @@ pipeline {
                 }
             }
             steps{
+                dir("${env.WORKSPACE}") {
+                    script {
+                        try {
+                            unstash 'brxm-artifact'
+                        } catch (e) {
+                            print "Unstash brxm-artifact failed, ignoring"
+                        }
+                        try {
+                            unstash 'ssr-files'
+                        } catch (e) {
+                            print "Unstash ssr-files failed, ignoring"
+                        }
+                    }
+                }
                 script{
-                    //sh 'sh ./infrastructure/scripts/docker.sh'
-                    sh 'sh ./infrastructure/scripts/infrastructure.sh --debug'
+                    sh 'sh ./ci/infrastructure/scripts/infrastructure.sh --debug'
                 }
                 // make all VS_ variables available to pipeline, load file must be in env.VARIABLE="VALUE" format
                 script {
-                    if (fileExists("$WORKSPACE/vs-last-env.quoted")) {
+                    if (fileExists("$WORKSPACE/ci/vs-last-env.quoted")) {
                         echo "loading environment variables from $WORKSPACE/vs-last-env.quoted"
-                        load "$WORKSPACE/vs-last-env.quoted"
+                        load "$WORKSPACE/ci/vs-last-env.quoted"
                         echo "found ${env.VS_COMMIT_AUTHOR}"
                     } else {
                         echo "cannot load environment variables, file does not exist"
+                    }
+                }
+            }
+            post {
+                success {
+                    script {
+                        VS_SSR_BUILD_SUCCESS = 'TRUE'
+                        echo "VS_SSR_BUILD_SUCCESS is set to ${VS_SSR_BUILD_SUCCESS}"
+                    }
+                }
+                failure {
+                    script {
+                        echo "VS_SSR_BUILD_SUCCESS is set to ${VS_SSR_BUILD_SUCCESS}"
                     }
                 }
             }
@@ -279,14 +413,14 @@ pipeline {
                         catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') { // SonarQube timeouts for now
                             withSonarQubeEnv(installationName: 'SonarQube', credentialsId: 'sonarqube') {
                                 sh '''
-                PATH=/usr/bin:$PATH; ${scannerHome}/bin/sonar-scanner \
-                -Dsonar.sources=./ui-integration \
-                -Dsonar.projectKey=VS2019-FE \
-                -Dsonar.host.url=http://172.28.87.209:9000 \
-                -Dsonar.login=9fa63cfd51d94fb8e437b536523c15a9b45ee2c1
-              '''
-                                // setting PATH=/usr/bin:$PATH; above allows NodeJS 10.16.3 to be the default and prevents and error at the CSS scan
+                                  PATH=/usr/bin:$PATH; ${scannerHome}/bin/sonar-scanner \
+                                  -Dsonar.sources=./ui-integration \
+                                  -Dsonar.projectKey=VS2019-FE \
+                                  -Dsonar.host.url=http://172.28.87.209:9000 \
+                                  -Dsonar.login=9fa63cfd51d94fb8e437b536523c15a9b45ee2c1
+                                '''
                             }
+                            // setting PATH=/usr/bin:$PATH; above allows NodeJS 10.16.3 to be the default and prevents and error at the CSS scan
                         }
                     }
                 }
@@ -372,12 +506,26 @@ pipeline {
                 stage ('Snapshot to Nexus'){
                     when {
                         allOf {
+                            branch 'develop' // soft rule?
                             expression {return env.VS_RELEASE_SNAPSHOT == 'TRUE'}
                         }
                     }
                     steps{
                         script{
-                            sh 'mvn -B -f pom.xml deploy -Pdist-with-development-data -s $MAVEN_SETTINGS'
+                            sh 'mvn --batch-mode deploy -Pdist 2>&1 | tee $GIT_COMMIT.log'
+                        }
+                    }
+                }
+
+                stage ('Snapshot (dev data) to Nexus'){
+                    when {
+                        allOf {
+                            expression {return env.VS_RELEASE_SNAPSHOT_DEV_DATA == 'TRUE'}
+                        }
+                    }
+                    steps{
+                        script{
+                            sh 'mvn --batch-mode deploy -Pdist-with-development-data 2>&1 | tee $GIT_COMMIT.log'
                         }
                     }
                 }
@@ -396,6 +544,307 @@ pipeline {
             }
         }
 
+        stage('SSR Package URL, MD5') {
+            steps {
+                // only enter block if the build processes have been successful (might not be needed)
+                script {
+                    if (VS_MVN_BUILD_SUCCESS == 'TRUE' && VS_SSR_BUILD_SUCCESS == 'TRUE') {
+                        // Archive the build artifacts, don't search deeper than /target directory
+                        // archiveArtifacts artifacts: 'target/*.gz', excludes: 'target/*/*'
+                        // Archive a single artifact (just the SSR package)
+                        archiveArtifacts artifacts: "${VS_SSR_PACKAGE_PATH}"
+                    }
+                }
+            }
+            post {
+                success {
+                    script {
+                        echo "SSR package has been archived successfully. Constructing its URL..."
+                        // sample URL of an archived SSR package, for reference
+                        // https://jenkinssb.visitscotland.com/job/release.automation/job/release%252F2.0.32/2/artifact/target/vs-ssr-package.tar.gz
+                        VS_SSR_ARCHIVED_PACKAGE_URL = "${env.JENKINS_URL}job/${env.VS_JOB_NAME_NO_DIR}/job/${env.JOB_BASE_NAME}/${env.BUILD_NUMBER}/artifact/${VS_SSR_PACKAGE_PATH}"
+                        echo "Here's the archived SSR package's URL: ${VS_SSR_ARCHIVED_PACKAGE_URL}"
+
+                        // Calculate the SSR's MD5, SHA1, SHA256 checksums.
+                        // The output is piped to cut to extract just the checksum portion (first field, or "f1")
+                        // sha1sum and sha256sum commands can also be utilised in the future
+                        VS_SSR_ARCHIVED_PACKAGE_MD5 = sh(
+                                script: "md5sum ${VS_SSR_PACKAGE_PATH} | cut -d ' ' -f1",
+                                returnStdout: true
+                        ).trim()
+                        echo "VS_SSR_ARCHIVED_PACKAGE_MD5 = ${VS_SSR_ARCHIVED_PACKAGE_MD5}"
+                    }
+                }
+                failure {
+                    script {
+                        echo "Failed stage: 'SSR Package URL, MD5'"
+                    }
+                }
+            }
+        }
+
+        stage('Release Package URL, MD5') {
+            steps {
+                script {
+                    // calculate the MD5 checksum of the distribution package (workspace file)
+                    VS_RELEASE_PACKAGE_WORKSPACE_MD5 = sh(
+                            script: "md5sum target/*distr*.tar.gz | cut -d ' ' -f1",
+                            returnStdout: true
+                    ).trim()
+                    // locating the log file with he nexus distribution related content
+                    echo "log content: ${GIT_COMMIT}.log"
+                    def logContent = "${GIT_COMMIT}.log"
+                    // check if the git commit log file exists (if not, it means that release file wasn't uploaded to the Nexus)
+                    if (fileExists(logContent)) {
+                        def matchingLine = ''
+                        // store the log content in a lines array
+                        def lines = readFile(logContent).split('\n')
+                        // build number, produced by maven build upon successful nexus upload
+                        def mvnProducedBuildNumber = ''
+                        // outcome of the pipeline, for email purposes (email title)
+                        VS_PIPELINE_OUTCOME_EMAIL = 'SUCCESS'
+
+                        // start reading the log as an array, line by line
+                        for (line in lines) {
+                            // Use a regular expression to match the URL pattern
+                            if (line ==~ /.*https:\/\/.*distr.*\.tar\.gz/) {
+                                if (matchingLine)
+                                    continue // skip additional captures of the regex pattern
+                                matchingLine = line
+                                echo "Found a match: ${matchingLine}"
+//                  break // exit after finding first match
+                            }
+                            // todo: we need to check if there was a failure in the upload process
+                            // check for failure here
+                            if (line =~ /(?i)\[ERROR]|\[FAILURE]|\[FAILED]|\[EXCEPTION]/) {
+                                // append each error line detected in the log, to the global variable associated with the email process
+                                VS_ERROR_LINES_EMAIL += "${line}<br/>"
+                                if (VS_PIPELINE_OUTCOME_EMAIL == 'SUCCESS') { // only write in this variable once
+                                    VS_PIPELINE_OUTCOME_EMAIL = 'ERROR'
+                                }
+                            }
+                        }
+                        if (matchingLine != '') {
+                            // begin the construction of the publicly accessible URL
+                            int startIndex = matchingLine.indexOf('https://')
+                            // Find the index of the first space after the start index or use string length if no space is found
+                            int endIndex = matchingLine.indexOf(' ', startIndex)
+                            if (endIndex == -1) { // If no space is found, use the length of the logLine
+                                endIndex = matchingLine.length()
+                            }
+
+                            // Extract the URL using the determined indices
+                            def extractedUrl = matchingLine.substring(startIndex, endIndex)
+                            echo "Extracted Nexus URL: ${extractedUrl}"
+
+                            // Replace ':443' with '' (basically, remove ':443')
+                            VS_RELEASE_PACKAGE_NEXUS_URL = extractedUrl.replace(':443', '')
+                            // Replace 'service/local' with 'content'
+                            VS_RELEASE_PACKAGE_NEXUS_URL = VS_RELEASE_PACKAGE_NEXUS_URL.replace('service/local/staging/deployByRepositoryId', 'content/repositories')
+                            // final Nexus URL (should be publicly accessible)
+                            echo "Modified, Public Nexus URL: ${VS_RELEASE_PACKAGE_NEXUS_URL}"
+
+                            // test if the URL is valid, using curl's output
+                            def distroPackageResponseCode = sh(script: "curl -o /dev/null --silent --head --write-out '%{http_code}' ${VS_RELEASE_PACKAGE_NEXUS_URL}", returnStdout: true).trim()
+                            if (distroPackageResponseCode == '200') {
+                                echo "Distribution's URL in the Nexus is valid. File exists."
+                                // since the file exists, notify the email recipients of its actual name in the Nexus
+                                // regex: release_candidates-\d+
+                                def releaseCandidateRegExPattern = /release_candidates-\d+/
+                                // Extract the pattern value from the VS_RELEASE_PACKAGE_NEXUS_URL
+                                def releaseCandidateRegExMatcher = (VS_RELEASE_PACKAGE_NEXUS_URL =~ releaseCandidateRegExPattern)
+                                if (releaseCandidateRegExMatcher) {
+                                    VS_RELEASE_CANDIDATE_NEXUS_FILENAME = releaseCandidateRegExMatcher[0]
+                                    echo "Extracted Value: ${VS_RELEASE_CANDIDATE_NEXUS_FILENAME}"
+                                } else {
+                                    echo "No matches found for regex pattern: ${releaseCandidateRegExPattern}"
+                                    echo "Checking for SNAPSHOT... (should we be releasing snapshots?)"
+
+                                    // regex: -SNAPSHOT
+                                    def snapshotRegExPattern = /-SNAPSHOT/
+                                    // Extract the pattern value from the VS_RELEASE_PACKAGE_NEXUS_URL
+                                    def snapshotRegExMatcher = (VS_RELEASE_PACKAGE_NEXUS_URL =~ snapshotRegExPattern)
+                                    if (snapshotRegExMatcher) {
+                                        // Store the part of the URL after the last '/' in the global variable (to be used in the email)
+                                        VS_RELEASE_CANDIDATE_NEXUS_FILENAME = VS_RELEASE_PACKAGE_NEXUS_URL.substring(VS_RELEASE_PACKAGE_NEXUS_URL.lastIndexOf('/') + 1)
+                                        // Store the matched value in a variable
+                                        echo "Matched snapshot name in the Nexus: ${VS_RELEASE_CANDIDATE_NEXUS_FILENAME}"
+                                    } else {
+                                        echo "No snapshot matches found for regex pattern: ${snapshotRegExPattern}"
+                                    }
+                                }
+                            } else {
+                                echo "Distribution's URL in the Nexus is invalid (maybe a rule error?). Response code: ${distroPackageResponseCode}"
+                            }
+                        }
+                    } else { // log file wasn't created (did you try to upload a SNAPSHOT release to the nexus?)
+                        echo "Release file hasn't been uploaded to the Nexus (was it a SNAPSHOT maybe?)"
+                    }
+                }
+            }
+            post {
+                success {
+                    script {
+                        echo "Stage, successfully executed"
+                    }
+                }
+                failure {
+                    script {
+                        echo "Stage failed"
+                    }
+                }
+            }
+        }
+
+//    stage('Release Package Build-Number (mvn)') {
+//      steps {
+//        script {
+//          // Navigate to the site module directory and extract the build number property
+//          dir('site') {
+//            def siteBuildNumber = sh(
+//                    script: "mvn help:evaluate -Dexpression=project.buildNo -q -DforceStdout",
+//                    returnStdout: true
+//            ).trim()
+//            echo "Build Number for Site Module: ${siteBuildNumber}"
+//
+//            // Store the extracted value in a global variable for use in later stages
+//            VS_SITE_WAR_BUILD_NUMBER_VIA_MVN = siteBuildNumber
+//          }
+//        }
+//      }
+//      post {
+//        success {
+//          script {
+//            echo "Stage, successfully executed"
+//          }
+//        }
+//        failure {
+//          script {
+//            echo "Stage failed"
+//          }
+//        }
+//      }
+//    }
+
+        stage('Release Package Build-Number') {
+            steps {
+                script {
+                    // should there be a site .war file with a manifest.mf in it, extract the build number from it
+                    def siteWarFilePath = 'site/webapp/target/site.war'
+                    def siteWarManifestFile = 'META-INF/MANIFEST.MF'
+                    // enter block if the war file exists
+                    if (fileExists(siteWarFilePath)) {
+                        // Check if the MANIFEST.MF exists inside the WAR file
+                        def manifestFileExists = sh(
+                                script: "unzip -l ${siteWarFilePath} | grep -q ${siteWarManifestFile}",
+                                returnStatus: true
+                        ) == 0
+                        // if the manifest file exists, enter the Build-Number search block
+                        if (manifestFileExists) {
+                            // Check if the Build-Number entry exists within the MANIFEST.MF
+                            def siteWarBuildNumberExists = sh(
+                                    script: """
+                  unzip -p ${siteWarFilePath} ${siteWarManifestFile} | grep -q "Build-Number"
+              """,
+                                    returnStatus: true
+                            ) == 0
+                            if (siteWarBuildNumberExists) {
+                                VS_SITE_WAR_BUILD_NUMBER = sh(
+                                        script: """
+                    unzip -p ${siteWarFilePath} ${siteWarManifestFile} | grep "Build-Number" | awk '{print \$2}'
+                """,
+                                        returnStdout: true
+                                ).trim()
+                            } else {
+                                echo "site war Build Number entry does not exist within manifest file: ${siteWarManifestFile}"
+                            }
+                        } else {
+                            echo "Couldn't find/access manifest file: ${siteWarManifestFile} within ${siteWarFilePath}"
+                        }
+                    } else {
+                        echo "Couldn't find/access site's .war file: ${siteWarFilePath}"
+                    }
+                    echo "site .war Build-Number: ${VS_SITE_WAR_BUILD_NUMBER}"
+                }
+            }
+            post {
+                success {
+                    script {
+                        echo "Stage, successfully executed"
+                    }
+                }
+                failure {
+                    script {
+                        echo "Stage failed"
+                    }
+                }
+            }
+        }
+
+        stage('Compose Email') {
+            steps {
+                script {
+                    // construct the part of the email body that refers to the distribution release package
+                    def distributionReleaseBody="""
+                        <table>
+                          <tr><th>Build-Number</th><td>${VS_SITE_WAR_BUILD_NUMBER}</td></tr>
+                          <tr><th>Nexus URL</th><td><a href="${VS_RELEASE_PACKAGE_NEXUS_URL}">${VS_RELEASE_CANDIDATE_NEXUS_FILENAME}</a></td></tr>
+                          <tr><th>MD5 Checksum</th><td>${VS_RELEASE_PACKAGE_WORKSPACE_MD5}</td></tr>
+                        </table>
+                        """
+                    // if there are errors, use the error messages in that section
+                    if (VS_ERROR_LINES_EMAIL)
+                        distributionReleaseBody=VS_ERROR_LINES_EMAIL
+
+                    def emailBody = """
+                      <html>
+                      <head>
+                        <style>
+                          body {font-family: Arial, sans-serif; line-height: 1.6;}
+                          h1 {color: #333;}
+                          table {width: 100%; border-collapse: collapse;}
+                          th, td {border: 1px solid #ddd; padding: 8px; text-align: left;}
+                          th {background-color: #f2f2f2;}
+                        </style>
+                      </head>
+                      <body>
+                        <h1>Release and Package Details for <a href="${env.BUILD_URL}">Jenkins Build ${env.BUILD_NUMBER}</a> - ${VS_PIPELINE_OUTCOME_EMAIL}</h1>
+                        <p>Here are the details of the distribution/release and the SSR package for the current build.</p>
+                        <h2>Distribution/Release</h2>
+                        ${distributionReleaseBody}
+                        
+                        <h2>SSR Package (in Jenkins)</h2>
+                        <table>
+                          <tr><th>URL</th><td><a href="${VS_SSR_ARCHIVED_PACKAGE_URL}">${VS_SSR_PACKAGE_NAME}</a></td></tr>
+                          <tr><th>MD5 Checksum</th><td>${VS_SSR_ARCHIVED_PACKAGE_MD5}</td></tr>
+                        </table>
+                        
+                        <p>For more information, please check the  <a href="${env.BUILD_URL}/consoleFull">Jenkins build log</a></p>
+                      </body>
+                      </html>
+                      """
+                    emailext(
+                            subject: "URL and checksums for jenkins build: ${env.BUILD_NUMBER} (${VS_PIPELINE_OUTCOME_EMAIL})",
+                            body: "${emailBody}",
+                            to: "${env.VS_COMMIT_AUTHOR}",
+                            mimeType: 'text/html'
+                    )
+                }
+            }
+            post {
+                success {
+                    script {
+                        echo "Stage, successfully executed"
+                    }
+                }
+                failure {
+                    script {
+                        echo "Stage failed"
+                    }
+                }
+            }
+        }
+
         stage('Lighthouse Testing'){
             when {
                 allOf {
@@ -403,7 +852,7 @@ pipeline {
                         // Allow lighthouse to be skipped even if a feature environment was built
                         environment name: 'VS_SKIP_LIGHTHOUSE_TESTS', value: 'true'
                     }
-                    anyOf {
+                    allOf { // ensuring that this won't run. Switch to anyOf to revert
                         // Always run the Lighthouse Tests for 'develop' builds
                         branch 'develop'
                         branch 'hotfix/*'
@@ -449,7 +898,7 @@ pipeline {
     post{
         success{
             script{
-                sh 'sh ./infrastructure/scripts/infrastructure.sh displayreport'
+                sh 'sh ./ci/infrastructure/scripts/infrastructure.sh displayreport'
             }
         }
         aborted{
@@ -462,7 +911,7 @@ pipeline {
             }
         }
     } //end post
-}
+} //end pipeline
 
 // function to read in a properties file (see https://medium.com/@dhamodharakkannan/jenkins-loading-variables-from-a-file-for-different-environments-d442a2a48bce)
 // may not be required if simple "load" command works

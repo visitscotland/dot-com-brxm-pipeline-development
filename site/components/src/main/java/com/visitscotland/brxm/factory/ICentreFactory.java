@@ -11,9 +11,10 @@ import com.visitscotland.brxm.dms.DMSConstants;
 import com.visitscotland.brxm.dms.DMSDataService;
 import com.visitscotland.brxm.dms.ProductSearchBuilder;
 import com.visitscotland.brxm.services.ResourceBundleService;
+import com.visitscotland.brxm.utils.CMSProperties;
 import com.visitscotland.brxm.utils.HippoUtilsService;
 import com.visitscotland.brxm.utils.Language;
-import com.visitscotland.brxm.utils.Properties;
+import com.visitscotland.brxm.utils.SiteProperties;
 import com.visitscotland.utils.Contract;
 import com.visitscotland.utils.DataServiceUtils;
 import org.slf4j.Logger;
@@ -39,17 +40,21 @@ public class ICentreFactory {
     private final ResourceBundleService bundle;
     private final QuoteFactory quoteEmbedder;
     private final ImageFactory imageFactory;
-    private final Properties properties;
+    private final CMSProperties cmsProperties;
+    private final SiteProperties siteProperties;
     private final HippoUtilsService hippoUtilsService;
 
     @Autowired
-    public ICentreFactory(HippoUtilsService utils, DMSDataService dmsData, ResourceBundleService bundle, QuoteFactory quoteEmbedder, ImageFactory imageFactory, Properties properties, HippoUtilsService hippoUtilsService) {
+    public ICentreFactory(HippoUtilsService utils, DMSDataService dmsData, ResourceBundleService bundle, QuoteFactory quoteEmbedder,
+                          ImageFactory imageFactory, CMSProperties cmsProperties, SiteProperties siteProperties,
+                          HippoUtilsService hippoUtilsService) {
         this.utils = utils;
         this.dmsData = dmsData;
         this.bundle = bundle;
         this.quoteEmbedder = quoteEmbedder;
         this.imageFactory = imageFactory;
-        this.properties = properties;
+        this.cmsProperties = cmsProperties;
+        this.siteProperties = siteProperties;
         this.hippoUtilsService = hippoUtilsService;
     }
 
@@ -97,7 +102,7 @@ public class ICentreFactory {
         if (module.getImage() == null) {
             try {
                 Image defaultImage = utils.getDocumentFromNode(bundle.getResourceBundle(BUNDLE_ID, "icentre.image.default", locale));
-                module.setImage(imageFactory.createImage(defaultImage,module,locale));
+                module.setImage(imageFactory.createImage(defaultImage, module, locale));
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -105,8 +110,6 @@ public class ICentreFactory {
 
         return module;
     }
-
-
 
 
     /**
@@ -123,7 +126,7 @@ public class ICentreFactory {
     }
 
     private List<FlatLink> getICentreLandingLink(Locale locale) {
-        String url = hippoUtilsService.createUrlFromNode(properties.getSiteICentre(), true);
+        String url = hippoUtilsService.createUrlFromNode(siteProperties.getSiteICentre(), true);
         String text = bundle.getResourceBundle(BUNDLE_ID, "icentre.description.link.text", locale);
 
         return Collections.singletonList(new FlatLink(text, url, LinkType.INTERNAL));
@@ -156,7 +159,7 @@ public class ICentreFactory {
                 String label = child.get(DMSConstants.MapSearch.PROPERTIES).get(DMSConstants.MapSearch.NAME).asText();
                 String id = child.get(DMSConstants.MapSearch.PROPERTIES).get(DMSConstants.MapSearch.ID).asText();
                 String languagePath = Language.getLanguageForLocale(locale).getDmsPrefix();
-                String url = properties.getDmsHost() + DataServiceUtils.getProductURL(label, id, ProductTypes.TOURIST_INFO.getUrlPath(), languagePath);
+                String url = cmsProperties.getDmsHost() + DataServiceUtils.getProductURL(label, id, ProductTypes.TOURIST_INFO.getUrlPath(), languagePath);
                 vicList.add(new FlatLink(label, url, LinkType.INTERNAL));
             }
         }

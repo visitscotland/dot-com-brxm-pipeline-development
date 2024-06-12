@@ -1,9 +1,10 @@
 /content/documents/administration/configuration/default-properties:
+  .meta:order-before: default-cms-properties
   jcr:primaryType: hippo:handle
   jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
   jcr:uuid: a8a8926f-e625-4162-98b4-29f3c3b819b8
-  hippo:name: Default Properties
-  hippo:versionHistory: ffd7f518-7e2e-4f1f-8839-3b46f898c0ef
+  hippo:name: Default Properties (Deprecated)
+  hippo:versionHistory: 8461d415-bbfb-4eee-ad10-819b42d068f9
   /default-properties[1]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:versionable']
@@ -13,7 +14,7 @@
     hippostd:state: unpublished
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2021-02-05T15:37:26.056Z
-    hippostdpubwf:lastModificationDate: 2024-05-24T13:27:40.043+01:00
+    hippostdpubwf:lastModificationDate: 2024-03-12T17:53:46.118Z
     hippostdpubwf:lastModifiedBy: admin
     resourcebundle:descriptions: [URL prefix for Instagram endpoints, '', Client Token
         for Instagram request, '', Encoding for requests made to dms data endpoints,
@@ -73,7 +74,7 @@
       form.json.messages, form.marketo.munchkin, form.maketo.instance-url, form.recaptcha-key,
       form.marketo.scripts, form.marketo.script, form.breg.legal-basis, form.breg.legal-basis.enable]
     resourcebundle:messages: ['https://graph.facebook.com/v9.0/instagram_oembed?url=http://instagr.am/p/',
-      helpdesk@visitscotland.com, 0d41c47eaf42b43fe20de05201c798ec, 'https://www.instagram.com/p/',
+      helpdesk@visitscotland.com, $INSTAGRAM_ACCESS_CODE, 'https://www.instagram.com/p/',
       UTF-8, $VS_API_KEY, '2000', '3', '60000', 'https://community.visitscotland.com/',
       discussions/tagged/, '1293271387429443', 'localhost,www.visitscotland.com,beta.visitscotland.com,blog.visitscotland.com',
       'true', '', 'http://172.28.81.65:8089', /data, 'http://172.28.81.65:8089/data',
@@ -116,7 +117,7 @@
     hippostd:state: draft
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2021-02-05T15:37:26.056Z
-    hippostdpubwf:lastModificationDate: 2024-05-24T13:18:21.403+01:00
+    hippostdpubwf:lastModificationDate: 2024-04-30T14:51:52.594+01:00
     hippostdpubwf:lastModifiedBy: admin
     resourcebundle:descriptions: [URL prefix for Instagram endpoints, '', Client Token
         for Instagram request, '', Encoding for requests made to dms data endpoints,
@@ -176,7 +177,7 @@
       form.json.messages, form.marketo.munchkin, form.maketo.instance-url, form.recaptcha-key,
       form.marketo.scripts, form.marketo.script, form.breg.legal-basis, form.breg.legal-basis.enable]
     resourcebundle:messages: ['https://graph.facebook.com/v9.0/instagram_oembed?url=http://instagr.am/p/',
-      helpdesk@visitscotland.com, 0d41c47eaf42b43fe20de05201c798ec, 'https://www.instagram.com/p/',
+      helpdesk@visitscotland.com, $INSTAGRAM_ACCESS_CODE, 'https://www.instagram.com/p/',
       UTF-8, $VS_API_KEY, '2000', '3', '60000', 'https://community.visitscotland.com/',
       discussions/tagged/, '1293271387429443', 'localhost,www.visitscotland.com,beta.visitscotland.com,blog.visitscotland.com',
       'true', '', 'http://172.28.81.65:8089', /data, 'http://172.28.81.65:8089/data',
@@ -219,9 +220,9 @@
     hippostd:state: published
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2021-02-05T15:37:26.056Z
-    hippostdpubwf:lastModificationDate: 2024-05-24T13:27:40.043+01:00
+    hippostdpubwf:lastModificationDate: 2024-04-30T14:52:02.669+01:00
     hippostdpubwf:lastModifiedBy: admin
-    hippostdpubwf:publicationDate: 2024-05-24T13:27:45.858+01:00
+    hippostdpubwf:publicationDate: 2024-04-30T14:52:04.548+01:00
     resourcebundle:descriptions: [URL prefix for Instagram endpoints, '', Client Token
         for Instagram request, '', Encoding for requests made to dms data endpoints,
       "Token that identifies calls made to vs-dms-products as internal calls giving\
@@ -280,7 +281,7 @@
       form.json.messages, form.marketo.munchkin, form.maketo.instance-url, form.recaptcha-key,
       form.marketo.scripts, form.marketo.script, form.breg.legal-basis, form.breg.legal-basis.enable]
     resourcebundle:messages: ['https://graph.facebook.com/v9.0/instagram_oembed?url=http://instagr.am/p/',
-      helpdesk@visitscotland.com, 0d41c47eaf42b43fe20de05201c798ec, 'https://www.instagram.com/p/',
+      helpdesk@visitscotland.com, $INSTAGRAM_ACCESS_CODE, 'https://www.instagram.com/p/',
       UTF-8, $VS_API_KEY, '2000', '3', '60000', 'https://community.visitscotland.com/',
       discussions/tagged/, '1293271387429443', 'localhost,www.visitscotland.com,beta.visitscotland.com,blog.visitscotland.com',
       'true', '', 'http://172.28.81.65:8089', /data, 'http://172.28.81.65:8089/data',

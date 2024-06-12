@@ -14,12 +14,12 @@ public class MessageSuppressor {
 
     private static final Logger logger = LoggerFactory.getLogger(MessageSuppressor.class);
 
-    private Properties properties;
+    private CMSProperties properties;
 
     List<Message> messages = new ArrayList<>();
 
     @Autowired
-    public void setProperties(Properties properties){
+    public void setProperties(CMSProperties properties){
         this.properties = properties;
     }
 
