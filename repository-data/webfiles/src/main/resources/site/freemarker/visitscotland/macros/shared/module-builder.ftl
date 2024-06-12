@@ -68,8 +68,13 @@
             <@includeOnce "../modules/canned-search/canned-search.ftl" />
             <@cannedSearch module themeName/>
         <#elseif moduleType == "FormModule">
-            <@includeOnce "../modules/marketo/marketo.ftl" />
-            <@marketo module/>
+            <#if module.config?? && module.config.type == 'breg'>
+                <@includeOnce "../modules/breg/breg.ftl" />
+                <@breg module/>
+            <#else >
+                <@includeOnce "../modules/marketo/marketo.ftl" />
+                <@marketo module/>
+            </#if>
         <#elseif moduleType == "SkiModule">
             <@includeOnce "../modules/ski-centre/ski-centre.ftl" />
             <@skiCentre module/>

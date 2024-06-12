@@ -1,78 +1,85 @@
 definitions:
   config:
-    /hippo:namespaces/visitscotland/Form:
+    /hippo:namespaces/visitscotland/FormCompoundBreg:
       jcr:primaryType: hipposysedit:templatetype
       jcr:mixinTypes: ['editor:editable', 'mix:referenceable']
-      jcr:uuid: eee84018-e3fa-4b9b-b450-a9885fa406e7
+      jcr:uuid: edfbca67-55be-433f-8da8-6f72cd81a602
       /hipposysedit:nodetype:
         jcr:primaryType: hippo:handle
         jcr:mixinTypes: ['mix:referenceable']
-        jcr:uuid: 7cdb5325-8b2c-4f93-a8f1-fba90e940195
+        jcr:uuid: 3d2896b9-61f5-4c69-beb8-07a7a1b66612
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:uuid: 8a112308-0512-41fd-8daa-55bdf81a6be5
+          jcr:uuid: faefdaf8-93aa-41a7-be47-6ab67f79e038
           hipposysedit:node: true
-          hipposysedit:supertype: ['visitscotland:basedocument', 'hippostd:relaxed',
-            'hippotranslation:translated']
+          hipposysedit:supertype: ['hippo:compound', 'hippostd:relaxed']
           hipposysedit:uri: http://www.visitscotland.com/visitscotland/nt/1.0
-          /title:
+          /jsonUrl:
             jcr:primaryType: hipposysedit:field
             hipposysedit:mandatory: false
             hipposysedit:multiple: false
             hipposysedit:ordered: false
-            hipposysedit:path: visitscotland:title
+            hipposysedit:path: visitscotland:jsonUrl
             hipposysedit:primary: false
             hipposysedit:type: String
-          /translation:
+            hipposysedit:validators: [required]
+          /url:
             jcr:primaryType: hipposysedit:field
             hipposysedit:mandatory: false
             hipposysedit:multiple: false
             hipposysedit:ordered: false
-            hipposysedit:path: visitscotland:translation
-            hipposysedit:primary: false
-            hipposysedit:type: OpenUiString
-          /copy:
-            jcr:primaryType: hipposysedit:field
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: false
-            hipposysedit:ordered: false
-            hipposysedit:path: visitscotland:copy
-            hipposysedit:primary: false
-            hipposysedit:type: hippostd:html
-            hipposysedit:validators: [optional]
-          /nonJavaScriptMessage:
-            jcr:primaryType: hipposysedit:field
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: false
-            hipposysedit:ordered: false
-            hipposysedit:path: visitscotland:nonJavaScriptMessage
+            hipposysedit:path: visitscotland:url
             hipposysedit:primary: false
             hipposysedit:type: String
-          /form:
+            hipposysedit:validators: [required]
+          /activityCode:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: visitscotland:activityCode
+            hipposysedit:primary: false
+            hipposysedit:type: String
+            hipposysedit:validators: [required]
+          /activityDescription:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: visitscotland:activityDescription
+            hipposysedit:primary: false
+            hipposysedit:type: String
+            hipposysedit:validators: [required]
+          /activitySource:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: visitscotland:activitySource
+            hipposysedit:primary: false
+            hipposysedit:type: String
+            hipposysedit:validators: [required]
+          /consents:
             jcr:primaryType: hipposysedit:field
             hipposysedit:multiple: true
-            hipposysedit:ordered: false
-            hipposysedit:path: visitscotland:form
+            hipposysedit:ordered: true
+            hipposysedit:path: visitscotland:consents
             hipposysedit:type: hippo:compound
             hipposysedit:validators: [contentblocks-validator, required]
       /hipposysedit:prototypes:
         jcr:primaryType: hipposysedit:prototypeset
         /hipposysedit:prototype:
-          jcr:primaryType: visitscotland:Form
-          jcr:mixinTypes: ['mix:referenceable']
-          jcr:uuid: 5c406f8e-47b4-47f6-aacf-55a04b2e9f4a
-          hippostd:holder: holder
-          hippostd:state: draft
-          hippostdpubwf:createdBy: ''
-          hippostdpubwf:creationDate: 2021-05-14T11:09:19.664+01:00
-          hippostdpubwf:lastModificationDate: 2021-05-14T11:09:19.663+01:00
-          hippostdpubwf:lastModifiedBy: ''
-          hippotranslation:id: document-type-locale-id
-          hippotranslation:locale: document-type-locale
-          visitscotland:nonJavaScriptMessage: ''
-          visitscotland:title: ''
-          visitscotland:translation: ''
+          jcr:primaryType: visitscotland:FormCompoundBreg
+          visitscotland:jsonUrl: ''
+          visitscotland:url: ''
+          visitscotland:activitySource: ''
+          visitscotland:activityCode: ''
+          visitscotland:activityDescription: ''
+          /visitscotland:consents:
+            jcr:primaryType: visitscotland:Entry
+            visitscotland:key: ''
+            visitscotland:value: ''
       /editor:templates:
         jcr:primaryType: editor:templateset
         /_default_:
@@ -84,57 +91,58 @@ definitions:
             jcr:primaryType: frontend:plugin
             item: ${cluster.id}.field
             plugin.class: org.hippoecm.frontend.service.render.ListViewPlugin
-          /title:
+          /jsonUrl:
             jcr:primaryType: frontend:plugin
-            caption: Title
-            field: title
-            hint: ''
+            caption: Form Configuration JSON
+            field: jsonUrl
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-              size: ''
-          /copy:
+          /url:
             jcr:primaryType: frontend:plugin
-            caption: Copy
-            field: copy
-            hint: 'Recommended length: 250 characters'
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
-            wicket.id: ${cluster.id}.field
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
-              ckeditor.config.appended.json: '{extraPlugins: ''wordcount'',   wordcount:
-                {countSpacesAsChars: true, showCharCount: true, maxCharCount: 375}}'
-              ckeditor.config.overlayed.json: '{disallowedContent: ''p[align]'', toolbarGroups:
-                [{ name: ''basicstyles''},{ name: ''links'' },{name:''insert''},{name:''clipboard''},{name:''tools''},{name:''undo''}]
-                , removeButtons: ''PickImage,Youtube,Table,Bold,Underline,Strike,Subscript,Superscript''}'
-          /nonJavaScriptMessage:
-            jcr:primaryType: frontend:plugin
-            caption: Non-JavaScript message
-            field: nonJavaScriptMessage
+            caption: Action URL
+            field: url
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-          /form:
+          /activityCode:
             jcr:primaryType: frontend:plugin
-            caption: Form Configuration
-            compoundList: visitscotland:FormCompoundBreg,visitscotland:FormCompoundFepl,visitscotland:FormCompoundMarketo
+            caption: Activity Code
+            field: activityCode
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+          /activityDescription:
+            jcr:primaryType: frontend:plugin
+            caption: Activity Description
+            field: activityDescription
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+          /activitySource:
+            jcr:primaryType: frontend:plugin
+            caption: Activity Source
+            field: activitySource
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+          /consents:
+            jcr:primaryType: frontend:plugin
+            caption: Consents
+            compoundList: visitscotland:Entry
             contentPickerType: links
-            field: form
+            field: consents
             plugin.class: org.onehippo.forge.contentblocks.ContentBlocksFieldPlugin
             wicket.id: ${cluster.id}.field
-            hint: ''
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-              maxitems: 1
-          /translation:
-            jcr:primaryType: frontend:plugin
-            caption: Translation
-            field: translation
-            hint: ''
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
-            wicket.id: ${cluster.id}.field
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
-              ui.extension: translationDiff
+              compoundNamesMaxLength: 90
+              showCompoundNames: false
+              showTitles: false
+              startCollapsed: false
+              titleMapping: []
