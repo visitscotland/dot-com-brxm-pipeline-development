@@ -117,10 +117,11 @@ stage ('vs compile & package in docker') {
           reuseNode true
         }
       }
-      steps {   
+      steps {
+        // temporarily commenting-out setvars as it doesn't run happily within the container right now
+        //sh 'sh ./ci/infrastructure/scripts/infrastructure.sh setvars'
         sh '''
           set +x
-          source ./ci/infrastructure/scripts/infrastructure.sh setvars
           echo; echo "running stage $STAGE_NAME on $HOSTNAME"
           export HOME=$WORKSPACE
           export MAVEN_OPTS="-Duser.home=$HOME"
