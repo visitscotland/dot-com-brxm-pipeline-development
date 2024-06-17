@@ -4,22 +4,17 @@ def thisAgent
 def VS_CONTAINER_BASE_PORT_OVERRIDE
 cron_string = ""
 
-thisAgent = "op-dev-xvcdocker-01"
+thisAgent = "docker-02"
 env.VS_CONTAINER_BASE_PORT_OVERRIDE = "8096"
 env.VS_RELEASE_SNAPSHOT = "FALSE"
 env.VS_BUILD_FEATURE_ENVIRONMENT = "TRUE"
-env.VS_USE_DOCKER_BUILDER = "FALSE"
 
-if (VS_USE_DOCKER_BUILDER == "TRUE") {
-  thisAgent = "op-dev-xvcdocker-01"
-} else {
-  thisAgent = "op-dev-xvcdocker-01"
-}
 import groovy.json.JsonSlurper
 
 pipeline {
   options {
     buildDiscarder(logRotator(numToKeepStr: '10'))
+    disableConcurrentBuilds()
     // to-do
     // gp: investigate milestone caclulation to cancel current build if a new one starts
     // - see: https://stackoverflow.com/questions/40760716/jenkins-abort-running-build-if-new-one-is-started/44326216
@@ -29,8 +24,7 @@ pipeline {
     // - this could potentially allow the running of all Lighthouse tests on a separate node
     // - experiment with a simple echo on a different node (stash/unstash)
     // gp: change sonarqube project target to a short version of the project name
-
-    disableConcurrentBuilds()
+    timestamps()
   }
   agent {label thisAgent}
   triggers { cron( cron_string ) }
@@ -58,9 +52,11 @@ pipeline {
     VS_BRC_STACK_URI = 'visitscotland'
     VS_BRC_ENV = 'demo'
     VS_BRC_API_STACK_NAME = 'visitscotland'
-    VS_BRC_STACK_URL = "https://api-${VS_BRC_STACK_URI}.onehippo.io"
+    VS_BRC_STACK_URL = "https://api.${VS_BRC_STACK_URI}.bloomreach.cloud"
     VS_BRC_STACK_API_VERSION = 'v3'
-    VS_DOCKER_IMAGE_NAME = 'vs/vs-brxm15:node16'
+    VS_DOCKER_IMAGE_NAME = 'vs/vs-brxm15:node18'
+    VS_DOCKER_BUILDER_IMAGE_NAME = 'vs/vs-brxm15-builder:node18'
+    VS_USE_DOCKER_BUILDER = "TRUE"
     VS_SSR_PROXY_TARGET_HOST = 'http://develop-brc.visitscotland.com'
   }
 
@@ -74,7 +70,7 @@ pipeline {
     stage ('Pre-build') {
 
       steps {
-        // We are not running the buildprops importer in this pipeline.
+        // We have no need for the buildprops importer in this pipeline.
         sh 'printenv > printenv.pre-build'
       }
     }
@@ -86,10 +82,11 @@ pipeline {
           expression {return env.VS_SKIP_VS_BLD != 'TRUE'}
           expression {return env.VS_USE_DOCKER_BUILDER != 'TRUE'}
           expression {return env.BRANCH_NAME != env.VS_SKIP_BUILD_FOR_BRANCH}
+          expression {return env.VS_SKIP_MAVEN_BUILD != 'true'}
         }
       }
       steps {
-        sh 'sh ./infrastructure/scripts/infrastructure.sh setvars'
+        sh 'sh ./ci/infrastructure/scripts/infrastructure.sh setvars'
                 sh 'mvn -f pom.xml clean package'
       }
       post {
@@ -114,17 +111,31 @@ stage ('vs compile & package in docker') {
       }
       agent {
         docker {
-          image 'vs/vs-brxm15-builder:node18'
-          label 'docker-02'
+          image '$VS_DOCKER_BUILDER_IMAGE_NAME'
+          args '-v $JENKINS_HOME/.m2:$WORKSPACE/.m2:rw,z'
+          label 'thisAgent'
+          reuseNode true
         }
       }
       steps {   
-        //sh 'sh ./infrastructure/scripts/infrastructure.sh setvars'
-        sh 'export HOME=$WORKSPACE; mvn -s /usr/share/maven/ref/settings.xml -f pom.xml clean package'
+        //sh 'sh ./ci/infrastructure/scripts/infrastructure.sh setvars'
+        sh '''
+          set +x
+          echo; echo "running stage $STAGE_NAME on $HOSTNAME"
+          export HOME=$WORKSPACE
+          export MAVEN_OPTS="-Duser.home=$HOME"
+          mvn --batch-mode clean package
+        '''
       }
       post {
         success {
-          sh 'export HOME=$WORKSPACE; mvn -s /usr/share/maven/ref/settings.xml -f pom.xml install -Pdist-with-development-data'
+          sh '''
+            set +x
+            echo; echo "running stage $STAGE_NAME post-success on $HOSTNAME"
+            export HOME=$WORKSPACE
+            export MAVEN_OPTS="-Duser.home=$HOME"
+            mvn --batch-mode install -Pdist-with-development-data
+          '''
           stash allowEmpty: true, includes: 'target/*', name: 'brxm-artifact'
           stash allowEmpty: true, includes: 'ui-integration/ssr/server/*,ui-integration/node_modules/**/*,ui-integration/build/*', name: 'ssr-files'
           mail bcc: '', body: "<b>Notification</b><br>Project: ${env.JOB_NAME} <br>Build Number: ${env.BUILD_NUMBER} <br> build URL: ${env.BUILD_URL}", cc: '', charset: 'UTF-8', from: '', mimeType: 'text/html', replyTo: '', subject: "Maven build succeeded at ${env.STAGE_NAME} for ${env.JOB_NAME}", to: "${MAIL_TO}";
@@ -206,7 +217,6 @@ stage ('vs compile & package in docker') {
 
           // If requested, build feature environment for feature branches prior to PR
           environment name: 'VS_BUILD_FEATURE_ENVIRONMENT', value: 'true'
-          environment name: 'VS_BUILD_FEATURE_ENVIRONMENT', value: 'TRUE'
         }
       }
       steps{
@@ -225,14 +235,13 @@ stage ('vs compile & package in docker') {
           }
         }
       script{
-          //sh 'sh ./infrastructure/scripts/docker.sh'
-          sh 'sh ./infrastructure/scripts/infrastructure.sh --debug'
+          sh 'sh ./ci/infrastructure/scripts/infrastructure.sh --debug'
         }
         // make all VS_ variables available to pipeline, load file must be in env.VARIABLE="VALUE" format
         script {
-          if (fileExists("$WORKSPACE/vs-last-env.quoted")) {
-            echo "loading environment variables from $WORKSPACE/vs-last-env.quoted"
-            load "$WORKSPACE/vs-last-env.quoted"
+          if (fileExists("$WORKSPACE/ci/vs-last-env.quoted")) {
+            echo "loading environment variables from $WORKSPACE/ci/vs-last-env.quoted"
+            load "$WORKSPACE/ci/vs-last-env.quoted"
             echo "found ${env.VS_COMMIT_AUTHOR}"
           } else {
             echo "cannot load environment variables, file does not exist"
@@ -244,7 +253,7 @@ stage ('vs compile & package in docker') {
     stage ('vs deploy brCloud'){
       steps{
         script{
-          sh 'sh ./infrastructure/scripts/infrastructure.sh upload-to-brcloud --deploy'
+          sh 'sh ./ci/infrastructure/scripts/infrastructure.sh upload-to-brcloud --deploy'
         }
       }
     }
@@ -469,7 +478,7 @@ stage ('vs compile & package in docker') {
   post{
     success{
       script{
-        sh 'sh ./infrastructure/scripts/infrastructure.sh displayreport'
+        sh 'sh ./ci/infrastructure/scripts/infrastructure.sh displayreport'
       }
     }
     aborted{
