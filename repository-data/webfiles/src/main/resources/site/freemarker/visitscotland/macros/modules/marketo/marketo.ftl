@@ -1,5 +1,5 @@
 <#include "../../../../include/imports.ftl">
-<#include "../../../../frontend/components/vs-marketo-form.ftl">
+<#include "../../../../frontend/components/vs-form.ftl">
 <#include "../../../../frontend/components/vs-container.ftl">
 <#include "../../../../frontend/components/vs-row.ftl">
 <#include "../../../../frontend/components/vs-col.ftl">
@@ -29,7 +29,7 @@
                     <#assign marketoInstance = "${label('forms', 'form.marketo-instance-prod')}">
                 </#if>
 
-                <vs-marketo-form
+                <vs-form
                     data-url="${form.jsonUrl}"
                     messaging-url="${label('forms', 'form.messaging-url')}"
                     country-list-url="${label('forms', 'form.country-url')}"
@@ -52,7 +52,7 @@
                     <template v-slot:submitting>
                         ${label('forms', 'form.submitting')}
                     </template>
-                </vs-marketo-form>
+                </vs-form>
             </vs-col>
         </vs-row>
     </vs-container>

@@ -54,6 +54,9 @@
 [visitscotland:DevModule] > hippostd:relaxed, hippotranslation:translated, visitscotland:basedocument
   orderable
 
+[visitscotland:Entry] > hippo:compound, hippostd:relaxed
+  orderable
+
 [visitscotland:ExternalDocument] > hippo:compound, hippostd:relaxed
   orderable
 
@@ -67,6 +70,9 @@
   orderable
 
 [visitscotland:Form] > hippostd:relaxed, hippotranslation:translated, visitscotland:basedocument
+  orderable
+
+[visitscotland:FormCompoundBreg] > hippo:compound, hippostd:relaxed
   orderable
 
 [visitscotland:FormCompoundFepl] > hippo:compound, hippostd:relaxed
@@ -196,6 +202,7 @@
 [visitscotland:hosts]
   mixin
   - visitscotland:cmsProperties (string)
+  - visitscotland:siteProperties (string)
 
 [visitscotland:imageData] > hippo:compound, hippostd:relaxed
   orderable

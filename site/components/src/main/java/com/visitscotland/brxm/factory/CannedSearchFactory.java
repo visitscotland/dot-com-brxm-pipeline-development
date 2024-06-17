@@ -11,8 +11,8 @@ import com.visitscotland.brxm.model.CannedSearchModule;
 import com.visitscotland.brxm.model.FlatLink;
 import com.visitscotland.brxm.services.LinkService;
 import com.visitscotland.brxm.services.ResourceBundleService;
+import com.visitscotland.brxm.utils.CMSProperties;
 import com.visitscotland.brxm.utils.ContentLogger;
-import com.visitscotland.brxm.utils.Properties;
 import com.visitscotland.utils.Contract;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -34,11 +34,11 @@ public class CannedSearchFactory {
 
     private final ResourceBundleService bundle;
     private final LinkService linkService;
-    private final Properties properties;
+    private final CMSProperties properties;
     private final DMSDataService dmsData;
     private final Logger contentLog;
 
-    public CannedSearchFactory(ResourceBundleService bundle, LinkService linkService, Properties properties, DMSDataService dmsData,
+    public CannedSearchFactory(ResourceBundleService bundle, LinkService linkService, CMSProperties properties, DMSDataService dmsData,
             ContentLogger contentLogger){
         this.bundle = bundle;
         this.linkService = linkService;

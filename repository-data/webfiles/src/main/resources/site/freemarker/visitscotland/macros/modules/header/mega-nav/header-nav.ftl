@@ -1,5 +1,5 @@
 <#include "../../../../../include/imports.ftl">
-<#include "../../../../../frontend/components/vs-mega-nav-top-menu-item.ftl">
+<#include "../../../../../frontend/components/vs-mega-nav-dropdown-container.ftl">
 <#include "../../../../../frontend/components/vs-mega-nav-list.ftl">
 <#include "../../../../../frontend/components/vs-mega-nav-list-item.ftl">
 <#include "header-widget.ftl">
@@ -8,7 +8,7 @@
     <#list menu.siteMenuItems as item>
 
         <#if item.title?has_content>
-            <vs-mega-nav-top-menu-item
+            <vs-mega-nav-dropdown-container
                     href="${getUrl(item)}"
                     cta-text="<#if item.cta??>${item.cta}</#if>"
             >
@@ -54,7 +54,7 @@
                     <@headerWidget item.widget />
                 </#if>
               </#if>
-            </vs-mega-nav-top-menu-item>
+            </vs-mega-nav-dropdown-container>
         </#if>
     </#list>
 

@@ -1,6 +1,6 @@
 package com.visitscotland.brxm.dms;
 
-import com.visitscotland.brxm.utils.Properties;
+import com.visitscotland.brxm.utils.CMSProperties;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -31,7 +31,7 @@ class DMSProxyTest {
     HttpURLConnection huc;
 
     @Mock
-    Properties properties;
+    CMSProperties properties;
 
     @BeforeEach
     void init() {

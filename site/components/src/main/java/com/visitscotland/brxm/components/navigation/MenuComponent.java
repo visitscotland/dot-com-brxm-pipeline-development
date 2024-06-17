@@ -4,10 +4,7 @@ package com.visitscotland.brxm.components.navigation;
 import com.visitscotland.brxm.components.navigation.info.MenuComponentInfo;
 import com.visitscotland.brxm.config.VsComponentManager;
 import com.visitscotland.brxm.factory.NavigationFactory;
-import com.visitscotland.brxm.utils.HippoUtilsService;
-import com.visitscotland.brxm.utils.InternalParameterProcessor;
-import com.visitscotland.brxm.utils.Language;
-import com.visitscotland.brxm.utils.Properties;
+import com.visitscotland.brxm.utils.*;
 import org.hippoecm.hst.container.RequestContextProvider;
 import org.hippoecm.hst.core.component.HstRequest;
 import org.hippoecm.hst.core.component.HstResponse;
@@ -33,16 +30,16 @@ public class MenuComponent extends EssentialsMenuComponent {
 
     private final NavigationFactory factory;
     private final HippoUtilsService utils;
-    private final Properties properties;
+    private final CMSProperties properties;
 
 
     public MenuComponent() {
         this(VsComponentManager.get(NavigationFactory.class),
                 VsComponentManager.get(HippoUtilsService.class),
-                VsComponentManager.get(Properties.class));
+                VsComponentManager.get(CMSProperties.class));
     }
 
-    public MenuComponent(NavigationFactory factory, HippoUtilsService utils, Properties properties) {
+    public MenuComponent(NavigationFactory factory, HippoUtilsService utils, CMSProperties properties) {
         this.factory = factory;
         this.utils = utils;
         this.properties = properties;

@@ -2973,3 +2973,105 @@
               jcr:primaryType: visitscotland:FormCompoundFepl
               visitscotland:jsonURL: https://static.visitscotland.com/forms/rfp/rfp-sign-up.json
               visitscotland:url: https://develop.visitscotland.org/api/submit/fepl/forms
+      /breg:
+        jcr:primaryType: hippostd:folder
+        jcr:mixinTypes: ['hippo:named', 'hippotranslation:translated', 'mix:versionable']
+        jcr:uuid: 794afd20-0bec-4465-9e73-5698aae59cc4
+        hippo:name: Breg
+        hippostd:foldertype: [new-be-folder, new-be-page, new-be-module]
+        hippotranslation:id: 21bbeb69-6c70-42dc-9f0d-b57e4c5d8afc
+        hippotranslation:locale: en
+        /content:
+          jcr:primaryType: hippo:handle
+          jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+          jcr:uuid: d9a5d509-1e43-4ef4-9e92-3ccb56ee89ae
+          hippo:name: Content
+          /content:
+            jcr:primaryType: visitscotland:General
+            jcr:mixinTypes: ['mix:versionable']
+            jcr:uuid: 4efc48e4-b27a-408e-9844-8343a2d0b1f1
+            hippo:availability: [preview]
+            hippostd:retainable: false
+            hippostd:state: unpublished
+            hippostdpubwf:createdBy: admin
+            hippostdpubwf:creationDate: 2024-02-14T12:47:37.022Z
+            hippostdpubwf:lastModificationDate: 2024-03-13T13:10:00.436Z
+            hippostdpubwf:lastModifiedBy: admin
+            hippotranslation:id: b5834e25-6aba-4fbc-a316-212b4c565e42
+            hippotranslation:locale: en
+            visitscotland:breadcrumb: ''
+            visitscotland:hideNewsletter: false
+            visitscotland:pswPosition: Default
+            visitscotland:seoDescription: This is a page To test a specific Module
+            visitscotland:seoNoIndex: false
+            visitscotland:seoTitle: This is a page To test a specific Module
+            visitscotland:teaser: Forms
+            visitscotland:theme: Standard
+            visitscotland:title: Form test page
+            visitscotland:translation: ''
+            /visitscotland:heroImage:
+              jcr:primaryType: hippogallerypicker:imagelink
+              hippo:docbase: ea78cf97-be18-42d9-b266-3a5023316f16
+              hippo:facets: []
+              hippo:modes: []
+              hippo:values: []
+            /visitscotland:introduction:
+              jcr:primaryType: hippostd:html
+              hippostd:content: <p>This page illustrates different combinations for
+                this module, please feel free to add more use cases to illustrate
+                uses of this moduel</p>
+        /breg-form:
+          jcr:primaryType: hippo:handle
+          jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+          jcr:uuid: e2ca2294-d565-46d6-94f1-985ac7a14451
+          hippo:name: BREG Form
+          /breg-form[1]:
+            jcr:primaryType: visitscotland:Form
+            jcr:mixinTypes: ['mix:versionable']
+            jcr:uuid: 9a4309e1-6884-493b-bbc2-d9140327aa26
+            hippo:availability: [preview]
+            hippostd:retainable: false
+            hippostd:state: unpublished
+            hippostdpubwf:createdBy: admin
+            hippostdpubwf:creationDate: 2024-05-22T12:24:38.758+01:00
+            hippostdpubwf:lastModificationDate: 2024-05-22T15:14:14.994+01:00
+            hippostdpubwf:lastModifiedBy: admin
+            hippotranslation:id: b61a3e2e-f027-4286-9c87-7a51ddc7643f
+            hippotranslation:locale: en
+            visitscotland:nonJavaScriptMessage: ''
+            visitscotland:title: What are your details?
+            visitscotland:translation: ''
+            /visitscotland:form:
+              jcr:primaryType: visitscotland:FormCompoundBreg
+              visitscotland:activityCode: 00ENEWS003
+              visitscotland:activityDescription: Website opt in for Snow Alerts (ski)
+                and VS Email
+              visitscotland:activitySource: E-News Signups
+              visitscotland:consents: [newsletter, snow]
+              visitscotland:jsonUrl: https://github.com/visitscotland/marketo-form-data/blob/main/rfp/rfp-sign-up.json
+              visitscotland:url: https://api.visitscotland.net/dev/submit/breg/forms/consumer/snow
+          /breg-form[2]:
+            jcr:primaryType: visitscotland:Form
+            jcr:mixinTypes: ['mix:referenceable']
+            jcr:uuid: e98193dd-69d0-4e49-8149-3d3568bcffe7
+            hippo:availability: []
+            hippostd:retainable: false
+            hippostd:state: draft
+            hippostdpubwf:createdBy: admin
+            hippostdpubwf:creationDate: 2024-05-22T12:24:38.758+01:00
+            hippostdpubwf:lastModificationDate: 2024-05-22T15:30:14.010+01:00
+            hippostdpubwf:lastModifiedBy: admin
+            hippotranslation:id: b61a3e2e-f027-4286-9c87-7a51ddc7643f
+            hippotranslation:locale: en
+            visitscotland:nonJavaScriptMessage: ''
+            visitscotland:title: What are your details?
+            visitscotland:translation: ''
+            /visitscotland:form:
+              jcr:primaryType: visitscotland:FormCompoundBreg
+              visitscotland:activityCode: 00ENEWS003
+              visitscotland:activityDescription: Website opt in for Snow Alerts (ski)
+                and VS Email
+              visitscotland:activitySource: E-News Signups
+              visitscotland:consents: [newsletter, snow]
+              visitscotland:jsonUrl: https://github.com/visitscotland/marketo-form-data/blob/main/rfp/rfp-sign-up.json
+              visitscotland:url: https://api.visitscotland.net/dev/submit/breg/forms/consumer/snow

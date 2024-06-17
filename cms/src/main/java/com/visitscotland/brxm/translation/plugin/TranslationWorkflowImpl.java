@@ -19,14 +19,14 @@ import java.io.Serializable;
 import java.rmi.RemoteException;
 import java.util.*;
 
-public class TranslationWorkflowImpl implements TranslationWorkflow, InternalWorkflow {
+public class TranslationWorkflowImpl implements TranslationWorkflow, InternalWorkflow, WorkflowContextAware {
     public static final String CAFEBABE = "cafebabe-";
     private static final Logger log = LoggerFactory.getLogger(TranslationWorkflowImpl.class);
     private final Session userSession;
     private final Session rootSession;
-    private final WorkflowContext workflowContext;
-    private final Node rootSubject;
-    private final Node userSubject;
+    private WorkflowContext workflowContext;
+    private Node rootSubject;
+    private Node userSubject;
     private DocumentFactory documentFactory;
 
     public TranslationWorkflowImpl(WorkflowContext context,
@@ -412,10 +412,30 @@ public class TranslationWorkflowImpl implements TranslationWorkflow, InternalWor
         }
     }
 
+    @Override
+    public WorkflowContext getWorkflowContext() {
+        return workflowContext;
+    }
+
+    @Override
+    public void setWorkflowContext(WorkflowContext workflowContext) {
+        this.workflowContext = workflowContext;
+    }
+
+    @Override
+    public Node getNode() {
+        return userSubject;
+    }
+
+    @Override
+    public void setNode(Node node) throws RepositoryException {
+        userSubject = userSession.getNodeByIdentifier(node.getIdentifier());
+        rootSubject = rootSession.getNodeByIdentifier(node.getIdentifier());
+    }
+
     public static class DocumentFactory {
         public Document createFromNode(Node node) throws RepositoryException {
             return new Document(node);
         }
     }
-
 }

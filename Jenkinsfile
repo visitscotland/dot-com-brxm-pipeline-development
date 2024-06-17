@@ -156,7 +156,7 @@ stage ('vs compile & package in docker') {
           reuseNode true
         }
       }
-      steps {   
+      steps {
         //sh 'sh ./ci/infrastructure/scripts/infrastructure.sh setvars'
         sh '''
           set +x
@@ -294,7 +294,7 @@ stage ('vs compile & package in docker') {
 
         stage('SonarQube BE Scan') {
           when {
-            branch 'develop' 
+            branch 'develop'
           }
           steps {
             catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
@@ -308,7 +308,7 @@ stage ('vs compile & package in docker') {
 
         stage('SonarQube FE scan') {
           when {
-            branch 'develop' 
+            branch 'develop'
           }
           environment {
             scannerHome = tool 'SonarQube_4.0'
@@ -333,8 +333,8 @@ stage ('vs compile & package in docker') {
           when {
             anyOf {
               // Always run Nexus IQ scan for builds on 'develop'
-              branch 'develop' 
- 
+              branch 'develop'
+
               // Always run Nexus IQ scan for pull requests
               changeRequest()
             }
@@ -345,7 +345,7 @@ stage ('vs compile & package in docker') {
                 def policyEvaluation = nexusPolicyEvaluation failBuildOnNetworkError: true, enableDebugLogging: true, iqApplication: selectedApplication('visitscotland-site'), iqScanPatterns: [[scanPattern: '**/site.war']], iqStage: 'build', jobCredentialsId: 'nexusiq'
                 echo "Nexus IQ scan succeeded: ${policyEvaluation.applicationCompositionReportUrl}"
                 IQ_SCAN_URL = "${policyEvaluation.applicationCompositionReportUrl}"
-              } 
+              }
               catch (error) {
                 def policyEvaluation = error.policyEvaluation
                 echo "Nexus IQ scan vulnerabilities detected', ${policyEvaluation.applicationCompositionReportUrl}"
@@ -359,8 +359,8 @@ stage ('vs compile & package in docker') {
           when {
             anyOf {
               // Always run Nexus IQ scan for builds on 'develop'
-              branch 'develop' 
- 
+              branch 'develop'
+
               // Always run Nexus IQ scan for pull requests
               changeRequest()
             }
@@ -371,7 +371,7 @@ stage ('vs compile & package in docker') {
                 def policyEvaluation = nexusPolicyEvaluation failBuildOnNetworkError: true, enableDebugLogging: true, iqApplication: selectedApplication('visitscotland-cms'), iqScanPatterns: [[scanPattern: '**/cms.war']], iqStage: 'build', jobCredentialsId: 'nexusiq'
                 echo "Nexus IQ scan succeeded: ${policyEvaluation.applicationCompositionReportUrl}"
                 IQ_SCAN_URL = "${policyEvaluation.applicationCompositionReportUrl}"
-              } 
+              }
               catch (error) {
                 def policyEvaluation = error.policyEvaluation
                 echo "Nexus IQ scan vulnerabilities detected', ${policyEvaluation.applicationCompositionReportUrl}"
@@ -385,8 +385,8 @@ stage ('vs compile & package in docker') {
           when {
             anyOf {
               // Always run Nexus IQ scan for builds on 'develop'
-              branch 'develop' 
- 
+              branch 'develop'
+
               // Always run Nexus IQ scan for pull requests
               changeRequest()
             }
@@ -397,7 +397,7 @@ stage ('vs compile & package in docker') {
                 def policyEvaluation = nexusPolicyEvaluation failBuildOnNetworkError: true, enableDebugLogging: true, iqApplication: selectedApplication('visitscotland-ssr'), iqScanPatterns: [[scanPattern: '**/*ssr*.tar.gz']], iqStage: 'build', jobCredentialsId: 'nexusiq'
                 echo "Nexus IQ scan succeeded: ${policyEvaluation.applicationCompositionReportUrl}"
                 IQ_SCAN_URL = "${policyEvaluation.applicationCompositionReportUrl}"
-              } 
+              }
               catch (error) {
                 def policyEvaluation = error.policyEvaluation
                 echo "Nexus IQ scan vulnerabilities detected', ${policyEvaluation.applicationCompositionReportUrl}"
@@ -445,7 +445,7 @@ stage ('vs compile & package in docker') {
         }
       }
     }
- 
+
     stage('Lighthouse Testing'){
       when {
         allOf {
@@ -455,7 +455,7 @@ stage ('vs compile & package in docker') {
           }
           anyOf {
             // Always run the Lighthouse Tests for 'develop' builds
-            branch 'develop' 
+            branch 'develop'
 
             // Always run the Lighthouse Tests for pull requests
             changeRequest()
@@ -466,7 +466,7 @@ stage ('vs compile & package in docker') {
         }
       }
       steps{
-        catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') { 
+        catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
           echo "Lighthouse test failure notification will be emailed to ${env.VS_COMMIT_AUTHOR}"
           script{
             // to-do: replace this sleep with a "wait for 200" in the script
