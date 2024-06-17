@@ -217,6 +217,7 @@ stage ('vs compile & package in docker') {
 
           // If requested, build feature environment for feature branches prior to PR
           environment name: 'VS_BUILD_FEATURE_ENVIRONMENT', value: 'true'
+          expression {return env.VS_BUILD_FEATURE_ENVIRONMENT ==~ /(TRUE|true)/}
         }
       }
       steps{
