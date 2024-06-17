@@ -118,9 +118,9 @@ stage ('vs compile & package in docker') {
         }
       }
       steps {   
-        //sh 'sh ./ci/infrastructure/scripts/infrastructure.sh setvars'
         sh '''
           set +x
+          source ./ci/infrastructure/scripts/infrastructure.sh setvars
           echo; echo "running stage $STAGE_NAME on $HOSTNAME"
           export HOME=$WORKSPACE
           export MAVEN_OPTS="-Duser.home=$HOME"
