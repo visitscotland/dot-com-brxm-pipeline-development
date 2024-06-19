@@ -55,6 +55,8 @@ public class SiteProperties extends Properties {
     static final String FORMS_MARKETO_MUNCHKIN = "form.marketo.munchkin";
     static final String FORMS_MARKETO_SCRIPT = "form.marketo.script";
     static final String FORMS_MARKETO_IS_PRODUCTION = "form.is-production";
+    static final String FORM_BREG_LEGAL_BASIS = "form.breg.legal-basis";
+    static final String FORM_BREG_LEGAL_BASIS_ENABLE = "form.breg.legal-basis.enable";
 
     private final CMSProperties cmsProperties;
     public SiteProperties(ResourceBundleService bundle, HippoUtilsService utils, CMSProperties cmsProperties){
@@ -153,4 +155,12 @@ public class SiteProperties extends Properties {
     public String getSiteId() {
         return readString(SITE_ID);
     }
+
+    public String getFormBregLegalBasis() {
+        return readString(FORM_BREG_LEGAL_BASIS);
+    }
+    public Boolean isFormBregLegalBasisEnabled() {
+        return readBoolean(FORM_BREG_LEGAL_BASIS_ENABLE);
+    }
+
 }

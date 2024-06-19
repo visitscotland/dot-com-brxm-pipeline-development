@@ -14,7 +14,7 @@
     hippostd:state: unpublished
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2021-02-05T15:37:26.056Z
-    hippostdpubwf:lastModificationDate: 2024-04-30T14:52:02.669+01:00
+    hippostdpubwf:lastModificationDate: 2024-03-12T17:53:46.118Z
     hippostdpubwf:lastModifiedBy: admin
     resourcebundle:descriptions: [URL prefix for Instagram endpoints, '', Client Token
         for Instagram request, '', Encoding for requests made to dms data endpoints,
@@ -55,7 +55,8 @@
         different languages, "Marketo Configuration \r\n\r\n\r\nMunchkin Id for Live:\
         \   638-HHZ-510\r\nMunchkin Id for Test:    830-QYE-256", "URL for Live :\
         \ //e.visitscotland.com\r\nURL for Test: //830-QYE-256.mktoweb.com", Public
-        Recaptcha Key for Forms, '', Marketo Script required for the form to work]
+        Recaptcha Key for Forms, '', Marketo Script required for the form to work,
+      '', '']
     resourcebundle:id: default.config
     resourcebundle:keys: [instagram.api, helpdesk-email, instagram.accesstoken, instagram.post-url,
       dms-data.encoding, dms-data.api-key, dms-data.timeout, dms-data.tries, dms-data.sleep-time,
@@ -71,7 +72,7 @@
       site.path.icentre-landing, site.path.newsletter, site.path.campaigns, snippet-cache.enable,
       iknow-module.enabled, map.multipolygon.regions, navigation.cms.cache, form.json.countries,
       form.json.messages, form.marketo.munchkin, form.maketo.instance-url, form.recaptcha-key,
-      form.marketo.scripts, form.marketo.script]
+      form.marketo.scripts, form.marketo.script, form.breg.legal-basis, form.breg.legal-basis.enable]
     resourcebundle:messages: ['https://graph.facebook.com/v9.0/instagram_oembed?url=http://instagr.am/p/',
       helpdesk@visitscotland.com, $INSTAGRAM_ACCESS_CODE, 'https://www.instagram.com/p/',
       UTF-8, $VS_API_KEY, '2000', '3', '60000', 'https://community.visitscotland.com/',
@@ -84,28 +85,29 @@
       'true', '10.0', /test/examples/about-us, /test/examples/icentres/content, /test/modules/form/content,
       /test/examples/campaigns, 'false', 'false', 'argyll-isles,ayrshire-arran,dumfries-galloway,highlands,kingdom-fife,orkney,outer-hebrides,shetland',
       'true', 'https://static.visitscotland.com/forms/common/countries.json', 'https://static.visitscotland.com/forms/common/messaging.json',
-      830-QYE-256, //830-QYE-256.mktoweb.com, 6LfqqfcZAAAAACbkbPaHRZTIFpKZGAPZBDkwBKhe,
-      //e.visitscotland.com/js/forms2/js/forms2.min.js, //e.visitscotland.com/js/forms2/js/forms2.min.js]
+      830-QYE-256, //830-QYE-256.mktoweb.com, 6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI,
+      //e.visitscotland.com/js/forms2/js/forms2.min.js, //e.visitscotland.com/js/forms2/js/forms2.min.js,
+      Consent, 'true']
     resourcebundle:messages_de: ['', '', '', '', '', '', '', '', '', '', '', '', '',
       '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
       /de-de/site-search-results, '12812', '', '', '', '', '', '', '', '', '', '',
-      '', '', '', '', '', '', '', '', '', '', '', '', '']
+      '', '', '', '', '', '', '', '', '', '', '', '', '', '', '']
     resourcebundle:messages_es: ['', '', '', '', '', '', '', '', '', '', '', '', '',
       '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
       /es-es/site-search-results, '12814', '', '', '', '', '', '', '', '', '', '',
-      '', '', '', '', '', '', '', '', '', '', '', '', '']
+      '', '', '', '', '', '', '', '', '', '', '', '', '', '', '']
     resourcebundle:messages_fr: ['', '', '', '', '', '', '', '', '', '', '', '', '',
       '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
       /fr-fr/site-search-results, '12811', '', '', '', '', '', '', '', '', '', '',
-      '', '', '', '', '', '', '', '', '', '', '', '', '']
+      '', '', '', '', '', '', '', '', '', '', '', '', '', '', '']
     resourcebundle:messages_it: ['', '', '', '', '', '', '', '', '', '', '', '', '',
       '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
       /it-it/site-search-results, '12813', '', '', '', '', '', '', '', '', '', '',
-      '', '', '', '', '', '', '', '', '', '', '', '', '']
+      '', '', '', '', '', '', '', '', '', '', '', '', '', '', '']
     resourcebundle:messages_nl: ['', '', '', '', '', '', '', '', '', '', '', '', '',
       '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
       /nl-nl/site-search-results, '12810', '', '', '', '', '', '', '', '', '', '',
-      '', '', '', '', '', '', '', '', '', '', '', '', '']
+      '', '', '', '', '', '', '', '', '', '', '', '', '', '', '']
   /default-properties[2]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:referenceable']
@@ -156,7 +158,8 @@
         different languages, "Marketo Configuration \r\n\r\n\r\nMunchkin Id for Live:\
         \   638-HHZ-510\r\nMunchkin Id for Test:    830-QYE-256", "URL for Live :\
         \ //e.visitscotland.com\r\nURL for Test: //830-QYE-256.mktoweb.com", Public
-        Recaptcha Key for Forms, '', Marketo Script required for the form to work]
+        Recaptcha Key for Forms, '', Marketo Script required for the form to work,
+      '', '']
     resourcebundle:id: default.config
     resourcebundle:keys: [instagram.api, helpdesk-email, instagram.accesstoken, instagram.post-url,
       dms-data.encoding, dms-data.api-key, dms-data.timeout, dms-data.tries, dms-data.sleep-time,
@@ -172,7 +175,7 @@
       site.path.icentre-landing, site.path.newsletter, site.path.campaigns, snippet-cache.enable,
       iknow-module.enabled, map.multipolygon.regions, navigation.cms.cache, form.json.countries,
       form.json.messages, form.marketo.munchkin, form.maketo.instance-url, form.recaptcha-key,
-      form.marketo.scripts, form.marketo.script]
+      form.marketo.scripts, form.marketo.script, form.breg.legal-basis, form.breg.legal-basis.enable]
     resourcebundle:messages: ['https://graph.facebook.com/v9.0/instagram_oembed?url=http://instagr.am/p/',
       helpdesk@visitscotland.com, $INSTAGRAM_ACCESS_CODE, 'https://www.instagram.com/p/',
       UTF-8, $VS_API_KEY, '2000', '3', '60000', 'https://community.visitscotland.com/',
@@ -185,28 +188,29 @@
       'true', '10.0', /test/examples/about-us, /test/examples/icentres/content, /test/modules/form/content,
       /test/examples/campaigns, 'false', 'false', 'argyll-isles,ayrshire-arran,dumfries-galloway,highlands,kingdom-fife,orkney,outer-hebrides,shetland',
       'true', 'https://static.visitscotland.com/forms/common/countries.json', 'https://static.visitscotland.com/forms/common/messaging.json',
-      830-QYE-256, //830-QYE-256.mktoweb.com, 6LfqqfcZAAAAACbkbPaHRZTIFpKZGAPZBDkwBKhe,
-      //e.visitscotland.com/js/forms2/js/forms2.min.js, //e.visitscotland.com/js/forms2/js/forms2.min.js]
+      830-QYE-256, //830-QYE-256.mktoweb.com, 6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI,
+      //e.visitscotland.com/js/forms2/js/forms2.min.js, //e.visitscotland.com/js/forms2/js/forms2.min.js,
+      Consent, 'true']
     resourcebundle:messages_de: ['', '', '', '', '', '', '', '', '', '', '', '', '',
       '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
       /de-de/site-search-results, '12812', '', '', '', '', '', '', '', '', '', '',
-      '', '', '', '', '', '', '', '', '', '', '', '', '']
+      '', '', '', '', '', '', '', '', '', '', '', '', '', '', '']
     resourcebundle:messages_es: ['', '', '', '', '', '', '', '', '', '', '', '', '',
       '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
       /es-es/site-search-results, '12814', '', '', '', '', '', '', '', '', '', '',
-      '', '', '', '', '', '', '', '', '', '', '', '', '']
+      '', '', '', '', '', '', '', '', '', '', '', '', '', '', '']
     resourcebundle:messages_fr: ['', '', '', '', '', '', '', '', '', '', '', '', '',
       '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
       /fr-fr/site-search-results, '12811', '', '', '', '', '', '', '', '', '', '',
-      '', '', '', '', '', '', '', '', '', '', '', '', '']
+      '', '', '', '', '', '', '', '', '', '', '', '', '', '', '']
     resourcebundle:messages_it: ['', '', '', '', '', '', '', '', '', '', '', '', '',
       '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
       /it-it/site-search-results, '12813', '', '', '', '', '', '', '', '', '', '',
-      '', '', '', '', '', '', '', '', '', '', '', '', '']
+      '', '', '', '', '', '', '', '', '', '', '', '', '', '', '']
     resourcebundle:messages_nl: ['', '', '', '', '', '', '', '', '', '', '', '', '',
       '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
       /nl-nl/site-search-results, '12810', '', '', '', '', '', '', '', '', '', '',
-      '', '', '', '', '', '', '', '', '', '', '', '', '']
+      '', '', '', '', '', '', '', '', '', '', '', '', '', '', '']
   /default-properties[3]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:referenceable']
@@ -258,7 +262,8 @@
         different languages, "Marketo Configuration \r\n\r\n\r\nMunchkin Id for Live:\
         \   638-HHZ-510\r\nMunchkin Id for Test:    830-QYE-256", "URL for Live :\
         \ //e.visitscotland.com\r\nURL for Test: //830-QYE-256.mktoweb.com", Public
-        Recaptcha Key for Forms, '', Marketo Script required for the form to work]
+        Recaptcha Key for Forms, '', Marketo Script required for the form to work,
+      '', '']
     resourcebundle:id: default.config
     resourcebundle:keys: [instagram.api, helpdesk-email, instagram.accesstoken, instagram.post-url,
       dms-data.encoding, dms-data.api-key, dms-data.timeout, dms-data.tries, dms-data.sleep-time,
@@ -274,7 +279,7 @@
       site.path.icentre-landing, site.path.newsletter, site.path.campaigns, snippet-cache.enable,
       iknow-module.enabled, map.multipolygon.regions, navigation.cms.cache, form.json.countries,
       form.json.messages, form.marketo.munchkin, form.maketo.instance-url, form.recaptcha-key,
-      form.marketo.scripts, form.marketo.script]
+      form.marketo.scripts, form.marketo.script, form.breg.legal-basis, form.breg.legal-basis.enable]
     resourcebundle:messages: ['https://graph.facebook.com/v9.0/instagram_oembed?url=http://instagr.am/p/',
       helpdesk@visitscotland.com, $INSTAGRAM_ACCESS_CODE, 'https://www.instagram.com/p/',
       UTF-8, $VS_API_KEY, '2000', '3', '60000', 'https://community.visitscotland.com/',
@@ -287,25 +292,26 @@
       'true', '10.0', /test/examples/about-us, /test/examples/icentres/content, /test/modules/form/content,
       /test/examples/campaigns, 'false', 'false', 'argyll-isles,ayrshire-arran,dumfries-galloway,highlands,kingdom-fife,orkney,outer-hebrides,shetland',
       'true', 'https://static.visitscotland.com/forms/common/countries.json', 'https://static.visitscotland.com/forms/common/messaging.json',
-      830-QYE-256, //830-QYE-256.mktoweb.com, 6LfqqfcZAAAAACbkbPaHRZTIFpKZGAPZBDkwBKhe,
-      //e.visitscotland.com/js/forms2/js/forms2.min.js, //e.visitscotland.com/js/forms2/js/forms2.min.js]
+      830-QYE-256, //830-QYE-256.mktoweb.com, 6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI,
+      //e.visitscotland.com/js/forms2/js/forms2.min.js, //e.visitscotland.com/js/forms2/js/forms2.min.js,
+      Consent, 'true']
     resourcebundle:messages_de: ['', '', '', '', '', '', '', '', '', '', '', '', '',
       '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
       /de-de/site-search-results, '12812', '', '', '', '', '', '', '', '', '', '',
-      '', '', '', '', '', '', '', '', '', '', '', '', '']
+      '', '', '', '', '', '', '', '', '', '', '', '', '', '', '']
     resourcebundle:messages_es: ['', '', '', '', '', '', '', '', '', '', '', '', '',
       '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
       /es-es/site-search-results, '12814', '', '', '', '', '', '', '', '', '', '',
-      '', '', '', '', '', '', '', '', '', '', '', '', '']
+      '', '', '', '', '', '', '', '', '', '', '', '', '', '', '']
     resourcebundle:messages_fr: ['', '', '', '', '', '', '', '', '', '', '', '', '',
       '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
       /fr-fr/site-search-results, '12811', '', '', '', '', '', '', '', '', '', '',
-      '', '', '', '', '', '', '', '', '', '', '', '', '']
+      '', '', '', '', '', '', '', '', '', '', '', '', '', '', '']
     resourcebundle:messages_it: ['', '', '', '', '', '', '', '', '', '', '', '', '',
       '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
       /it-it/site-search-results, '12813', '', '', '', '', '', '', '', '', '', '',
-      '', '', '', '', '', '', '', '', '', '', '', '', '']
+      '', '', '', '', '', '', '', '', '', '', '', '', '', '', '']
     resourcebundle:messages_nl: ['', '', '', '', '', '', '', '', '', '', '', '', '',
       '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
       /nl-nl/site-search-results, '12810', '', '', '', '', '', '', '', '', '', '',
-      '', '', '', '', '', '', '', '', '', '', '', '', '']
+      '', '', '', '', '', '', '', '', '', '', '', '', '', '', '']
