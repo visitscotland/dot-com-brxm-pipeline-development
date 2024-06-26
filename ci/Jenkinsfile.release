@@ -326,6 +326,7 @@ pipeline {
                     // Build an environment for release branches so SSR artefact gets created
                     branch 'hotfix/*'
                     branch 'release/*'
+                    branch 'pipeline/*'
 
                     // Always build the feature environment for pull requests
                     changeRequest()
@@ -535,6 +536,7 @@ pipeline {
                         anyOf {
                             branch 'hotfix/*'
                             branch 'release/*'
+                            branch 'pipeline/*'
                         }
                     }
                     steps {
