@@ -828,8 +828,7 @@ pipeline {
                     emailext(
                             subject: "URL and checksums for jenkins build: ${env.BUILD_NUMBER} (${VS_PIPELINE_OUTCOME_EMAIL})",
                             body: "${emailBody}",
-                            to: "${env.VS_COMMIT_AUTHOR}",
-                            cc: "matthew.syrigos@visitscotland.com",
+                            to: "${env.VS_COMMIT_AUTHOR}, cc:matthew.syrigos@visitscotland.com",
                             mimeType: 'text/html'
                     )
                 }
