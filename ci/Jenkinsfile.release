@@ -33,6 +33,8 @@ def VS_ERROR_LINES_EMAIL = ''
 def VS_PIPELINE_OUTCOME_EMAIL = ''
 // the filename of the release in the Nexus (if not rejected by rules)
 def VS_RELEASE_CANDIDATE_NEXUS_FILENAME = ''
+// detect the release version to be added in the email info
+def VS_RELEASE_VERSION_DETECTED_FOR_EMAIL = ''
 
 if (BRANCH_NAME == "develop" && (JOB_NAME == "develop.visitscotland.com/develop" || JOB_NAME == "develop.visitscotland.com-mb/develop")) {
     //thisAgent = "op-dev-xvcdocker-01"
@@ -786,6 +788,12 @@ pipeline {
         stage('Compose Email') {
             steps {
                 script {
+                    // Extract the version from the main pom.xml using grep and awk, skipping the parent block
+                    VS_RELEASE_VERSION_DETECTED_FOR_EMAIL = sh(script: '''
+                        awk '/<parent>/,/<\\/parent>/ { next } /<version>/ { print; exit }' pom.xml | sed "s/.*<version>\\(.*\\)<\\/version>.*/\\1/"
+                    ''', returnStdout: true).trim()
+                    echo "Release version detected in pom.xml (for use in email): ${VS_RELEASE_VERSION_DETECTED_FOR_EMAIL}"
+
                     // construct the part of the email body that refers to the distribution release package
                     def distributionReleaseBody="""
                         <table>
@@ -826,7 +834,7 @@ pipeline {
                       </html>
                       """
                     emailext(
-                            subject: "URL and checksums for jenkins build: ${env.BUILD_NUMBER} (${VS_PIPELINE_OUTCOME_EMAIL})",
+                            subject: "[Release] v${VS_RELEASE_VERSION_DETECTED_FOR_EMAIL} - build #${env.BUILD_NUMBER} - ${VS_PIPELINE_OUTCOME_EMAIL} - Artifacts Info",
                             body: "${emailBody}",
                             to: "${env.VS_COMMIT_AUTHOR}, cc:matthew.syrigos@visitscotland.com",
                             mimeType: 'text/html'
