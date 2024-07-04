@@ -818,9 +818,9 @@ pipeline {
                         </style>
                       </head>
                       <body>
-                        <h1>Release and Package Details for <a href="${env.BUILD_URL}">Jenkins Build ${env.BUILD_NUMBER}</a> - ${VS_PIPELINE_OUTCOME_EMAIL}</h1>
+                        <h1>Package details for release v${VS_RELEASE_VERSION_DETECTED_FOR_EMAIL}, <a href="${env.BUILD_URL}">Jenkins Build ${env.BUILD_NUMBER}</a> - ${VS_PIPELINE_OUTCOME_EMAIL}</h1>
                         <p>Here are the details of the distribution/release and the SSR package for the current build.</p>
-                        <h2>Distribution/Release</h2>
+                        <h2>Release v${VS_RELEASE_VERSION_DETECTED_FOR_EMAIL}</h2>
                         ${distributionReleaseBody}
                         
                         <h2>SSR Package (in Jenkins)</h2>
