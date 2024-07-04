@@ -834,7 +834,7 @@ pipeline {
                       </html>
                       """
                     emailext(
-                            subject: "[Release] v${VS_RELEASE_VERSION_DETECTED_FOR_EMAIL} - build #${env.BUILD_NUMBER} - ${VS_PIPELINE_OUTCOME_EMAIL} - Artifacts Info",
+                            subject: "[Release] v${VS_RELEASE_VERSION_DETECTED_FOR_EMAIL} - build #${env.BUILD_NUMBER} - ${VS_PIPELINE_OUTCOME_EMAIL} - Artefacts' Info",
                             body: "${emailBody}",
                             to: "${env.VS_COMMIT_AUTHOR}, cc:matthew.syrigos@visitscotland.com",
                             mimeType: 'text/html'
