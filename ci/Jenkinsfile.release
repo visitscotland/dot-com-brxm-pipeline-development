@@ -798,7 +798,8 @@ pipeline {
                     def distributionReleaseBody="""
                         <table>
                           <tr><th>Build-Number</th><td>${VS_SITE_WAR_BUILD_NUMBER}</td></tr>
-                          <tr><th>Nexus URL</th><td><a href="${VS_RELEASE_PACKAGE_NEXUS_URL}">${VS_RELEASE_CANDIDATE_NEXUS_FILENAME}</a></td></tr>
+                          <tr><th>Nexus URL (hyperlink)</th><td><a href="${VS_RELEASE_PACKAGE_NEXUS_URL}">${VS_RELEASE_CANDIDATE_NEXUS_FILENAME}</a></td></tr>
+                          <tr><th>Nexus URL (clean link)</th><td><code>${VS_RELEASE_PACKAGE_NEXUS_URL}</code></td></tr>
                           <tr><th>MD5 Checksum</th><td>${VS_RELEASE_PACKAGE_WORKSPACE_MD5}</td></tr>
                         </table>
                         """
@@ -819,13 +820,14 @@ pipeline {
                       </head>
                       <body>
                         <h1>Package details for release v${VS_RELEASE_VERSION_DETECTED_FOR_EMAIL}, <a href="${env.BUILD_URL}">Jenkins Build ${env.BUILD_NUMBER}</a> - ${VS_PIPELINE_OUTCOME_EMAIL}</h1>
-                        <p>Here are the details of the distribution/release and the SSR package for the current build.</p>
-                        <h2>Release v${VS_RELEASE_VERSION_DETECTED_FOR_EMAIL}</h2>
+                        <p>Here are the details for the artefacts (distribution/release and SSR packages) related to the current aforementioned build.</p>
+                        <h2>Release v${VS_RELEASE_VERSION_DETECTED_FOR_EMAIL} artefact</h2>
                         ${distributionReleaseBody}
                         
                         <h2>SSR Package (in Jenkins)</h2>
                         <table>
-                          <tr><th>URL</th><td><a href="${VS_SSR_ARCHIVED_PACKAGE_URL}">${VS_SSR_PACKAGE_NAME}</a></td></tr>
+                          <tr><th>URL (hyperlink)</th><td><a href="${VS_SSR_ARCHIVED_PACKAGE_URL}">${VS_SSR_PACKAGE_NAME}</a></td></tr>
+                          <tr><th>URL (clean link)</th><td><td><code>${VS_SSR_ARCHIVED_PACKAGE_URL}</code></td></tr>
                           <tr><th>MD5 Checksum</th><td>${VS_SSR_ARCHIVED_PACKAGE_MD5}</td></tr>
                         </table>
                         
