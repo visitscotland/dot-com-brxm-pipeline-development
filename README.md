@@ -81,7 +81,15 @@ or
 
     mvn clean verify -P !fed-build -DskipTests &&mvn -P cargo.run
 
+## Releasing the project
 
+The commands to start and complete the release are the following
+
+    ci/start-release.sh
+
+    ci/finish-release.sh
+
+You can check more in depth documentation in [this page](doc/how-to/release-process.md) 
     
 ## Troubleshooting
 **I get the following error when I try to clone the message: _fatal: cannot create directory at '{some big path}': Filename too long_**
@@ -105,7 +113,7 @@ The Bloomreach Experience Manager Configuration Verifier, brXM CV or just CV in 
          
        mvn -P create-configuration-verifier-config
        mvn -P cargo.run,verify-configuration
-2. 
+ 
 
 ## References
 - [BloomReach Enterprise Documentation](https://xmdocumentation.bloomreach.com/library/enterprise/enterprise-features/enterprise-configuration-management/configuration-verifier.html)
