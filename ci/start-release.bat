@@ -10,9 +10,9 @@ git stash
 :: Proceeding with release's main script
 echo Proceeding with the main start-release script...
 git checkout main
-git pull
+git pull origin main
 git checkout develop
-git pull
+git pull origin develop
 call mvn gitflow:release-start --batch-mode
 call mvn versions:use-releases scm:checkin -Dmessage="Updated snapshot dependencies to release versions" -DpushChanges=false
 
