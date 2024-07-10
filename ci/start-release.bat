@@ -21,5 +21,6 @@ echo Taking you back to your work on branch %branch%
 git checkout "%branch%"
 echo Applying your stashed work...
 git stash apply
+echo You can follow the progress of the artefacts at https://jenkinssb.visitscotland.com/job/release-brc.visitscotland.com/
 
 endlocal
