@@ -73,7 +73,6 @@ Map getPropParsers () {
 
   Map parsers = [
     VS_BUILD_FEATURE_ENVIRONMENT : [ 
-      default: "false", 
       parser : { rawValue ->
         // NOTE: We have to convert toString() first to parse the raw value for a couple
         //       of reasons. First, the rawValue may be an instance of a class which does
@@ -92,7 +91,6 @@ Map getPropParsers () {
     ],
 
     VS_SKIP_LIGHTHOUSE_TESTS : [ 
-      default: "false", 
       parser : { rawValue ->
         // NOTE: We have to convert toString() first to parse the raw value for a couple
         //       of reasons. First, the rawValue may be an instance of a class which does
@@ -111,7 +109,6 @@ Map getPropParsers () {
     ],
 
     VS_SKIP_MAVEN_BUILD : [ 
-      default: "false", 
       parser : { rawValue ->
         String parsedValue = rawValue?.toString()?.toBoolean()?.toString()
         if ( parsedValue == null ) {
@@ -122,7 +119,6 @@ Map getPropParsers () {
     ],
 
     VS_REBUILD_NODE_MODULES : [ 
-      default: "false", 
       parser : { rawValue ->
         String parsedValue = rawValue?.toString()?.toBoolean()?.toString()
         if ( parsedValue == null ) {
@@ -133,7 +129,6 @@ Map getPropParsers () {
     ],
 
     VS_BUILD_DESCRIPTION : [
-      default: "VS.COM Jenkins Build",
       parser: { rawValue ->
         String parsedValue = rawValue?.toString()
         if( parsedValue == null ) {
