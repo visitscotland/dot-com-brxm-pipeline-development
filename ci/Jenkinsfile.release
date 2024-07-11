@@ -799,7 +799,7 @@ pipeline {
                         <table>
                           <tr><th>Build-Number</th><td>${VS_SITE_WAR_BUILD_NUMBER}</td></tr>
                           <tr><th>Nexus URL (hyperlink)</th><td><a href="${VS_RELEASE_PACKAGE_NEXUS_URL}">${VS_RELEASE_CANDIDATE_NEXUS_FILENAME}</a></td></tr>
-                          <tr><th>Nexus URL (clean link)</th><td><code>${VS_RELEASE_PACKAGE_NEXUS_URL}</code></td></tr>
+                          <tr><th>Nexus URL (clean link)</th><td>${VS_RELEASE_PACKAGE_NEXUS_URL}</td></tr>
                           <tr><th>MD5 Checksum</th><td>${VS_RELEASE_PACKAGE_WORKSPACE_MD5}</td></tr>
                         </table>
                         """
@@ -827,7 +827,7 @@ pipeline {
                         <h2>SSR Package (in Jenkins)</h2>
                         <table>
                           <tr><th>URL (hyperlink)</th><td><a href="${VS_SSR_ARCHIVED_PACKAGE_URL}">${VS_SSR_PACKAGE_NAME}</a></td></tr>
-                          <tr><th>URL (clean link)</th><td><td><code>${VS_SSR_ARCHIVED_PACKAGE_URL}</code></td></tr>
+                          <tr><th>URL (clean link)</th><td>${VS_SSR_ARCHIVED_PACKAGE_URL}</td></tr>
                           <tr><th>MD5 Checksum</th><td>${VS_SSR_ARCHIVED_PACKAGE_MD5}</td></tr>
                         </table>
                         
@@ -838,7 +838,7 @@ pipeline {
                     emailext(
                             subject: "[Release] v${VS_RELEASE_VERSION_DETECTED_FOR_EMAIL} - build #${env.BUILD_NUMBER} - ${VS_PIPELINE_OUTCOME_EMAIL} - Artefacts' Info",
                             body: "${emailBody}",
-                            to: "${env.VS_COMMIT_AUTHOR}, cc:matthew.syrigos@visitscotland.com",
+                            to: 'net@visitscotland.com, cc:Jose.Calcines@visitscotland.com, cc:Juanluis.hurtado@visitscotland.com, cc: cc:matthew.syrigos@visitscotland.com',
                             mimeType: 'text/html'
                     )
                 }
