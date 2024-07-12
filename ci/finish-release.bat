@@ -27,7 +27,7 @@ git stash
 echo Checking out the release branch !releaseBranch!
 git checkout "!releaseBranch!"
 echo Pulling the latest changes (if any)
-git pull
+git pull origin "!releaseBranch!"
 
 echo Proceeding with the main finish-release script...
 call mvn gitflow:release-finish -DskipTestProject=true
