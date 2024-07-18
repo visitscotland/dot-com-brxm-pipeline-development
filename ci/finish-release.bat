@@ -3,6 +3,13 @@
 :: when modifying variables within loops and conditionals in batch scripts.
 setlocal enabledelayedexpansion
 
+:: Function to check the status of the previous command and exit if it fails
+:exit_on_failure
+if not errorlevel 1 goto :EOF
+echo %1 failed
+endlocal
+exit /b 1
+
 :: Get current branch
 for /f "tokens=*" %%b in ('git branch --show-current') do set branch=%%b
 
@@ -24,18 +31,27 @@ if "!releaseBranch:~0,2!"=="* " (
 echo You were working on branch %branch%
 echo Stashing your work...
 git stash
-echo Checking out the release branch !releaseBranch!
+call :exit_on_failure "Stashing your work"
+
+echo Checkout to release branch !releaseBranch!
 git checkout "!releaseBranch!"
+call :exit_on_failure "Checkout to release branch"
+
 echo Pulling the latest changes (if any)
 git pull origin "!releaseBranch!"
+call :exit_on_failure "Pulling latest changes"
 
 echo Proceeding with the main finish-release script...
 call mvn gitflow:release-finish -DskipTestProject=true
+call :exit_on_failure "Maven release finish"
 
 :: Recover the workspace to the state it was, prior to running the script
 echo Taking you back to your work on branch %branch%
 git checkout "%branch%"
+call :exit_on_failure "Checkout back to branch"
+
 echo Applying your stashed work...
 git stash apply
+call :exit_on_failure "Applying stashed work"
 
 endlocal
