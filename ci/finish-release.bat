@@ -23,7 +23,7 @@ if "%releaseBranch%"=="" (
 echo "Release branch: %releaseBranch%"
 
 :: Stash current work
-echo Stashing your work...
+echo Stashing your work
 git stash
 if errorlevel 1 (
   call :exit_on_failure "Ensure you have no uncommitted changes. Stashing your work"

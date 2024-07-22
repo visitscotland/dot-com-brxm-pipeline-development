@@ -59,7 +59,7 @@ if errorlevel 1 (
   goto :EOF
 )
 
-echo Applying your stashed work...
+echo Applying your stashed work
 git stash apply
 if errorlevel 1 (
   call :exit_on_failure "Applying stashed work"
