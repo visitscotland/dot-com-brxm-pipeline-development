@@ -1,10 +1,16 @@
 // Jenkins release automation pipeline
-// April 2024
+// phase 1: April 2024
 // requires ci/start-release.bat, ci/finish-release.bat scripts (or their .sh equivalents)
 // based on Jenkinsfile, modified by Matthew Syrigos, Gavin Park
 // phase 2: June 2024
+// phase 3: July 2024
 
 def MAIL_TO = "webops@visitscotland.net"
+def MAIL_TO_NET = 'net@visitscotland.com'
+def CC_DEV1 = 'Jose.Calcines@visitscotland.com'
+def CC_DEV2 = 'Juanluis.hurtado@visitscotland.com'
+def CC_DEV3 = 'Matthew.Syrigos@visitscotland.com'
+def CC_DEV_LIST = "cc:${CC_DEV1}, cc:${CC_DEV2}, cc:${CC_DEV3}"
 
 def thisAgent
 // Define the SSR filename
@@ -33,6 +39,8 @@ def VS_ERROR_LINES_EMAIL = ''
 def VS_PIPELINE_OUTCOME_EMAIL = ''
 // the filename of the release in the Nexus (if not rejected by rules)
 def VS_RELEASE_CANDIDATE_NEXUS_FILENAME = ''
+// detect the release version to be added in the email info
+def VS_RELEASE_VERSION_DETECTED_FOR_EMAIL = ''
 
 if (BRANCH_NAME == "develop" && (JOB_NAME == "develop.visitscotland.com/develop" || JOB_NAME == "develop.visitscotland.com-mb/develop")) {
     //thisAgent = "op-dev-xvcdocker-01"
@@ -326,6 +334,7 @@ pipeline {
                     // Build an environment for release branches so SSR artefact gets created
                     branch 'hotfix/*'
                     branch 'release/*'
+                    branch 'pipeline/*'
 
                     // Always build the feature environment for pull requests
                     changeRequest()
@@ -535,6 +544,7 @@ pipeline {
                         anyOf {
                             branch 'hotfix/*'
                             branch 'release/*'
+                            branch 'pipeline/*'
                         }
                     }
                     steps {
@@ -784,11 +794,18 @@ pipeline {
         stage('Compose Email') {
             steps {
                 script {
+                    // Extract the version from the main pom.xml using grep and awk, skipping the parent block
+                    VS_RELEASE_VERSION_DETECTED_FOR_EMAIL = sh(script: '''
+                        awk '/<parent>/,/<\\/parent>/ { next } /<version>/ { print; exit }' pom.xml | sed "s/.*<version>\\(.*\\)<\\/version>.*/\\1/"
+                    ''', returnStdout: true).trim()
+                    echo "Release version detected in pom.xml (for use in email): ${VS_RELEASE_VERSION_DETECTED_FOR_EMAIL}"
+
                     // construct the part of the email body that refers to the distribution release package
                     def distributionReleaseBody="""
                         <table>
                           <tr><th>Build-Number</th><td>${VS_SITE_WAR_BUILD_NUMBER}</td></tr>
-                          <tr><th>Nexus URL</th><td><a href="${VS_RELEASE_PACKAGE_NEXUS_URL}">${VS_RELEASE_CANDIDATE_NEXUS_FILENAME}</a></td></tr>
+                          <tr><th>Nexus URL (hyperlink)</th><td><a href="${VS_RELEASE_PACKAGE_NEXUS_URL}">${VS_RELEASE_CANDIDATE_NEXUS_FILENAME}</a></td></tr>
+                          <tr><th>Nexus URL (clean link)</th><td>${VS_RELEASE_PACKAGE_NEXUS_URL}</td></tr>
                           <tr><th>MD5 Checksum</th><td>${VS_RELEASE_PACKAGE_WORKSPACE_MD5}</td></tr>
                         </table>
                         """
@@ -808,14 +825,15 @@ pipeline {
                         </style>
                       </head>
                       <body>
-                        <h1>Release and Package Details for <a href="${env.BUILD_URL}">Jenkins Build ${env.BUILD_NUMBER}</a> - ${VS_PIPELINE_OUTCOME_EMAIL}</h1>
-                        <p>Here are the details of the distribution/release and the SSR package for the current build.</p>
-                        <h2>Distribution/Release</h2>
+                        <h1>Package details for release v${VS_RELEASE_VERSION_DETECTED_FOR_EMAIL}, <a href="${env.BUILD_URL}">Jenkins Build ${env.BUILD_NUMBER}</a> - ${VS_PIPELINE_OUTCOME_EMAIL}</h1>
+                        <p>Here are the details for the artefacts (distribution/release and SSR packages) related to the current aforementioned build.</p>
+                        <h2>Release v${VS_RELEASE_VERSION_DETECTED_FOR_EMAIL} artefact</h2>
                         ${distributionReleaseBody}
                         
                         <h2>SSR Package (in Jenkins)</h2>
                         <table>
-                          <tr><th>URL</th><td><a href="${VS_SSR_ARCHIVED_PACKAGE_URL}">${VS_SSR_PACKAGE_NAME}</a></td></tr>
+                          <tr><th>URL (hyperlink)</th><td><a href="${VS_SSR_ARCHIVED_PACKAGE_URL}">${VS_SSR_PACKAGE_NAME}</a></td></tr>
+                          <tr><th>URL (clean link)</th><td>${VS_SSR_ARCHIVED_PACKAGE_URL}</td></tr>
                           <tr><th>MD5 Checksum</th><td>${VS_SSR_ARCHIVED_PACKAGE_MD5}</td></tr>
                         </table>
                         
@@ -824,9 +842,9 @@ pipeline {
                       </html>
                       """
                     emailext(
-                            subject: "URL and checksums for jenkins build: ${env.BUILD_NUMBER} (${VS_PIPELINE_OUTCOME_EMAIL})",
+                            subject: "[Release] v${VS_RELEASE_VERSION_DETECTED_FOR_EMAIL} - build #${env.BUILD_NUMBER} - ${VS_PIPELINE_OUTCOME_EMAIL} - Artefacts' Info",
                             body: "${emailBody}",
-                            to: "${env.VS_COMMIT_AUTHOR}",
+                            to: "${MAIL_TO_NET}, ${VS_COMMIT_AUTHOR}, ${CC_DEV_LIST}",
                             mimeType: 'text/html'
                     )
                 }
