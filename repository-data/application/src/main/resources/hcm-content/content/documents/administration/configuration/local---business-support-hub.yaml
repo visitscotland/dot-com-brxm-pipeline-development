@@ -1,0 +1,58 @@
+/content/documents/administration/configuration/local---business-support-hub:
+  jcr:primaryType: hippo:handle
+  jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+  jcr:uuid: c1ca6026-0585-466d-a72b-c4202da2bf95
+  hippo:name: Local - Business Support Hub
+  hippo:versionHistory: 3c16e8f2-ff29-4c70-807e-5c72a64db6b8
+  /local---business-support-hub[1]:
+    jcr:primaryType: resourcebundle:resourcebundle
+    jcr:mixinTypes: ['mix:versionable']
+    jcr:uuid: de56b454-2d34-4d49-8290-883b7da9461a
+    hippo:availability: [preview]
+    hippostd:retainable: false
+    hippostd:state: unpublished
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2024-04-29T14:00:24.028+01:00
+    hippostdpubwf:lastModificationDate: 2024-07-25T11:29:09.972+01:00
+    hippostdpubwf:lastModifiedBy: admin
+    resourcebundle:descriptions: ['', '', '', '']
+    resourcebundle:id: businessevents.local.config
+    resourcebundle:keys: [gtm.is-production, gtm.container-id, gtm.preview-query-string,
+      site-id]
+    resourcebundle:messages: ['false', GTM-T7G4TNR, '&gtm_auth=PCWhL-3fHI0sM_2ztUYr6g&gtm_preview=env-126&gtm_cookies_win=x',
+      bsh]
+  /local---business-support-hub[2]:
+    jcr:primaryType: resourcebundle:resourcebundle
+    jcr:mixinTypes: ['mix:referenceable']
+    jcr:uuid: 77fd210d-070d-4859-aae7-56d312819035
+    hippo:availability: []
+    hippostd:retainable: false
+    hippostd:state: draft
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2024-04-29T14:00:24.028+01:00
+    hippostdpubwf:lastModificationDate: 2024-07-25T11:28:52.414+01:00
+    hippostdpubwf:lastModifiedBy: admin
+    resourcebundle:descriptions: ['', '', '', '']
+    resourcebundle:id: businessevents.local.config
+    resourcebundle:keys: [gtm.is-production, gtm.container-id, gtm.preview-query-string,
+      site-id]
+    resourcebundle:messages: ['false', GTM-T7G4TNR, '&gtm_auth=PCWhL-3fHI0sM_2ztUYr6g&gtm_preview=env-126&gtm_cookies_win=x',
+      bsh]
+  /local---business-support-hub[3]:
+    jcr:primaryType: resourcebundle:resourcebundle
+    jcr:mixinTypes: ['mix:referenceable']
+    jcr:uuid: 9acd281e-2885-40f4-9ff6-63b539c0e431
+    hippo:availability: [live]
+    hippostd:retainable: false
+    hippostd:state: published
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2024-04-29T14:00:24.028+01:00
+    hippostdpubwf:lastModificationDate: 2024-07-25T11:29:09.972+01:00
+    hippostdpubwf:lastModifiedBy: admin
+    hippostdpubwf:publicationDate: 2024-07-25T11:29:13.335+01:00
+    resourcebundle:descriptions: ['', '', '', '']
+    resourcebundle:id: businessevents.local.config
+    resourcebundle:keys: [gtm.is-production, gtm.container-id, gtm.preview-query-string,
+      site-id]
+    resourcebundle:messages: ['false', GTM-T7G4TNR, '&gtm_auth=PCWhL-3fHI0sM_2ztUYr6g&gtm_preview=env-126&gtm_cookies_win=x',
+      bsh]
