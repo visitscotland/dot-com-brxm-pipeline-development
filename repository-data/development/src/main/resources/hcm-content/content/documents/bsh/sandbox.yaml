@@ -1,0 +1,154 @@
+/content/documents/bsh/sandbox:
+  jcr:primaryType: hippostd:folder
+  jcr:mixinTypes: ['hippotranslation:translated', 'mix:versionable']
+  jcr:uuid: 3ba12366-9b59-47aa-8063-a7efa2165322
+  hippostd:foldertype: [new-be-folder, new-be-page, new-be-module]
+  hippotranslation:id: 55c3dc2b-ecce-4dfe-a0d7-dbd341fa965b
+  hippotranslation:locale: en
+  /content:
+    jcr:primaryType: hippo:handle
+    jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+    jcr:uuid: 2435b3e4-b59b-4d10-a5a5-1c8762915064
+    hippo:name: content
+    /content[1]:
+      jcr:primaryType: visitscotland:General
+      jcr:mixinTypes: ['mix:versionable']
+      jcr:uuid: 8d19c6d5-5aa7-466e-92bd-e34a8fe3182e
+      hippo:availability: [preview]
+      hippostd:retainable: false
+      hippostd:state: unpublished
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2021-06-29T15:19:57.775+01:00
+      hippostdpubwf:lastModificationDate: 2024-01-30T10:36:27.376Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: 45ab69e0-9b5c-4054-b172-fc7c444483ed
+      hippotranslation:locale: en
+      visitscotland:breadcrumb: Development Sandbox
+      visitscotland:hideNewsletter: false
+      visitscotland:newsletter: true
+      visitscotland:pswPosition: Hidden
+      visitscotland:seoDescription: Welcome to VisitScotland Business Events.
+      visitscotland:seoNoIndex: false
+      visitscotland:seoTitle: Welcome to Business Events Scotland
+      visitscotland:teaser: Software development
+      visitscotland:theme: Top-Level
+      visitscotland:title: Sandbox for developeers
+      visitscotland:translation: ''
+      /visitscotland:heroImage:
+        jcr:primaryType: hippogallerypicker:imagelink
+        hippo:docbase: 6fe01b32-04e9-4d0f-86c9-b6b8bd246a67
+        hippo:facets: []
+        hippo:modes: []
+        hippo:values: []
+      /visitscotland:introduction:
+        jcr:primaryType: hippostd:html
+        hippostd:content: <p>Software development, a dynamic field, involves designing,
+          coding, and maintaining applications. Agile methodologies, collaboration,
+          and diverse tech tools drive innovation. From web to AI, it shapes our digital
+          world, emphasizing security and quality assurance.</p>
+    /content[2]:
+      jcr:primaryType: visitscotland:General
+      jcr:mixinTypes: ['mix:referenceable']
+      jcr:uuid: 28eb0087-b567-4412-a4d4-10dd00b08b3f
+      hippo:availability: []
+      hippostd:retainable: false
+      hippostd:state: draft
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2021-06-29T15:19:57.775+01:00
+      hippostdpubwf:lastModificationDate: 2024-01-30T10:33:20.799Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: 45ab69e0-9b5c-4054-b172-fc7c444483ed
+      hippotranslation:locale: en
+      visitscotland:breadcrumb: Development Sandbox
+      visitscotland:hideNewsletter: false
+      visitscotland:newsletter: true
+      visitscotland:pswPosition: Hidden
+      visitscotland:seoDescription: Welcome to VisitScotland Business Events.
+      visitscotland:seoNoIndex: false
+      visitscotland:seoTitle: Welcome to Business Events Scotland
+      visitscotland:teaser: Software development
+      visitscotland:theme: Top-Level
+      visitscotland:title: Sandbox for developeers
+      visitscotland:translation: ''
+      /visitscotland:heroImage:
+        jcr:primaryType: hippogallerypicker:imagelink
+        hippo:docbase: 6fe01b32-04e9-4d0f-86c9-b6b8bd246a67
+        hippo:facets: []
+        hippo:modes: []
+        hippo:values: []
+      /visitscotland:introduction:
+        jcr:primaryType: hippostd:html
+        hippostd:content: <p>Software development, a dynamic field, involves designing,
+          coding, and maintaining applications. Agile methodologies, collaboration,
+          and diverse tech tools drive innovation. From web to AI, it shapes our digital
+          world, emphasizing security and quality assurance.</p>
+    /content[3]:
+      jcr:primaryType: visitscotland:General
+      jcr:mixinTypes: ['mix:referenceable']
+      jcr:uuid: 60f8c7d0-3507-4c64-a872-46548d671325
+      hippo:availability: [live]
+      hippostd:retainable: false
+      hippostd:state: published
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2021-06-29T15:19:57.775+01:00
+      hippostdpubwf:lastModificationDate: 2024-01-30T10:36:27.376Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippostdpubwf:publicationDate: 2024-01-30T10:36:30.543Z
+      hippotranslation:id: 45ab69e0-9b5c-4054-b172-fc7c444483ed
+      hippotranslation:locale: en
+      visitscotland:breadcrumb: Development Sandbox
+      visitscotland:hideNewsletter: false
+      visitscotland:newsletter: true
+      visitscotland:pswPosition: Hidden
+      visitscotland:seoDescription: Welcome to VisitScotland Business Events.
+      visitscotland:seoNoIndex: false
+      visitscotland:seoTitle: Welcome to Business Events Scotland
+      visitscotland:teaser: Software development
+      visitscotland:theme: Top-Level
+      visitscotland:title: Sandbox for developeers
+      visitscotland:translation: ''
+      /visitscotland:heroImage:
+        jcr:primaryType: hippogallerypicker:imagelink
+        hippo:docbase: 6fe01b32-04e9-4d0f-86c9-b6b8bd246a67
+        hippo:facets: []
+        hippo:modes: []
+        hippo:values: []
+      /visitscotland:introduction:
+        jcr:primaryType: hippostd:html
+        hippostd:content: <p>Software development, a dynamic field, involves designing,
+          coding, and maintaining applications. Agile methodologies, collaboration,
+          and diverse tech tools drive innovation. From web to AI, it shapes our digital
+          world, emphasizing security and quality assurance.</p>
+  /shared:
+    jcr:primaryType: hippostd:folder
+    jcr:mixinTypes: ['hippotranslation:translated', 'mix:versionable']
+    jcr:uuid: c0817f97-f47c-42e3-bd6e-cd91a44d8a50
+    hippostd:foldertype: []
+    hippotranslation:id: aedeba34-1312-4ee0-bc4b-db3df0acbd79
+    hippotranslation:locale: en
+    /profiles:
+      jcr:primaryType: hippostd:folder
+      jcr:mixinTypes: ['hippo:named', 'hippotranslation:translated', 'mix:versionable']
+      jcr:uuid: 958ea26d-1388-477d-9252-c7e0a4a5054c
+      hippo:name: Author Profile
+      hippostd:foldertype: [new-author-profile]
+      hippotranslation:id: 9bb7ef67-e57a-49a5-9900-be671e47befe
+      hippotranslation:locale: en
+    /links:
+      jcr:primaryType: hippostd:folder
+      jcr:mixinTypes: ['frontend:orderChildFolders', 'hippo:named', 'hippotranslation:translated',
+        'mix:versionable']
+      jcr:uuid: d1916882-7b0f-4a76-b966-cc438b8e155b
+      hippo:name: Custom Links
+      hippostd:foldertype: [new-translated-folder-shared, new-shared-document]
+      hippotranslation:id: 1be26a6f-8fb8-4162-a37d-352dfc551d81
+      hippotranslation:locale: en
+    /video:
+      jcr:primaryType: hippostd:folder
+      jcr:mixinTypes: ['frontend:orderChildFolders', 'hippo:named', 'hippotranslation:translated',
+        'mix:versionable']
+      jcr:uuid: 70a5cd3d-e472-47dc-91cf-1ec96759a5de
+      hippo:name: Videos
+      hippostd:foldertype: [new-translated-folder-videos, new-video]
+      hippotranslation:id: 41fcb827-6f18-402f-b639-a3f9707af606
+      hippotranslation:locale: en
