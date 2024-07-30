@@ -1,0 +1,8 @@
+definitions:
+  config:
+    /hippo:configuration/hippo:userroles/vs.default-user.bsh:
+      jcr:primaryType: hipposys:userrole
+      hipposys:description: Business Support Hub Content Editor
+      hipposys:system: true
+      hipposys:userroles: [vs.content.business-events, xm.channel.viewer, xm.cms.user,
+        xm.dashboard.user]
