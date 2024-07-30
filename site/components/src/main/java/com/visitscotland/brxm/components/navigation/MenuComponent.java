@@ -5,6 +5,7 @@ import com.visitscotland.brxm.components.navigation.info.MenuComponentInfo;
 import com.visitscotland.brxm.config.VsComponentManager;
 import com.visitscotland.brxm.factory.NavigationFactory;
 import com.visitscotland.brxm.utils.*;
+import com.visitscotland.utils.Contract;
 import org.hippoecm.hst.container.RequestContextProvider;
 import org.hippoecm.hst.core.component.HstRequest;
 import org.hippoecm.hst.core.component.HstResponse;
@@ -31,18 +32,21 @@ public class MenuComponent extends EssentialsMenuComponent {
     private final NavigationFactory factory;
     private final HippoUtilsService utils;
     private final CMSProperties properties;
+    private final SiteProperties siteProperties;
 
 
     public MenuComponent() {
         this(VsComponentManager.get(NavigationFactory.class),
                 VsComponentManager.get(HippoUtilsService.class),
-                VsComponentManager.get(CMSProperties.class));
+                VsComponentManager.get(CMSProperties.class),
+                VsComponentManager.get(SiteProperties.class));
     }
 
-    public MenuComponent(NavigationFactory factory, HippoUtilsService utils, CMSProperties properties) {
+    public MenuComponent(NavigationFactory factory, HippoUtilsService utils, CMSProperties properties, SiteProperties siteProperties) {
         this.factory = factory;
         this.utils = utils;
         this.properties = properties;
+        this.siteProperties = siteProperties;
     }
 
     @Override
@@ -91,10 +95,10 @@ public class MenuComponent extends EssentialsMenuComponent {
 
     private String getResourceBundleID(HstRequest request){
         String prefix;
-        if (utils.isBusinessEventsSite(request)){
-            prefix = BE_PREFIX;
-        } else {
+        if (Contract.isEmpty(siteProperties.getSiteId())){
             prefix = VS_PREFIX;
+        } else {
+            prefix = siteProperties.getSiteId();
         }
 
         return prefix +  ((HstSiteMenu) request.getModel(MENU)).getName();
