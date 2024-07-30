@@ -70,12 +70,12 @@
     jcr:mixinTypes: ['mix:referenceable']
     jcr:uuid: 114fe124-d365-4f1f-9b72-1f35e5bb6783
     hippo:availability: []
+    hippostd:holder: admin
     hippostd:retainable: false
     hippostd:state: draft
-    hippostd:transferable: false
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2021-02-05T15:37:26.056Z
-    hippostdpubwf:lastModificationDate: 2024-04-29T15:13:23.013+01:00
+    hippostdpubwf:lastModificationDate: 2024-07-30T18:13:42.497+01:00
     hippostdpubwf:lastModifiedBy: admin
     resourcebundle:descriptions: ['', '', List of Hosts that will be marked as internal
         URLs, URLs from this environment will be treated as internal and will be transformed
@@ -90,7 +90,10 @@
         into different languages, "Marketo Configuration \r\n\r\n\r\nMunchkin Id for\
         \ Live:   638-HHZ-510\r\nMunchkin Id for Test:    830-QYE-256", "URL for Live\
         \ : //e.visitscotland.com\r\nURL for Test: //830-QYE-256.mktoweb.com", Public
-        Recaptcha Key for Forms, '', Marketo Script required for the form to work]
+        Recaptcha Key for Forms, '', Marketo Script required for the form to work,
+      "Site Identifier use by the delivery API to detect which site is being delivered.\r\
+        \n\r\nValues\r\n- '' (empty) Main consumer site (www)\r\n- 'be' Business Events\r\
+        \n- 'bsh' Business Support Hub"]
     resourcebundle:id: default.site.config
     resourcebundle:keys: [iknow-community.url, iknow-community.tagged-discussion,
       links.internal-sites, links.convert-to-relative, og.site-name, og.twitter.site,
@@ -100,7 +103,7 @@
       site.path.ski-landing, site.path.about-us, site.path.icentre-landing, site.path.newsletter,
       site.path.campaigns, iknow-module.enabled, form.json.countries, form.json.messages,
       form.marketo.munchkin, form.maketo.instance-url, form.recaptcha-key, form.marketo.scripts,
-      form.marketo.script]
+      form.marketo.script, site-id]
     resourcebundle:messages: ['https://community.visitscotland.com/', discussions/tagged/,
       'localhost,www.visitscotland.com,beta.visitscotland.com,blog.visitscotland.com',
       www.visitscotland.com, VisitScotland, '@VisitScotland', 'en,fr,de,nl,it,es',
@@ -110,22 +113,22 @@
       /test/examples/campaigns, 'false', 'https://static.visitscotland.com/forms/common/countries.json',
       'https://static.visitscotland.com/forms/common/messaging.json', 830-QYE-256,
       //830-QYE-256.mktoweb.com, 6LfqqfcZAAAAACbkbPaHRZTIFpKZGAPZBDkwBKhe, //e.visitscotland.com/js/forms2/js/forms2.min.js,
-      //e.visitscotland.com/js/forms2/js/forms2.min.js]
+      //e.visitscotland.com/js/forms2/js/forms2.min.js, '']
     resourcebundle:messages_de: ['', '', '', '', '', '', '', '', '', '', '', '', '',
       '', /de-de/site-search-results, '12812', '', '', '', '', '', '', '', '', '',
-      '', '', '', '', '', '']
+      '', '', '', '', '', '', '']
     resourcebundle:messages_es: ['', '', '', '', '', '', '', '', '', '', '', '', '',
       '', /es-es/site-search-results, '12814', '', '', '', '', '', '', '', '', '',
-      '', '', '', '', '', '']
+      '', '', '', '', '', '', '']
     resourcebundle:messages_fr: ['', '', '', '', '', '', '', '', '', '', '', '', '',
       '', /fr-fr/site-search-results, '12811', '', '', '', '', '', '', '', '', '',
-      '', '', '', '', '', '']
+      '', '', '', '', '', '', '']
     resourcebundle:messages_it: ['', '', '', '', '', '', '', '', '', '', '', '', '',
       '', /it-it/site-search-results, '12813', '', '', '', '', '', '', '', '', '',
-      '', '', '', '', '', '']
+      '', '', '', '', '', '', '']
     resourcebundle:messages_nl: ['', '', '', '', '', '', '', '', '', '', '', '', '',
       '', /nl-nl/site-search-results, '12810', '', '', '', '', '', '', '', '', '',
-      '', '', '', '', '', '']
+      '', '', '', '', '', '', '']
   /default-site-properties[3]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:referenceable']

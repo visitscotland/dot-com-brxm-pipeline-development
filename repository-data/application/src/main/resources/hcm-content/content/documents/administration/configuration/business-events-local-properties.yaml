@@ -9,18 +9,19 @@
     jcr:mixinTypes: ['mix:referenceable']
     jcr:uuid: 7a3d5961-f373-47b8-bfa3-410f4ff75969
     hippo:availability: []
+    hippostd:holder: admin
     hippostd:retainable: false
     hippostd:state: draft
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2024-04-29T14:00:24.028+01:00
-    hippostdpubwf:lastModificationDate: 2024-04-30T14:58:13.166+01:00
+    hippostdpubwf:lastModificationDate: 2024-07-30T18:12:30.380+01:00
     hippostdpubwf:lastModifiedBy: admin
     resourcebundle:descriptions: ['', '', '', '']
     resourcebundle:id: businessevents.local.config
     resourcebundle:keys: [gtm.is-production, gtm.container-id, gtm.preview-query-string,
       site-id]
     resourcebundle:messages: ['false', GTM-T7G4TNR, '&gtm_auth=PCWhL-3fHI0sM_2ztUYr6g&gtm_preview=env-126&gtm_cookies_win=x',
-      business-events]
+      be]
   /business-events-local-properties[2]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:versionable']
