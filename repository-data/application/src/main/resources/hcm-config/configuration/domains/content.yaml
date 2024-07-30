@@ -56,6 +56,12 @@ definitions:
         hipposys:facet: jcr:path
         hipposys:type: Reference
         hipposys:value: /content/documents/www.visitscotland.com-it
+      /exclude-bsh:
+        jcr:primaryType: hipposys:facetrule
+        hipposys:equals: false
+        hipposys:facet: jcr:path
+        hipposys:type: Reference
+        hipposys:value: /content/documents/bsh
     /hippo:configuration/hippo:domains/content/content-domain:
       .meta:delete: true
     /hippo:configuration/hippo:domains/content/author:
