@@ -7,9 +7,10 @@
   hippotranslation:locale: en
   /content:
     jcr:primaryType: hippo:handle
-    jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+    jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
     jcr:uuid: 2435b3e4-b59b-4d10-a5a5-1c8762915064
     hippo:name: content
+    hippo:versionHistory: 1a26384d-6ae3-4f4c-bf04-da9aa5927d28
     /content[1]:
       jcr:primaryType: visitscotland:General
       jcr:mixinTypes: ['mix:versionable']
@@ -19,17 +20,17 @@
       hippostd:state: unpublished
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2021-06-29T15:19:57.775+01:00
-      hippostdpubwf:lastModificationDate: 2024-01-30T10:36:27.376Z
-      hippostdpubwf:lastModifiedBy: admin
+      hippostdpubwf:lastModificationDate: 2024-07-30T17:54:29.454+01:00
+      hippostdpubwf:lastModifiedBy: bsh-editor
       hippotranslation:id: 45ab69e0-9b5c-4054-b172-fc7c444483ed
       hippotranslation:locale: en
       visitscotland:breadcrumb: Development Sandbox
       visitscotland:hideNewsletter: false
       visitscotland:newsletter: true
       visitscotland:pswPosition: Hidden
-      visitscotland:seoDescription: Welcome to VisitScotland Business Events.
+      visitscotland:seoDescription: Welcome to VisitScotland Business Support Hub
       visitscotland:seoNoIndex: false
-      visitscotland:seoTitle: Welcome to Business Events Scotland
+      visitscotland:seoTitle: Welcome to Business Support Hub
       visitscotland:teaser: Software development
       visitscotland:theme: Top-Level
       visitscotland:title: Sandbox for developeers
@@ -55,17 +56,17 @@
       hippostd:state: draft
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2021-06-29T15:19:57.775+01:00
-      hippostdpubwf:lastModificationDate: 2024-01-30T10:33:20.799Z
-      hippostdpubwf:lastModifiedBy: admin
+      hippostdpubwf:lastModificationDate: 2024-07-30T17:54:00.427+01:00
+      hippostdpubwf:lastModifiedBy: bsh-editor
       hippotranslation:id: 45ab69e0-9b5c-4054-b172-fc7c444483ed
       hippotranslation:locale: en
       visitscotland:breadcrumb: Development Sandbox
       visitscotland:hideNewsletter: false
       visitscotland:newsletter: true
       visitscotland:pswPosition: Hidden
-      visitscotland:seoDescription: Welcome to VisitScotland Business Events.
+      visitscotland:seoDescription: Welcome to VisitScotland Business Support Hub
       visitscotland:seoNoIndex: false
-      visitscotland:seoTitle: Welcome to Business Events Scotland
+      visitscotland:seoTitle: Welcome to Business Support Hub
       visitscotland:teaser: Software development
       visitscotland:theme: Top-Level
       visitscotland:title: Sandbox for developeers
@@ -91,18 +92,18 @@
       hippostd:state: published
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2021-06-29T15:19:57.775+01:00
-      hippostdpubwf:lastModificationDate: 2024-01-30T10:36:27.376Z
-      hippostdpubwf:lastModifiedBy: admin
-      hippostdpubwf:publicationDate: 2024-01-30T10:36:30.543Z
+      hippostdpubwf:lastModificationDate: 2024-07-30T17:54:29.454+01:00
+      hippostdpubwf:lastModifiedBy: bsh-editor
+      hippostdpubwf:publicationDate: 2024-07-30T17:54:34.383+01:00
       hippotranslation:id: 45ab69e0-9b5c-4054-b172-fc7c444483ed
       hippotranslation:locale: en
       visitscotland:breadcrumb: Development Sandbox
       visitscotland:hideNewsletter: false
       visitscotland:newsletter: true
       visitscotland:pswPosition: Hidden
-      visitscotland:seoDescription: Welcome to VisitScotland Business Events.
+      visitscotland:seoDescription: Welcome to VisitScotland Business Support Hub
       visitscotland:seoNoIndex: false
-      visitscotland:seoTitle: Welcome to Business Events Scotland
+      visitscotland:seoTitle: Welcome to Business Support Hub
       visitscotland:teaser: Software development
       visitscotland:theme: Top-Level
       visitscotland:title: Sandbox for developeers
@@ -152,3 +153,376 @@
       hippostd:foldertype: [new-translated-folder-videos, new-video]
       hippotranslation:id: 41fcb827-6f18-402f-b639-a3f9707af606
       hippotranslation:locale: en
+  /features:
+    jcr:primaryType: hippostd:folder
+    jcr:mixinTypes: ['hippotranslation:translated', 'mix:versionable']
+    jcr:uuid: 314dd213-1220-4147-a8be-b7ec69b98858
+    hippostd:foldertype: [new-be-folder, new-be-page, new-be-module]
+    hippotranslation:id: d4140eec-1f88-4ac3-ac02-9fcfdd3b6e90
+    hippotranslation:locale: en
+    /content:
+      jcr:primaryType: hippo:handle
+      jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+      jcr:uuid: c1b3d4e1-df32-4c94-8299-bf61a1718b03
+      hippo:name: content
+      hippo:versionHistory: bbf811e6-bac0-4dec-9577-6f2c46261bac
+      /content[1]:
+        jcr:primaryType: visitscotland:General
+        jcr:mixinTypes: ['mix:versionable']
+        jcr:uuid: ae1d22a3-7598-4044-a03e-dec83164303b
+        hippo:availability: [preview]
+        hippostd:retainable: false
+        hippostd:state: unpublished
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2021-06-29T15:19:57.775+01:00
+        hippostdpubwf:lastModificationDate: 2024-07-30T17:58:38.886+01:00
+        hippostdpubwf:lastModifiedBy: bsh-editor
+        hippotranslation:id: a13c04b4-2186-492c-9fdb-7c5cd92dc4ac
+        hippotranslation:locale: en
+        visitscotland:breadcrumb: Features
+        visitscotland:hideNewsletter: false
+        visitscotland:newsletter: true
+        visitscotland:pswPosition: Hidden
+        visitscotland:seoDescription: Sandbox for Features developed by developers
+          for developers
+        visitscotland:seoNoIndex: false
+        visitscotland:seoTitle: Sandbox for Features
+        visitscotland:teaser: Features!
+        visitscotland:theme: Top-Level
+        visitscotland:title: Sandbox for Features
+        visitscotland:translation: ''
+        /visitscotland:heroImage:
+          jcr:primaryType: hippogallerypicker:imagelink
+          hippo:docbase: 6fe01b32-04e9-4d0f-86c9-b6b8bd246a67
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+        /visitscotland:introduction:
+          jcr:primaryType: hippostd:html
+          hippostd:content: <p>Software development, a dynamic field, involves designing,
+            coding, and maintaining applications. Agile methodologies, collaboration,
+            and diverse tech tools drive innovation. From web to AI, it shapes our
+            digital world, emphasizing security and quality assurance.</p>
+      /content[2]:
+        jcr:primaryType: visitscotland:General
+        jcr:mixinTypes: ['mix:referenceable']
+        jcr:uuid: c1072924-62a7-42db-87f8-4e34e3da2fb8
+        hippo:availability: [live]
+        hippostd:retainable: false
+        hippostd:state: published
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2021-06-29T15:19:57.775+01:00
+        hippostdpubwf:lastModificationDate: 2024-07-30T17:58:38.886+01:00
+        hippostdpubwf:lastModifiedBy: bsh-editor
+        hippostdpubwf:publicationDate: 2024-07-30T17:58:41.881+01:00
+        hippotranslation:id: a13c04b4-2186-492c-9fdb-7c5cd92dc4ac
+        hippotranslation:locale: en
+        visitscotland:breadcrumb: Features
+        visitscotland:hideNewsletter: false
+        visitscotland:newsletter: true
+        visitscotland:pswPosition: Hidden
+        visitscotland:seoDescription: Sandbox for Features developed by developers
+          for developers
+        visitscotland:seoNoIndex: false
+        visitscotland:seoTitle: Sandbox for Features
+        visitscotland:teaser: Features!
+        visitscotland:theme: Top-Level
+        visitscotland:title: Sandbox for Features
+        visitscotland:translation: ''
+        /visitscotland:heroImage:
+          jcr:primaryType: hippogallerypicker:imagelink
+          hippo:docbase: 6fe01b32-04e9-4d0f-86c9-b6b8bd246a67
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+        /visitscotland:introduction:
+          jcr:primaryType: hippostd:html
+          hippostd:content: <p>Software development, a dynamic field, involves designing,
+            coding, and maintaining applications. Agile methodologies, collaboration,
+            and diverse tech tools drive innovation. From web to AI, it shapes our
+            digital world, emphasizing security and quality assurance.</p>
+      /content[3]:
+        jcr:primaryType: visitscotland:General
+        jcr:mixinTypes: ['mix:referenceable']
+        jcr:uuid: 842bee97-5c47-45c1-be78-2238df07c9a6
+        hippo:availability: []
+        hippostd:retainable: false
+        hippostd:state: draft
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2021-06-29T15:19:57.775+01:00
+        hippostdpubwf:lastModificationDate: 2024-07-30T17:58:31.719+01:00
+        hippostdpubwf:lastModifiedBy: bsh-editor
+        hippotranslation:id: a13c04b4-2186-492c-9fdb-7c5cd92dc4ac
+        hippotranslation:locale: en
+        visitscotland:breadcrumb: Features
+        visitscotland:hideNewsletter: false
+        visitscotland:newsletter: true
+        visitscotland:pswPosition: Hidden
+        visitscotland:seoDescription: Sandbox for Features developed by developers
+          for developers
+        visitscotland:seoNoIndex: false
+        visitscotland:seoTitle: Sandbox for Features
+        visitscotland:teaser: Features!
+        visitscotland:theme: Top-Level
+        visitscotland:title: Sandbox for Features
+        visitscotland:translation: ''
+        /visitscotland:heroImage:
+          jcr:primaryType: hippogallerypicker:imagelink
+          hippo:docbase: 6fe01b32-04e9-4d0f-86c9-b6b8bd246a67
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+        /visitscotland:introduction:
+          jcr:primaryType: hippostd:html
+          hippostd:content: <p>Software development, a dynamic field, involves designing,
+            coding, and maintaining applications. Agile methodologies, collaboration,
+            and diverse tech tools drive innovation. From web to AI, it shapes our
+            digital world, emphasizing security and quality assurance.</p>
+    /breadcrumb:
+      jcr:primaryType: hippostd:folder
+      jcr:mixinTypes: ['hippotranslation:translated', 'mix:versionable']
+      jcr:uuid: 4ab1d1a7-afaa-43d4-a234-1403ce27e413
+      hippostd:foldertype: [new-be-folder, new-be-page, new-be-module]
+      hippotranslation:id: 5f73c548-27c5-421e-a930-06d2e4915cb4
+      hippotranslation:locale: en
+      /breadcrumb-child:
+        jcr:primaryType: hippostd:folder
+        jcr:mixinTypes: ['hippo:named', 'hippotranslation:translated', 'mix:versionable']
+        jcr:uuid: 02f7566f-0138-40cc-a2e0-401b759d5870
+        hippo:name: breadcrumb child
+        hippostd:foldertype: [new-be-folder, new-be-page, new-be-module]
+        hippotranslation:id: c5fadd12-6499-4dd7-a014-c5eb50a08b55
+        hippotranslation:locale: en
+        /content:
+          jcr:primaryType: hippo:handle
+          jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+          jcr:uuid: 42e23b02-a872-40a2-9961-0ec74c517943
+          hippo:name: content
+          hippo:versionHistory: ba37ab72-b6f8-4fa1-86a3-bfb4583b5a9a
+          /content[1]:
+            jcr:primaryType: visitscotland:General
+            jcr:mixinTypes: ['mix:versionable']
+            jcr:uuid: 54fd0460-7959-4310-b0db-ef58c68bc179
+            hippo:availability: [preview]
+            hippostd:retainable: false
+            hippostd:state: unpublished
+            hippostdpubwf:createdBy: admin
+            hippostdpubwf:creationDate: 2021-06-29T15:19:57.775+01:00
+            hippostdpubwf:lastModificationDate: 2024-07-30T18:00:03.588+01:00
+            hippostdpubwf:lastModifiedBy: bsh-editor
+            hippotranslation:id: 02735a90-eb51-476e-a166-42d71ab77df2
+            hippotranslation:locale: en
+            visitscotland:breadcrumb: Breadcrumbs (Level 4)
+            visitscotland:hideNewsletter: false
+            visitscotland:newsletter: true
+            visitscotland:pswPosition: Hidden
+            visitscotland:seoDescription: Breadcrumbs
+            visitscotland:seoNoIndex: false
+            visitscotland:seoTitle: Breadcrumbs
+            visitscotland:teaser: Breadcrumbs!
+            visitscotland:theme: Top-Level
+            visitscotland:title: Sandbox Breadcrumb
+            visitscotland:translation: ''
+            /visitscotland:heroImage:
+              jcr:primaryType: hippogallerypicker:imagelink
+              hippo:docbase: 6fe01b32-04e9-4d0f-86c9-b6b8bd246a67
+              hippo:facets: []
+              hippo:modes: []
+              hippo:values: []
+            /visitscotland:introduction:
+              jcr:primaryType: hippostd:html
+              hippostd:content: <p>Software development, a dynamic field, involves
+                designing, coding, and maintaining applications. Agile methodologies,
+                collaboration, and diverse tech tools drive innovation. From web to
+                AI, it shapes our digital world, emphasizing security and quality
+                assurance.</p>
+          /content[2]:
+            jcr:primaryType: visitscotland:General
+            jcr:mixinTypes: ['mix:referenceable']
+            jcr:uuid: 376f0452-b449-486d-86cc-c4f9e218ac35
+            hippo:availability: []
+            hippostd:retainable: false
+            hippostd:state: draft
+            hippostdpubwf:createdBy: admin
+            hippostdpubwf:creationDate: 2021-06-29T15:19:57.775+01:00
+            hippostdpubwf:lastModificationDate: 2024-07-30T17:59:54.919+01:00
+            hippostdpubwf:lastModifiedBy: bsh-editor
+            hippotranslation:id: 02735a90-eb51-476e-a166-42d71ab77df2
+            hippotranslation:locale: en
+            visitscotland:breadcrumb: Breadcrumbs (Level 4)
+            visitscotland:hideNewsletter: false
+            visitscotland:newsletter: true
+            visitscotland:pswPosition: Hidden
+            visitscotland:seoDescription: Breadcrumbs
+            visitscotland:seoNoIndex: false
+            visitscotland:seoTitle: Breadcrumbs
+            visitscotland:teaser: Breadcrumbs!
+            visitscotland:theme: Top-Level
+            visitscotland:title: Sandbox Breadcrumb
+            visitscotland:translation: ''
+            /visitscotland:heroImage:
+              jcr:primaryType: hippogallerypicker:imagelink
+              hippo:docbase: 6fe01b32-04e9-4d0f-86c9-b6b8bd246a67
+              hippo:facets: []
+              hippo:modes: []
+              hippo:values: []
+            /visitscotland:introduction:
+              jcr:primaryType: hippostd:html
+              hippostd:content: <p>Software development, a dynamic field, involves
+                designing, coding, and maintaining applications. Agile methodologies,
+                collaboration, and diverse tech tools drive innovation. From web to
+                AI, it shapes our digital world, emphasizing security and quality
+                assurance.</p>
+          /content[3]:
+            jcr:primaryType: visitscotland:General
+            jcr:mixinTypes: ['mix:referenceable']
+            jcr:uuid: a1060bb3-b038-43d3-9b56-dd9e65e7081f
+            hippo:availability: [live]
+            hippostd:retainable: false
+            hippostd:state: published
+            hippostdpubwf:createdBy: admin
+            hippostdpubwf:creationDate: 2021-06-29T15:19:57.775+01:00
+            hippostdpubwf:lastModificationDate: 2024-07-30T18:00:03.588+01:00
+            hippostdpubwf:lastModifiedBy: bsh-editor
+            hippostdpubwf:publicationDate: 2024-07-30T18:00:05.977+01:00
+            hippotranslation:id: 02735a90-eb51-476e-a166-42d71ab77df2
+            hippotranslation:locale: en
+            visitscotland:breadcrumb: Breadcrumbs (Level 4)
+            visitscotland:hideNewsletter: false
+            visitscotland:newsletter: true
+            visitscotland:pswPosition: Hidden
+            visitscotland:seoDescription: Breadcrumbs
+            visitscotland:seoNoIndex: false
+            visitscotland:seoTitle: Breadcrumbs
+            visitscotland:teaser: Breadcrumbs!
+            visitscotland:theme: Top-Level
+            visitscotland:title: Sandbox Breadcrumb
+            visitscotland:translation: ''
+            /visitscotland:heroImage:
+              jcr:primaryType: hippogallerypicker:imagelink
+              hippo:docbase: 6fe01b32-04e9-4d0f-86c9-b6b8bd246a67
+              hippo:facets: []
+              hippo:modes: []
+              hippo:values: []
+            /visitscotland:introduction:
+              jcr:primaryType: hippostd:html
+              hippostd:content: <p>Software development, a dynamic field, involves
+                designing, coding, and maintaining applications. Agile methodologies,
+                collaboration, and diverse tech tools drive innovation. From web to
+                AI, it shapes our digital world, emphasizing security and quality
+                assurance.</p>
+      /content:
+        jcr:primaryType: hippo:handle
+        jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+        jcr:uuid: 247195f6-63d5-4f6b-b2f1-d751ee6fed4c
+        hippo:name: content
+        hippo:versionHistory: d2dca03d-61bb-4078-b4b8-c9e56425feea
+        /content[1]:
+          jcr:primaryType: visitscotland:General
+          jcr:mixinTypes: ['mix:versionable']
+          jcr:uuid: 1a8637ff-b505-48e2-afd7-4fa5c2074482
+          hippo:availability: [preview]
+          hippostd:retainable: false
+          hippostd:state: unpublished
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2021-06-29T15:19:57.775+01:00
+          hippostdpubwf:lastModificationDate: 2024-07-30T17:59:38.412+01:00
+          hippostdpubwf:lastModifiedBy: bsh-editor
+          hippotranslation:id: aa10c4a8-d412-43a8-b495-ba0b89fefca0
+          hippotranslation:locale: en
+          visitscotland:breadcrumb: Breadcrumbs
+          visitscotland:hideNewsletter: false
+          visitscotland:newsletter: true
+          visitscotland:pswPosition: Hidden
+          visitscotland:seoDescription: Breadcrumbs
+          visitscotland:seoNoIndex: false
+          visitscotland:seoTitle: Breadcrumbs
+          visitscotland:teaser: Breadcrumbs!
+          visitscotland:theme: Top-Level
+          visitscotland:title: Sandbox Breadcrumb
+          visitscotland:translation: ''
+          /visitscotland:heroImage:
+            jcr:primaryType: hippogallerypicker:imagelink
+            hippo:docbase: 6fe01b32-04e9-4d0f-86c9-b6b8bd246a67
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+          /visitscotland:introduction:
+            jcr:primaryType: hippostd:html
+            hippostd:content: <p>Software development, a dynamic field, involves designing,
+              coding, and maintaining applications. Agile methodologies, collaboration,
+              and diverse tech tools drive innovation. From web to AI, it shapes our
+              digital world, emphasizing security and quality assurance.</p>
+        /content[2]:
+          jcr:primaryType: visitscotland:General
+          jcr:mixinTypes: ['mix:referenceable']
+          jcr:uuid: aefe3b5b-ed8d-41c1-82fc-fdfcd100883e
+          hippo:availability: []
+          hippostd:retainable: false
+          hippostd:state: draft
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2021-06-29T15:19:57.775+01:00
+          hippostdpubwf:lastModificationDate: 2024-07-30T17:58:54.849+01:00
+          hippostdpubwf:lastModifiedBy: bsh-editor
+          hippotranslation:id: aa10c4a8-d412-43a8-b495-ba0b89fefca0
+          hippotranslation:locale: en
+          visitscotland:breadcrumb: Breadcrumbs
+          visitscotland:hideNewsletter: false
+          visitscotland:newsletter: true
+          visitscotland:pswPosition: Hidden
+          visitscotland:seoDescription: Breadcrumbs
+          visitscotland:seoNoIndex: false
+          visitscotland:seoTitle: Breadcrumbs
+          visitscotland:teaser: Breadcrumbs!
+          visitscotland:theme: Top-Level
+          visitscotland:title: Sandbox Breadcrumb
+          visitscotland:translation: ''
+          /visitscotland:heroImage:
+            jcr:primaryType: hippogallerypicker:imagelink
+            hippo:docbase: 6fe01b32-04e9-4d0f-86c9-b6b8bd246a67
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+          /visitscotland:introduction:
+            jcr:primaryType: hippostd:html
+            hippostd:content: <p>Software development, a dynamic field, involves designing,
+              coding, and maintaining applications. Agile methodologies, collaboration,
+              and diverse tech tools drive innovation. From web to AI, it shapes our
+              digital world, emphasizing security and quality assurance.</p>
+        /content[3]:
+          jcr:primaryType: visitscotland:General
+          jcr:mixinTypes: ['mix:referenceable']
+          jcr:uuid: 451a0396-bb24-43fe-ac6e-ae75f3b8327a
+          hippo:availability: [live]
+          hippostd:retainable: false
+          hippostd:state: published
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2021-06-29T15:19:57.775+01:00
+          hippostdpubwf:lastModificationDate: 2024-07-30T17:59:38.412+01:00
+          hippostdpubwf:lastModifiedBy: bsh-editor
+          hippostdpubwf:publicationDate: 2024-07-30T17:59:40.464+01:00
+          hippotranslation:id: aa10c4a8-d412-43a8-b495-ba0b89fefca0
+          hippotranslation:locale: en
+          visitscotland:breadcrumb: Breadcrumbs
+          visitscotland:hideNewsletter: false
+          visitscotland:newsletter: true
+          visitscotland:pswPosition: Hidden
+          visitscotland:seoDescription: Breadcrumbs
+          visitscotland:seoNoIndex: false
+          visitscotland:seoTitle: Breadcrumbs
+          visitscotland:teaser: Breadcrumbs!
+          visitscotland:theme: Top-Level
+          visitscotland:title: Sandbox Breadcrumb
+          visitscotland:translation: ''
+          /visitscotland:heroImage:
+            jcr:primaryType: hippogallerypicker:imagelink
+            hippo:docbase: 6fe01b32-04e9-4d0f-86c9-b6b8bd246a67
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+          /visitscotland:introduction:
+            jcr:primaryType: hippostd:html
+            hippostd:content: <p>Software development, a dynamic field, involves designing,
+              coding, and maintaining applications. Agile methodologies, collaboration,
+              and diverse tech tools drive innovation. From web to AI, it shapes our
+              digital world, emphasizing security and quality assurance.</p>
