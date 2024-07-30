@@ -1,8 +1,9 @@
 /content/documents/administration/bsh-labels/navigation/social-media-links:
   jcr:primaryType: hippo:handle
-  jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+  jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
   jcr:uuid: fd7153e0-2786-4d21-b8c9-4b6810793c85
   hippo:name: Social media links
+  hippo:versionHistory: cf3415fc-37c1-441f-a5bc-605f6b3706f3
   /social-media-links[1]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:referenceable']
@@ -12,10 +13,10 @@
     hippostd:state: draft
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2020-04-30T13:40:44.798+01:00
-    hippostdpubwf:lastModificationDate: 2024-01-26T12:42:35.722Z
+    hippostdpubwf:lastModificationDate: 2024-07-30T19:22:38.463+01:00
     hippostdpubwf:lastModifiedBy: admin
     resourcebundle:descriptions: ['', '']
-    resourcebundle:id: be.navigation.social-media
+    resourcebundle:id: bsh.navigation.social-media
     resourcebundle:keys: [twitter, linkedin]
     resourcebundle:messages: ['https://twitter.com/VisitScotBE', 'https://www.linkedin.com/showcase/visitscotland-business-events/']
     resourcebundle:messages_de: ['', '']
@@ -32,10 +33,10 @@
     hippostd:state: unpublished
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2020-04-30T13:40:44.798+01:00
-    hippostdpubwf:lastModificationDate: 2024-01-26T12:44:08.560Z
+    hippostdpubwf:lastModificationDate: 2024-07-30T19:22:41.773+01:00
     hippostdpubwf:lastModifiedBy: admin
     resourcebundle:descriptions: ['', '']
-    resourcebundle:id: be.navigation.social-media
+    resourcebundle:id: bsh.navigation.social-media
     resourcebundle:keys: [twitter, linkedin]
     resourcebundle:messages: ['https://twitter.com/VisitScotBE', 'https://www.linkedin.com/showcase/visitscotland-business-events/']
     resourcebundle:messages_de: ['', '']
@@ -52,11 +53,11 @@
     hippostd:state: published
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2020-04-30T13:40:44.798+01:00
-    hippostdpubwf:lastModificationDate: 2024-01-26T12:44:08.560Z
+    hippostdpubwf:lastModificationDate: 2024-07-30T19:22:41.773+01:00
     hippostdpubwf:lastModifiedBy: admin
-    hippostdpubwf:publicationDate: 2024-01-26T12:44:10.741Z
+    hippostdpubwf:publicationDate: 2024-07-30T19:22:45.259+01:00
     resourcebundle:descriptions: ['', '']
-    resourcebundle:id: be.navigation.social-media
+    resourcebundle:id: bsh.navigation.social-media
     resourcebundle:keys: [twitter, linkedin]
     resourcebundle:messages: ['https://twitter.com/VisitScotBE', 'https://www.linkedin.com/showcase/visitscotland-business-events/']
     resourcebundle:messages_de: ['', '']

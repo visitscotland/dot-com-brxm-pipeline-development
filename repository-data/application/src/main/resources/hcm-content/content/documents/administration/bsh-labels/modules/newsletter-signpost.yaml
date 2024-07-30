@@ -1,8 +1,9 @@
 /content/documents/administration/bsh-labels/modules/newsletter-signpost:
   jcr:primaryType: hippo:handle
-  jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+  jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
   jcr:uuid: b5e7bda0-e6a9-43b8-86af-1e09c9bcd3f3
   hippo:name: Newsletter Signpost
+  hippo:versionHistory: 96a57a43-c340-4f06-9fad-b07a42afddfc
   /newsletter-signpost[1]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:versionable']
@@ -12,10 +13,10 @@
     hippostd:state: unpublished
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2021-05-17T15:10:33.190+01:00
-    hippostdpubwf:lastModificationDate: 2024-03-12T12:47:47.114Z
+    hippostdpubwf:lastModificationDate: 2024-07-30T19:21:47.190+01:00
     hippostdpubwf:lastModifiedBy: admin
     resourcebundle:descriptions: ['', '', '', '', '']
-    resourcebundle:id: be.newsletter-signpost
+    resourcebundle:id: bsh.newsletter-signpost
     resourcebundle:keys: [newsletter.title, newsletter.cta.link, newsletter.cta.text,
       newsletter.copy, newsletter.image]
     resourcebundle:messages: [Newsletter Sign up, 'https://businessevents.visitscotland.com/newsletter-signup/',
@@ -30,10 +31,10 @@
     hippostd:state: draft
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2021-05-17T15:10:33.190+01:00
-    hippostdpubwf:lastModificationDate: 2024-03-12T12:41:35.032Z
+    hippostdpubwf:lastModificationDate: 2024-07-30T19:21:40.331+01:00
     hippostdpubwf:lastModifiedBy: admin
     resourcebundle:descriptions: ['', '', '', '', '']
-    resourcebundle:id: be.newsletter-signpost
+    resourcebundle:id: bsh.newsletter-signpost
     resourcebundle:keys: [newsletter.title, newsletter.cta.link, newsletter.cta.text,
       newsletter.copy, newsletter.image]
     resourcebundle:messages: [Newsletter Sign up, 'https://businessevents.visitscotland.com/newsletter-signup/',
@@ -48,11 +49,11 @@
     hippostd:state: published
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2021-05-17T15:10:33.190+01:00
-    hippostdpubwf:lastModificationDate: 2024-03-12T12:47:47.114Z
+    hippostdpubwf:lastModificationDate: 2024-07-30T19:21:47.190+01:00
     hippostdpubwf:lastModifiedBy: admin
-    hippostdpubwf:publicationDate: 2024-03-12T12:47:49.902Z
+    hippostdpubwf:publicationDate: 2024-07-30T19:21:50.892+01:00
     resourcebundle:descriptions: ['', '', '', '', '']
-    resourcebundle:id: be.newsletter-signpost
+    resourcebundle:id: bsh.newsletter-signpost
     resourcebundle:keys: [newsletter.title, newsletter.cta.link, newsletter.cta.text,
       newsletter.copy, newsletter.image]
     resourcebundle:messages: [Newsletter Sign up, 'https://businessevents.visitscotland.com/newsletter-signup/',

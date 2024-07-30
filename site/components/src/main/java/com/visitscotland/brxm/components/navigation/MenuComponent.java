@@ -21,7 +21,7 @@ import java.util.Locale;
 )
 public class MenuComponent extends EssentialsMenuComponent {
 
-    private static final String VS_PREFIX = "navigation.";
+    private static final String NAVIGATION = "navigation.";
     private static final String BE_PREFIX = "be.navigation.";
 
     private static final String PREVIEW_QUERY_PARAMETER = "preview-token";
@@ -96,9 +96,9 @@ public class MenuComponent extends EssentialsMenuComponent {
     private String getResourceBundleID(HstRequest request){
         String prefix;
         if (Contract.isEmpty(siteProperties.getSiteId())){
-            prefix = VS_PREFIX;
+            prefix = NAVIGATION;
         } else {
-            prefix = siteProperties.getSiteId();
+            prefix = siteProperties.getSiteId() + "." + NAVIGATION;
         }
 
         return prefix +  ((HstSiteMenu) request.getModel(MENU)).getName();

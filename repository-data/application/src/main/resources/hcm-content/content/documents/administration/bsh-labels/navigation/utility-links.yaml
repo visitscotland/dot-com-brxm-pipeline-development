@@ -1,9 +1,10 @@
 /content/documents/administration/bsh-labels/navigation/utility-links:
   .meta:order-before: social-media-links
   jcr:primaryType: hippo:handle
-  jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+  jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
   jcr:uuid: 5b50adfe-5af9-4577-b11f-c10410545ef4
   hippo:name: Utility Links
+  hippo:versionHistory: 348fdb1c-c95d-4803-9f04-bd84fee070ab
   /utility-links[1]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:referenceable']
@@ -13,9 +14,9 @@
     hippostd:state: draft
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2024-01-19T10:20:22.788Z
-    hippostdpubwf:lastModificationDate: 2024-01-19T10:20:22.789Z
+    hippostdpubwf:lastModificationDate: 2024-07-30T19:22:30.039+01:00
     hippostdpubwf:lastModifiedBy: admin
-    resourcebundle:id: be.navigation.utility
+    resourcebundle:id: bsh.navigation.utility
     resourcebundle:keys: []
     resourcebundle:messages: []
   /utility-links[2]:
@@ -27,9 +28,9 @@
     hippostd:state: unpublished
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2024-01-19T10:20:22.788Z
-    hippostdpubwf:lastModificationDate: 2024-01-19T10:20:34.780Z
+    hippostdpubwf:lastModificationDate: 2024-07-30T19:22:33.765+01:00
     hippostdpubwf:lastModifiedBy: admin
-    resourcebundle:id: be.navigation.utility
+    resourcebundle:id: bsh.navigation.utility
     resourcebundle:keys: []
     resourcebundle:messages: []
   /utility-links[3]:
@@ -41,9 +42,9 @@
     hippostd:state: published
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2024-01-19T10:20:22.788Z
-    hippostdpubwf:lastModificationDate: 2024-01-19T10:20:34.780Z
+    hippostdpubwf:lastModificationDate: 2024-07-30T19:22:33.765+01:00
     hippostdpubwf:lastModifiedBy: admin
-    hippostdpubwf:publicationDate: 2024-01-19T10:33:33.001Z
-    resourcebundle:id: be.navigation.utility
+    hippostdpubwf:publicationDate: 2024-07-30T19:22:35.676+01:00
+    resourcebundle:id: bsh.navigation.utility
     resourcebundle:keys: []
     resourcebundle:messages: []

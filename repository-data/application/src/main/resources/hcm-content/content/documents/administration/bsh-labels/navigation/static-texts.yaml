@@ -1,8 +1,9 @@
 /content/documents/administration/bsh-labels/navigation/static-texts:
   jcr:primaryType: hippo:handle
-  jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+  jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
   jcr:uuid: 90a00c9a-b319-4f61-911a-ede249c6add8
   hippo:name: Static Texts
+  hippo:versionHistory: a4ae44a0-28f5-41a9-b01b-d57ec526aa47
   /static-texts[1]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:versionable']
@@ -12,10 +13,10 @@
     hippostd:state: unpublished
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2020-07-22T16:18:57.603+01:00
-    hippostdpubwf:lastModificationDate: 2024-02-16T17:17:17.941Z
+    hippostdpubwf:lastModificationDate: 2024-07-30T19:22:50.998+01:00
     hippostdpubwf:lastModifiedBy: admin
     resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '', '', '']
-    resourcebundle:id: be.navigation.static
+    resourcebundle:id: bsh.navigation.static
     resourcebundle:keys: [see-all-cta, footer.find-us-on, uninav.our-sites, footer.logo-alt-text,
       footer.text, universal.language, meganav-toggle-btn-alt-text, footer.get-touch,
       footer.visitor-information, meganav.logo-alt-text, footer.logo-url]
@@ -46,10 +47,10 @@
     hippostd:state: draft
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2020-07-22T16:18:57.603+01:00
-    hippostdpubwf:lastModificationDate: 2024-02-16T17:17:12.146Z
+    hippostdpubwf:lastModificationDate: 2024-07-30T19:22:47.984+01:00
     hippostdpubwf:lastModifiedBy: admin
     resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '', '', '']
-    resourcebundle:id: be.navigation.static
+    resourcebundle:id: bsh.navigation.static
     resourcebundle:keys: [see-all-cta, footer.find-us-on, uninav.our-sites, footer.logo-alt-text,
       footer.text, universal.language, meganav-toggle-btn-alt-text, footer.get-touch,
       footer.visitor-information, meganav.logo-alt-text, footer.logo-url]
@@ -80,11 +81,11 @@
     hippostd:state: published
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2020-07-22T16:18:57.603+01:00
-    hippostdpubwf:lastModificationDate: 2024-02-16T17:17:17.941Z
+    hippostdpubwf:lastModificationDate: 2024-07-30T19:22:50.998+01:00
     hippostdpubwf:lastModifiedBy: admin
-    hippostdpubwf:publicationDate: 2024-02-16T17:17:21.780Z
+    hippostdpubwf:publicationDate: 2024-07-30T19:22:53.167+01:00
     resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '', '', '']
-    resourcebundle:id: be.navigation.static
+    resourcebundle:id: bsh.navigation.static
     resourcebundle:keys: [see-all-cta, footer.find-us-on, uninav.our-sites, footer.logo-alt-text,
       footer.text, universal.language, meganav-toggle-btn-alt-text, footer.get-touch,
       footer.visitor-information, meganav.logo-alt-text, footer.logo-url]
