@@ -1,0 +1,49 @@
+/content/documents/administration/bsh-labels/navigation/utility-links:
+  .meta:order-before: social-media-links
+  jcr:primaryType: hippo:handle
+  jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+  jcr:uuid: 5b50adfe-5af9-4577-b11f-c10410545ef4
+  hippo:name: Utility Links
+  /utility-links[1]:
+    jcr:primaryType: resourcebundle:resourcebundle
+    jcr:mixinTypes: ['mix:referenceable']
+    jcr:uuid: d4e67bdd-46a7-4b8f-b100-a5dc63bebde6
+    hippo:availability: []
+    hippostd:retainable: false
+    hippostd:state: draft
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2024-01-19T10:20:22.788Z
+    hippostdpubwf:lastModificationDate: 2024-01-19T10:20:22.789Z
+    hippostdpubwf:lastModifiedBy: admin
+    resourcebundle:id: be.navigation.utility
+    resourcebundle:keys: []
+    resourcebundle:messages: []
+  /utility-links[2]:
+    jcr:primaryType: resourcebundle:resourcebundle
+    jcr:mixinTypes: ['mix:versionable']
+    jcr:uuid: 3acd597a-8a3a-4273-94de-fa31841239b2
+    hippo:availability: [preview]
+    hippostd:retainable: false
+    hippostd:state: unpublished
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2024-01-19T10:20:22.788Z
+    hippostdpubwf:lastModificationDate: 2024-01-19T10:20:34.780Z
+    hippostdpubwf:lastModifiedBy: admin
+    resourcebundle:id: be.navigation.utility
+    resourcebundle:keys: []
+    resourcebundle:messages: []
+  /utility-links[3]:
+    jcr:primaryType: resourcebundle:resourcebundle
+    jcr:mixinTypes: ['mix:referenceable']
+    jcr:uuid: e29ac091-f9cb-4d83-88dc-44c7d6761005
+    hippo:availability: [live]
+    hippostd:retainable: false
+    hippostd:state: published
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2024-01-19T10:20:22.788Z
+    hippostdpubwf:lastModificationDate: 2024-01-19T10:20:34.780Z
+    hippostdpubwf:lastModifiedBy: admin
+    hippostdpubwf:publicationDate: 2024-01-19T10:33:33.001Z
+    resourcebundle:id: be.navigation.utility
+    resourcebundle:keys: []
+    resourcebundle:messages: []
