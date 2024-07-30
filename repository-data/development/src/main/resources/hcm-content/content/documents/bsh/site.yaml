@@ -8,9 +8,10 @@
   hippotranslation:locale: en
   /content:
     jcr:primaryType: hippo:handle
-    jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+    jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
     jcr:uuid: ee0715f9-9c14-4fc9-8bc1-6d5a997eddad
     hippo:name: content
+    hippo:versionHistory: 9adf3f68-b55f-433e-a548-52a545d52b31
     /content[1]:
       jcr:primaryType: visitscotland:General
       jcr:mixinTypes: ['mix:versionable']
@@ -20,7 +21,7 @@
       hippostd:state: unpublished
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2021-06-29T15:19:57.775+01:00
-      hippostdpubwf:lastModificationDate: 2024-02-26T13:43:41.909Z
+      hippostdpubwf:lastModificationDate: 2024-07-30T09:19:00.618+01:00
       hippostdpubwf:lastModifiedBy: admin
       hippotranslation:id: 8bb7ab4c-379a-4dc5-8584-a46841ca1fd2
       hippotranslation:locale: en
@@ -32,11 +33,10 @@
         partners in Scotland for conferences, conventions, meetings, incentives and
         more!
       visitscotland:seoNoIndex: false
-      visitscotland:seoTitle: Welcome to Business Events Scotland
-      visitscotland:teaser: Welcome to VisitScotland Business Events. Your partners
-        in Scotland for conferences, conventions, meetings, incentives and more!
+      visitscotland:seoTitle: Welcome to Business Support Hub
+      visitscotland:teaser: Welcome to Business Support Hub.
       visitscotland:theme: Top-Level
-      visitscotland:title: Welcome to Business Events Scotland
+      visitscotland:title: Welcome to Business Support Hub
       visitscotland:translation: ''
       /visitscotland:heroImage:
         jcr:primaryType: hippogallerypicker:imagelink
@@ -50,11 +50,6 @@
           <p>For years Scotland has welcomed the world's greatest thinkers, pioneers, innovators and leaders to the many international congresses, conferences and meetings we host. Scotland is an incredible destination for business events. Our world leading academia, research institutes, industries and innovation centres thrive on ideas, new challenges and the inspiration we can give and draw from delegates to our country.</p>
 
           <p>In Scotland we believe business events are a catalyst for social and economic transformation; they are a driver to tackle climate change; they are a voice for human rights; they are a leader in the global <a href="https://businessevents.visitscotland.com/why-scotland/journey-to-change/" title="Journey to change">Journey to Change</a>.</p>
-      /visitscotland:heroVideo:
-        jcr:primaryType: visitscotland:VideoLink
-        /visitscotland:videoLink:
-          jcr:primaryType: hippo:mirror
-          hippo:docbase: 531e8256-dfdc-4af0-b2ff-4835fe3aef10
     /content[2]:
       jcr:primaryType: visitscotland:General
       jcr:mixinTypes: ['mix:referenceable']
@@ -64,7 +59,7 @@
       hippostd:state: draft
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2021-06-29T15:19:57.775+01:00
-      hippostdpubwf:lastModificationDate: 2024-02-26T13:43:36.247Z
+      hippostdpubwf:lastModificationDate: 2024-07-30T09:14:17.845+01:00
       hippostdpubwf:lastModifiedBy: admin
       hippotranslation:id: 8bb7ab4c-379a-4dc5-8584-a46841ca1fd2
       hippotranslation:locale: en
@@ -76,11 +71,10 @@
         partners in Scotland for conferences, conventions, meetings, incentives and
         more!
       visitscotland:seoNoIndex: false
-      visitscotland:seoTitle: Welcome to Business Events Scotland
-      visitscotland:teaser: Welcome to VisitScotland Business Events. Your partners
-        in Scotland for conferences, conventions, meetings, incentives and more!
+      visitscotland:seoTitle: Welcome to Business Support Hub
+      visitscotland:teaser: Welcome to Business Support Hub.
       visitscotland:theme: Top-Level
-      visitscotland:title: Welcome to Business Events Scotland
+      visitscotland:title: Welcome to Business Support Hub
       visitscotland:translation: ''
       /visitscotland:heroImage:
         jcr:primaryType: hippogallerypicker:imagelink
@@ -94,11 +88,6 @@
           <p>For years Scotland has welcomed the world's greatest thinkers, pioneers, innovators and leaders to the many international congresses, conferences and meetings we host. Scotland is an incredible destination for business events. Our world leading academia, research institutes, industries and innovation centres thrive on ideas, new challenges and the inspiration we can give and draw from delegates to our country.</p>
 
           <p>In Scotland we believe business events are a catalyst for social and economic transformation; they are a driver to tackle climate change; they are a voice for human rights; they are a leader in the global <a href="https://businessevents.visitscotland.com/why-scotland/journey-to-change/" title="Journey to change">Journey to Change</a>.</p>
-      /visitscotland:heroVideo:
-        jcr:primaryType: visitscotland:VideoLink
-        /visitscotland:videoLink:
-          jcr:primaryType: hippo:mirror
-          hippo:docbase: 531e8256-dfdc-4af0-b2ff-4835fe3aef10
     /content[3]:
       jcr:primaryType: visitscotland:General
       jcr:mixinTypes: ['mix:referenceable']
@@ -108,9 +97,9 @@
       hippostd:state: published
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2021-06-29T15:19:57.775+01:00
-      hippostdpubwf:lastModificationDate: 2024-02-26T13:43:41.909Z
+      hippostdpubwf:lastModificationDate: 2024-07-30T09:19:00.618+01:00
       hippostdpubwf:lastModifiedBy: admin
-      hippostdpubwf:publicationDate: 2024-02-26T13:43:47.656Z
+      hippostdpubwf:publicationDate: 2024-07-30T09:19:09.543+01:00
       hippotranslation:id: 8bb7ab4c-379a-4dc5-8584-a46841ca1fd2
       hippotranslation:locale: en
       visitscotland:breadcrumb: ''
@@ -121,11 +110,10 @@
         partners in Scotland for conferences, conventions, meetings, incentives and
         more!
       visitscotland:seoNoIndex: false
-      visitscotland:seoTitle: Welcome to Business Events Scotland
-      visitscotland:teaser: Welcome to VisitScotland Business Events. Your partners
-        in Scotland for conferences, conventions, meetings, incentives and more!
+      visitscotland:seoTitle: Welcome to Business Support Hub
+      visitscotland:teaser: Welcome to Business Support Hub.
       visitscotland:theme: Top-Level
-      visitscotland:title: Welcome to Business Events Scotland
+      visitscotland:title: Welcome to Business Support Hub
       visitscotland:translation: ''
       /visitscotland:heroImage:
         jcr:primaryType: hippogallerypicker:imagelink
@@ -139,8 +127,3 @@
           <p>For years Scotland has welcomed the world's greatest thinkers, pioneers, innovators and leaders to the many international congresses, conferences and meetings we host. Scotland is an incredible destination for business events. Our world leading academia, research institutes, industries and innovation centres thrive on ideas, new challenges and the inspiration we can give and draw from delegates to our country.</p>
 
           <p>In Scotland we believe business events are a catalyst for social and economic transformation; they are a driver to tackle climate change; they are a voice for human rights; they are a leader in the global <a href="https://businessevents.visitscotland.com/why-scotland/journey-to-change/" title="Journey to change">Journey to Change</a>.</p>
-      /visitscotland:heroVideo:
-        jcr:primaryType: visitscotland:VideoLink
-        /visitscotland:videoLink:
-          jcr:primaryType: hippo:mirror
-          hippo:docbase: 531e8256-dfdc-4af0-b2ff-4835fe3aef10
