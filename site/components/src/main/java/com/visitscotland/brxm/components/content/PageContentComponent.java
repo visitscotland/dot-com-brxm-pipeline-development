@@ -51,6 +51,7 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
     public static final String SEARCH_RESULTS = "searchResultsPage";
     public static final String METADATA_MODEL = "metadata";
     public static final String GTM = "gtm";
+    public static final String SITE_ID = "site-id";
 
     private final BlogFactory blogFactory;
     private final MegalinkFactory megalinkFactory;
@@ -356,7 +357,9 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
             addProductSearchWidget(request);
         } else {
             prefix = properties.getSiteId() +".";
-            //TODO Review with Mike
+            request.setModel(SITE_ID, properties.getSiteId());
+
+            //TODO The following property is to be removed after version 2.3.0 is released
             request.setModel(HippoUtilsService.BUSINESS_EVENTS_SITE, true);
         }
 
