@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="org.hippoecm.hst.pagemodelapi.v10.content.rewriter.HtmlContentRewriter"
+          class="com.visitscotland.brxm.config.DeliveryAPIContentRewriter">
+        <constructor-arg index="0">
+            <bean class="org.hippoecm.hst.content.rewriter.HtmlCleanerFactoryBean" />
+        </constructor-arg>
+        <constructor-arg index="1" ref="HTMLtoVueTransformer" />
+        <property name="removeAnchorTagOfBrokenLink" value="${pagemodelapi.v10.removeAnchorTagOfBrokenLink:false}" />
+    </bean>
+
+</beans>
