@@ -142,11 +142,15 @@ echo -en "\n"
 checkVariables() {
   if [ ! "$DEBUG" == "TRUE" ]; then clear; fi
   echo "`eval $VS_LOG_DATESTAMP` INFO  [$VS_SCRIPTNAME] ==== Checking variables to ensure environment is set up ===="
-  if [ ! "$LOGNAME" = "jenkins" ]; then
-    echo"`eval $VS_LOG_DATESTAMP` ERROR [$VS_SCRIPTNAME] $VS_SCRIPTNAME was not called by the user Jenkins, please switch user"
+  if [ ! "$LOGNAME" = "jenkins" ] && [ -z "$VS_AGENT_IS_DOCKER" ]; then
+    echo "`eval $VS_LOG_DATESTAMP` ERROR [$VS_SCRIPTNAME] $VS_SCRIPTNAME was not called by the user Jenkins, please switch user"
     exit 3
-  elif [ "$LOGNAME" = "jenkins" ] && [ ! -z "JENKINS_SERVER_COOKIE" ]; then
+  elif [ "$LOGNAME" = "jenkins" ] && [ ! -z "$JENKINS_SERVER_COOKIE" ]; then
     echo "`eval $VS_LOG_DATESTAMP` INFO  [$VS_SCRIPTNAME] $VS_SCRIPTNAME appears to be running from a Jenkins job"
+    echo "`eval $VS_LOG_DATESTAMP` INFO  [$VS_SCRIPTNAME]  - exporting selected variables to ./$VS_JENKINS_LAST_ENV"
+    printenv | egrep "JENKINS_(HOME|URL)|JOB_((BASE_)?NAME|(DISPLAY_)?URL)|VS_(DOCKER|BRC|COMMIT)" | tee $VS_JENKINS_LAST_ENV
+  elif [[ "$VS_AGENT_IS_DOCKER" =~ ^(TRUE|true)$ ]] && [ ! -z "$JENKINS_SERVER_COOKIE" ]; then
+    echo "`eval $VS_LOG_DATESTAMP` INFO  [$VS_SCRIPTNAME] $VS_SCRIPTNAME appears to be running from a Jenkins job inside a Docker container "
     echo "`eval $VS_LOG_DATESTAMP` INFO  [$VS_SCRIPTNAME]  - exporting selected variables to ./$VS_JENKINS_LAST_ENV"
     printenv | egrep "JENKINS_(HOME|URL)|JOB_((BASE_)?NAME|(DISPLAY_)?URL)|VS_(DOCKER|BRC|COMMIT)" | tee $VS_JENKINS_LAST_ENV
   elif [ "$LOGNAME" = "jenkins" ] && [ -z "$JOB_NAME" ] && [ -e $VS_JENKINS_LAST_ENV ]; then
@@ -526,7 +530,7 @@ setPortRange() {
   # if the override port if in use the job must fail in the findBasePort proc
   if [ -z "$VS_CONTAINER_BASE_PORT_OVERRIDE" ]; then
     MIN_PORT=8001
-    MAX_PORT=8090
+    MAX_PORT=8079
   else
     MIN_PORT=$VS_CONTAINER_BASE_PORT_OVERRIDE
     MAX_PORT=$VS_CONTAINER_BASE_PORT_OVERRIDE
