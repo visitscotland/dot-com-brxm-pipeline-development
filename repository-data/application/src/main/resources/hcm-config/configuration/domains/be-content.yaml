@@ -1,6 +1,6 @@
 definitions:
   config:
-    /hippo:configuration/hippo:domains/be-content-business:
+    /hippo:configuration/hippo:domains/be-content:
       jcr:primaryType: hipposys:domain
       /content-domain:
         jcr:primaryType: hipposys:domainrule
@@ -15,7 +15,6 @@ definitions:
         hipposys:groups:
           .meta:category: system
           .meta:add-new-system-values: true
-          operation: override
           type: string
           value: []
         hipposys:role: admin
@@ -26,7 +25,6 @@ definitions:
         hipposys:users:
           .meta:category: system
           .meta:add-new-system-values: true
-          operation: override
           type: string
           value: []
       /be-editor:
@@ -34,7 +32,6 @@ definitions:
         hipposys:groups:
           .meta:category: system
           .meta:add-new-system-values: true
-          operation: override
           type: string
           value: []
         hipposys:role: editor
@@ -45,6 +42,5 @@ definitions:
         hipposys:users:
           .meta:category: system
           .meta:add-new-system-values: true
-          operation: override
           type: string
           value: []

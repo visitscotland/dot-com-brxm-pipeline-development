@@ -1,0 +1,61 @@
+/content/documents/administration/bsh-labels/modules/newsletter-signpost:
+  jcr:primaryType: hippo:handle
+  jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+  jcr:uuid: b5e7bda0-e6a9-43b8-86af-1e09c9bcd3f3
+  hippo:name: Newsletter Signpost
+  hippo:versionHistory: 96a57a43-c340-4f06-9fad-b07a42afddfc
+  /newsletter-signpost[1]:
+    jcr:primaryType: resourcebundle:resourcebundle
+    jcr:mixinTypes: ['mix:versionable']
+    jcr:uuid: 95a41da6-50d6-4151-bb44-3dddd9586c49
+    hippo:availability: [preview]
+    hippostd:retainable: false
+    hippostd:state: unpublished
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2021-05-17T15:10:33.190+01:00
+    hippostdpubwf:lastModificationDate: 2024-07-30T19:21:47.190+01:00
+    hippostdpubwf:lastModifiedBy: admin
+    resourcebundle:descriptions: ['', '', '', '', '']
+    resourcebundle:id: bsh.newsletter-signpost
+    resourcebundle:keys: [newsletter.title, newsletter.cta.link, newsletter.cta.text,
+      newsletter.copy, newsletter.image]
+    resourcebundle:messages: [Newsletter Sign up, 'https://businessevents.visitscotland.com/newsletter-signup/',
+      Sign up Now, 'Subscribe here to our newsletter for updates, articles and insights
+        from across the Scottish business events sector.', assets/images/illustrations/newsletter.svg]
+  /newsletter-signpost[2]:
+    jcr:primaryType: resourcebundle:resourcebundle
+    jcr:mixinTypes: ['mix:referenceable']
+    jcr:uuid: 12626c4c-6231-4593-975f-d676c0530aab
+    hippo:availability: []
+    hippostd:retainable: false
+    hippostd:state: draft
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2021-05-17T15:10:33.190+01:00
+    hippostdpubwf:lastModificationDate: 2024-07-30T19:21:40.331+01:00
+    hippostdpubwf:lastModifiedBy: admin
+    resourcebundle:descriptions: ['', '', '', '', '']
+    resourcebundle:id: bsh.newsletter-signpost
+    resourcebundle:keys: [newsletter.title, newsletter.cta.link, newsletter.cta.text,
+      newsletter.copy, newsletter.image]
+    resourcebundle:messages: [Newsletter Sign up, 'https://businessevents.visitscotland.com/newsletter-signup/',
+      Sign up Now, 'Subscribe here to our newsletter for updates, articles and insights
+        from across the Scottish business events sector.', assets/images/illustrations/newsletter.svg]
+  /newsletter-signpost[3]:
+    jcr:primaryType: resourcebundle:resourcebundle
+    jcr:mixinTypes: ['mix:referenceable']
+    jcr:uuid: d5092c9a-a596-4e9a-b7ec-e7286bb07c51
+    hippo:availability: [live]
+    hippostd:retainable: false
+    hippostd:state: published
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2021-05-17T15:10:33.190+01:00
+    hippostdpubwf:lastModificationDate: 2024-07-30T19:21:47.190+01:00
+    hippostdpubwf:lastModifiedBy: admin
+    hippostdpubwf:publicationDate: 2024-07-30T19:21:50.892+01:00
+    resourcebundle:descriptions: ['', '', '', '', '']
+    resourcebundle:id: bsh.newsletter-signpost
+    resourcebundle:keys: [newsletter.title, newsletter.cta.link, newsletter.cta.text,
+      newsletter.copy, newsletter.image]
+    resourcebundle:messages: [Newsletter Sign up, 'https://businessevents.visitscotland.com/newsletter-signup/',
+      Sign up Now, 'Subscribe here to our newsletter for updates, articles and insights
+        from across the Scottish business events sector.', assets/images/illustrations/newsletter.svg]

@@ -51,6 +51,7 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
     public static final String SEARCH_RESULTS = "searchResultsPage";
     public static final String METADATA_MODEL = "metadata";
     public static final String GTM = "gtm";
+    public static final String SITE_ID = "site-id";
 
     private final BlogFactory blogFactory;
     private final MegalinkFactory megalinkFactory;
@@ -283,8 +284,8 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
         Page page = getDocument(request);
         if (Boolean.FALSE.equals(Contract.defaultIfNull(page.getHideNewsletter(), false))) {
             SignpostModule signpost;
-            if (hippoUtils.isBusinessEventsSite(request)){
-                signpost = signpostFactory.createBusinessEventsModule(request.getLocale());
+            if (!Contract.isEmpty(properties.getSiteId())){
+                signpost = signpostFactory.createDeliveryAPIModule(request.getLocale());
             } else if (request.getPathInfo().contains(properties.getSiteSkiSection())) {
                 signpost = signpostFactory.createSnowAlertsModule(request.getLocale());
             } else {
@@ -352,11 +353,14 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
         final String STATIC = "navigation.static";
         String prefix = "";
 
-        if (hippoUtils.isBusinessEventsSite(request)) {
-            request.setModel(HippoUtilsService.BUSINESS_EVENTS_SITE, true);
-            prefix = "be.";
-        } else {
+        if (Contract.isEmpty(properties.getSiteId())) {
             addProductSearchWidget(request);
+        } else {
+            prefix = properties.getSiteId() +".";
+            request.setModel(SITE_ID, properties.getSiteId());
+
+            //TODO The following property is to be removed after version 2.3.0 is released
+            request.setModel(HippoUtilsService.BUSINESS_EVENTS_SITE, true);
         }
 
         labels(request).put(SOCIAL_MEDIA, bundle.getAllLabels(prefix + SOCIAL_MEDIA, request.getLocale()));
