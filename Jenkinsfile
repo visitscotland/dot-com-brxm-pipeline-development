@@ -47,9 +47,9 @@ if (!env.VS_SSR_PROXY_ON) { env.VS_SSR_PROXY_ON = "TRUE" }
 if (!env.VS_CONTAINER_PRESERVE) { env.VS_CONTAINER_PRESERVE = "TRUE" }
 if (!env.VS_BRXM_PERSISTENCE_METHOD) { env.VS_BRXM_PERSISTENCE_METHOD = "h2" }
 if (!env.VS_SKIP_BUILD_FOR_BRANCH) { env.VS_SKIP_BUILD_FOR_BRANCH = "feature/VS-1865-feature-environments-enhancements-log4j" }
-if (!env.VS_BRC_STACK_URI) { env.VS_BRC_STACK_URI = "visitscotland" }
+if (!env.VS_BRC_API_STACK_NAME) { env.VS_BRC_API_STACK_NAME = "visitscotland" }
 if (!env.VS_BRC_ENV) { env.VS_BRC_ENV = "demo" }
-if (!env.VS_BRC_STACK_URL) { env.VS_BRC_STACK_URL = "https://api.${VS_BRC_STACK_URI}.bloomreach.cloud" }
+if (!env.VS_BRC_API_STACK_NAME) { env.VS_BRC_API_STACK_NAME = "visitscotland" }
 if (!env.VS_BRC_STACK_API_VERSION) { env.VS_BRC_STACK_API_VERSION = "v3" }
 if (!env.VS_DOCKER_IMAGE_NAME) { env.VS_DOCKER_IMAGE_NAME = "vs/vs-brxm15:node18" }
 if (!env.VS_DOCKER_BUILDER_IMAGE_NAME) { env.VS_DOCKER_BUILDER_IMAGE_NAME = "vs/vs-brxm15-builder:node18" }
@@ -86,6 +86,11 @@ pipeline {
     stage ('Pre-build') {
       steps {
         // Set any defined build property overrides for this work-in-progress branch
+        sh '''
+          printenv | sort > printenv.pre-build
+          ./ci/infrastructure/scripts/infrastructure.sh setvars
+          printenv | sort > printenv.pre-build.setvars
+        '''
         sh '''
           set +x
           echo; echo "running stage $STAGE_NAME on $HOSTNAME"
@@ -124,7 +129,7 @@ pipeline {
         }
       }
       steps {
-        sh './ci/infrastructure/scripts/infrastructure.sh setvars'
+        //sh './ci/infrastructure/scripts/infrastructure.sh setvars'
         // -- 20200712: QUESTION FOR SE, "why do we not build with-development-data?"
         sh 'mvn -f pom.xml clean package'
       }
@@ -157,7 +162,7 @@ stage ('vs compile & package in docker') {
         }
       }
       steps {
-        sh './ci/infrastructure/scripts/infrastructure.sh setvars'
+        //sh './ci/infrastructure/scripts/infrastructure.sh setvars'
         sh '''
           set +x
           echo; echo "running stage $STAGE_NAME on $HOSTNAME"

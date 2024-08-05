@@ -30,7 +30,7 @@ if (!env.VS_BRXM_PERSISTENCE_METHOD) { env.VS_BRXM_PERSISTENCE_METHOD = "h2" }
 if (!env.VS_SKIP_BUILD_FOR_BRANCH) { env.VS_SKIP_BUILD_FOR_BRANCH = "feature/VS-1865-feature-environments-enhancements-log4j" }
 if (!env.VS_BRC_API_STACK_NAME) { env.VS_BRC_API_STACK_NAME = "visitscotland" }
 if (!env.VS_BRC_ENV) { env.VS_BRC_ENV = "demo" }
-if (!env.VS_BRC_STACK_URL) { env.VS_BRC_STACK_URL = "https://api.${VS_BRC_API_STACK_NAME}.bloomreach.cloud" }
+if (!env.VS_BRC_API_STACK_NAME) { env.VS_BRC_API_STACK_NAME = "visitscotland" }
 if (!env.VS_BRC_STACK_API_VERSION) { env.VS_BRC_STACK_API_VERSION = "v3" }
 if (!env.VS_DOCKER_IMAGE_NAME) { env.VS_DOCKER_IMAGE_NAME = "vs/vs-brxm15:node18" }
 if (!env.VS_DOCKER_BUILDER_IMAGE_NAME) { env.VS_DOCKER_BUILDER_IMAGE_NAME = "vs/vs-brxm15-builder:node18" }
@@ -103,9 +103,8 @@ pipeline {
             echo "branch specific properties won't be loaded, file $WORKSPACE/$VS_BRANCH_PROPERTIES_DIR/$VS_BRANCH_PROPERTIES_FILE does not exist"
           }
         }
-
       }
-    }
+    } // end stage
 
     stage ('vs compile & package') {
       when {
