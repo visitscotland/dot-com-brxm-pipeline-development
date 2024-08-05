@@ -3,12 +3,26 @@ def MAIL_TO = "webops@visitscotland.net"
 def thisAgent
 def VS_CONTAINER_BASE_PORT_OVERRIDE
 cron_string = ""
-
 thisAgent = "xvcdocker"
 env.VS_CONTAINER_BASE_PORT_OVERRIDE = "8096"
 env.VS_CONTAINER_REMOVE_WHEN_PORT_IN_USE = "TRUE"
 env.VS_RELEASE_SNAPSHOT = "FALSE"
 env.VS_BUILD_FEATURE_ENVIRONMENT = "TRUE"
+env.VS_BRC_DEPLOY = "TRUE"
+
+// set any environment-specific environment variables here using the format: env.MY_VAR = "conditional_value" }
+// please see ci/README_PIPELINE_VARIABLES.md or consult Web Operations for details on environment variables and their purposes
+echo "== Setting conditional environment variables"
+if (BRANCH_NAME ==~ "ops/feature-environment(s)?-enhancements") {
+  echo "=== Setting conditional environment variables for branch $BRANCH_NAME in job $JOB_NAME"
+  thisAgent = "xvcdocker"
+  env.VS_CONTAINER_BASE_PORT_OVERRIDE = "8091"
+  env.VS_BRC_DEPLOY = "FALSE"
+  //env.VS_BUILD_FEATURE_ENVIRONMENT = "TRUE"
+  //env.VS_CONTAINER_PRESERVE = "FALSE"
+  //cron_string = "*/2 * * * *"
+}
+echo "==/Setting conditional environment variables"
 
 import groovy.json.JsonSlurper
 
@@ -254,6 +268,11 @@ stage ('vs compile & package in docker') {
     } //end stage
 
     stage ('vs deploy brCloud'){
+      when {
+        allOf {
+          expression {return env.VS_BRC_DEPLOY ==~ /(TRUE|true)/}
+        }
+      }
       steps{
         script{
           sh 'sh ./ci/infrastructure/scripts/infrastructure.sh upload-to-brcloud --deploy'
