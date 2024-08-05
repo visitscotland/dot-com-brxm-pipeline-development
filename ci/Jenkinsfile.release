@@ -71,7 +71,7 @@ if (BRANCH_NAME == "develop" && (JOB_NAME == "develop.visitscotland.com/develop"
     env.VS_RELEASE_SNAPSHOT = "TRUE"
     env.VS_RELEASE_SNAPSHOT_DEV_DATA = "FALSE"
     //thisAgent = "op-dev-xvcdocker-01"
-    thisAgent = "docker-02"
+    thisAgent = "xvcdocker"
 }
 
 import groovy.json.JsonSlurper // unused import? To be removed if so
