@@ -3,13 +3,6 @@ def MAIL_TO = "webops@visitscotland.net"
 def thisAgent
 def VS_CONTAINER_BASE_PORT_OVERRIDE
 cron_string = ""
-thisAgent = "xvcdocker"
-env.VS_CONTAINER_BASE_PORT_OVERRIDE = "8096"
-env.VS_CONTAINER_REMOVE_WHEN_PORT_IN_USE = "TRUE"
-env.VS_RELEASE_SNAPSHOT = "FALSE"
-env.VS_BUILD_FEATURE_ENVIRONMENT = "TRUE"
-env.VS_BRC_DEPLOY = "TRUE"
-
 // set any environment-specific environment variables here using the format: env.MY_VAR = "conditional_value" }
 // please see ci/README_PIPELINE_VARIABLES.md or consult Web Operations for details on environment variables and their purposes
 echo "== Setting conditional environment variables"
@@ -21,8 +14,37 @@ if (BRANCH_NAME ==~ "ops/feature-environment(s)?-enhancements") {
   //env.VS_BUILD_FEATURE_ENVIRONMENT = "TRUE"
   //env.VS_CONTAINER_PRESERVE = "FALSE"
   //cron_string = "*/2 * * * *"
+} else {
+  // thisAgent should always be set to "xvcdocker" unless you have been informed otherwise!
+  thisAgent = "xvcdocker"
 }
 echo "==/Setting conditional environment variables"
+
+// set or override any default environment variables here using the format: if (!env.MY_VAR) { env.MY_VAR = "default_value" }
+// please see ci/README_PIPELINE_VARIABLES.md or consult Web Operations for details on environment variables and their purposes
+// NOTE: these values will only be set if currently null, they may have been set by the "conditional environment variables" section above
+echo "== Setting default environment variables"
+if (!env.VS_SSR_PROXY_ON) { env.VS_SSR_PROXY_ON = "TRUE" }
+if (!env.VS_CONTAINER_PRESERVE) { env.VS_CONTAINER_PRESERVE = "TRUE" }
+if (!env.VS_BRXM_PERSISTENCE_METHOD) { env.VS_BRXM_PERSISTENCE_METHOD = "h2" }
+if (!env.VS_SKIP_BUILD_FOR_BRANCH) { env.VS_SKIP_BUILD_FOR_BRANCH = "feature/VS-1865-feature-environments-enhancements-log4j" }
+if (!env.VS_BRC_STACK_URI) { env.VS_BRC_STACK_URI = "visitscotland" }
+if (!env.VS_BRC_ENV) { env.VS_BRC_ENV = "demo" }
+if (!env.VS_BRC_STACK_URL) { env.VS_BRC_STACK_URL = "https://api.${VS_BRC_STACK_URI}.bloomreach.cloud" }
+if (!env.VS_BRC_STACK_API_VERSION) { env.VS_BRC_STACK_API_VERSION = "v3" }
+if (!env.VS_DOCKER_IMAGE_NAME) { env.VS_DOCKER_IMAGE_NAME = "vs/vs-brxm15:node18" }
+if (!env.VS_DOCKER_BUILDER_IMAGE_NAME) { env.VS_DOCKER_BUILDER_IMAGE_NAME = "vs/vs-brxm15-builder:node18" }
+if (!env.VS_USE_DOCKER_BUILDER) { env.VS_USE_DOCKER_BUILDER = "TRUE" }
+if (!env.VS_RUN_BRC_STAGES) { env.VS_RUN_BRC_STAGES = "FALSE" }
+if (!env.VS_BRANCH_PROPERTIES_DIR) { env.VS_BRANCH_PROPERTIES_DIR = "ci/properties" }
+if (!env.VS_BRANCH_PROPERTIES_FILE) { env.VS_BRANCH_PROPERTIES_FILE = env.BRANCH_NAME.substring(env.BRANCH_NAME.lastIndexOf('/') + 1) + ".properties" }
+if (!env.VS_BUILD_FEATURE_ENVIRONMENT) { env.VS_BUILD_FEATURE_ENVIRONMENT = "TRUE" }
+if (!env.VS_CONTAINER_BASE_PORT_OVERRIDE) { env.VS_CONTAINER_BASE_PORT_OVERRIDE = "8096" }
+if (!env.VS_CONTAINER_REMOVE_WHEN_PORT_IN_USE) { env.VS_CONTAINER_REMOVE_WHEN_PORT_IN_USE = "TRUE" }
+if (!env.VS_RELEASE_SNAPSHOT) { env.VS_RELEASE_SNAPSHOT = "FALSE" }
+if (!env.VS_BRC_DEPLOY) { env.VS_BRC_DEPLOY = "TRUE" }
+if (!env.VS_SSR_PROXY_TARGET_HOST) { env.VS_SSR_PROXY_TARGET_HOST = "http://develop-brc.visitscotland.com" }
+echo "==/Setting default environment variables"
 
 import groovy.json.JsonSlurper
 
@@ -34,11 +56,6 @@ pipeline {
     // gp: investigate milestone caclulation to cancel current build if a new one starts
     // - see: https://stackoverflow.com/questions/40760716/jenkins-abort-running-build-if-new-one-is-started/44326216
     // - see: https://www.jenkins.io/doc/pipeline/steps/pipeline-milestone-step/#pipeline-milestone-step
-    // gp: investigate the use of stash/unstash to make build artefacts available to other nodes
-    // - see: https://www.cloudbees.com/blog/parallelism-and-distributed-builds-jenkins
-    // - this could potentially allow the running of all Lighthouse tests on a separate node
-    // - experiment with a simple echo on a different node (stash/unstash)
-    // gp: change sonarqube project target to a short version of the project name
     timestamps()
   }
   agent {label thisAgent}
@@ -46,33 +63,6 @@ pipeline {
   environment {
     MAVEN_SETTINGS = credentials('maven-settings')
     VS_BRC_API_UPLOAD_JOB_KEY = credentials('vs-brc-api-upload-job-key')
-    // from 20200804 VS_SSR_PROXY_ON will only affect whether the SSR app is packaged and sent to the container, using or bypassing will be set via query string
-    VS_SSR_PROXY_ON = 'TRUE'
-    // VS_CONTAINER_PRESERVE is set to TRUE in the ingrastructure build script, if this is set to FALSE the container will be rebuilt every time and the repository wiped
-    VS_CONTAINER_PRESERVE = 'TRUE'
-    // VS_BRXM_PERSISTENCE_METHOD can be set to either 'h2' or 'mysql' - do not change during the lifetime of a container or it will break the repo
-    VS_BRXM_PERSISTENCE_METHOD = 'h2'
-    // VS_SKIP_BUILD_FOR_BRANCH is useful for testing, only ever set to your working branch name - never to a variable!
-    VS_SKIP_BUILD_FOR_BRANCH = 'NOTfeature/DOPS-1442-automate-develop-brc.visitscotland.com'
-    // VS_COMMIT_AUTHOR is required by later stages which will fail if it's not set, default value of jenkins@visitscotland.net
-    // turns out if you set it here it will not be overwritten by the load later in the pipeline
-    //VS_COMMIT_AUTHOR = 'jenkins@visitscotland.net'
-    VS_RUN_BRC_STAGES = 'FALSE'
-    // -- 20200712: TEST and PACKAGE stages might need VS_SKIP set to TRUE as they just run the ~4 minute front-end build every time
-    VS_SKIP_BRC_BLD = 'FALSE'
-    VS_SKIP_BRC_TST = 'FALSE'
-    VS_SKIP_BRC_PKG = 'FALSE'
-    VS_SKIP_BRC_CXN = 'FALSE'
-    VS_SKIP_BRC_UPL = 'FALSE'
-    VS_BRC_STACK_URI = 'visitscotland'
-    VS_BRC_ENV = 'demo'
-    VS_BRC_API_STACK_NAME = 'visitscotland'
-    VS_BRC_STACK_URL = "https://api.${VS_BRC_STACK_URI}.bloomreach.cloud"
-    VS_BRC_STACK_API_VERSION = 'v3'
-    VS_DOCKER_IMAGE_NAME = 'vs/vs-brxm15:node18'
-    VS_DOCKER_BUILDER_IMAGE_NAME = 'vs/vs-brxm15-builder:node18'
-    VS_USE_DOCKER_BUILDER = "TRUE"
-    VS_SSR_PROXY_TARGET_HOST = 'http://develop-brc.visitscotland.com'
   }
 
   tools {
@@ -81,12 +71,35 @@ pipeline {
   }
 
   stages {
-
     stage ('Pre-build') {
-
       steps {
-        // We have no need for the buildprops importer in this pipeline.
+        // Set any defined build property overrides for this work-in-progress branch
         sh 'printenv > printenv.pre-build'
+        sh '''
+          set +x
+          echo; echo "running stage $STAGE_NAME on $HOSTNAME"
+          echo; echo "== printenv in $STAGE_NAME =="; printenv | sort; echo "==/printenv in $STAGE_NAME =="; echo
+          echo; echo "looking for branch specific properties file at $WORKSPACE/$VS_BRANCH_PROPERTIES_DIR/$VS_BRANCH_PROPERTIES_FILE"
+          echo " - if the pipeline fails at this point please check the format of your properties file!"
+        '''
+        // make all branch-specific variables available to pipeline, load file must be in env.VARIABLE="VALUE" format
+        script {
+          if (fileExists("$WORKSPACE/$VS_BRANCH_PROPERTIES_DIR/$VS_BRANCH_PROPERTIES_FILE")) {
+            echo "loading environment variables from $WORKSPACE/$VS_BRANCH_PROPERTIES_DIR/$VS_BRANCH_PROPERTIES_FILE"
+            load "$WORKSPACE/$VS_BRANCH_PROPERTIES_DIR/$VS_BRANCH_PROPERTIES_FILE"
+            sh '''
+              set +x
+              echo
+              echo "== printenv after load of $WORKSPACE/$VS_BRANCH_PROPERTIES_DIR/$VS_BRANCH_PROPERTIES_FILE in $STAGE_NAME =="
+              printenv | sort
+              echo "==/printenv after load of $WORKSPACE/$VS_BRANCH_PROPERTIES_DIR/$VS_BRANCH_PROPERTIES_FILE in $STAGE_NAME =="
+              echo
+            '''
+          } else {
+            echo "branch specific properties won't be loaded, file $WORKSPACE/$VS_BRANCH_PROPERTIES_DIR/$VS_BRANCH_PROPERTIES_FILE does not exist"
+          }
+        }
+
       }
     }
 
@@ -101,8 +114,8 @@ pipeline {
         }
       }
       steps {
-        sh 'sh ./ci/infrastructure/scripts/infrastructure.sh setvars'
-                sh 'mvn -f pom.xml clean package'
+        sh './ci/infrastructure/scripts/infrastructure.sh setvars'
+        sh 'mvn -f pom.xml clean package'
       }
       post {
         success {
@@ -127,14 +140,13 @@ stage ('vs compile & package in docker') {
       agent {
         docker {
           image '$VS_DOCKER_BUILDER_IMAGE_NAME'
-          args '-v $JENKINS_HOME/.m2:$WORKSPACE/.m2:rw,z'
+          args '-v $JENKINS_HOME/.m2:$WORKSPACE/.m2:rw,z --env VS_AGENT_IS_DOCKER=TRUE'
           label 'thisAgent'
           reuseNode true
         }
       }
       steps {
-        // temporarily commenting-out setvars as it doesn't run happily within the container right now
-        //sh 'sh ./ci/infrastructure/scripts/infrastructure.sh setvars'
+        sh './ci/infrastructure/scripts/infrastructure.sh setvars'
         sh '''
           set +x
           echo; echo "running stage $STAGE_NAME on $HOSTNAME"
@@ -147,9 +159,11 @@ stage ('vs compile & package in docker') {
         success {
           sh '''
             set +x
-            echo; echo "running stage $STAGE_NAME post-success on $HOSTNAME"
+            echo; echo "stage $STAGE_NAME succeeded on $HOSTNAME"
+            echo; echo "entering post-success steps for $STAGE_NAME on $HOSTNAME"
             export HOME=$WORKSPACE
             export MAVEN_OPTS="-Duser.home=$HOME"
+            echo; echo "running mvn --batch-mode -Pdist-with-development-data on $HOSTNAME"
             mvn --batch-mode install -Pdist-with-development-data
           '''
           stash allowEmpty: true, includes: 'target/*', name: 'brxm-artifact'
@@ -160,9 +174,9 @@ stage ('vs compile & package in docker') {
           mail bcc: '', body: "<b>Notification</b><br>Project: ${env.JOB_NAME} <br>Build Number: ${env.BUILD_NUMBER} <br> build URL: ${env.BUILD_URL}", cc: '', charset: 'UTF-8', from: '', mimeType: 'text/html', replyTo: '', subject: "Maven build FAILED at ${env.STAGE_NAME} for  ${env.JOB_NAME}", to: "${MAIL_TO}";
         }
       }
-    }
+    } // end stage
 
-    // -- 20200712: The three 'brxm' and the two 'brc' stages are based on https://developers.bloomreach.com/blog/2019/set-up-continuous-deployment-of-your-brxm-project-in-brcloud-using-jenkins.html
+    // -- 2020-07-12: The three 'brxm' and the two 'brc' stages are based on https://developers.bloomreach.com/blog/2019/set-up-continuous-deployment-of-your-brxm-project-in-brcloud-using-jenkins.html
     // --           in time, the connect, upload and deploy stages will be moved into bash scripts and run from a different Jenkins server
 
     // -- 20200712: QUESTION FOR SE, "why do each of the next three profiles run a UI step that takes ~3.5 minutes?"
@@ -252,7 +266,7 @@ stage ('vs compile & package in docker') {
           }
         }
       script{
-          sh 'sh ./ci/infrastructure/scripts/infrastructure.sh --debug'
+          sh './ci/infrastructure/scripts/infrastructure.sh --debug'
         }
         // make all VS_ variables available to pipeline, load file must be in env.VARIABLE="VALUE" format
         script {
@@ -260,6 +274,14 @@ stage ('vs compile & package in docker') {
             echo "loading environment variables from $WORKSPACE/ci/vs-last-env.quoted"
             load "$WORKSPACE/ci/vs-last-env.quoted"
             echo "found ${env.VS_COMMIT_AUTHOR}"
+            sh '''
+              set +x
+              echo
+              echo "== printenv after load of $WORKSPACE/ci/vs-last-env.quoted in $STAGE_NAME =="
+              printenv | sort
+              echo "==/printenv after load of $WORKSPACE/ci/vs-last-env.quoted in $STAGE_NAME =="
+              echo
+            '''
           } else {
             echo "cannot load environment variables, file does not exist"
           }
@@ -280,7 +302,7 @@ stage ('vs compile & package in docker') {
       }
     }
 
-    stage ('Build Actions'){
+    stage ('post-build actions'){
       parallel {
 
         stage('SonarQube BE Scan') {
@@ -409,7 +431,7 @@ stage ('vs compile & package in docker') {
                       sh 'mvn -B -f pom.xml deploy -Pdist-with-development-data -s $MAVEN_SETTINGS'
                   }
               }
-          }
+          } //end stage
 
         stage('Release to Nexus') {
           when {
@@ -433,9 +455,9 @@ stage ('vs compile & package in docker') {
               sh "mvn versions:set -DremoveSnapshot"
               sh "mvn -B clean  deploy -Pdist -Drevision=$NEW_TAG -Dchangelist= -DskipTests -s $MAVEN_SETTINGS"
           }
-        }
-      }
-    }
+        } //end stage
+      } // end parallel stages
+    } // end post-build actions
  
     stage('Lighthouse Testing'){
       when {
@@ -484,17 +506,6 @@ stage ('vs compile & package in docker') {
       }
     }
 
-// -- 20200712: entire section commented out as it currently serves no purpose
-//    stage ('Availability notice'){
-//    // -- "input" section commented out for now - useful for when there is genuinely a need to pause for an answer
-//    //input{
-//    //  message "This environment will run until the next push is made the bitbucket repo."
-//    //}
-//      steps {
-//        sh 'echo "This environment will run until the next commit to bitbucket is detected."'
-//      }
-//    }
-
   } //end stages
 
   post{
@@ -525,3 +536,6 @@ def readEnvironmentVariables(path){
     env."${key}" = "${value}"
   }
 }
+
+// TO-DO:
+// DONE:
