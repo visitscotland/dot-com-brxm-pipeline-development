@@ -354,30 +354,4 @@ public class HippoUtilsService {
         }
         return null;
     }
-
-    /**
-     * Verifies if the request is being resolved by the Business Events subdomain. This is determined
-     * by checking the {@code visitscotland:site}  node in the Mount node.
-     * <br>
-     * The only allowed subdomain is currently business-events. If that changes in the future this method
-     * might need to be redesigned
-     *
-     * @param request HstRequest
-     *
-     * @return {@code true} if the request is being resolved by the business events subdomain
-     */
-    @NonTestable(NonTestable.Cause.BRIDGE)
-    public boolean isBusinessEventsSite(HstRequest request){
-        String site = properties.getSiteId();
-        if (!Contract.isEmpty(site)){
-            if (site.equals(BUSINESS_EVENTS_SITE)){
-                return true;
-            } else {
-                logger.error("The configuration for the mount cannot be interpreted (site-id = {}) for the following request: {}",
-                        site, request.getRequestURI());
-            }
-        }
-        return false;
-    }
-
 }

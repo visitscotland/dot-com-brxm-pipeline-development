@@ -46,8 +46,8 @@ public class SignpostFactory {
         return createModule(BUNDLE_ID, "snow-alerts", locale);
     }
 
-    public SignpostModule createBusinessEventsModule(Locale locale) {
-        return createModule(BE_BUNDLE_ID, "newsletter", locale);
+    public SignpostModule createDeliveryAPIModule(Locale locale) {
+        return createModule(properties.getSiteId() +"." + BUNDLE_ID, "newsletter", locale);
     }
 
     private SignpostModule createModule(String bundleName, String prefix, Locale locale) {

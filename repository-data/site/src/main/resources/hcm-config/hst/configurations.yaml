@@ -94,3 +94,9 @@ definitions:
       /business-events:
         jcr:primaryType: hst:configuration
         hst:inheritsfrom: [../common]
+      /bsh:
+        jcr:primaryType: hst:configuration
+        hst:inheritsfrom: [../common]
+      /bsh-freemarker:
+        jcr:primaryType: hst:configuration
+        hst:inheritsfrom: [../bsh]

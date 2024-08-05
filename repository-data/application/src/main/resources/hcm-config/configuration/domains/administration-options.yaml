@@ -31,3 +31,10 @@ definitions:
           .meta:category: system
           type: string
           value: vs.content.business-events
+      /bsh-editor:
+        jcr:primaryType: hipposys:authrole
+        hipposys:role: readonly
+        hipposys:userrole:
+          .meta:category: system
+          type: string
+          value: vs.content.bsh

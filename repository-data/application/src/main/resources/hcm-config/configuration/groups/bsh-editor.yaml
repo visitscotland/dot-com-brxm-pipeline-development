@@ -1,0 +1,17 @@
+definitions:
+  config:
+    /hippo:configuration/hippo:groups/bsh-editor:
+      jcr:primaryType: hipposys:group
+      hipposys:description: Business Support Hub Content Editor role. It has access
+        to the Business Support Hub Area and labels documents and labels
+      hipposys:members:
+        .meta:category: system
+        .meta:add-new-system-values: true
+        type: string
+        value: [bsh-editor]
+      hipposys:securityprovider: internal
+      hipposys:userroles:
+        .meta:category: system
+        .meta:add-new-system-values: true
+        type: string
+        value: [vs.default-user.bsh, vs.gallery.bsh, xm.channel.webmaster, vs.labels.bsh]

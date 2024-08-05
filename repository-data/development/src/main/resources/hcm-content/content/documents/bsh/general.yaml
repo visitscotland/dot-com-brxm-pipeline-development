@@ -1,0 +1,258 @@
+/content/documents/bsh/general:
+  jcr:primaryType: hippostd:folder
+  jcr:mixinTypes: ['hippotranslation:translated', 'mix:versionable']
+  jcr:uuid: ec161c3d-6dba-4918-ac79-171fa6fb879f
+  hippostd:foldertype: []
+  hippotranslation:id: 76fbc77c-d948-4ecb-885d-bdbd35025c05
+  hippotranslation:locale: en
+  /error:
+    jcr:primaryType: hippostd:folder
+    jcr:mixinTypes: ['hippotranslation:translated', 'mix:versionable']
+    jcr:uuid: de417b49-3ca2-4eb9-a3f9-eef32efbfd81
+    hippostd:foldertype: []
+    hippotranslation:id: 099946e1-2059-4eb3-87ed-e7d0f5fffd8e
+    hippotranslation:locale: en
+    /404-not-found:
+      jcr:primaryType: hippostd:folder
+      jcr:mixinTypes: ['hippo:named', 'hippotranslation:translated', 'mix:versionable']
+      jcr:uuid: c7fb8b87-acc3-42ef-901a-c4d67c74abdd
+      hippo:name: 404 Not Found
+      hippostd:foldertype: [new-be-module]
+      hippotranslation:id: d6dd30c3-c191-4b5a-9804-5e1a2a9129c3
+      hippotranslation:locale: en
+      /content:
+        jcr:primaryType: hippo:handle
+        jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+        jcr:uuid: 0f909f62-a577-4776-8a1f-4e633c0679bf
+        hippo:name: 404notfound
+        /content[1]:
+          jcr:primaryType: visitscotland:General
+          jcr:mixinTypes: ['mix:referenceable']
+          jcr:uuid: ea33efc3-47a5-4c44-89e1-af1c8a10a4a8
+          hippo:availability: []
+          hippostd:retainable: false
+          hippostd:state: draft
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2021-11-02T13:27:34.015Z
+          hippostdpubwf:lastModificationDate: 2024-01-17T17:26:00.962Z
+          hippostdpubwf:lastModifiedBy: admin
+          hippotranslation:id: b3e58263-7aa5-406c-8a53-f2ca50a267f5
+          hippotranslation:locale: en
+          visitscotland:breadcrumb: 404 Error
+          visitscotland:hideNewsletter: false
+          visitscotland:pswPosition: Hidden
+          visitscotland:seoDescription: Page not found
+          visitscotland:seoNoIndex: true
+          visitscotland:seoTitle: Page not found
+          visitscotland:teaser: We can't find the page you're looking for. It may
+            have been moved or deleted
+          visitscotland:theme: Simple
+          visitscotland:title: Page not found (Business Events)
+          visitscotland:translation: ''
+          /visitscotland:heroImage:
+            jcr:primaryType: hippogallerypicker:imagelink
+            hippo:docbase: 6fe01b32-04e9-4d0f-86c9-b6b8bd246a67
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+          /visitscotland:introduction:
+            jcr:primaryType: hippostd:html
+            hippostd:content: <p>We can't find the page you're looking for. It may
+              have been moved or deleted</p>
+        /content[2]:
+          jcr:primaryType: visitscotland:General
+          jcr:mixinTypes: ['mix:versionable']
+          jcr:uuid: 8e5ee244-06b7-46f9-8fa9-0b6a3b7ee84d
+          hippo:availability: [preview]
+          hippostd:retainable: false
+          hippostd:state: unpublished
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2021-11-02T13:27:34.015Z
+          hippostdpubwf:lastModificationDate: 2024-01-17T17:26:44.064Z
+          hippostdpubwf:lastModifiedBy: admin
+          hippotranslation:id: b3e58263-7aa5-406c-8a53-f2ca50a267f5
+          hippotranslation:locale: en
+          visitscotland:breadcrumb: 404 Error
+          visitscotland:hideNewsletter: false
+          visitscotland:pswPosition: Hidden
+          visitscotland:seoDescription: Page not found
+          visitscotland:seoNoIndex: true
+          visitscotland:seoTitle: Page not found
+          visitscotland:teaser: We can't find the page you're looking for. It may
+            have been moved or deleted
+          visitscotland:theme: Simple
+          visitscotland:title: Page not found (Business Events)
+          visitscotland:translation: ''
+          /visitscotland:heroImage:
+            jcr:primaryType: hippogallerypicker:imagelink
+            hippo:docbase: 6fe01b32-04e9-4d0f-86c9-b6b8bd246a67
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+          /visitscotland:introduction:
+            jcr:primaryType: hippostd:html
+            hippostd:content: <p>We can't find the page you're looking for. It may
+              have been moved or deleted</p>
+        /content[3]:
+          jcr:primaryType: visitscotland:General
+          jcr:mixinTypes: ['mix:referenceable']
+          jcr:uuid: b411acb6-01b9-4c7a-abfb-e17266d8ae7b
+          hippo:availability: [live]
+          hippostd:retainable: false
+          hippostd:state: published
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2021-11-02T13:27:34.015Z
+          hippostdpubwf:lastModificationDate: 2024-01-17T17:26:44.064Z
+          hippostdpubwf:lastModifiedBy: admin
+          hippostdpubwf:publicationDate: 2024-01-17T17:26:47.601Z
+          hippotranslation:id: b3e58263-7aa5-406c-8a53-f2ca50a267f5
+          hippotranslation:locale: en
+          visitscotland:breadcrumb: 404 Error
+          visitscotland:hideNewsletter: false
+          visitscotland:pswPosition: Hidden
+          visitscotland:seoDescription: Page not found
+          visitscotland:seoNoIndex: true
+          visitscotland:seoTitle: Page not found
+          visitscotland:teaser: We can't find the page you're looking for. It may
+            have been moved or deleted
+          visitscotland:theme: Simple
+          visitscotland:title: Page not found (Business Events)
+          visitscotland:translation: ''
+          /visitscotland:heroImage:
+            jcr:primaryType: hippogallerypicker:imagelink
+            hippo:docbase: 6fe01b32-04e9-4d0f-86c9-b6b8bd246a67
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+          /visitscotland:introduction:
+            jcr:primaryType: hippostd:html
+            hippostd:content: <p>We can't find the page you're looking for. It may
+              have been moved or deleted</p>
+    /500-server-error:
+      jcr:primaryType: hippostd:folder
+      jcr:mixinTypes: ['hippo:named', 'hippotranslation:translated', 'mix:versionable']
+      jcr:uuid: d298353a-2271-4bf1-8e32-97f262561e76
+      hippo:name: 500 Server Error
+      hippostd:foldertype: [new-be-module]
+      hippotranslation:id: 96f27580-936d-4014-b7ef-dd2c04b07642
+      hippotranslation:locale: en
+      /content:
+        jcr:primaryType: hippo:handle
+        jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+        jcr:uuid: 431f08f6-2ffc-4e97-bf53-0f1d93dfa55d
+        hippo:name: 500error
+        /content[1]:
+          jcr:primaryType: visitscotland:General
+          jcr:mixinTypes: ['mix:referenceable']
+          jcr:uuid: 5a2801cc-501e-42fe-ace5-54b62e326d67
+          hippo:availability: []
+          hippostd:retainable: false
+          hippostd:state: draft
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2021-11-05T14:31:46.083Z
+          hippostdpubwf:lastModificationDate: 2022-03-30T10:57:09.040+01:00
+          hippostdpubwf:lastModifiedBy: admin
+          hippotranslation:id: bb886079-81a8-41fd-ae46-946f75cc9cb7
+          hippotranslation:locale: en
+          visitscotland:breadcrumb: 500 Error
+          visitscotland:hideNewsletter: false
+          visitscotland:seoDescription: '500'
+          visitscotland:seoNoIndex: true
+          visitscotland:seoTitle: '500'
+          visitscotland:teaser: '500'
+          visitscotland:theme: Simple
+          visitscotland:title: '500'
+          visitscotland:translation: ''
+          /visitscotland:heroImage:
+            jcr:primaryType: hippogallerypicker:imagelink
+            hippo:docbase: 6fe01b32-04e9-4d0f-86c9-b6b8bd246a67
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+          /visitscotland:introduction:
+            jcr:primaryType: hippostd:html
+            hippostd:content: <p>500&nbsp;</p>
+        /content[2]:
+          jcr:primaryType: visitscotland:General
+          jcr:mixinTypes: ['mix:versionable']
+          jcr:uuid: 6d0b705f-207c-4bf8-b58c-74a9cfa99e65
+          hippo:availability: [preview]
+          hippostd:retainable: false
+          hippostd:state: unpublished
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2021-11-05T14:31:46.083Z
+          hippostdpubwf:lastModificationDate: 2022-03-30T10:57:12.030+01:00
+          hippostdpubwf:lastModifiedBy: admin
+          hippotranslation:id: bb886079-81a8-41fd-ae46-946f75cc9cb7
+          hippotranslation:locale: en
+          visitscotland:breadcrumb: 500 Error
+          visitscotland:hideNewsletter: false
+          visitscotland:seoDescription: '500'
+          visitscotland:seoNoIndex: true
+          visitscotland:seoTitle: '500'
+          visitscotland:teaser: '500'
+          visitscotland:theme: Simple
+          visitscotland:title: '500'
+          visitscotland:translation: ''
+          /visitscotland:heroImage:
+            jcr:primaryType: hippogallerypicker:imagelink
+            hippo:docbase: 6fe01b32-04e9-4d0f-86c9-b6b8bd246a67
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+          /visitscotland:introduction:
+            jcr:primaryType: hippostd:html
+            hippostd:content: <p>500&nbsp;</p>
+        /content[3]:
+          jcr:primaryType: visitscotland:General
+          jcr:mixinTypes: ['mix:referenceable']
+          jcr:uuid: 07e891f9-0614-47c2-a4a7-809add0cd8f4
+          hippo:availability: [live]
+          hippostd:retainable: false
+          hippostd:state: published
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2021-11-05T14:31:46.083Z
+          hippostdpubwf:lastModificationDate: 2022-03-30T10:57:12.030+01:00
+          hippostdpubwf:lastModifiedBy: admin
+          hippostdpubwf:publicationDate: 2022-03-30T10:57:13.865+01:00
+          hippotranslation:id: bb886079-81a8-41fd-ae46-946f75cc9cb7
+          hippotranslation:locale: en
+          visitscotland:breadcrumb: 500 Error
+          visitscotland:hideNewsletter: false
+          visitscotland:seoDescription: '500'
+          visitscotland:seoNoIndex: true
+          visitscotland:seoTitle: '500'
+          visitscotland:teaser: '500'
+          visitscotland:theme: Simple
+          visitscotland:title: '500'
+          visitscotland:translation: ''
+          /visitscotland:heroImage:
+            jcr:primaryType: hippogallerypicker:imagelink
+            hippo:docbase: 6fe01b32-04e9-4d0f-86c9-b6b8bd246a67
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+          /visitscotland:introduction:
+            jcr:primaryType: hippostd:html
+            hippostd:content: <p>500&nbsp;</p>
+  /navigation:
+    jcr:primaryType: hippostd:folder
+    jcr:mixinTypes: ['hippotranslation:translated', 'mix:versionable']
+    jcr:uuid: 60e5dd00-de04-45f7-83b9-ea7730e95ce5
+    hippostd:foldertype: ['']
+    hippotranslation:id: f0b6e8a6-0225-4a96-bfbe-fc55c327d35b
+    hippotranslation:locale: en
+    /widgets:
+      jcr:primaryType: hippostd:folder
+      jcr:mixinTypes: ['hippotranslation:translated', 'mix:versionable']
+      jcr:uuid: 80bbaa94-9e75-485d-bc4c-e7a0106b1be6
+      hippostd:foldertype: [new-translated-folder-widget, new-widget]
+      hippotranslation:id: 2a7d3986-847a-4503-940d-b789f7cc6f07
+      hippotranslation:locale: en
+    /banner:
+      jcr:primaryType: hippostd:folder
+      jcr:mixinTypes: ['hippotranslation:translated', 'mix:versionable']
+      jcr:uuid: e94f6790-5d47-49cb-a20f-892880a3b9b3
+      hippostd:foldertype: [new-translated-folder-banner, new-banner]
+      hippotranslation:id: 30f3bb6a-a164-47f9-af45-939ead0e46c6
+      hippotranslation:locale: en
