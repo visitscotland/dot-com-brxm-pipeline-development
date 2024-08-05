@@ -74,7 +74,11 @@ pipeline {
     stage ('Pre-build') {
       steps {
         // Set any defined build property overrides for this work-in-progress branch
-        sh 'printenv > printenv.pre-build'
+        sh '''
+          printenv | sort > printenv.pre-build
+          ./ci/infrastructure/scripts/infrastructure.sh setvars
+          printenv | sort > printenv.pre-build.setvars
+        '''
         sh '''
           set +x
           echo; echo "running stage $STAGE_NAME on $HOSTNAME"
@@ -89,7 +93,6 @@ pipeline {
             load "$WORKSPACE/$VS_BRANCH_PROPERTIES_DIR/$VS_BRANCH_PROPERTIES_FILE"
             sh '''
               set +x
-              ./ci/infrastructure/scripts/infrastructure.sh setvars
               echo
               echo "== printenv after load of $WORKSPACE/$VS_BRANCH_PROPERTIES_DIR/$VS_BRANCH_PROPERTIES_FILE in $STAGE_NAME =="
               printenv | sort
@@ -147,7 +150,7 @@ stage ('vs compile & package in docker') {
         }
       }
       steps {
-        sh './ci/infrastructure/scripts/infrastructure.sh setvars'
+        //sh './ci/infrastructure/scripts/infrastructure.sh setvars'
         sh '''
           set +x
           echo; echo "running stage $STAGE_NAME on $HOSTNAME"
