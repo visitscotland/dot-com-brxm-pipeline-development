@@ -58,6 +58,7 @@ if [ -z "$VS_MAIL_NOTIFY_BUILD" ]; then VS_MAIL_NOTIFY_BUILD="TRUE"; fi
 if [ -z "$VS_MAIL_NOTIFY_SITE" ]; then VS_MAIL_NOTIFY_SITE="TRUE"; fi
 #  == brXM Instance Variables ==
 if [ -z "$VS_CONTAINER_BASE_PORT_OVERRIDE" ]; then unset VS_CONTAINER_BASE_PORT_OVERRIDE; else echo "`eval $VS_LOG_DATESTAMP` INFO  [$VS_SCRIPTNAME] VS_CONTAINER_BASE_PORT_OVERRIDE was set to $VS_CONTAINER_BASE_PORT_OVERRIDE before $0 was called"; fi
+if [ -z "$VS_CONTAINER_REMOVE_WHEN_PORT_IN_USE" ]; then unset VS_CONTAINER_REMOVE_WHEN_PORT_IN_USE; else echo "`eval $VS_LOG_DATESTAMP` INFO  [$VS_SCRIPTNAME] VS_CONTAINER_REMOVE_WHEN_PORT_IN_USE was set to $VS_CONTAINER_REMOVE_WHEN_PORT_IN_USE before $0 was called"; fi
 if [ -z "$VS_BRXM_INSTANCE_HTTP_HOST" ]; then
   if [ ! -z "$VS_PROXY_SERVER_FQDN" ]; then
     VS_BRXM_INSTANCE_HTTP_HOST="$VS_PROXY_SERVER_FQDN"
@@ -308,6 +309,23 @@ checkContainers() {
     else
       echo "`eval $VS_LOG_DATESTAMP` INFO  [$VS_SCRIPTNAME]  - no base port was found for container $CONTAINER_ID"
     fi
+  elif [ -z "$CONTAINER_ID" ] && [ ! -z "$VS_CONTAINER_BASE_PORT_OVERRIDE" ]; then
+    # since VS_CONTAINER_BASE_PORT_OVERRIDE is set, and we've already determined there are no containers running with VS_CONTAINER_NAME
+    # - we need check to see if any container is using VS_CONTAINER_BASE_PORT_OVERRIDE and, if so, identify an impending port clash
+    echo "`eval $VS_LOG_DATESTAMP` INFO  [$VS_SCRIPTNAME]  - no container found with name $VS_CONTAINER_NAME but VS_CONTAINER_BASE_PORT_OVERRIDE was set to $VS_CONTAINER_BASE_PORT_OVERRIDE"
+    echo "`eval $VS_LOG_DATESTAMP` INFO  [$VS_SCRIPTNAME]   - checking for containers with using port $VS_CONTAINER_BASE_PORT_OVERRIDE"
+    CONTAINER_ID=$(docker ps --format '{{.ID}} {{.Ports}}' | grep ":$VS_CONTAINER_BASE_PORT_OVERRIDE->" | awk '{print $1}')
+    if [ ! -z "$CONTAINER_ID" ]; then
+      echo "`eval $VS_LOG_DATESTAMP` INFO  [$VS_SCRIPTNAME]  - container found, ID:$CONTAINER_ID, using override port $VS_CONTAINER_BASE_PORT_OVERRIDE"
+      echo "`eval $VS_LOG_DATESTAMP` INFO  [$VS_SCRIPTNAME]  - checking status of container $CONTAINER_ID"
+      CONTAINER_STATUS=$(docker inspect --format "{{.State.Status}}" $CONTAINER_ID)
+      CONTAINER_NAME=$(docker ps --filter "id=$CONTAINER_ID" --format "{{.Names}}")
+      echo "`eval $VS_LOG_DATESTAMP` WARN  [$VS_SCRIPTNAME]  - $CONTAINER_STATUS container found with ID:$CONTAINER_ID and name $CONTAINER_NAME, a port clash is predicted"
+      echo "`eval $VS_LOG_DATESTAMP` WARN  [$VS_SCRIPTNAME]   - if VS_CONTAINER_REMOVE_WHEN_PORT_IN_USE is set to TRUE then $CONTAINER_ID will be removed"
+      VS_CONTAINER_PORT_CLASH_PREDICTED=TRUE
+    else
+      echo "`eval $VS_LOG_DATESTAMP` INFO  [$VS_SCRIPTNAME]  - no base port was found for container $CONTAINER_ID"
+    fi
   else
     echo "`eval $VS_LOG_DATESTAMP` INFO  [$VS_SCRIPTNAME]  - no container found with name $VS_CONTAINER_NAME"
   fi
@@ -358,24 +376,37 @@ deleteImages() {
 }
 
 manageContainers() {
-  # at this point we know VS_CONTAINER_NAME, VS_CONTAINER_PRESERVE, CONTAINER_ID, CONTAINER_STATUS
+  # at this point we know VS_CONTAINER_NAME, VS_CONTAINER_PRESERVE, CONTAINER_ID, CONTAINER_STATUS, VS_CONTAINER_REMOVE_WHEN_PORT_IN_USE, VS_CONTAINER_PORT_CLASH_PREDICTED
   # if container is RUNNING and preserve running is TRUE then - stop tomcat/undeploy app/leave alone?
   # if container is STOPPED and preserve running is TRUE then - ?
   # if container is running and preserve running is FALSE then - deleteContainers
-  if [ "$VS_CONTAINER_PRESERVE" == "TRUE" ] && [ "$CONTAINER_STATUS" == "running" ]; then
-    echo "`eval $VS_LOG_DATESTAMP` INFO  [$VS_SCRIPTNAME] VS_CONTAINER_PRESERVE is $VS_CONTAINER_PRESERVE so existing container $CONTAINER_ID will be re-used"
-  elif [ "$VS_CONTAINER_PRESERVE" == "TRUE" ] && [ ! -z "$CONTAINER_ID" ] && [ ! "$CONTAINER_STATUS" == "running" ]; then
-    echo "`eval $VS_LOG_DATESTAMP` INFO  [$VS_SCRIPTNAME] VS_CONTAINER_PRESERVE is $VS_CONTAINER_PRESERVE so existing container $CONTAINER_ID will be started and re-used"
-    startContainers
-  elif [ ! "$VS_CONTAINER_PRESERVE" == "TRUE" ] && [ "$CONTAINER_STATUS" == "running" ]; then
-    echo "`eval $VS_LOG_DATESTAMP` WARN  [$VS_SCRIPTNAME] VS_CONTAINER_PRESERVE is $VS_CONTAINER_PRESERVE so existing container $CONTAINER_ID will be stopped and removed"
-    stopContainers
-    deleteContainers
-  elif [ ! "$VS_CONTAINER_PRESERVE" == "TRUE" ] && [ ! "$CONTAINER_STATUS" == "running" ] && [ ! -z "$CONTAINER_ID" ]; then
-    echo "`eval $VS_LOG_DATESTAMP` WARN  [$VS_SCRIPTNAME] VS_CONTAINER_PRESERVE is $VS_CONTAINER_PRESERVE so existing container $CONTAINER_ID will be removed"
-    deleteContainers
+  # if a port clash and remove when in use is detected then - deleteContainers, the value of preserve doesn't matter in this case
+  if [ ! -z "$CONTAINER_ID" ] && [[ ! "$VS_CONTAINER_PORT_CLASH_PREDICTED" =~ ^(TRUE|true)$ ]]; then
+    if [ "$VS_CONTAINER_PRESERVE" == "TRUE" ] && [ "$CONTAINER_STATUS" == "running" ]; then
+      echo "`eval $VS_LOG_DATESTAMP` INFO  [$VS_SCRIPTNAME] VS_CONTAINER_PRESERVE is $VS_CONTAINER_PRESERVE so existing container $CONTAINER_ID will be re-used"
+    elif [ "$VS_CONTAINER_PRESERVE" == "TRUE" ] && [ ! "$CONTAINER_STATUS" == "running" ]; then
+      echo "`eval $VS_LOG_DATESTAMP` INFO  [$VS_SCRIPTNAME] VS_CONTAINER_PRESERVE is $VS_CONTAINER_PRESERVE so existing container $CONTAINER_ID will be started and re-used"
+      startContainers
+    elif [ ! "$VS_CONTAINER_PRESERVE" == "TRUE" ] && [ "$CONTAINER_STATUS" == "running" ]; then
+      echo "`eval $VS_LOG_DATESTAMP` WARN  [$VS_SCRIPTNAME] VS_CONTAINER_PRESERVE is $VS_CONTAINER_PRESERVE so existing container $CONTAINER_ID will be stopped and removed"
+      stopContainers
+      deleteContainers
+    elif [ ! "$VS_CONTAINER_PRESERVE" == "TRUE" ] && [ ! "$CONTAINER_STATUS" == "running" ]; then
+      echo "`eval $VS_LOG_DATESTAMP` WARN  [$VS_SCRIPTNAME] VS_CONTAINER_PRESERVE is $VS_CONTAINER_PRESERVE so existing container $CONTAINER_ID will be removed"
+      deleteContainers
+    else
+      echo "`eval $VS_LOG_DATESTAMP` ERROR [$VS_SCRIPTNAME] CONTAINER_ID: $CONTAINER_ID was found but container status could not be determined"
+    fi
+  elif [ ! -z "$CONTAINER_ID" ] && [[ "$VS_CONTAINER_PORT_CLASH_PREDICTED" =~ ^(TRUE|true)$ ]]; then
+    if [[ "$VS_CONTAINER_REMOVE_WHEN_PORT_IN_USE" =~ ^(TRUE|true)$ ]]; then
+      echo "`eval $VS_LOG_DATESTAMP` WARN  [$VS_SCRIPTNAME] VS_CONTAINER_REMOVE_WHEN_PORT_IN_USE is $VS_CONTAINER_REMOVE_WHEN_PORT_IN_USE and VS_CONTAINER_PORT_CLASH_PREDICTED is $VS_CONTAINER_PORT_CLASH_PREDICTED, so existing container $CONTAINER_ID will be removed"
+      deleteContainers
+      unset CONTAINER_ID
+    else
+      echo "`eval $VS_LOG_DATESTAMP` WARN  [$VS_SCRIPTNAME] VS_CONTAINER_REMOVE_WHEN_PORT_IN_USE is $VS_CONTAINER_REMOVE_WHEN_PORT_IN_USE but VS_CONTAINER_PORT_CLASH_PREDICTED is $VS_CONTAINER_PORT_CLASH_PREDICTED, so existing container $CONTAINER_ID will be left"
+    fi
   else
-    echo "`eval $VS_LOG_DATESTAMP` ERROR [$VS_SCRIPTNAME] Container status for $CONTAINER_ID could not be determined"
+    echo "`eval $VS_LOG_DATESTAMP` INFO [$VS_SCRIPTNAME] No CONTAINER_ID was found"
   fi
   echo ""
 }
