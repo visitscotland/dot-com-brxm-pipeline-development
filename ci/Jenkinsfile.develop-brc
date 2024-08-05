@@ -89,6 +89,7 @@ pipeline {
             load "$WORKSPACE/$VS_BRANCH_PROPERTIES_DIR/$VS_BRANCH_PROPERTIES_FILE"
             sh '''
               set +x
+              ./ci/infrastructure/scripts/infrastructure.sh setvars
               echo
               echo "== printenv after load of $WORKSPACE/$VS_BRANCH_PROPERTIES_DIR/$VS_BRANCH_PROPERTIES_FILE in $STAGE_NAME =="
               printenv | sort
@@ -114,7 +115,7 @@ pipeline {
         }
       }
       steps {
-        sh './ci/infrastructure/scripts/infrastructure.sh setvars'
+        //sh './ci/infrastructure/scripts/infrastructure.sh setvars'
         sh 'mvn -f pom.xml clean package'
       }
       post {
