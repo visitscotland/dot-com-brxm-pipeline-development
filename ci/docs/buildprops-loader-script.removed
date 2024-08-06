@@ -1,0 +1,18 @@
+// this script removed from the "prepare" or "Pre-build" stage if the pipeline
+// its inclusion invokes Steve's build properties overrides mechanism
+//  - this mechanism wasn't suitable as it overrode variables even if they'd already been set by the pipeline
+
+        script {
+
+          // Set any supported build property overrides defined in ci/BRANCH_NAME.buildprops
+          branchBuildScripts = load("./ci/branchBuildScripts.groovy")
+
+          // Set the buildprop environment variables either to their default values or any specified overrides
+          Map buildProps = branchBuildScripts.loadPropOverrides("${env.WORKSPACE}" + "/ci/", branchBuildScripts.getBranchKey())
+          Map buildPropParsers = branchBuildScripts.getPropParsers()
+          buildPropParsers.each {
+            k, v ->
+              String parsedValue = ( buildProps?.containsKey(k) ? v.parser(buildProps[k]) : v.default )
+              env."${k}" = parsedValue
+          }
+        }

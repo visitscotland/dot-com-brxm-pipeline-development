@@ -5,6 +5,7 @@ import com.visitscotland.brxm.components.navigation.info.MenuComponentInfo;
 import com.visitscotland.brxm.config.VsComponentManager;
 import com.visitscotland.brxm.factory.NavigationFactory;
 import com.visitscotland.brxm.utils.*;
+import com.visitscotland.utils.Contract;
 import org.hippoecm.hst.container.RequestContextProvider;
 import org.hippoecm.hst.core.component.HstRequest;
 import org.hippoecm.hst.core.component.HstResponse;
@@ -20,7 +21,7 @@ import java.util.Locale;
 )
 public class MenuComponent extends EssentialsMenuComponent {
 
-    private static final String VS_PREFIX = "navigation.";
+    private static final String NAVIGATION = "navigation.";
     private static final String BE_PREFIX = "be.navigation.";
 
     private static final String PREVIEW_QUERY_PARAMETER = "preview-token";
@@ -31,18 +32,21 @@ public class MenuComponent extends EssentialsMenuComponent {
     private final NavigationFactory factory;
     private final HippoUtilsService utils;
     private final CMSProperties properties;
+    private final SiteProperties siteProperties;
 
 
     public MenuComponent() {
         this(VsComponentManager.get(NavigationFactory.class),
                 VsComponentManager.get(HippoUtilsService.class),
-                VsComponentManager.get(CMSProperties.class));
+                VsComponentManager.get(CMSProperties.class),
+                VsComponentManager.get(SiteProperties.class));
     }
 
-    public MenuComponent(NavigationFactory factory, HippoUtilsService utils, CMSProperties properties) {
+    public MenuComponent(NavigationFactory factory, HippoUtilsService utils, CMSProperties properties, SiteProperties siteProperties) {
         this.factory = factory;
         this.utils = utils;
         this.properties = properties;
+        this.siteProperties = siteProperties;
     }
 
     @Override
@@ -91,10 +95,10 @@ public class MenuComponent extends EssentialsMenuComponent {
 
     private String getResourceBundleID(HstRequest request){
         String prefix;
-        if (utils.isBusinessEventsSite(request)){
-            prefix = BE_PREFIX;
+        if (Contract.isEmpty(siteProperties.getSiteId())){
+            prefix = NAVIGATION;
         } else {
-            prefix = VS_PREFIX;
+            prefix = siteProperties.getSiteId() + "." + NAVIGATION;
         }
 
         return prefix +  ((HstSiteMenu) request.getModel(MENU)).getName();

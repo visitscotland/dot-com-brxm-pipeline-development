@@ -13,7 +13,7 @@
   <description>www.visitscotland.com CMS Pages</description>
   <groupId>com.visitscotland</groupId>
   <artifactId>dot-com-brxm</artifactId>
-  <version>2.2.4</version>
+  <version>2.2.5</version>
   <packaging>pom</packaging>
 
   <properties>
@@ -289,24 +289,26 @@
           </executions>
         </plugin>
 
+        <!-- TODO: REMOVE COMMENTED OUT CODE -->
+        <!--  This plugin causes confusion since the number printed does not match with the real value in brxm projects -->
         <!-- Prints the build number in the console, so the release manager can ensure that the application deployed is correct -->
-        <plugin>
-          <artifactId>maven-antrun-plugin</artifactId>
-          <version>${maven.plugin.antrun.version}</version>
-          <executions>
-            <execution>
-              <phase>deploy</phase>
-              <goals>
-                <goal>run</goal>
-              </goals>
-              <configuration>
-                <target>
-                  <echo>BUILD NUMBER: ${project.buildNo}</echo>
-                </target>
-              </configuration>
-            </execution>
-          </executions>
-        </plugin>
+<!--        <plugin>-->
+<!--          <artifactId>maven-antrun-plugin</artifactId>-->
+<!--          <version>${maven.plugin.antrun.version}</version>-->
+<!--          <executions>-->
+<!--            <execution>-->
+<!--              <phase>deploy</phase>-->
+<!--              <goals>-->
+<!--                <goal>run</goal>-->
+<!--              </goals>-->
+<!--              <configuration>-->
+<!--                <target>-->
+<!--                  <echo>BUILD NUMBER: ${project.buildNo}</echo>-->
+<!--                </target>-->
+<!--              </configuration>-->
+<!--            </execution>-->
+<!--          </executions>-->
+<!--        </plugin>-->
 
         <!-- Deployment plugin for Nexus -->
         <!-- Documentation https://github.com/sonatype/nexus-maven-plugins -->
@@ -423,6 +425,44 @@
             </archive>
           </configuration>
         </plugin>
+
+          <!-- OWASP Dependency check. It is used by the Pipeline to report on security vulnerabilities -->
+          <plugin>
+              <groupId>org.owasp</groupId>
+              <artifactId>dependency-check-maven</artifactId>
+              <version>9.0.9</version>
+              <configuration>
+                  <outputDirectory>report/owasp</outputDirectory>
+                  <suppressionFiles>
+                      <file>src/main/resources/suppressed-cves.xml</file>
+                  </suppressionFiles>
+
+                  <excludes>
+                      <!-- Note: we could have included the project dependency located at
+                      [project-name]-essentials, but we included these dependencies instead so the
+                      configuration can be copied to other projects -->
+                      <exclude>org.onehippo.cms7:hippo-essentials-dashboard</exclude>
+                      <exclude>org.onehippo.cms7:hippo-essentials-dashboard-dependencies</exclude>
+                  </excludes>
+
+                  <!-- JavaScript Dependencies are resolved via Node -->
+                  <nodeAnalyzerEnabled>false</nodeAnalyzerEnabled>
+                  <nodeAuditAnalyzerEnabled>false</nodeAuditAnalyzerEnabled>
+                  <yarnAuditAnalyzerEnabled>false</yarnAuditAnalyzerEnabled>
+                  <retireJsAnalyzerEnabled>false</retireJsAnalyzerEnabled>
+                  <formats>
+                      <format>HTML</format>
+                      <format>XML</format>
+                  </formats>
+              </configuration>
+              <executions>
+                  <execution>
+                      <goals>
+                          <goal>check</goal>
+                      </goals>
+                  </execution>
+              </executions>
+          </plugin>
 
       </plugins>
     </pluginManagement>

@@ -8,7 +8,7 @@ public class FeplConfiguration implements  FormConfiguration {
     private static final String FORM_TYPE = "fepl";
 
     private String recaptcha;
-    private String submitURL;
+    private String submitUrl;
 
     private String jsonUrl;
 
@@ -20,12 +20,12 @@ public class FeplConfiguration implements  FormConfiguration {
         this.recaptcha = recaptcha;
     }
 
-    public String getSubmitURL() {
-        return submitURL;
+    public String getSubmitUrl() {
+        return submitUrl;
     }
 
-    public void setSubmitURL(String submitURL) {
-        this.submitURL = submitURL;
+    public void setSubmitUrl(String submitUrl) {
+        this.submitUrl = submitUrl;
     }
 
     public String getJsonUrl() {

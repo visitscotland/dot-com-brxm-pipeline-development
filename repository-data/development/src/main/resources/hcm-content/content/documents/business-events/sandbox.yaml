@@ -2909,8 +2909,8 @@
             hippostd:state: draft
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2024-03-28T15:10:21.040Z
-            hippostdpubwf:lastModificationDate: 2024-04-05T11:49:43.392+01:00
-            hippostdpubwf:lastModifiedBy: admin
+            hippostdpubwf:lastModificationDate: 2024-08-02T11:03:03.746+01:00
+            hippostdpubwf:lastModifiedBy: be-editor
             hippotranslation:id: 55847ec9-5390-4253-b46b-b6a3370182ca
             hippotranslation:locale: en
             visitscotland:nonJavaScriptMessage: This form doesn't work without JavaScript
@@ -2923,7 +2923,7 @@
             /visitscotland:form:
               jcr:primaryType: visitscotland:FormCompoundFepl
               visitscotland:jsonURL: https://static.visitscotland.com/forms/rfp/rfp-sign-up.json
-              visitscotland:url: https://develop.visitscotland.org/api/submit/fepl/forms
+              visitscotland:url: https://develop.visitscotland.org/api/submit/fepl/json
           /form[2]:
             jcr:primaryType: visitscotland:Form
             jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
@@ -2933,8 +2933,8 @@
             hippostd:state: unpublished
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2024-03-28T15:10:21.040Z
-            hippostdpubwf:lastModificationDate: 2024-04-05T11:50:29.512+01:00
-            hippostdpubwf:lastModifiedBy: admin
+            hippostdpubwf:lastModificationDate: 2024-08-02T11:03:17.638+01:00
+            hippostdpubwf:lastModifiedBy: be-editor
             hippotranslation:id: 55847ec9-5390-4253-b46b-b6a3370182ca
             hippotranslation:locale: en
             visitscotland:nonJavaScriptMessage: This form doesn't work without JavaScript
@@ -2947,7 +2947,7 @@
             /visitscotland:form:
               jcr:primaryType: visitscotland:FormCompoundFepl
               visitscotland:jsonURL: https://static.visitscotland.com/forms/rfp/rfp-sign-up.json
-              visitscotland:url: https://develop.visitscotland.org/api/submit/fepl/forms
+              visitscotland:url: https://develop.visitscotland.org/api/submit/fepl/json
           /form[3]:
             jcr:primaryType: visitscotland:Form
             jcr:mixinTypes: ['mix:referenceable']
@@ -2983,10 +2983,11 @@
         hippotranslation:locale: en
         /content:
           jcr:primaryType: hippo:handle
-          jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+          jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
           jcr:uuid: d9a5d509-1e43-4ef4-9e92-3ccb56ee89ae
           hippo:name: Content
-          /content:
+          hippo:versionHistory: 8964fddd-c225-4da8-95e5-6e1745b5f7d0
+          /content[1]:
             jcr:primaryType: visitscotland:General
             jcr:mixinTypes: ['mix:versionable']
             jcr:uuid: 4efc48e4-b27a-408e-9844-8343a2d0b1f1
@@ -3020,11 +3021,47 @@
               hippostd:content: <p>This page illustrates different combinations for
                 this module, please feel free to add more use cases to illustrate
                 uses of this moduel</p>
+          /content[2]:
+            jcr:primaryType: visitscotland:General
+            jcr:mixinTypes: ['mix:referenceable']
+            jcr:uuid: a27efed8-7747-445e-bd90-f298f1d4c083
+            hippo:availability: [live]
+            hippostd:retainable: false
+            hippostd:state: published
+            hippostdpubwf:createdBy: admin
+            hippostdpubwf:creationDate: 2024-02-14T12:47:37.022Z
+            hippostdpubwf:lastModificationDate: 2024-03-13T13:10:00.436Z
+            hippostdpubwf:lastModifiedBy: admin
+            hippostdpubwf:publicationDate: 2024-08-01T11:20:48.361+01:00
+            hippotranslation:id: b5834e25-6aba-4fbc-a316-212b4c565e42
+            hippotranslation:locale: en
+            visitscotland:breadcrumb: ''
+            visitscotland:hideNewsletter: false
+            visitscotland:pswPosition: Default
+            visitscotland:seoDescription: This is a page To test a specific Module
+            visitscotland:seoNoIndex: false
+            visitscotland:seoTitle: This is a page To test a specific Module
+            visitscotland:teaser: Forms
+            visitscotland:theme: Standard
+            visitscotland:title: Form test page
+            visitscotland:translation: ''
+            /visitscotland:heroImage:
+              jcr:primaryType: hippogallerypicker:imagelink
+              hippo:docbase: ea78cf97-be18-42d9-b266-3a5023316f16
+              hippo:facets: []
+              hippo:modes: []
+              hippo:values: []
+            /visitscotland:introduction:
+              jcr:primaryType: hippostd:html
+              hippostd:content: <p>This page illustrates different combinations for
+                this module, please feel free to add more use cases to illustrate
+                uses of this moduel</p>
         /breg-form:
           jcr:primaryType: hippo:handle
-          jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+          jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
           jcr:uuid: e2ca2294-d565-46d6-94f1-985ac7a14451
           hippo:name: BREG Form
+          hippo:versionHistory: 3429b587-dc1b-49d3-970d-b1d770b83be6
           /breg-form[1]:
             jcr:primaryType: visitscotland:Form
             jcr:mixinTypes: ['mix:versionable']
@@ -3034,8 +3071,8 @@
             hippostd:state: unpublished
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2024-05-22T12:24:38.758+01:00
-            hippostdpubwf:lastModificationDate: 2024-05-22T15:14:14.994+01:00
-            hippostdpubwf:lastModifiedBy: admin
+            hippostdpubwf:lastModificationDate: 2024-08-01T11:55:12.662+01:00
+            hippostdpubwf:lastModifiedBy: be-editor
             hippotranslation:id: b61a3e2e-f027-4286-9c87-7a51ddc7643f
             hippotranslation:locale: en
             visitscotland:nonJavaScriptMessage: ''
@@ -3043,24 +3080,29 @@
             visitscotland:translation: ''
             /visitscotland:form:
               jcr:primaryType: visitscotland:FormCompoundBreg
-              visitscotland:activityCode: 00ENEWS003
-              visitscotland:activityDescription: Website opt in for Snow Alerts (ski)
-                and VS Email
-              visitscotland:activitySource: E-News Signups
+              visitscotland:activityCode: BEVEMAIL_001
+              visitscotland:activityDescription: Website opt in for Business Events
+                newsletter
+              visitscotland:activitySource: BEV Web Form
               visitscotland:consents: [newsletter, snow]
               visitscotland:jsonUrl: https://github.com/visitscotland/marketo-form-data/blob/main/rfp/rfp-sign-up.json
-              visitscotland:url: https://api.visitscotland.net/dev/submit/breg/forms/consumer/snow
+              visitscotland:url: https://api.visitscotland.net/dev/submit/breg/forms/stakeholder/
+              /visitscotland:consents:
+                jcr:primaryType: visitscotland:Entry
+                visitscotland:key: business_events
+                visitscotland:value: BEVEMAIL_001
           /breg-form[2]:
             jcr:primaryType: visitscotland:Form
             jcr:mixinTypes: ['mix:referenceable']
             jcr:uuid: e98193dd-69d0-4e49-8149-3d3568bcffe7
             hippo:availability: []
+            hippostd:holder: be-editor
             hippostd:retainable: false
             hippostd:state: draft
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2024-05-22T12:24:38.758+01:00
-            hippostdpubwf:lastModificationDate: 2024-05-22T15:30:14.010+01:00
-            hippostdpubwf:lastModifiedBy: admin
+            hippostdpubwf:lastModificationDate: 2024-08-01T16:52:54.439+01:00
+            hippostdpubwf:lastModifiedBy: be-editor
             hippotranslation:id: b61a3e2e-f027-4286-9c87-7a51ddc7643f
             hippotranslation:locale: en
             visitscotland:nonJavaScriptMessage: ''
@@ -3068,10 +3110,48 @@
             visitscotland:translation: ''
             /visitscotland:form:
               jcr:primaryType: visitscotland:FormCompoundBreg
-              visitscotland:activityCode: 00ENEWS003
-              visitscotland:activityDescription: Website opt in for Snow Alerts (ski)
-                and VS Email
-              visitscotland:activitySource: E-News Signups
+              visitscotland:activityCode: BEVEMAIL_001
+              visitscotland:activityDescription: Website opt in for Business Events
+                newsletter
+              visitscotland:activitySource: BEV Web Form
               visitscotland:consents: [newsletter, snow]
               visitscotland:jsonUrl: https://github.com/visitscotland/marketo-form-data/blob/main/rfp/rfp-sign-up.json
-              visitscotland:url: https://api.visitscotland.net/dev/submit/breg/forms/consumer/snow
+              visitscotland:url: https://api.visitscotland.net/dev/submit/breg/forms/stakeholder/
+              /visitscotland:consents[1]:
+                jcr:primaryType: visitscotland:Entry
+                visitscotland:key: business_events
+                visitscotland:value: BEVEMAIL_001
+              /visitscotland:consents[2]:
+                jcr:primaryType: visitscotland:Entry
+                visitscotland:key: consent2
+                visitscotland:value: code
+          /breg-form[3]:
+            jcr:primaryType: visitscotland:Form
+            jcr:mixinTypes: ['mix:referenceable']
+            jcr:uuid: c150bacf-7ba0-4b7e-b7c9-bbba4a0921f0
+            hippo:availability: [live]
+            hippostd:retainable: false
+            hippostd:state: published
+            hippostdpubwf:createdBy: admin
+            hippostdpubwf:creationDate: 2024-05-22T12:24:38.758+01:00
+            hippostdpubwf:lastModificationDate: 2024-08-01T11:55:12.662+01:00
+            hippostdpubwf:lastModifiedBy: be-editor
+            hippostdpubwf:publicationDate: 2024-08-01T11:55:16.925+01:00
+            hippotranslation:id: b61a3e2e-f027-4286-9c87-7a51ddc7643f
+            hippotranslation:locale: en
+            visitscotland:nonJavaScriptMessage: ''
+            visitscotland:title: What are your details?
+            visitscotland:translation: ''
+            /visitscotland:form:
+              jcr:primaryType: visitscotland:FormCompoundBreg
+              visitscotland:activityCode: BEVEMAIL_001
+              visitscotland:activityDescription: Website opt in for Business Events
+                newsletter
+              visitscotland:activitySource: BEV Web Form
+              visitscotland:consents: [newsletter, snow]
+              visitscotland:jsonUrl: https://github.com/visitscotland/marketo-form-data/blob/main/rfp/rfp-sign-up.json
+              visitscotland:url: https://api.visitscotland.net/dev/submit/breg/forms/stakeholder/
+              /visitscotland:consents:
+                jcr:primaryType: visitscotland:Entry
+                visitscotland:key: business_events
+                visitscotland:value: BEVEMAIL_001

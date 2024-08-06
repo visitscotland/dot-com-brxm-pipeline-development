@@ -6,7 +6,6 @@ import com.visitscotland.brxm.model.form.BregConfiguration;
 import com.visitscotland.brxm.model.form.FeplConfiguration;
 import com.visitscotland.brxm.model.form.MarketoConfiguration;
 import com.visitscotland.brxm.utils.ContentLogger;
-import com.visitscotland.brxm.utils.HippoUtilsService;
 import com.visitscotland.brxm.utils.SiteProperties;
 import com.visitscotland.utils.Contract;
 import org.hippoecm.hst.content.beans.standard.HippoBean;
@@ -64,7 +63,7 @@ public class FormFactory {
     private FeplConfiguration getFeplConfiguration(FormCompoundFepl fepl){
         FeplConfiguration cfg = new FeplConfiguration();
         cfg.setRecaptcha(properties.getFormsRecaptcha());
-        cfg.setSubmitURL(fepl.getUrl());
+        cfg.setSubmitUrl(fepl.getUrl());
         cfg.setJsonUrl(fepl.getJsonURL());
 
         return cfg;
