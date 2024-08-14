@@ -50,3 +50,42 @@ definitions:
               hst:ismapped: false
               hst:namedpipeline: JaxrsRestPlainPipeline
               hst:types: [rest]
+        /develop-nightly-businesssupport:
+          .meta:residual-child-node-category: content
+          jcr:primaryType: hst:virtualhost
+          /hst:root:
+            .meta:residual-child-node-category: content
+            jcr:primaryType: hst:mount
+            jcr:mixinTypes: ['visitscotland:hosts']
+            hst:homepage: root
+            hst:locale: en_GB
+            hst:mountpoint: /hst:visitscotland/hst:sites/bsh
+            hst:pagemodelapi: resourceapi
+            hst:responseheaders: ['Access-Control-Allow-Origin: *']
+            visitscotland:siteProperties: bsh.local.config
+            /api:
+              .meta:residual-child-node-category: content
+              jcr:primaryType: hst:mount
+              hst:ismapped: false
+              hst:namedpipeline: JaxrsRestPlainPipeline
+              hst:types: [rest]
+        /develop-nightly-businessevents:
+          .meta:residual-child-node-category: content
+          jcr:primaryType: hst:virtualhost
+          /hst:root:
+            .meta:residual-child-node-category: content
+            jcr:primaryType: hst:mount
+            jcr:mixinTypes: ['visitscotland:hosts']
+            hst:homepage: root
+            hst:locale: en_GB
+            hst:mountpoint: /hst:visitscotland/hst:sites/business-events
+            hst:pagemodelapi: resourceapi
+            hst:responseheaders: ['Access-Control-Allow-Origin: *']
+            visitscotland:siteProperties: businessevents.local.config
+            /api:
+              .meta:residual-child-node-category: content
+              jcr:primaryType: hst:mount
+              hst:alias: api
+              hst:ismapped: false
+              hst:namedpipeline: JaxrsRestPlainPipeline
+              hst:types: [rest]
