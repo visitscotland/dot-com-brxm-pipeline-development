@@ -2,7 +2,6 @@
 <#include "../../include/imports.ftl">
 <#include "../macros/global/gtm.ftl">
 <#include "../macros/modules/skeleton/skeleton.ftl">
-<#include "../macros/global/personalisation.ftl">
 <#include "headerContributions.ftl">
 <#include "footerContributions.ftl">
 <#-- @ftlvariable name="hstRequestContext" type="org.hippoecm.hst.core.request.HstRequestContext" -->
@@ -20,7 +19,6 @@
     <body>
         <@gtm noscript=true />
         <@skeleton />
-        <@personalisation />
         <div data-vue-hydration-init class="hydrate"><div class="no-js" data-vue-app-init>
             <#-- This top element is an Experience Manager Container (not currently in use)-->
             <@hst.include ref="top"/>
