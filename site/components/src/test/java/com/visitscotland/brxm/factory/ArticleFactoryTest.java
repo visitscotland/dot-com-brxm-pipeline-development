@@ -40,14 +40,14 @@ class ArticleFactoryTest {
         Article article = mock(Article.class);
         when(article.getMediaItem()).thenReturn(mock(Image.class));
         when(article.getTitle()).thenReturn("Title");
-        when(article.getAnchor()).thenReturn("Anchor");
+        when(article.getAnchor()).thenReturn("anchor");
         when(article.getCopy()).thenReturn(mock(HippoHtml.class));
 
         ArticleModule module = factory.getModule(request, article);
 
         verify(imageFactory, only()).getImage(any(Image.class), any(), any());
         assertEquals("Title", module.getTitle());
-        assertEquals("Anchor", module.getAnchor());
+        assertEquals("anchor", module.getAnchor());
         assertEquals(HippoHtml.class, module.getIntroduction().getClass());
         assertEquals(article, module.getHippoBean());
     }
@@ -61,14 +61,14 @@ class ArticleFactoryTest {
         when(videoLink.getVideoLink()).thenReturn(mock(Video.class));
         when(article.getMediaItem()).thenReturn(videoLink);
         when(article.getTitle()).thenReturn("Title");
-        when(article.getAnchor()).thenReturn("Anchor");
+        when(article.getAnchor()).thenReturn("anchor");
         when(article.getCopy()).thenReturn(mock(HippoHtml.class));
 
         ArticleModule module = factory.getModule(request, article);
 
         verify(linkService, only()).createVideo(any(Video.class), any(), any());
         assertEquals("Title", module.getTitle());
-        assertEquals("Anchor", module.getAnchor());
+        assertEquals("anchor", module.getAnchor());
         assertEquals(HippoHtml.class, module.getIntroduction().getClass());
         assertEquals(article, module.getHippoBean());
     }
@@ -85,6 +85,7 @@ class ArticleFactoryTest {
         when(section.getMediaItem()).thenReturn(mock(Image.class));
         when(section.getQuote()).thenReturn(mock(Quote.class));
         when(article.getParagraph()).thenReturn(Arrays.asList(section, section));
+        when(article.getAnchor()).thenReturn("anchor-link");
 
         ArticleModule module = factory.getModule(request, article);
 
@@ -106,6 +107,7 @@ class ArticleFactoryTest {
         when(section.getCopy()).thenReturn(mock(HippoHtml.class));
         when(section.getQuote()).thenReturn(mock(Quote.class));
         when(article.getParagraph()).thenReturn(Arrays.asList(section, section));
+        when(article.getAnchor()).thenReturn("anchor-link");
 
 
         ArticleModule module = factory.getModule(request, article);
