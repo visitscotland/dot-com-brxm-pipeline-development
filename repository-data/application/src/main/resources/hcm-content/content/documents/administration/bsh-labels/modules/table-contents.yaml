@@ -1,0 +1,52 @@
+/content/documents/administration/bsh-labels/modules/table-contents:
+  jcr:primaryType: hippo:handle
+  jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+  jcr:uuid: 42fc5686-eba0-4dde-933b-ef6c3b4d0c76
+  hippo:name: Table of contents
+  hippo:versionHistory: b103c745-a710-438a-9d9c-b39a39ba6e41
+  /table-contents[1]:
+    jcr:primaryType: resourcebundle:resourcebundle
+    jcr:mixinTypes: ['mix:referenceable']
+    jcr:uuid: 1ffa29a0-7907-4677-a90b-deeb6e20f586
+    hippo:availability: []
+    hippostd:retainable: false
+    hippostd:state: draft
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2024-08-12T17:04:13.980+01:00
+    hippostdpubwf:lastModificationDate: 2024-08-12T17:05:28.335+01:00
+    hippostdpubwf:lastModifiedBy: admin
+    resourcebundle:descriptions: ['']
+    resourcebundle:id: table-contents
+    resourcebundle:keys: [title]
+    resourcebundle:messages: ['In this article:']
+  /table-contents[2]:
+    jcr:primaryType: resourcebundle:resourcebundle
+    jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+    jcr:uuid: 42b3af29-db07-4a56-9edf-b28493825052
+    hippo:availability: [preview]
+    hippostd:retainable: false
+    hippostd:state: unpublished
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2024-08-12T17:04:13.980+01:00
+    hippostdpubwf:lastModificationDate: 2024-08-12T17:05:58.685+01:00
+    hippostdpubwf:lastModifiedBy: admin
+    resourcebundle:descriptions: ['']
+    resourcebundle:id: table-contents
+    resourcebundle:keys: [title]
+    resourcebundle:messages: ['In this article:']
+  /table-contents[3]:
+    jcr:primaryType: resourcebundle:resourcebundle
+    jcr:mixinTypes: ['mix:referenceable']
+    jcr:uuid: d5cbedd8-0bdd-4d8a-9822-e59e63c9b8c6
+    hippo:availability: [live]
+    hippostd:retainable: false
+    hippostd:state: published
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2024-08-12T17:04:13.980+01:00
+    hippostdpubwf:lastModificationDate: 2024-08-12T17:05:58.685+01:00
+    hippostdpubwf:lastModifiedBy: admin
+    hippostdpubwf:publicationDate: 2024-08-12T17:06:01.476+01:00
+    resourcebundle:descriptions: ['']
+    resourcebundle:id: table-contents
+    resourcebundle:keys: [title]
+    resourcebundle:messages: ['In this article:']
