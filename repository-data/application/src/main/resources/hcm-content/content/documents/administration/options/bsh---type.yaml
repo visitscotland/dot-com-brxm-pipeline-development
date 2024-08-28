@@ -1,0 +1,41 @@
+/content/documents/administration/options/bsh---type:
+  .meta:order-before: bsh---regions
+  jcr:primaryType: hippo:handle
+  jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+  jcr:uuid: 4df784c9-1ebd-436c-a7ef-65992221c8ae
+  hippo:name: BSH - Type
+  /bsh---type:
+    jcr:primaryType: selection:valuelist
+    jcr:mixinTypes: ['hippotranslation:translated', 'mix:referenceable']
+    jcr:uuid: d8bf5811-3019-42c5-a7d9-24c42c8f8b0c
+    hippo:availability: [live, preview]
+    hippotranslation:id: ece49a5e-135c-414a-8b30-c1f0e5636f68
+    hippotranslation:locale: inherited - from query
+    /selection:listitem[1]:
+      jcr:primaryType: selection:listitem
+      selection:key: webinar
+      selection:label: Webinar
+    /selection:listitem[2]:
+      jcr:primaryType: selection:listitem
+      selection:key: guide
+      selection:label: How-to guide
+    /selection:listitem[3]:
+      jcr:primaryType: selection:listitem
+      selection:key: toolkit
+      selection:label: Toolkit
+    /selection:listitem[4]:
+      jcr:primaryType: selection:listitem
+      selection:key: article
+      selection:label: Article
+    /selection:listitem[5]:
+      jcr:primaryType: selection:listitem
+      selection:key: video
+      selection:label: Video
+    /selection:listitem[6]:
+      jcr:primaryType: selection:listitem
+      selection:key: download
+      selection:label: Download
+    /selection:listitem[7]:
+      jcr:primaryType: selection:listitem
+      selection:key: case-study
+      selection:label: Case Study
