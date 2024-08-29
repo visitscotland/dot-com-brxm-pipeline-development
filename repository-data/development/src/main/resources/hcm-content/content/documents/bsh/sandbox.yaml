@@ -2,7 +2,7 @@
   jcr:primaryType: hippostd:folder
   jcr:mixinTypes: ['hippotranslation:translated', 'mix:versionable']
   jcr:uuid: 3ba12366-9b59-47aa-8063-a7efa2165322
-  hippostd:foldertype: [new-be-folder, new-be-page, new-be-module]
+  hippostd:foldertype: [new-bsh-folder, new-bsh-page, new-bsh-module]
   hippotranslation:id: 55c3dc2b-ecce-4dfe-a0d7-dbd341fa965b
   hippotranslation:locale: en
   /content:
@@ -157,7 +157,7 @@
     jcr:primaryType: hippostd:folder
     jcr:mixinTypes: ['hippotranslation:translated', 'mix:versionable']
     jcr:uuid: 314dd213-1220-4147-a8be-b7ec69b98858
-    hippostd:foldertype: [new-be-folder, new-be-page, new-be-module]
+    hippostd:foldertype: [new-bsh-folder, new-bsh-page, new-bsh-module]
     hippotranslation:id: d4140eec-1f88-4ac3-ac02-9fcfdd3b6e90
     hippotranslation:locale: en
     /content:
@@ -526,3 +526,17 @@
               coding, and maintaining applications. Agile methodologies, collaboration,
               and diverse tech tools drive innovation. From web to AI, it shapes our
               digital world, emphasizing security and quality assurance.</p>
+  /experimental:
+    jcr:primaryType: hippostd:folder
+    jcr:mixinTypes: ['hippotranslation:translated', 'mix:versionable']
+    jcr:uuid: 7c3a3fc5-829e-40c4-b933-2e12634a8501
+    hippostd:foldertype: [new-translated-folder, new-document]
+    hippotranslation:id: a6cff355-cfae-49a3-abe8-aa2f45ad230d
+    hippotranslation:locale: en
+  /pages:
+    jcr:primaryType: hippostd:folder
+    jcr:mixinTypes: ['hippotranslation:translated', 'mix:versionable']
+    jcr:uuid: 55180e17-f53f-4169-8208-320928a28315
+    hippostd:foldertype: [new-bsh-folder, new-bsh-page, new-bsh-module]
+    hippotranslation:id: 46cf32ff-f87b-4adc-b1b7-5b475defc4ff
+    hippotranslation:locale: en
