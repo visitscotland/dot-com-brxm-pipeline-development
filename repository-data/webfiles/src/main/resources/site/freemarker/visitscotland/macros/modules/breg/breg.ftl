@@ -61,6 +61,13 @@
                             value="${form.config.legalBasis}"
                         />
                         </#if>
+                        <#if form.config.consents?contains('snow,SKIEMAIL_002')>
+                        <input
+                            type="hidden"
+                            name="interest_in_ski"
+                            value="true"
+                        />
+                        </#if>
                     </template>
                 </vs-form>
             </vs-col>
