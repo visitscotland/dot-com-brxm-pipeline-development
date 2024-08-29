@@ -1,6 +1,6 @@
 definitions:
   config:
-    /hippo:namespaces/visitscotland/bshGeneralPage:
+    /hippo:namespaces/visitscotland/BshPage:
       jcr:primaryType: hipposysedit:templatetype
       jcr:mixinTypes: ['editor:editable', 'mix:referenceable']
       jcr:uuid: a94f4883-7d33-46ba-b142-b19441040216
@@ -67,7 +67,7 @@ definitions:
       /hipposysedit:prototypes:
         jcr:primaryType: hipposysedit:prototypeset
         /hipposysedit:prototype:
-          jcr:primaryType: visitscotland:bshGeneralPage
+          jcr:primaryType: visitscotland:BshPage
           hippostd:holder: holder
           hippostd:state: draft
           hippostdpubwf:createdBy: ''
