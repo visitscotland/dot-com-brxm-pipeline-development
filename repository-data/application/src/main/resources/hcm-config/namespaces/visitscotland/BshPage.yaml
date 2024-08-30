@@ -11,7 +11,7 @@ definitions:
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:uuid: aaf26383-bb73-45d4-a198-16a8db2af4d0
+          jcr:uuid: 5c731d2f-c7f7-4f0f-b384-e3893f9eabee
           hipposysedit:node: true
           hipposysedit:supertype: ['visitscotland:Page', 'hippostd:relaxed', 'hippotranslation:translated']
           hipposysedit:uri: http://www.visitscotland.com/visitscotland/nt/1.0
@@ -40,6 +40,7 @@ definitions:
             hipposysedit:path: visitscotland:readingTime
             hipposysedit:primary: false
             hipposysedit:type: Long
+            hipposysedit:validators: [required]
           /skill:
             jcr:primaryType: hipposysedit:field
             hipposysedit:mandatory: false
@@ -75,7 +76,7 @@ definitions:
           hippotranslation:id: document-type-locale-id
           hippotranslation:locale: document-type-locale
           jcr:mixinTypes: ['mix:referenceable']
-          visitscotland:theme: Default
+          visitscotland:theme: Standard
           visitscotland:breadcrumb: ''
           visitscotland:seoNoIndex: false
           visitscotland:hideNewsletter: false
@@ -86,7 +87,7 @@ definitions:
           visitscotland:seoTitle: ''
           visitscotland:title: ''
           visitscotland:skill: ''
-          jcr:uuid: c0c54f4a-68bb-4b1a-a3a7-d08125d3ab4b
+          jcr:uuid: 9b49df08-f30f-497e-aac4-e1cb491fae5d
           hippostdpubwf:lastModificationDate: 2024-08-28T18:30:07.772+01:00
           hippostdpubwf:creationDate: 2024-08-28T18:30:07.772+01:00
           visitscotland:regions: []
@@ -100,13 +101,6 @@ definitions:
           /visitscotland:introduction:
             jcr:primaryType: hippostd:html
             hippostd:content: ''
-          /visitscotland:blog:
-            jcr:primaryType: visitscotland:Blog
-            visitscotland:publishDate: 0001-01-01T12:00:00Z
-            visitscotland:readingTime: 0
-            /visitscotland:author:
-              jcr:primaryType: hippo:mirror
-              hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
       /editor:templates:
         jcr:primaryType: editor:templateset
         /_default_:
@@ -190,16 +184,19 @@ definitions:
               ckeditor.config.appended.json: "{   extraPlugins: 'wordcount',   wordcount:\
                 \ { \tcountSpacesAsChars: true,     showCharCount: true ,maxCharCount:750\
                 \   }  }"
-              ckeditor.config.overlayed.json: ''
+              ckeditor.config.overlayed.json: '{disallowedContent: ''p[align]'', toolbarGroups:
+                [{ name: ''basicstyles''},{ name: ''links'' },{name:''insert''},{name:''clipboard''},{name:''tools''},{name:''undo''}]
+                , removeButtons: ''PickImage,Youtube,Table,Bold,Underline,Strike,Subscript,Superscript''}'
           /theme:
             jcr:primaryType: frontend:plugin
             caption: Page Layout
             field: theme
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.right.item
+            hint: ''
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-              selectable.options: Default, Top-Level, Simple, Side-Image
+              selectable.options: Standard, Top-Level, Simple
           /breadcrumb:
             jcr:primaryType: frontend:plugin
             caption: Override Navigation & Breadcrumb
@@ -242,11 +239,12 @@ definitions:
             field: readingTime
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.right.item
+            hint: ''
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
           /sectors:
             jcr:primaryType: frontend:plugin
-            caption: sectors
+            caption: Sectors
             field: sectors
             multiselect.type: checkboxes
             palette.alloworder: false
@@ -270,7 +268,7 @@ definitions:
               source: /content/documents/administration/options/bsh---skill-level
           /regions:
             jcr:primaryType: frontend:plugin
-            caption: regions
+            caption: Regions
             field: regions
             multiselect.type: checkboxes
             palette.alloworder: false
