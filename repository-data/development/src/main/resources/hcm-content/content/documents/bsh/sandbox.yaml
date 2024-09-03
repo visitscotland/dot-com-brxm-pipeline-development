@@ -554,7 +554,7 @@
         jcr:uuid: a2ba1a3e-d330-4c56-b696-0e99ee64f00f
         hippo:name: Default Page
         /content[1]:
-          jcr:primaryType: visitscotland:BshPage
+          jcr:primaryType: visitscotland:BshGeneral
           jcr:mixinTypes: ['mix:referenceable']
           jcr:uuid: 5c34ef2e-df3e-463a-895c-32b7cbfab60e
           hippo:availability: []
@@ -599,7 +599,7 @@
               purus. Aenean quis arcu magna. Nunc placerat elit massa, quis placerat
               nisi tempus auctor cras amet.</p>
         /content[2]:
-          jcr:primaryType: visitscotland:BshPage
+          jcr:primaryType: visitscotland:BshGeneral
           jcr:mixinTypes: ['mix:versionable']
           jcr:uuid: 1a85bc88-4ca0-4bd5-bc57-51646566789b
           hippo:availability: [preview]
@@ -1110,7 +1110,7 @@
         jcr:uuid: a932ccea-5cee-49fa-b80f-8dc2bbcd790b
         hippo:name: Top-Level Page
         /content[1]:
-          jcr:primaryType: visitscotland:BshPage
+          jcr:primaryType: visitscotland:BshGeneral
           jcr:mixinTypes: ['mix:referenceable']
           jcr:uuid: 6fe329bb-22be-47b6-bfc4-5df37cb591b3
           hippo:availability: []
@@ -1155,7 +1155,7 @@
               purus. Aenean quis arcu magna. Nunc placerat elit massa, quis placerat
               nisi tempus auctor cras amet.</p>
         /content[2]:
-          jcr:primaryType: visitscotland:BshPage
+          jcr:primaryType: visitscotland:BshGeneral
           jcr:mixinTypes: ['mix:versionable']
           jcr:uuid: 171e9b27-5b48-44e6-b8d8-2ca700d4f6c6
           hippo:availability: [preview]
@@ -1666,7 +1666,7 @@
         jcr:uuid: be80e07d-a2d9-4446-9e7f-3f55ff40eaad
         hippo:name: Simple Page
         /content[1]:
-          jcr:primaryType: visitscotland:BshPage
+          jcr:primaryType: visitscotland:BshGeneral
           jcr:mixinTypes: ['mix:referenceable']
           jcr:uuid: ae82304b-7bf4-4e0e-acd6-bd590afb196b
           hippo:availability: []
@@ -1711,7 +1711,7 @@
               purus. Aenean quis arcu magna. Nunc placerat elit massa, quis placerat
               nisi tempus auctor cras amet.</p>
         /content[2]:
-          jcr:primaryType: visitscotland:BshPage
+          jcr:primaryType: visitscotland:BshGeneral
           jcr:mixinTypes: ['mix:versionable']
           jcr:uuid: 39c9653b-9090-4d83-9ba1-cf034707ee64
           hippo:availability: [preview]
@@ -2222,7 +2222,7 @@
         jcr:uuid: 3d6250b7-6374-4199-969a-077f05cdf972
         hippo:name: Default Page
         /content[1]:
-          jcr:primaryType: visitscotland:BshPage
+          jcr:primaryType: visitscotland:BshGeneral
           jcr:mixinTypes: ['mix:referenceable']
           jcr:uuid: a4611964-01f7-4172-8d79-7718d6d22385
           hippo:availability: []
@@ -2267,7 +2267,7 @@
               purus. Aenean quis arcu magna. Nunc placerat elit massa, quis placerat
               nisi tempus auctor cras amet.</p>
         /content[2]:
-          jcr:primaryType: visitscotland:BshPage
+          jcr:primaryType: visitscotland:BshGeneral
           jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
           jcr:uuid: 863484de-a5a5-448d-9aa0-0a9ad24c3484
           hippo:availability: [preview]
@@ -2311,3 +2311,250 @@
               ullamcorper nisl. Nunc molestie vestibulum ultrices. Donec ac luctus
               purus. Aenean quis arcu magna. Nunc placerat elit massa, quis placerat
               nisi tempus auctor cras amet.</p>
+    /related-links:
+      jcr:primaryType: hippostd:folder
+      jcr:mixinTypes: ['hippo:named', 'hippotranslation:translated', 'mix:versionable']
+      jcr:uuid: b733ca17-638a-437c-b5aa-a8a29c3574b4
+      hippo:name: Related Links Page
+      hippostd:foldertype: [new-bsh-folder, new-bsh-page, new-bsh-module]
+      hippotranslation:id: 325fe48c-3162-4665-986d-a52412d849ee
+      hippotranslation:locale: en
+      /content:
+        jcr:primaryType: hippo:handle
+        jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+        jcr:uuid: 76eb6390-7b9a-4db5-8694-10caffa910ad
+        hippo:name: Default Page
+        /content[1]:
+          jcr:primaryType: visitscotland:BshGeneral
+          jcr:mixinTypes: ['mix:referenceable']
+          jcr:uuid: 47411ab4-d2f8-42b0-9c27-c87d95db6c29
+          hippo:availability: []
+          hippostd:retainable: false
+          hippostd:state: draft
+          hippostd:transferable: false
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2024-08-30T15:41:08.220+01:00
+          hippostdpubwf:lastModificationDate: 2024-09-03T15:30:09.216+01:00
+          hippostdpubwf:lastModifiedBy: admin
+          hippotranslation:id: 81085b9e-fd58-4b71-b733-73c432c6a33f
+          hippotranslation:locale: en
+          visitscotland:breadcrumb: ''
+          visitscotland:hideNewsletter: false
+          visitscotland:publishDate: 0001-01-01T12:00:00Z
+          visitscotland:readingTime: 0
+          visitscotland:regions: []
+          visitscotland:sectors: []
+          visitscotland:seoDescription: This is an example of a page
+          visitscotland:seoNoIndex: false
+          visitscotland:seoTitle: Standard Page
+          visitscotland:skill: ''
+          visitscotland:teaser: Lorem ipsum dolor sit amet, consectetur adipiscing
+            elit. Vivamus purus massa, porta id mattis non, finibus vel elit. Integer
+            nulla nunc, viverra eros.
+          visitscotland:theme: Top-Level
+          visitscotland:title: Standard Page
+          /visitscotland:heroImage:
+            jcr:primaryType: hippogallerypicker:imagelink
+            hippo:docbase: e87235cc-b32f-4d9a-98ec-cc1c608db406
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+          /visitscotland:introduction:
+            jcr:primaryType: hippostd:html
+            hippostd:content: <p>Lorem ipsum dolor sit amet, consectetur adipiscing
+              elit. Nulla ac ullamcorper metus. Vestibulum rutrum mauris ut eleifend
+              aliquet. Donec et congue urna. Morbi nibh lorem, maximus id arcu quis,
+              sodales imperdiet libero. Donec maximus felis ipsum, ac dapibus justo
+              rhoncus nec. In fringilla neque eu risus rutrum lobortis. Aliquam a
+              ullamcorper nisl. Nunc molestie vestibulum ultrices. Donec ac luctus
+              purus. Aenean quis arcu magna. Nunc placerat elit massa, quis placerat
+              nisi tempus auctor cras amet.</p>
+          /visitscotland:links[1]:
+            jcr:primaryType: hippo:mirror
+            hippo:docbase: a2ba1a3e-d330-4c56-b696-0e99ee64f00f
+          /visitscotland:links[2]:
+            jcr:primaryType: hippo:mirror
+            hippo:docbase: a932ccea-5cee-49fa-b80f-8dc2bbcd790b
+          /visitscotland:links[3]:
+            jcr:primaryType: hippo:mirror
+            hippo:docbase: be80e07d-a2d9-4446-9e7f-3f55ff40eaad
+          /visitscotland:links[4]:
+            jcr:primaryType: hippo:mirror
+            hippo:docbase: 3d6250b7-6374-4199-969a-077f05cdf972
+        /content[2]:
+          jcr:primaryType: visitscotland:BshGeneral
+          jcr:mixinTypes: ['mix:versionable']
+          jcr:uuid: bc8b13af-b56d-4965-ac50-e800c1e58212
+          hippo:availability: [preview]
+          hippostd:retainable: false
+          hippostd:state: unpublished
+          hippostd:transferable: false
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2024-08-30T15:41:08.220+01:00
+          hippostdpubwf:lastModificationDate: 2024-09-03T15:30:46.837+01:00
+          hippostdpubwf:lastModifiedBy: admin
+          hippotranslation:id: 81085b9e-fd58-4b71-b733-73c432c6a33f
+          hippotranslation:locale: en
+          visitscotland:breadcrumb: ''
+          visitscotland:hideNewsletter: false
+          visitscotland:publishDate: 0001-01-01T12:00:00Z
+          visitscotland:readingTime: 0
+          visitscotland:regions: []
+          visitscotland:sectors: []
+          visitscotland:seoDescription: This is an example of a page
+          visitscotland:seoNoIndex: false
+          visitscotland:seoTitle: Standard Page
+          visitscotland:skill: ''
+          visitscotland:teaser: Lorem ipsum dolor sit amet, consectetur adipiscing
+            elit. Vivamus purus massa, porta id mattis non, finibus vel elit. Integer
+            nulla nunc, viverra eros.
+          visitscotland:theme: Top-Level
+          visitscotland:title: Standard Page
+          /visitscotland:heroImage:
+            jcr:primaryType: hippogallerypicker:imagelink
+            hippo:docbase: e87235cc-b32f-4d9a-98ec-cc1c608db406
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+          /visitscotland:introduction:
+            jcr:primaryType: hippostd:html
+            hippostd:content: <p>Lorem ipsum dolor sit amet, consectetur adipiscing
+              elit. Nulla ac ullamcorper metus. Vestibulum rutrum mauris ut eleifend
+              aliquet. Donec et congue urna. Morbi nibh lorem, maximus id arcu quis,
+              sodales imperdiet libero. Donec maximus felis ipsum, ac dapibus justo
+              rhoncus nec. In fringilla neque eu risus rutrum lobortis. Aliquam a
+              ullamcorper nisl. Nunc molestie vestibulum ultrices. Donec ac luctus
+              purus. Aenean quis arcu magna. Nunc placerat elit massa, quis placerat
+              nisi tempus auctor cras amet.</p>
+          /visitscotland:links[1]:
+            jcr:primaryType: hippo:mirror
+            hippo:docbase: a2ba1a3e-d330-4c56-b696-0e99ee64f00f
+          /visitscotland:links[2]:
+            jcr:primaryType: hippo:mirror
+            hippo:docbase: a932ccea-5cee-49fa-b80f-8dc2bbcd790b
+          /visitscotland:links[3]:
+            jcr:primaryType: hippo:mirror
+            hippo:docbase: be80e07d-a2d9-4446-9e7f-3f55ff40eaad
+          /visitscotland:links[4]:
+            jcr:primaryType: hippo:mirror
+            hippo:docbase: 3d6250b7-6374-4199-969a-077f05cdf972
+      /lorem-ipsum-3:
+        jcr:primaryType: hippo:handle
+        jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+        jcr:uuid: 4b01ab25-798c-4737-bfd9-d78dc3602df4
+        hippo:name: Lorem Ipsum 3
+        /lorem-ipsum-3[1]:
+          jcr:primaryType: visitscotland:Article
+          jcr:mixinTypes: ['mix:versionable']
+          jcr:uuid: 6cd52132-553e-47c5-bc0c-f6e678d24295
+          hippo:availability: [preview]
+          hippostd:retainable: false
+          hippostd:state: unpublished
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2024-08-30T14:07:42.873+01:00
+          hippostdpubwf:lastModificationDate: 2024-08-30T14:11:49.868+01:00
+          hippostdpubwf:lastModifiedBy: admin
+          hippotranslation:id: acd20d00-0907-49b0-8386-01d125904f06
+          hippotranslation:locale: en
+          visitscotland:anchor: ''
+          visitscotland:title: Lorem Ipsum 2
+          visitscotland:translation: ''
+          /visitscotland:copy:
+            jcr:primaryType: hippostd:html
+            hippostd:content: ''
+          /visitscotland:paragraph[1]:
+            jcr:primaryType: visitscotland:ArticleSection
+            /visitscotland:copy:
+              jcr:primaryType: hippostd:html
+              hippostd:content: |-
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer lobortis diam sit amet risus elementum, at fringilla erat porttitor. In at sodales libero. Nam vehicula faucibus tincidunt. Sed malesuada ex et mauris gravida, eu ornare metus semper. Integer lobortis massa libero, in pellentesque sapien finibus a. Vivamus at eleifend nisi, id venenatis tellus. Sed varius suscipit ex accumsan hendrerit. Mauris ut quam augue. Pellentesque lorem metus, porta eu dictum at, porta auctor magna. In et dolor vitae diam ultricies vulputate. Fusce ullamcorper nisl vitae suscipit mattis. Nunc dignissim viverra lectus, sit amet mattis tortor malesuada ut. Pellentesque nec eros vel nunc hendrerit pulvinar. Vivamus maximus eros aliquam sapien egestas ultrices. Quisque tempus aliquet est, et condimentum ante hendrerit et. Vestibulum ultricies efficitur purus, nec pellentesque nibh rutrum a.</p>
+
+                <p>&nbsp;</p>
+          /visitscotland:paragraph[2]:
+            jcr:primaryType: visitscotland:ArticleSection
+            /visitscotland:copy:
+              jcr:primaryType: hippostd:html
+              hippostd:content: <p>Aenean egestas tincidunt neque ac euismod. Nulla
+                metus dui, tempor vel tellus quis, suscipit imperdiet augue. Donec
+                luctus placerat erat quis sodales. Morbi ut pellentesque enim, eget
+                aliquam sapien. In at nisi eget dui tincidunt egestas vitae in magna.
+                Nullam pharetra felis nec risus varius, vitae vehicula justo pharetra.
+                Orci varius natoque penatibus et magnis dis parturient montes, nascetur
+                ridiculus mus.</p>
+        /lorem-ipsum-3[2]:
+          jcr:primaryType: visitscotland:Article
+          jcr:mixinTypes: ['mix:referenceable']
+          jcr:uuid: e72b1007-ba49-409a-8b73-333555630a59
+          hippo:availability: []
+          hippostd:retainable: false
+          hippostd:state: draft
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2024-08-30T14:07:42.873+01:00
+          hippostdpubwf:lastModificationDate: 2024-08-30T14:11:26.605+01:00
+          hippostdpubwf:lastModifiedBy: admin
+          hippotranslation:id: acd20d00-0907-49b0-8386-01d125904f06
+          hippotranslation:locale: en
+          visitscotland:anchor: ''
+          visitscotland:title: Lorem Ipsum 2
+          visitscotland:translation: ''
+          /visitscotland:copy:
+            jcr:primaryType: hippostd:html
+            hippostd:content: ''
+          /visitscotland:paragraph[1]:
+            jcr:primaryType: visitscotland:ArticleSection
+            /visitscotland:copy:
+              jcr:primaryType: hippostd:html
+              hippostd:content: |-
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer lobortis diam sit amet risus elementum, at fringilla erat porttitor. In at sodales libero. Nam vehicula faucibus tincidunt. Sed malesuada ex et mauris gravida, eu ornare metus semper. Integer lobortis massa libero, in pellentesque sapien finibus a. Vivamus at eleifend nisi, id venenatis tellus. Sed varius suscipit ex accumsan hendrerit. Mauris ut quam augue. Pellentesque lorem metus, porta eu dictum at, porta auctor magna. In et dolor vitae diam ultricies vulputate. Fusce ullamcorper nisl vitae suscipit mattis. Nunc dignissim viverra lectus, sit amet mattis tortor malesuada ut. Pellentesque nec eros vel nunc hendrerit pulvinar. Vivamus maximus eros aliquam sapien egestas ultrices. Quisque tempus aliquet est, et condimentum ante hendrerit et. Vestibulum ultricies efficitur purus, nec pellentesque nibh rutrum a.</p>
+
+                <p>&nbsp;</p>
+          /visitscotland:paragraph[2]:
+            jcr:primaryType: visitscotland:ArticleSection
+            /visitscotland:copy:
+              jcr:primaryType: hippostd:html
+              hippostd:content: <p>Aenean egestas tincidunt neque ac euismod. Nulla
+                metus dui, tempor vel tellus quis, suscipit imperdiet augue. Donec
+                luctus placerat erat quis sodales. Morbi ut pellentesque enim, eget
+                aliquam sapien. In at nisi eget dui tincidunt egestas vitae in magna.
+                Nullam pharetra felis nec risus varius, vitae vehicula justo pharetra.
+                Orci varius natoque penatibus et magnis dis parturient montes, nascetur
+                ridiculus mus.</p>
+        /lorem-ipsum-3[3]:
+          jcr:primaryType: visitscotland:Article
+          jcr:mixinTypes: ['mix:referenceable']
+          jcr:uuid: c22414b1-9740-4292-96e1-4ba49d6d9358
+          hippo:availability: []
+          hippostd:retainable: false
+          hippostd:state: published
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2024-08-30T14:07:42.873+01:00
+          hippostdpubwf:lastModificationDate: 2024-08-30T14:11:49.868+01:00
+          hippostdpubwf:lastModifiedBy: admin
+          hippostdpubwf:publicationDate: 2024-08-30T14:17:05.900+01:00
+          hippotranslation:id: acd20d00-0907-49b0-8386-01d125904f06
+          hippotranslation:locale: en
+          visitscotland:anchor: ''
+          visitscotland:title: Lorem Ipsum 2
+          visitscotland:translation: ''
+          /visitscotland:copy:
+            jcr:primaryType: hippostd:html
+            hippostd:content: ''
+          /visitscotland:paragraph[1]:
+            jcr:primaryType: visitscotland:ArticleSection
+            /visitscotland:copy:
+              jcr:primaryType: hippostd:html
+              hippostd:content: |-
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer lobortis diam sit amet risus elementum, at fringilla erat porttitor. In at sodales libero. Nam vehicula faucibus tincidunt. Sed malesuada ex et mauris gravida, eu ornare metus semper. Integer lobortis massa libero, in pellentesque sapien finibus a. Vivamus at eleifend nisi, id venenatis tellus. Sed varius suscipit ex accumsan hendrerit. Mauris ut quam augue. Pellentesque lorem metus, porta eu dictum at, porta auctor magna. In et dolor vitae diam ultricies vulputate. Fusce ullamcorper nisl vitae suscipit mattis. Nunc dignissim viverra lectus, sit amet mattis tortor malesuada ut. Pellentesque nec eros vel nunc hendrerit pulvinar. Vivamus maximus eros aliquam sapien egestas ultrices. Quisque tempus aliquet est, et condimentum ante hendrerit et. Vestibulum ultricies efficitur purus, nec pellentesque nibh rutrum a.</p>
+
+                <p>&nbsp;</p>
+          /visitscotland:paragraph[2]:
+            jcr:primaryType: visitscotland:ArticleSection
+            /visitscotland:copy:
+              jcr:primaryType: hippostd:html
+              hippostd:content: <p>Aenean egestas tincidunt neque ac euismod. Nulla
+                metus dui, tempor vel tellus quis, suscipit imperdiet augue. Donec
+                luctus placerat erat quis sodales. Morbi ut pellentesque enim, eget
+                aliquam sapien. In at nisi eget dui tincidunt egestas vitae in magna.
+                Nullam pharetra felis nec risus varius, vitae vehicula justo pharetra.
+                Orci varius natoque penatibus et magnis dis parturient montes, nascetur
+                ridiculus mus.</p>
