@@ -4,7 +4,7 @@
   jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
   jcr:uuid: ea5611a6-5160-4713-86e9-52334587567c
   hippo:name: Default Site Properties
-  hippo:versionHistory: 07d74d9d-eee0-46c4-9242-cb1748e2794c
+  hippo:versionHistory: b1f8baa5-225f-4f6d-aa4f-2cf7ea68ca40
   /default-site-properties[1]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:versionable']
@@ -14,7 +14,7 @@
     hippostd:state: unpublished
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2021-02-05T15:37:26.056Z
-    hippostdpubwf:lastModificationDate: 2024-04-29T12:59:05.577+01:00
+    hippostdpubwf:lastModificationDate: 2024-09-04T17:54:05.356+01:00
     hippostdpubwf:lastModifiedBy: admin
     resourcebundle:descriptions: ['', '', List of Hosts that will be marked as internal
         URLs, URLs from this environment will be treated as internal and will be transformed
@@ -43,7 +43,7 @@
     resourcebundle:messages: ['https://community.visitscotland.com/', discussions/tagged/,
       'localhost,www.visitscotland.com,beta.visitscotland.com,blog.visitscotland.com',
       www.visitscotland.com, VisitScotland, '@VisitScotland', 'en,fr,de,nl,it,es',
-      '| VisitScotland', VisitScotland, '@VisitScotland', 'false', GTM-WWKWV5K, '&gtm_auth=YWMt6gew5Au1PAnzyzMADQ&gtm_preview=env-3&gtm_cookies_win=x',
+      '| VisitScotland', VisitScotland, '@VisitScotland', 'true', GTM-WQVX2V, '&gtm_auth=YWMt6gew5Au1PAnzyzMADQ&gtm_preview=env-3&gtm_cookies_win=x',
       'false', /site-search-results, '12809', '30000', /site-search-results, /test/examples/snow-sports,
       /test/examples/about-us, /test/examples/icentres/content, /test/modules/form/content,
       /test/examples/campaigns, 'false', 'https://static.visitscotland.com/forms/common/countries.json',
@@ -70,12 +70,11 @@
     jcr:mixinTypes: ['mix:referenceable']
     jcr:uuid: 114fe124-d365-4f1f-9b72-1f35e5bb6783
     hippo:availability: []
-    hippostd:holder: admin
     hippostd:retainable: false
     hippostd:state: draft
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2021-02-05T15:37:26.056Z
-    hippostdpubwf:lastModificationDate: 2024-09-03T11:09:58+01:00
+    hippostdpubwf:lastModificationDate: 2024-09-04T17:54:07.437+01:00
     hippostdpubwf:lastModifiedBy: admin
     resourcebundle:descriptions: ['', '', List of Hosts that will be marked as internal
         URLs, URLs from this environment will be treated as internal and will be transformed
@@ -104,7 +103,7 @@
     resourcebundle:messages: ['https://community.visitscotland.com/', discussions/tagged/,
       'localhost,www.visitscotland.com,beta.visitscotland.com,blog.visitscotland.com',
       www.visitscotland.com, VisitScotland, '@VisitScotland', 'en,fr,de,nl,it,es',
-      '| VisitScotland', VisitScotland, '@VisitScotland', 'false', GTM-WQVX2V, '&gtm_auth=YWMt6gew5Au1PAnzyzMADQ&gtm_preview=env-3&gtm_cookies_win=x',
+      '| VisitScotland', VisitScotland, '@VisitScotland', 'true', GTM-WQVX2V, '&gtm_auth=YWMt6gew5Au1PAnzyzMADQ&gtm_preview=env-3&gtm_cookies_win=x',
       'false', /site-search-results, '12809', '30000', /site-search-results, /test/examples/snow-sports,
       /test/examples/about-us, /test/examples/icentres/content, /test/modules/form/content,
       /test/examples/campaigns, 'false', 'https://static.visitscotland.com/forms/common/countries.json',
@@ -135,9 +134,9 @@
     hippostd:state: published
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2021-02-05T15:37:26.056Z
-    hippostdpubwf:lastModificationDate: 2024-04-29T12:59:05.577+01:00
+    hippostdpubwf:lastModificationDate: 2024-09-04T17:54:05.356+01:00
     hippostdpubwf:lastModifiedBy: admin
-    hippostdpubwf:publicationDate: 2024-04-29T14:03:52.897+01:00
+    hippostdpubwf:publicationDate: 2024-09-04T17:56:35.036+01:00
     resourcebundle:descriptions: ['', '', List of Hosts that will be marked as internal
         URLs, URLs from this environment will be treated as internal and will be transformed
         into Relative URLs when the value of attribute 'links.use-relative-urls is
@@ -165,7 +164,7 @@
     resourcebundle:messages: ['https://community.visitscotland.com/', discussions/tagged/,
       'localhost,www.visitscotland.com,beta.visitscotland.com,blog.visitscotland.com',
       www.visitscotland.com, VisitScotland, '@VisitScotland', 'en,fr,de,nl,it,es',
-      '| VisitScotland', VisitScotland, '@VisitScotland', 'false', GTM-WWKWV5K, '&gtm_auth=YWMt6gew5Au1PAnzyzMADQ&gtm_preview=env-3&gtm_cookies_win=x',
+      '| VisitScotland', VisitScotland, '@VisitScotland', 'true', GTM-WQVX2V, '&gtm_auth=YWMt6gew5Au1PAnzyzMADQ&gtm_preview=env-3&gtm_cookies_win=x',
       'false', /site-search-results, '12809', '30000', /site-search-results, /test/examples/snow-sports,
       /test/examples/about-us, /test/examples/icentres/content, /test/modules/form/content,
       /test/examples/campaigns, 'false', 'https://static.visitscotland.com/forms/common/countries.json',
