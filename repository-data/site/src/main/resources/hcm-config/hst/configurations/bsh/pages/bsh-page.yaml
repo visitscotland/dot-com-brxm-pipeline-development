@@ -1,0 +1,14 @@
+definitions:
+  config:
+    /hst:hst/hst:configurations/bsh/hst:pages/bsh-page:
+      jcr:primaryType: hst:component
+      hst:referencecomponent: hst:abstractpages/base
+      /main:
+        jcr:primaryType: hst:component
+        hst:componentclassname: com.visitscotland.brxm.components.content.BshGeneralContentComponent
+        hst:parameternames: [status]
+        hst:parametervalues: ['200']
+        hst:template: general-main
+        /breadcrumb:
+          jcr:primaryType: hst:component
+          hst:referencecomponent: hst:components/breadcrumb
