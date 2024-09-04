@@ -1,8 +1,8 @@
 package com.visitscotland.brxm.services;
 
 import com.visitscotland.brxm.utils.ContentLogger;
+import com.visitscotland.brxm.utils.SiteProperties;
 import org.hippoecm.hst.resourcebundle.ResourceBundleRegistry;
-import org.junit.Ignore;
 import org.junit.jupiter.api.*;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.ArgumentCaptor;
@@ -36,6 +36,9 @@ class ResourceBundleServiceTest {
     @Mock
     ContentLogger contentLogger;
 
+    @Mock
+    SiteProperties properties;
+
     @BeforeEach
     void initialize(){
 
@@ -43,7 +46,7 @@ class ResourceBundleServiceTest {
         lenient().when(registry.getBundle(BUNDLE)).thenReturn(fbBundle);
         lenient().when(registry.getBundle(BUNDLE, Locale.UK)).thenReturn(bundle);
 
-        service = new ResourceBundleService(contentLogger);
+        service = new ResourceBundleService(contentLogger,properties);
 
         service.setResourceBundleRegistry(registry);
 

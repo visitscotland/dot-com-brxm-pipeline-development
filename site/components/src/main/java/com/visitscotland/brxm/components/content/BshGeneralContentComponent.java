@@ -3,7 +3,6 @@ package com.visitscotland.brxm.components.content;
 import com.visitscotland.brxm.components.navigation.info.GeneralPageComponentInfo;
 import com.visitscotland.brxm.config.VsComponentManager;
 import com.visitscotland.brxm.hippobeans.BshGeneral;
-import com.visitscotland.brxm.hippobeans.BshPage;
 import com.visitscotland.brxm.model.megalinks.HorizontalListLinksModule;
 import com.visitscotland.brxm.utils.PageTemplateBuilder;
 import com.visitscotland.utils.Contract;
@@ -20,10 +19,10 @@ public class BshGeneralContentComponent extends PageContentComponent<BshGeneral>
 
     static final String ERROR_CODE = "errorCode";
 
-    private PageTemplateBuilder builder;
+    private final PageTemplateBuilder builder;
 
     public BshGeneralContentComponent(){
-        logger.debug("GeneralContentComponent initialized");
+        logger.debug("BshGeneralContentComponent initialized");
         this.builder = VsComponentManager.get(PageTemplateBuilder.class);
     }
 

@@ -7,6 +7,7 @@ import com.visitscotland.utils.Contract;
 import org.hippoecm.hst.resourcebundle.ResourceBundleRegistry;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Component;
 
 import java.util.*;
@@ -18,9 +19,11 @@ public class ResourceBundleService {
     public static final String GLOBAL_BUNDLE_FILE = "essentials.global";
 
     private final Logger contentLogger;
+
+
     private final SiteProperties properties;
 
-    public ResourceBundleService(ContentLogger contentLogger, SiteProperties properties){
+    public ResourceBundleService(ContentLogger contentLogger, @Lazy SiteProperties properties){
         this.contentLogger = contentLogger;
         this.properties = properties;
     }
