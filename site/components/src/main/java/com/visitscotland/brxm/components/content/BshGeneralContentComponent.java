@@ -2,6 +2,7 @@ package com.visitscotland.brxm.components.content;
 
 import com.visitscotland.brxm.components.navigation.info.GeneralPageComponentInfo;
 import com.visitscotland.brxm.config.VsComponentManager;
+import com.visitscotland.brxm.hippobeans.BshGeneral;
 import com.visitscotland.brxm.hippobeans.BshPage;
 import com.visitscotland.brxm.model.megalinks.HorizontalListLinksModule;
 import com.visitscotland.brxm.utils.PageTemplateBuilder;
@@ -13,7 +14,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 @ParametersInfo(type = GeneralPageComponentInfo.class)
-public class BshGeneralContentComponent extends PageContentComponent<BshPage> {
+public class BshGeneralContentComponent extends PageContentComponent<BshGeneral> {
 
     private static final Logger logger = LoggerFactory.getLogger(BshGeneralContentComponent.class);
 
@@ -37,17 +38,9 @@ public class BshGeneralContentComponent extends PageContentComponent<BshPage> {
 
     @Override
     protected void addOTYML(HstRequest request) {
-        final String PAGINATION_BUNDLE = "essentials.pagination";
-        final String OTYML_BUNDLE = "otyml";
-
-        BshPage page = getDocument(request);
-        if (page.getOtherThings() != null) {
+        BshGeneral page = getDocument(request);
+        if (!Contract.isEmpty(page.getLinks())) {
             HorizontalListLinksModule otyml = megalinkFactory.horizontalListLayout(page, request.getLocale());
-            if (Contract.isEmpty(otyml.getLinks())) {
-                contentLogger.warn("OTYML at {} contains 0 published items. Skipping module", page.getOtherThings().getPath());
-                request.setModel(OTYML, previewFactory.createErrorModule(otyml));
-                return;
-            }
             request.setModel(OTYML, otyml);
         }
     }
