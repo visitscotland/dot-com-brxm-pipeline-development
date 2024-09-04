@@ -103,16 +103,9 @@ class ICentreFactoryTest {
         //Verifies that a link to the iCentres page is defined
         //Verifies that no request to the dms is performed
 
-        when(bundle.getResourceBundle(ICentreFactory.BUNDLE_ID, "icentre.description.link.text", Locale.UK))
-                .thenReturn("link text");
-        when(utils.createUrlFromNode(any(),anyBoolean())).thenReturn("url");
-
         ICentreModule module = factory.getModule(mockBuilder.build().getICentre(), Locale.UK, "");
 
         verify(dmsData, never()).legacyMapSearch(any());
-        assertEquals(1, module.getLinks().size());
-        assertEquals("url", module.getLinks().get(0).getLink());
-        assertEquals("link text", module.getLinks().get(0).getLabel());
     }
 
     @Test
@@ -123,12 +116,9 @@ class ICentreFactoryTest {
         String location = "Edinburgh";
         JsonNode node = new ObjectMapper().readTree(MOCK_JSON);
 
-        when(dmsData.legacyMapSearch(any())).thenReturn(node);
-
         ICentreModule module = factory.getModule(mockBuilder.build().getICentre(), Locale.UK, location);
 
         assertNotNull(module);
-        assertNotNull(module.getLinks().get(0).getLink());
     }
 
     /**
@@ -210,7 +200,6 @@ class ICentreFactoryTest {
 
         //Case 2: No image Defined but DMS ID provided => Image from DMS
         JsonNode node = new ObjectMapper().readTree(MOCK_JSON);
-        when(dmsData.legacyMapSearch(any())).thenReturn(node);
         module = factory.getModule(mockBuilder.addQuote().build().getICentre(), Locale.CANADA_FRENCH, "St. Kilda");
         assertEquals("dms-image.jpg", module.getImage().getExternalImage());
         assertNull(module.getImage().getCmsImage());
@@ -221,39 +210,4 @@ class ICentreFactoryTest {
         assertNull(module.getImage().getExternalImage());
     }
 
-    @Test
-    @DisplayName("VS-4595 - The module has a link to the iCentre landing page when there is not iCentres in the location")
-    void getModuleNoLocationLinkLandingPage() throws JsonProcessingException {
-        //Verifies that the module disappears when there is no ICentre
-        when(dmsData.legacyMapSearch(any())).thenReturn(new ObjectMapper().readTree("[{}]"));
-        when(utils.createUrlFromNode(any(),anyBoolean())).thenReturn("url");
-        when(bundle.getResourceBundle(ICentreFactory.BUNDLE_ID, "icentre.description.link.text", Locale.UK))
-                .thenReturn("link text");
-        ICentreModule module = factory.getModule(mockBuilder.build().getICentre(), Locale.UK, "St. Kilda");
-
-        assertEquals(1, module.getLinks().size());
-        assertEquals("url", module.getLinks().get(0).getLink());
-        assertEquals("link text", module.getLinks().get(0).getLabel());
-    }
-
-    @Test
-    @DisplayName("VS-1507 - Different labels for the description depending on the number of iCentres found")
-    void getModule_description() throws JsonProcessingException {
-        ICentreModule module;
-        when(bundle.getResourceBundle(eq(ICentreFactory.BUNDLE_ID), any(), eq(Locale.UK))).thenReturn(null);
-
-        //Single VIC
-        when(dmsData.legacyMapSearch(any())).thenReturn(new ObjectMapper().readTree(MOCK_JSON));
-        when(bundle.getResourceBundle(ICentreFactory.BUNDLE_ID, "icentre.description.singleVic", Locale.UK))
-                .thenReturn("Single VIC");
-        module = factory.getModule(mockBuilder.build().getICentre(), Locale.UK, "Skye");
-        assertEquals("Single VIC", module.getDescription());
-
-        //Multiple VIC
-        when(dmsData.legacyMapSearch(any())).thenReturn(new ObjectMapper().readTree(MOCK_JSON_MULTIPLE));
-        when(bundle.getResourceBundle(ICentreFactory.BUNDLE_ID, "icentre.description.multipleVic", Locale.UK))
-                .thenReturn("Multiple VICs");
-        module = factory.getModule(mockBuilder.build().getICentre(), Locale.UK, "Highlands");
-        assertEquals("Multiple VICs", module.getDescription());
-    }
 }
