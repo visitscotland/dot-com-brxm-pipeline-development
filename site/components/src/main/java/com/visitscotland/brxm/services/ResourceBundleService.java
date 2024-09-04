@@ -2,6 +2,7 @@ package com.visitscotland.brxm.services;
 
 import com.visitscotland.brxm.config.VsComponentManager;
 import com.visitscotland.brxm.utils.ContentLogger;
+import com.visitscotland.brxm.utils.SiteProperties;
 import com.visitscotland.utils.Contract;
 import org.hippoecm.hst.resourcebundle.ResourceBundleRegistry;
 import org.slf4j.Logger;
@@ -17,9 +18,11 @@ public class ResourceBundleService {
     public static final String GLOBAL_BUNDLE_FILE = "essentials.global";
 
     private final Logger contentLogger;
+    private final SiteProperties properties;
 
-    public ResourceBundleService(ContentLogger contentLogger){
+    public ResourceBundleService(ContentLogger contentLogger, SiteProperties properties){
         this.contentLogger = contentLogger;
+        this.properties = properties;
     }
 
     ResourceBundleRegistry registry;
@@ -45,6 +48,16 @@ public class ResourceBundleService {
      */
     public String getResourceBundle(String bundleName, String key, Locale locale){
         return getResourceBundle(bundleName, key, locale, false);
+    }
+
+    public String getSiteResourceBundle(String bundleName, String key, Locale locale){
+
+        if (properties.getSiteId().isEmpty()){
+            return getResourceBundle(bundleName, key, locale, false);
+        } else {
+            return getResourceBundle(properties.getSiteId() + "." + bundleName, key, locale, false);
+        }
+
     }
 
     /**

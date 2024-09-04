@@ -26,6 +26,7 @@ public class MegalinkFactory {
     public static final int MIN_ITEMS_CAROUSEL = 5;
     public static final String HORIZONTAL_LAYOUT = "Horizontal Links";
     public static final String DEFAULT_LAYOUT = "Default";
+    public static final String OTYML = "otyml";
 
 
     private final LinkService linkService;
@@ -82,9 +83,17 @@ public class MegalinkFactory {
 
     public HorizontalListLinksModule horizontalListLayout(OTYML doc, Locale locale) {
         HorizontalListLinksModule hll = new HorizontalListLinksModule();
-        hll.setTitle(Contract.isEmpty(doc.getTitle()) ? (bundle.getResourceBundle("otyml", "otyml.title.default", locale)) : doc.getTitle());
+        hll.setTitle(Contract.isEmpty(doc.getTitle()) ? (bundle.getResourceBundle(OTYML, "otyml.title.default", locale)) : doc.getTitle());
         hll.setIntroduction(doc.getIntroduction());
-        hll.setLinks(convertOTYMLToEnhancedLinks(hll, doc.getMegalinkItems(), locale, true));
+        hll.setLinks(convertPageLinksToEnhancedLinks(hll, doc.getMegalinkItems(), locale, true));
+
+        return hll;
+    }
+
+    public HorizontalListLinksModule horizontalListLayout(BshPage page, Locale locale) {
+        HorizontalListLinksModule hll = new HorizontalListLinksModule();
+        hll.setTitle(bundle.getSiteResourceBundle(OTYML, "otyml.title.default", locale));
+        hll.setLinks(convertPageLinksToEnhancedLinks(hll, page.getLinks(), locale, true));
 
         return hll;
     }
@@ -197,7 +206,7 @@ public class MegalinkFactory {
         return links;
     }
 
-    private List<EnhancedLink> convertOTYMLToEnhancedLinks(Module<?> module, List<HippoBean> items, Locale locale, boolean addCategory) {
+    private List<EnhancedLink> convertPageLinksToEnhancedLinks(Module<?> module, List<HippoBean> items, Locale locale, boolean addCategory) {
         List<EnhancedLink> links = new ArrayList<>();
         for (HippoBean item : items) {
             links.add(convertToEnhancedLink(module, item, locale, addCategory));
