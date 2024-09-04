@@ -54,16 +54,16 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
     public static final String SITE_ID = "site-id";
 
     private final BlogFactory blogFactory;
-    private final MegalinkFactory megalinkFactory;
+    protected final MegalinkFactory megalinkFactory;
     private final ImageFactory imageFactory;
     private final LinkService linksService;
     private final SignpostFactory signpostFactory;
     private final ProductSearchWidgetFactory psrFactory;
-    private final PreviewModeFactory previewFactory;
+    protected final PreviewModeFactory previewFactory;
     private final HippoUtilsService hippoUtils;
-    private final ResourceBundleService bundle;
+    protected final ResourceBundleService bundle;
     private final SiteProperties properties;
-    private final Logger contentLogger;
+    protected final Logger contentLogger;
 
     private final MetadataFactory metadata;
 
@@ -249,7 +249,7 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
      * @param request HstRequest
      * @return labels object from the request
      */
-    private Map<String, Map<String, String>> labels(HstRequest request) {
+    protected Map<String, Map<String, String>> labels(HstRequest request) {
         if (request.getModel(LABELS) == null) {
             Map<String, Map<String, String>> labels = new HashMap<>();
             request.setModel(LABELS, labels);
