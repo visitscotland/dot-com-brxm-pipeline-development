@@ -1,7 +1,8 @@
 /content/documents/administration/options/bsh---regions:
   jcr:primaryType: hippo:handle
-  jcr:mixinTypes: ['mix:referenceable']
+  jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
   jcr:uuid: 4cf240cb-1dbc-4fe2-a16b-980c26efef07
+  hippo:name: BSH - Regions
   /bsh---regions:
     jcr:primaryType: selection:valuelist
     jcr:mixinTypes: ['hippotranslation:translated', 'mix:referenceable']
@@ -69,7 +70,3 @@
       jcr:primaryType: selection:listitem
       selection:key: borders
       selection:label: Scottish Borders
-    /selection:listitem[16]:
-      jcr:primaryType: selection:listitem
-      selection:key: all.of.scotland
-      selection:label: All of Scotland

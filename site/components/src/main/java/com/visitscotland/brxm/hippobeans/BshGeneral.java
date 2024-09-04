@@ -4,9 +4,9 @@ import org.onehippo.cms7.essentials.dashboard.annotations.HippoEssentialsGenerat
 import org.hippoecm.hst.content.beans.Node;
 import java.util.Calendar;
 
-@HippoEssentialsGenerated(internalName = "visitscotland:BshPage")
-@Node(jcrType = "visitscotland:BshPage")
-public class BshPage extends Page {
+@HippoEssentialsGenerated(internalName = "visitscotland:BshGeneral")
+@Node(jcrType = "visitscotland:BshGeneral")
+public class BshGeneral extends Page {
     @HippoEssentialsGenerated(internalName = "visitscotland:theme")
     public String getTheme() {
         return getSingleProperty("visitscotland:theme");
