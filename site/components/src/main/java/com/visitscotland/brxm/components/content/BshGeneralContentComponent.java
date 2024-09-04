@@ -40,7 +40,7 @@ public class BshGeneralContentComponent extends PageContentComponent<BshGeneral>
         BshGeneral page = getDocument(request);
         if (!Contract.isEmpty(page.getLinks())) {
             HorizontalListLinksModule otyml = megalinkFactory.horizontalListLayout(page, request.getLocale());
-            request.setModel(OTYML, otyml);
+            request.setModel(OTYML_BUNDLE, otyml);
         }
     }
 

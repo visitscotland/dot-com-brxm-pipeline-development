@@ -38,7 +38,7 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
     private final Logger freemarkerLogger = LoggerFactory.getLogger("freemarker");
 
     public static final String DOCUMENT = "document";
-    public static final String OTYML = "otyml";
+    public static final String OTYML_BUNDLE = "otyml";
     public static final String AUTHOR = "author";
     public static final String NEWSLETTER_SIGNPOST = "newsletterSignpost";
     public static final String PREVIEW_ALERTS = "alerts";
@@ -59,11 +59,11 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
     private final LinkService linksService;
     private final SignpostFactory signpostFactory;
     private final ProductSearchWidgetFactory psrFactory;
-    protected final PreviewModeFactory previewFactory;
+    private final PreviewModeFactory previewFactory;
     private final HippoUtilsService hippoUtils;
-    protected final ResourceBundleService bundle;
+    private final ResourceBundleService bundle;
     private final SiteProperties properties;
-    protected final Logger contentLogger;
+    private final Logger contentLogger;
 
     private final MetadataFactory metadata;
 
@@ -223,20 +223,19 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
      */
     protected void addOTYML(HstRequest request) {
         final String PAGINATION_BUNDLE = "essentials.pagination";
-        final String OTYML_BUNDLE = "otyml";
 
         Page page = getDocument(request);
         if (page.getOtherThings() != null) {
             HorizontalListLinksModule otyml = megalinkFactory.horizontalListLayout(page.getOtherThings(), request.getLocale());
             if (Contract.isEmpty(otyml.getLinks())) {
                 contentLogger.warn("OTYML at {} contains 0 published items. Skipping module", page.getOtherThings().getPath());
-                request.setModel(OTYML, previewFactory.createErrorModule(otyml));
+                request.setModel(OTYML_BUNDLE, previewFactory.createErrorModule(otyml));
                 return;
             }
             if (otyml.getLinks().size() < MegalinkFactory.MIN_ITEMS_CAROUSEL) {
                 contentLogger.warn("OTYML at {} contains only {} published items. Expected a minimum of 5", page.getOtherThings().getPath(), otyml.getLinks().size());
             }
-            request.setModel(OTYML, otyml);
+            request.setModel(OTYML_BUNDLE, otyml);
         }
 
         //TODO: Add itinerary labels for days and transport. (https://github.com/visitscotland/business-events-front-end/issues/74)
@@ -249,7 +248,7 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
      * @param request HstRequest
      * @return labels object from the request
      */
-    protected Map<String, Map<String, String>> labels(HstRequest request) {
+    private Map<String, Map<String, String>> labels(HstRequest request) {
         if (request.getModel(LABELS) == null) {
             Map<String, Map<String, String>> labels = new HashMap<>();
             request.setModel(LABELS, labels);
