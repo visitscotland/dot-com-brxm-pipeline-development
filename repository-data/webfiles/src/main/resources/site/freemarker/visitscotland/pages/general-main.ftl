@@ -38,7 +38,7 @@
         <@pageIntro content=document lightBackground=true />
 		<@introImage mainImage=heroImage />
 	<#elseif inspirationTemplate>
-		<!--TODO: Add frontend code -->
+		<@pageIntro content=document heroDetails=heroImage lightBackground=(psrWidget?has_content && psrWidget.position = "Top") fullScreenMobile=true />
 	<#else>
         <@pageIntro content=document lightBackground=true />
     </#if>
