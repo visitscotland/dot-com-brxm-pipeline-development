@@ -6,6 +6,7 @@ import com.visitscotland.brxm.hippobeans.VideoLink;
 import com.visitscotland.brxm.model.ArticleModule;
 import com.visitscotland.brxm.model.ArticleModuleSection;
 import com.visitscotland.brxm.services.LinkService;
+import com.visitscotland.utils.Contract;
 import org.hippoecm.hst.core.component.HstRequest;
 import org.springframework.stereotype.Component;
 
@@ -41,7 +42,9 @@ public class ArticleFactory {
         module.setTitle(doc.getTitle());
         module.setIntroduction(doc.getCopy());
         module.setHippoBean(doc);
-        module.setAnchor(doc.getAnchor());
+        String anchor = Contract.isEmpty(doc.getAnchor())?
+                doc.getTitle() : doc.getAnchor();
+        module.setAnchor(anchor.replaceAll("[^a-zA-Z0-9]", "-").toLowerCase());
 
         for (ArticleSection paragraph: doc.getParagraph()){
             ArticleModuleSection section = new ArticleModuleSection();

@@ -351,6 +351,7 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
     private void addSiteSpecificConfiguration(HstRequest request) {
         final String SOCIAL_MEDIA = "navigation.social-media";
         final String STATIC = "navigation.static";
+        final String TABLE_CONTENTS = "table-contents";
         String prefix = "";
 
         if (Contract.isEmpty(properties.getSiteId())) {
@@ -365,6 +366,7 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
 
         labels(request).put(SOCIAL_MEDIA, bundle.getAllLabels(prefix + SOCIAL_MEDIA, request.getLocale()));
         labels(request).put(STATIC, bundle.getAllLabels(prefix + STATIC, request.getLocale()));
+        labels(request).put(TABLE_CONTENTS, bundle.getAllLabels(TABLE_CONTENTS, request.getLocale()));
     }
 
     boolean isEditMode(HstRequest request) {

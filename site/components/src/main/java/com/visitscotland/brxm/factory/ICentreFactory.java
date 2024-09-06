@@ -65,24 +65,12 @@ public class ICentreFactory {
         logger.info("Creating iCentreModule for {}", doc.getPath());
 
         ICentreModule module = new ICentreModule();
-        module.setLinks(getLinks(location, locale));
-
-        if (module.getLinks().isEmpty()) {
-            module.setLinks(getICentreLandingLink(locale));
-        }
 
         //Populate Title
         if (Contract.isEmpty(doc.getTitle())) {
             module.setTitle(bundle.getResourceBundle(BUNDLE_ID, "icentre.title.default", locale));
         } else {
             module.setTitle(doc.getTitle());
-        }
-
-        //Populate Description
-        if (module.getLinks().size() == 1) {
-            module.setDescription(bundle.getResourceBundle(BUNDLE_ID, "icentre.description.singleVic", locale));
-        } else {
-            module.setDescription(bundle.getResourceBundle(BUNDLE_ID, "icentre.description.multipleVic", locale));
         }
 
         //Populate Image
