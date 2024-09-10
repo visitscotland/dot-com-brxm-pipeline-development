@@ -1,0 +1,72 @@
+/content/documents/administration/options/bsh---regions:
+  jcr:primaryType: hippo:handle
+  jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+  jcr:uuid: 4cf240cb-1dbc-4fe2-a16b-980c26efef07
+  hippo:name: BSH - Regions
+  /bsh---regions:
+    jcr:primaryType: selection:valuelist
+    jcr:mixinTypes: ['hippotranslation:translated', 'mix:referenceable']
+    jcr:uuid: 7d2f5dcd-5aa3-4065-af2f-e09d5be9c783
+    hippo:availability: [live, preview]
+    hippotranslation:id: 707f2ee8-7a0a-4ae7-a20c-244e6759f82f
+    hippotranslation:locale: en
+    /selection:listitem[1]:
+      jcr:primaryType: selection:listitem
+      selection:key: aberdeen
+      selection:label: Aberdeen & Aberdeenshire
+    /selection:listitem[2]:
+      jcr:primaryType: selection:listitem
+      selection:key: argyll
+      selection:label: Argyll & The Isles
+    /selection:listitem[3]:
+      jcr:primaryType: selection:listitem
+      selection:key: ayrshire
+      selection:label: Ayrshire & Arran
+    /selection:listitem[4]:
+      jcr:primaryType: selection:listitem
+      selection:key: dumfries
+      selection:label: Dumfries & Galloway
+    /selection:listitem[5]:
+      jcr:primaryType: selection:listitem
+      selection:key: dundee
+      selection:label: Dundee & Angus
+    /selection:listitem[6]:
+      jcr:primaryType: selection:listitem
+      selection:key: edinburgh
+      selection:label: Edinburgh & The Lothians
+    /selection:listitem[7]:
+      jcr:primaryType: selection:listitem
+      selection:key: fife
+      selection:label: Fife
+    /selection:listitem[8]:
+      jcr:primaryType: selection:listitem
+      selection:key: glasgow
+      selection:label: Greater Glasgow & The Clyde Valley
+    /selection:listitem[9]:
+      jcr:primaryType: selection:listitem
+      selection:key: stirling
+      selection:label: Loch Lomond, The Trossachs, Stirling & Forth Valley
+    /selection:listitem[10]:
+      jcr:primaryType: selection:listitem
+      selection:key: orkney
+      selection:label: Orkney
+    /selection:listitem[11]:
+      jcr:primaryType: selection:listitem
+      selection:key: hebrides
+      selection:label: Outer Hebrides
+    /selection:listitem[12]:
+      jcr:primaryType: selection:listitem
+      selection:key: perth
+      selection:label: Perthshire
+    /selection:listitem[13]:
+      jcr:primaryType: selection:listitem
+      selection:key: highlands
+      selection:label: The Highlands and Moray Speyside
+    /selection:listitem[14]:
+      jcr:primaryType: selection:listitem
+      selection:key: shetland
+      selection:label: Shetland
+    /selection:listitem[15]:
+      jcr:primaryType: selection:listitem
+      selection:key: borders
+      selection:label: Scottish Borders
