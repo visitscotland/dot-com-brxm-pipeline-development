@@ -105,3 +105,12 @@ definitions:
       jcr:primaryType: hipposys:moduleconfig
       hipposys:className: org.onehippo.cms.services.validation.validator.RegExpValidator
       regexp.pattern: ^$|^[a-zA-Z0-9_.-]*$
+    /hippo:configuration/hippo:modules/validation/hippo:moduleconfig/visitscotland:article-image-validator:
+      jcr:primaryType: hipposys:moduleconfig
+      hipposys:className: com.visitscotland.brxm.validator.ArticleImageValidator
+      themes: [Content List, Key Statistics]
+    /hippo:configuration/hippo:modules/validation/hippo:moduleconfig/visitscotland:article-copy-validator:
+      jcr:primaryType: hipposys:moduleconfig
+      hipposys:className: com.visitscotland.brxm.validator.ArticleCopyValidator
+      mandatory.h3: [Accordion, Content List, Key Benefits, Key Statistics, Step by
+          Step]
