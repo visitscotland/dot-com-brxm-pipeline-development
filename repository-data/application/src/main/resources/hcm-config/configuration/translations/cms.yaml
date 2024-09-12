@@ -14,16 +14,19 @@ definitions:
       visitscotland:scotland-coordinates-validator: 'Coordinates should be between:
         Latitude from 54.6 to 60.9 and Longitude from -13.7 to -0.7.'
       visitscotland:link-image-validator: An image is required for external products.
-      visitscotland:location-validator: Location should be provided for everything but DMS.
+      visitscotland:location-validator: Location should be provided for everything
+        but DMS.
       visitscotland:image-validator: The image doesn’t have all of the required fields.
         Fill in the missing fields or select another image.
       visitscotland:link-validator: You can’t link to that type of document. Choose
         a Page document or a Shared Link instead.
       visitscotland:link-validator#stop: You can’t link to that type of document.
         Choose a Stop document.
-      visitscotland:link-validator#channel: You can’t link to a document from a different language.
+      visitscotland:link-validator#channel: You can’t link to a document from a different
+        language.
       visitscotland:link-validator#emptyLink: Please select a link.
-      visitscotland:link-validator#removedLink: The document linked has been deleted, please link to a valid document.
+      visitscotland:link-validator#removedLink: The document linked has been deleted,
+        please link to a valid document.
       visitscotland:link-validator#linkToSelf: The document contains a link to itself.
       visitscotland:link-validator#translation: The current document has not been
         linked as expected, please link it again.
@@ -47,20 +50,32 @@ definitions:
         Choose an Author Profile document.
       visitscotland:link-validator#video: You can’t link to that type of document.
         Choose a Video document.
-      visitscotland:link-validator#map: You can’t link to that type of document.
-        Choose a Destination Page or Stop.
-      visitscotland:link-validator#mapcoordinates: You can’t link to that type of document.
-        Choose a General, Listicle or Itinerary page.
-      visitscotland:link-validator#personalisation: You can’t link to that type of document.
-        Choose a megalink module.
-      visitscotland:map-module-validator: Either Title or Map Main Tab Title must be populated.
-      visitscotland:map-module-validator#bespokeMap: You can't select Map Category for Bespoke maps.
-      visitscotland:map-page-validator#generalPage: You can only select a parent with child categories or a bespoke map.
-      visitscotland:map-page-validator#destinationPage: Individual destination maps work automatically. No category is required.
+      visitscotland:link-validator#map: You can’t link to that type of document. Choose
+        a Destination Page or Stop.
+      visitscotland:link-validator#mapcoordinates: You can’t link to that type of
+        document. Choose a General, Listicle or Itinerary page.
+      visitscotland:link-validator#personalisation: You can’t link to that type of
+        document. Choose a megalink module.
+      visitscotland:map-module-validator: Either Title or Map Main Tab Title must
+        be populated.
+      visitscotland:map-module-validator#bespokeMap: You can't select Map Category
+        for Bespoke maps.
+      visitscotland:map-page-validator#generalPage: You can only select a parent with
+        child categories or a bespoke map.
+      visitscotland:map-page-validator#destinationPage: Individual destination maps
+        work automatically. No category is required.
       visitscotland:number-validator: The field only accepts numbers.
       visitscotland:youtube-url-validator: Enter a valid Youtube link URL.
       visitscotland:featured-widget-validator: Invalid featured widget.
-      visitscotland:featured-widget-validator#multipleFeaturedEvent: Only 1 featured event allowed.
-      visitscotland:featured-widget-validator#notEvent: Product search must be an event search.
-      visitscotland:featured-widget-validator#mixedFeaturedWidget: Featured events and featured items can not be mixed - pick 2 featured items or 1 featured event.
+      visitscotland:featured-widget-validator#multipleFeaturedEvent: Only 1 featured
+        event allowed.
+      visitscotland:featured-widget-validator#notEvent: Product search must be an
+        event search.
+      visitscotland:featured-widget-validator#mixedFeaturedWidget: Featured events
+        and featured items can not be mixed - pick 2 featured items or 1 featured
+        event.
       non-empty-spaces: Only characters and number are allowed, no spaces.
+      visitscotland:article-copy-validator: Each paragraph should start with an Heading
+        for the current Article layout
+      visitscotland:article-image-validator: An image must be provided on each paragraph
+        for the current Article layout
