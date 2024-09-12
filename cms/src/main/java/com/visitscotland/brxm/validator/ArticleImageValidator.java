@@ -49,15 +49,15 @@ public class ArticleImageValidator implements Validator<Node> {
             if (themes.contains(node.getProperty(Article.THEME).getValue().getString())){
                 for (NodeIterator it = node.getNodes(Article.PARAGRAPH); it.hasNext(); ) {
                     Node section = it.nextNode();
-                    if (!node.hasProperty(ArticleSection.MEDIA)){
-                        //TODO Message
+                    if (!section.hasNode(ArticleSection.MEDIA)
+                            || !section.getNode(ArticleSection.MEDIA).hasProperty("hippo:docbase")
+                            || section.getNode(ArticleSection.MEDIA).getProperty("hippo:docbase").getString().equals(ImageValidator.EMPTY_IMAGE)) {
                         return Optional.of(context.createViolation());
                     }
                 }
             }
             return Optional.empty();
         } catch (RepositoryException e) {
-            //TODO Message
             return Optional.of(context.createViolation());
         }
     }
