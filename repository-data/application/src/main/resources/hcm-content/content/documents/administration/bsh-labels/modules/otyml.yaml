@@ -1,0 +1,52 @@
+/content/documents/administration/bsh-labels/modules/otyml:
+  jcr:primaryType: hippo:handle
+  jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+  jcr:uuid: 30c7559f-7823-4cd9-ab78-8cc3efca0d9c
+  hippo:name: OTYML
+  hippo:versionHistory: a29e7d5e-2f15-4d82-b638-0e00be7b252c
+  /otyml[1]:
+    jcr:primaryType: resourcebundle:resourcebundle
+    jcr:mixinTypes: ['mix:versionable']
+    jcr:uuid: 1bbe559f-4503-4da9-998d-71310b317c64
+    hippo:availability: [preview]
+    hippostd:retainable: false
+    hippostd:state: unpublished
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2020-12-10T15:57:49.892Z
+    hippostdpubwf:lastModificationDate: 2024-09-04T13:53:01.604+01:00
+    hippostdpubwf:lastModifiedBy: admin
+    resourcebundle:descriptions: ['', '']
+    resourcebundle:id: bsh.otyml
+    resourcebundle:keys: [otyml.title.default, otyml.category]
+    resourcebundle:messages: [Related Pages, Category]
+  /otyml[2]:
+    jcr:primaryType: resourcebundle:resourcebundle
+    jcr:mixinTypes: ['mix:referenceable']
+    jcr:uuid: e2577445-69d5-4e55-98d7-0d93098ab84d
+    hippo:availability: []
+    hippostd:retainable: false
+    hippostd:state: draft
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2020-12-10T15:57:49.892Z
+    hippostdpubwf:lastModificationDate: 2024-09-04T13:51:57.632+01:00
+    hippostdpubwf:lastModifiedBy: admin
+    resourcebundle:descriptions: ['', '']
+    resourcebundle:id: bsh.otyml
+    resourcebundle:keys: [otyml.title.default, otyml.category]
+    resourcebundle:messages: [Related Pages, Category]
+  /otyml[3]:
+    jcr:primaryType: resourcebundle:resourcebundle
+    jcr:mixinTypes: ['mix:referenceable']
+    jcr:uuid: c561081d-775f-43f3-8ba2-f5fb760b3d6d
+    hippo:availability: [live]
+    hippostd:retainable: false
+    hippostd:state: published
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2020-12-10T15:57:49.892Z
+    hippostdpubwf:lastModificationDate: 2024-09-04T13:53:01.604+01:00
+    hippostdpubwf:lastModifiedBy: admin
+    hippostdpubwf:publicationDate: 2024-09-04T13:53:04.632+01:00
+    resourcebundle:descriptions: ['', '']
+    resourcebundle:id: bsh.otyml
+    resourcebundle:keys: [otyml.title.default, otyml.category]
+    resourcebundle:messages: [Related Pages, Category]
