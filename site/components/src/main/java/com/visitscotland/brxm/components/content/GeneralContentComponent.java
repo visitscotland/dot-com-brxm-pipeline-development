@@ -18,6 +18,7 @@ public class GeneralContentComponent extends PageContentComponent<Destination> {
     public static final String SIMPLE = "Simple";
     public static final String STANDARD = "Standard";
     public static final String TOP_LEVEL = "Top-Level";
+    public static final String INSPIRATION = "Inspiration";
     static final String ERROR_CODE = "errorCode";
 
     private PageTemplateBuilder builder;
