@@ -25,6 +25,9 @@ public class MenuItemProvider {
     private static final String NEW_BE_PAGE_MENU = "new-be-page";
     private static final String NEW_BE_MODULE_MENU = "new-be-module";
 
+    private static final String NEW_BSH_PAGE_MENU = "new-bsh-page";
+    private static final String NEW_BSH_MODULE_MENU = "new-bsh-module";
+
     private static final String LOCALE_PROPERTY_PATH = "hippotranslation:locale";
 
     private static final Logger logger = LoggerFactory.getLogger(MenuItemProvider.class);
@@ -43,6 +46,7 @@ public class MenuItemProvider {
             }
             simplifyMenu(subjectNode, prototypes, NEW_PAGE_MENU, NEW_MODULE_MENU);
             simplifyMenu(subjectNode, prototypes, NEW_BE_PAGE_MENU, NEW_BE_MODULE_MENU);
+            simplifyMenu(subjectNode, prototypes, NEW_BSH_PAGE_MENU, NEW_BSH_MODULE_MENU);
         } catch (RepositoryException | ObjectBeanManagerException | QueryException ex) {
             logger.warn("Failed to obtain child JCR types for menu selection", ex);
         }
@@ -53,7 +57,7 @@ public class MenuItemProvider {
             Optional<Page> optionalPage = getPageContentBean(subjectNode);
             if (optionalPage.isPresent()) {
                 prototypes.remove(pageMenu);
-                if (!NEW_BE_PAGE_MENU.equals(pageMenu)) {
+                if (NEW_PAGE_MENU.equals(pageMenu)) {
                     // Business Events currently get the list of items from the hippo:template defined at:
                     // /hippo:configuration/hippo:queries/hippo:templates/new-be-module
                     prototypes.put(moduleMenu, Set.of((optionalPage.get()).getChildJcrTypes()));

@@ -699,3 +699,298 @@
               /en:
                 jcr:primaryType: hippotaxonomy:categoryinfo
                 hippotaxonomy:name: Outlander Season 4
+  /BSH-sectors:
+    jcr:primaryType: hippo:handle
+    jcr:mixinTypes: ['hippo:versionInfo']
+    hippo:versionHistory: ff0c0682-73c2-4f44-8804-530e4c1f462f
+    /BSH-sectors[1]:
+      jcr:primaryType: hippotaxonomy:taxonomy
+      jcr:mixinTypes: ['hippostd:publishableSummary', 'mix:versionable']
+      jcr:uuid: 7aa3e637-f61f-45c4-93c7-decd1ec257b7
+      hippo:availability: [live]
+      hippostd:holder: admin
+      hippostd:retainable: false
+      hippostd:state: published
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2024-08-29T13:12:34.046+01:00
+      hippostdpubwf:lastModificationDate: 2024-08-29T13:17:12.750+01:00
+      hippostdpubwf:lastModifiedBy: admin
+      hippostdpubwf:publicationDate: 2024-08-29T13:17:19.455+01:00
+      hippotaxonomy:defaultLocale: en
+      hippotaxonomy:locales: [en]
+      /accommodation:
+        jcr:primaryType: hippotaxonomy:category
+        hippotaxonomy:key: accommodation
+        locale.en.name: Accommodation
+      /events:
+        jcr:primaryType: hippotaxonomy:category
+        hippotaxonomy:key: event
+        locale.en.name: Events
+      /visitor-attractions:
+        jcr:primaryType: hippotaxonomy:category
+        hippotaxonomy:key: attraction
+        locale.en.name: Visitor Attractions
+      /tours:
+        jcr:primaryType: hippotaxonomy:category
+        hippotaxonomy:key: tour
+        locale.en.name: Tours
+    /BSH-sectors[2]:
+      jcr:primaryType: hippotaxonomy:taxonomy
+      jcr:mixinTypes: ['hippostd:publishableSummary', 'mix:referenceable', 'mix:versionable']
+      jcr:uuid: ae43acc4-dc06-4851-aaa0-6c34f5935774
+      hippo:availability: [preview]
+      hippostd:retainable: false
+      hippostd:state: unpublished
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2024-08-29T13:12:34.046+01:00
+      hippostdpubwf:lastModificationDate: 2024-08-29T13:17:12.750+01:00
+      hippostdpubwf:lastModifiedBy: admin
+      hippotaxonomy:defaultLocale: en
+      hippotaxonomy:locales: [en]
+      /accommodation:
+        jcr:primaryType: hippotaxonomy:category
+        hippotaxonomy:key: accommodation
+        locale.en.name: Accommodation
+      /events:
+        jcr:primaryType: hippotaxonomy:category
+        hippotaxonomy:key: event
+        locale.en.name: Events
+      /visitor-attractions:
+        jcr:primaryType: hippotaxonomy:category
+        hippotaxonomy:key: attraction
+        locale.en.name: Visitor Attractions
+      /tours:
+        jcr:primaryType: hippotaxonomy:category
+        hippotaxonomy:key: tour
+        locale.en.name: Tours
+    /BSH-sectors[3]:
+      jcr:primaryType: hippotaxonomy:taxonomy
+      jcr:mixinTypes: ['hippostd:publishableSummary', 'mix:referenceable']
+      jcr:uuid: 6bb5590a-d7b8-41ea-93ce-49b0cb2c2367
+      hippo:availability: []
+      hippostd:retainable: false
+      hippostd:state: draft
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2024-08-29T13:12:34.046+01:00
+      hippostdpubwf:lastModificationDate: 2024-08-29T13:15:11.234+01:00
+      hippostdpubwf:lastModifiedBy: admin
+      hippotaxonomy:defaultLocale: en
+      hippotaxonomy:locales: [en]
+      /accommodation:
+        jcr:primaryType: hippotaxonomy:category
+        hippotaxonomy:key: accommodation
+        locale.en.name: Accommodation
+      /events:
+        jcr:primaryType: hippotaxonomy:category
+        hippotaxonomy:key: event
+        locale.en.name: Events
+      /visitor-attractions:
+        jcr:primaryType: hippotaxonomy:category
+        hippotaxonomy:key: attraction
+        locale.en.name: Visitor Attractions
+      /tours:
+        jcr:primaryType: hippotaxonomy:category
+        hippotaxonomy:key: tour
+        locale.en.name: Tours
+  /BSH-topics:
+    jcr:primaryType: hippo:handle
+    jcr:mixinTypes: ['hippo:versionInfo']
+    hippo:versionHistory: 06ec35fd-2b8c-4a05-b57a-1cb069a3bc6f
+    /BSH-topics[1]:
+      jcr:primaryType: hippotaxonomy:taxonomy
+      jcr:mixinTypes: ['hippostd:publishableSummary', 'mix:versionable']
+      jcr:uuid: 70d5f741-5f6b-4c24-b1bf-ab21c3ab80e0
+      hippo:availability: [live]
+      hippostd:holder: admin
+      hippostd:retainable: false
+      hippostd:state: published
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2024-08-29T13:12:50.741+01:00
+      hippostdpubwf:lastModificationDate: 2024-08-29T13:18:10.915+01:00
+      hippostdpubwf:lastModifiedBy: admin
+      hippostdpubwf:publicationDate: 2024-08-29T13:18:18.929+01:00
+      hippotaxonomy:defaultLocale: en
+      hippotaxonomy:locales: [en]
+      /climate-change:
+        jcr:primaryType: hippotaxonomy:category
+        hippotaxonomy:key: climate-change
+        locale.en.name: Climate Change
+      /legislation:
+        jcr:primaryType: hippotaxonomy:category
+        hippotaxonomy:key: legislation
+        locale.en.name: Legislation
+    /BSH-topics[2]:
+      jcr:primaryType: hippotaxonomy:taxonomy
+      jcr:mixinTypes: ['hippostd:publishableSummary', 'mix:referenceable', 'mix:versionable']
+      jcr:uuid: 3cce4edc-b364-45e7-9edc-769c412bec8c
+      hippo:availability: [preview]
+      hippostd:retainable: false
+      hippostd:state: unpublished
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2024-08-29T13:12:50.741+01:00
+      hippostdpubwf:lastModificationDate: 2024-08-29T13:18:10.915+01:00
+      hippostdpubwf:lastModifiedBy: admin
+      hippotaxonomy:defaultLocale: en
+      hippotaxonomy:locales: [en]
+      /climate-change:
+        jcr:primaryType: hippotaxonomy:category
+        hippotaxonomy:key: climate-change
+        locale.en.name: Climate Change
+      /legislation:
+        jcr:primaryType: hippotaxonomy:category
+        hippotaxonomy:key: legislation
+        locale.en.name: Legislation
+    /BSH-topics[3]:
+      jcr:primaryType: hippotaxonomy:taxonomy
+      jcr:mixinTypes: ['hippostd:publishableSummary', 'mix:referenceable']
+      jcr:uuid: c14fe459-1c54-4667-bfda-f5345d5e09c5
+      hippo:availability: []
+      hippostd:retainable: false
+      hippostd:state: draft
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2024-08-29T13:12:50.741+01:00
+      hippostdpubwf:lastModificationDate: 2024-08-29T13:17:38.078+01:00
+      hippostdpubwf:lastModifiedBy: admin
+      hippotaxonomy:defaultLocale: en
+      hippotaxonomy:locales: [en]
+      /climate-change:
+        jcr:primaryType: hippotaxonomy:category
+        hippotaxonomy:key: climate-change
+        locale.en.name: Climate Change
+      /legislation:
+        jcr:primaryType: hippotaxonomy:category
+        hippotaxonomy:key: legislation
+        locale.en.name: Legislation
+  /BSH-content-format:
+    jcr:primaryType: hippo:handle
+    jcr:mixinTypes: ['hippo:versionInfo']
+    hippo:versionHistory: 038004af-1f99-4581-9941-0f878eac5111
+    /BSH-content-format[1]:
+      jcr:primaryType: hippotaxonomy:taxonomy
+      jcr:mixinTypes: ['hippostd:publishableSummary', 'mix:versionable']
+      jcr:uuid: 27a6b590-b368-48c4-b7b9-d1c599894e39
+      hippo:availability: [live]
+      hippostd:holder: admin
+      hippostd:retainable: false
+      hippostd:state: published
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2024-08-29T13:13:21.039+01:00
+      hippostdpubwf:lastModificationDate: 2024-08-29T13:21:32.328+01:00
+      hippostdpubwf:lastModifiedBy: admin
+      hippostdpubwf:publicationDate: 2024-08-29T13:21:38.084+01:00
+      hippotaxonomy:defaultLocale: en
+      hippotaxonomy:locales: [en]
+      /webinar:
+        jcr:primaryType: hippotaxonomy:category
+        hippotaxonomy:key: webinar
+        locale.en.name: Webinar
+      /how-to-guide:
+        jcr:primaryType: hippotaxonomy:category
+        hippotaxonomy:key: how-to-guide
+        locale.en.name: How to guide
+      /toolkit:
+        jcr:primaryType: hippotaxonomy:category
+        hippotaxonomy:key: toolkit
+        locale.en.name: Toolkit
+      /article:
+        jcr:primaryType: hippotaxonomy:category
+        hippotaxonomy:key: article
+        locale.en.name: Article
+      /video:
+        jcr:primaryType: hippotaxonomy:category
+        hippotaxonomy:key: video
+        locale.en.name: Video
+      /download:
+        jcr:primaryType: hippotaxonomy:category
+        hippotaxonomy:key: download
+        locale.en.name: Download
+    /BSH-content-format[2]:
+      jcr:primaryType: hippotaxonomy:taxonomy
+      jcr:mixinTypes: ['hippostd:publishableSummary', 'mix:referenceable', 'mix:versionable']
+      jcr:uuid: 34d77527-3fa8-416e-8793-391fed9cedd4
+      hippo:availability: [preview]
+      hippostd:retainable: false
+      hippostd:state: unpublished
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2024-08-29T13:13:21.039+01:00
+      hippostdpubwf:lastModificationDate: 2024-08-29T13:21:32.328+01:00
+      hippostdpubwf:lastModifiedBy: admin
+      hippotaxonomy:defaultLocale: en
+      hippotaxonomy:locales: [en]
+      /webinar:
+        jcr:primaryType: hippotaxonomy:category
+        hippotaxonomy:key: webinar
+        locale.en.name: Webinar
+      /how-to-guide:
+        jcr:primaryType: hippotaxonomy:category
+        hippotaxonomy:key: how-to-guide
+        locale.en.name: How to guide
+      /toolkit:
+        jcr:primaryType: hippotaxonomy:category
+        hippotaxonomy:key: toolkit
+        locale.en.name: Toolkit
+      /article:
+        jcr:primaryType: hippotaxonomy:category
+        hippotaxonomy:key: article
+        locale.en.name: Article
+      /video:
+        jcr:primaryType: hippotaxonomy:category
+        hippotaxonomy:key: video
+        locale.en.name: Video
+      /download:
+        jcr:primaryType: hippotaxonomy:category
+        hippotaxonomy:key: download
+        locale.en.name: Download
+    /BSH-content-format[3]:
+      jcr:primaryType: hippotaxonomy:taxonomy
+      jcr:mixinTypes: ['hippostd:publishableSummary', 'mix:referenceable']
+      jcr:uuid: 439f6ab6-2f14-43e2-815b-9bcc2dc7ceae
+      hippo:availability: []
+      hippostd:retainable: false
+      hippostd:state: draft
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2024-08-29T13:13:21.039+01:00
+      hippostdpubwf:lastModificationDate: 2024-08-29T13:18:37.444+01:00
+      hippostdpubwf:lastModifiedBy: admin
+      hippotaxonomy:defaultLocale: en
+      hippotaxonomy:locales: [en]
+      /webinar:
+        jcr:primaryType: hippotaxonomy:category
+        hippotaxonomy:key: webinar
+        locale.en.name: Webinar
+      /how-to-guide:
+        jcr:primaryType: hippotaxonomy:category
+        hippotaxonomy:key: how-to-guide
+        locale.en.name: How to guide
+      /toolkit:
+        jcr:primaryType: hippotaxonomy:category
+        hippotaxonomy:key: toolkit
+        locale.en.name: Toolkit
+      /article:
+        jcr:primaryType: hippotaxonomy:category
+        hippotaxonomy:key: article
+        locale.en.name: Article
+      /video:
+        jcr:primaryType: hippotaxonomy:category
+        hippotaxonomy:key: video
+        locale.en.name: Video
+      /download:
+        jcr:primaryType: hippotaxonomy:category
+        hippotaxonomy:key: download
+        locale.en.name: Download
+  /BSH-regions:
+    jcr:primaryType: hippo:handle
+    /BSH-regions:
+      jcr:primaryType: hippotaxonomy:taxonomy
+      jcr:mixinTypes: ['hippostd:publishableSummary', 'mix:versionable']
+      jcr:uuid: e57c829a-27b3-46cb-98d6-792290f992af
+      hippo:availability: [live, preview]
+      hippostd:holder: admin
+      hippostd:state: published
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2024-08-29T13:13:54.926+01:00
+      hippostdpubwf:lastModificationDate: 2024-08-29T13:13:54.926+01:00
+      hippostdpubwf:lastModifiedBy: admin
+      hippostdpubwf:publicationDate: 2024-08-29T13:13:54.926+01:00
+      hippotaxonomy:defaultLocale: en
+      hippotaxonomy:locales: [en]
