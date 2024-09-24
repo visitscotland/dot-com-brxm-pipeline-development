@@ -121,7 +121,7 @@
                     v-slot:vs-blog-data
                 >
                     <vs-blog-details
-                        blog-author="${author.authorName}"
+                        blog-author="<#if author.authorName?has_content>${author.authorName}</#if>"
                         blog-publish-date="${author.publishDate}"
                         blog-read-time="${author.readingTime}"
                     ></vs-blog-details>
