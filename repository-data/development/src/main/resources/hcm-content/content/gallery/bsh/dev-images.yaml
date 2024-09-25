@@ -417,3 +417,55 @@
         jcr:primaryType: visitscotland:ImageData
         visitscotland:altText: ''
         visitscotland:caption: ''
+  /kelpies-icon.jpg:
+    jcr:primaryType: hippo:handle
+    jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+    jcr:uuid: 54edd55a-0411-492e-a3df-b9f5489e839c
+    hippo:name: kelpies icon.jpg
+    /kelpies-icon.jpg:
+      jcr:primaryType: visitscotland:Image
+      hippo:availability: [live, preview]
+      hippogallery:description: Kelpies illustration
+      hippogallery:filename: kelpies icon.jpg
+      visitscotland:altText: ''
+      visitscotland:credit: ''
+      visitscotland:location: ''
+      /hippogallery:thumbnail:
+        jcr:primaryType: hippogallery:image
+        hippo:filename: kelpies icon.jpg
+        hippogallery:height: 31
+        hippogallery:width: 60
+        jcr:data:
+          type: binary
+          resource: /content/gallery/bsh/dev-images/kelpies-icon.jpg/kelpies-icon.jpg/thumbnail/thumbnail.jpg
+        jcr:lastModified: 2024-09-17T11:10:10.909+01:00
+        jcr:mimeType: image/jpeg
+      /hippogallery:original:
+        jcr:primaryType: hippogallery:image
+        hippogallery:height: 181
+        hippogallery:width: 343
+        jcr:data:
+          type: binary
+          resource: /content/gallery/bsh/dev-images/kelpies-icon.jpg/kelpies-icon.jpg/original/original.jpg
+        jcr:lastModified: 2024-09-17T11:10:10.909+01:00
+        jcr:mimeType: image/jpeg
+      /visitscotland:nl:
+        jcr:primaryType: visitscotland:ImageData
+        visitscotland:altText: ''
+        visitscotland:caption: ''
+      /visitscotland:fr:
+        jcr:primaryType: visitscotland:ImageData
+        visitscotland:altText: ''
+        visitscotland:caption: ''
+      /visitscotland:de:
+        jcr:primaryType: visitscotland:ImageData
+        visitscotland:altText: ''
+        visitscotland:caption: ''
+      /visitscotland:es:
+        jcr:primaryType: visitscotland:ImageData
+        visitscotland:altText: ''
+        visitscotland:caption: ''
+      /visitscotland:it:
+        jcr:primaryType: visitscotland:ImageData
+        visitscotland:altText: ''
+        visitscotland:caption: ''
