@@ -15,7 +15,13 @@
   - visitscotland:diff (string)
   - visitscotland:translationPriority (string)
 
+[visitscotland:ArticleBase] > hippostd:relaxed, hippotranslation:translated, visitscotland:basedocument, visitscotland:translatable
+  orderable
+
 [visitscotland:Article] > hippostd:relaxed, hippotranslation:translated, visitscotland:basedocument, visitscotland:translatable
+  orderable
+
+[visitscotland:ArticleOrg] > hippostd:relaxed, hippotranslation:translated, visitscotland:basedocument, visitscotland:translatable
   orderable
 
 [visitscotland:ArticleSection] > hippo:compound, hippostd:relaxed

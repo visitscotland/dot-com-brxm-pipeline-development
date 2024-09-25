@@ -6,21 +6,13 @@
   hippostd:foldertype: []
   hippotranslation:id: 3e37cc8f-83c8-486e-8078-665f2b3ec676
   hippotranslation:locale: en
-  /profiles:
-    jcr:primaryType: hippostd:folder
-    jcr:mixinTypes: ['hippo:named', 'hippotranslation:translated', 'mix:versionable']
-    jcr:uuid: 0712e185-4ee5-45e9-8f96-461925812d3c
-    hippo:name: Author Profile
-    hippostd:foldertype: [new-author-profile]
-    hippotranslation:id: 67b5beba-1c99-4187-82c2-c2fb1454c7b4
-    hippotranslation:locale: en
   /links:
     jcr:primaryType: hippostd:folder
     jcr:mixinTypes: ['frontend:orderChildFolders', 'hippo:named', 'hippotranslation:translated',
       'mix:versionable']
     jcr:uuid: 59b09751-b76e-4baa-8d04-09b7fd911afd
     hippo:name: Custom Links
-    hippostd:foldertype: [new-translated-folder-shared]
+    hippostd:foldertype: [new-translated-folder-shared-bsh]
     hippotranslation:id: 972a1128-4b13-4ee6-a27e-1c38a30904d5
     hippotranslation:locale: en
     /external:
@@ -29,7 +21,7 @@
         'mix:versionable']
       jcr:uuid: 581491e7-3d31-40fe-b7fa-739c8b0465aa
       hippo:name: External Websites
-      hippostd:foldertype: [new-translated-folder-shared, new-shared-document]
+      hippostd:foldertype: [new-translated-folder-shared-bsh, new-shared-bsh-document]
       hippotranslation:id: 3a14e1f6-a9c6-4b9b-bc13-7e95e21054ee
       hippotranslation:locale: en
     /external-documents:
@@ -38,7 +30,7 @@
         'mix:versionable']
       jcr:uuid: 0967b6f5-1d16-4ede-8b62-3b06082224cc
       hippo:name: External Documents
-      hippostd:foldertype: [new-translated-folder-shared, new-shared-document]
+      hippostd:foldertype: [new-translated-folder-shared-bsh, new-shared-bsh-document]
       hippotranslation:id: ccb48ae5-8d20-4c31-a983-32e25d281d98
       hippotranslation:locale: en
   /video:
