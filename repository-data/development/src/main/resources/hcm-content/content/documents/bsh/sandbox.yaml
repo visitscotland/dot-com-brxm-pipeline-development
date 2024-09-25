@@ -144,6 +144,114 @@
       hippostd:foldertype: [new-translated-folder-shared-bsh, new-shared-bsh-document]
       hippotranslation:id: 1be26a6f-8fb8-4162-a37d-352dfc551d81
       hippotranslation:locale: en
+      /external-links:
+        jcr:primaryType: hippostd:folder
+        jcr:mixinTypes: ['hippo:named', 'hippotranslation:translated', 'mix:versionable']
+        jcr:uuid: b9d2ba1b-0fbc-4e04-9d7a-b0d09fb5c41a
+        hippo:name: External Links
+        hippostd:foldertype: [new-translated-folder-shared-bsh, new-shared-bsh-document]
+        hippotranslation:id: 2e3bede1-e33a-4889-92a1-21f92eaaedf3
+        hippotranslation:locale: en
+        /visitscotland.com:
+          jcr:primaryType: hippo:handle
+          jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+          jcr:uuid: 8b9e387c-24d2-4e0c-ba4b-4dac823c8e57
+          hippo:name: VisitScotland.com
+          hippo:versionHistory: f72bc946-72ab-49aa-b7fd-9985c15d212d
+          /visitscotland.com[1]:
+            jcr:primaryType: visitscotland:SharedLinkBsh
+            jcr:mixinTypes: ['mix:referenceable']
+            jcr:uuid: 3e59e236-64c6-40c8-95ba-12b3f0c10e95
+            hippo:availability: []
+            hippostd:retainable: false
+            hippostd:state: draft
+            hippostdpubwf:createdBy: admin
+            hippostdpubwf:creationDate: 2024-09-25T17:01:40.525+01:00
+            hippostdpubwf:lastModificationDate: 2024-09-25T17:01:40.525+01:00
+            hippostdpubwf:lastModifiedBy: admin
+            hippotranslation:id: 21068f6f-5c67-40f9-b574-58fd79ed6f81
+            hippotranslation:locale: en
+            visitscotland:sectors: []
+            visitscotland:skill: ''
+            visitscotland:source: Scotland Tourism Board
+            visitscotland:teaser: Get all the information you need for your trip to
+              Scotland! Book accommodation, discover new places to visit, find amazing
+              things to do and more!
+            visitscotland:title: VisitScotland Consumer Website
+            visitscotland:types: []
+            /visitscotland:image:
+              jcr:primaryType: hippogallerypicker:imagelink
+              hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+              hippo:facets: []
+              hippo:modes: []
+              hippo:values: []
+            /visitscotland:linkTypes:
+              jcr:primaryType: visitscotland:ExternalLink
+              visitscotland:label: ''
+              visitscotland:link: https://www.visitscotland.com
+          /visitscotland.com[2]:
+            jcr:primaryType: visitscotland:SharedLinkBsh
+            jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+            jcr:uuid: f0ea80a6-ad7d-4221-8f49-3fd8a6debafd
+            hippo:availability: [preview]
+            hippostd:retainable: false
+            hippostd:state: unpublished
+            hippostdpubwf:createdBy: admin
+            hippostdpubwf:creationDate: 2024-09-25T17:01:40.525+01:00
+            hippostdpubwf:lastModificationDate: 2024-09-25T17:03:12.988+01:00
+            hippostdpubwf:lastModifiedBy: admin
+            hippotranslation:id: 21068f6f-5c67-40f9-b574-58fd79ed6f81
+            hippotranslation:locale: en
+            visitscotland:sectors: []
+            visitscotland:skill: ''
+            visitscotland:source: Scotland Tourism Board
+            visitscotland:teaser: Get all the information you need for your trip to
+              Scotland! Book accommodation, discover new places to visit, find amazing
+              things to do and more!
+            visitscotland:title: VisitScotland Consumer Website
+            visitscotland:types: []
+            /visitscotland:image:
+              jcr:primaryType: hippogallerypicker:imagelink
+              hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+              hippo:facets: []
+              hippo:modes: []
+              hippo:values: []
+            /visitscotland:linkTypes:
+              jcr:primaryType: visitscotland:ExternalLink
+              visitscotland:label: ''
+              visitscotland:link: https://www.visitscotland.com
+          /visitscotland.com[3]:
+            jcr:primaryType: visitscotland:SharedLinkBsh
+            jcr:mixinTypes: ['mix:referenceable']
+            jcr:uuid: 65105c4d-8fb3-48ee-9ca7-996ae1c05c28
+            hippo:availability: [live]
+            hippostd:retainable: false
+            hippostd:state: published
+            hippostdpubwf:createdBy: admin
+            hippostdpubwf:creationDate: 2024-09-25T17:01:40.525+01:00
+            hippostdpubwf:lastModificationDate: 2024-09-25T17:03:12.988+01:00
+            hippostdpubwf:lastModifiedBy: admin
+            hippostdpubwf:publicationDate: 2024-09-25T17:03:16.030+01:00
+            hippotranslation:id: 21068f6f-5c67-40f9-b574-58fd79ed6f81
+            hippotranslation:locale: en
+            visitscotland:sectors: []
+            visitscotland:skill: ''
+            visitscotland:source: Scotland Tourism Board
+            visitscotland:teaser: Get all the information you need for your trip to
+              Scotland! Book accommodation, discover new places to visit, find amazing
+              things to do and more!
+            visitscotland:title: VisitScotland Consumer Website
+            visitscotland:types: []
+            /visitscotland:image:
+              jcr:primaryType: hippogallerypicker:imagelink
+              hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+              hippo:facets: []
+              hippo:modes: []
+              hippo:values: []
+            /visitscotland:linkTypes:
+              jcr:primaryType: visitscotland:ExternalLink
+              visitscotland:label: ''
+              visitscotland:link: https://www.visitscotland.com
     /video:
       jcr:primaryType: hippostd:folder
       jcr:mixinTypes: ['frontend:orderChildFolders', 'hippo:named', 'hippotranslation:translated',
@@ -9117,3 +9225,220 @@
                 hippo:facets: []
                 hippo:modes: []
                 hippo:values: []
+    /links:
+      jcr:primaryType: hippostd:folder
+      jcr:mixinTypes: ['hippo:named', 'hippotranslation:translated', 'mix:versionable']
+      jcr:uuid: f4b62e11-c125-477a-89b1-92809bf8cc32
+      hippo:name: Links
+      hippostd:foldertype: [new-bsh-folder, new-bsh-page, new-bsh-module]
+      hippotranslation:id: 51188784-43c8-4bb7-8eab-a286c7bf42b0
+      hippotranslation:locale: en
+      /content:
+        jcr:primaryType: hippo:handle
+        jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+        jcr:uuid: 9bbfaa31-360e-4787-8d6b-609d811e932b
+        hippo:name: Links Module
+        hippo:versionHistory: 78448a58-a2bd-4860-9d0e-2560c1a1ae95
+        /content[1]:
+          jcr:primaryType: visitscotland:BshGeneral
+          jcr:mixinTypes: ['mix:versionable']
+          jcr:uuid: c806ad1f-0984-4e6f-8153-af521d469cfb
+          hippo:availability: [preview]
+          hippostd:retainable: false
+          hippostd:state: unpublished
+          hippostd:transferable: false
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2024-08-30T15:41:08.220+01:00
+          hippostdpubwf:lastModificationDate: 2024-09-25T17:09:38.948+01:00
+          hippostdpubwf:lastModifiedBy: admin
+          hippotranslation:id: c52cdbba-df39-4891-85c1-c4263fafb09d
+          hippotranslation:locale: en
+          visitscotland:breadcrumb: ''
+          visitscotland:hideNewsletter: false
+          visitscotland:publishDate: 0001-01-01T12:00:00Z
+          visitscotland:readingTime: 0
+          visitscotland:regions: []
+          visitscotland:sectors: []
+          visitscotland:seoDescription: Links Modules
+          visitscotland:seoNoIndex: false
+          visitscotland:seoTitle: Links Modules
+          visitscotland:skill: ''
+          visitscotland:teaser: This document represents a collection of Links to
+            internal sites, external sites or a combination of both
+          visitscotland:theme: ' Standard'
+          visitscotland:title: Links Module
+          /visitscotland:heroImage:
+            jcr:primaryType: hippogallerypicker:imagelink
+            hippo:docbase: e87235cc-b32f-4d9a-98ec-cc1c608db406
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+          /visitscotland:introduction:
+            jcr:primaryType: hippostd:html
+            hippostd:content: |-
+              <p>This page is about Megalinks, Navigation Grid or Links. This document represents a collection of Links to internal sites, external sites or a combination of both</p>
+
+              <p>&nbsp;</p>
+
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ac ullamcorper metus. Vestibulum rutrum mauris ut eleifend aliquet. Donec et congue urna. Morbi nibh lorem, maximus id arcu quis, sodales imperdiet libero. Donec maximus felis ipsum, ac dapibus justo rhoncus nec. In fringilla neque eu risus rutrum lobortis. Aliquam a ullamcorper nisl. Nunc molestie vestibulum ultrices. Donec ac luctus purus. Aenean quis arcu magna. Nunc placerat elit massa, quis placerat nisi tempus auctor cras amet.</p>
+        /content[2]:
+          jcr:primaryType: visitscotland:BshGeneral
+          jcr:mixinTypes: ['mix:referenceable']
+          jcr:uuid: b39dc725-ed08-490e-a2fb-2be9640172d5
+          hippo:availability: []
+          hippostd:retainable: false
+          hippostd:state: draft
+          hippostd:transferable: false
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2024-08-30T15:41:08.220+01:00
+          hippostdpubwf:lastModificationDate: 2024-09-25T17:05:17.161+01:00
+          hippostdpubwf:lastModifiedBy: admin
+          hippotranslation:id: c52cdbba-df39-4891-85c1-c4263fafb09d
+          hippotranslation:locale: en
+          visitscotland:breadcrumb: ''
+          visitscotland:hideNewsletter: false
+          visitscotland:publishDate: 0001-01-01T12:00:00Z
+          visitscotland:readingTime: 0
+          visitscotland:regions: []
+          visitscotland:sectors: []
+          visitscotland:seoDescription: Links Modules
+          visitscotland:seoNoIndex: false
+          visitscotland:seoTitle: Links Modules
+          visitscotland:skill: ''
+          visitscotland:teaser: This document represents a collection of Links to
+            internal sites, external sites or a combination of both
+          visitscotland:theme: ' Standard'
+          visitscotland:title: Links Module
+          /visitscotland:heroImage:
+            jcr:primaryType: hippogallerypicker:imagelink
+            hippo:docbase: e87235cc-b32f-4d9a-98ec-cc1c608db406
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+          /visitscotland:introduction:
+            jcr:primaryType: hippostd:html
+            hippostd:content: |-
+              <p>This page is about Megalinks, Navigation Grid or Links. This document represents a collection of Links to internal sites, external sites or a combination of both</p>
+
+              <p>&nbsp;</p>
+
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ac ullamcorper metus. Vestibulum rutrum mauris ut eleifend aliquet. Donec et congue urna. Morbi nibh lorem, maximus id arcu quis, sodales imperdiet libero. Donec maximus felis ipsum, ac dapibus justo rhoncus nec. In fringilla neque eu risus rutrum lobortis. Aliquam a ullamcorper nisl. Nunc molestie vestibulum ultrices. Donec ac luctus purus. Aenean quis arcu magna. Nunc placerat elit massa, quis placerat nisi tempus auctor cras amet.</p>
+        /content[3]:
+          jcr:primaryType: visitscotland:BshGeneral
+          jcr:mixinTypes: ['mix:referenceable']
+          jcr:uuid: 9f3d2165-3ae0-4c45-aa29-36471de0be2f
+          hippo:availability: [live]
+          hippostd:retainable: false
+          hippostd:state: published
+          hippostd:transferable: false
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2024-08-30T15:41:08.220+01:00
+          hippostdpubwf:lastModificationDate: 2024-09-25T17:09:38.948+01:00
+          hippostdpubwf:lastModifiedBy: admin
+          hippostdpubwf:publicationDate: 2024-09-25T17:11:25.801+01:00
+          hippotranslation:id: c52cdbba-df39-4891-85c1-c4263fafb09d
+          hippotranslation:locale: en
+          visitscotland:breadcrumb: ''
+          visitscotland:hideNewsletter: false
+          visitscotland:publishDate: 0001-01-01T12:00:00Z
+          visitscotland:readingTime: 0
+          visitscotland:regions: []
+          visitscotland:sectors: []
+          visitscotland:seoDescription: Links Modules
+          visitscotland:seoNoIndex: false
+          visitscotland:seoTitle: Links Modules
+          visitscotland:skill: ''
+          visitscotland:teaser: This document represents a collection of Links to
+            internal sites, external sites or a combination of both
+          visitscotland:theme: ' Standard'
+          visitscotland:title: Links Module
+          /visitscotland:heroImage:
+            jcr:primaryType: hippogallerypicker:imagelink
+            hippo:docbase: e87235cc-b32f-4d9a-98ec-cc1c608db406
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+          /visitscotland:introduction:
+            jcr:primaryType: hippostd:html
+            hippostd:content: |-
+              <p>This page is about Megalinks, Navigation Grid or Links. This document represents a collection of Links to internal sites, external sites or a combination of both</p>
+
+              <p>&nbsp;</p>
+
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ac ullamcorper metus. Vestibulum rutrum mauris ut eleifend aliquet. Donec et congue urna. Morbi nibh lorem, maximus id arcu quis, sodales imperdiet libero. Donec maximus felis ipsum, ac dapibus justo rhoncus nec. In fringilla neque eu risus rutrum lobortis. Aliquam a ullamcorper nisl. Nunc molestie vestibulum ultrices. Donec ac luctus purus. Aenean quis arcu magna. Nunc placerat elit massa, quis placerat nisi tempus auctor cras amet.</p>
+      /megalinks:
+        jcr:primaryType: hippo:handle
+        jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+        jcr:uuid: fdfd4db7-c349-4bbc-9229-537ca12ce188
+        hippo:name: Megalinks
+        hippo:versionHistory: 6274e35b-6e38-406d-99c9-313cde4f1886
+        /megalinks[1]:
+          jcr:primaryType: visitscotland:Megalinks
+          jcr:mixinTypes: ['mix:referenceable']
+          jcr:uuid: 99f9e9b3-4e45-48d3-9764-abe44eb6c62a
+          hippo:availability: []
+          hippostd:retainable: false
+          hippostd:state: draft
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2024-09-25T17:10:13.186+01:00
+          hippostdpubwf:lastModificationDate: 2024-09-25T17:11:04.279+01:00
+          hippostdpubwf:lastModifiedBy: admin
+          hippotranslation:id: 3b747958-9a8c-4959-82f4-526ffc49635e
+          hippotranslation:locale: en
+          visitscotland:layout: Default
+          visitscotland:teaserVisible: true
+          visitscotland:title: This module will not appear!
+          visitscotland:translation: ''
+          /visitscotland:megalinkItems:
+            jcr:primaryType: visitscotland:MegalinkItem
+            visitscotland:feature: false
+            /visitscotland:links:
+              jcr:primaryType: hippo:mirror
+              hippo:docbase: 8b9e387c-24d2-4e0c-ba4b-4dac823c8e57
+        /megalinks[2]:
+          jcr:primaryType: visitscotland:Megalinks
+          jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+          jcr:uuid: 2413bc0a-db2b-4b2d-a2f5-12971f41ecd0
+          hippo:availability: [preview]
+          hippostd:retainable: false
+          hippostd:state: unpublished
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2024-09-25T17:10:13.186+01:00
+          hippostdpubwf:lastModificationDate: 2024-09-25T17:11:20.623+01:00
+          hippostdpubwf:lastModifiedBy: admin
+          hippotranslation:id: 3b747958-9a8c-4959-82f4-526ffc49635e
+          hippotranslation:locale: en
+          visitscotland:layout: Default
+          visitscotland:teaserVisible: true
+          visitscotland:title: This module will not appear!
+          visitscotland:translation: ''
+          /visitscotland:megalinkItems:
+            jcr:primaryType: visitscotland:MegalinkItem
+            visitscotland:feature: false
+            /visitscotland:links:
+              jcr:primaryType: hippo:mirror
+              hippo:docbase: 8b9e387c-24d2-4e0c-ba4b-4dac823c8e57
+        /megalinks[3]:
+          jcr:primaryType: visitscotland:Megalinks
+          jcr:mixinTypes: ['mix:referenceable']
+          jcr:uuid: fa84aec7-342d-4cec-aa8a-5b9e82c416a0
+          hippo:availability: [live]
+          hippostd:retainable: false
+          hippostd:state: published
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2024-09-25T17:10:13.186+01:00
+          hippostdpubwf:lastModificationDate: 2024-09-25T17:11:20.623+01:00
+          hippostdpubwf:lastModifiedBy: admin
+          hippostdpubwf:publicationDate: 2024-09-25T17:11:23.276+01:00
+          hippotranslation:id: 3b747958-9a8c-4959-82f4-526ffc49635e
+          hippotranslation:locale: en
+          visitscotland:layout: Default
+          visitscotland:teaserVisible: true
+          visitscotland:title: This module will not appear!
+          visitscotland:translation: ''
+          /visitscotland:megalinkItems:
+            jcr:primaryType: visitscotland:MegalinkItem
+            visitscotland:feature: false
+            /visitscotland:links:
+              jcr:primaryType: hippo:mirror
+              hippo:docbase: 8b9e387c-24d2-4e0c-ba4b-4dac823c8e57
