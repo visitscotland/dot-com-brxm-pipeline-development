@@ -27,7 +27,7 @@
 <#-- @ftlvariable name="itinerary" type="com.visitscotland.brxm.model.ItineraryPage" -->
 <#-- @ftlvariable name="introTheme" type="int" -->
 
-<#macro pageIntro content heroDetails="" itinerary="" lightBackground=false author="">
+<#macro pageIntro content heroDetails="" itinerary="" lightBackground=false author="" fullScreenMobile=false>
     <@previewWarning editMode content alerts!"" />
     <#if lightBackground>
         <#assign themeName = themeCalculator(1)>
@@ -50,6 +50,7 @@
             background="${themeName}"
             <#if heroDetails?has_content>hero-intro</#if>
             <#if itinerary?has_content>is-itinerary</#if>
+            <#if fullScreenMobile>fullscreen-mobile</#if>
         >
             <#if heroDetails?has_content>
                 <#if (heroVideo.cta)??>
@@ -120,7 +121,7 @@
                     v-slot:vs-blog-data
                 >
                     <vs-blog-details
-                        blog-author="${author.authorName}"
+                        blog-author="<#if author.authorName?has_content>${author.authorName}</#if>"
                         blog-publish-date="${author.publishDate}"
                         blog-read-time="${author.readingTime}"
                     ></vs-blog-details>

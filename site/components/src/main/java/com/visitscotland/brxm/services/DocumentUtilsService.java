@@ -82,18 +82,27 @@ public class DocumentUtilsService {
 
         while (it.hasNext()) {
             javax.jcr.Node jcrNode = it.nextNode();
+            boolean allowed = false;
             try {
                 if (jcrNode.getNodes().getSize() > 0) {
                     String primaryType = jcrNode.getNodes().nextNode().getProperty(DOCUMENT_TYPE).getString();
-                    for (String type : allowedTypes) {
-                        if (type.equals(primaryType)) {
-                            Object hippoBean = utils.getDocumentFromNode(jcrNode);
-
-                            //The document is added if the type matches
-                            if (hippoBean != null) {
-                                documents.add((T) hippoBean);
+                    if (allowedTypes.length == 0) {
+                        allowed = true;
+                    } else {
+                        for (String type : allowedTypes) {
+                            if (type.equals(primaryType)) {
+                                allowed = true;
+                                break;
                             }
-                            break;
+                        }
+                    }
+
+                    if (allowed) {
+                        Object hippoBean = utils.getDocumentFromNode(jcrNode);
+
+                        //The document is added if the type matches
+                        if (hippoBean != null) {
+                            documents.add((T) hippoBean);
                         }
                     }
                 }

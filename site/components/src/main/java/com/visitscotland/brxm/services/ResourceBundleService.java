@@ -2,10 +2,12 @@ package com.visitscotland.brxm.services;
 
 import com.visitscotland.brxm.config.VsComponentManager;
 import com.visitscotland.brxm.utils.ContentLogger;
+import com.visitscotland.brxm.utils.SiteProperties;
 import com.visitscotland.utils.Contract;
 import org.hippoecm.hst.resourcebundle.ResourceBundleRegistry;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Component;
 
 import java.util.*;
@@ -18,8 +20,12 @@ public class ResourceBundleService {
 
     private final Logger contentLogger;
 
-    public ResourceBundleService(ContentLogger contentLogger){
+
+    private final SiteProperties properties;
+
+    public ResourceBundleService(ContentLogger contentLogger, @Lazy SiteProperties properties){
         this.contentLogger = contentLogger;
+        this.properties = properties;
     }
 
     ResourceBundleRegistry registry;
@@ -45,6 +51,16 @@ public class ResourceBundleService {
      */
     public String getResourceBundle(String bundleName, String key, Locale locale){
         return getResourceBundle(bundleName, key, locale, false);
+    }
+
+    public String getSiteResourceBundle(String bundleName, String key, Locale locale){
+
+        if (properties.getSiteId().isEmpty()){
+            return getResourceBundle(bundleName, key, locale, false);
+        } else {
+            return getResourceBundle(properties.getSiteId() + "." + bundleName, key, locale, false);
+        }
+
     }
 
     /**

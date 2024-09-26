@@ -1,0 +1,25 @@
+/content/documents/administration/options/bsh---skill-level:
+  .meta:order-before: bsh---regions
+  jcr:primaryType: hippo:handle
+  jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+  jcr:uuid: 7c0f29db-b435-4c8c-97c5-1234525807bf
+  hippo:name: BSH - Skill Level
+  /bsh---skill-level:
+    jcr:primaryType: selection:valuelist
+    jcr:mixinTypes: ['hippotranslation:translated', 'mix:referenceable']
+    jcr:uuid: 9a11d088-41ec-49b1-895e-970ad605fed9
+    hippo:availability: [live, preview]
+    hippotranslation:id: a08dcc20-596f-4717-b00f-79011c33964d
+    hippotranslation:locale: inherited - from query
+    /selection:listitem[1]:
+      jcr:primaryType: selection:listitem
+      selection:key: beginner
+      selection:label: Beginner
+    /selection:listitem[2]:
+      jcr:primaryType: selection:listitem
+      selection:key: intermediate
+      selection:label: Intermediate
+    /selection:listitem[3]:
+      jcr:primaryType: selection:listitem
+      selection:key: advanced
+      selection:label: Advanced
