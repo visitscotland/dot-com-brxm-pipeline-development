@@ -1,9 +1,10 @@
 /content/documents/administration/labels/modules/ugc:
   .meta:order-before: carbon-calculator
   jcr:primaryType: hippo:handle
-  jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+  jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
   jcr:uuid: 3e15d5d3-2a31-454e-9e21-ce45b727754e
   hippo:name: UGC
+  hippo:versionHistory: b34bbcd3-8792-4e63-818b-a9a209477eab
   /ugc[1]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:referenceable']
@@ -13,33 +14,35 @@
     hippostd:state: draft
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2021-07-12T14:28:56.789+01:00
-    hippostdpubwf:lastModificationDate: 2022-11-25T15:04:41.679Z
+    hippostdpubwf:lastModificationDate: 2024-09-26T09:17:59.440+01:00
     hippostdpubwf:lastModifiedBy: admin
-    resourcebundle:descriptions: ['', '']
+    resourcebundle:descriptions: ['', '', '']
     resourcebundle:id: ugc
-    resourcebundle:keys: [ugc.no-cookies-message, ugc.no-js-message]
+    resourcebundle:keys: [ugc.no-cookies-message, ugc.no-js-message, ugc.extra-warning-content]
     resourcebundle:messages: [Cookies are needed to see social media images from this
         place., JavaScript needs to be enabled to see social media images for this
-        place. You can turn this on in your browser settings.]
+        place. You can turn this on in your browser settings., 'You can also access
+        this content on our  <a href="https://www.instagram.com/visitscotland/">instagram
+        page</a>.']
     resourcebundle:messages_de: ['Es werden Cookies benötigt, um hier Bilder aus den
         sozialen Medien anzuzeigen.', 'JavaScript muss aktiviert sein, um hier Bilder
         aus den sozialen Medien anzuzeigen. Sie können es in Ihren Browser-Einstellungen
-        aktivieren.']
+        aktivieren.', '']
     resourcebundle:messages_es: [Las cookies son necesarias para ver las imágenes
         de las redes sociales de esta página., Es necesario activar JavaScript para
         ver las imágenes de las redes sociales de esta página. Puedes activarlo en
-        la configuración de tu navegador.]
+        la configuración de tu navegador., '']
     resourcebundle:messages_fr: ['Pour visualiser les images issues de réseaux sociaux
         depuis ce site, vous devez activer les cookies.', 'Pour visualiser les images
         issues de réseaux sociaux depuis ce site, vous devez activer JavaScript via
-        les paramètres de votre navigateur.']
+        les paramètres de votre navigateur.', '']
     resourcebundle:messages_it: [I cookie sono necessari per vedere le immagini dei
         social media., JavaScript deve essere abilitato per vedere le immagini dei
-        social media. Puoi attivarlo nelle impostazioni del tuo browser.]
+        social media. Puoi attivarlo nelle impostazioni del tuo browser., '']
     resourcebundle:messages_nl: ['Om afbeeldingen op sociale media van deze plek te
         zien, dien je met de cookies akkoord te gaan.', 'Om afbeeldingen op sociale
         media van deze plek te zien, dient JavaScript te zijn ingeschakeld. Je kunt
-        dit met je browserinstellingen doen.']
+        dit met je browserinstellingen doen.', '']
   /ugc[2]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:referenceable']
@@ -49,34 +52,36 @@
     hippostd:state: published
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2021-07-12T14:28:56.789+01:00
-    hippostdpubwf:lastModificationDate: 2022-11-25T15:04:49.230Z
+    hippostdpubwf:lastModificationDate: 2024-09-26T09:18:15.017+01:00
     hippostdpubwf:lastModifiedBy: admin
-    hippostdpubwf:publicationDate: 2022-11-25T15:04:52.326Z
-    resourcebundle:descriptions: ['', '']
+    hippostdpubwf:publicationDate: 2024-09-26T09:18:17.246+01:00
+    resourcebundle:descriptions: ['', '', '']
     resourcebundle:id: ugc
-    resourcebundle:keys: [ugc.no-cookies-message, ugc.no-js-message]
+    resourcebundle:keys: [ugc.no-cookies-message, ugc.no-js-message, ugc.extra-warning-content]
     resourcebundle:messages: [Cookies are needed to see social media images from this
         place., JavaScript needs to be enabled to see social media images for this
-        place. You can turn this on in your browser settings.]
+        place. You can turn this on in your browser settings., 'You can also access
+        this content on our  <a href="https://www.instagram.com/visitscotland/">instagram
+        page</a>.']
     resourcebundle:messages_de: ['Es werden Cookies benötigt, um hier Bilder aus den
         sozialen Medien anzuzeigen.', 'JavaScript muss aktiviert sein, um hier Bilder
         aus den sozialen Medien anzuzeigen. Sie können es in Ihren Browser-Einstellungen
-        aktivieren.']
+        aktivieren.', '']
     resourcebundle:messages_es: [Las cookies son necesarias para ver las imágenes
         de las redes sociales de esta página., Es necesario activar JavaScript para
         ver las imágenes de las redes sociales de esta página. Puedes activarlo en
-        la configuración de tu navegador.]
+        la configuración de tu navegador., '']
     resourcebundle:messages_fr: ['Pour visualiser les images issues de réseaux sociaux
         depuis ce site, vous devez activer les cookies.', 'Pour visualiser les images
         issues de réseaux sociaux depuis ce site, vous devez activer JavaScript via
-        les paramètres de votre navigateur.']
+        les paramètres de votre navigateur.', '']
     resourcebundle:messages_it: [I cookie sono necessari per vedere le immagini dei
         social media., JavaScript deve essere abilitato per vedere le immagini dei
-        social media. Puoi attivarlo nelle impostazioni del tuo browser.]
+        social media. Puoi attivarlo nelle impostazioni del tuo browser., '']
     resourcebundle:messages_nl: ['Om afbeeldingen op sociale media van deze plek te
         zien, dien je met de cookies akkoord te gaan.', 'Om afbeeldingen op sociale
         media van deze plek te zien, dient JavaScript te zijn ingeschakeld. Je kunt
-        dit met je browserinstellingen doen.']
+        dit met je browserinstellingen doen.', '']
   /ugc[3]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:versionable']
@@ -86,30 +91,32 @@
     hippostd:state: unpublished
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2021-07-12T14:28:56.789+01:00
-    hippostdpubwf:lastModificationDate: 2022-11-25T15:04:49.230Z
+    hippostdpubwf:lastModificationDate: 2024-09-26T09:18:15.017+01:00
     hippostdpubwf:lastModifiedBy: admin
-    resourcebundle:descriptions: ['', '']
+    resourcebundle:descriptions: ['', '', '']
     resourcebundle:id: ugc
-    resourcebundle:keys: [ugc.no-cookies-message, ugc.no-js-message]
+    resourcebundle:keys: [ugc.no-cookies-message, ugc.no-js-message, ugc.extra-warning-content]
     resourcebundle:messages: [Cookies are needed to see social media images from this
         place., JavaScript needs to be enabled to see social media images for this
-        place. You can turn this on in your browser settings.]
+        place. You can turn this on in your browser settings., 'You can also access
+        this content on our  <a href="https://www.instagram.com/visitscotland/">instagram
+        page</a>.']
     resourcebundle:messages_de: ['Es werden Cookies benötigt, um hier Bilder aus den
         sozialen Medien anzuzeigen.', 'JavaScript muss aktiviert sein, um hier Bilder
         aus den sozialen Medien anzuzeigen. Sie können es in Ihren Browser-Einstellungen
-        aktivieren.']
+        aktivieren.', '']
     resourcebundle:messages_es: [Las cookies son necesarias para ver las imágenes
         de las redes sociales de esta página., Es necesario activar JavaScript para
         ver las imágenes de las redes sociales de esta página. Puedes activarlo en
-        la configuración de tu navegador.]
+        la configuración de tu navegador., '']
     resourcebundle:messages_fr: ['Pour visualiser les images issues de réseaux sociaux
         depuis ce site, vous devez activer les cookies.', 'Pour visualiser les images
         issues de réseaux sociaux depuis ce site, vous devez activer JavaScript via
-        les paramètres de votre navigateur.']
+        les paramètres de votre navigateur.', '']
     resourcebundle:messages_it: [I cookie sono necessari per vedere le immagini dei
         social media., JavaScript deve essere abilitato per vedere le immagini dei
-        social media. Puoi attivarlo nelle impostazioni del tuo browser.]
+        social media. Puoi attivarlo nelle impostazioni del tuo browser., '']
     resourcebundle:messages_nl: ['Om afbeeldingen op sociale media van deze plek te
         zien, dien je met de cookies akkoord te gaan.', 'Om afbeeldingen op sociale
         media van deze plek te zien, dient JavaScript te zijn ingeschakeld. Je kunt
-        dit met je browserinstellingen doen.']
+        dit met je browserinstellingen doen.', '']
