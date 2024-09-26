@@ -11,7 +11,7 @@ definitions:
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:uuid: c80f3e17-1275-4fd1-acc3-36556baaaa30
+          jcr:uuid: 4a0c61c1-45be-41d6-8490-8735a55e2725
           hipposysedit:node: true
           hipposysedit:supertype: ['visitscotland:SharedLinkBase', 'hippostd:relaxed',
             'hippotranslation:translated']
@@ -63,6 +63,14 @@ definitions:
             hipposysedit:path: visitscotland:regions
             hipposysedit:primary: false
             hipposysedit:type: String
+          /type:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: visitscotland:type
+            hipposysedit:primary: false
+            hipposysedit:type: DynamicDropdown
       /hipposysedit:prototypes:
         jcr:primaryType: hipposysedit:prototypeset
         /hipposysedit:prototype:
@@ -77,13 +85,14 @@ definitions:
           visitscotland:source: ''
           visitscotland:title: ''
           visitscotland:teaser: ''
-          jcr:uuid: a6297188-f2a5-4aff-8877-2b5affa4475c
+          jcr:uuid: 1f16bcb2-cdc3-4556-9a2e-cfe5cfcebd8c
           hippostdpubwf:lastModificationDate: 2024-09-24T14:11:39.340+01:00
           hippostdpubwf:creationDate: 2024-09-24T14:11:39.340+01:00
           visitscotland:sectors: []
           visitscotland:types: []
           visitscotland:skill: ''
           visitscotland:regions: []
+          visitscotland:type: ''
           /visitscotland:image:
             jcr:primaryType: hippogallerypicker:imagelink
             hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
@@ -163,7 +172,7 @@ definitions:
               maxitems: 1
           /sectors:
             jcr:primaryType: frontend:plugin
-            caption: Sector-specifict?
+            caption: Sector-specific?
             field: sectors
             multiselect.type: checkboxes
             palette.alloworder: false
@@ -185,9 +194,20 @@ definitions:
               jcr:primaryType: frontend:pluginconfig
               orientation: vertical
               source: /content/documents/administration/options/bsh---skill-level
+          /type:
+            jcr:primaryType: frontend:plugin
+            caption: Content Type
+            field: type
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.right.item
+            hint: ''
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+              orientation: vertical
+              source: /content/documents/administration/options/bsh---type
           /regions:
             jcr:primaryType: frontend:plugin
-            caption: Region-specific
+            caption: Region-specific?
             field: regions
             multiselect.type: checkboxes
             palette.alloworder: false
