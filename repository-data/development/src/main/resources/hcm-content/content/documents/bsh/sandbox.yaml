@@ -252,6 +252,77 @@
               jcr:primaryType: visitscotland:ExternalLink
               visitscotland:label: ''
               visitscotland:link: https://www.visitscotland.com
+      /download-links:
+        jcr:primaryType: hippostd:folder
+        jcr:mixinTypes: ['hippo:named', 'hippotranslation:translated', 'mix:versionable']
+        jcr:uuid: 4747cdc6-6c21-4a81-8487-81b610c0e20c
+        hippo:name: Download Links
+        hippostd:foldertype: [new-translated-folder-shared-bsh, new-shared-bsh-document]
+        hippotranslation:id: abe47e47-f089-40fd-8ccc-e94fcefd6ef4
+        hippotranslation:locale: en
+        /cairngorm-piste-map:
+          jcr:primaryType: hippo:handle
+          jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+          jcr:uuid: 39854bf2-8c0a-493e-9e9c-ea71c4d06192
+          hippo:name: CairnGorm Piste Map
+          /cairngorm-piste-map[1]:
+            jcr:primaryType: visitscotland:SharedLinkBsh
+            jcr:mixinTypes: ['mix:referenceable']
+            jcr:uuid: aacf724c-e81f-41b9-a14d-ebabfc0a402f
+            hippo:availability: []
+            hippostd:retainable: false
+            hippostd:state: draft
+            hippostdpubwf:createdBy: admin
+            hippostdpubwf:creationDate: 2024-09-26T09:11:34.724+01:00
+            hippostdpubwf:lastModificationDate: 2024-09-26T09:55:15.475+01:00
+            hippostdpubwf:lastModifiedBy: admin
+            hippotranslation:id: df6e7996-9520-436f-908d-e9f3f01508b0
+            hippotranslation:locale: en
+            visitscotland:regions: []
+            visitscotland:sectors: []
+            visitscotland:skill: ''
+            visitscotland:source: ''
+            visitscotland:teaser: Piste Map
+            visitscotland:title: Cairngornsjavascript:;
+            visitscotland:types: []
+            /visitscotland:image:
+              jcr:primaryType: hippogallerypicker:imagelink
+              hippo:docbase: dbcdddc3-5586-4188-85a7-fcd5e7e3c29a
+              hippo:facets: []
+              hippo:modes: []
+              hippo:values: []
+            /visitscotland:linkTypes:
+              jcr:primaryType: visitscotland:FileLink
+              visitscotland:link: https://static.visitscotland.com/pdf/cairngorm-mountain-piste-map.xls
+          /cairngorm-piste-map[2]:
+            jcr:primaryType: visitscotland:SharedLinkBsh
+            jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+            jcr:uuid: 8396d2a4-0d6d-4f31-85c9-8e57a032a862
+            hippo:availability: [preview]
+            hippostd:retainable: false
+            hippostd:state: unpublished
+            hippostdpubwf:createdBy: admin
+            hippostdpubwf:creationDate: 2024-09-26T09:11:34.724+01:00
+            hippostdpubwf:lastModificationDate: 2024-09-26T09:55:22.199+01:00
+            hippostdpubwf:lastModifiedBy: admin
+            hippotranslation:id: df6e7996-9520-436f-908d-e9f3f01508b0
+            hippotranslation:locale: en
+            visitscotland:regions: []
+            visitscotland:sectors: []
+            visitscotland:skill: ''
+            visitscotland:source: ''
+            visitscotland:teaser: Piste Map
+            visitscotland:title: Cairngornsjavascript:;
+            visitscotland:types: []
+            /visitscotland:image:
+              jcr:primaryType: hippogallerypicker:imagelink
+              hippo:docbase: dbcdddc3-5586-4188-85a7-fcd5e7e3c29a
+              hippo:facets: []
+              hippo:modes: []
+              hippo:values: []
+            /visitscotland:linkTypes:
+              jcr:primaryType: visitscotland:FileLink
+              visitscotland:link: https://static.visitscotland.com/pdf/cairngorm-mountain-piste-map.xls
     /video:
       jcr:primaryType: hippostd:folder
       jcr:mixinTypes: ['frontend:orderChildFolders', 'hippo:named', 'hippotranslation:translated',
