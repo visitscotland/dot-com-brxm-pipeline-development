@@ -41,10 +41,11 @@ definitions:
             plugin.class: org.hippoecm.frontend.service.render.ListViewPlugin
           /link:
             jcr:primaryType: frontend:plugin
-            caption: File Link
+            caption: URL
             field: link
             hint: ''
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
+            hipposysedit:validators: [required, 'visitscotland:external-document-validator']
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
