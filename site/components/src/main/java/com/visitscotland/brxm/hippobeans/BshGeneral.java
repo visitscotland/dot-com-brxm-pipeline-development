@@ -39,11 +39,6 @@ public class BshGeneral extends Page {
         return getMultipleProperty("visitscotland:regions");
     }
 
-    @HippoEssentialsGenerated(internalName = "visitscotland:types")
-    public String[] getTypes() {
-        return getMultipleProperty("visitscotland:types");
-    }
-
     @HippoEssentialsGenerated(internalName = "visitscotland:links", allowModifications = false)
     public List<HippoBean> getLinks() {
         return getLinkedBeans("visitscotland:links", HippoBean.class);
