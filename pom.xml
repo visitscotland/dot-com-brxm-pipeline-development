@@ -292,23 +292,23 @@
         <!-- TODO: REMOVE COMMENTED OUT CODE -->
         <!--  This plugin causes confusion since the number printed does not match with the real value in brxm projects -->
         <!-- Prints the build number in the console, so the release manager can ensure that the application deployed is correct -->
-        <!--        <plugin>-->
-        <!--          <artifactId>maven-antrun-plugin</artifactId>-->
-        <!--          <version>${maven.plugin.antrun.version}</version>-->
-        <!--          <executions>-->
-        <!--            <execution>-->
-        <!--              <phase>deploy</phase>-->
-        <!--              <goals>-->
-        <!--                <goal>run</goal>-->
-        <!--              </goals>-->
-        <!--              <configuration>-->
-        <!--                <target>-->
-        <!--                  <echo>BUILD NUMBER: ${project.buildNo}</echo>-->
-        <!--                </target>-->
-        <!--              </configuration>-->
-        <!--            </execution>-->
-        <!--          </executions>-->
-        <!--        </plugin>-->
+<!--        <plugin>-->
+<!--          <artifactId>maven-antrun-plugin</artifactId>-->
+<!--          <version>${maven.plugin.antrun.version}</version>-->
+<!--          <executions>-->
+<!--            <execution>-->
+<!--              <phase>deploy</phase>-->
+<!--              <goals>-->
+<!--                <goal>run</goal>-->
+<!--              </goals>-->
+<!--              <configuration>-->
+<!--                <target>-->
+<!--                  <echo>BUILD NUMBER: ${project.buildNo}</echo>-->
+<!--                </target>-->
+<!--              </configuration>-->
+<!--            </execution>-->
+<!--          </executions>-->
+<!--        </plugin>-->
 
         <!-- Ensures the proper Gitflow Use for releases -->
         <!-- Documentation: https://github.com/aleksandr-m/gitflow-maven-plugin -->
