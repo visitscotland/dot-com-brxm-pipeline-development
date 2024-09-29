@@ -13,15 +13,6 @@ import com.visitscotland.brxm.hippobeans.Image;
 public class SharedLink extends SharedLinkBase {
     public static final String LINK_TYPES = "visitscotland:linkTypes";
 
-    @HippoEssentialsGenerated(internalName = "visitscotland:linkTypes", allowModifications = false)
-    public List<HippoBean> getLinkTypes() {
-        return getChildBeansByName("visitscotland:linkTypes", HippoBean.class);
-    }
-
-    public HippoBean getLinkType() {
-        return getOnlyChild(getLinkTypes());
-    }
-
     @HippoEssentialsGenerated(internalName = "visitscotland:diff")
     public String getDiff() {
         return getSingleProperty("visitscotland:diff");
@@ -42,23 +33,4 @@ public class SharedLink extends SharedLinkBase {
         return getSingleProperty("visitscotland:translationDeadline");
     }
 
-    @HippoEssentialsGenerated(internalName = "visitscotland:title")
-    public String getTitle() {
-        return getSingleProperty("visitscotland:title");
-    }
-
-    @HippoEssentialsGenerated(internalName = "visitscotland:teaser")
-    public String getTeaser() {
-        return getSingleProperty("visitscotland:teaser");
-    }
-
-    @HippoEssentialsGenerated(internalName = "visitscotland:translation")
-    public String getTranslation() {
-        return getSingleProperty("visitscotland:translation");
-    }
-
-    @HippoEssentialsGenerated(internalName = "visitscotland:image")
-    public Image getImage() {
-        return getLinkedBean("visitscotland:image", Image.class);
-    }
 }
