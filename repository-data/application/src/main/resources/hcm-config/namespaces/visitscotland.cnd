@@ -18,10 +18,10 @@
 [visitscotland:ArticleBase] > hippostd:relaxed, hippotranslation:translated, visitscotland:basedocument, visitscotland:translatable
   orderable
 
-[visitscotland:Article] > hippostd:relaxed, hippotranslation:translated, visitscotland:basedocument, visitscotland:translatable
+[visitscotland:Article] > hippostd:relaxed, hippotranslation:translated, visitscotland:ArticleBase, visitscotland:translatable
   orderable
 
-[visitscotland:ArticleOrg] > hippostd:relaxed, hippotranslation:translated, visitscotland:basedocument, visitscotland:translatable
+[visitscotland:ArticleBSH] > hippostd:relaxed, hippotranslation:translated, visitscotland:ArticleBase
   orderable
 
 [visitscotland:ArticleSection] > hippo:compound, hippostd:relaxed
