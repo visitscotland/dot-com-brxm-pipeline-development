@@ -54,8 +54,8 @@ class LinkValidatorTest {
     @ParameterizedTest
     @CsvSource({
             "visitscotland:MegalinkItem,visitscotland:Page",
-            "visitscotland:OTYML,visitscotland:SharedLink",
-            "visitscotland:MadeUpDocument,visitscotland:SharedLink",
+            "visitscotland:OTYML,visitscotland:SharedLinkBase",
+            "visitscotland:MadeUpDocument,visitscotland:SharedLinkBase",
             "visitscotland:Day,visitscotland:Stop",
             "visitscotland:VideoLink,visitscotland:Video",
             "visitscotland:MapCategory,visitscotland:Destination",
@@ -72,7 +72,7 @@ class LinkValidatorTest {
             "visitscotland:MegalinkItem,visitscotland:MegalinkItem",
             "visitscotland:MegalinkItem,visitscotland:Video",
             "visitscotland:MegalinkItem,visitscotland:Stop",
-            "visitscotland:Day,visitscotland:SharedLink",
+            "visitscotland:Day,visitscotland:SharedLinkBase",
             "visitscotland:Day,visitscotland:Video",
             "visitscotland:VideoLink,visitscotland:Stop",
             "visitscotland:VideoLink,visitscotland:Page",

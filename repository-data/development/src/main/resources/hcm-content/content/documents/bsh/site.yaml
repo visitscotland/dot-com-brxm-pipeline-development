@@ -3,7 +3,7 @@
   jcr:primaryType: hippostd:folder
   jcr:mixinTypes: ['hippotranslation:translated', 'mix:versionable']
   jcr:uuid: fa1f25ac-1048-413b-bc81-22435661195b
-  hippostd:foldertype: [new-be-folder, new-be-page, new-be-module]
+  hippostd:foldertype: [new-bsh-folder, new-bsh-page, new-bsh-module]
   hippotranslation:id: 28c7e5c6-7121-476b-9a92-5333c81e8e75
   hippotranslation:locale: en
   /content:
@@ -13,7 +13,7 @@
     hippo:name: content
     hippo:versionHistory: 9adf3f68-b55f-433e-a548-52a545d52b31
     /content[1]:
-      jcr:primaryType: visitscotland:General
+      jcr:primaryType: visitscotland:BshGeneral
       jcr:mixinTypes: ['mix:versionable']
       jcr:uuid: 4532306a-b252-48e8-8934-65ad35f5f7b0
       hippo:availability: [preview]
@@ -51,7 +51,7 @@
 
           <p>In Scotland we believe business events are a catalyst for social and economic transformation; they are a driver to tackle climate change; they are a voice for human rights; they are a leader in the global <a href="https://businessevents.visitscotland.com/why-scotland/journey-to-change/" title="Journey to change">Journey to Change</a>.</p>
     /content[2]:
-      jcr:primaryType: visitscotland:General
+      jcr:primaryType: visitscotland:BshGeneral
       jcr:mixinTypes: ['mix:referenceable']
       jcr:uuid: bf7b68de-5dcd-459b-84a9-6810887cea7a
       hippo:availability: []
@@ -89,7 +89,7 @@
 
           <p>In Scotland we believe business events are a catalyst for social and economic transformation; they are a driver to tackle climate change; they are a voice for human rights; they are a leader in the global <a href="https://businessevents.visitscotland.com/why-scotland/journey-to-change/" title="Journey to change">Journey to Change</a>.</p>
     /content[3]:
-      jcr:primaryType: visitscotland:General
+      jcr:primaryType: visitscotland:BshGeneral
       jcr:mixinTypes: ['mix:referenceable']
       jcr:uuid: 95c2f8ed-3224-4be0-b127-c0714d3d28c3
       hippo:availability: [live]

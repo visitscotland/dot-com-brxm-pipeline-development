@@ -1,54 +1,29 @@
 definitions:
   config:
-    /hippo:namespaces/visitscotland/BshGeneral:
+    /hippo:namespaces/visitscotland/SharedLinkBsh:
       jcr:primaryType: hipposysedit:templatetype
       jcr:mixinTypes: ['editor:editable', 'mix:referenceable']
-      jcr:uuid: a94f4883-7d33-46ba-b142-b19441040216
+      jcr:uuid: 8073c13e-cc1b-40a6-9abd-077a3a06b1ec
       /hipposysedit:nodetype:
         jcr:primaryType: hippo:handle
         jcr:mixinTypes: ['mix:referenceable']
-        jcr:uuid: 96b8999d-933c-4d31-9e39-ca5ab95ffa27
+        jcr:uuid: db9b6afc-51f5-4ce4-a498-6fa30b28a0bf
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:uuid: 1b66537c-479c-4101-8e3c-49cc2be0bf75
+          jcr:uuid: 4a0c61c1-45be-41d6-8490-8735a55e2725
           hipposysedit:node: true
-          hipposysedit:supertype: ['visitscotland:Page', 'hippostd:relaxed', 'hippotranslation:translated']
+          hipposysedit:supertype: ['visitscotland:SharedLinkBase', 'hippostd:relaxed',
+            'hippotranslation:translated']
           hipposysedit:uri: http://www.visitscotland.com/visitscotland/nt/1.0
-          /theme:
+          /source:
             jcr:primaryType: hipposysedit:field
             hipposysedit:mandatory: false
             hipposysedit:multiple: false
             hipposysedit:ordered: false
-            hipposysedit:path: visitscotland:theme
+            hipposysedit:path: visitscotland:source
             hipposysedit:primary: false
-            hipposysedit:type: StaticDropdown
-            hipposysedit:validators: [required]
-          /publishDate:
-            jcr:primaryType: hipposysedit:field
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: false
-            hipposysedit:ordered: false
-            hipposysedit:path: visitscotland:publishDate
-            hipposysedit:primary: false
-            hipposysedit:type: Date
-          /readingTime:
-            jcr:primaryType: hipposysedit:field
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: false
-            hipposysedit:ordered: false
-            hipposysedit:path: visitscotland:readingTime
-            hipposysedit:primary: false
-            hipposysedit:type: Long
-            hipposysedit:validators: [required]
-          /skill:
-            jcr:primaryType: hipposysedit:field
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: false
-            hipposysedit:ordered: false
-            hipposysedit:path: visitscotland:skill
-            hipposysedit:primary: false
-            hipposysedit:type: DynamicDropdown
+            hipposysedit:type: String
           /sectors:
             jcr:primaryType: hipposysedit:field
             hipposysedit:mandatory: false
@@ -57,6 +32,29 @@ definitions:
             hipposysedit:path: visitscotland:sectors
             hipposysedit:primary: false
             hipposysedit:type: String
+          /types:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: true
+            hipposysedit:ordered: false
+            hipposysedit:path: visitscotland:types
+            hipposysedit:primary: false
+            hipposysedit:type: String
+          /skill:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: visitscotland:skill
+            hipposysedit:primary: false
+            hipposysedit:type: DynamicDropdown
+          /linkTypes:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:multiple: true
+            hipposysedit:ordered: true
+            hipposysedit:path: visitscotland:linkTypes
+            hipposysedit:type: hippo:compound
+            hipposysedit:validators: [contentblocks-validator, required]
           /regions:
             jcr:primaryType: hipposysedit:field
             hipposysedit:mandatory: false
@@ -65,13 +63,6 @@ definitions:
             hipposysedit:path: visitscotland:regions
             hipposysedit:primary: false
             hipposysedit:type: String
-          /links:
-            jcr:primaryType: hipposysedit:field
-            hipposysedit:multiple: true
-            hipposysedit:ordered: true
-            hipposysedit:path: visitscotland:links
-            hipposysedit:type: hippo:compound
-            hipposysedit:validators: [contentblocks-validator]
           /type:
             jcr:primaryType: hipposysedit:field
             hipposysedit:mandatory: false
@@ -83,7 +74,7 @@ definitions:
       /hipposysedit:prototypes:
         jcr:primaryType: hipposysedit:prototypeset
         /hipposysedit:prototype:
-          jcr:primaryType: visitscotland:BshGeneral
+          jcr:primaryType: visitscotland:SharedLinkBsh
           hippostd:holder: holder
           hippostd:state: draft
           hippostdpubwf:createdBy: ''
@@ -91,32 +82,23 @@ definitions:
           hippotranslation:id: document-type-locale-id
           hippotranslation:locale: document-type-locale
           jcr:mixinTypes: ['mix:referenceable']
-          visitscotland:theme: Top-Level
-          visitscotland:breadcrumb: ''
-          visitscotland:seoNoIndex: false
-          visitscotland:hideNewsletter: false
-          visitscotland:publishDate: 0001-01-01T12:00:00Z
-          visitscotland:readingTime: 0
-          visitscotland:seoDescription: ''
-          visitscotland:teaser: ''
-          visitscotland:seoTitle: ''
+          visitscotland:source: ''
           visitscotland:title: ''
-          visitscotland:skill: ''
-          jcr:uuid: c11709a5-aaf3-47cc-be9a-e25d4ad9dcfc
-          hippostdpubwf:lastModificationDate: 2024-08-28T18:30:07.772+01:00
-          hippostdpubwf:creationDate: 2024-08-28T18:30:07.772+01:00
-          visitscotland:regions: []
+          visitscotland:teaser: ''
+          jcr:uuid: 1f16bcb2-cdc3-4556-9a2e-cfe5cfcebd8c
+          hippostdpubwf:lastModificationDate: 2024-09-24T14:11:39.340+01:00
+          hippostdpubwf:creationDate: 2024-09-24T14:11:39.340+01:00
           visitscotland:sectors: []
+          visitscotland:types: []
+          visitscotland:skill: ''
+          visitscotland:regions: []
           visitscotland:type: ''
-          /visitscotland:heroImage:
+          /visitscotland:image:
             jcr:primaryType: hippogallerypicker:imagelink
             hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
             hippo:facets: []
             hippo:modes: []
             hippo:values: []
-          /visitscotland:introduction:
-            jcr:primaryType: hippostd:html
-            hippostd:content: ''
       /editor:templates:
         jcr:primaryType: editor:templateset
         /_default_:
@@ -140,37 +122,17 @@ definitions:
             item: ${cluster.id}.right.item
             plugin.class: org.hippoecm.frontend.service.render.ListViewPlugin
             wicket.id: ${cluster.id}.right
-          /heroImage:
+          /image:
             jcr:primaryType: frontend:plugin
-            caption: Main Image
-            field: heroImage
+            caption: Link Image
+            field: image
             plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
             wicket.id: ${cluster.id}.left.item
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-          /seoTitle:
-            jcr:primaryType: frontend:plugin
-            caption: Meta Title
-            field: seoTitle
-            hint: ''
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
-            wicket.id: ${cluster.id}.left.item
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
-              maxlength: ''
-          /seoDescription:
-            jcr:primaryType: frontend:plugin
-            caption: Meta Description
-            field: seoDescription
-            hint: ''
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
-            wicket.id: ${cluster.id}.left.item
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
-              maxlength: ''
           /title:
             jcr:primaryType: frontend:plugin
-            caption: Heading
+            caption: Title
             field: title
             hint: ''
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
@@ -178,9 +140,17 @@ definitions:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
               maxlength: ''
+          /source:
+            jcr:primaryType: frontend:plugin
+            caption: Override Source
+            field: source
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.left.item
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
           /teaser:
             jcr:primaryType: frontend:plugin
-            caption: Page Summary
+            caption: Teaser
             field: teaser
             hint: ''
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
@@ -188,76 +158,18 @@ definitions:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
               maxlength: ''
-          /introduction:
+          /linkTypes:
             jcr:primaryType: frontend:plugin
-            caption: Introduction
-            field: introduction
-            hint: Max length suggestion is 500.
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
+            caption: Link Type
+            compoundList: visitscotland:ExternalLink,visitscotland:FileLink
+            contentPickerType: links
+            field: linkTypes
+            hint: ''
+            plugin.class: org.onehippo.forge.contentblocks.ContentBlocksFieldPlugin
             wicket.id: ${cluster.id}.left.item
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-              ckeditor.config.appended.json: "{   extraPlugins: 'wordcount',   wordcount:\
-                \ { \tcountSpacesAsChars: true,     showCharCount: true ,maxCharCount:750\
-                \   }  }"
-              ckeditor.config.overlayed.json: '{disallowedContent: ''p[align]'', toolbarGroups:
-                [{ name: ''basicstyles''},{ name: ''links'' },{name:''insert''},{name:''clipboard''},{name:''tools''},{name:''undo''}]
-                , removeButtons: ''PickImage,Youtube,Table,Bold,Underline,Strike,Subscript,Superscript''}'
-          /theme:
-            jcr:primaryType: frontend:plugin
-            caption: Page Layout
-            field: theme
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
-            wicket.id: ${cluster.id}.right.item
-            hint: ''
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
-              selectable.options: Top-Level, Standard, Simple
-          /breadcrumb:
-            jcr:primaryType: frontend:plugin
-            caption: Override Navigation & Breadcrumb
-            field: breadcrumb
-            hint: Use if title is too long for navigation or breadcrumb
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
-            wicket.id: ${cluster.id}.right.item
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
-          /seoNoIndex:
-            jcr:primaryType: frontend:plugin
-            caption: No index
-            field: seoNoIndex
-            hint: Page will not be indexed by Search Engines. Only tick if SEO have
-              advised.
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
-            wicket.id: ${cluster.id}.right.item
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
-          /hideNewsletter:
-            jcr:primaryType: frontend:plugin
-            caption: Hide newsletter
-            field: newsletter
-            hint: ''
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
-            wicket.id: ${cluster.id}.right.item
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
-          /publishDate:
-            jcr:primaryType: frontend:plugin
-            caption: Publish Date
-            field: publishDate
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
-            wicket.id: ${cluster.id}.right.item
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
-          /readingTime:
-            jcr:primaryType: frontend:plugin
-            caption: Reading Time
-            field: readingTime
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
-            wicket.id: ${cluster.id}.right.item
-            hint: ''
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
+              maxitems: 1
           /sectors:
             jcr:primaryType: frontend:plugin
             caption: Sector-specific?
@@ -276,11 +188,11 @@ definitions:
             jcr:primaryType: frontend:plugin
             caption: Skill Level
             field: skill
-            hint: ''
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.right.item
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
+              orientation: vertical
               source: /content/documents/administration/options/bsh---skill-level
           /type:
             jcr:primaryType: frontend:plugin
@@ -293,22 +205,6 @@ definitions:
               jcr:primaryType: frontend:pluginconfig
               orientation: vertical
               source: /content/documents/administration/options/bsh---type
-          /links:
-            jcr:primaryType: frontend:plugin
-            caption: Related Pages
-            compoundList: hippo:mirror
-            contentPickerType: links
-            field: links
-            plugin.class: org.onehippo.forge.contentblocks.ContentBlocksFieldPlugin
-            wicket.id: ${cluster.id}.left.item
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
-              compoundNamesMaxLength: 90
-              maxitems: 4
-              showCompoundNames: false
-              showTitles: false
-              startCollapsed: false
-              titleMapping: []
           /regions:
             jcr:primaryType: frontend:plugin
             caption: Region-specific?
