@@ -1,19 +1,19 @@
 definitions:
   config:
-    /hippo:namespaces/visitscotland/SharedLink:
+    /hippo:namespaces/visitscotland/SharedLinkBase:
       jcr:primaryType: hipposysedit:templatetype
       jcr:mixinTypes: ['editor:editable', 'mix:referenceable']
-      jcr:uuid: 7a2f1b56-5951-43be-94ba-680959fbf12f
+      jcr:uuid: 86f489dd-5a7f-4fb5-af59-37fc513333d1
       /hipposysedit:nodetype:
         jcr:primaryType: hippo:handle
         jcr:mixinTypes: ['mix:referenceable']
-        jcr:uuid: 0e3a4cc4-876e-4ee0-97bc-211fa2b7efd5
+        jcr:uuid: 4ccd4c49-93b2-4550-8f06-accf14ab3cc4
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:uuid: fc394bd6-7bf8-4e37-9fda-895f2237ac32
+          jcr:uuid: aa6b0305-a339-44e2-b1b4-e4dfc6ca2f20
           hipposysedit:node: true
-          hipposysedit:supertype: ['visitscotland:SharedLinkBase', 'hippostd:relaxed',
+          hipposysedit:supertype: ['visitscotland:basedocument', 'hippostd:relaxed',
             'hippotranslation:translated']
           hipposysedit:validators: ['visitscotland:link-image-validator']
           hipposysedit:uri: http://www.visitscotland.com/visitscotland/nt/1.0
@@ -62,20 +62,21 @@ definitions:
       /hipposysedit:prototypes:
         jcr:primaryType: hipposysedit:prototypeset
         /hipposysedit:prototype:
-          jcr:primaryType: visitscotland:SharedLink
+          jcr:primaryType: visitscotland:SharedLinkBase
+          jcr:mixinTypes: ['mix:referenceable', 'visitscotland:translatable']
+          jcr:uuid: f8d3913d-9014-442e-8f89-c0612670c026
           hippostd:holder: holder
           hippostd:state: draft
           hippostdpubwf:createdBy: ''
+          hippostdpubwf:creationDate: 2020-07-09T14:56:23.791+01:00
+          hippostdpubwf:lastModificationDate: 2020-07-09T14:56:23.791+01:00
           hippostdpubwf:lastModifiedBy: ''
           hippotranslation:id: document-type-locale-id
           hippotranslation:locale: document-type-locale
-          jcr:mixinTypes: ['mix:referenceable']
-          visitscotland:title: ''
           visitscotland:teaser: ''
-          jcr:uuid: 0a5c981f-bf9b-44f3-9181-fb3a9a06b857
-          hippostdpubwf:lastModificationDate: 2020-07-09T14:56:23.791+01:00
-          hippostdpubwf:creationDate: 2020-07-09T14:56:23.791+01:00
+          visitscotland:title: ''
           visitscotland:translation: ''
+          visitscotland:regions: ''
           /visitscotland:image:
             jcr:primaryType: hippogallerypicker:imagelink
             hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
@@ -105,9 +106,9 @@ definitions:
             jcr:primaryType: frontend:plugin
             caption: Title
             field: title
+            hint: ''
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
-            hint: ''
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
               maxlength: ''
@@ -127,9 +128,9 @@ definitions:
             compoundList: visitscotland:DMSLink,visitscotland:ExternalDocument,visitscotland:ExternalLink,visitscotland:ProductsSearch
             contentPickerType: links
             field: linkTypes
+            hint: ''
             plugin.class: org.onehippo.forge.contentblocks.ContentBlocksFieldPlugin
             wicket.id: ${cluster.id}.field
-            hint: ''
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
               maxitems: 1
