@@ -24,6 +24,7 @@
                 no-cookie-text="${module.noCookiesMessage}"
                 error-text = "${label('essentials.global', 'third-party-error')}"
                 no-js-text="${module.noJsMessage}"
+                extra-content="${escapeJSON(label('ugc', 'ugc.extra-warning-content'), true)}"
             >
                 <template v-slot:embed-intro-copy>
                     <@hst.html hippohtml=module.copy/>
