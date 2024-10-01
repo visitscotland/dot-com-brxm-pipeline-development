@@ -5,7 +5,7 @@ import org.hippoecm.hst.content.beans.Node;
 
 @HippoEssentialsGenerated(internalName = "visitscotland:SharedLinkBsh")
 @Node(jcrType = "visitscotland:SharedLinkBsh")
-public class SharedLinkBsh extends SharedLinkBase {
+public class SharedLinkBsh extends SharedLink {
     @HippoEssentialsGenerated(internalName = "visitscotland:source")
     public String getSource() {
         return getSingleProperty("visitscotland:source");
