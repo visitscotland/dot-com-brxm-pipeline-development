@@ -108,12 +108,11 @@ definitions:
     /hippo:configuration/hippo:modules/validation/hippo:moduleconfig/visitscotland:article-image-validator:
       jcr:primaryType: hipposys:moduleconfig
       hipposys:className: com.visitscotland.brxm.validator.ArticleImageValidator
-      themes: [Content List, Key Statistics]
+      themes: [visual-list, horizontal-list]
     /hippo:configuration/hippo:modules/validation/hippo:moduleconfig/visitscotland:article-copy-validator:
       jcr:primaryType: hipposys:moduleconfig
       hipposys:className: com.visitscotland.brxm.validator.ArticleCopyValidator
-      mandatory.h3: [Accordion, Content List, Key Benefits, Key Statistics, Step by
-          Step]
+      mandatory.h3: [accordion, visual-list, horizontal-list, bullet-list, numbered-list]
     /hippo:configuration/hippo:modules/validation/hippo:moduleconfig/visitscotland:external-file-validator:
       jcr:primaryType: hipposys:moduleconfig
       hipposys:className: com.visitscotland.brxm.validator.ExternalDocumentValidator
