@@ -27,6 +27,12 @@
 [visitscotland:Blog] > hippo:compound, hippostd:relaxed
   orderable
 
+[visitscotland:Page] > hippostd:relaxed, hippotranslation:translated, visitscotland:basedocument, visitscotland:translatable
+  orderable
+
+[visitscotland:BshGeneral] > hippostd:relaxed, hippotranslation:translated, visitscotland:Page
+  orderable
+
 [visitscotland:CMSLink] > hippo:compound, hippostd:relaxed
   orderable
 
@@ -43,9 +49,6 @@
   orderable
 
 [visitscotland:Day] > hippostd:relaxed, hippotranslation:translated, visitscotland:basedocument, visitscotland:translatable
-  orderable
-
-[visitscotland:Page] > hippostd:relaxed, hippotranslation:translated, visitscotland:basedocument, visitscotland:translatable
   orderable
 
 [visitscotland:Destination] > hippostd:relaxed, hippotranslation:translated, visitscotland:Page, visitscotland:translatable
@@ -67,6 +70,9 @@
   orderable
 
 [visitscotland:FeaturedWidget] > hippostd:relaxed, hippotranslation:translated, visitscotland:Widget
+  orderable
+
+[visitscotland:FileLink] > hippo:compound, hippostd:relaxed
   orderable
 
 [visitscotland:Form] > hippostd:relaxed, hippotranslation:translated, visitscotland:basedocument
@@ -155,6 +161,9 @@
 [visitscotland:SharedLink] > hippostd:relaxed, hippotranslation:translated, visitscotland:basedocument, visitscotland:translatable
   orderable
 
+[visitscotland:SharedLinkBsh] > hippostd:relaxed, hippotranslation:translated, visitscotland:SharedLink
+  orderable
+
 [visitscotland:SingleImageModule] > hippo:compound, hippostd:relaxed
   orderable
 
@@ -192,9 +201,6 @@
   orderable
 
 [visitscotland:VideoLink] > hippo:compound, hippostd:relaxed
-  orderable
-
-[visitscotland:BshGeneral] > hippostd:relaxed, hippotranslation:translated, visitscotland:Page
   orderable
 
 [visitscotland:contentdocument] > hippostd:relaxed, hippotranslation:translated, visitscotland:basedocument, visitscotland:translatable

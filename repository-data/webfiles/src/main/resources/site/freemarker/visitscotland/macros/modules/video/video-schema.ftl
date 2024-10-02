@@ -6,9 +6,9 @@
             {
                 "@context": "https://schema.org",
                 "@type": "VideoObject",
-                "name": "${video.label}",
-                "description": "${video.teaser}",
-                "contentUrl": "https://youtube.com/watch?v=${video.youtubeId}",
+                "name": "${video.label!?html}",
+                "description": "${video.teaser!?html}",
+                "contentUrl": "https://youtube.com/watch?v=${video.youtubeId!?html}",
                 "thumbnailUrl":  "<@hst.link hippobean=video.image.cmsImage.original fullyQualified=true/>"
                 <#if video.publishedDate??>
                     ,"uploadDate": "${video.publishedDate?date?string("iso")}"

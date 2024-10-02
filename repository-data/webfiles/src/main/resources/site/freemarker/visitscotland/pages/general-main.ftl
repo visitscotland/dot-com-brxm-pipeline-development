@@ -54,7 +54,7 @@
     <#--TODO Control abput colours, change style="background-color:${style}  -->
 	<#list pageItems as module>
 		<#--TODO Colour should be only added to Megalinks, add this code to macros or create a common macro to control it-->
-		<#if standardTemplate || topLevelTemplate >
+		<#if standardTemplate || topLevelTemplate || inspirationTemplate >
 			<@moduleBuilder module=module pageIndex="${module?index + 1}" />
 		<#else>
 			<@moduleBuilder module=module pageIndex="${module?index + 1}" colourScheme=["light", "light", "light"] />
