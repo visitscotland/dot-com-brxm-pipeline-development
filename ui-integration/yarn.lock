@@ -491,23 +491,23 @@
   resolved "https://registry.yarnpkg.com/@storybook/global/-/global-5.0.0.tgz#b793d34b94f572c1d7d9e0f44fac4e0dbc9572ed"
   integrity sha512-FcOqPAXACP0I3oJ/ws6/rrPT9WGhu915Cg8D02a9YxLo0DE9zI+a9A5gRGvmQ09fiWPukqI8ZAEoQEdWUKMQdQ==
 
-"@storybook/instrumenter@8.3.2":
-  version "8.3.2"
-  resolved "https://registry.yarnpkg.com/@storybook/instrumenter/-/instrumenter-8.3.2.tgz#17acccc874b74f41620e94a1e0bfc440b624b96f"
-  integrity sha512-+H3Z9wn+D8sMuOd+KjHUr8iyRLVpYvWQ4GmV7GKH173PfFAQ2zmX/502K1BS2BAuLrS1l0e6fGZhl7G3u2fL+g==
+"@storybook/instrumenter@8.3.3":
+  version "8.3.3"
+  resolved "https://registry.yarnpkg.com/@storybook/instrumenter/-/instrumenter-8.3.3.tgz#7f2506f59d7862a691cfc7719c62b881c19fd419"
+  integrity sha512-ZiODB9EwCQkl4PBxGJjBHXRTLxcNs68ZZvR+xeMr0eMFzzlJG+trXoX5kK95oA4BFhGN+3uM0Zl3MoRjBtJTNA==
   dependencies:
     "@storybook/global" "^5.0.0"
     "@vitest/utils" "^2.0.5"
     util "^0.12.4"
 
 "@storybook/test@^8.0.10":
-  version "8.3.2"
-  resolved "https://registry.yarnpkg.com/@storybook/test/-/test-8.3.2.tgz#ae879dd105a2574b8122b7e7c9887644cd6895f1"
-  integrity sha512-pRrARctJoZQSKKhMyKkXZQK+fVtnilxTmd0AJx7UBJFUTZmMbp6uEdoyr4NyORCUO1xxxrdbD88vEUsSC1hdYw==
+  version "8.3.3"
+  resolved "https://registry.yarnpkg.com/@storybook/test/-/test-8.3.3.tgz#2bf83f3ffc736b851c034e26d215dbb6da0e2a0d"
+  integrity sha512-uZ8nMIovfI2ry989K2+cYAeEVD/3dpjj2+Rbmy7DiZWWVhFALfmqaTRkzZfShLmlH0TFv+rfcBPihGccBtw0FQ==
   dependencies:
     "@storybook/csf" "^0.1.11"
     "@storybook/global" "^5.0.0"
-    "@storybook/instrumenter" "8.3.2"
+    "@storybook/instrumenter" "8.3.3"
     "@testing-library/dom" "10.4.0"
     "@testing-library/jest-dom" "6.5.0"
     "@testing-library/user-event" "14.5.2"
@@ -597,10 +597,10 @@
   resolved "https://registry.yarnpkg.com/@types/web-bluetooth/-/web-bluetooth-0.0.20.tgz#f066abfcd1cbe66267cdbbf0de010d8a41b41597"
   integrity sha512-g9gZnnXVq7gM7v3tJCWV/qw7w+KeOlSHAhgF9RytFyifW6AF61hdT2ucrYhPq9hLs5JIryeupHV3qGk95dH9ow==
 
-"@visitscotland/component-library@3.2.2":
-  version "3.2.2"
-  resolved "https://registry.yarnpkg.com/@visitscotland/component-library/-/component-library-3.2.2.tgz#408309d3d7688cb0f3cbd3df550d7d7739daa217"
-  integrity sha512-QqIigllnNvo0r67OJee0J7AO5D04PiTPG3m/qMQ/L1P6sRGzGFoEmSlZ6kzuSgYC3n60iMFGfCrGt66jZBAT2Q==
+"@visitscotland/component-library@3.2.3":
+  version "3.2.3"
+  resolved "https://registry.yarnpkg.com/@visitscotland/component-library/-/component-library-3.2.3.tgz#097053bf09b5412714081d4b2029c74fd67c30d6"
+  integrity sha512-K5E20+WaRKMLDO6JBWrTK9jEKSyFsNfdFeBQmky/lKwNRVBv4FsMwiL6t0qfOccFSa62BB6SbJjx5G6uAltKRQ==
   dependencies:
     "@mapbox/geojson-extent" "^1.0.1"
     "@pinia/testing" "^0.1.3"
@@ -5257,7 +5257,7 @@ strict-uri-encode@^1.0.0:
   resolved "https://registry.npmjs.org/strict-uri-encode/-/strict-uri-encode-1.1.0.tgz"
   integrity sha512-R3f198pcvnB+5IpnBlRkphuE9n46WyVl8I39W/ZUTZLz4nqSP/oLYUrcnJrw462Ds8he4YKMov2efsTIw1BDGQ==
 
-"string-width-cjs@npm:string-width@^4.2.0":
+"string-width-cjs@npm:string-width@^4.2.0", string-width@^4.1.0, string-width@^4.2.0:
   version "4.2.3"
   resolved "https://registry.npmjs.org/string-width/-/string-width-4.2.3.tgz"
   integrity sha512-wKyQRQpjJ0sIp62ErSZdGsjMJWsap5oRNihHhu6G7JVO/9jIB6UyevL+tXuOqrng8j/cxKTWyWUwvSTriiZz/g==
@@ -5371,7 +5371,7 @@ string_decoder@~1.1.1:
   dependencies:
     safe-buffer "~5.1.0"
 
-"strip-ansi-cjs@npm:strip-ansi@^6.0.1":
+"strip-ansi-cjs@npm:strip-ansi@^6.0.1", strip-ansi@^6.0.0, strip-ansi@^6.0.1:
   version "6.0.1"
   resolved "https://registry.npmjs.org/strip-ansi/-/strip-ansi-6.0.1.tgz"
   integrity sha512-Y38VPSHcqkFrCpFnQ9vuSXmquuv5oXOKpGeT6aGrr3o3Gc9AlVa6JBfUSOCnbxGGZF+/0ooI7KrPuUSztUdU5A==
@@ -5803,9 +5803,9 @@ vary@~1.1.2:
   integrity sha512-BNGbWLfd0eUPabhkXUVm0j8uuvREyTh5ovRa/dyow/BqAbZJyC+5fU+IzQOzmAKzYqYRAISoRhdQr3eIZ/PXqg==
 
 vite@^5.1.3:
-  version "5.4.7"
-  resolved "https://registry.yarnpkg.com/vite/-/vite-5.4.7.tgz#d226f57c08b61379e955f3836253ed3efb2dcf00"
-  integrity sha512-5l2zxqMEPVENgvzTuBpHer2awaetimj2BGkhBPdnwKbPNOlHsODU+oiazEZzLK7KhAnOrO+XGYJYn4ZlUhDtDQ==
+  version "5.4.8"
+  resolved "https://registry.yarnpkg.com/vite/-/vite-5.4.8.tgz#af548ce1c211b2785478d3ba3e8da51e39a287e8"
+  integrity sha512-FqrItQ4DT1NC4zCUqMB4c4AZORMKIa0m8/URVCZ77OZ/QSNeJ54bU1vrFADbDsuwfIPcgknRkmqakQcgnL4GiQ==
   dependencies:
     esbuild "^0.21.3"
     postcss "^8.4.43"
