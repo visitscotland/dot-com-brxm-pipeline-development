@@ -364,8 +364,8 @@ public class LinkService {
 
         if (linkable instanceof Page) {
             link = enhancedLinkFromPage((Page) linkable, module, locale);
-        } else if (linkable instanceof SharedLinkBase) {
-            link = enhancedLinkFromSharedLink((SharedLinkBase) linkable, module, locale, addCategory);
+        } else if (linkable instanceof SharedLink) {
+            link = enhancedLinkFromSharedLink((SharedLink) linkable, module, locale, addCategory);
         } else if (linkable instanceof Video) {
             link = enhancedLinkFromVideo((Video) linkable, module, locale, addCategory);
         } else if (linkable != null) {
@@ -427,7 +427,7 @@ public class LinkService {
      * @param locale User language to consume DMS texts such a category, location, facilities...
      * @return JSON with DMS product information to create the card or null if the product does not exist
      */
-    private JsonNode getNodeFromSharedLink(SharedLinkBase sharedLink, Module<?> module, Locale locale) {
+    private JsonNode getNodeFromSharedLink(SharedLink sharedLink, Module<?> module, Locale locale) {
         JsonNode product = null;
 
         if (sharedLink.getLinkType() instanceof DMSLink) {
@@ -479,7 +479,7 @@ public class LinkService {
      * @param locale      Language for the label
      * @param addCategory wether or not the category field is populated.
      */
-    private EnhancedLink enhancedLinkFromSharedLink(SharedLinkBase sharedLink, Module<?> module, Locale locale, boolean addCategory) {
+    private EnhancedLink enhancedLinkFromSharedLink(SharedLink sharedLink, Module<?> module, Locale locale, boolean addCategory) {
         EnhancedLink link = new EnhancedLink();
         JsonNode product = getNodeFromSharedLink(sharedLink, module, locale);
 
@@ -517,7 +517,7 @@ public class LinkService {
         return link;
     }
 
-    private boolean hasOverrideImage(SharedLinkBase sharedLink){
+    private boolean hasOverrideImage(SharedLink sharedLink){
         return sharedLink.getImage() != null && !Contract.isEmpty(sharedLink.getImage().getPath());
     }
 

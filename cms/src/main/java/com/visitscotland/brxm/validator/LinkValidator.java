@@ -119,7 +119,7 @@ public class LinkValidator implements Validator<Node> {
             }
         }
         else {
-            if (!childNode.isNodeType("visitscotland:Page") && !childNode.isNodeType("visitscotland:SharedLinkBase")){
+            if (!childNode.isNodeType("visitscotland:Page") && !childNode.isNodeType("visitscotland:SharedLink")){
                 return Optional.of(context.createViolation());
             }
         }
