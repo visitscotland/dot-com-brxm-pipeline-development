@@ -25,4 +25,14 @@ public class SharedLinkBsh extends SharedLink {
     public String getSkill() {
         return getSingleProperty("visitscotland:skill");
     }
+
+    @HippoEssentialsGenerated(internalName = "visitscotland:regions")
+    public String[] getRegions() {
+        return getMultipleProperty("visitscotland:regions");
+    }
+
+    @HippoEssentialsGenerated(internalName = "visitscotland:type")
+    public String getType() {
+        return getSingleProperty("visitscotland:type");
+    }
 }
