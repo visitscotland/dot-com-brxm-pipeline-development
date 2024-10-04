@@ -1,5 +1,5 @@
 <#include "../../../../include/imports.ftl">
-<#include "../../../../frontend/components/vs-icentre.ftl">
+<#include "../../../../frontend/components/vs-tourism-info.ftl">
 <#include "../../../../frontend/components/vs-quote.ftl">
 <#include "../../../../frontend/components/vs-img.ftl">
 <#include "../../../../frontend/components/vs-module-wrapper.ftl">
@@ -8,7 +8,7 @@
 <#include "../../global/quote.ftl">
 <#include "../../global/preview-warning.ftl">
 
-<#macro icentre module themeName="">
+<#macro tourismInfo module themeName="">
     <@previewWarning editMode module module.errorMessages />
 
     <#if module.image.cmsImage??>
@@ -24,16 +24,16 @@
             ${module.title}
         </template>
         <vs-container>
-            <vs-icentre>
-                <template v-slot:icentre-image-with-caption>
+            <vs-tourism-info>
+                <template v-slot:tourism-info-image-with-caption>
                     <@imageWithCaption imageSrc=image imageDetails=module.image noAltText="true" />
                 </template>
                 <#if module.quote??>
-                    <template v-slot:icentre-quote>
+                    <template v-slot:tourism-info-quote>
                         <@quote quoteItem=module.quote variant="wide"/>
                     </template>
                 </#if>
-            </vs-icentre>
+            </vs-tourism-info>
         </vs-container>
     </vs-module-wrapper>
 </#macro>
