@@ -2,8 +2,6 @@ package com.visitscotland.brxm.utils;
 
 import com.visitscotland.brxm.services.ResourceBundleService;
 import com.visitscotland.utils.Contract;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
 import java.util.Arrays;
@@ -31,6 +29,7 @@ public class SiteProperties extends Properties {
 
     static final String INTERNAL_SITES = "links.internal-sites";
     static final String CONVERT_TO_RELATIVE = "links.convert-to-relative";
+    static final String DOWNLOAD_EXTENSIONS = "links.download.extensions";
 
 
     //Page References
@@ -161,6 +160,10 @@ public class SiteProperties extends Properties {
     }
     public Boolean isFormBregLegalBasisEnabled() {
         return readBoolean(FORM_BREG_LEGAL_BASIS_ENABLE);
+    }
+
+    public String getDownloadExtensions() {
+        return readString(DOWNLOAD_EXTENSIONS);
     }
 
 }
