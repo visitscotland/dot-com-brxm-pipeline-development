@@ -19,7 +19,7 @@
   orderable
 
 [visitscotland:ArticleBSH] > hippostd:relaxed, hippotranslation:translated, visitscotland:Article
-   orderable
+  orderable
 
 [visitscotland:ArticleSection] > hippo:compound, hippostd:relaxed
   orderable
@@ -143,6 +143,9 @@
 [visitscotland:Megalinks] > hippostd:relaxed, hippotranslation:translated, visitscotland:basedocument, visitscotland:translatable
   orderable
 
+[visitscotland:MegalinksBSH] > hippostd:relaxed, hippotranslation:translated, visitscotland:Megalinks
+  orderable
+
 [visitscotland:OTYML] > hippo:compound, hippostd:relaxed
   orderable
 
@@ -161,13 +164,10 @@
 [visitscotland:Quote] > hippo:compound, hippostd:relaxed
   orderable
 
-[visitscotland:SharedLinkBase] > hippostd:relaxed, hippotranslation:translated, visitscotland:basedocument
+[visitscotland:SharedLink] > hippostd:relaxed, hippotranslation:translated, visitscotland:basedocument, visitscotland:translatable
   orderable
 
-[visitscotland:SharedLink] > hippostd:relaxed, hippotranslation:translated, visitscotland:SharedLinkBase, visitscotland:translatable
-  orderable
-
-[visitscotland:SharedLinkBsh] > hippostd:relaxed, hippotranslation:translated, visitscotland:SharedLinkBase
+[visitscotland:SharedLinkBsh] > hippostd:relaxed, hippotranslation:translated, visitscotland:SharedLink
   orderable
 
 [visitscotland:SingleImageModule] > hippo:compound, hippostd:relaxed

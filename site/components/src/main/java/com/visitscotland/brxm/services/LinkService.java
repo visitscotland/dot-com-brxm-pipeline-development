@@ -490,6 +490,9 @@ public class LinkService {
             return null;
         }
 
+        if (sharedLink instanceof SharedLinkBsh) {
+            link.setSource(((SharedLinkBsh) sharedLink).getSource());
+        }
         if (product != null && !hasOverrideImage(sharedLink) && product.has(DMSConstants.DMSProduct.IMAGE)) {
             link.setImage(imageFactory.createImage(product, module, locale));
         }else{

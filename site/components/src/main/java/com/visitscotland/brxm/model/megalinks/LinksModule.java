@@ -15,6 +15,7 @@ public class LinksModule<L extends FlatLink> extends Module<Megalinks> {
     private FlatLink cta;
     private Integer themeIndex;
     private String alignment;
+    private boolean nested;
 
     public String getTitle() {
         return title;
@@ -62,5 +63,13 @@ public class LinksModule<L extends FlatLink> extends Module<Megalinks> {
 
     public void setAlignment(String alignment) {
         this.alignment = alignment;
+    }
+
+    public boolean isNested() {
+        return nested;
+    }
+
+    public void setNested(boolean nested) {
+        this.nested = nested;
     }
 }
