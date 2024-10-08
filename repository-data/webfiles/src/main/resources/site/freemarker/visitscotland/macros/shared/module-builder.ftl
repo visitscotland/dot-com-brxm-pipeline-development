@@ -44,8 +44,8 @@
             <@includeOnce "../modules/horizontal-list/horizontal-list.ftl" />
             <@horizontalList module themeName "vs-megalinks-carousel" />
         <#elseif moduleType == "ICentreModule">
-            <@includeOnce "../modules/tourism-information/tourisminformation-icentre.ftl" />
-            <@icentre module themeName/>
+            <@includeOnce "../modules/tourism-information/tourisminformation-info.ftl" />
+            <@tourismInfo module themeName/>
         <#elseif moduleType == "IKnowModule">
             <@includeOnce "../modules/tourism-information/tourisminformation-iknow.ftl" />
             <@iknow module themeName/>
