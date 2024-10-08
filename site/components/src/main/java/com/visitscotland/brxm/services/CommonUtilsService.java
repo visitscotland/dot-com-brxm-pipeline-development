@@ -102,17 +102,32 @@ public class CommonUtilsService {
         DecimalFormatSymbols dfs = new DecimalFormatSymbols(locale);
         DecimalFormat decimalFormat = new DecimalFormat("#.#", dfs);
         try {
-            URLConnection con = openConnection(link);
-            String type = con.getContentType();
-            if (type.contains("pdf")) {
-                double bytes = con.getContentLength();
-
-                return "PDF " + decimalFormat.format(bytes / 1024 / 1024) + "MB";
+            HttpURLConnection con = openConnection(link);
+            if (con.getResponseCode() >= 400){
+                return null;
             }
+            double bytes = con.getContentLength();
+            String displayType = "";
+            String contentType = con.getContentType();
+            if (contentType.contains("pdf")) {
+                displayType = "PDF" ;
+            } else if (link.contains(".")){
+                displayType = link.substring(link.lastIndexOf(".")+1).toUpperCase();
+            }
+            return displayType + " " + decimalFormat.format(bytes / 1024 / 1024) + "MB";
         } catch (IOException e) {
             logger.error("The URL {} is not valid", link, e);
         }
         return null;
+    }
+
+    public String getContentType(String link) throws IOException {
+        HttpURLConnection con = openConnection(link);
+        if (con.getResponseCode() >= 400){
+            return null;
+        } else {
+            return con.getContentType();
+        }
     }
 
     /**
