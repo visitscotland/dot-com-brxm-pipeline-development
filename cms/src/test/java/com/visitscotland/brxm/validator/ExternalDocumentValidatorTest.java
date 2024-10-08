@@ -7,13 +7,15 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
-import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.onehippo.cms.services.validation.api.ValidationContext;
 import org.onehippo.cms.services.validation.api.Violation;
 
+
+import javax.jcr.Node;
+import javax.jcr.RepositoryException;
 
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -34,8 +36,10 @@ class ExternalDocumentValidatorTest {
     ComponentManager manager;
 
     @BeforeEach
-    void init(){
-        validator = new ExternalDocumentValidator();
+    void init() throws RepositoryException {
+        Node mock = Mockito.mock(Node.class);
+        when(mock.hasProperty(ExternalDocumentValidator.TYPES)).thenReturn(false);
+        validator = new ExternalDocumentValidator(mock);
 
         VsComponentManager.setComponentManager(manager);
         when(manager.getComponent(CommonUtilsService.class)).thenReturn(service);
