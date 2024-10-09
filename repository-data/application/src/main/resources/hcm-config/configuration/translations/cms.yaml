@@ -37,8 +37,8 @@ definitions:
       visitscotland:extralong-string-validator: Max length is 250.
       visitscotland:seotitle-string-validator: Max length is 60.
       visitscotland:seodescription-string-validator: Max length is 160.
-      visitscotland:external-document-validator: The document is not valid or the
-        link might be broken.
+      visitscotland:external-document-validator: The document is not a valid PDF or
+        the link might be broken.
       visitscotland:url-validator: Enter a valid website URL.
       visitscotland:iknow-community-tag-validator: Between 2 and 6 tags must be provided.
       visitscotland:otyml-link-validator: Minimum number of links is 5.
@@ -79,5 +79,5 @@ definitions:
         for the current Article layout
       visitscotland:article-image-validator: An image must be provided on each paragraph
         for the current Article layout
-      visitscotland:external-file-validator: The document is not valid PDF or the
-        link might be broken.
+      visitscotland:external-file-validator: The link may be broken, or the file type
+        might not be supported.
