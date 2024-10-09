@@ -14,6 +14,7 @@ import javax.jcr.RepositoryException;
  */
 public class DeliveryAPIContentRewriter extends HtmlContentRewriter {
 
+    static final String NESTED = "visitscotland:nested"
     private final HTMLtoVueTransformer transformer;
 
     public DeliveryAPIContentRewriter() throws Exception {
@@ -39,8 +40,9 @@ public class DeliveryAPIContentRewriter extends HtmlContentRewriter {
         try {
             if (node != null) {
                 parentDocument = node.getPath();
-                if (parentDocument.endsWith("/visitscotland:paragraph/visitscotland:copy")) {
-                    nested = node.getParent().getParent().getProperty("visitscotland:nest").getBoolean();
+                if (parentDocument.endsWith("/visitscotland:paragraph/visitscotland:copy")
+                        && node.getParent().getParent().hasProperty(NESTED)) {
+                    nested = node.getParent().getParent().getProperty(NESTED).getBoolean();
                 }
             } else {
                 parentDocument = "DeliveryAPIContentRewriter";
