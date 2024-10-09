@@ -6,11 +6,32 @@ import org.onehippo.cms7.essentials.dashboard.annotations.HippoEssentialsGenerat
 import org.hippoecm.hst.content.beans.Node;
 import java.util.List;
 import java.util.Calendar;
+import com.visitscotland.brxm.hippobeans.Image;
 
 @HippoEssentialsGenerated(internalName = "visitscotland:SharedLink")
 @Node(jcrType = "visitscotland:SharedLink")
 public class SharedLink extends BaseDocument implements Linkable {
     public static final String LINK_TYPES = "visitscotland:linkTypes";
+
+    @HippoEssentialsGenerated(internalName = "visitscotland:diff")
+    public String getDiff() {
+        return getSingleProperty("visitscotland:diff");
+    }
+
+    @HippoEssentialsGenerated(internalName = "visitscotland:translationFlag")
+    public Boolean getTranslationFlag() {
+        return getSingleProperty("visitscotland:translationFlag");
+    }
+
+    @HippoEssentialsGenerated(internalName = "visitscotland:translationPriority")
+    public String getTranslationPriority() {
+        return getSingleProperty("visitscotland:translationPriority");
+    }
+
+    @HippoEssentialsGenerated(internalName = "visitscotland:translationDeadline")
+    public Calendar getTranslationDeadline() {
+        return getSingleProperty("visitscotland:translationDeadline");
+    }
 
     @HippoEssentialsGenerated(internalName = "visitscotland:title")
     public String getTitle() {
@@ -20,6 +41,11 @@ public class SharedLink extends BaseDocument implements Linkable {
     @HippoEssentialsGenerated(internalName = "visitscotland:teaser")
     public String getTeaser() {
         return getSingleProperty("visitscotland:teaser");
+    }
+
+    @HippoEssentialsGenerated(internalName = "visitscotland:translation")
+    public String getTranslation() {
+        return getSingleProperty("visitscotland:translation");
     }
 
     @HippoEssentialsGenerated(internalName = "visitscotland:image")
@@ -34,30 +60,5 @@ public class SharedLink extends BaseDocument implements Linkable {
 
     public HippoBean getLinkType() {
         return getOnlyChild(getLinkTypes());
-    }
-
-    @HippoEssentialsGenerated(internalName = "visitscotland:diff")
-    public String getDiff() {
-        return getSingleProperty("visitscotland:diff");
-    }
-
-    @HippoEssentialsGenerated(internalName = "visitscotland:translationFlag")
-    public Boolean getTranslationFlag() {
-        return getSingleProperty("visitscotland:translationFlag");
-    }
-
-    @HippoEssentialsGenerated(internalName = "visitscotland:translation")
-    public String getTranslation() {
-        return getSingleProperty("visitscotland:translation");
-    }
-
-    @HippoEssentialsGenerated(internalName = "visitscotland:translationPriority")
-    public String getTranslationPriority() {
-        return getSingleProperty("visitscotland:translationPriority");
-    }
-
-    @HippoEssentialsGenerated(internalName = "visitscotland:translationDeadline")
-    public Calendar getTranslationDeadline() {
-        return getSingleProperty("visitscotland:translationDeadline");
     }
 }

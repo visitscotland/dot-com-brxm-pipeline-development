@@ -17,7 +17,7 @@ public class ArticleSection extends HippoCompound {
     public static final String COPY = "visitscotland:copy";
     public static final String MEDIA = "visitscotland:media";
 
-    @HippoEssentialsGenerated(internalName = COPY)
+    @HippoEssentialsGenerated(internalName = "visitscotland:copy")
     public HippoHtml getCopy() {
         return getHippoHtml(COPY);
     }
@@ -27,7 +27,7 @@ public class ArticleSection extends HippoCompound {
         return getBean("visitscotland:Quote", Quote.class);
     }
 
-    @HippoEssentialsGenerated(internalName = MEDIA, allowModifications = false)
+    @HippoEssentialsGenerated(internalName = "visitscotland:media", allowModifications = false)
     public List<HippoBean> getMedia() {
         return getChildBeansByName(MEDIA, HippoBean.class).stream().map(hippoBean -> {
                     if (hippoBean instanceof HippoMirror) {

@@ -9,4 +9,4 @@ definitions:
         $now, './hippostd:holder', $holder]
       jcr:language: xpath
       jcr:statement: //element(*,hipposysedit:namespacefolder)/element(*,mix:referenceable)/element(*,hipposysedit:templatetype)/hipposysedit:prototypes/element(hipposysedit:prototype,visitscotland:Page)
-      hippostd:excludePrimaryTypes: ['visitscotland:Page']
+      hippostd:excludePrimaryTypes: ['visitscotland:Page', 'visitscotland:BshGeneral']
