@@ -109,9 +109,11 @@ public class CommonUtilsService {
             double bytes = con.getContentLength();
             String displayType = "";
             String contentType = con.getContentType();
-            if (contentType.contains("pdf")) {
+            if (!contentType.startsWith("application") && !contentType.startsWith("image")) {
+                return null;
+            } else if (contentType.contains("pdf")) {
                 displayType = "PDF" ;
-            } else if (link.contains(".")){
+            } else if (link.contains(".")) {
                 displayType = link.substring(link.lastIndexOf(".")+1).toUpperCase();
             }
             return displayType + " " + decimalFormat.format(bytes / 1024 / 1024) + "MB";
