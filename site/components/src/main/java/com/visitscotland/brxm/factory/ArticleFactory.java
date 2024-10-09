@@ -18,7 +18,7 @@ import java.util.Locale;
 @Component
 public class ArticleFactory {
 
-    private static final String STANDARD = "";
+    private static final String STANDARD = "standard";
     private static final String ACCORDION = "accordion";
     private static final String BULLET_LIST = "bullet-list";
     private static final String HORIZONTAL_LIST = "horizontal-list";

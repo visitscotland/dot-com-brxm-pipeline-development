@@ -11,7 +11,7 @@ definitions:
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:uuid: dc42cb03-9d58-4b44-a999-8c6460173b95
+          jcr:uuid: 30f6259a-abeb-4d86-9597-751564d1e873
           hipposysedit:node: true
           hipposysedit:supertype: ['visitscotland:Article', 'hippostd:relaxed', 'hippotranslation:translated']
           hipposysedit:uri: http://www.visitscotland.com/visitscotland/nt/1.0
@@ -73,12 +73,13 @@ definitions:
             hipposysedit:path: visitscotland:theme
             hipposysedit:primary: false
             hipposysedit:type: DynamicDropdown
+            hipposysedit:validators: [required]
       /hipposysedit:prototypes:
         jcr:primaryType: hipposysedit:prototypeset
         /hipposysedit:prototype:
           jcr:primaryType: visitscotland:ArticleBSH
           jcr:mixinTypes: ['mix:referenceable']
-          jcr:uuid: a5669008-7108-4ad1-a1a8-ebfd5d0d1528
+          jcr:uuid: acf7ef8e-932d-4eab-b1d7-4d47d0917934
           hippostd:holder: holder
           hippostd:state: draft
           hippostdpubwf:createdBy: ''
@@ -90,7 +91,7 @@ definitions:
           visitscotland:anchor: ''
           visitscotland:title: ''
           visitscotland:nested: false
-          visitscotland:theme: ''
+          visitscotland:theme: standard
           /visitscotland:copy:
             jcr:primaryType: hippostd:html
             hippostd:content: ''
@@ -124,7 +125,7 @@ definitions:
               source: /content/documents/administration/options/business-support-hub/article-layouts
           /nested:
             jcr:primaryType: frontend:plugin
-            caption: Nest in the previous module
+            caption: Nest under the previous module
             field: nested
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field

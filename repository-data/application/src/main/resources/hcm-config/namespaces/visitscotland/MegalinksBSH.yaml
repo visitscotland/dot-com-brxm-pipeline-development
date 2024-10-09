@@ -11,7 +11,7 @@ definitions:
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:uuid: 0e4ac086-1795-46c9-9cf0-afd15bd3ac7c
+          jcr:uuid: b90bc191-2b3d-49e5-aaad-2433f87027c4
           hipposysedit:node: true
           hipposysedit:supertype: ['visitscotland:Megalinks', 'hippostd:relaxed',
             'hippotranslation:translated']
@@ -47,7 +47,7 @@ definitions:
           visitscotland:teaserVisible: true
           visitscotland:anchor: ''
           visitscotland:nested: false
-          jcr:uuid: d9990b5b-30ec-4210-8e84-a1de84ded63a
+          jcr:uuid: 02a9994a-1d22-4170-9b26-67bacbbf772a
           hippostdpubwf:lastModificationDate: 2024-10-04T12:48:11.520+01:00
           hippostdpubwf:creationDate: 2024-10-04T12:48:11.521+01:00
           visitscotland:layout: Default
@@ -101,7 +101,7 @@ definitions:
                 , removeButtons: ''PickImage,Youtube,Table,Bold,Underline,Strike,Subscript,Superscript''}'
           /nested:
             jcr:primaryType: frontend:plugin
-            caption: Nest in the previous module
+            caption: Nest under the previous module
             field: nested
             hint: ''
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
@@ -113,7 +113,7 @@ definitions:
             caption: Anchor Text
             field: anchor
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
-            wicket.id: ${cluster.id}.left.item
+            wicket.id: ${cluster.id}.right.item
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
           /megalinkItems:
