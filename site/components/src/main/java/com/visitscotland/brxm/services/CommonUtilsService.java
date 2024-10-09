@@ -136,6 +136,10 @@ public class CommonUtilsService {
      * This method allow us to test this class
      */
     public HttpURLConnection openConnection(String url) throws IOException {
-        return (HttpURLConnection) new URL(url).openConnection();
+        HttpURLConnection connection = (HttpURLConnection) new URL(url).openConnection();
+        // This Timeout (5s) prevents the CMS from freezing if the connection is unstable
+        connection.setConnectTimeout(5000);
+
+        return connection;
     }
 }
