@@ -21,6 +21,7 @@ import java.util.Set;
  * jcr:Name = visitscotland:external-document-validator
 
  */
+
 public class ExternalDocumentValidator implements Validator<String>  {
 
     private static final Logger logger = LoggerFactory.getLogger(FeaturedWidgetValidator.class);
