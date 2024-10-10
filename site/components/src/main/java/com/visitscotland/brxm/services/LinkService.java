@@ -276,6 +276,7 @@ public class LinkService {
     public LinkType getType(String url) {
         if (Contract.isEmpty(url)) {
             return null;
+        //TODO add the logic to allow pdf,docx,xlsx,jpg,jpeg,png,eps,svg once the Download documents are merged to develop
         } else if (url.toLowerCase().endsWith(".pdf")) {
             return LinkType.DOWNLOAD;
         } else if (url.toLowerCase().startsWith("mailto:")){

@@ -1,11 +1,12 @@
 package com.visitscotland.brxm.factory;
 
 import com.visitscotland.brxm.hippobeans.CTABanner;
-import com.visitscotland.brxm.hippobeans.Page;
+import com.visitscotland.brxm.hippobeans.capabilities.Linkable;
 import com.visitscotland.brxm.model.FlatImage;
 import com.visitscotland.brxm.model.FlatLink;
 import com.visitscotland.brxm.model.LinkType;
 import com.visitscotland.brxm.model.SignpostModule;
+import com.visitscotland.brxm.services.LinkService;
 import com.visitscotland.brxm.services.ResourceBundleService;
 import com.visitscotland.brxm.utils.HippoHtmlWrapper;
 import com.visitscotland.brxm.utils.HippoUtilsService;
@@ -24,11 +25,13 @@ public class SignpostFactory {
     private final ResourceBundleService bundle;
     private final SiteProperties properties;
     private final HippoUtilsService hippoUtilsService;
+    private final LinkService linkService;
 
-    public SignpostFactory(ResourceBundleService bundle, SiteProperties properties, HippoUtilsService hippoUtilsService) {
+    public SignpostFactory(ResourceBundleService bundle, SiteProperties properties, HippoUtilsService hippoUtilsService, LinkService linkService) {
         this.bundle = bundle;
         this.properties = properties;
         this.hippoUtilsService = hippoUtilsService;
+        this.linkService = linkService;
     }
 
     public SignpostModule createNewsletterSignpostModule(Locale locale) {
@@ -55,10 +58,8 @@ public class SignpostFactory {
 
     public SignpostModule createModule (CTABanner ctaBanner){
         SignpostModule signpostModule = new SignpostModule();
-        //TODO convert link to string (linkService)
-        //TODO calculate link type (can the link be a download?)
-        FlatLink cta = new FlatLink(ctaBanner.getCtaLink().getLabel(), ctaBanner.getCtaLink().getLink().toString(),
-                ctaBanner.getCtaLink().getLink() instanceof Page? LinkType.INTERNAL:LinkType.EXTERNAL);
+        Linkable linkable = (Linkable) ctaBanner.getCtaLink().getLink();
+        FlatLink cta = linkService.createSimpleLink(linkable,signpostModule, null);
 
         if (Contract.isNull(cta.getLink())) {
             return null;
@@ -72,7 +73,6 @@ public class SignpostFactory {
         signpostModule.setCopy(ctaBanner.getIntroduction());
 
         return signpostModule;
-
     }
 
     private SignpostModule createSignPostModule(String bundleName, String prefix, Locale locale) {
