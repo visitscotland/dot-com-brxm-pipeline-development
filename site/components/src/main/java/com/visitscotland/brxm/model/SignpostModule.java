@@ -1,6 +1,5 @@
 package com.visitscotland.brxm.model;
 
-import com.visitscotland.brxm.utils.HippoHtmlWrapper;
 import org.hippoecm.hst.content.beans.standard.HippoHtml;
 
 public class SignpostModule extends Module {
