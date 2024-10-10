@@ -11,7 +11,7 @@ definitions:
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:uuid: 82a22c1b-c412-4676-bbbe-755714a58517
+          jcr:uuid: 1b66537c-479c-4101-8e3c-49cc2be0bf75
           hipposysedit:node: true
           hipposysedit:supertype: ['visitscotland:Page', 'hippostd:relaxed', 'hippotranslation:translated']
           hipposysedit:uri: http://www.visitscotland.com/visitscotland/nt/1.0
@@ -72,6 +72,14 @@ definitions:
             hipposysedit:path: visitscotland:links
             hipposysedit:type: hippo:compound
             hipposysedit:validators: [contentblocks-validator]
+          /type:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: visitscotland:type
+            hipposysedit:primary: false
+            hipposysedit:type: DynamicDropdown
       /hipposysedit:prototypes:
         jcr:primaryType: hipposysedit:prototypeset
         /hipposysedit:prototype:
@@ -94,11 +102,12 @@ definitions:
           visitscotland:seoTitle: ''
           visitscotland:title: ''
           visitscotland:skill: ''
-          jcr:uuid: 48a0143c-a02a-4446-8a70-b816494f1d56
+          jcr:uuid: c11709a5-aaf3-47cc-be9a-e25d4ad9dcfc
           hippostdpubwf:lastModificationDate: 2024-08-28T18:30:07.772+01:00
           hippostdpubwf:creationDate: 2024-08-28T18:30:07.772+01:00
           visitscotland:regions: []
           visitscotland:sectors: []
+          visitscotland:type: ''
           /visitscotland:heroImage:
             jcr:primaryType: hippogallerypicker:imagelink
             hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
@@ -273,20 +282,17 @@ definitions:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
               source: /content/documents/administration/options/bsh---skill-level
-          /regions:
+          /type:
             jcr:primaryType: frontend:plugin
-            caption: Region-specific?
-            field: regions
-            multiselect.type: checkboxes
-            palette.alloworder: false
-            palette.maxrows: '10'
-            plugin.class: org.onehippo.forge.selection.frontend.plugin.DynamicMultiSelectPlugin
-            selectlist.maxrows: '10'
-            valuelist.provider: service.valuelist.default
+            caption: Content Type
+            field: type
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.right.item
+            hint: ''
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-              source: /content/documents/administration/options/bsh---regions
+              orientation: vertical
+              source: /content/documents/administration/options/bsh---type
           /links:
             jcr:primaryType: frontend:plugin
             caption: Related Pages
@@ -303,3 +309,17 @@ definitions:
               showTitles: false
               startCollapsed: false
               titleMapping: []
+          /regions:
+            jcr:primaryType: frontend:plugin
+            caption: Region-specific?
+            field: regions
+            multiselect.type: checkboxes
+            palette.alloworder: false
+            palette.maxrows: '10'
+            plugin.class: org.onehippo.forge.selection.frontend.plugin.DynamicMultiSelectPlugin
+            selectlist.maxrows: '10'
+            valuelist.provider: service.valuelist.default
+            wicket.id: ${cluster.id}.right.item
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+              source: /content/documents/administration/options/bsh---regions

@@ -11,12 +11,12 @@ definitions:
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:uuid: acddd55c-8c6f-4ed6-ad0a-b50ea58072e8
+          jcr:uuid: fc394bd6-7bf8-4e37-9fda-895f2237ac32
           hipposysedit:node: true
           hipposysedit:supertype: ['visitscotland:basedocument', 'hippostd:relaxed',
             'hippotranslation:translated']
-          hipposysedit:uri: http://www.visitscotland.com/visitscotland/nt/1.0
           hipposysedit:validators: ['visitscotland:link-image-validator']
+          hipposysedit:uri: http://www.visitscotland.com/visitscotland/nt/1.0
           /image:
             jcr:primaryType: hipposysedit:field
             hipposysedit:mandatory: false

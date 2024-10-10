@@ -17,7 +17,7 @@
       jcr:mixinTypes: ['hippo:named', 'hippotranslation:translated', 'mix:versionable']
       jcr:uuid: c7fb8b87-acc3-42ef-901a-c4d67c74abdd
       hippo:name: 404 Not Found
-      hippostd:foldertype: [new-be-module]
+      hippostd:foldertype: [new-bsh-module]
       hippotranslation:id: d6dd30c3-c191-4b5a-9804-5e1a2a9129c3
       hippotranslation:locale: en
       /content:
@@ -26,7 +26,7 @@
         jcr:uuid: 0f909f62-a577-4776-8a1f-4e633c0679bf
         hippo:name: 404notfound
         /content[1]:
-          jcr:primaryType: visitscotland:General
+          jcr:primaryType: visitscotland:BshGeneral
           jcr:mixinTypes: ['mix:referenceable']
           jcr:uuid: ea33efc3-47a5-4c44-89e1-af1c8a10a4a8
           hippo:availability: []
@@ -60,7 +60,7 @@
             hippostd:content: <p>We can't find the page you're looking for. It may
               have been moved or deleted</p>
         /content[2]:
-          jcr:primaryType: visitscotland:General
+          jcr:primaryType: visitscotland:BshGeneral
           jcr:mixinTypes: ['mix:versionable']
           jcr:uuid: 8e5ee244-06b7-46f9-8fa9-0b6a3b7ee84d
           hippo:availability: [preview]
@@ -94,7 +94,7 @@
             hippostd:content: <p>We can't find the page you're looking for. It may
               have been moved or deleted</p>
         /content[3]:
-          jcr:primaryType: visitscotland:General
+          jcr:primaryType: visitscotland:BshGeneral
           jcr:mixinTypes: ['mix:referenceable']
           jcr:uuid: b411acb6-01b9-4c7a-abfb-e17266d8ae7b
           hippo:availability: [live]
@@ -133,7 +133,7 @@
       jcr:mixinTypes: ['hippo:named', 'hippotranslation:translated', 'mix:versionable']
       jcr:uuid: d298353a-2271-4bf1-8e32-97f262561e76
       hippo:name: 500 Server Error
-      hippostd:foldertype: [new-be-module]
+      hippostd:foldertype: [new-bsh-module]
       hippotranslation:id: 96f27580-936d-4014-b7ef-dd2c04b07642
       hippotranslation:locale: en
       /content:
@@ -142,7 +142,7 @@
         jcr:uuid: 431f08f6-2ffc-4e97-bf53-0f1d93dfa55d
         hippo:name: 500error
         /content[1]:
-          jcr:primaryType: visitscotland:General
+          jcr:primaryType: visitscotland:BshGeneral
           jcr:mixinTypes: ['mix:referenceable']
           jcr:uuid: 5a2801cc-501e-42fe-ace5-54b62e326d67
           hippo:availability: []
@@ -173,7 +173,7 @@
             jcr:primaryType: hippostd:html
             hippostd:content: <p>500&nbsp;</p>
         /content[2]:
-          jcr:primaryType: visitscotland:General
+          jcr:primaryType: visitscotland:BshGeneral
           jcr:mixinTypes: ['mix:versionable']
           jcr:uuid: 6d0b705f-207c-4bf8-b58c-74a9cfa99e65
           hippo:availability: [preview]
@@ -204,7 +204,7 @@
             jcr:primaryType: hippostd:html
             hippostd:content: <p>500&nbsp;</p>
         /content[3]:
-          jcr:primaryType: visitscotland:General
+          jcr:primaryType: visitscotland:BshGeneral
           jcr:mixinTypes: ['mix:referenceable']
           jcr:uuid: 07e891f9-0614-47c2-a4a7-809add0cd8f4
           hippo:availability: [live]
