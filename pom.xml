@@ -17,6 +17,7 @@
 
   <properties>
     <!-- Project properties -->
+    <rootModule>true</rootModule>
     <nexus.repo>https://repo.visitscotland.com/nexus2/</nexus.repo>
     <dist.descriptor>distribution.xml</dist.descriptor>
 
@@ -121,6 +122,9 @@
       </dependency>
 
       <dependency>
+        <!-- This dependency was introduced on version 15.x of BloomReach CMS to resolve an issue that only affected
+           cloud Environments. This dependency is not needed for our implementation, so it should be evaluated if it
+           can be removed once we upgrade to version 16.x -->
         <groupId>com.zaxxer</groupId>
         <artifactId>HikariCP</artifactId>
         <version>5.0.1</version>
@@ -368,6 +372,88 @@
         <module>site</module>
         <module>essentials</module>
       </modules>
+    </profile>
+
+    <profile>
+      <id>dist</id>
+      <activation>
+        <property>
+          <!-- Define a property that should only be set in the root module -->
+          <name>root</name>
+          <value>true</value>
+        </property>
+      </activation>
+
+      <dependencies>
+        <dependency>
+          <groupId>jakarta.xml.bind</groupId>
+          <artifactId>jakarta.xml.bind-api</artifactId>
+          <scope>provided</scope>
+        </dependency>
+        <dependency>
+          <groupId>jakarta.xml.ws</groupId>
+          <artifactId>jakarta.xml.ws-api</artifactId>
+          <scope>provided</scope>
+        </dependency>
+        <dependency>
+          <groupId>javax.annotation</groupId>
+          <artifactId>javax.annotation-api</artifactId>
+          <scope>provided</scope>
+        </dependency>
+        <dependency>
+          <groupId>jakarta.activation</groupId>
+          <artifactId>jakarta.activation-api</artifactId>
+          <scope>provided</scope>
+        </dependency>
+        <dependency>
+          <groupId>org.glassfish.jaxb</groupId>
+          <artifactId>jaxb-runtime</artifactId>
+          <scope>provided</scope>
+        </dependency>
+
+        <dependency>
+          <groupId>org.apache.logging.log4j</groupId>
+          <artifactId>log4j-slf4j-impl</artifactId>
+          <scope>provided</scope>
+        </dependency>
+        <dependency>
+          <groupId>org.slf4j</groupId>
+          <artifactId>jcl-over-slf4j</artifactId>
+          <scope>provided</scope>
+        </dependency>
+        <dependency>
+          <groupId>org.apache.logging.log4j</groupId>
+          <artifactId>log4j-api</artifactId>
+          <scope>provided</scope>
+        </dependency>
+        <dependency>
+          <groupId>org.apache.logging.log4j</groupId>
+          <artifactId>log4j-core</artifactId>
+          <scope>provided</scope>
+        </dependency>
+      </dependencies>
+      <build>
+        <defaultGoal>validate</defaultGoal>
+        <plugins>
+          <plugin>
+            <artifactId>maven-assembly-plugin</artifactId>
+            <executions>
+              <execution>
+                <id>distro-assembly</id>
+                <phase>validate</phase>
+                <goals>
+                  <goal>single</goal>
+                </goals>
+                <configuration>
+                  <descriptors>
+                    <descriptor>${project.basedir}/src/main/assembly/distribution.xml</descriptor>
+                  </descriptors>
+                </configuration>
+              </execution>
+            </executions>
+          </plugin>
+        </plugins>
+      </build>
     </profile>
   </profiles>
 

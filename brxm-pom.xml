@@ -9,7 +9,7 @@
   </parent>
 
   <name>Parent POM</name>
-  <description>Bloomreach default pom. It makes it easier to workout differences from the Archetypes</description>
+  <description>BloomReach default pom. It makes it easier to workout differences from the Archetypes</description>
   <groupId>com.visitscotland</groupId>
   <artifactId>brxm-parent-enterprise-pom</artifactId>
   <version>1.0</version>
@@ -199,6 +199,13 @@
 
     <profile>
       <id>docker.build</id>
+      <activation>
+        <!-- It only activates for the root module and not for each submodule -->
+        <property>
+          <name>rootModule</name>
+          <value>true</value>
+        </property>
+      </activation>
       <dependencies>
         <dependency>
           <groupId>${project.groupId}</groupId>
@@ -219,6 +226,13 @@
 
     <profile>
       <id>docker.run</id>
+      <activation>
+        <!-- It only activates for the root module and not for each submodule -->
+        <property>
+          <name>rootModule</name>
+          <value>true</value>
+        </property>
+      </activation>
       <dependencies>
         <dependency>
           <groupId>${project.groupId}</groupId>
@@ -248,6 +262,13 @@
 
     <profile>
       <id>docker.mysql</id>
+      <activation>
+        <!-- It only activates for the root module and not for each submodule -->
+        <property>
+          <name>rootModule</name>
+          <value>true</value>
+        </property>
+      </activation>
       <properties>
         <docker.db.bind.1>${project.basedir}/target/mysql-data:/var/lib/mysql</docker.db.bind.1>
         <docker.db.bind.2>${project.basedir}/db-bootstrap:/docker-entrypoint-initdb.d</docker.db.bind.2>
@@ -262,6 +283,13 @@
 
     <profile>
       <id>docker.postgres</id>
+      <activation>
+        <!-- It only activates for the root module and not for each submodule -->
+        <property>
+          <name>rootModule</name>
+          <value>true</value>
+        </property>
+      </activation>
       <properties>
         <docker.db.bind.1>${docker.postgres.bind.1}</docker.db.bind.1>
         <docker.db.bind.2>${project.basedir}/db-bootstrap:/docker-entrypoint-initdb.d</docker.db.bind.2>
@@ -272,6 +300,14 @@
 
     <profile>
       <id>docker.windows</id>
+      <activation>
+        <!-- It only activates for the root module and not for each submodule -->
+        <property>
+          <name>rootModule</name>
+          <value>true</value>
+        </property>
+      </activation>
+
       <properties>
         <docker.postgres.bind.1>playground-postgres-data:/var/lib/postgresql/data</docker.postgres.bind.1>
       </properties>
@@ -403,6 +439,13 @@
 
     <profile>
       <id>dist</id>
+      <activation>
+        <!-- It only activates for the root module and not for each submodule -->
+        <property>
+          <name>rootModule</name>
+          <value>true</value>
+        </property>
+      </activation>
       <dependencies>
         <dependency>
           <groupId>jakarta.xml.bind</groupId>
@@ -477,6 +520,13 @@
 
     <profile>
       <id>dist-with-development-data</id>
+      <activation>
+        <!-- It only activates for the root module and not for each submodule -->
+        <property>
+          <name>rootModule</name>
+          <value>true</value>
+        </property>
+      </activation>
       <dependencies>
         <dependency>
           <groupId>org.apache.logging.log4j</groupId>
