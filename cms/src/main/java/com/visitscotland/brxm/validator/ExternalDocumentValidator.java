@@ -53,7 +53,7 @@ public class ExternalDocumentValidator implements Validator<String>  {
             if (contentType != null && (contentType.startsWith("application")
                     || contentType.startsWith("image"))) {
                 for (String mimetype : validTypes) {
-                    if (validTypes.contains(mimetype) || value.endsWith(mimetype)){
+                    if (contentType.contains(mimetype) || value.endsWith(mimetype)){
                         return Optional.empty();
                     }
                 }
