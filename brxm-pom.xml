@@ -5,7 +5,7 @@
   <parent>
     <groupId>com.onehippo.cms7</groupId>
     <artifactId>hippo-cms7-enterprise-release</artifactId>
-    <version>15.5.0</version>
+    <version>15.6.0</version>
   </parent>
 
   <name>Parent POM</name>
@@ -282,6 +282,8 @@
       <properties>
         <!-- Already defined in the cms project POM. Override here for your project, if necessary -->
         <!-- <repo.bootstrap>true</repo.bootstrap> -->
+
+        <!-- Note: Wicket can be debugged by using the following CLI parameter -Dwicket.js.debug=true -->
       </properties>
       <dependencies>
         <dependency>
@@ -341,11 +343,11 @@
                 </configfiles>
                 <files>
                   <file>
-                    <file>${project.basedir}/repository-data/development/target/playground-repository-data-development-${project.version}.jar</file>
+                    <file>${project.basedir}/repository-data/development/target/${project.artifactId}-repository-data-development-${project.version}.jar</file>
                     <todir>${development-module-deploy-dir}</todir>
                   </file>
                   <file>
-                    <file>${project.basedir}/repository-data/site-development/target/playground-repository-data-site-development-${project.version}.jar</file>
+                    <file>${project.basedir}/repository-data/site-development/target/${project.artifactId}-repository-data-site-development-${project.version}.jar</file>
                     <todir>${development-module-deploy-dir}</todir>
                   </file>
                 </files>
