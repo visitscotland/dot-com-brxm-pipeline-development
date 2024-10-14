@@ -30,10 +30,6 @@
     <!-- Documentation: https://bloomreach-forge.github.io/breadcrumb/ -->
     <forge.breadcrumb.version>5.0.0</forge.breadcrumb.version>
 
-    <!-- Other dependencies -->
-    <jsp-api.version>2.2</jsp-api.version>
-    <taglibs.version>1.2.5</taglibs.version>
-
     <!-- Test dependencies -->
     <junit.jupiter.version>5.11.2</junit.jupiter.version>
     <easymock.version>5.4.0</easymock.version>
@@ -377,13 +373,11 @@
     <profile>
       <id>dist</id>
       <activation>
+        <!-- This will activate the profile only for the root project -->
         <property>
-          <!-- Define a property that should only be set in the root module -->
-          <name>root</name>
-          <value>true</value>
+          <name>!reactorParent</name>
         </property>
       </activation>
-
       <dependencies>
         <dependency>
           <groupId>jakarta.xml.bind</groupId>
@@ -445,6 +439,7 @@
                   <goal>single</goal>
                 </goals>
                 <configuration>
+                  <runOnlyAtExecutionRoot>true</runOnlyAtExecutionRoot>
                   <descriptors>
                     <descriptor>${project.basedir}/src/main/assembly/distribution.xml</descriptor>
                   </descriptors>
@@ -455,6 +450,61 @@
         </plugins>
       </build>
     </profile>
+
+    <profile>
+      <id>dist-with-development-data</id>
+      <activation>
+        <!-- This will activate the profile only for the root project -->
+        <property>
+          <name>!reactorParent</name>
+        </property>
+      </activation>
+      <dependencies>
+        <dependency>
+          <groupId>org.apache.logging.log4j</groupId>
+          <artifactId>log4j-slf4j-impl</artifactId>
+          <scope>provided</scope>
+        </dependency>
+        <dependency>
+          <groupId>org.slf4j</groupId>
+          <artifactId>jcl-over-slf4j</artifactId>
+          <scope>provided</scope>
+        </dependency>
+        <dependency>
+          <groupId>org.apache.logging.log4j</groupId>
+          <artifactId>log4j-api</artifactId>
+          <scope>provided</scope>
+        </dependency>
+        <dependency>
+          <groupId>org.apache.logging.log4j</groupId>
+          <artifactId>log4j-core</artifactId>
+          <scope>provided</scope>
+        </dependency>
+      </dependencies>
+      <build>
+        <defaultGoal>validate</defaultGoal>
+        <plugins>
+          <plugin>
+            <artifactId>maven-assembly-plugin</artifactId>
+            <executions>
+              <execution>
+                <id>distro-assembly-with-development-data</id>
+                <phase>validate</phase>
+                <goals>
+                  <goal>single</goal>
+                </goals>
+                <configuration>
+                  <descriptors>
+                    <descriptor>${project.basedir}/src/main/assembly/distribution-with-development-data.xml</descriptor>
+                  </descriptors>
+                </configuration>
+              </execution>
+            </executions>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+
   </profiles>
 
   <scm>
