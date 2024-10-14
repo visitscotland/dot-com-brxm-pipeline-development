@@ -24,12 +24,10 @@
     <cliOptions></cliOptions>
 
     <!-- BloomReach Dependencies -->
-
     <!-- Documentation: https://bloomreach-forge.github.io/external-document-picker/index.html -->
     <forge.exdocpickerbase.version>8.0.0</forge.exdocpickerbase.version>
     <!-- Documentation: https://bloomreach-forge.github.io/breadcrumb/ -->
     <forge.breadcrumb.version>5.0.0</forge.breadcrumb.version>
-    <!--    <bloomreach.forge.ipfilter.version>3.1.0</bloomreach.forge.ipfilter.version>-->
 
     <!-- Other dependencies -->
     <jsp-api.version>2.2</jsp-api.version>
@@ -37,8 +35,10 @@
 
     <!-- Test dependencies -->
     <junit.jupiter.version>5.11.2</junit.jupiter.version>
-    <easymock.version>5.2.0</easymock.version>
+    <easymock.version>5.4.0</easymock.version>
     <mockito.version>5.2.0</mockito.version>
+    <assertj.version>3.26.3</assertj.version>
+
   </properties>
 
   <organization>
@@ -151,6 +151,12 @@
         <version>${mockito.version}</version>
         <scope>test</scope>
       </dependency>
+      <dependency>
+        <groupId>org.assertj</groupId>
+        <artifactId>assertj-core</artifactId>
+        <version>${assertj.version}</version>
+        <scope>test</scope>
+      </dependency>
     </dependencies>
   </dependencyManagement>
 
@@ -159,6 +165,44 @@
 
     <pluginManagement>
       <plugins>
+        <!-- OWASP Dependency check. It is used by the Pipeline to report on security vulnerabilities -->
+        <plugin>
+          <groupId>org.owasp</groupId>
+          <artifactId>dependency-check-maven</artifactId>
+          <version>10.0.4</version>
+          <configuration>
+            <outputDirectory>report/owasp</outputDirectory>
+            <suppressionFiles>
+              <file>src/main/resources/suppressed-cves.xml</file>
+            </suppressionFiles>
+
+            <excludes>
+              <!-- Note: we could have included the project dependency located at
+              [project-name]-essentials, but we included these dependencies instead so the
+              configuration can be copied to other projects -->
+              <exclude>org.onehippo.cms7:hippo-essentials-dashboard</exclude>
+              <exclude>org.onehippo.cms7:hippo-essentials-dashboard-dependencies</exclude>
+            </excludes>
+
+            <!-- JavaScript Dependencies are resolved via Node -->
+            <nodeAnalyzerEnabled>false</nodeAnalyzerEnabled>
+            <nodeAuditAnalyzerEnabled>false</nodeAuditAnalyzerEnabled>
+            <yarnAuditAnalyzerEnabled>false</yarnAuditAnalyzerEnabled>
+            <retireJsAnalyzerEnabled>false</retireJsAnalyzerEnabled>
+            <formats>
+              <format>HTML</format>
+              <format>XML</format>
+            </formats>
+          </configuration>
+          <executions>
+            <execution>
+              <goals>
+                <goal>check</goal>
+              </goals>
+            </execution>
+          </executions>
+        </plugin>
+
         <!-- Generates the buildnumber -->
         <plugin>
           <groupId>org.codehaus.mojo</groupId>
