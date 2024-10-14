@@ -113,10 +113,10 @@ class CommonUtilsServiceTest {
     @Test
     @DisplayName("getExternalDocumentSize - Not allowed types")
     void getExternalDocumentSize_nonAllowedTypes(){
-        when(huc.getContentType()).thenReturn("application/msword");
+        when(huc.getContentType()).thenReturn("text/html");
         Assertions.assertNull(utils.getExternalDocumentSize("/file.doc", Locale.UK));
 
-        when(huc.getContentType()).thenReturn("application/epub");
+        when(huc.getContentType()).thenReturn("audio/mp3");
         Assertions.assertNull(utils.getExternalDocumentSize("/file.epub", Locale.UK));
     }
 
