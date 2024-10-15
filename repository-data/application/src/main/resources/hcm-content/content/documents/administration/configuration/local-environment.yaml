@@ -3,8 +3,8 @@
   jcr:primaryType: hippo:handle
   jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
   jcr:uuid: 45278688-f372-4427-8e15-6b177cf51cc1
-  hippo:name: Local CMS Properties
-  hippo:versionHistory: f2841c83-840c-46bc-a2bc-62a92dd02c83
+  hippo:name: Local - CMS Properties
+  hippo:versionHistory: bfd0e39c-90a3-4c09-b8f3-2487b3ff3022
   /local-environment[1]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:referenceable']
@@ -12,9 +12,10 @@
     hippo:availability: []
     hippostd:retainable: false
     hippostd:state: draft
+    hippostd:transferable: false
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2021-02-05T15:37:26.056Z
-    hippostdpubwf:lastModificationDate: 2024-04-29T14:58:35.499+01:00
+    hippostdpubwf:lastModificationDate: 2024-10-07T09:21:21.066+01:00
     hippostdpubwf:lastModifiedBy: admin
     resourcebundle:descriptions: [Client Token for Instagram request, "Token that\
         \ identifies calls made to vs-dms-products as internal calls giving access\
@@ -112,7 +113,7 @@
     hippostdpubwf:creationDate: 2021-02-05T15:37:26.056Z
     hippostdpubwf:lastModificationDate: 2024-04-29T14:58:46.182+01:00
     hippostdpubwf:lastModifiedBy: admin
-    hippostdpubwf:publicationDate: 2024-04-29T14:58:49.338+01:00
+    hippostdpubwf:publicationDate: 2024-10-07T11:35:14.935+01:00
     resourcebundle:descriptions: [Client Token for Instagram request, "Token that\
         \ identifies calls made to vs-dms-products as internal calls giving access\
         \ to wider data\r\n\r\nThis token is configured by the environment variable\

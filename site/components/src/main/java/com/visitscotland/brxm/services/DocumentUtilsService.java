@@ -141,8 +141,7 @@ public class DocumentUtilsService {
                 HippoBean translation = document.getAvailableTranslations().getTranslation(lan.getLanguage());
 
                 if (Locale.UK.equals(language.getLocale()) && (translation == null)) {
-                        logger.warn("The requested page does not exist in English: {}", document.getPath());
-
+                    contentLog.warn("The requested page does not exist in English: {}", document.getPath());
                 }
 
                 if (translation instanceof Page) {
