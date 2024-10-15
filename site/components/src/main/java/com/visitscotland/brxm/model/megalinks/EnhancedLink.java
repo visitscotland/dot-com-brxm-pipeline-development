@@ -16,6 +16,7 @@ public class EnhancedLink extends FlatLink {
     private String youtubeId;
     private int itineraryDays;
     private Date publishedDate;
+    private String source;
 
     public FlatImage getImage() {
         return image;
@@ -87,5 +88,13 @@ public class EnhancedLink extends FlatLink {
 
     public void setPublishedDate(Date publishedDate) {
         this.publishedDate = publishedDate;
+    }
+
+    public String getSource() {
+        return source;
+    }
+
+    public void setSource(String source) {
+        this.source = source;
     }
 }

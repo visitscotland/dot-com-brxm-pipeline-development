@@ -43,4 +43,9 @@ public class BshGeneral extends Page {
     public List<HippoBean> getLinks() {
         return getLinkedBeans("visitscotland:links", HippoBean.class);
     }
+
+    @HippoEssentialsGenerated(internalName = "visitscotland:type")
+    public String getType() {
+        return getSingleProperty("visitscotland:type");
+    }
 }

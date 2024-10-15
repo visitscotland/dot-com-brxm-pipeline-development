@@ -18,6 +18,9 @@
 [visitscotland:Article] > hippostd:relaxed, hippotranslation:translated, visitscotland:basedocument, visitscotland:translatable
   orderable
 
+[visitscotland:ArticleBSH] > hippostd:relaxed, hippotranslation:translated, visitscotland:Article
+  orderable
+
 [visitscotland:ArticleSection] > hippo:compound, hippostd:relaxed
   orderable
 
@@ -138,6 +141,9 @@
   orderable
 
 [visitscotland:Megalinks] > hippostd:relaxed, hippotranslation:translated, visitscotland:basedocument, visitscotland:translatable
+  orderable
+
+[visitscotland:MegalinksBSH] > hippostd:relaxed, hippotranslation:translated, visitscotland:Megalinks
   orderable
 
 [visitscotland:OTYML] > hippo:compound, hippostd:relaxed
