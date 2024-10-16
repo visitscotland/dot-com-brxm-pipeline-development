@@ -448,6 +448,12 @@
       <id>dist-with-development-data</id>
       <dependencies>
         <dependency>
+          <groupId>com.h2database</groupId>
+          <artifactId>h2</artifactId>
+          <version>${h2.database.version}</version>
+          <scope>provided</scope>
+        </dependency>
+        <dependency>
           <groupId>org.apache.logging.log4j</groupId>
           <artifactId>log4j-slf4j-impl</artifactId>
           <scope>provided</scope>
