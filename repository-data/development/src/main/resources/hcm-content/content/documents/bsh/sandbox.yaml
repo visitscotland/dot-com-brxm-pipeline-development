@@ -274,7 +274,7 @@
             hippostd:state: draft
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2024-09-26T09:11:34.724+01:00
-            hippostdpubwf:lastModificationDate: 2024-09-26T09:55:15.475+01:00
+            hippostdpubwf:lastModificationDate: 2024-10-08T17:42:09.208+01:00
             hippostdpubwf:lastModifiedBy: admin
             hippotranslation:id: df6e7996-9520-436f-908d-e9f3f01508b0
             hippotranslation:locale: en
@@ -284,6 +284,7 @@
             visitscotland:source: ''
             visitscotland:teaser: Piste Map
             visitscotland:title: Cairngornsjavascript:;
+            visitscotland:type: ''
             visitscotland:types: []
             /visitscotland:image:
               jcr:primaryType: hippogallerypicker:imagelink
@@ -293,7 +294,7 @@
               hippo:values: []
             /visitscotland:linkTypes:
               jcr:primaryType: visitscotland:FileLink
-              visitscotland:link: https://static.visitscotland.com/pdf/cairngorm-mountain-piste-map.xls
+              visitscotland:link: https://static.visitscotland.com/pdf/cairngorm-mountain-piste-map.pdf
           /cairngorm-piste-map[2]:
             jcr:primaryType: visitscotland:SharedLinkBsh
             jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
@@ -303,7 +304,7 @@
             hippostd:state: unpublished
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2024-09-26T09:11:34.724+01:00
-            hippostdpubwf:lastModificationDate: 2024-09-26T09:55:22.199+01:00
+            hippostdpubwf:lastModificationDate: 2024-10-08T17:42:19.376+01:00
             hippostdpubwf:lastModifiedBy: admin
             hippotranslation:id: df6e7996-9520-436f-908d-e9f3f01508b0
             hippotranslation:locale: en
@@ -313,6 +314,7 @@
             visitscotland:source: ''
             visitscotland:teaser: Piste Map
             visitscotland:title: Cairngornsjavascript:;
+            visitscotland:type: ''
             visitscotland:types: []
             /visitscotland:image:
               jcr:primaryType: hippogallerypicker:imagelink
@@ -322,7 +324,727 @@
               hippo:values: []
             /visitscotland:linkTypes:
               jcr:primaryType: visitscotland:FileLink
-              visitscotland:link: https://static.visitscotland.com/pdf/cairngorm-mountain-piste-map.xls
+              visitscotland:link: https://static.visitscotland.com/pdf/cairngorm-mountain-piste-map.pdf
+        /zip-file-not-allowed:
+          jcr:primaryType: hippo:handle
+          jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+          jcr:uuid: c111f78e-a3a7-43f5-8fab-873b9df47538
+          hippo:name: ZIP File (not allowed)
+          /zip-file-not-allowed[1]:
+            jcr:primaryType: visitscotland:SharedLinkBsh
+            jcr:mixinTypes: ['mix:referenceable']
+            jcr:uuid: 7c21f0b5-bed4-41f7-ace9-b99c0d7aafcd
+            hippo:availability: []
+            hippostd:retainable: false
+            hippostd:state: draft
+            hippostd:transferable: false
+            hippostdpubwf:createdBy: bsh-editor
+            hippostdpubwf:creationDate: 2024-10-08T15:50:45.055+01:00
+            hippostdpubwf:lastModificationDate: 2024-10-08T17:42:48.097+01:00
+            hippostdpubwf:lastModifiedBy: admin
+            hippotranslation:id: 85255d11-e38c-41e3-9dca-4ec19042ee5d
+            hippotranslation:locale: en
+            visitscotland:regions: []
+            visitscotland:sectors: []
+            visitscotland:skill: ''
+            visitscotland:source: ''
+            visitscotland:teaser: This zip contains some logos
+            visitscotland:title: EventScotland logos
+            visitscotland:type: ''
+            visitscotland:types: []
+            /visitscotland:image:
+              jcr:primaryType: hippogallerypicker:imagelink
+              hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+              hippo:facets: []
+              hippo:modes: []
+              hippo:values: []
+            /visitscotland:linkTypes:
+              jcr:primaryType: visitscotland:FileLink
+              visitscotland:link: https://www.visitscotland.org/binaries/content/assets/dot-org/zip/eventscotland-logos-for-supported-events.zip
+          /zip-file-not-allowed[2]:
+            jcr:primaryType: visitscotland:SharedLinkBsh
+            jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+            jcr:uuid: af151262-83c7-4b13-9a09-fc105427ce2c
+            hippo:availability: [preview]
+            hippostd:retainable: false
+            hippostd:state: unpublished
+            hippostdpubwf:createdBy: bsh-editor
+            hippostdpubwf:creationDate: 2024-10-08T15:50:45.055+01:00
+            hippostdpubwf:lastModificationDate: 2024-10-08T17:42:45.038+01:00
+            hippostdpubwf:lastModifiedBy: admin
+            hippotranslation:id: 85255d11-e38c-41e3-9dca-4ec19042ee5d
+            hippotranslation:locale: en
+            visitscotland:regions: []
+            visitscotland:sectors: []
+            visitscotland:skill: ''
+            visitscotland:source: ''
+            visitscotland:teaser: This zip contains some logos
+            visitscotland:title: EventScotland logos
+            visitscotland:type: ''
+            visitscotland:types: []
+            /visitscotland:image:
+              jcr:primaryType: hippogallerypicker:imagelink
+              hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+              hippo:facets: []
+              hippo:modes: []
+              hippo:values: []
+            /visitscotland:linkTypes:
+              jcr:primaryType: visitscotland:FileLink
+              visitscotland:link: https://www.visitscotland.org/binaries/content/assets/dot-org/zip/eventscotland-logos-for-supported-events.zip
+        /docx-file:
+          jcr:primaryType: hippo:handle
+          jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+          jcr:uuid: 55878da1-f10e-48fb-96a7-7a4723ed7bac
+          hippo:name: DOCX File
+          /docx-file[1]:
+            jcr:primaryType: visitscotland:SharedLinkBsh
+            jcr:mixinTypes: ['mix:referenceable']
+            jcr:uuid: a2783cbb-aa6a-44a1-93f7-8725d3eb5b41
+            hippo:availability: []
+            hippostd:retainable: false
+            hippostd:state: draft
+            hippostdpubwf:createdBy: bsh-editor
+            hippostdpubwf:creationDate: 2024-10-08T15:51:30.565+01:00
+            hippostdpubwf:lastModificationDate: 2024-10-08T15:51:30.565+01:00
+            hippostdpubwf:lastModifiedBy: bsh-editor
+            hippotranslation:id: 0186c07a-89a7-4be2-a1a5-1c3175071a4c
+            hippotranslation:locale: en
+            visitscotland:regions: []
+            visitscotland:sectors: []
+            visitscotland:skill: ''
+            visitscotland:source: ''
+            visitscotland:teaser: Dummy Document
+            visitscotland:title: Dummy Word Document
+            visitscotland:type: ''
+            visitscotland:types: []
+            /visitscotland:image:
+              jcr:primaryType: hippogallerypicker:imagelink
+              hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+              hippo:facets: []
+              hippo:modes: []
+              hippo:values: []
+            /visitscotland:linkTypes:
+              jcr:primaryType: visitscotland:FileLink
+              visitscotland:link: https://www.visitscotland.org/binaries/content/assets/dot-org/temp/dummy-docx.docx
+          /docx-file[2]:
+            jcr:primaryType: visitscotland:SharedLinkBsh
+            jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+            jcr:uuid: 252c825c-a747-42e1-98cf-4b2ded3d07ce
+            hippo:availability: [preview]
+            hippostd:retainable: false
+            hippostd:state: unpublished
+            hippostdpubwf:createdBy: bsh-editor
+            hippostdpubwf:creationDate: 2024-10-08T15:51:30.565+01:00
+            hippostdpubwf:lastModificationDate: 2024-10-08T15:53:15.410+01:00
+            hippostdpubwf:lastModifiedBy: bsh-editor
+            hippotranslation:id: 0186c07a-89a7-4be2-a1a5-1c3175071a4c
+            hippotranslation:locale: en
+            visitscotland:regions: []
+            visitscotland:sectors: []
+            visitscotland:skill: ''
+            visitscotland:source: ''
+            visitscotland:teaser: Dummy Document
+            visitscotland:title: Dummy Word Document
+            visitscotland:type: ''
+            visitscotland:types: []
+            /visitscotland:image:
+              jcr:primaryType: hippogallerypicker:imagelink
+              hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+              hippo:facets: []
+              hippo:modes: []
+              hippo:values: []
+            /visitscotland:linkTypes:
+              jcr:primaryType: visitscotland:FileLink
+              visitscotland:link: https://www.visitscotland.org/binaries/content/assets/dot-org/temp/dummy-docx.docx
+        /excel-file:
+          jcr:primaryType: hippo:handle
+          jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+          jcr:uuid: 68d493d6-9fb8-496d-9d47-e3d4fc02d80d
+          hippo:name: Excel File
+          /excel-file[1]:
+            jcr:primaryType: visitscotland:SharedLinkBsh
+            jcr:mixinTypes: ['mix:versionable']
+            jcr:uuid: 707bfe2d-cd57-46e2-a9b1-c0d255df38a4
+            hippo:availability: [preview]
+            hippostd:retainable: false
+            hippostd:state: unpublished
+            hippostdpubwf:createdBy: bsh-editor
+            hippostdpubwf:creationDate: 2024-10-08T15:51:30.565+01:00
+            hippostdpubwf:lastModificationDate: 2024-10-08T16:07:07.983+01:00
+            hippostdpubwf:lastModifiedBy: bsh-editor
+            hippotranslation:id: 175ca45f-1f5b-44fc-8572-b317b5804d15
+            hippotranslation:locale: en
+            visitscotland:regions: []
+            visitscotland:sectors: []
+            visitscotland:skill: ''
+            visitscotland:source: ''
+            visitscotland:teaser: Dummy Document
+            visitscotland:title: Dummy Excel Document
+            visitscotland:type: ''
+            visitscotland:types: []
+            /visitscotland:image:
+              jcr:primaryType: hippogallerypicker:imagelink
+              hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+              hippo:facets: []
+              hippo:modes: []
+              hippo:values: []
+            /visitscotland:linkTypes:
+              jcr:primaryType: visitscotland:FileLink
+              visitscotland:link: https://www.visitscotland.org/binaries/content/assets/dot-org/pdf/events/eisf-1-successful-awards.xlsx
+          /excel-file[2]:
+            jcr:primaryType: visitscotland:SharedLinkBsh
+            jcr:mixinTypes: ['mix:referenceable']
+            jcr:uuid: 69dcb0b8-4c3f-408a-a15f-14a8cd22e108
+            hippo:availability: []
+            hippostd:retainable: false
+            hippostd:state: draft
+            hippostdpubwf:createdBy: bsh-editor
+            hippostdpubwf:creationDate: 2024-10-08T15:51:30.565+01:00
+            hippostdpubwf:lastModificationDate: 2024-10-08T16:07:00.213+01:00
+            hippostdpubwf:lastModifiedBy: bsh-editor
+            hippotranslation:id: 175ca45f-1f5b-44fc-8572-b317b5804d15
+            hippotranslation:locale: en
+            visitscotland:regions: []
+            visitscotland:sectors: []
+            visitscotland:skill: ''
+            visitscotland:source: ''
+            visitscotland:teaser: Dummy Document
+            visitscotland:title: Dummy Excel Document
+            visitscotland:type: ''
+            visitscotland:types: []
+            /visitscotland:image:
+              jcr:primaryType: hippogallerypicker:imagelink
+              hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+              hippo:facets: []
+              hippo:modes: []
+              hippo:values: []
+            /visitscotland:linkTypes:
+              jcr:primaryType: visitscotland:FileLink
+              visitscotland:link: https://www.visitscotland.org/binaries/content/assets/dot-org/pdf/events/eisf-1-successful-awards.xlsx
+        /excel-file-2:
+          jcr:primaryType: hippo:handle
+          jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+          jcr:uuid: 27ca3815-c6c8-4548-934a-00d20b5e51eb
+          hippo:name: Excel File 2
+          /excel-file-2[1]:
+            jcr:primaryType: visitscotland:SharedLinkBsh
+            jcr:mixinTypes: ['mix:versionable']
+            jcr:uuid: 9dd817e4-923d-48eb-aaed-3fc695b668e8
+            hippo:availability: [preview]
+            hippostd:retainable: false
+            hippostd:state: unpublished
+            hippostdpubwf:createdBy: bsh-editor
+            hippostdpubwf:creationDate: 2024-10-08T15:51:30.565+01:00
+            hippostdpubwf:lastModificationDate: 2024-10-08T16:06:55.068+01:00
+            hippostdpubwf:lastModifiedBy: bsh-editor
+            hippotranslation:id: 0449ae26-73a4-4744-b62e-9186cecf420c
+            hippotranslation:locale: en
+            visitscotland:regions: []
+            visitscotland:sectors: []
+            visitscotland:skill: ''
+            visitscotland:source: ''
+            visitscotland:teaser: Dummy Document
+            visitscotland:title: Dummy Excel Document
+            visitscotland:type: ''
+            visitscotland:types: []
+            /visitscotland:image:
+              jcr:primaryType: hippogallerypicker:imagelink
+              hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+              hippo:facets: []
+              hippo:modes: []
+              hippo:values: []
+            /visitscotland:linkTypes:
+              jcr:primaryType: visitscotland:FileLink
+              visitscotland:link: https://www.visitscotland.org/binaries/content/assets/dot-org/pdf/supporting-your-business/va-successful-applicants.xlsx
+          /excel-file-2[2]:
+            jcr:primaryType: visitscotland:SharedLinkBsh
+            jcr:mixinTypes: ['mix:referenceable']
+            jcr:uuid: b4926f38-fad1-40a8-9100-e07c6fce0b2e
+            hippo:availability: []
+            hippostd:retainable: false
+            hippostd:state: draft
+            hippostdpubwf:createdBy: bsh-editor
+            hippostdpubwf:creationDate: 2024-10-08T15:51:30.565+01:00
+            hippostdpubwf:lastModificationDate: 2024-10-08T16:06:31.751+01:00
+            hippostdpubwf:lastModifiedBy: bsh-editor
+            hippotranslation:id: 0449ae26-73a4-4744-b62e-9186cecf420c
+            hippotranslation:locale: en
+            visitscotland:regions: []
+            visitscotland:sectors: []
+            visitscotland:skill: ''
+            visitscotland:source: ''
+            visitscotland:teaser: Dummy Document
+            visitscotland:title: Dummy Excel Document
+            visitscotland:type: ''
+            visitscotland:types: []
+            /visitscotland:image:
+              jcr:primaryType: hippogallerypicker:imagelink
+              hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+              hippo:facets: []
+              hippo:modes: []
+              hippo:values: []
+            /visitscotland:linkTypes:
+              jcr:primaryType: visitscotland:FileLink
+              visitscotland:link: https://www.visitscotland.org/binaries/content/assets/dot-org/pdf/supporting-your-business/va-successful-applicants.xlsx
+        /pdf-document:
+          jcr:primaryType: hippo:handle
+          jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+          jcr:uuid: a13015e6-6816-4661-8b7d-f79c4d768ec7
+          hippo:name: PDF Document
+          /pdf-document[1]:
+            jcr:primaryType: visitscotland:SharedLinkBsh
+            jcr:mixinTypes: ['mix:versionable']
+            jcr:uuid: 05e7b2fc-e4a2-410f-b6f6-19021b990cdb
+            hippo:availability: [preview]
+            hippostd:retainable: false
+            hippostd:state: unpublished
+            hippostdpubwf:createdBy: bsh-editor
+            hippostdpubwf:creationDate: 2024-10-08T15:51:30.565+01:00
+            hippostdpubwf:lastModificationDate: 2024-10-08T16:06:12.741+01:00
+            hippostdpubwf:lastModifiedBy: bsh-editor
+            hippotranslation:id: abe9719e-4b64-40a5-8f12-6e85d560f73e
+            hippotranslation:locale: en
+            visitscotland:regions: []
+            visitscotland:sectors: []
+            visitscotland:skill: ''
+            visitscotland:source: ''
+            visitscotland:teaser: 2023-2028 Plana Gàidhlig VisitScotland
+            visitscotland:title: 2023-2028 VisitScotland Gaelic Language Plan
+            visitscotland:type: ''
+            visitscotland:types: []
+            /visitscotland:image:
+              jcr:primaryType: hippogallerypicker:imagelink
+              hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+              hippo:facets: []
+              hippo:modes: []
+              hippo:values: []
+            /visitscotland:linkTypes:
+              jcr:primaryType: visitscotland:FileLink
+              visitscotland:link: https://www.visitscotland.org/binaries/content/assets/dot-org/pdf/policies/2023-2028-plana-gaidhlig-visitscotland-2023-2028-visitscotland-gaelic-language-plan.pdf
+          /pdf-document[2]:
+            jcr:primaryType: visitscotland:SharedLinkBsh
+            jcr:mixinTypes: ['mix:referenceable']
+            jcr:uuid: daa247bd-bb8a-4230-ad80-61758e2f44ee
+            hippo:availability: []
+            hippostd:holder: bsh-editor
+            hippostd:retainable: false
+            hippostd:state: draft
+            hippostdpubwf:createdBy: bsh-editor
+            hippostdpubwf:creationDate: 2024-10-08T15:51:30.565+01:00
+            hippostdpubwf:lastModificationDate: 2024-10-08T16:06:12.841+01:00
+            hippostdpubwf:lastModifiedBy: bsh-editor
+            hippotranslation:id: abe9719e-4b64-40a5-8f12-6e85d560f73e
+            hippotranslation:locale: en
+            visitscotland:regions: []
+            visitscotland:sectors: []
+            visitscotland:skill: ''
+            visitscotland:source: ''
+            visitscotland:teaser: 2023-2028 Plana Gàidhlig VisitScotland
+            visitscotland:title: 2023-2028 VisitScotland Gaelic Language Plan
+            visitscotland:type: ''
+            visitscotland:types: []
+            /visitscotland:image:
+              jcr:primaryType: hippogallerypicker:imagelink
+              hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+              hippo:facets: []
+              hippo:modes: []
+              hippo:values: []
+            /visitscotland:linkTypes:
+              jcr:primaryType: visitscotland:FileLink
+              visitscotland:link: https://www.visitscotland.org/binaries/content/assets/dot-org/pdf/policies/2023-2028-plana-gaidhlig-visitscotland-2023-2028-visitscotland-gaelic-language-plan.pdf
+        /pdf-document-2:
+          jcr:primaryType: hippo:handle
+          jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+          jcr:uuid: 1b55f271-f735-458c-ba77-072a621ed27d
+          hippo:name: PDF Document 2
+          /pdf-document-2[1]:
+            jcr:primaryType: visitscotland:SharedLinkBsh
+            jcr:mixinTypes: ['mix:versionable']
+            jcr:uuid: eddb0ae3-90ae-41d3-a62a-a0c79df47e76
+            hippo:availability: [preview]
+            hippostd:retainable: false
+            hippostd:state: unpublished
+            hippostdpubwf:createdBy: bsh-editor
+            hippostdpubwf:creationDate: 2024-10-08T15:51:30.565+01:00
+            hippostdpubwf:lastModificationDate: 2024-10-08T16:05:38.724+01:00
+            hippostdpubwf:lastModifiedBy: bsh-editor
+            hippotranslation:id: b081ed1a-17c3-4e97-a624-c888b6e9c4b4
+            hippotranslation:locale: en
+            visitscotland:regions: []
+            visitscotland:sectors: []
+            visitscotland:skill: ''
+            visitscotland:source: ''
+            visitscotland:teaser: This is a PDF Document extracted from www.visitscotland.org
+            visitscotland:title: Closure of VisitScotland iCentres
+            visitscotland:type: ''
+            visitscotland:types: []
+            /visitscotland:image:
+              jcr:primaryType: hippogallerypicker:imagelink
+              hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+              hippo:facets: []
+              hippo:modes: []
+              hippo:values: []
+            /visitscotland:linkTypes:
+              jcr:primaryType: visitscotland:FileLink
+              visitscotland:link: https://www.visitscotland.org/binaries/content/assets/dot-org/pdf/policies/closure-of-visitscotland-icentres.pdf
+          /pdf-document-2[2]:
+            jcr:primaryType: visitscotland:SharedLinkBsh
+            jcr:mixinTypes: ['mix:referenceable']
+            jcr:uuid: 3cb5f126-a1a1-485e-bd17-844fb705240a
+            hippo:availability: []
+            hippostd:retainable: false
+            hippostd:state: draft
+            hippostdpubwf:createdBy: bsh-editor
+            hippostdpubwf:creationDate: 2024-10-08T15:51:30.565+01:00
+            hippostdpubwf:lastModificationDate: 2024-10-08T16:05:35.074+01:00
+            hippostdpubwf:lastModifiedBy: bsh-editor
+            hippotranslation:id: b081ed1a-17c3-4e97-a624-c888b6e9c4b4
+            hippotranslation:locale: en
+            visitscotland:regions: []
+            visitscotland:sectors: []
+            visitscotland:skill: ''
+            visitscotland:source: ''
+            visitscotland:teaser: This is a PDF Document extracted from www.visitscotland.org
+            visitscotland:title: Closure of VisitScotland iCentres
+            visitscotland:type: ''
+            visitscotland:types: []
+            /visitscotland:image:
+              jcr:primaryType: hippogallerypicker:imagelink
+              hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+              hippo:facets: []
+              hippo:modes: []
+              hippo:values: []
+            /visitscotland:linkTypes:
+              jcr:primaryType: visitscotland:FileLink
+              visitscotland:link: https://www.visitscotland.org/binaries/content/assets/dot-org/pdf/policies/closure-of-visitscotland-icentres.pdf
+        /pdf-document-3:
+          jcr:primaryType: hippo:handle
+          jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+          jcr:uuid: a7877531-8ee4-4fb1-b2c6-adaec2ee671e
+          hippo:name: PDF Document 3
+          /pdf-document-3[1]:
+            jcr:primaryType: visitscotland:SharedLinkBsh
+            jcr:mixinTypes: ['mix:versionable']
+            jcr:uuid: c5638a93-5afb-4001-ad2e-cb9f98221417
+            hippo:availability: [preview]
+            hippostd:retainable: false
+            hippostd:state: unpublished
+            hippostdpubwf:createdBy: bsh-editor
+            hippostdpubwf:creationDate: 2024-10-08T15:51:30.565+01:00
+            hippostdpubwf:lastModificationDate: 2024-10-08T16:05:23.867+01:00
+            hippostdpubwf:lastModifiedBy: bsh-editor
+            hippotranslation:id: 95c69d5d-943e-4eca-813c-ab603fbf281c
+            hippotranslation:locale: en
+            visitscotland:regions: []
+            visitscotland:sectors: []
+            visitscotland:skill: ''
+            visitscotland:source: ''
+            visitscotland:teaser: This is a PDF Document extracted from www.visitscotland.org
+            visitscotland:title: Conditions of contract for consultancy services
+            visitscotland:type: ''
+            visitscotland:types: []
+            /visitscotland:image:
+              jcr:primaryType: hippogallerypicker:imagelink
+              hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+              hippo:facets: []
+              hippo:modes: []
+              hippo:values: []
+            /visitscotland:linkTypes:
+              jcr:primaryType: visitscotland:FileLink
+              visitscotland:link: https://www.visitscotland.org/binaries/content/assets/dot-org/pdf/policies/conditions-of-contract-for-consultancy-services.pdf
+          /pdf-document-3[2]:
+            jcr:primaryType: visitscotland:SharedLinkBsh
+            jcr:mixinTypes: ['mix:referenceable']
+            jcr:uuid: 8049f26c-eaa0-4e49-a599-3c45bf50da43
+            hippo:availability: []
+            hippostd:retainable: false
+            hippostd:state: draft
+            hippostdpubwf:createdBy: bsh-editor
+            hippostdpubwf:creationDate: 2024-10-08T15:51:30.565+01:00
+            hippostdpubwf:lastModificationDate: 2024-10-08T16:05:17.976+01:00
+            hippostdpubwf:lastModifiedBy: bsh-editor
+            hippotranslation:id: 95c69d5d-943e-4eca-813c-ab603fbf281c
+            hippotranslation:locale: en
+            visitscotland:regions: []
+            visitscotland:sectors: []
+            visitscotland:skill: ''
+            visitscotland:source: ''
+            visitscotland:teaser: This is a PDF Document extracted from www.visitscotland.org
+            visitscotland:title: Conditions of contract for consultancy services
+            visitscotland:type: ''
+            visitscotland:types: []
+            /visitscotland:image:
+              jcr:primaryType: hippogallerypicker:imagelink
+              hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+              hippo:facets: []
+              hippo:modes: []
+              hippo:values: []
+            /visitscotland:linkTypes:
+              jcr:primaryType: visitscotland:FileLink
+              visitscotland:link: https://www.visitscotland.org/binaries/content/assets/dot-org/pdf/policies/conditions-of-contract-for-consultancy-services.pdf
+        /pdf-document-4:
+          jcr:primaryType: hippo:handle
+          jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+          jcr:uuid: 07b52042-6d2c-4d34-b79e-858f516891db
+          hippo:name: PDF Document 4
+          /pdf-document-4[1]:
+            jcr:primaryType: visitscotland:SharedLinkBsh
+            jcr:mixinTypes: ['mix:versionable']
+            jcr:uuid: 56440ecd-2e20-4d80-8bf7-85b8ee5e1a95
+            hippo:availability: [preview]
+            hippostd:retainable: false
+            hippostd:state: unpublished
+            hippostdpubwf:createdBy: bsh-editor
+            hippostdpubwf:creationDate: 2024-10-08T15:51:30.565+01:00
+            hippostdpubwf:lastModificationDate: 2024-10-08T16:05:00.391+01:00
+            hippostdpubwf:lastModifiedBy: bsh-editor
+            hippotranslation:id: 5d252043-13d0-49b9-82f0-294fc8bc78fc
+            hippotranslation:locale: en
+            visitscotland:regions: []
+            visitscotland:sectors: []
+            visitscotland:skill: ''
+            visitscotland:source: ''
+            visitscotland:teaser: This is a PDF Document extracted from www.visitscotland.org
+            visitscotland:title: Conditions of contract for the purchase of goods
+            visitscotland:type: ''
+            visitscotland:types: []
+            /visitscotland:image:
+              jcr:primaryType: hippogallerypicker:imagelink
+              hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+              hippo:facets: []
+              hippo:modes: []
+              hippo:values: []
+            /visitscotland:linkTypes:
+              jcr:primaryType: visitscotland:FileLink
+              visitscotland:link: https://www.visitscotland.org/binaries/content/assets/dot-org/pdf/policies/conditions-of-contract-for-the-purchase-of-goods.pdf
+          /pdf-document-4[2]:
+            jcr:primaryType: visitscotland:SharedLinkBsh
+            jcr:mixinTypes: ['mix:referenceable']
+            jcr:uuid: 6b4fd06d-f442-41fd-a36a-a4aea51e881b
+            hippo:availability: []
+            hippostd:retainable: false
+            hippostd:state: draft
+            hippostdpubwf:createdBy: bsh-editor
+            hippostdpubwf:creationDate: 2024-10-08T15:51:30.565+01:00
+            hippostdpubwf:lastModificationDate: 2024-10-08T16:04:55.579+01:00
+            hippostdpubwf:lastModifiedBy: bsh-editor
+            hippotranslation:id: 5d252043-13d0-49b9-82f0-294fc8bc78fc
+            hippotranslation:locale: en
+            visitscotland:regions: []
+            visitscotland:sectors: []
+            visitscotland:skill: ''
+            visitscotland:source: ''
+            visitscotland:teaser: This is a PDF Document extracted from www.visitscotland.org
+            visitscotland:title: Conditions of contract for the purchase of goods
+            visitscotland:type: ''
+            visitscotland:types: []
+            /visitscotland:image:
+              jcr:primaryType: hippogallerypicker:imagelink
+              hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+              hippo:facets: []
+              hippo:modes: []
+              hippo:values: []
+            /visitscotland:linkTypes:
+              jcr:primaryType: visitscotland:FileLink
+              visitscotland:link: https://www.visitscotland.org/binaries/content/assets/dot-org/pdf/policies/conditions-of-contract-for-the-purchase-of-goods.pdf
+        /pdf-document-5:
+          jcr:primaryType: hippo:handle
+          jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+          jcr:uuid: 048bb4f8-eaa5-4631-85cb-48167e010cd8
+          hippo:name: PDF Document 5
+          /pdf-document-5[1]:
+            jcr:primaryType: visitscotland:SharedLinkBsh
+            jcr:mixinTypes: ['mix:versionable']
+            jcr:uuid: 8b6e74ea-fcf6-41db-9812-7f198bdaa79f
+            hippo:availability: [preview]
+            hippostd:retainable: false
+            hippostd:state: unpublished
+            hippostdpubwf:createdBy: bsh-editor
+            hippostdpubwf:creationDate: 2024-10-08T15:51:30.565+01:00
+            hippostdpubwf:lastModificationDate: 2024-10-08T16:04:23.427+01:00
+            hippostdpubwf:lastModifiedBy: bsh-editor
+            hippotranslation:id: f41ec0bb-43f0-4c0c-a47e-9d8b05f39993
+            hippotranslation:locale: en
+            visitscotland:regions: []
+            visitscotland:sectors: []
+            visitscotland:skill: ''
+            visitscotland:source: ''
+            visitscotland:teaser: This is a PDF Document extracted from www.visitscotland.org
+            visitscotland:title: Conditions of contract for the purchase of services
+            visitscotland:type: ''
+            visitscotland:types: []
+            /visitscotland:image:
+              jcr:primaryType: hippogallerypicker:imagelink
+              hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+              hippo:facets: []
+              hippo:modes: []
+              hippo:values: []
+            /visitscotland:linkTypes:
+              jcr:primaryType: visitscotland:FileLink
+              visitscotland:link: https://www.visitscotland.org/binaries/content/assets/dot-org/pdf/policies/conditions-of-contract-for-the-purchase-of-goods.pdf
+          /pdf-document-5[2]:
+            jcr:primaryType: visitscotland:SharedLinkBsh
+            jcr:mixinTypes: ['mix:referenceable']
+            jcr:uuid: 0b3d58a1-b168-4c6e-8f4c-6be825980cab
+            hippo:availability: []
+            hippostd:retainable: false
+            hippostd:state: draft
+            hippostdpubwf:createdBy: bsh-editor
+            hippostdpubwf:creationDate: 2024-10-08T15:51:30.565+01:00
+            hippostdpubwf:lastModificationDate: 2024-10-08T16:04:12.836+01:00
+            hippostdpubwf:lastModifiedBy: bsh-editor
+            hippotranslation:id: f41ec0bb-43f0-4c0c-a47e-9d8b05f39993
+            hippotranslation:locale: en
+            visitscotland:regions: []
+            visitscotland:sectors: []
+            visitscotland:skill: ''
+            visitscotland:source: ''
+            visitscotland:teaser: This is a PDF Document extracted from www.visitscotland.org
+            visitscotland:title: Conditions of contract for the purchase of services
+            visitscotland:type: ''
+            visitscotland:types: []
+            /visitscotland:image:
+              jcr:primaryType: hippogallerypicker:imagelink
+              hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+              hippo:facets: []
+              hippo:modes: []
+              hippo:values: []
+            /visitscotland:linkTypes:
+              jcr:primaryType: visitscotland:FileLink
+              visitscotland:link: https://www.visitscotland.org/binaries/content/assets/dot-org/pdf/policies/conditions-of-contract-for-the-purchase-of-goods.pdf
+        /pdf-document-6:
+          jcr:primaryType: hippo:handle
+          jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+          jcr:uuid: 0299d85b-b3f9-4a6c-bed9-27b4feed118e
+          hippo:name: PDF Document 6
+          /pdf-document-6[1]:
+            jcr:primaryType: visitscotland:SharedLinkBsh
+            jcr:mixinTypes: ['mix:versionable']
+            jcr:uuid: 542d2273-fe3d-4ae0-8fcf-c932e7b93222
+            hippo:availability: [preview]
+            hippostd:retainable: false
+            hippostd:state: unpublished
+            hippostdpubwf:createdBy: bsh-editor
+            hippostdpubwf:creationDate: 2024-10-08T15:51:30.565+01:00
+            hippostdpubwf:lastModificationDate: 2024-10-08T17:41:41.716+01:00
+            hippostdpubwf:lastModifiedBy: admin
+            hippotranslation:id: 185ddf7c-0c76-4d65-9b98-c57e1b5d45c8
+            hippotranslation:locale: en
+            visitscotland:regions: []
+            visitscotland:sectors: []
+            visitscotland:skill: ''
+            visitscotland:source: ''
+            visitscotland:teaser: This is a PDF Document extracted from www.visitscotland.org
+            visitscotland:title: Equal opportunities policy
+            visitscotland:type: ''
+            visitscotland:types: []
+            /visitscotland:image:
+              jcr:primaryType: hippogallerypicker:imagelink
+              hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+              hippo:facets: []
+              hippo:modes: []
+              hippo:values: []
+            /visitscotland:linkTypes:
+              jcr:primaryType: visitscotland:FileLink
+              visitscotland:link: https://www.visitscotland.org/binaries/content/assets/dot-org/pdf/policies/equal-opportunities-policy.pdf
+          /pdf-document-6[2]:
+            jcr:primaryType: visitscotland:SharedLinkBsh
+            jcr:mixinTypes: ['mix:referenceable']
+            jcr:uuid: f40635ee-fde5-4b68-8b7b-fda7e0266bb9
+            hippo:availability: []
+            hippostd:retainable: false
+            hippostd:state: draft
+            hippostdpubwf:createdBy: bsh-editor
+            hippostdpubwf:creationDate: 2024-10-08T15:51:30.565+01:00
+            hippostdpubwf:lastModificationDate: 2024-10-08T17:41:44.107+01:00
+            hippostdpubwf:lastModifiedBy: admin
+            hippotranslation:id: 185ddf7c-0c76-4d65-9b98-c57e1b5d45c8
+            hippotranslation:locale: en
+            visitscotland:regions: []
+            visitscotland:sectors: []
+            visitscotland:skill: ''
+            visitscotland:source: ''
+            visitscotland:teaser: This is a PDF Document extracted from www.visitscotland.org
+            visitscotland:title: Equal opportunities policy
+            visitscotland:type: ''
+            visitscotland:types: []
+            /visitscotland:image:
+              jcr:primaryType: hippogallerypicker:imagelink
+              hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+              hippo:facets: []
+              hippo:modes: []
+              hippo:values: []
+            /visitscotland:linkTypes:
+              jcr:primaryType: visitscotland:FileLink
+              visitscotland:link: https://www.visitscotland.org/binaries/content/assets/dot-org/pdf/policies/equal-opportunities-policy.pdf
+        /pdf-document-7:
+          jcr:primaryType: hippo:handle
+          jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+          jcr:uuid: 9a2e1a11-5727-4e4c-8c83-6bcb4597570d
+          hippo:name: PDF Document 7
+          /pdf-document-7[1]:
+            jcr:primaryType: visitscotland:SharedLinkBsh
+            jcr:mixinTypes: ['mix:versionable']
+            jcr:uuid: 496fc43e-8f17-49df-a8f0-ea2346e5251b
+            hippo:availability: [preview]
+            hippostd:retainable: false
+            hippostd:state: unpublished
+            hippostd:transferable: false
+            hippostdpubwf:createdBy: bsh-editor
+            hippostdpubwf:creationDate: 2024-10-08T15:51:30.565+01:00
+            hippostdpubwf:lastModificationDate: 2024-10-08T17:40:46.931+01:00
+            hippostdpubwf:lastModifiedBy: admin
+            hippotranslation:id: 1ee60ea8-1034-4183-aa4b-be9c06565e63
+            hippotranslation:locale: en
+            visitscotland:regions: []
+            visitscotland:sectors: []
+            visitscotland:skill: ''
+            visitscotland:source: ''
+            visitscotland:teaser: This is a PDF Document extracted from www.visitscotland.org
+            visitscotland:title: Equality monitoring
+            visitscotland:type: ''
+            visitscotland:types: []
+            /visitscotland:image:
+              jcr:primaryType: hippogallerypicker:imagelink
+              hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+              hippo:facets: []
+              hippo:modes: []
+              hippo:values: []
+            /visitscotland:linkTypes:
+              jcr:primaryType: visitscotland:FileLink
+              visitscotland:link: https://www.visitscotland.org/binaries/content/assets/dot-org/pdf/policies/equality-monitoring-what-is-it-all-about-and-why-do-we-collect-it.pdfx
+          /pdf-document-7[2]:
+            jcr:primaryType: visitscotland:SharedLinkBsh
+            jcr:mixinTypes: ['mix:referenceable']
+            jcr:uuid: 7ca6e70f-a55f-4833-91c5-ffaa5b412200
+            hippo:availability: []
+            hippostd:holder: admin
+            hippostd:retainable: false
+            hippostd:state: draft
+            hippostd:transferable: false
+            hippostdpubwf:createdBy: bsh-editor
+            hippostdpubwf:creationDate: 2024-10-08T15:51:30.565+01:00
+            hippostdpubwf:lastModificationDate: 2024-10-08T17:41:05.277+01:00
+            hippostdpubwf:lastModifiedBy: admin
+            hippotranslation:id: 1ee60ea8-1034-4183-aa4b-be9c06565e63
+            hippotranslation:locale: en
+            visitscotland:regions: []
+            visitscotland:sectors: []
+            visitscotland:skill: ''
+            visitscotland:source: ''
+            visitscotland:teaser: This is a PDF Document extracted from www.visitscotland.org
+            visitscotland:title: Equality monitoring
+            visitscotland:type: ''
+            visitscotland:types: []
+            /visitscotland:image:
+              jcr:primaryType: hippogallerypicker:imagelink
+              hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+              hippo:facets: []
+              hippo:modes: []
+              hippo:values: []
+            /visitscotland:linkTypes:
+              jcr:primaryType: visitscotland:FileLink
+              visitscotland:link: https://www.visitscotland.org/binaries/content/assets/dot-org/pdf/policies/equality-monitoring-what-is-it-all-about-and-why-do-we-collect-it.pdfx
     /video:
       jcr:primaryType: hippostd:folder
       jcr:mixinTypes: ['frontend:orderChildFolders', 'hippo:named', 'hippotranslation:translated',
@@ -760,7 +1482,7 @@
           visitscotland:teaser: Lorem ipsum dolor sit amet, consectetur adipiscing
             elit. Vivamus purus massa, porta id mattis non, finibus vel elit. Integer
             nulla nunc, viverra eros.
-          visitscotland:theme: ' Standard'
+          visitscotland:theme: 'Standard'
           visitscotland:title: Standard Page
           /visitscotland:heroImage:
             jcr:primaryType: hippogallerypicker:imagelink
@@ -805,7 +1527,7 @@
           visitscotland:teaser: Lorem ipsum dolor sit amet, consectetur adipiscing
             elit. Vivamus purus massa, porta id mattis non, finibus vel elit. Integer
             nulla nunc, viverra eros.
-          visitscotland:theme: ' Standard'
+          visitscotland:theme: 'Standard'
           visitscotland:title: Standard Page
           /visitscotland:heroImage:
             jcr:primaryType: hippogallerypicker:imagelink
@@ -851,7 +1573,7 @@
           visitscotland:teaser: Lorem ipsum dolor sit amet, consectetur adipiscing
             elit. Vivamus purus massa, porta id mattis non, finibus vel elit. Integer
             nulla nunc, viverra eros.
-          visitscotland:theme: ' Standard'
+          visitscotland:theme: 'Standard'
           visitscotland:title: Standard Page
           /visitscotland:heroImage:
             jcr:primaryType: hippogallerypicker:imagelink
@@ -874,7 +1596,7 @@
         jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
         jcr:uuid: 0a4c6c5e-d53a-4317-94c4-951759b422fa
         hippo:name: Lorem Ipsum 1
-        hippo:versionHistory: dd4fdb8f-1f25-4e09-af35-c8996be747f4
+        hippo:versionHistory: a6fc45c2-aa3b-40bc-b54f-7d35cef4f84b
         /lorem-ipsum-1[1]:
           jcr:primaryType: visitscotland:ArticleBSH
           jcr:mixinTypes: ['mix:referenceable']
@@ -884,13 +1606,12 @@
           hippostd:state: draft
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2024-08-30T14:07:42.873+01:00
-          hippostdpubwf:lastModificationDate: 2024-10-09T11:17:07.209+01:00
+          hippostdpubwf:lastModificationDate: 2024-09-16T11:12:10.135+01:00
           hippostdpubwf:lastModifiedBy: admin
           hippotranslation:id: 1a019a1d-3b76-431b-9ca4-778a18d41ed7
           hippotranslation:locale: en
           visitscotland:anchor: ''
           visitscotland:nest: false
-          visitscotland:nested: false
           visitscotland:theme: standard
           visitscotland:title: Lorem Ipsum 1
           visitscotland:translation: ''
@@ -938,13 +1659,12 @@
           hippostd:state: unpublished
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2024-08-30T14:07:42.873+01:00
-          hippostdpubwf:lastModificationDate: 2024-10-09T11:17:22.923+01:00
+          hippostdpubwf:lastModificationDate: 2024-09-16T11:15:18.351+01:00
           hippostdpubwf:lastModifiedBy: admin
           hippotranslation:id: 1a019a1d-3b76-431b-9ca4-778a18d41ed7
           hippotranslation:locale: en
           visitscotland:anchor: ''
           visitscotland:nest: false
-          visitscotland:nested: false
           visitscotland:theme: standard
           visitscotland:title: Lorem Ipsum 1
           visitscotland:translation: ''
@@ -992,14 +1712,13 @@
           hippostd:state: published
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2024-08-30T14:07:42.873+01:00
-          hippostdpubwf:lastModificationDate: 2024-10-09T11:17:22.923+01:00
+          hippostdpubwf:lastModificationDate: 2024-08-30T14:09:39.574+01:00
           hippostdpubwf:lastModifiedBy: admin
-          hippostdpubwf:publicationDate: 2024-10-09T11:17:30.479+01:00
+          hippostdpubwf:publicationDate: 2024-09-04T13:47:45.755+01:00
           hippotranslation:id: 1a019a1d-3b76-431b-9ca4-778a18d41ed7
           hippotranslation:locale: en
           visitscotland:anchor: ''
           visitscotland:nest: false
-          visitscotland:nested: false
           visitscotland:theme: standard
           visitscotland:title: Lorem Ipsum 1
           visitscotland:translation: ''
@@ -1043,7 +1762,7 @@
         jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
         jcr:uuid: 8023ca55-97ac-4bac-9bc2-f45bb1bce0e7
         hippo:name: Lorem Ipsum 2
-        hippo:versionHistory: 9d217d66-c1e2-40d1-8d74-3a1a9b1eb7d4
+        hippo:versionHistory: 0a106c8d-aac5-45e4-83af-9a56961b40a7
         /lorem-ipsum-2[1]:
           jcr:primaryType: visitscotland:ArticleBSH
           jcr:mixinTypes: ['mix:versionable']
@@ -1053,13 +1772,12 @@
           hippostd:state: unpublished
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2024-08-30T14:07:42.873+01:00
-          hippostdpubwf:lastModificationDate: 2024-10-09T11:17:45.565+01:00
+          hippostdpubwf:lastModificationDate: 2024-09-16T11:14:04.455+01:00
           hippostdpubwf:lastModifiedBy: admin
           hippotranslation:id: 93b4cf74-3a28-4bfc-b530-7154fd32613f
           hippotranslation:locale: en
           visitscotland:anchor: ''
           visitscotland:nest: false
-          visitscotland:nested: false
           visitscotland:theme: standard
           visitscotland:title: Lorem Ipsum 2
           visitscotland:translation: ''
@@ -1111,13 +1829,12 @@
           hippostd:state: draft
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2024-08-30T14:07:42.873+01:00
-          hippostdpubwf:lastModificationDate: 2024-10-09T11:17:41.121+01:00
+          hippostdpubwf:lastModificationDate: 2024-09-16T11:14:01.254+01:00
           hippostdpubwf:lastModifiedBy: admin
           hippotranslation:id: 93b4cf74-3a28-4bfc-b530-7154fd32613f
           hippotranslation:locale: en
           visitscotland:anchor: ''
           visitscotland:nest: false
-          visitscotland:nested: false
           visitscotland:theme: standard
           visitscotland:title: Lorem Ipsum 2
           visitscotland:translation: ''
@@ -1169,14 +1886,13 @@
           hippostd:state: published
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2024-08-30T14:07:42.873+01:00
-          hippostdpubwf:lastModificationDate: 2024-10-09T11:17:45.565+01:00
+          hippostdpubwf:lastModificationDate: 2024-09-16T11:14:04.455+01:00
           hippostdpubwf:lastModifiedBy: admin
-          hippostdpubwf:publicationDate: 2024-10-09T11:17:50.987+01:00
+          hippostdpubwf:publicationDate: 2024-09-16T11:14:20.837+01:00
           hippotranslation:id: 93b4cf74-3a28-4bfc-b530-7154fd32613f
           hippotranslation:locale: en
           visitscotland:anchor: ''
           visitscotland:nest: false
-          visitscotland:nested: false
           visitscotland:theme: standard
           visitscotland:title: Lorem Ipsum 2
           visitscotland:translation: ''
@@ -1224,7 +1940,7 @@
         jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
         jcr:uuid: ada5ea60-f2a8-4c4d-b8fc-c943807386cb
         hippo:name: Lorem Ipsum 3
-        hippo:versionHistory: 4e789f32-32e3-470f-be25-40fc9b3bb930
+        hippo:versionHistory: d94d6300-ac7b-4685-8a9c-a4b60b3598ef
         /lorem-ipsum-3[1]:
           jcr:primaryType: visitscotland:ArticleBSH
           jcr:mixinTypes: ['mix:versionable']
@@ -1234,13 +1950,12 @@
           hippostd:state: unpublished
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2024-08-30T14:07:42.873+01:00
-          hippostdpubwf:lastModificationDate: 2024-10-09T11:17:58.722+01:00
+          hippostdpubwf:lastModificationDate: 2024-08-30T14:11:49.868+01:00
           hippostdpubwf:lastModifiedBy: admin
           hippotranslation:id: 096623e8-02e7-49ba-be43-d5ce4399cb44
           hippotranslation:locale: en
           visitscotland:anchor: ''
           visitscotland:nest: false
-          visitscotland:nested: false
           visitscotland:theme: standard
           visitscotland:title: Lorem Ipsum 2
           visitscotland:translation: ''
@@ -1275,13 +1990,12 @@
           hippostd:state: draft
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2024-08-30T14:07:42.873+01:00
-          hippostdpubwf:lastModificationDate: 2024-10-09T11:17:55.144+01:00
+          hippostdpubwf:lastModificationDate: 2024-08-30T14:11:26.605+01:00
           hippostdpubwf:lastModifiedBy: admin
           hippotranslation:id: 096623e8-02e7-49ba-be43-d5ce4399cb44
           hippotranslation:locale: en
           visitscotland:anchor: ''
           visitscotland:nest: false
-          visitscotland:nested: false
           visitscotland:theme: standard
           visitscotland:title: Lorem Ipsum 2
           visitscotland:translation: ''
@@ -1316,14 +2030,13 @@
           hippostd:state: published
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2024-08-30T14:07:42.873+01:00
-          hippostdpubwf:lastModificationDate: 2024-10-09T11:17:58.722+01:00
+          hippostdpubwf:lastModificationDate: 2024-08-30T14:11:49.868+01:00
           hippostdpubwf:lastModifiedBy: admin
-          hippostdpubwf:publicationDate: 2024-10-09T11:18:02.039+01:00
+          hippostdpubwf:publicationDate: 2024-09-04T13:47:42.927+01:00
           hippotranslation:id: 096623e8-02e7-49ba-be43-d5ce4399cb44
           hippotranslation:locale: en
           visitscotland:anchor: ''
           visitscotland:nest: false
-          visitscotland:nested: false
           visitscotland:theme: standard
           visitscotland:title: Lorem Ipsum 2
           visitscotland:translation: ''
@@ -1390,7 +2103,7 @@
           visitscotland:teaser: Lorem ipsum dolor sit amet, consectetur adipiscing
             elit. Vivamus purus massa, porta id mattis non, finibus vel elit. Integer
             nulla nunc, viverra eros.
-          visitscotland:theme: ' Top-Level'
+          visitscotland:theme: 'Top-Level'
           visitscotland:title: Top Level  Page
           /visitscotland:heroImage:
             jcr:primaryType: hippogallerypicker:imagelink
@@ -1435,7 +2148,7 @@
           visitscotland:teaser: Lorem ipsum dolor sit amet, consectetur adipiscing
             elit. Vivamus purus massa, porta id mattis non, finibus vel elit. Integer
             nulla nunc, viverra eros.
-          visitscotland:theme: ' Top-Level'
+          visitscotland:theme: 'Top-Level'
           visitscotland:title: Top Level  Page
           /visitscotland:heroImage:
             jcr:primaryType: hippogallerypicker:imagelink
@@ -1481,7 +2194,7 @@
           visitscotland:teaser: Lorem ipsum dolor sit amet, consectetur adipiscing
             elit. Vivamus purus massa, porta id mattis non, finibus vel elit. Integer
             nulla nunc, viverra eros.
-          visitscotland:theme: ' Top-Level'
+          visitscotland:theme: 'Top-Level'
           visitscotland:title: Top Level  Page
           /visitscotland:heroImage:
             jcr:primaryType: hippogallerypicker:imagelink
@@ -1521,7 +2234,7 @@
           hippotranslation:locale: en
           visitscotland:anchor: ''
           visitscotland:nest: false
-          visitscotland:theme: ''
+          visitscotland:theme: standard
           visitscotland:title: Lorem Ipsum 1
           visitscotland:translation: ''
           /visitscotland:copy:
@@ -1574,7 +2287,7 @@
           hippotranslation:locale: en
           visitscotland:anchor: ''
           visitscotland:nest: false
-          visitscotland:theme: ''
+          visitscotland:theme: standard
           visitscotland:title: Lorem Ipsum 1
           visitscotland:translation: ''
           /visitscotland:copy:
@@ -1628,7 +2341,7 @@
           hippotranslation:locale: en
           visitscotland:anchor: ''
           visitscotland:nest: false
-          visitscotland:theme: ''
+          visitscotland:theme: standard
           visitscotland:title: Lorem Ipsum 1
           visitscotland:translation: ''
           /visitscotland:copy:
@@ -1687,7 +2400,7 @@
           hippotranslation:locale: en
           visitscotland:anchor: ''
           visitscotland:nest: false
-          visitscotland:theme: ''
+          visitscotland:theme: standard
           visitscotland:title: Lorem Ipsum 2
           visitscotland:translation: ''
           /visitscotland:copy:
@@ -1744,7 +2457,7 @@
           hippotranslation:locale: en
           visitscotland:anchor: ''
           visitscotland:nest: false
-          visitscotland:theme: ''
+          visitscotland:theme: standard
           visitscotland:title: Lorem Ipsum 2
           visitscotland:translation: ''
           /visitscotland:copy:
@@ -1802,7 +2515,7 @@
           hippotranslation:locale: en
           visitscotland:anchor: ''
           visitscotland:nest: false
-          visitscotland:theme: ''
+          visitscotland:theme: standard
           visitscotland:title: Lorem Ipsum 2
           visitscotland:translation: ''
           /visitscotland:copy:
@@ -1865,7 +2578,7 @@
           hippotranslation:locale: en
           visitscotland:anchor: ''
           visitscotland:nest: false
-          visitscotland:theme: ''
+          visitscotland:theme: standard
           visitscotland:title: Lorem Ipsum 2
           visitscotland:translation: ''
           /visitscotland:copy:
@@ -1905,7 +2618,7 @@
           hippotranslation:locale: en
           visitscotland:anchor: ''
           visitscotland:nest: false
-          visitscotland:theme: ''
+          visitscotland:theme: standard
           visitscotland:title: Lorem Ipsum 2
           visitscotland:translation: ''
           /visitscotland:copy:
@@ -1946,7 +2659,7 @@
           hippotranslation:locale: en
           visitscotland:anchor: ''
           visitscotland:nest: false
-          visitscotland:theme: ''
+          visitscotland:theme: standard
           visitscotland:title: Lorem Ipsum 2
           visitscotland:translation: ''
           /visitscotland:copy:
@@ -2012,7 +2725,7 @@
           visitscotland:teaser: Lorem ipsum dolor sit amet, consectetur adipiscing
             elit. Vivamus purus massa, porta id mattis non, finibus vel elit. Integer
             nulla nunc, viverra eros.
-          visitscotland:theme: ' Simple'
+          visitscotland:theme: 'Simple'
           visitscotland:title: Simple Page
           /visitscotland:heroImage:
             jcr:primaryType: hippogallerypicker:imagelink
@@ -2057,7 +2770,7 @@
           visitscotland:teaser: Lorem ipsum dolor sit amet, consectetur adipiscing
             elit. Vivamus purus massa, porta id mattis non, finibus vel elit. Integer
             nulla nunc, viverra eros.
-          visitscotland:theme: ' Simple'
+          visitscotland:theme: 'Simple'
           visitscotland:title: Simple Page
           /visitscotland:heroImage:
             jcr:primaryType: hippogallerypicker:imagelink
@@ -2103,7 +2816,7 @@
           visitscotland:teaser: Lorem ipsum dolor sit amet, consectetur adipiscing
             elit. Vivamus purus massa, porta id mattis non, finibus vel elit. Integer
             nulla nunc, viverra eros.
-          visitscotland:theme: ' Simple'
+          visitscotland:theme: 'Simple'
           visitscotland:title: Simple Page
           /visitscotland:heroImage:
             jcr:primaryType: hippogallerypicker:imagelink
@@ -2142,7 +2855,7 @@
           hippotranslation:locale: en
           visitscotland:anchor: ''
           visitscotland:nest: false
-          visitscotland:theme: ''
+          visitscotland:theme: standard
           visitscotland:title: Lorem Ipsum 1
           visitscotland:translation: ''
           /visitscotland:copy:
@@ -2195,7 +2908,7 @@
           hippotranslation:locale: en
           visitscotland:anchor: ''
           visitscotland:nest: false
-          visitscotland:theme: ''
+          visitscotland:theme: standard
           visitscotland:title: Lorem Ipsum 1
           visitscotland:translation: ''
           /visitscotland:copy:
@@ -2249,7 +2962,7 @@
           hippotranslation:locale: en
           visitscotland:anchor: ''
           visitscotland:nest: false
-          visitscotland:theme: ''
+          visitscotland:theme: standard
           visitscotland:title: Lorem Ipsum 1
           visitscotland:translation: ''
           /visitscotland:copy:
@@ -2308,7 +3021,7 @@
           hippotranslation:locale: en
           visitscotland:anchor: ''
           visitscotland:nest: false
-          visitscotland:theme: ''
+          visitscotland:theme: standard
           visitscotland:title: Lorem Ipsum 2
           visitscotland:translation: ''
           /visitscotland:copy:
@@ -2365,7 +3078,7 @@
           hippotranslation:locale: en
           visitscotland:anchor: ''
           visitscotland:nest: false
-          visitscotland:theme: ''
+          visitscotland:theme: standard
           visitscotland:title: Lorem Ipsum 2
           visitscotland:translation: ''
           /visitscotland:copy:
@@ -2423,7 +3136,7 @@
           hippotranslation:locale: en
           visitscotland:anchor: ''
           visitscotland:nest: false
-          visitscotland:theme: ''
+          visitscotland:theme: standard
           visitscotland:title: Lorem Ipsum 2
           visitscotland:translation: ''
           /visitscotland:copy:
@@ -2486,7 +3199,7 @@
           hippotranslation:locale: en
           visitscotland:anchor: ''
           visitscotland:nest: false
-          visitscotland:theme: ''
+          visitscotland:theme: standard
           visitscotland:title: Lorem Ipsum 2
           visitscotland:translation: ''
           /visitscotland:copy:
@@ -2526,7 +3239,7 @@
           hippotranslation:locale: en
           visitscotland:anchor: ''
           visitscotland:nest: false
-          visitscotland:theme: ''
+          visitscotland:theme: standard
           visitscotland:title: Lorem Ipsum 2
           visitscotland:translation: ''
           /visitscotland:copy:
@@ -2567,7 +3280,7 @@
           hippotranslation:locale: en
           visitscotland:anchor: ''
           visitscotland:nest: false
-          visitscotland:theme: ''
+          visitscotland:theme: standard
           visitscotland:title: Lorem Ipsum 2
           visitscotland:translation: ''
           /visitscotland:copy:
@@ -2949,7 +3662,7 @@
           hippotranslation:locale: en
           visitscotland:anchor: ''
           visitscotland:nest: false
-          visitscotland:theme: ''
+          visitscotland:theme: standard
           visitscotland:title: Lorem Ipsum 2
           visitscotland:translation: ''
           /visitscotland:copy:
@@ -2989,7 +3702,7 @@
           hippotranslation:locale: en
           visitscotland:anchor: ''
           visitscotland:nest: false
-          visitscotland:theme: ''
+          visitscotland:theme: standard
           visitscotland:title: Lorem Ipsum 2
           visitscotland:translation: ''
           /visitscotland:copy:
@@ -3030,7 +3743,7 @@
           hippotranslation:locale: en
           visitscotland:anchor: ''
           visitscotland:nest: false
-          visitscotland:theme: ''
+          visitscotland:theme: standard
           visitscotland:title: Lorem Ipsum 2
           visitscotland:translation: ''
           /visitscotland:copy:
@@ -3234,7 +3947,7 @@
           hippotranslation:locale: en
           visitscotland:anchor: ''
           visitscotland:nest: false
-          visitscotland:theme: ''
+          visitscotland:theme: standard
           visitscotland:title: Lorem Ipsum 2
           visitscotland:translation: ''
           /visitscotland:copy:
@@ -3274,7 +3987,7 @@
           hippotranslation:locale: en
           visitscotland:anchor: ''
           visitscotland:nest: false
-          visitscotland:theme: ''
+          visitscotland:theme: standard
           visitscotland:title: Lorem Ipsum 2
           visitscotland:translation: ''
           /visitscotland:copy:
@@ -3315,7 +4028,7 @@
           hippotranslation:locale: en
           visitscotland:anchor: ''
           visitscotland:nest: false
-          visitscotland:theme: ''
+          visitscotland:theme: standard
           visitscotland:title: Lorem Ipsum 2
           visitscotland:translation: ''
           /visitscotland:copy:
@@ -3426,7 +4139,7 @@
           hippotranslation:locale: en
           visitscotland:anchor: ''
           visitscotland:nest: false
-          visitscotland:theme: ''
+          visitscotland:theme: standard
           visitscotland:title: Lorem Ipsum 1
           visitscotland:translation: ''
           /visitscotland:copy:
@@ -3479,7 +4192,7 @@
           hippotranslation:locale: en
           visitscotland:anchor: ''
           visitscotland:nest: false
-          visitscotland:theme: ''
+          visitscotland:theme: standard
           visitscotland:title: Lorem Ipsum 1
           visitscotland:translation: ''
           /visitscotland:copy:
@@ -4314,7 +5027,7 @@
             hippotranslation:locale: en
             visitscotland:anchor: ''
             visitscotland:nest: false
-            visitscotland:theme: ''
+            visitscotland:theme: standard
             visitscotland:title: Lorem Ipsum 1
             visitscotland:translation: ''
             /visitscotland:copy:
@@ -4444,7 +5157,7 @@
             hippotranslation:locale: en
             visitscotland:anchor: bad
             visitscotland:nest: false
-            visitscotland:theme: ''
+            visitscotland:theme: standard
             visitscotland:title: Aenean egestas tincidunt neque ac euismod. Nulla
               metus dui, tempor vel tellus qu
             visitscotland:translation: ''
@@ -4588,7 +5301,7 @@
             hippotranslation:locale: en
             visitscotland:anchor: bad
             visitscotland:nest: false
-            visitscotland:theme: ''
+            visitscotland:theme: standard
             visitscotland:title: Aenean egestas tincidunt neque ac euismod. Nulla
               metus dui, tempor vel tellus qu
             visitscotland:translation: ''
@@ -4737,7 +5450,7 @@
             hippotranslation:locale: en
             visitscotland:anchor: good
             visitscotland:nest: false
-            visitscotland:theme: ''
+            visitscotland:theme: standard
             visitscotland:title: Lorem Ipsum 1
             visitscotland:translation: ''
             /visitscotland:copy:
@@ -4885,7 +5598,7 @@
             hippotranslation:locale: en
             visitscotland:anchor: good
             visitscotland:nest: false
-            visitscotland:theme: ''
+            visitscotland:theme: standard
             visitscotland:title: Lorem Ipsum 1
             visitscotland:translation: ''
             /visitscotland:copy:
@@ -9345,7 +10058,7 @@
           visitscotland:skill: ''
           visitscotland:teaser: This document represents a collection of Links to
             internal sites, external sites or a combination of both
-          visitscotland:theme: ' Standard'
+          visitscotland:theme: 'Standard'
           visitscotland:title: Links Module
           /visitscotland:heroImage:
             jcr:primaryType: hippogallerypicker:imagelink
@@ -9387,7 +10100,7 @@
           visitscotland:skill: ''
           visitscotland:teaser: This document represents a collection of Links to
             internal sites, external sites or a combination of both
-          visitscotland:theme: ' Standard'
+          visitscotland:theme: 'Standard'
           visitscotland:title: Links Module
           /visitscotland:heroImage:
             jcr:primaryType: hippogallerypicker:imagelink
@@ -9430,7 +10143,7 @@
           visitscotland:skill: ''
           visitscotland:teaser: This document represents a collection of Links to
             internal sites, external sites or a combination of both
-          visitscotland:theme: ' Standard'
+          visitscotland:theme: 'Standard'
           visitscotland:title: Links Module
           /visitscotland:heroImage:
             jcr:primaryType: hippogallerypicker:imagelink

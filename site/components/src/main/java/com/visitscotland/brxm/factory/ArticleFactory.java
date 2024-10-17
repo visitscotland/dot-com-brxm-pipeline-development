@@ -50,7 +50,7 @@ public class ArticleFactory {
 
         setSections(module, doc, request.getLocale());
 
-        if (isEditMode(request)) {
+        if (isEditMode(request) && doc instanceof ArticleBSH) {
             // This validation is only required for Edit Mode
             validate(module);
         }

@@ -10,6 +10,7 @@ import com.visitscotland.brxm.dms.model.LocationObject;
 import com.visitscotland.brxm.factory.ImageFactory;
 import com.visitscotland.brxm.hippobeans.*;
 import com.visitscotland.brxm.model.*;
+import com.visitscotland.brxm.utils.ContentLogger;
 import com.visitscotland.brxm.utils.HippoUtilsService;
 import com.visitscotland.utils.Contract;
 import org.hippoecm.hst.content.beans.query.HstQueryResult;
@@ -18,7 +19,6 @@ import org.hippoecm.hst.content.beans.standard.HippoBeanIterator;
 import org.hippoecm.hst.core.component.HstRequest;
 import org.onehippo.taxonomy.api.Category;
 import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import java.util.*;
@@ -42,7 +42,7 @@ public class MapService {
     static final String TYPE = "type";
     static final String POINT = "Point";
     static final String SUBCATEGORY = "subCategory";
-    private static final Logger logger = LoggerFactory.getLogger(MapService.class);
+    private final Logger contentLogger;
 
     private final ObjectMapper mapper;
     private final DMSDataService dmsData;
@@ -53,7 +53,7 @@ public class MapService {
     private final HippoUtilsService hippoUtilsService;
 
     @Autowired
-    public MapService(DMSDataService dmsData, ResourceBundleService bundle,ImageFactory imageFactory, LinkService linkService, ObjectMapper mapper, LocationLoader locationLoader, HippoUtilsService hippoUtilsService) {
+    public MapService(DMSDataService dmsData, ResourceBundleService bundle,ImageFactory imageFactory, LinkService linkService, ObjectMapper mapper, LocationLoader locationLoader, HippoUtilsService hippoUtilsService, ContentLogger contentLogger) {
         this.dmsData = dmsData;
         this.bundle = bundle;
         this.locationLoader = locationLoader;
@@ -61,6 +61,7 @@ public class MapService {
         this.linkService = linkService;
         this.mapper = mapper;
         this.hippoUtilsService = hippoUtilsService;
+        this.contentLogger = contentLogger;
     }
 
     /**
@@ -208,7 +209,7 @@ public class MapService {
             }else{
                 String errorMessage = String.format("Failed to create map card '%s', please review the document attached at: %s", item.getDisplayName(), item.getPath() );
                 module.addErrorMessage(errorMessage);
-                logger.error(errorMessage);
+                contentLogger.error(errorMessage);
             }
         }
         return validPoint;
