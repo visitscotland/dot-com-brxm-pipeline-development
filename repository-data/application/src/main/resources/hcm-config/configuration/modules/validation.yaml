@@ -54,6 +54,7 @@ definitions:
     /hippo:configuration/hippo:modules/validation/hippo:moduleconfig/visitscotland:external-document-validator:
       jcr:primaryType: hipposys:moduleconfig
       hipposys:className: com.visitscotland.brxm.validator.ExternalDocumentValidator
+      visitscotland:types: [pdf]
     /hippo:configuration/hippo:modules/validation/hippo:moduleconfig/visitscotland:iknow-community-tag-validator:
       jcr:primaryType: hipposys:moduleconfig
       hipposys:className: com.visitscotland.brxm.validator.MultiValueNumberSelectedValidator
@@ -116,3 +117,4 @@ definitions:
     /hippo:configuration/hippo:modules/validation/hippo:moduleconfig/visitscotland:external-file-validator:
       jcr:primaryType: hipposys:moduleconfig
       hipposys:className: com.visitscotland.brxm.validator.ExternalDocumentValidator
+      visitscotland:types: [pdf, docx, xlsx, jpg, png, eps, svg]

@@ -2,8 +2,8 @@
   jcr:primaryType: hippo:handle
   jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
   jcr:uuid: 8d478f61-acd2-4e7f-b040-597af695848e
-  hippo:name: Local Business Events Properties
-  hippo:versionHistory: 2cc98b5a-4d88-4d5b-89e5-35f422750390
+  hippo:name: Local/Feature - Business Events
+  hippo:versionHistory: 668d18ff-6a6f-4368-aafc-b9e8ae2bce3a
   /business-events-local-properties[1]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:referenceable']
@@ -11,9 +11,10 @@
     hippo:availability: []
     hippostd:retainable: false
     hippostd:state: draft
+    hippostd:transferable: false
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2024-04-29T14:00:24.028+01:00
-    hippostdpubwf:lastModificationDate: 2024-08-02T14:44:46.565+01:00
+    hippostdpubwf:lastModificationDate: 2024-10-07T10:58:38.437+01:00
     hippostdpubwf:lastModifiedBy: admin
     resourcebundle:descriptions: ['', '', '', '']
     resourcebundle:id: businessevents.local.config
@@ -49,7 +50,7 @@
     hippostdpubwf:creationDate: 2024-04-29T14:00:24.028+01:00
     hippostdpubwf:lastModificationDate: 2024-08-02T14:44:58.748+01:00
     hippostdpubwf:lastModifiedBy: admin
-    hippostdpubwf:publicationDate: 2024-08-02T14:45:49.538+01:00
+    hippostdpubwf:publicationDate: 2024-10-07T11:35:15.532+01:00
     resourcebundle:descriptions: ['', '', '', '']
     resourcebundle:id: businessevents.local.config
     resourcebundle:keys: [gtm.is-production, gtm.container-id, gtm.preview-query-string,
