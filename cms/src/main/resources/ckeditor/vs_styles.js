@@ -12,6 +12,13 @@
         }
     ]);
 
+    CKEDITOR.stylesSet.add('content_list', [
+        {
+            element: 'h6',
+            name: 'Subheading'
+        }
+    ]);
+
     CKEDITOR.stylesSet.add('long_copy', [
         {
             element: 'h2',
