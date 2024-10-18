@@ -11,11 +11,11 @@ definitions:
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:uuid: 4779e6e9-9af3-4b83-ab45-d09c86e03a7c
+          jcr:uuid: 9401575e-a87f-407c-8f8b-bce63ad80045
           hipposysedit:node: true
           hipposysedit:supertype: ['visitscotland:Article', 'hippostd:relaxed', 'hippotranslation:translated']
           hipposysedit:uri: http://www.visitscotland.com/visitscotland/nt/1.0
-          hipposysedit:validators: ['visitscotland:article-image-validator', 'visitscotland:article-copy-validator']
+          hipposysedit:validators: []
           /title:
             jcr:primaryType: hipposysedit:field
             hipposysedit:mandatory: false
@@ -70,7 +70,7 @@ definitions:
         /hipposysedit:prototype:
           jcr:primaryType: visitscotland:ArticleBSH
           jcr:mixinTypes: ['mix:referenceable']
-          jcr:uuid: 8d19fdb7-deaa-4045-89da-c5ce7643c922
+          jcr:uuid: d2adf02c-76ec-42db-aa55-d2f76325b60d
           hippostd:state: draft
           hippostdpubwf:createdBy: ''
           hippostdpubwf:creationDate: 2024-10-17T10:32:44.925+01:00
@@ -104,31 +104,19 @@ definitions:
             wicket.id: ${cluster.id}.field
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-          /media:
-            jcr:primaryType: frontend:plugin
-            caption: Media
-            compoundList: hippogallerypicker:imagelink,visitscotland:VideoLink
-            contentPickerType: links
-            field: media
-            hint: ''
-            plugin.class: org.onehippo.forge.contentblocks.ContentBlocksFieldPlugin
-            wicket.id: ${cluster.id}.field
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
-              maxitems: 1
-          /title:
-            jcr:primaryType: frontend:plugin
-            caption: Title
-            field: title
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
-            wicket.id: ${cluster.id}.field
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
           /anchor:
             jcr:primaryType: frontend:plugin
             caption: Anchor Text
             field: anchor
             hint: ''
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+          /title:
+            jcr:primaryType: frontend:plugin
+            caption: Title
+            field: title
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
             /cluster.options:
@@ -147,6 +135,18 @@ definitions:
               ckeditor.config.overlayed.json: '{disallowedContent: ''p[align]'', toolbarGroups:
                 [{ name: ''basicstyles''},{ name: ''links'' },{name:''insert''},{name:''clipboard''},{name:''tools''},{name:''undo''}]
                 , removeButtons: ''PickImage,Youtube,Table,Bold,Underline,Strike,Subscript,Superscript''}'
+          /media:
+            jcr:primaryType: frontend:plugin
+            caption: Media
+            compoundList: hippogallerypicker:imagelink,visitscotland:VideoLink
+            contentPickerType: links
+            field: media
+            hint: ''
+            plugin.class: org.onehippo.forge.contentblocks.ContentBlocksFieldPlugin
+            wicket.id: ${cluster.id}.field
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+              maxitems: 1
           /paragraph:
             jcr:primaryType: frontend:plugin
             caption: PARAGRAPH

@@ -11,7 +11,7 @@ definitions:
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:uuid: 183556fa-c5d5-47db-9c9d-ccf1a307209a
+          jcr:uuid: 5faf9fc9-7320-4867-8fbb-972086bf490b
           hipposysedit:node: true
           hipposysedit:supertype: ['visitscotland:Article', 'hippostd:relaxed', 'hippotranslation:translated']
           hipposysedit:validators: ['visitscotland:article-image-validator', 'visitscotland:article-copy-validator']
@@ -72,7 +72,7 @@ definitions:
         /hipposysedit:prototype:
           jcr:primaryType: visitscotland:ContentListBSH
           jcr:mixinTypes: ['mix:referenceable']
-          jcr:uuid: 3703afd5-009f-40dd-9b4b-e6fb703d7293
+          jcr:uuid: 2b26a0a7-10ac-40a1-8888-6fe707f86932
           hippostd:holder: holder
           hippostd:state: draft
           hippostdpubwf:createdBy: ''
@@ -124,19 +124,19 @@ definitions:
             wicket.id: ${cluster.id}.field
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-          /title:
-            jcr:primaryType: frontend:plugin
-            caption: Title
-            field: title
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
-            wicket.id: ${cluster.id}.field
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
           /anchor:
             jcr:primaryType: frontend:plugin
             caption: Anchor Text
             field: anchor
             hint: ''
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+          /title:
+            jcr:primaryType: frontend:plugin
+            caption: Title
+            field: title
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
             /cluster.options:
