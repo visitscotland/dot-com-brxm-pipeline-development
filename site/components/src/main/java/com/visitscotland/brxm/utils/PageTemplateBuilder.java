@@ -55,6 +55,7 @@ public class PageTemplateBuilder {
     private final PreviewModeFactory previewFactory;
     private final FormFactory formFactory;
     private final MapFactory mapFactory;
+    private final SignpostFactory signPostFactory;
     private final SkiFactory skiFactory;
     private final DevModuleFactory devModuleFactory;
     private final SiteProperties properties;
@@ -69,7 +70,7 @@ public class PageTemplateBuilder {
                                UserGeneratedContentFactory userGeneratedContentFactory, TravelInformationFactory travelInformationFactory,
                                CannedSearchFactory cannedSearchFactory, PreviewModeFactory previewFactory, FormFactory marketoFormFactory,
                                MapFactory mapFactory, SkiFactory skiFactory, SiteProperties properties,
-                               DevModuleFactory devModuleFactory, ResourceBundleService bundle, Logger contentLogger) {
+                               DevModuleFactory devModuleFactory, ResourceBundleService bundle, Logger contentLogger, SignpostFactory signPostFactory) {
         this.documentUtils = documentUtils;
         this.linksFactory = linksFactory;
         this.iCentreFactory = iCentreFactory;
@@ -87,6 +88,7 @@ public class PageTemplateBuilder {
         this.properties = properties;
         this.bundle = bundle;
         this.contentLogger = contentLogger;
+        this.signPostFactory = signPostFactory;
     }
 
     private Page getDocument(HstRequest request) {
@@ -147,6 +149,8 @@ public class PageTemplateBuilder {
             page.modules.add(skiFactory.createSkyListModule((SkiCentreList) item, request.getLocale()));
         } else if (item instanceof DevModule){
             page.modules.add(devModuleFactory.getModule((DevModule) item));
+        } else if (item instanceof CTABanner){
+            page.modules.add(signPostFactory.createModule((CTABanner) item));
         } else {
             logger.warn("Unrecognized Module Type: {}", item.getClass());
         }
