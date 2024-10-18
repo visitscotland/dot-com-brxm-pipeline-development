@@ -5,11 +5,11 @@
   <parent>
     <groupId>com.onehippo.cms7</groupId>
     <artifactId>hippo-cms7-enterprise-release</artifactId>
-    <version>15.5.0</version>
+    <version>15.6.0</version>
   </parent>
 
   <name>Parent POM</name>
-  <description>Bloomreach default pom. It makes it easier to workout differences from the Archetypes</description>
+  <description>BloomReach default pom. It makes it easier to workout differences from the Archetypes</description>
   <groupId>com.visitscotland</groupId>
   <artifactId>brxm-parent-enterprise-pom</artifactId>
   <version>1.0</version>
@@ -72,23 +72,6 @@
     <hippo.cms.locales>nl,de,fr,es,zh</hippo.cms.locales>
     <buildNumber>${maven.build.timestamp}</buildNumber>
   </properties>
-
-<!--  <repositories>-->
-<!--    <repository>-->
-<!--      <id>hippo</id>-->
-<!--      <name>Hippo maven 2 repository.</name>-->
-<!--      <url>https://maven.bloomreach.com/repository/maven2/</url>-->
-<!--    </repository>-->
-<!--    <repository>-->
-<!--      <id>hippo-maven2-enterprise</id>-->
-<!--      <name>Hippo Enterprise Maven 2</name>-->
-<!--      <url>https://maven.bloomreach.com/repository/maven2-enterprise/</url>-->
-<!--      <releases>-->
-<!--        <updatePolicy>never</updatePolicy>-->
-<!--        <checksumPolicy>fail</checksumPolicy>-->
-<!--      </releases>-->
-<!--    </repository>-->
-<!--  </repositories>-->
 
   <dependencyManagement>
     <dependencies>
@@ -282,6 +265,8 @@
       <properties>
         <!-- Already defined in the cms project POM. Override here for your project, if necessary -->
         <!-- <repo.bootstrap>true</repo.bootstrap> -->
+
+        <!-- Note: Wicket can be debugged by using the following CLI parameter -Dwicket.js.debug=true -->
       </properties>
       <dependencies>
         <dependency>
@@ -341,11 +326,11 @@
                 </configfiles>
                 <files>
                   <file>
-                    <file>${project.basedir}/repository-data/development/target/playground-repository-data-development-${project.version}.jar</file>
+                    <file>${project.basedir}/repository-data/development/target/${project.artifactId}-repository-data-development-${project.version}.jar</file>
                     <todir>${development-module-deploy-dir}</todir>
                   </file>
                   <file>
-                    <file>${project.basedir}/repository-data/site-development/target/playground-repository-data-site-development-${project.version}.jar</file>
+                    <file>${project.basedir}/repository-data/site-development/target/${project.artifactId}-repository-data-site-development-${project.version}.jar</file>
                     <todir>${development-module-deploy-dir}</todir>
                   </file>
                 </files>
@@ -397,128 +382,6 @@
         <!-- Comment out Dockerfile instruction that copies development modules to an image -->
         <docker.brxm.copy.dev.libs.cmd>#</docker.brxm.copy.dev.libs.cmd>
       </properties>
-    </profile>
-
-    <profile>
-      <id>dist</id>
-      <dependencies>
-        <dependency>
-          <groupId>jakarta.xml.bind</groupId>
-          <artifactId>jakarta.xml.bind-api</artifactId>
-          <scope>provided</scope>
-        </dependency>
-        <dependency>
-          <groupId>jakarta.xml.ws</groupId>
-          <artifactId>jakarta.xml.ws-api</artifactId>
-          <scope>provided</scope>
-        </dependency>
-        <dependency>
-          <groupId>javax.annotation</groupId>
-          <artifactId>javax.annotation-api</artifactId>
-          <scope>provided</scope>
-        </dependency>
-        <dependency>
-          <groupId>jakarta.activation</groupId>
-          <artifactId>jakarta.activation-api</artifactId>
-          <scope>provided</scope>
-        </dependency>
-        <dependency>
-          <groupId>org.glassfish.jaxb</groupId>
-          <artifactId>jaxb-runtime</artifactId>
-          <scope>provided</scope>
-        </dependency>
-
-        <dependency>
-          <groupId>org.apache.logging.log4j</groupId>
-          <artifactId>log4j-slf4j-impl</artifactId>
-          <scope>provided</scope>
-        </dependency>
-        <dependency>
-          <groupId>org.slf4j</groupId>
-          <artifactId>jcl-over-slf4j</artifactId>
-          <scope>provided</scope>
-        </dependency>
-        <dependency>
-          <groupId>org.apache.logging.log4j</groupId>
-          <artifactId>log4j-api</artifactId>
-          <scope>provided</scope>
-        </dependency>
-        <dependency>
-          <groupId>org.apache.logging.log4j</groupId>
-          <artifactId>log4j-core</artifactId>
-          <scope>provided</scope>
-        </dependency>
-      </dependencies>
-      <build>
-        <defaultGoal>validate</defaultGoal>
-        <plugins>
-          <plugin>
-            <artifactId>maven-assembly-plugin</artifactId>
-            <executions>
-              <execution>
-                <id>distro-assembly</id>
-                <phase>validate</phase>
-                <goals>
-                  <goal>single</goal>
-                </goals>
-                <configuration>
-                  <descriptors>
-                    <descriptor>${project.basedir}/src/main/assembly/distribution.xml</descriptor>
-                  </descriptors>
-                </configuration>
-              </execution>
-            </executions>
-          </plugin>
-        </plugins>
-      </build>
-    </profile>
-
-    <profile>
-      <id>dist-with-development-data</id>
-      <dependencies>
-        <dependency>
-          <groupId>org.apache.logging.log4j</groupId>
-          <artifactId>log4j-slf4j-impl</artifactId>
-          <scope>provided</scope>
-        </dependency>
-        <dependency>
-          <groupId>org.slf4j</groupId>
-          <artifactId>jcl-over-slf4j</artifactId>
-          <scope>provided</scope>
-        </dependency>
-        <dependency>
-          <groupId>org.apache.logging.log4j</groupId>
-          <artifactId>log4j-api</artifactId>
-          <scope>provided</scope>
-        </dependency>
-        <dependency>
-          <groupId>org.apache.logging.log4j</groupId>
-          <artifactId>log4j-core</artifactId>
-          <scope>provided</scope>
-        </dependency>
-      </dependencies>
-      <build>
-        <defaultGoal>validate</defaultGoal>
-        <plugins>
-          <plugin>
-            <artifactId>maven-assembly-plugin</artifactId>
-            <executions>
-              <execution>
-                <id>distro-assembly-with-development-data</id>
-                <phase>validate</phase>
-                <goals>
-                  <goal>single</goal>
-                </goals>
-                <configuration>
-                  <descriptors>
-                    <descriptor>${project.basedir}/src/main/assembly/distribution-with-development-data.xml</descriptor>
-                  </descriptors>
-                </configuration>
-              </execution>
-            </executions>
-          </plugin>
-        </plugins>
-      </build>
     </profile>
   </profiles>
 
