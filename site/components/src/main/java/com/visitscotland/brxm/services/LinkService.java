@@ -276,8 +276,7 @@ public class LinkService {
     public LinkType getType(String url) {
         if (Contract.isEmpty(url)) {
             return null;
-        //TODO add the logic to allow pdf,docx,xlsx,jpg,jpeg,png,eps,svg once the Download documents are merged to develop
-        } else if (url.toLowerCase().endsWith(".pdf")) {
+        } else if (isDownload(url)) {
             return LinkType.DOWNLOAD;
         } else if (url.toLowerCase().startsWith("mailto:")){
             return LinkType.MAIL;
@@ -288,6 +287,18 @@ public class LinkService {
         }
 
         return LinkType.EXTERNAL;
+    }
+
+    private boolean isDownload(String url) {
+        String[] validExtensions = siteProperties.getDownloadExtensions().split(",");
+
+        for (String ext : validExtensions) {
+            if (url.toLowerCase().endsWith("." + ext.trim())) {
+                return true;
+            }
+        }
+
+        return false;
     }
 
     /**
