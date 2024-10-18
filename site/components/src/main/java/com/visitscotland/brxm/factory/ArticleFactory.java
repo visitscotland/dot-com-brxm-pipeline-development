@@ -1,9 +1,6 @@
 package com.visitscotland.brxm.factory;
 
-import com.visitscotland.brxm.hippobeans.Article;
-import com.visitscotland.brxm.hippobeans.ArticleBSH;
-import com.visitscotland.brxm.hippobeans.ArticleSection;
-import com.visitscotland.brxm.hippobeans.VideoLink;
+import com.visitscotland.brxm.hippobeans.*;
 import com.visitscotland.brxm.model.ArticleModule;
 import com.visitscotland.brxm.model.ArticleModuleSection;
 import com.visitscotland.brxm.services.LinkService;
@@ -60,8 +57,10 @@ public class ArticleFactory {
 
     private void addSpecialFields(Article document, ArticleModule module) {
         if (document instanceof ArticleBSH){
-            module.setLayout(((ArticleBSH) document).getTheme() == null? STANDARD: ((ArticleBSH) document).getTheme());
             module.setNested(Boolean.TRUE.equals(((ArticleBSH) document).getNested()));
+        } else if (document instanceof  ContentListBSH) {
+            module.setLayout(((ContentListBSH) document).getTheme() == null? STANDARD: ((ContentListBSH) document).getTheme());
+            module.setNested(Boolean.TRUE.equals(((ContentListBSH) document).getNested()));
         }
     }
 
@@ -97,8 +96,10 @@ public class ArticleFactory {
                 } else {
                     section.setImage(imageFactory.getImage(paragraph.getMediaItem(), module, locale));
                 }
+            }
 
-                section.setHeading("Placeholder Heading");
+            if (paragraph instanceof ContentListSection) {
+                section.setHeading(((ContentListSection) paragraph).getHeading());
             }
 
             if (paragraph.getQuote() != null) {

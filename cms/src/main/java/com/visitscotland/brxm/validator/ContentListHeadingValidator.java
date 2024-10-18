@@ -10,6 +10,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import javax.jcr.Node;
+import javax.jcr.NodeIterator;
 import javax.jcr.RepositoryException;
 import javax.jcr.Value;
 import java.util.*;
@@ -55,7 +56,12 @@ public class ContentListHeadingValidator implements Validator<Node> {
 
     private boolean hasValidHeading(final Node node) throws RepositoryException {
         if (themes.contains(node.getProperty(Article.THEME).getValue().getString())){
-            return !Contract.isEmpty(node.getProperty("visitscotlan:heading").getString());
+            for (NodeIterator it = node.getNodes(Article.PARAGRAPH); it.hasNext(); ) {
+                Node section = it.nextNode();
+                if (Contract.isEmpty(section.getProperty("visitscotland:heading").getString())){
+                    return false;
+                }
+            }
         }
         return true;
     }
