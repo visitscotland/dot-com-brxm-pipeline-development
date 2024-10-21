@@ -14,7 +14,7 @@ import javax.jcr.RepositoryException;
  */
 public class DeliveryAPIContentRewriter extends HtmlContentRewriter {
 
-    static final String NESTED = "visitscotland:nested"
+    static final String NESTED = "visitscotland:nested";
     private final HTMLtoVueTransformer transformer;
 
     public DeliveryAPIContentRewriter() throws Exception {
