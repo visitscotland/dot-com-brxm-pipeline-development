@@ -94,7 +94,7 @@ class HTMLtoVueTransformerTest {
     void heading(){
         String HTML = "<h2>Heading 2</h2>";
 
-        String result = transformer.processHeadings(HTML);
+        String result = transformer.processHeadings(HTML, false);
 
         assertTrue(result.startsWith("<vs-heading level=\"2\""));
         assertTrue(result.endsWith("</vs-heading>"));
@@ -105,7 +105,7 @@ class HTMLtoVueTransformerTest {
     void h2_multiple(){
         String HTML = "<h2>Heading 1</h2><p>Blah</p><h2>Heading 2</h2><p>Blah</p><h2>Heading 3</h2><p>Blah</p>";
 
-        String result = transformer.processHeadings(HTML);
+        String result = transformer.processHeadings(HTML,false);
         Matcher matcher = Pattern.compile("id=").matcher(result);
         int count = 0;
 
@@ -117,11 +117,11 @@ class HTMLtoVueTransformerTest {
     }
 
     @Test
-    @DisplayName("The conversion to kebab case reduce the noise as much")
+    @DisplayName("The conversion to kebab case reduce the noise as much as possible")
     void h2_kebabCase(){
         String HTML = "<h2> Heading for ---- OMG!  </h2>";
 
-        assertTrue(transformer.processHeadings(HTML).contains("id=\"heading-for-omg\""));
+        assertTrue(transformer.processHeadings(HTML,false).contains("id=\"heading-for-omg\""));
     }
 
     @Test

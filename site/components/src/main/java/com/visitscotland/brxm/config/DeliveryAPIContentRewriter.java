@@ -14,6 +14,7 @@ import javax.jcr.RepositoryException;
  */
 public class DeliveryAPIContentRewriter extends HtmlContentRewriter {
 
+    static final String NESTED = "visitscotland:nested"
     private final HTMLtoVueTransformer transformer;
 
     public DeliveryAPIContentRewriter() throws Exception {
@@ -33,10 +34,21 @@ public class DeliveryAPIContentRewriter extends HtmlContentRewriter {
     public String rewrite(final String html, final Node node,
                           final HstRequestContext requestContext,
                           final Mount targetMount) {
-        String hippoHtml = super.rewrite(html, node, requestContext, targetMount);
+        final String hippoHtml = super.rewrite(html, node, requestContext, targetMount);
+        final String parentDocument;
+        boolean nested = false;
         try {
-            String parentDocument = node != null? node.getPath() : "DeliveryAPIContentRewriter";
-            return transformer.process(hippoHtml, parentDocument);
+            if (node != null) {
+                parentDocument = node.getPath();
+                if (parentDocument.endsWith("/visitscotland:paragraph/visitscotland:copy")
+                        && node.getParent().getParent().hasProperty(NESTED)) {
+                    nested = node.getParent().getParent().getProperty(NESTED).getBoolean();
+                }
+            } else {
+                parentDocument = "DeliveryAPIContentRewriter";
+            }
+
+            return transformer.process(hippoHtml, parentDocument, nested);
         } catch (RepositoryException e) {
             throw new RuntimeException(e);
         }
