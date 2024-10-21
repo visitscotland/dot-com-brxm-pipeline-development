@@ -271,7 +271,7 @@ definitions:
             wicket.id: ${cluster.id}.right.item
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-              source: /content/documents/administration/options/bsh---sector
+              source: /content/documents/administration/options/business-support-hub/sector
           /skill:
             jcr:primaryType: frontend:plugin
             caption: Skill Level
@@ -281,7 +281,7 @@ definitions:
             wicket.id: ${cluster.id}.right.item
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-              source: /content/documents/administration/options/bsh---skill-level
+              source: /content/documents/administration/options/business-support-hub/skill-level
           /type:
             jcr:primaryType: frontend:plugin
             caption: Content Type
@@ -292,7 +292,7 @@ definitions:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
               orientation: vertical
-              source: /content/documents/administration/options/bsh---type
+              source: /content/documents/administration/options/business-support-hub/type
           /links:
             jcr:primaryType: frontend:plugin
             caption: Related Pages
@@ -322,4 +322,4 @@ definitions:
             wicket.id: ${cluster.id}.right.item
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-              source: /content/documents/administration/options/bsh---regions
+              source: /content/documents/administration/options/business-support-hub/regions
