@@ -73,7 +73,7 @@ public class HTMLtoVueTransformer {
                     nested? 4 : 5, id, matcher.group(2), matcher.group(3));
         } else {
             vsHeading = String.format("<vs-heading level=\"%s\" id=\"%s\"%s>%s</vs-heading>",
-                    nested? level : level + 1, id, matcher.group(2), matcher.group(3));
+                    nested? level + 1: level, id, matcher.group(2), matcher.group(3));
         }
         return vsHeading;
     }
