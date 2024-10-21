@@ -90,7 +90,7 @@ class HTMLtoVueTransformerTest {
     }
 
     @Test
-    @DisplayName("Headings convert heading to vue componentsonvert headings")
+    @DisplayName("Headings convert heading to vue components convert headings")
     void heading(){
         String HTML = "<h2>Heading 2</h2>";
 
