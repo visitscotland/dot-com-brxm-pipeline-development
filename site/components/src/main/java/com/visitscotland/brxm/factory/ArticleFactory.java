@@ -50,7 +50,7 @@ public class ArticleFactory {
 
         setSections(module, doc, request.getLocale());
 
-        if (isEditMode(request)) {
+        if (isEditMode(request) && doc instanceof ArticleBSH) {
             // This validation is only required for Edit Mode
             validate(module);
         }
@@ -84,19 +84,21 @@ public class ArticleFactory {
         }
     }
 
-    private void setSections(ArticleModule module, Article doc, Locale locale){
+    private void setSections(ArticleModule module, Article doc, Locale locale) {
         List<ArticleModuleSection> sections = new ArrayList<>();
 
-        for (ArticleSection paragraph: doc.getParagraph()){
+        for (ArticleSection paragraph: doc.getParagraph()) {
             ArticleModuleSection section = new ArticleModuleSection();
             section.setCopy(paragraph.getCopy());
 
             if (paragraph.getMediaItem() != null) {
-                if (paragraph.getMediaItem() instanceof VideoLink){
+                if (paragraph.getMediaItem() instanceof VideoLink) {
                     section.setVideo(linkService.createVideo(((VideoLink)paragraph.getMediaItem()).getVideoLink(), module, locale));
-                }else {
+                } else {
                     section.setImage(imageFactory.getImage(paragraph.getMediaItem(), module, locale));
                 }
+
+                section.setHeading("Placeholder Heading");
             }
 
             if (paragraph.getQuote() != null) {

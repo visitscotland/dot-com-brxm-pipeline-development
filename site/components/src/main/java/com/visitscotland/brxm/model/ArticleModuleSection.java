@@ -4,6 +4,8 @@ import com.visitscotland.brxm.model.megalinks.EnhancedLink;
 import org.hippoecm.hst.content.beans.standard.HippoHtml;
 
 public class ArticleModuleSection {
+
+    private String heading;
     private HippoHtml copy;
     private FlatImage image;
     private FlatQuote quote;
@@ -39,5 +41,13 @@ public class ArticleModuleSection {
 
     public void setVideo(EnhancedLink video) {
         this.video = video;
+    }
+
+    public String getHeading() {
+        return heading;
+    }
+
+    public void setHeading(String heading) {
+        this.heading = heading;
     }
 }
