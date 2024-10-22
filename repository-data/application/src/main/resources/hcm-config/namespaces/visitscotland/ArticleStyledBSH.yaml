@@ -11,69 +11,11 @@ definitions:
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:uuid: c5d09cfe-5dba-4162-a5fd-21ebd996a681
-          hipposysedit:node: true
-          hipposysedit:supertype: ['visitscotland:Article', 'hippostd:relaxed', 'hippotranslation:translated']
-          hipposysedit:validators: ['visitscotland:article-image-validator', 'visitscotland:article-heading-validator']
-          hipposysedit:uri: http://www.visitscotland.com/visitscotland/nt/1.0
-          /title:
-            jcr:primaryType: hipposysedit:field
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: false
-            hipposysedit:ordered: false
-            hipposysedit:path: visitscotland:title
-            hipposysedit:primary: false
-            hipposysedit:type: String
-            hipposysedit:validators: [required, 'visitscotland:medium-string-validator']
-          /copy:
-            jcr:primaryType: hipposysedit:field
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: false
-            hipposysedit:ordered: false
-            hipposysedit:path: visitscotland:copy
-            hipposysedit:primary: false
-            hipposysedit:type: hippostd:html
-          /anchor:
-            jcr:primaryType: hipposysedit:field
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: false
-            hipposysedit:ordered: false
-            hipposysedit:path: visitscotland:anchor
-            hipposysedit:primary: false
-            hipposysedit:type: String
-            hipposysedit:validators: [non-empty-spaces]
-          /paragraph:
-            jcr:primaryType: hipposysedit:field
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: true
-            hipposysedit:ordered: true
-            hipposysedit:path: visitscotland:paragraph
-            hipposysedit:primary: false
-            hipposysedit:type: visitscotland:ArticleStyledSection
-          /nested:
-            jcr:primaryType: hipposysedit:field
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: false
-            hipposysedit:ordered: false
-            hipposysedit:path: visitscotland:nested
-            hipposysedit:primary: false
-            hipposysedit:type: Boolean
-          /theme:
-            jcr:primaryType: hipposysedit:field
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: false
-            hipposysedit:ordered: false
-            hipposysedit:path: visitscotland:theme
-            hipposysedit:primary: false
-            hipposysedit:type: DynamicDropdown
-            hipposysedit:validators: [required]
-        /hipposysedit:nodetype[2]:
-          jcr:primaryType: hipposysedit:nodetype
-          jcr:mixinTypes: ['mix:referenceable']
           jcr:uuid: 7a92de35-ea9e-41ae-a40c-136382936493
           hipposysedit:node: true
           hipposysedit:supertype: ['visitscotland:Article', 'hippostd:relaxed', 'hippotranslation:translated']
           hipposysedit:validators: ['visitscotland:article-image-validator', 'visitscotland:article-heading-validator']
+          hipposysedit:uri: http://www.visitscotland.com/visitscotland/nt/1.0
           /title:
             jcr:primaryType: hipposysedit:field
             hipposysedit:mandatory: false
@@ -130,33 +72,7 @@ definitions:
         /hipposysedit:prototype:
           jcr:primaryType: visitscotland:ArticleStyledBSH
           jcr:mixinTypes: ['mix:referenceable']
-          jcr:uuid: cf138e3b-b827-41f8-9c9c-413a6b29cbb9
-          hippostd:holder: holder
-          hippostd:state: draft
-          hippostdpubwf:createdBy: ''
-          hippostdpubwf:creationDate: 2020-12-11T10:07:47.312Z
-          hippostdpubwf:lastModificationDate: 2020-12-11T10:07:47.311Z
-          hippostdpubwf:lastModifiedBy: ''
-          hippotranslation:id: document-type-locale-id
-          hippotranslation:locale: document-type-locale
-          visitscotland:anchor: ''
-          visitscotland:nested: false
-          visitscotland:theme: ''
-          visitscotland:title: ''
-          /visitscotland:copy:
-            jcr:primaryType: hippostd:html
-            hippostd:content: ''
-          /visitscotland:paragraph:
-            jcr:primaryType: visitscotland:ArticleStyledSection
-            visitscotland:heading: ''
-            /visitscotland:copy:
-              jcr:primaryType: hippostd:html
-              hippostd:content: ''
-        /hipposysedit:prototype[2]:
-          jcr:primaryType: nt:unstructured
-          jcr:mixinTypes: ['hippostd:publishableSummary', 'hippostd:relaxed', 'hippostdpubwf:document',
-            'hippotranslation:translated', 'mix:referenceable', 'visitscotland:translatable']
-          jcr:uuid: 135c97b5-afee-49ae-b737-01b1892d9a95
+          jcr:uuid: 26a9779e-9c0d-4751-8155-58236058fd4c
           hippostd:holder: holder
           hippostd:state: draft
           hippostdpubwf:createdBy: ''
