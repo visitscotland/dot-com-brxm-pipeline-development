@@ -17,6 +17,10 @@ public class HTMLtoVueTransformer {
 
     private final LinkService linkService;
 
+    private static final String[] HEADING_STYLES = {
+            "xl","l","m","s","xs","xxs"
+    };
+
     HTMLtoVueTransformer(LinkService linkService){
         this.linkService = linkService;
     }
@@ -62,20 +66,21 @@ public class HTMLtoVueTransformer {
      * Transforms the headings to Vue heading
      */
     private static @NotNull String getTransformedHeading(Matcher matcher, String id, boolean nested) {
-        int level = Integer.parseInt(matcher.group(1));
+        final int level = Integer.parseInt(matcher.group(1));
+        int headingLevel = level;
 
-        String vsHeading;
         if (level == 6){
             /* TODO: This is a workaround for VS-3489 and needs to be removed when that ticket is completed
              * Since this a temporarily fix no unit tests have been written
              */
-            vsHeading = String.format("<vs-heading level=\"%s\" override-style-level=\"6\" id=\"%s\"%s>%s</vs-heading>",
-                    nested? 4 : 5, id, matcher.group(2), matcher.group(3));
-        } else {
-            vsHeading = String.format("<vs-heading level=\"%s\" id=\"%s\"%s>%s</vs-heading>",
-                    nested? level + 1: level, id, matcher.group(2), matcher.group(3));
+            headingLevel = 4;
         }
-        return vsHeading;
+        if (nested){
+            headingLevel++;
+        }
+
+        return String.format("<vs-heading level=\"%s\" heading-style=\"%s\" id=\"%s\"%s>%s</vs-heading>",
+                headingLevel, HEADING_STYLES[level - 1], id, matcher.group(2), matcher.group(3));
     }
 
     /**
