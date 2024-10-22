@@ -1,17 +1,17 @@
 definitions:
   config:
-    /hippo:namespaces/visitscotland/ArticleSection:
+    /hippo:namespaces/visitscotland/ContentListSection:
       jcr:primaryType: hipposysedit:templatetype
       jcr:mixinTypes: ['editor:editable', 'mix:referenceable']
-      jcr:uuid: fd557db7-1ea7-48e8-b3e1-680c638ac366
+      jcr:uuid: a4a76b43-e7d4-47f8-ab00-f69de19b193b
       /hipposysedit:nodetype:
         jcr:primaryType: hippo:handle
         jcr:mixinTypes: ['mix:referenceable']
-        jcr:uuid: a37e1c38-fe9e-4734-913e-3e2c3313e7af
+        jcr:uuid: b722fdfb-b2b3-4b78-9118-35973e1432bf
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:uuid: c3fcd03a-51b0-4a5b-9978-a614d3e1308f
+          jcr:uuid: f28dcd6e-f498-4c92-8799-da50427a22da
           hipposysedit:node: true
           hipposysedit:supertype: ['hippo:compound', 'hippostd:relaxed']
           hipposysedit:uri: http://www.visitscotland.com/visitscotland/nt/1.0
@@ -24,15 +24,6 @@ definitions:
             hipposysedit:primary: false
             hipposysedit:type: hippostd:html
             hipposysedit:validators: [required]
-          /Quote:
-            jcr:primaryType: hipposysedit:field
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: false
-            hipposysedit:ordered: false
-            hipposysedit:path: visitscotland:Quote
-            hipposysedit:primary: false
-            hipposysedit:type: visitscotland:Quote
-            hipposysedit:validators: [optional]
           /media:
             jcr:primaryType: hipposysedit:field
             hipposysedit:multiple: true
@@ -40,10 +31,19 @@ definitions:
             hipposysedit:path: visitscotland:media
             hipposysedit:type: hippo:compound
             hipposysedit:validators: [contentblocks-validator]
+          /heading:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: visitscotland:heading
+            hipposysedit:primary: false
+            hipposysedit:type: String
       /hipposysedit:prototypes:
         jcr:primaryType: hipposysedit:prototypeset
         /hipposysedit:prototype:
-          jcr:primaryType: visitscotland:ArticleSection
+          jcr:primaryType: visitscotland:ContentListSection
+          visitscotland:heading: ''
           /visitscotland:copy:
             jcr:primaryType: hippostd:html
             hippostd:content: ''
@@ -59,41 +59,39 @@ definitions:
             item: ${cluster.id}.field
             plugin.class: org.hippoecm.frontend.service.render.ListViewPlugin
             wicket.skin: css/document-styles.css
+          /heading:
+            jcr:primaryType: frontend:plugin
+            caption: Heading
+            field: heading
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
           /copy:
             jcr:primaryType: frontend:plugin
             caption: Copy
             field: copy
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
-            wicket.id: ${cluster.id}.field
             hint: 'Recommended length: 2500 characters'
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
             wicket.css: []
+            wicket.id: ${cluster.id}.field
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
               ckeditor.config.appended.json: '{extraPlugins: ''wordcount'',   wordcount:
                 {countSpacesAsChars: true, showCharCount: true, maxCharCount: 4000}}'
               ckeditor.config.overlayed.json: '{disallowedContent: ''p[align]'',  stylesSet:
-                ''article:./vs_styles.js'',  toolbarGroups: [ { name: ''basicstyles''},{name:
+                ''content_list:./vs_styles.js'',  toolbarGroups: [ { name: ''basicstyles''},{name:
                 ''styles''},{name:''listindentalign'',groups:[''list'']}, {name:''links''},{name:''insert''},{name:''clipboard''},{name:''tools''},{name:''undo''}
                 ] , removeButtons: ''PickImage,Youtube,Table,Bold,Underline,Strike,Subscript,Superscript''}'
           /media:
             jcr:primaryType: frontend:plugin
             caption: Media
-            compoundList: hippogallerypicker:imagelink,visitscotland:VideoLink
+            compoundList: hippogallerypicker:imagelink
             contentPickerType: links
             field: media
+            hint: ''
             plugin.class: org.onehippo.forge.contentblocks.ContentBlocksFieldPlugin
             wicket.id: ${cluster.id}.field
-            hint: ''
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
               maxitems: 1
-          /Quote:
-            jcr:primaryType: frontend:plugin
-            caption: Quote
-            field: Quote
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
-            wicket.id: ${cluster.id}.field
-            hint: ''
-            wicket.css: [article-separator]
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
