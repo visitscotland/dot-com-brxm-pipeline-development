@@ -4137,7 +4137,7 @@
         jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
         jcr:uuid: 5eb4dd2a-6cfd-4eb4-aadb-6bacce3907cd
         hippo:name: Basic
-        hippo:versionHistory: aa38f1e2-4170-4357-8628-cf78df104f6f
+        hippo:versionHistory: b556cc3a-bcf8-42f4-ba31-45de387b6446
         /basic[1]:
           jcr:primaryType: visitscotland:ArticleBSH
           jcr:mixinTypes: ['mix:versionable']
@@ -4147,12 +4147,13 @@
           hippostd:state: unpublished
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2024-08-30T14:07:42.873+01:00
-          hippostdpubwf:lastModificationDate: 2024-09-17T11:07:05.303+01:00
+          hippostdpubwf:lastModificationDate: 2024-10-22T14:29:52.086+01:00
           hippostdpubwf:lastModifiedBy: admin
           hippotranslation:id: 2fb0e8f6-2b8a-4d69-b143-938053fa74ba
           hippotranslation:locale: en
           visitscotland:anchor: ''
           visitscotland:nest: false
+          visitscotland:nested: false
           visitscotland:theme: standard
           visitscotland:title: Lorem Ipsum 1
           visitscotland:translation: ''
@@ -4204,10 +4205,9 @@
           hippo:availability: []
           hippostd:retainable: false
           hippostd:state: draft
-          hippostd:transferable: false
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2024-08-30T14:07:42.873+01:00
-          hippostdpubwf:lastModificationDate: 2024-10-17T09:58:13.520+01:00
+          hippostdpubwf:lastModificationDate: 2024-10-22T14:29:46.147+01:00
           hippostdpubwf:lastModifiedBy: admin
           hippotranslation:id: 2fb0e8f6-2b8a-4d69-b143-938053fa74ba
           hippotranslation:locale: en
@@ -4225,16 +4225,11 @@
             /visitscotland:copy:
               jcr:primaryType: hippostd:html
               hippostd:content: |-
-                <ol>
-                 <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque volutpat ante sit amet venenatis lobortis.</li>
-                 <li>Ut aliquet, sem a viverra pharetra, nunc mi luctus augue, ac molestie diam enim ut velit. Maecenas blandit, massa eu blandit ornare, quam mauris cursus nulla, vel faucibus augue orci a odio.</li>
-                 <li>Aenean diam metus, facilisis vel ultrices vitae, pellentesque consectetur felis.</li>
-                 <li>Aliquam semper, nisi at iaculis tristique, nisl magna condimentum nisi, et faucibus massa dolor nec enim. Donec interdum tempor blandit. Maecenas eget metus malesuada, euismod ex vitae, eleifend libero.</li>
-                 <li>Etiam scelerisque turpis sit amet ipsum bibendum lacinia. Nulla facilisi. Nam elementum lorem at facilisis sodales. Ut faucibus augue quis sollicitudin accumsan.</li>
-                 <li>Cras feugiat eget sapien ac tempus. Quisque sit amet venenatis ex. Curabitur mollis tempus orci ut malesuada. Duis quis sodales ante.</li>
-                 <li>Etiam a rhoncus massa. Vestibulum sollicitudin enim vitae posuere tempus. Praesent mattis blandit faucibus.</li>
-                 <li>Etiam et placerat urna, in faucibus metus. Vivamus sed tortor sed massa tempor commodo. Maecenas dictum, lectus eget efficitur ullamcorper, arcu libero laoreet nunc, ac gravida sem mauris eget tortor.</li>
-                </ol>
+                <h3>Lorem ipsum dolor sit amet</h3>
+
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque volutpat ante sit amet venenatis lobortis. Ut aliquet, sem a viverra pharetra, nunc mi luctus augue, ac molestie diam enim ut velit. Maecenas blandit, massa eu blandit ornare, quam mauris cursus nulla, vel faucibus augue orci a odio. Aenean diam metus, facilisis vel ultrices vitae, pellentesque consectetur felis. Aliquam semper, nisi at iaculis tristique, nisl magna condimentum nisi, et faucibus massa dolor nec enim. Donec interdum tempor blandit. Maecenas eget metus malesuada, euismod ex vitae, eleifend libero. Etiam scelerisque turpis sit amet ipsum bibendum lacinia. Nulla facilisi. Nam elementum lorem at facilisis sodales. Ut faucibus augue quis sollicitudin accumsan.</p>
+
+                <p>Cras feugiat eget sapien ac tempus. Quisque sit amet venenatis ex. Curabitur mollis tempus orci ut malesuada. Duis quis sodales ante. Etiam a rhoncus massa. Vestibulum sollicitudin enim vitae posuere tempus. Praesent mattis blandit faucibus. Etiam et placerat urna, in faucibus metus. Vivamus sed tortor sed massa tempor commodo. Maecenas dictum, lectus eget efficitur ullamcorper, arcu libero laoreet nunc, ac gravida sem mauris eget tortor.</p>
           /visitscotland:paragraph[2]:
             jcr:primaryType: visitscotland:ArticleSection
             /visitscotland:copy:
@@ -4272,13 +4267,14 @@
           hippostd:state: published
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2024-08-30T14:07:42.873+01:00
-          hippostdpubwf:lastModificationDate: 2024-09-17T11:07:05.303+01:00
+          hippostdpubwf:lastModificationDate: 2024-10-22T14:29:52.086+01:00
           hippostdpubwf:lastModifiedBy: admin
-          hippostdpubwf:publicationDate: 2024-10-18T14:53:20.210+01:00
+          hippostdpubwf:publicationDate: 2024-10-22T14:29:56.104+01:00
           hippotranslation:id: 2fb0e8f6-2b8a-4d69-b143-938053fa74ba
           hippotranslation:locale: en
           visitscotland:anchor: ''
           visitscotland:nest: false
+          visitscotland:nested: false
           visitscotland:theme: standard
           visitscotland:title: Lorem Ipsum 1
           visitscotland:translation: ''
@@ -5228,7 +5224,7 @@
         hippo:name: Article Variants
         hippo:versionHistory: 0e51caea-d006-4979-86dc-20088a7285c4
         /content[1]:
-          jcr:primaryType: visitscotland:BshGeneral
+          jcr:primaryType: visitscotland:GeneralBSH
           jcr:mixinTypes: ['mix:versionable']
           jcr:uuid: 91712c3d-a17d-4256-ac81-35d93a56deee
           hippo:availability: [preview]
@@ -5273,7 +5269,7 @@
               purus. Aenean quis arcu magna. Nunc placerat elit massa, quis placerat
               nisi tempus auctor cras amet.</p>
         /content[2]:
-          jcr:primaryType: visitscotland:BshGeneral
+          jcr:primaryType: visitscotland:GeneralBSH
           jcr:mixinTypes: ['mix:referenceable']
           jcr:uuid: ecfe6be1-3fe3-4cc6-90ef-813520701363
           hippo:availability: [live]
@@ -5323,7 +5319,7 @@
         jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
         jcr:uuid: 94aba419-e17d-4d1b-8201-1a3a99a172b4
         hippo:name: Accordion
-        hippo:versionHistory: 66f8fcbd-4411-4abd-9757-78b04da33745
+        hippo:versionHistory: 00909bdf-5f6d-4e50-a8f0-b66a2ab60828
         /accordion[1]:
           jcr:primaryType: visitscotland:ArticleStyledBSH
           jcr:mixinTypes: ['mix:versionable']
@@ -5333,12 +5329,13 @@
           hippostd:state: unpublished
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2024-08-30T14:07:42.873+01:00
-          hippostdpubwf:lastModificationDate: 2024-09-16T13:36:25.070+01:00
+          hippostdpubwf:lastModificationDate: 2024-10-22T14:00:20.618+01:00
           hippostdpubwf:lastModifiedBy: admin
           hippotranslation:id: 6aaa75b2-b935-41de-b63a-e90558efe4dc
           hippotranslation:locale: en
           visitscotland:anchor: ''
           visitscotland:nest: false
+          visitscotland:nested: false
           visitscotland:theme: accordion
           visitscotland:title: Lorem Ipsum 1
           visitscotland:translation: ''
@@ -5346,22 +5343,20 @@
             jcr:primaryType: hippostd:html
             hippostd:content: ''
           /visitscotland:paragraph[1]:
-            jcr:primaryType: visitscotland:ContentListSection
+            jcr:primaryType: visitscotland:ArticleStyledSection
+            visitscotland:heading: Lorem ipsum dolor sit amet
             /visitscotland:copy:
               jcr:primaryType: hippostd:html
               hippostd:content: |-
-                <h3>Lorem ipsum dolor sit amet</h3>
-
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque volutpat ante sit amet venenatis lobortis. Ut aliquet, sem a viverra pharetra, nunc mi luctus augue, ac molestie diam enim ut velit. Maecenas blandit, massa eu blandit ornare, quam mauris cursus nulla, vel faucibus augue orci a odio. Aenean diam metus, facilisis vel ultrices vitae, pellentesque consectetur felis. Aliquam semper, nisi at iaculis tristique, nisl magna condimentum nisi, et faucibus massa dolor nec enim. Donec interdum tempor blandit. Maecenas eget metus malesuada, euismod ex vitae, eleifend libero. Etiam scelerisque turpis sit amet ipsum bibendum lacinia. Nulla facilisi. Nam elementum lorem at facilisis sodales. Ut faucibus augue quis sollicitudin accumsan.</p>
 
                 <p>Cras feugiat eget sapien ac tempus. Quisque sit amet venenatis ex. Curabitur mollis tempus orci ut malesuada. Duis quis sodales ante. Etiam a rhoncus massa. Vestibulum sollicitudin enim vitae posuere tempus. Praesent mattis blandit faucibus. Etiam et placerat urna, in faucibus metus. Vivamus sed tortor sed massa tempor commodo. Maecenas dictum, lectus eget efficitur ullamcorper, arcu libero laoreet nunc, ac gravida sem mauris eget tortor.</p>
           /visitscotland:paragraph[2]:
-            jcr:primaryType: visitscotland:ContentListSection
+            jcr:primaryType: visitscotland:ArticleStyledSection
+            visitscotland:heading: Vivamus diam ex, dapibus eu blandit
             /visitscotland:copy:
               jcr:primaryType: hippostd:html
               hippostd:content: |-
-                <h3>Vivamus diam ex, dapibus eu blandit</h3>
-
                 <p>Vivamus diam ex, dapibus eu blandit sit amet, blandit sit amet turpis. Donec tristique sem sit amet leo vulputate, non tincidunt nibh eleifend. Quisque sit amet nunc odio. Pellentesque euismod porta enim, a sagittis libero blandit vel. Vestibulum quis mollis tortor, eu volutpat neque. Nunc sit amet rutrum est. Mauris ullamcorper faucibus nisl, ut porttitor turpis laoreet ac. Quisque non metus quis diam aliquam volutpat luctus ac elit. Nulla laoreet convallis neque, quis feugiat ex mattis eu. Phasellus blandit nisi ipsum. Suspendisse scelerisque sed tortor non fermentum. Morbi nunc turpis, cursus sit amet nulla eu, ultricies mattis lorem. Fusce at justo at augue auctor tempor nec quis nisi.</p>
 
                 <p>Quisque tempus lorem eu ultricies lobortis. Integer sodales nisi quis porta hendrerit. Pellentesque condimentum tortor dignissim bibendum efficitur. Pellentesque tincidunt finibus leo id auctor. Donec quis porta dolor, eu ullamcorper felis. Aliquam dignissim dolor neque, ac dapibus dolor varius sit amet. Sed pharetra cursus nunc, non commodo orci gravida a. Sed vitae elementum est.</p>
@@ -5370,12 +5365,11 @@
 
                 <p>Curabitur ornare dui in porta ultrices. Vivamus ipsum felis, rhoncus non diam quis, sagittis gravida nulla. Nullam dictum nibh ac ante placerat porta. Sed sodales efficitur purus, scelerisque vestibulum sem mattis ac. Duis congue magna placerat dui varius venenatis. Cras pellentesque tellus diam. Nunc maximus nulla ut arcu luctus, imperdiet commodo dui venenatis. Donec tincidunt luctus dui, et hendrerit sem efficitur eu. Suspendisse potenti. Phasellus fringilla, orci in porta dictum, eros lorem malesuada urna, non hendrerit augue turpis eu urna. Phasellus suscipit risus et ex faucibus sodales. Proin viverra ligula nulla, non accumsan tellus efficitur nec. Nullam faucibus, ex sit amet efficitur feugiat, risus urna condimentum metus, a blandit velit nisi id lacus. In at porta ipsum. Suspendisse imperdiet metus nec quam suscipit iaculis.</p>
           /visitscotland:paragraph[3]:
-            jcr:primaryType: visitscotland:ContentListSection
+            jcr:primaryType: visitscotland:ArticleStyledSection
+            visitscotland:heading: Vivamus diam ex
             /visitscotland:copy:
               jcr:primaryType: hippostd:html
               hippostd:content: |-
-                <h3>Vivamus diam ex</h3>
-
                 <p>Vivamus diam ex, dapibus eu blandit sit amet, blandit sit amet turpis. Donec tristique sem sit amet leo vulputate, non tincidunt nibh eleifend. Quisque sit amet nunc odio. Pellentesque euismod porta enim, a sagittis libero blandit vel. Vestibulum quis mollis tortor, eu volutpat neque. Nunc sit amet rutrum est. Mauris ullamcorper faucibus nisl, ut porttitor turpis laoreet ac. Quisque non metus quis diam aliquam volutpat luctus ac elit. Nulla laoreet convallis neque, quis feugiat ex mattis eu. Phasellus blandit nisi ipsum. Suspendisse scelerisque sed tortor non fermentum. Morbi nunc turpis, cursus sit amet nulla eu, ultricies mattis lorem. Fusce at justo at augue auctor tempor nec quis nisi.</p>
 
                 <p>Quisque tempus lorem eu ultricies lobortis. Integer sodales nisi quis porta hendrerit. Pellentesque condimentum tortor dignissim bibendum efficitur. Pellentesque tincidunt finibus leo id auctor. Donec quis porta dolor, eu ullamcorper felis. Aliquam dignissim dolor neque, ac dapibus dolor varius sit amet. Sed pharetra cursus nunc, non commodo orci gravida a. Sed vitae elementum est.</p>
@@ -5392,7 +5386,7 @@
           hippostd:state: draft
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2024-08-30T14:07:42.873+01:00
-          hippostdpubwf:lastModificationDate: 2024-09-16T13:36:22.366+01:00
+          hippostdpubwf:lastModificationDate: 2024-10-22T14:30:04.636+01:00
           hippostdpubwf:lastModifiedBy: admin
           hippotranslation:id: 6aaa75b2-b935-41de-b63a-e90558efe4dc
           hippotranslation:locale: en

@@ -14,7 +14,7 @@ definitions:
           jcr:uuid: c5d09cfe-5dba-4162-a5fd-21ebd996a681
           hipposysedit:node: true
           hipposysedit:supertype: ['visitscotland:Article', 'hippostd:relaxed', 'hippotranslation:translated']
-          hipposysedit:validators: ['visitscotland:article-image-validator', 'visitscotland:article-copy-validator']
+          hipposysedit:validators: ['visitscotland:article-image-validator', 'visitscotland:article-heading-validator']
           hipposysedit:uri: http://www.visitscotland.com/visitscotland/nt/1.0
           /title:
             jcr:primaryType: hipposysedit:field
@@ -73,7 +73,7 @@ definitions:
           jcr:uuid: 7a92de35-ea9e-41ae-a40c-136382936493
           hipposysedit:node: true
           hipposysedit:supertype: ['visitscotland:Article', 'hippostd:relaxed', 'hippotranslation:translated']
-          hipposysedit:validators: ['visitscotland:article-image-validator', 'visitscotland:article-copy-validator']
+          hipposysedit:validators: ['visitscotland:article-image-validator', 'visitscotland:article-heading-validator']
           /title:
             jcr:primaryType: hipposysedit:field
             hipposysedit:mandatory: false
