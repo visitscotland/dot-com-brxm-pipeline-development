@@ -10,7 +10,7 @@
     jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
     jcr:uuid: 2435b3e4-b59b-4d10-a5a5-1c8762915064
     hippo:name: content
-    hippo:versionHistory: 1a26384d-6ae3-4f4c-bf04-da9aa5927d28
+    hippo:versionHistory: 45b2f6bc-84ef-4cd6-85c6-2e02643ce25c
     /content[1]:
       jcr:primaryType: visitscotland:GeneralBSH
       jcr:mixinTypes: ['mix:versionable']
@@ -20,24 +20,30 @@
       hippostd:state: unpublished
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2021-06-29T15:19:57.775+01:00
-      hippostdpubwf:lastModificationDate: 2024-07-30T17:54:29.454+01:00
-      hippostdpubwf:lastModifiedBy: bsh-editor
+      hippostdpubwf:lastModificationDate: 2024-10-23T17:36:31.406+01:00
+      hippostdpubwf:lastModifiedBy: admin
       hippotranslation:id: 45ab69e0-9b5c-4054-b172-fc7c444483ed
       hippotranslation:locale: en
       visitscotland:breadcrumb: Development Sandbox
       visitscotland:hideNewsletter: false
       visitscotland:newsletter: true
       visitscotland:pswPosition: Hidden
+      visitscotland:publishDate: 0001-01-01T12:00:00Z
+      visitscotland:readingTime: 0
+      visitscotland:regions: []
+      visitscotland:sectors: []
       visitscotland:seoDescription: Welcome to VisitScotland Business Support Hub
       visitscotland:seoNoIndex: false
       visitscotland:seoTitle: Welcome to Business Support Hub
+      visitscotland:skill: ''
       visitscotland:teaser: Software development
       visitscotland:theme: Top-Level
       visitscotland:title: Sandbox for developeers
       visitscotland:translation: ''
+      visitscotland:type: ''
       /visitscotland:heroImage:
         jcr:primaryType: hippogallerypicker:imagelink
-        hippo:docbase: 6fe01b32-04e9-4d0f-86c9-b6b8bd246a67
+        hippo:docbase: c6adc092-756e-447d-861e-54a217b297d4
         hippo:facets: []
         hippo:modes: []
         hippo:values: []
@@ -54,10 +60,9 @@
       hippo:availability: []
       hippostd:retainable: false
       hippostd:state: draft
-      hippostd:transferable: false
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2021-06-29T15:19:57.775+01:00
-      hippostdpubwf:lastModificationDate: 2024-10-18T14:54:48.808+01:00
+      hippostdpubwf:lastModificationDate: 2024-10-23T17:35:50.271+01:00
       hippostdpubwf:lastModifiedBy: admin
       hippotranslation:id: 45ab69e0-9b5c-4054-b172-fc7c444483ed
       hippotranslation:locale: en
@@ -66,6 +71,9 @@
       visitscotland:newsletter: true
       visitscotland:pswPosition: Hidden
       visitscotland:publishDate: 0001-01-01T12:00:00Z
+      visitscotland:readingTime: 0
+      visitscotland:regions: []
+      visitscotland:sectors: []
       visitscotland:seoDescription: Welcome to VisitScotland Business Support Hub
       visitscotland:seoNoIndex: false
       visitscotland:seoTitle: Welcome to Business Support Hub
@@ -77,7 +85,7 @@
       visitscotland:type: ''
       /visitscotland:heroImage:
         jcr:primaryType: hippogallerypicker:imagelink
-        hippo:docbase: 6fe01b32-04e9-4d0f-86c9-b6b8bd246a67
+        hippo:docbase: c6adc092-756e-447d-861e-54a217b297d4
         hippo:facets: []
         hippo:modes: []
         hippo:values: []
@@ -96,25 +104,31 @@
       hippostd:state: published
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2021-06-29T15:19:57.775+01:00
-      hippostdpubwf:lastModificationDate: 2024-07-30T17:54:29.454+01:00
-      hippostdpubwf:lastModifiedBy: bsh-editor
-      hippostdpubwf:publicationDate: 2024-07-30T17:54:34.383+01:00
+      hippostdpubwf:lastModificationDate: 2024-10-23T17:36:31.406+01:00
+      hippostdpubwf:lastModifiedBy: admin
+      hippostdpubwf:publicationDate: 2024-10-23T17:58:56.759+01:00
       hippotranslation:id: 45ab69e0-9b5c-4054-b172-fc7c444483ed
       hippotranslation:locale: en
       visitscotland:breadcrumb: Development Sandbox
       visitscotland:hideNewsletter: false
       visitscotland:newsletter: true
       visitscotland:pswPosition: Hidden
+      visitscotland:publishDate: 0001-01-01T12:00:00Z
+      visitscotland:readingTime: 0
+      visitscotland:regions: []
+      visitscotland:sectors: []
       visitscotland:seoDescription: Welcome to VisitScotland Business Support Hub
       visitscotland:seoNoIndex: false
       visitscotland:seoTitle: Welcome to Business Support Hub
+      visitscotland:skill: ''
       visitscotland:teaser: Software development
       visitscotland:theme: Top-Level
       visitscotland:title: Sandbox for developeers
       visitscotland:translation: ''
+      visitscotland:type: ''
       /visitscotland:heroImage:
         jcr:primaryType: hippogallerypicker:imagelink
-        hippo:docbase: 6fe01b32-04e9-4d0f-86c9-b6b8bd246a67
+        hippo:docbase: c6adc092-756e-447d-861e-54a217b297d4
         hippo:facets: []
         hippo:modes: []
         hippo:values: []
@@ -1464,19 +1478,18 @@
         jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
         jcr:uuid: a2ba1a3e-d330-4c56-b696-0e99ee64f00f
         hippo:name: Standard Page
-        hippo:versionHistory: 54060033-67b4-4110-be1b-faa69909f310
+        hippo:versionHistory: ef7601b2-b6f0-4391-848e-51eda4819d7a
         /content[1]:
           jcr:primaryType: visitscotland:GeneralBSH
           jcr:mixinTypes: ['mix:referenceable']
           jcr:uuid: 5c34ef2e-df3e-463a-895c-32b7cbfab60e
           hippo:availability: []
-          hippostd:holder: admin
           hippostd:retainable: false
           hippostd:state: draft
           hippostd:transferable: false
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2024-08-30T15:41:08.220+01:00
-          hippostdpubwf:lastModificationDate: 2024-10-23T13:31:43.350+01:00
+          hippostdpubwf:lastModificationDate: 2024-10-23T18:04:31.347+01:00
           hippostdpubwf:lastModifiedBy: admin
           hippotranslation:id: b92e256b-2878-4524-9c0d-2525bab74e8b
           hippotranslation:locale: en
@@ -1493,11 +1506,12 @@
           visitscotland:teaser: Lorem ipsum dolor sit amet, consectetur adipiscing
             elit. Vivamus purus massa, porta id mattis non, finibus vel elit. Integer
             nulla nunc, viverra eros.
-          visitscotland:theme: Standard
+          visitscotland:theme: ' Standard'
           visitscotland:title: Standard Page
+          visitscotland:type: ''
           /visitscotland:heroImage:
             jcr:primaryType: hippogallerypicker:imagelink
-            hippo:docbase: e87235cc-b32f-4d9a-98ec-cc1c608db406
+            hippo:docbase: c6adc092-756e-447d-861e-54a217b297d4
             hippo:facets: []
             hippo:modes: []
             hippo:values: []
@@ -1521,7 +1535,7 @@
           hippostd:transferable: false
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2024-08-30T15:41:08.220+01:00
-          hippostdpubwf:lastModificationDate: 2024-09-04T17:06:04.402+01:00
+          hippostdpubwf:lastModificationDate: 2024-10-23T18:04:35.155+01:00
           hippostdpubwf:lastModifiedBy: admin
           hippotranslation:id: b92e256b-2878-4524-9c0d-2525bab74e8b
           hippotranslation:locale: en
@@ -1538,11 +1552,12 @@
           visitscotland:teaser: Lorem ipsum dolor sit amet, consectetur adipiscing
             elit. Vivamus purus massa, porta id mattis non, finibus vel elit. Integer
             nulla nunc, viverra eros.
-          visitscotland:theme: Standard
+          visitscotland:theme: ' Standard'
           visitscotland:title: Standard Page
+          visitscotland:type: ''
           /visitscotland:heroImage:
             jcr:primaryType: hippogallerypicker:imagelink
-            hippo:docbase: e87235cc-b32f-4d9a-98ec-cc1c608db406
+            hippo:docbase: c6adc092-756e-447d-861e-54a217b297d4
             hippo:facets: []
             hippo:modes: []
             hippo:values: []
@@ -1566,9 +1581,9 @@
           hippostd:transferable: false
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2024-08-30T15:41:08.220+01:00
-          hippostdpubwf:lastModificationDate: 2024-09-04T17:06:04.402+01:00
+          hippostdpubwf:lastModificationDate: 2024-10-23T18:04:35.155+01:00
           hippostdpubwf:lastModifiedBy: admin
-          hippostdpubwf:publicationDate: 2024-09-04T17:06:43.041+01:00
+          hippostdpubwf:publicationDate: 2024-10-23T18:04:37.523+01:00
           hippotranslation:id: b92e256b-2878-4524-9c0d-2525bab74e8b
           hippotranslation:locale: en
           visitscotland:breadcrumb: ''
@@ -1584,11 +1599,12 @@
           visitscotland:teaser: Lorem ipsum dolor sit amet, consectetur adipiscing
             elit. Vivamus purus massa, porta id mattis non, finibus vel elit. Integer
             nulla nunc, viverra eros.
-          visitscotland:theme: Standard
+          visitscotland:theme: ' Standard'
           visitscotland:title: Standard Page
+          visitscotland:type: ''
           /visitscotland:heroImage:
             jcr:primaryType: hippogallerypicker:imagelink
-            hippo:docbase: e87235cc-b32f-4d9a-98ec-cc1c608db406
+            hippo:docbase: c6adc092-756e-447d-861e-54a217b297d4
             hippo:facets: []
             hippo:modes: []
             hippo:values: []
@@ -2118,7 +2134,7 @@
           visitscotland:title: Top Level  Page
           /visitscotland:heroImage:
             jcr:primaryType: hippogallerypicker:imagelink
-            hippo:docbase: e87235cc-b32f-4d9a-98ec-cc1c608db406
+            hippo:docbase: c6adc092-756e-447d-861e-54a217b297d4
             hippo:facets: []
             hippo:modes: []
             hippo:values: []
@@ -2163,7 +2179,7 @@
           visitscotland:title: Top Level  Page
           /visitscotland:heroImage:
             jcr:primaryType: hippogallerypicker:imagelink
-            hippo:docbase: e87235cc-b32f-4d9a-98ec-cc1c608db406
+            hippo:docbase: c6adc092-756e-447d-861e-54a217b297d4
             hippo:facets: []
             hippo:modes: []
             hippo:values: []
@@ -2209,7 +2225,7 @@
           visitscotland:title: Top Level  Page
           /visitscotland:heroImage:
             jcr:primaryType: hippogallerypicker:imagelink
-            hippo:docbase: e87235cc-b32f-4d9a-98ec-cc1c608db406
+            hippo:docbase: c6adc092-756e-447d-861e-54a217b297d4
             hippo:facets: []
             hippo:modes: []
             hippo:values: []
@@ -2740,7 +2756,7 @@
           visitscotland:title: Simple Page
           /visitscotland:heroImage:
             jcr:primaryType: hippogallerypicker:imagelink
-            hippo:docbase: e87235cc-b32f-4d9a-98ec-cc1c608db406
+            hippo:docbase: c6adc092-756e-447d-861e-54a217b297d4
             hippo:facets: []
             hippo:modes: []
             hippo:values: []
@@ -2785,7 +2801,7 @@
           visitscotland:title: Simple Page
           /visitscotland:heroImage:
             jcr:primaryType: hippogallerypicker:imagelink
-            hippo:docbase: e87235cc-b32f-4d9a-98ec-cc1c608db406
+            hippo:docbase: c6adc092-756e-447d-861e-54a217b297d4
             hippo:facets: []
             hippo:modes: []
             hippo:values: []
@@ -2831,7 +2847,7 @@
           visitscotland:title: Simple Page
           /visitscotland:heroImage:
             jcr:primaryType: hippogallerypicker:imagelink
-            hippo:docbase: e87235cc-b32f-4d9a-98ec-cc1c608db406
+            hippo:docbase: c6adc092-756e-447d-861e-54a217b297d4
             hippo:facets: []
             hippo:modes: []
             hippo:values: []
@@ -3234,7 +3250,7 @@
           visitscotland:title: Standard Page
           /visitscotland:heroImage:
             jcr:primaryType: hippogallerypicker:imagelink
-            hippo:docbase: e87235cc-b32f-4d9a-98ec-cc1c608db406
+            hippo:docbase: c6adc092-756e-447d-861e-54a217b297d4
             hippo:facets: []
             hippo:modes: []
             hippo:values: []
@@ -3279,7 +3295,7 @@
           visitscotland:title: Standard Page
           /visitscotland:heroImage:
             jcr:primaryType: hippogallerypicker:imagelink
-            hippo:docbase: e87235cc-b32f-4d9a-98ec-cc1c608db406
+            hippo:docbase: c6adc092-756e-447d-861e-54a217b297d4
             hippo:facets: []
             hippo:modes: []
             hippo:values: []
@@ -3325,7 +3341,7 @@
           visitscotland:title: Standard Page
           /visitscotland:heroImage:
             jcr:primaryType: hippogallerypicker:imagelink
-            hippo:docbase: e87235cc-b32f-4d9a-98ec-cc1c608db406
+            hippo:docbase: c6adc092-756e-447d-861e-54a217b297d4
             hippo:facets: []
             hippo:modes: []
             hippo:values: []
@@ -3384,7 +3400,7 @@
           visitscotland:title: Standard Page
           /visitscotland:heroImage:
             jcr:primaryType: hippogallerypicker:imagelink
-            hippo:docbase: e87235cc-b32f-4d9a-98ec-cc1c608db406
+            hippo:docbase: c6adc092-756e-447d-861e-54a217b297d4
             hippo:facets: []
             hippo:modes: []
             hippo:values: []
@@ -3441,7 +3457,7 @@
           visitscotland:title: Standard Page
           /visitscotland:heroImage:
             jcr:primaryType: hippogallerypicker:imagelink
-            hippo:docbase: e87235cc-b32f-4d9a-98ec-cc1c608db406
+            hippo:docbase: c6adc092-756e-447d-861e-54a217b297d4
             hippo:facets: []
             hippo:modes: []
             hippo:values: []
@@ -3499,7 +3515,7 @@
           visitscotland:title: Standard Page
           /visitscotland:heroImage:
             jcr:primaryType: hippogallerypicker:imagelink
-            hippo:docbase: e87235cc-b32f-4d9a-98ec-cc1c608db406
+            hippo:docbase: c6adc092-756e-447d-861e-54a217b297d4
             hippo:facets: []
             hippo:modes: []
             hippo:values: []
@@ -3697,7 +3713,7 @@
           visitscotland:title: Standard Page
           /visitscotland:heroImage:
             jcr:primaryType: hippogallerypicker:imagelink
-            hippo:docbase: e87235cc-b32f-4d9a-98ec-cc1c608db406
+            hippo:docbase: c6adc092-756e-447d-861e-54a217b297d4
             hippo:facets: []
             hippo:modes: []
             hippo:values: []
@@ -3745,7 +3761,7 @@
           visitscotland:title: Standard Page
           /visitscotland:heroImage:
             jcr:primaryType: hippogallerypicker:imagelink
-            hippo:docbase: e87235cc-b32f-4d9a-98ec-cc1c608db406
+            hippo:docbase: c6adc092-756e-447d-861e-54a217b297d4
             hippo:facets: []
             hippo:modes: []
             hippo:values: []
@@ -3794,7 +3810,7 @@
           visitscotland:title: Standard Page
           /visitscotland:heroImage:
             jcr:primaryType: hippogallerypicker:imagelink
-            hippo:docbase: e87235cc-b32f-4d9a-98ec-cc1c608db406
+            hippo:docbase: c6adc092-756e-447d-861e-54a217b297d4
             hippo:facets: []
             hippo:modes: []
             hippo:values: []
@@ -3972,7 +3988,7 @@
         visitscotland:type: ''
         /visitscotland:heroImage:
           jcr:primaryType: hippogallerypicker:imagelink
-          hippo:docbase: 54edd55a-0411-492e-a3df-b9f5489e839c
+          hippo:docbase: c6adc092-756e-447d-861e-54a217b297d4
           hippo:facets: []
           hippo:modes: []
           hippo:values: []
@@ -4011,7 +4027,7 @@
         visitscotland:type: ''
         /visitscotland:heroImage:
           jcr:primaryType: hippogallerypicker:imagelink
-          hippo:docbase: 54edd55a-0411-492e-a3df-b9f5489e839c
+          hippo:docbase: c6adc092-756e-447d-861e-54a217b297d4
           hippo:facets: []
           hippo:modes: []
           hippo:values: []
@@ -4051,7 +4067,7 @@
         visitscotland:type: ''
         /visitscotland:heroImage:
           jcr:primaryType: hippogallerypicker:imagelink
-          hippo:docbase: 54edd55a-0411-492e-a3df-b9f5489e839c
+          hippo:docbase: c6adc092-756e-447d-861e-54a217b297d4
           hippo:facets: []
           hippo:modes: []
           hippo:values: []
@@ -4114,7 +4130,7 @@
           visitscotland:title: Standard Page
           /visitscotland:heroImage:
             jcr:primaryType: hippogallerypicker:imagelink
-            hippo:docbase: e87235cc-b32f-4d9a-98ec-cc1c608db406
+            hippo:docbase: c6adc092-756e-447d-861e-54a217b297d4
             hippo:facets: []
             hippo:modes: []
             hippo:values: []
@@ -4160,7 +4176,7 @@
           visitscotland:title: Standard Page
           /visitscotland:heroImage:
             jcr:primaryType: hippogallerypicker:imagelink
-            hippo:docbase: e87235cc-b32f-4d9a-98ec-cc1c608db406
+            hippo:docbase: c6adc092-756e-447d-861e-54a217b297d4
             hippo:facets: []
             hippo:modes: []
             hippo:values: []
@@ -5296,7 +5312,7 @@
           visitscotland:title: Standard Page
           /visitscotland:heroImage:
             jcr:primaryType: hippogallerypicker:imagelink
-            hippo:docbase: e87235cc-b32f-4d9a-98ec-cc1c608db406
+            hippo:docbase: c6adc092-756e-447d-861e-54a217b297d4
             hippo:facets: []
             hippo:modes: []
             hippo:values: []
@@ -5342,7 +5358,7 @@
           visitscotland:title: Standard Page
           /visitscotland:heroImage:
             jcr:primaryType: hippogallerypicker:imagelink
-            hippo:docbase: e87235cc-b32f-4d9a-98ec-cc1c608db406
+            hippo:docbase: c6adc092-756e-447d-861e-54a217b297d4
             hippo:facets: []
             hippo:modes: []
             hippo:values: []
@@ -6396,7 +6412,7 @@
             visitscotland:title: Standard Page
             /visitscotland:heroImage:
               jcr:primaryType: hippogallerypicker:imagelink
-              hippo:docbase: e87235cc-b32f-4d9a-98ec-cc1c608db406
+              hippo:docbase: c6adc092-756e-447d-861e-54a217b297d4
               hippo:facets: []
               hippo:modes: []
               hippo:values: []
@@ -6442,7 +6458,7 @@
             visitscotland:title: Standard Page
             /visitscotland:heroImage:
               jcr:primaryType: hippogallerypicker:imagelink
-              hippo:docbase: e87235cc-b32f-4d9a-98ec-cc1c608db406
+              hippo:docbase: c6adc092-756e-447d-861e-54a217b297d4
               hippo:facets: []
               hippo:modes: []
               hippo:values: []
@@ -7803,7 +7819,7 @@
             visitscotland:title: Standard Page
             /visitscotland:heroImage:
               jcr:primaryType: hippogallerypicker:imagelink
-              hippo:docbase: e87235cc-b32f-4d9a-98ec-cc1c608db406
+              hippo:docbase: c6adc092-756e-447d-861e-54a217b297d4
               hippo:facets: []
               hippo:modes: []
               hippo:values: []
@@ -7849,7 +7865,7 @@
             visitscotland:title: Standard Page
             /visitscotland:heroImage:
               jcr:primaryType: hippogallerypicker:imagelink
-              hippo:docbase: e87235cc-b32f-4d9a-98ec-cc1c608db406
+              hippo:docbase: c6adc092-756e-447d-861e-54a217b297d4
               hippo:facets: []
               hippo:modes: []
               hippo:values: []
@@ -9474,7 +9490,7 @@
             visitscotland:title: Standard Page
             /visitscotland:heroImage:
               jcr:primaryType: hippogallerypicker:imagelink
-              hippo:docbase: e87235cc-b32f-4d9a-98ec-cc1c608db406
+              hippo:docbase: c6adc092-756e-447d-861e-54a217b297d4
               hippo:facets: []
               hippo:modes: []
               hippo:values: []
@@ -9520,7 +9536,7 @@
             visitscotland:title: Standard Page
             /visitscotland:heroImage:
               jcr:primaryType: hippogallerypicker:imagelink
-              hippo:docbase: e87235cc-b32f-4d9a-98ec-cc1c608db406
+              hippo:docbase: c6adc092-756e-447d-861e-54a217b297d4
               hippo:facets: []
               hippo:modes: []
               hippo:values: []
@@ -10882,7 +10898,7 @@
             visitscotland:title: Standard Page
             /visitscotland:heroImage:
               jcr:primaryType: hippogallerypicker:imagelink
-              hippo:docbase: e87235cc-b32f-4d9a-98ec-cc1c608db406
+              hippo:docbase: c6adc092-756e-447d-861e-54a217b297d4
               hippo:facets: []
               hippo:modes: []
               hippo:values: []
@@ -10928,7 +10944,7 @@
             visitscotland:title: Standard Page
             /visitscotland:heroImage:
               jcr:primaryType: hippogallerypicker:imagelink
-              hippo:docbase: e87235cc-b32f-4d9a-98ec-cc1c608db406
+              hippo:docbase: c6adc092-756e-447d-861e-54a217b297d4
               hippo:facets: []
               hippo:modes: []
               hippo:values: []
@@ -12289,7 +12305,7 @@
             visitscotland:title: Standard Page
             /visitscotland:heroImage:
               jcr:primaryType: hippogallerypicker:imagelink
-              hippo:docbase: e87235cc-b32f-4d9a-98ec-cc1c608db406
+              hippo:docbase: c6adc092-756e-447d-861e-54a217b297d4
               hippo:facets: []
               hippo:modes: []
               hippo:values: []
@@ -12334,7 +12350,7 @@
             visitscotland:title: Standard Page
             /visitscotland:heroImage:
               jcr:primaryType: hippogallerypicker:imagelink
-              hippo:docbase: e87235cc-b32f-4d9a-98ec-cc1c608db406
+              hippo:docbase: c6adc092-756e-447d-861e-54a217b297d4
               hippo:facets: []
               hippo:modes: []
               hippo:values: []
@@ -12380,7 +12396,7 @@
             visitscotland:title: Standard Page
             /visitscotland:heroImage:
               jcr:primaryType: hippogallerypicker:imagelink
-              hippo:docbase: e87235cc-b32f-4d9a-98ec-cc1c608db406
+              hippo:docbase: c6adc092-756e-447d-861e-54a217b297d4
               hippo:facets: []
               hippo:modes: []
               hippo:values: []
@@ -14004,7 +14020,7 @@
           visitscotland:title: Links Module
           /visitscotland:heroImage:
             jcr:primaryType: hippogallerypicker:imagelink
-            hippo:docbase: e87235cc-b32f-4d9a-98ec-cc1c608db406
+            hippo:docbase: c6adc092-756e-447d-861e-54a217b297d4
             hippo:facets: []
             hippo:modes: []
             hippo:values: []
@@ -14046,7 +14062,7 @@
           visitscotland:title: Links Module
           /visitscotland:heroImage:
             jcr:primaryType: hippogallerypicker:imagelink
-            hippo:docbase: e87235cc-b32f-4d9a-98ec-cc1c608db406
+            hippo:docbase: c6adc092-756e-447d-861e-54a217b297d4
             hippo:facets: []
             hippo:modes: []
             hippo:values: []
@@ -14089,7 +14105,7 @@
           visitscotland:title: Links Module
           /visitscotland:heroImage:
             jcr:primaryType: hippogallerypicker:imagelink
-            hippo:docbase: e87235cc-b32f-4d9a-98ec-cc1c608db406
+            hippo:docbase: c6adc092-756e-447d-861e-54a217b297d4
             hippo:facets: []
             hippo:modes: []
             hippo:values: []
@@ -14260,7 +14276,7 @@
         visitscotland:type: ''
         /visitscotland:heroImage:
           jcr:primaryType: hippogallerypicker:imagelink
-          hippo:docbase: 54edd55a-0411-492e-a3df-b9f5489e839c
+          hippo:docbase: c6adc092-756e-447d-861e-54a217b297d4
           hippo:facets: []
           hippo:modes: []
           hippo:values: []
@@ -14308,7 +14324,7 @@
         visitscotland:type: ''
         /visitscotland:heroImage:
           jcr:primaryType: hippogallerypicker:imagelink
-          hippo:docbase: 54edd55a-0411-492e-a3df-b9f5489e839c
+          hippo:docbase: c6adc092-756e-447d-861e-54a217b297d4
           hippo:facets: []
           hippo:modes: []
           hippo:values: []
@@ -14357,7 +14373,7 @@
         visitscotland:type: ''
         /visitscotland:heroImage:
           jcr:primaryType: hippogallerypicker:imagelink
-          hippo:docbase: 54edd55a-0411-492e-a3df-b9f5489e839c
+          hippo:docbase: c6adc092-756e-447d-861e-54a217b297d4
           hippo:facets: []
           hippo:modes: []
           hippo:values: []
@@ -14421,7 +14437,7 @@
           visitscotland:type: ''
           /visitscotland:heroImage:
             jcr:primaryType: hippogallerypicker:imagelink
-            hippo:docbase: e87235cc-b32f-4d9a-98ec-cc1c608db406
+            hippo:docbase: c6adc092-756e-447d-861e-54a217b297d4
             hippo:facets: []
             hippo:modes: []
             hippo:values: []
@@ -14462,7 +14478,7 @@
           visitscotland:type: ''
           /visitscotland:heroImage:
             jcr:primaryType: hippogallerypicker:imagelink
-            hippo:docbase: e87235cc-b32f-4d9a-98ec-cc1c608db406
+            hippo:docbase: c6adc092-756e-447d-861e-54a217b297d4
             hippo:facets: []
             hippo:modes: []
             hippo:values: []
@@ -14504,7 +14520,7 @@
           visitscotland:type: ''
           /visitscotland:heroImage:
             jcr:primaryType: hippogallerypicker:imagelink
-            hippo:docbase: e87235cc-b32f-4d9a-98ec-cc1c608db406
+            hippo:docbase: c6adc092-756e-447d-861e-54a217b297d4
             hippo:facets: []
             hippo:modes: []
             hippo:values: []
@@ -14663,7 +14679,7 @@
         visitscotland:translation: ''
         /visitscotland:heroImage:
           jcr:primaryType: hippogallerypicker:imagelink
-          hippo:docbase: 6fe01b32-04e9-4d0f-86c9-b6b8bd246a67
+          hippo:docbase: c6adc092-756e-447d-861e-54a217b297d4
           hippo:facets: []
           hippo:modes: []
           hippo:values: []
@@ -14701,7 +14717,7 @@
         visitscotland:translation: ''
         /visitscotland:heroImage:
           jcr:primaryType: hippogallerypicker:imagelink
-          hippo:docbase: 6fe01b32-04e9-4d0f-86c9-b6b8bd246a67
+          hippo:docbase: c6adc092-756e-447d-861e-54a217b297d4
           hippo:facets: []
           hippo:modes: []
           hippo:values: []
@@ -14738,7 +14754,7 @@
         visitscotland:translation: ''
         /visitscotland:heroImage:
           jcr:primaryType: hippogallerypicker:imagelink
-          hippo:docbase: 6fe01b32-04e9-4d0f-86c9-b6b8bd246a67
+          hippo:docbase: c6adc092-756e-447d-861e-54a217b297d4
           hippo:facets: []
           hippo:modes: []
           hippo:values: []
@@ -14795,7 +14811,7 @@
             visitscotland:translation: ''
             /visitscotland:heroImage:
               jcr:primaryType: hippogallerypicker:imagelink
-              hippo:docbase: 6fe01b32-04e9-4d0f-86c9-b6b8bd246a67
+              hippo:docbase: c6adc092-756e-447d-861e-54a217b297d4
               hippo:facets: []
               hippo:modes: []
               hippo:values: []
@@ -14832,7 +14848,7 @@
             visitscotland:translation: ''
             /visitscotland:heroImage:
               jcr:primaryType: hippogallerypicker:imagelink
-              hippo:docbase: 6fe01b32-04e9-4d0f-86c9-b6b8bd246a67
+              hippo:docbase: c6adc092-756e-447d-861e-54a217b297d4
               hippo:facets: []
               hippo:modes: []
               hippo:values: []
@@ -14870,7 +14886,7 @@
             visitscotland:translation: ''
             /visitscotland:heroImage:
               jcr:primaryType: hippogallerypicker:imagelink
-              hippo:docbase: 6fe01b32-04e9-4d0f-86c9-b6b8bd246a67
+              hippo:docbase: c6adc092-756e-447d-861e-54a217b297d4
               hippo:facets: []
               hippo:modes: []
               hippo:values: []
@@ -14913,7 +14929,7 @@
           visitscotland:translation: ''
           /visitscotland:heroImage:
             jcr:primaryType: hippogallerypicker:imagelink
-            hippo:docbase: 6fe01b32-04e9-4d0f-86c9-b6b8bd246a67
+            hippo:docbase: c6adc092-756e-447d-861e-54a217b297d4
             hippo:facets: []
             hippo:modes: []
             hippo:values: []
@@ -14949,7 +14965,7 @@
           visitscotland:translation: ''
           /visitscotland:heroImage:
             jcr:primaryType: hippogallerypicker:imagelink
-            hippo:docbase: 6fe01b32-04e9-4d0f-86c9-b6b8bd246a67
+            hippo:docbase: c6adc092-756e-447d-861e-54a217b297d4
             hippo:facets: []
             hippo:modes: []
             hippo:values: []
@@ -14986,7 +15002,7 @@
           visitscotland:translation: ''
           /visitscotland:heroImage:
             jcr:primaryType: hippogallerypicker:imagelink
-            hippo:docbase: 6fe01b32-04e9-4d0f-86c9-b6b8bd246a67
+            hippo:docbase: c6adc092-756e-447d-861e-54a217b297d4
             hippo:facets: []
             hippo:modes: []
             hippo:values: []
@@ -15038,7 +15054,7 @@
           visitscotland:type: ''
           /visitscotland:heroImage:
             jcr:primaryType: hippogallerypicker:imagelink
-            hippo:docbase: 54edd55a-0411-492e-a3df-b9f5489e839c
+            hippo:docbase: c6adc092-756e-447d-861e-54a217b297d4
             hippo:facets: []
             hippo:modes: []
             hippo:values: []
@@ -15077,7 +15093,7 @@
           visitscotland:type: ''
           /visitscotland:heroImage:
             jcr:primaryType: hippogallerypicker:imagelink
-            hippo:docbase: 54edd55a-0411-492e-a3df-b9f5489e839c
+            hippo:docbase: c6adc092-756e-447d-861e-54a217b297d4
             hippo:facets: []
             hippo:modes: []
             hippo:values: []
@@ -15117,7 +15133,7 @@
           visitscotland:type: ''
           /visitscotland:heroImage:
             jcr:primaryType: hippogallerypicker:imagelink
-            hippo:docbase: 54edd55a-0411-492e-a3df-b9f5489e839c
+            hippo:docbase: c6adc092-756e-447d-861e-54a217b297d4
             hippo:facets: []
             hippo:modes: []
             hippo:values: []
