@@ -89,7 +89,7 @@
                             <div>
                                 <vs-heading
                                     level="3"
-                                    override-style-level="6"
+                                    heading-style="heading-xs"
                                 >
                                     ${label("ski", "ski-centre.centre-information")}
                                 </vs-heading>
