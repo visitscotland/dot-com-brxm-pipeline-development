@@ -6,7 +6,7 @@
 
 <#macro searchResults>
     <div id="cludo-search-results" class="cludo-search-results">
-        <div class="cludo-search-results__layout mb-9 mb-md-11">
+        <div class="cludo-search-results__layout mb-300 mb-md-500">
             <vs-embed-wrapper 
                 no-cookies-required
                 no-cookie-text="You need cookies enabled to view this content"
@@ -15,7 +15,7 @@
             >
                 <template v-slot:embed-widget>
                     <div class="row">
-                        <div class="col-12 col-lg-10 offset-lg-1 mb-4 mb-lg-8">
+                        <div class="col-12 col-lg-10 offset-lg-1 mb-100 mb-lg-200">
                             <div class="cludo-search-results__search-result-count search-result-count" role="status"></div>
                             <div class="cludo-search-results__did-you-mean search-did-you-mean" role="Complementary"></div>
                             <div class="cludo-search-results__facets search-filters" aria-controls="search-results"></div>

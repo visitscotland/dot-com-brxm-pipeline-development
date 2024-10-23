@@ -48,7 +48,7 @@
                     <vs-link
                         href="${stop.ctaLink.link}"
                         <#if stop.ctaLink.type != "internal">type="${stop.ctaLink.type}"</#if>
-                        class="d-inline-block mb-4"
+                        class="d-inline-block mb-100"
                     >
                         ${stop.ctaLink.label}
                     </vs-link>
@@ -56,8 +56,8 @@
             </template>
             <#if stop.timeToExplore?? && stop.timeToExplore?has_content>
                 <template v-slot:stop>
-                    <vs-description-list class="mb-4 justify-content-start" inline>
-                        <vs-description-list-item title class="mb-0 me-0 pe-1 col-auto">${label("itinerary", "stop.time-to-explore")}</vs-description-list-item>
+                    <vs-description-list class="mb-100 justify-content-start" inline>
+                        <vs-description-list-item title class="mb-0 me-0 pe-025 col-auto">${label("itinerary", "stop.time-to-explore")}</vs-description-list-item>
                         <vs-description-list-item class="mb-0 col-auto px-0">${stop.timeToExplore}</vs-description-list-item>
                     </vs-description-list>
                 </template>
@@ -160,7 +160,7 @@
                 <template v-slot:stop-buttons>
                     <vs-itinerary-border-overlap-wrapper>
                         <vs-button
-                            class="mb-3"
+                            class="mb-075"
                             variant="secondary"
                             icon="food"
                             href="${nearbyEatsUrl}"

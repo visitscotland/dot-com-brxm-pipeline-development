@@ -95,11 +95,11 @@
                                 </vs-heading>
                                 <vs-list unstyled>
                                     <#if module.phone??>
-                                        <li class="mb-2">
+                                        <li class="mb-050">
                                             <vs-icon
                                                 name="phone"
                                                 size="xs"
-                                                class="me-2"
+                                                class="me-050"
                                             ></vs-icon>
                                             <span>
                                                 ${module.phone}
@@ -107,11 +107,11 @@
                                         </li>
                                     </#if>
                                     <#if module.website.link??>
-                                        <li class="mb-2">
+                                        <li class="mb-050">
                                             <vs-icon
                                                 name="globe"
                                                 size="xs"
-                                                class="me-2"
+                                                class="me-050"
                                             ></vs-icon>
                                             <vs-link
                                                 type="external"
@@ -122,11 +122,11 @@
                                         </li>
                                     </#if>
                                     <#if module.address??>
-                                        <li class="mb-2">
+                                        <li class="mb-050">
                                             <vs-icon
                                                 name="map-marker"
                                                 size="xs"
-                                                class="me-2"
+                                                class="me-050"
                                             ></vs-icon>
                                             <span>
                                                 <@address module.address true />
@@ -134,11 +134,11 @@
                                         </li>
                                     </#if>
                                     <#if module.pisteMap??>
-                                        <li class="mb-2">
+                                        <li class="mb-050">
                                             <vs-icon
                                                 name="landscape"
                                                 size="xs"
-                                                class="me-2"
+                                                class="me-050"
                                             ></vs-icon>
                                             <vs-link
                                                 type="download"
@@ -149,11 +149,11 @@
                                         </li>
                                     </#if>
                                     <#if module.openingLink?? && module.openingLink.label??>
-                                        <li class="mb-2">
+                                        <li class="mb-050">
                                             <vs-icon
                                                 name="clock"
                                                 size="xs"
-                                                class="me-2"
+                                                class="me-050"
                                             ></vs-icon>
                                             <vs-link
                                                 type="${module.openingLink.type}"
@@ -164,11 +164,11 @@
                                         </li>
                                     </#if>
                                     <#if module.webcam??>
-                                        <li class="mb-2">
+                                        <li class="mb-050">
                                             <vs-icon
                                                 name="webcam"
                                                 size="xs"
-                                                class="me-2"
+                                                class="me-050"
                                             ></vs-icon>
                                             <span>${label("ski", "ski-centre.webcam")}</span>
                                         </li>
@@ -185,9 +185,9 @@
                                         <#else>
                                             href="${channel.link?eval}"
                                         </#if>
-                                        class="d-inline-block mt-4"
+                                        class="d-inline-block mt-100"
                                     >
-                                        <div class="d-inline-block me-4">
+                                        <div class="d-inline-block me-100">
                                             <span class="visually-hidden">${channel.label?eval}</span>
                                             <vs-icon
                                                 size="sm"

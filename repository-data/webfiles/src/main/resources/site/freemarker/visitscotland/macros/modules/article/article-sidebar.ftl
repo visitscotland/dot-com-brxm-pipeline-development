@@ -26,7 +26,7 @@
                         </vs-col>
                     </vs-row>
 
-                    <vs-row class="mt-8">
+                    <vs-row class="mt-200">
                         <vs-col
                             cols="10"
                             offset="1"

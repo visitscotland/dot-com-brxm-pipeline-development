@@ -28,7 +28,7 @@
 
     <@pageIntro content=document author=author/>
 
-    <vs-container class="mt-6">
+    <vs-container class="mt-150">
         <vs-row>
             <vs-col cols="12">
                 <ol style="list-style:none; margin:0; padding:0;">
@@ -49,7 +49,7 @@
 
     <#if document.listicleClosing??>
         <vs-container>
-            <vs-row class="mb-6">
+            <vs-row class="mb-150">
                 <vs-col cols="12">
                     <vs-panel>
                         <#if document.listicleClosing.title?has_content>

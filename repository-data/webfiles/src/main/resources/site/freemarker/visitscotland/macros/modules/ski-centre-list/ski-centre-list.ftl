@@ -21,7 +21,7 @@
 
         <vs-container>
             <vs-row
-                class="mx-n4 mx-lg-n8"
+                class="mx-n100 mx-lg-n200"
             >
                 <#list module.skiCentres as centre>
                     <@hst.link var="imageSrc" hippobean=centre.cmsPage.image.cmsImage.original/>
@@ -29,7 +29,7 @@
                         cols="12"
                         sm="6"
                         lg="4"
-                        class="px-4 px-lg-8 text-start"
+                        class="px-100 px-lg-200 text-start"
                     >
                         <vs-ski-scotland-card
                             centre-info-url="${centre.feedURL}"
