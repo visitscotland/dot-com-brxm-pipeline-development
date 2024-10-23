@@ -91,7 +91,7 @@ public class MegalinkFactory {
         return hll;
     }
 
-    public HorizontalListLinksModule horizontalListLayout(BshGeneral page, Locale locale) {
+    public HorizontalListLinksModule horizontalListLayout(GeneralBSH page, Locale locale) {
         HorizontalListLinksModule hll = new HorizontalListLinksModule();
         hll.setTitle(bundle.getSiteResourceBundle(OTYML, "otyml.title.default", locale));
         hll.setLinks(convertPageLinksToEnhancedLinks(hll, page.getLinks(), locale, true));

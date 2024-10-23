@@ -1,6 +1,6 @@
 definitions:
   config:
-    /hippo:namespaces/visitscotland/ContentListBSH:
+    /hippo:namespaces/visitscotland/ArticleStyledBSH:
       jcr:primaryType: hipposysedit:templatetype
       jcr:mixinTypes: ['editor:editable', 'mix:referenceable']
       jcr:uuid: abd8948b-8cd8-44ba-9a25-222d59c6a6d0
@@ -11,10 +11,10 @@ definitions:
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:uuid: 5faf9fc9-7320-4867-8fbb-972086bf490b
+          jcr:uuid: 7a92de35-ea9e-41ae-a40c-136382936493
           hipposysedit:node: true
           hipposysedit:supertype: ['visitscotland:Article', 'hippostd:relaxed', 'hippotranslation:translated']
-          hipposysedit:validators: ['visitscotland:article-image-validator', 'visitscotland:article-copy-validator']
+          hipposysedit:validators: ['visitscotland:article-image-validator', 'visitscotland:article-heading-validator']
           hipposysedit:uri: http://www.visitscotland.com/visitscotland/nt/1.0
           /title:
             jcr:primaryType: hipposysedit:field
@@ -49,7 +49,7 @@ definitions:
             hipposysedit:ordered: true
             hipposysedit:path: visitscotland:paragraph
             hipposysedit:primary: false
-            hipposysedit:type: visitscotland:ContentListSection
+            hipposysedit:type: visitscotland:ArticleStyledSection
           /nested:
             jcr:primaryType: hipposysedit:field
             hipposysedit:mandatory: false
@@ -70,9 +70,9 @@ definitions:
       /hipposysedit:prototypes:
         jcr:primaryType: hipposysedit:prototypeset
         /hipposysedit:prototype:
-          jcr:primaryType: visitscotland:ContentListBSH
+          jcr:primaryType: visitscotland:ArticleStyledBSH
           jcr:mixinTypes: ['mix:referenceable']
-          jcr:uuid: 2b26a0a7-10ac-40a1-8888-6fe707f86932
+          jcr:uuid: 26a9779e-9c0d-4751-8155-58236058fd4c
           hippostd:holder: holder
           hippostd:state: draft
           hippostdpubwf:createdBy: ''
@@ -89,7 +89,8 @@ definitions:
             jcr:primaryType: hippostd:html
             hippostd:content: ''
           /visitscotland:paragraph:
-            jcr:primaryType: visitscotland:ArticleSection
+            jcr:primaryType: visitscotland:ArticleStyledSection
+            visitscotland:heading: ''
             /visitscotland:copy:
               jcr:primaryType: hippostd:html
               hippostd:content: ''

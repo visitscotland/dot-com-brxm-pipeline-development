@@ -3,9 +3,9 @@ package com.visitscotland.brxm.hippobeans;
 import org.onehippo.cms7.essentials.dashboard.annotations.HippoEssentialsGenerated;
 import org.hippoecm.hst.content.beans.Node;
 
-@HippoEssentialsGenerated(internalName = "visitscotland:ContentListBSH")
-@Node(jcrType = "visitscotland:ContentListBSH")
-public class ContentListBSH extends Article {
+@HippoEssentialsGenerated(internalName = "visitscotland:ArticleStyledBSH")
+@Node(jcrType = "visitscotland:ArticleStyledBSH")
+public class ArticleStyledBSH extends Article {
     @HippoEssentialsGenerated(internalName = "visitscotland:nested")
     public Boolean getNested() {
         return getSingleProperty("visitscotland:nested");
