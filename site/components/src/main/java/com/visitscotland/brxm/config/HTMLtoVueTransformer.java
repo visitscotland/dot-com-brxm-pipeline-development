@@ -18,7 +18,7 @@ public class HTMLtoVueTransformer {
     private final LinkService linkService;
 
     private static final String[] HEADING_STYLES = {
-            "xl","l","m","s","xs","xxs"
+            "heading-xxl","heading-xl","heading-l","heading-m","heading-s","heading-xs"
     };
 
     HTMLtoVueTransformer(LinkService linkService){
