@@ -57,7 +57,7 @@
                         <#assign dayTransport = day.transports[0]>
                         <template v-slot:day-transport> 
                             <vs-description-list 
-                                class="text-center justify-content-center align-items-center mb-075 has-edit-button"
+                                class="text-center justify-content-center mb-075 has-edit-button"
                                 inline
                             >
                                 <@hst.manageContent hippobean=day />
@@ -75,7 +75,7 @@
                                             title="${label('transports', '${transport}')}"
                                             href="#"
                                             icon="${transport}"
-                                            size="lg"
+                                            size="sm"
                                             icon-only
                                             variant="transparent"
                                         >
