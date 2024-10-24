@@ -57,9 +57,10 @@ public class ArticleFactory {
 
     private void addSpecialFields(Article document, ArticleModule module) {
         if (document instanceof ArticleBSH){
+            module.setLayout(STANDARD);
             module.setNested(Boolean.TRUE.equals(((ArticleBSH) document).getNested()));
         } else if (document instanceof  ArticleStyledBSH) {
-            module.setLayout(((ArticleStyledBSH) document).getTheme() == null? STANDARD: ((ArticleStyledBSH) document).getTheme());
+            module.setLayout(((ArticleStyledBSH) document).getTheme());
             module.setNested(Boolean.TRUE.equals(((ArticleStyledBSH) document).getNested()));
         }
     }
