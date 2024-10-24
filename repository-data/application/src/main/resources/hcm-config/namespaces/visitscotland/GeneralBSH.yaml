@@ -1,6 +1,6 @@
 definitions:
   config:
-    /hippo:namespaces/visitscotland/BshGeneral:
+    /hippo:namespaces/visitscotland/GeneralBSH:
       jcr:primaryType: hipposysedit:templatetype
       jcr:mixinTypes: ['editor:editable', 'mix:referenceable']
       jcr:uuid: a94f4883-7d33-46ba-b142-b19441040216
@@ -11,7 +11,7 @@ definitions:
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:uuid: 1b66537c-479c-4101-8e3c-49cc2be0bf75
+          jcr:uuid: 8f4d3493-ac81-4f8d-a6d9-00b3a22920c0
           hipposysedit:node: true
           hipposysedit:supertype: ['visitscotland:Page', 'hippostd:relaxed', 'hippotranslation:translated']
           hipposysedit:uri: http://www.visitscotland.com/visitscotland/nt/1.0
@@ -83,7 +83,7 @@ definitions:
       /hipposysedit:prototypes:
         jcr:primaryType: hipposysedit:prototypeset
         /hipposysedit:prototype:
-          jcr:primaryType: visitscotland:BshGeneral
+          jcr:primaryType: visitscotland:GeneralBSH
           hippostd:holder: holder
           hippostd:state: draft
           hippostdpubwf:createdBy: ''
@@ -102,7 +102,7 @@ definitions:
           visitscotland:seoTitle: ''
           visitscotland:title: ''
           visitscotland:skill: ''
-          jcr:uuid: c11709a5-aaf3-47cc-be9a-e25d4ad9dcfc
+          jcr:uuid: 7e403401-89ff-4060-929a-0c937f19ba66
           hippostdpubwf:lastModificationDate: 2024-08-28T18:30:07.772+01:00
           hippostdpubwf:creationDate: 2024-08-28T18:30:07.772+01:00
           visitscotland:regions: []
@@ -213,34 +213,6 @@ definitions:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
               selectable.options: Top-Level, Standard, Simple
-          /breadcrumb:
-            jcr:primaryType: frontend:plugin
-            caption: Override Navigation & Breadcrumb
-            field: breadcrumb
-            hint: Use if title is too long for navigation or breadcrumb
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
-            wicket.id: ${cluster.id}.right.item
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
-          /seoNoIndex:
-            jcr:primaryType: frontend:plugin
-            caption: No index
-            field: seoNoIndex
-            hint: Page will not be indexed by Search Engines. Only tick if SEO have
-              advised.
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
-            wicket.id: ${cluster.id}.right.item
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
-          /hideNewsletter:
-            jcr:primaryType: frontend:plugin
-            caption: Hide newsletter
-            field: newsletter
-            hint: ''
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
-            wicket.id: ${cluster.id}.right.item
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
           /publishDate:
             jcr:primaryType: frontend:plugin
             caption: Publish Date
@@ -258,6 +230,17 @@ definitions:
             hint: ''
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
+          /type:
+            jcr:primaryType: frontend:plugin
+            caption: Content Type
+            field: type
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.right.item
+            hint: ''
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+              orientation: vertical
+              source: /content/documents/administration/options/business-support-hub/content-types
           /sectors:
             jcr:primaryType: frontend:plugin
             caption: Sector-specific?
@@ -271,7 +254,7 @@ definitions:
             wicket.id: ${cluster.id}.right.item
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-              source: /content/documents/administration/options/bsh---sector
+              source: /content/documents/administration/options/business-support-hub/sector
           /skill:
             jcr:primaryType: frontend:plugin
             caption: Skill Level
@@ -281,18 +264,39 @@ definitions:
             wicket.id: ${cluster.id}.right.item
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-              source: /content/documents/administration/options/bsh---skill-level
-          /type:
+              source: /content/documents/administration/options/business-support-hub/skill-level
+          /regions:
             jcr:primaryType: frontend:plugin
-            caption: Content Type
-            field: type
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            caption: Region-specific?
+            field: regions
+            multiselect.type: checkboxes
+            palette.alloworder: false
+            palette.maxrows: '10'
+            plugin.class: org.onehippo.forge.selection.frontend.plugin.DynamicMultiSelectPlugin
+            selectlist.maxrows: '10'
+            valuelist.provider: service.valuelist.default
             wicket.id: ${cluster.id}.right.item
-            hint: ''
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-              orientation: vertical
-              source: /content/documents/administration/options/bsh---type
+              source: /content/documents/administration/options/business-support-hub/regions
+          /breadcrumb:
+            jcr:primaryType: frontend:plugin
+            caption: Override Navigation & Breadcrumb
+            field: breadcrumb
+            hint: Use if title is too long for navigation or breadcrumb
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.right.item
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+          /hideNewsletter:
+            jcr:primaryType: frontend:plugin
+            caption: Hide newsletter
+            field: newsletter
+            hint: ''
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.right.item
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
           /links:
             jcr:primaryType: frontend:plugin
             caption: Related Pages
@@ -309,17 +313,13 @@ definitions:
               showTitles: false
               startCollapsed: false
               titleMapping: []
-          /regions:
+          /seoNoIndex:
             jcr:primaryType: frontend:plugin
-            caption: Region-specific?
-            field: regions
-            multiselect.type: checkboxes
-            palette.alloworder: false
-            palette.maxrows: '10'
-            plugin.class: org.onehippo.forge.selection.frontend.plugin.DynamicMultiSelectPlugin
-            selectlist.maxrows: '10'
-            valuelist.provider: service.valuelist.default
+            caption: No index
+            field: seoNoIndex
+            hint: Page will not be indexed by Search Engines. Only tick if SEO have
+              advised.
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.right.item
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-              source: /content/documents/administration/options/bsh---regions

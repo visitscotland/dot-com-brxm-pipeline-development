@@ -3,9 +3,9 @@ package com.visitscotland.brxm.hippobeans;
 import org.onehippo.cms7.essentials.dashboard.annotations.HippoEssentialsGenerated;
 import org.hippoecm.hst.content.beans.Node;
 
-@HippoEssentialsGenerated(internalName = "visitscotland:SharedLinkBsh")
-@Node(jcrType = "visitscotland:SharedLinkBsh")
-public class SharedLinkBsh extends SharedLink {
+@HippoEssentialsGenerated(internalName = "visitscotland:SharedLinkBSH")
+@Node(jcrType = "visitscotland:SharedLinkBSH")
+public class SharedLinkBSH extends SharedLink {
     @HippoEssentialsGenerated(internalName = "visitscotland:source")
     public String getSource() {
         return getSingleProperty("visitscotland:source");
