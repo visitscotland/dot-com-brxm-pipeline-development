@@ -35,4 +35,9 @@ public class SharedLinkBSH extends SharedLink {
     public String getType() {
         return getSingleProperty("visitscotland:type");
     }
+
+    @HippoEssentialsGenerated(internalName = "visitscotland:topic")
+    public String[] getTopic() {
+        return getMultipleProperty("visitscotland:topic");
+    }
 }
