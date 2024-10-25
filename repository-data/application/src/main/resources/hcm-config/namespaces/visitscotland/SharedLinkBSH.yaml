@@ -11,7 +11,7 @@ definitions:
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:uuid: 32cc0936-b36e-4b20-902b-7aaac032e3e7
+          jcr:uuid: 898bcfdd-0e0e-41a2-b13a-a26c9d41b917
           hipposysedit:node: true
           hipposysedit:supertype: ['visitscotland:SharedLink', 'hippostd:relaxed',
             'hippotranslation:translated']
@@ -71,6 +71,14 @@ definitions:
             hipposysedit:path: visitscotland:type
             hipposysedit:primary: false
             hipposysedit:type: DynamicDropdown
+          /topic:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: true
+            hipposysedit:ordered: false
+            hipposysedit:path: visitscotland:topic
+            hipposysedit:primary: false
+            hipposysedit:type: String
       /hipposysedit:prototypes:
         jcr:primaryType: hipposysedit:prototypeset
         /hipposysedit:prototype:
@@ -85,7 +93,7 @@ definitions:
           visitscotland:source: ''
           visitscotland:title: ''
           visitscotland:teaser: ''
-          jcr:uuid: 74f9e0a2-8013-42db-ad1f-3878d37833e3
+          jcr:uuid: 3e375512-566c-4b97-b28f-13c9a6937203
           hippostdpubwf:lastModificationDate: 2024-09-24T14:11:39.340+01:00
           hippostdpubwf:creationDate: 2024-09-24T14:11:39.340+01:00
           visitscotland:sectors: []
@@ -93,6 +101,7 @@ definitions:
           visitscotland:skill: ''
           visitscotland:regions: []
           visitscotland:type: ''
+          visitscotland:topic: []
           /visitscotland:image:
             jcr:primaryType: hippogallerypicker:imagelink
             hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
@@ -205,6 +214,20 @@ definitions:
               jcr:primaryType: frontend:pluginconfig
               orientation: vertical
               source: /content/documents/administration/options/business-support-hub/skill-level
+          /topic:
+            jcr:primaryType: frontend:plugin
+            caption: Topic
+            field: topic
+            multiselect.type: checkboxes
+            palette.alloworder: false
+            palette.maxrows: '10'
+            plugin.class: org.onehippo.forge.selection.frontend.plugin.DynamicMultiSelectPlugin
+            selectlist.maxrows: '10'
+            valuelist.provider: service.valuelist.default
+            wicket.id: ${cluster.id}.right.item
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+              source: /content/documents/administration/options/business-support-hub/topic
           /regions:
             jcr:primaryType: frontend:plugin
             caption: Region-specific?
