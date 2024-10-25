@@ -1,6 +1,6 @@
 definitions:
   config:
-    /hippo:namespaces/visitscotland/BshGeneral:
+    /hippo:namespaces/visitscotland/GeneralBSH:
       jcr:primaryType: hipposysedit:templatetype
       jcr:mixinTypes: ['editor:editable', 'mix:referenceable']
       jcr:uuid: a94f4883-7d33-46ba-b142-b19441040216
@@ -11,7 +11,7 @@ definitions:
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:uuid: 1b66537c-479c-4101-8e3c-49cc2be0bf75
+          jcr:uuid: 85a061cc-14fc-4cc4-b80e-84255432f56e
           hipposysedit:node: true
           hipposysedit:supertype: ['visitscotland:Page', 'hippostd:relaxed', 'hippotranslation:translated']
           hipposysedit:uri: http://www.visitscotland.com/visitscotland/nt/1.0
@@ -80,10 +80,97 @@ definitions:
             hipposysedit:path: visitscotland:type
             hipposysedit:primary: false
             hipposysedit:type: DynamicDropdown
+          /topic:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: true
+            hipposysedit:ordered: false
+            hipposysedit:path: visitscotland:topic
+            hipposysedit:primary: false
+            hipposysedit:type: String
+        /hipposysedit:nodetype[2]:
+          jcr:primaryType: hipposysedit:nodetype
+          jcr:mixinTypes: ['mix:referenceable']
+          jcr:uuid: 719fc23e-e5f2-49ec-9a74-f75aa7cfc3a0
+          hipposysedit:node: true
+          hipposysedit:supertype: ['visitscotland:Page', 'hippostd:relaxed', 'hippotranslation:translated']
+          /theme:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: visitscotland:theme
+            hipposysedit:primary: false
+            hipposysedit:type: StaticDropdown
+            hipposysedit:validators: [required]
+          /publishDate:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: visitscotland:publishDate
+            hipposysedit:primary: false
+            hipposysedit:type: Date
+          /readingTime:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: visitscotland:readingTime
+            hipposysedit:primary: false
+            hipposysedit:type: Long
+            hipposysedit:validators: [required]
+          /skill:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: visitscotland:skill
+            hipposysedit:primary: false
+            hipposysedit:type: DynamicDropdown
+          /sectors:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: true
+            hipposysedit:ordered: false
+            hipposysedit:path: visitscotland:sectors
+            hipposysedit:primary: false
+            hipposysedit:type: String
+          /regions:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: true
+            hipposysedit:ordered: false
+            hipposysedit:path: visitscotland:regions
+            hipposysedit:primary: false
+            hipposysedit:type: String
+          /links:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:multiple: true
+            hipposysedit:ordered: true
+            hipposysedit:path: visitscotland:links
+            hipposysedit:type: hippo:compound
+            hipposysedit:validators: [contentblocks-validator]
+          /type:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: visitscotland:type
+            hipposysedit:primary: false
+            hipposysedit:type: DynamicDropdown
+          /topic:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: true
+            hipposysedit:ordered: false
+            hipposysedit:path: visitscotland:topic
+            hipposysedit:primary: false
+            hipposysedit:type: String
       /hipposysedit:prototypes:
         jcr:primaryType: hipposysedit:prototypeset
         /hipposysedit:prototype:
-          jcr:primaryType: visitscotland:BshGeneral
+          jcr:primaryType: visitscotland:GeneralBSH
           hippostd:holder: holder
           hippostd:state: draft
           hippostdpubwf:createdBy: ''
@@ -102,12 +189,50 @@ definitions:
           visitscotland:seoTitle: ''
           visitscotland:title: ''
           visitscotland:skill: ''
-          jcr:uuid: c11709a5-aaf3-47cc-be9a-e25d4ad9dcfc
+          jcr:uuid: db24bc77-6f5b-4707-9194-730f00bf449c
           hippostdpubwf:lastModificationDate: 2024-08-28T18:30:07.772+01:00
           hippostdpubwf:creationDate: 2024-08-28T18:30:07.772+01:00
           visitscotland:regions: []
           visitscotland:sectors: []
           visitscotland:type: ''
+          visitscotland:topic: []
+          /visitscotland:heroImage:
+            jcr:primaryType: hippogallerypicker:imagelink
+            hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+          /visitscotland:introduction:
+            jcr:primaryType: hippostd:html
+            hippostd:content: ''
+        /hipposysedit:prototype[2]:
+          jcr:primaryType: nt:unstructured
+          jcr:mixinTypes: ['hippostd:publishableSummary', 'hippostd:relaxed', 'hippostdpubwf:document',
+            'hippotranslation:translated', 'mix:referenceable', 'visitscotland:translatable']
+          jcr:uuid: 75c1c256-27b8-4718-bd89-5cf82e33af00
+          hippostd:holder: holder
+          hippostd:state: draft
+          hippostdpubwf:createdBy: ''
+          hippostdpubwf:creationDate: 2024-08-28T18:30:07.772+01:00
+          hippostdpubwf:lastModificationDate: 2024-08-28T18:30:07.772+01:00
+          hippostdpubwf:lastModifiedBy: ''
+          hippotranslation:id: document-type-locale-id
+          hippotranslation:locale: document-type-locale
+          visitscotland:breadcrumb: ''
+          visitscotland:hideNewsletter: false
+          visitscotland:publishDate: 0001-01-01T12:00:00Z
+          visitscotland:readingTime: 0
+          visitscotland:regions: []
+          visitscotland:sectors: []
+          visitscotland:seoDescription: ''
+          visitscotland:seoNoIndex: false
+          visitscotland:seoTitle: ''
+          visitscotland:skill: ''
+          visitscotland:teaser: ''
+          visitscotland:theme: Top-Level
+          visitscotland:title: ''
+          visitscotland:type: ''
+          visitscotland:topic: []
           /visitscotland:heroImage:
             jcr:primaryType: hippogallerypicker:imagelink
             hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
@@ -213,34 +338,6 @@ definitions:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
               selectable.options: Top-Level, Standard, Simple
-          /breadcrumb:
-            jcr:primaryType: frontend:plugin
-            caption: Override Navigation & Breadcrumb
-            field: breadcrumb
-            hint: Use if title is too long for navigation or breadcrumb
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
-            wicket.id: ${cluster.id}.right.item
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
-          /seoNoIndex:
-            jcr:primaryType: frontend:plugin
-            caption: No index
-            field: seoNoIndex
-            hint: Page will not be indexed by Search Engines. Only tick if SEO have
-              advised.
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
-            wicket.id: ${cluster.id}.right.item
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
-          /hideNewsletter:
-            jcr:primaryType: frontend:plugin
-            caption: Hide newsletter
-            field: newsletter
-            hint: ''
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
-            wicket.id: ${cluster.id}.right.item
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
           /publishDate:
             jcr:primaryType: frontend:plugin
             caption: Publish Date
@@ -258,6 +355,17 @@ definitions:
             hint: ''
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
+          /type:
+            jcr:primaryType: frontend:plugin
+            caption: Content Type
+            field: type
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.right.item
+            hint: ''
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+              orientation: vertical
+              source: /content/documents/administration/options/business-support-hub/content-types
           /sectors:
             jcr:primaryType: frontend:plugin
             caption: Sector-specific?
@@ -271,7 +379,7 @@ definitions:
             wicket.id: ${cluster.id}.right.item
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-              source: /content/documents/administration/options/bsh---sector
+              source: /content/documents/administration/options/business-support-hub/sector
           /skill:
             jcr:primaryType: frontend:plugin
             caption: Skill Level
@@ -281,18 +389,44 @@ definitions:
             wicket.id: ${cluster.id}.right.item
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-              source: /content/documents/administration/options/bsh---skill-level
-          /type:
+              source: /content/documents/administration/options/business-support-hub/skill-level
+          /topic:
             jcr:primaryType: frontend:plugin
-            caption: Content Type
-            field: type
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            caption: Topic
+            field: topic
+            multiselect.type: checkboxes
+            palette.alloworder: false
+            palette.maxrows: '10'
+            plugin.class: org.onehippo.forge.selection.frontend.plugin.DynamicMultiSelectPlugin
+            selectlist.maxrows: '10'
+            valuelist.provider: service.valuelist.default
             wicket.id: ${cluster.id}.right.item
-            hint: ''
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-              orientation: vertical
-              source: /content/documents/administration/options/bsh---type
+              source: /content/documents/administration/options/business-support-hub/topic
+          /regions:
+            jcr:primaryType: frontend:plugin
+            caption: Region-specific?
+            field: regions
+            multiselect.type: checkboxes
+            palette.alloworder: false
+            palette.maxrows: '10'
+            plugin.class: org.onehippo.forge.selection.frontend.plugin.DynamicMultiSelectPlugin
+            selectlist.maxrows: '10'
+            valuelist.provider: service.valuelist.default
+            wicket.id: ${cluster.id}.right.item
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+              source: /content/documents/administration/options/business-support-hub/regions
+          /breadcrumb:
+            jcr:primaryType: frontend:plugin
+            caption: Override Navigation & Breadcrumb
+            field: breadcrumb
+            hint: Use if title is too long for navigation or breadcrumb
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.right.item
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
           /links:
             jcr:primaryType: frontend:plugin
             caption: Related Pages
@@ -309,17 +443,22 @@ definitions:
               showTitles: false
               startCollapsed: false
               titleMapping: []
-          /regions:
+          /hideNewsletter:
             jcr:primaryType: frontend:plugin
-            caption: Region-specific?
-            field: regions
-            multiselect.type: checkboxes
-            palette.alloworder: false
-            palette.maxrows: '10'
-            plugin.class: org.onehippo.forge.selection.frontend.plugin.DynamicMultiSelectPlugin
-            selectlist.maxrows: '10'
-            valuelist.provider: service.valuelist.default
+            caption: Hide newsletter
+            field: newsletter
+            hint: ''
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.right.item
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-              source: /content/documents/administration/options/bsh---regions
+          /seoNoIndex:
+            jcr:primaryType: frontend:plugin
+            caption: No index
+            field: seoNoIndex
+            hint: Page will not be indexed by Search Engines. Only tick if SEO have
+              advised.
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.right.item
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig

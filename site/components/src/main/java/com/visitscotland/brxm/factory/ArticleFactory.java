@@ -57,10 +57,11 @@ public class ArticleFactory {
 
     private void addSpecialFields(Article document, ArticleModule module) {
         if (document instanceof ArticleBSH){
+            module.setLayout(STANDARD);
             module.setNested(Boolean.TRUE.equals(((ArticleBSH) document).getNested()));
-        } else if (document instanceof  ContentListBSH) {
-            module.setLayout(((ContentListBSH) document).getTheme() == null? STANDARD: ((ContentListBSH) document).getTheme());
-            module.setNested(Boolean.TRUE.equals(((ContentListBSH) document).getNested()));
+        } else if (document instanceof  ArticleStyledBSH) {
+            module.setLayout(((ArticleStyledBSH) document).getTheme());
+            module.setNested(Boolean.TRUE.equals(((ArticleStyledBSH) document).getNested()));
         }
     }
 
@@ -98,8 +99,8 @@ public class ArticleFactory {
                 }
             }
 
-            if (paragraph instanceof ContentListSection) {
-                section.setHeading(((ContentListSection) paragraph).getHeading());
+            if (paragraph instanceof ArticleStyledSection) {
+                section.setHeading(((ArticleStyledSection) paragraph).getHeading());
             }
 
             if (paragraph.getQuote() != null) {

@@ -2,7 +2,7 @@ package com.visitscotland.brxm.components.content;
 
 import com.visitscotland.brxm.components.navigation.info.GeneralPageComponentInfo;
 import com.visitscotland.brxm.config.VsComponentManager;
-import com.visitscotland.brxm.hippobeans.BshGeneral;
+import com.visitscotland.brxm.hippobeans.GeneralBSH;
 import com.visitscotland.brxm.model.megalinks.HorizontalListLinksModule;
 import com.visitscotland.brxm.utils.PageTemplateBuilder;
 import com.visitscotland.utils.Contract;
@@ -13,16 +13,16 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 @ParametersInfo(type = GeneralPageComponentInfo.class)
-public class BshGeneralContentComponent extends PageContentComponent<BshGeneral> {
+public class GeneralBSHContentComponent extends PageContentComponent<GeneralBSH> {
 
-    private static final Logger logger = LoggerFactory.getLogger(BshGeneralContentComponent.class);
+    private static final Logger logger = LoggerFactory.getLogger(GeneralBSHContentComponent.class);
 
     static final String ERROR_CODE = "errorCode";
 
     private final PageTemplateBuilder builder;
 
-    public BshGeneralContentComponent(){
-        logger.debug("BshGeneralContentComponent initialized");
+    public GeneralBSHContentComponent(){
+        logger.debug("GeneralBSHContentComponent initialized");
         this.builder = VsComponentManager.get(PageTemplateBuilder.class);
     }
 
@@ -37,7 +37,7 @@ public class BshGeneralContentComponent extends PageContentComponent<BshGeneral>
 
     @Override
     protected void addOTYML(HstRequest request) {
-        BshGeneral page = getDocument(request);
+        GeneralBSH page = getDocument(request);
         if (!Contract.isEmpty(page.getLinks())) {
             HorizontalListLinksModule otyml = megalinkFactory.horizontalListLayout(page, request.getLocale());
             request.setModel(OTYML_BUNDLE, otyml);
