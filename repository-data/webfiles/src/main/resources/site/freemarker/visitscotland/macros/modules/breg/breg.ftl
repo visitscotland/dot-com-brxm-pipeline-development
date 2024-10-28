@@ -11,7 +11,7 @@
 
 <#-- @ftlvariable name="form" type="com.visitscotland.brxm.model.FormModule" -->
 <#macro breg form>
-    <vs-container class="mb-10">
+    <vs-container class="mb-400">
         <vs-row>
             <vs-col
                 cols="12"

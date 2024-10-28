@@ -26,7 +26,7 @@
                     <vs-img 
                         src="<@hst.webfile path='assets/images/iknow-community-logo.svg'/>" 
                         width="190px"
-                        class="mb-9 mb-md-10">
+                        class="mb-300 mb-md-400">
                     </vs-img>
                 </vs-col>
             </vs-row>
@@ -41,12 +41,12 @@
                     offset-xl="1"
                     class="text-start"
                 >
-                    <vs-rich-text-wrapper variant="lead" class="mb-4">
+                    <vs-rich-text-wrapper variant="lead" class="mb-100">
                         <@hst.html hippohtml=module.copy/>
                     </vs-rich-text-wrapper>
 
                     <vs-link
-                        class="mb-9 mb-md-10 d-block"
+                        class="mb-300 mb-md-400 d-block"
                         href="${module.link.link}"
                         type="<#if module.link.type??>${module.link.type}<#else>default</#if>"
                     >
@@ -76,7 +76,7 @@
                     offset-xl="1"
                 >
                     <vs-img 
-                        class="mt-8 mt-lg-9 mt-xl-4"
+                        class="mt-200 mt-lg-300 mt-xl-100"
                         src="<@hst.webfile path='assets/images/illustrations/iknow-coo-puffin.svg'/>">
                     </vs-img>
                 </vs-col>

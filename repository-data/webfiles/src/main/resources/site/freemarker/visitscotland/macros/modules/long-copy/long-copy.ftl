@@ -9,7 +9,7 @@
 
 <#macro longCopy module>
     <@previewWarning editMode module module.errorMessages />
-    <vs-container class="mb-10">
+    <vs-container class="mb-400">
         <vs-row>
             <vs-col
                 cols="12"
