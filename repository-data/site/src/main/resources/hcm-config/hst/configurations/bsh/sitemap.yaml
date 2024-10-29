@@ -4,7 +4,7 @@ definitions:
       jcr:primaryType: hst:sitemap
       /root:
         jcr:primaryType: hst:sitemapitem
-        hst:componentconfigurationid: hst:pages/general-page
+        hst:componentconfigurationid: hst:pages/bsh-page
         hst:pagetitle: Home Page
         hst:refId: root
         hst:relativecontentpath: site/content
@@ -97,25 +97,6 @@ definitions:
           jcr:primaryType: hst:sitemapitem
           hst:componentconfigurationid: hst:pages/pagenotfound
           hst:relativecontentpath: ${parent}/${1}
-      /data:
-        jcr:primaryType: hst:sitemapitem
-        hst:componentconfigurationid: hst:pages/pagenotfound
-        /internal:
-          jcr:primaryType: hst:sitemapitem
-          hst:componentconfigurationid: hst:pages/pagenotfound
-          hst:pagetitle: Fragmented Page
-          /css-header:
-            jcr:primaryType: hst:sitemapitem
-            hst:componentconfigurationid: hst:pages/internal-css-header
-          /header:
-            jcr:primaryType: hst:sitemapitem
-            hst:componentconfigurationid: hst:pages/internal-header
-          /footer:
-            jcr:primaryType: hst:sitemapitem
-            hst:componentconfigurationid: hst:pages/internal-footer
-          /script-footer:
-            jcr:primaryType: hst:sitemapitem
-            hst:componentconfigurationid: hst:pages/internal-script-footer
       /_default_:
         jcr:primaryType: hst:sitemapitem
         hst:componentconfigurationid: hst:pages/pagenotfound
