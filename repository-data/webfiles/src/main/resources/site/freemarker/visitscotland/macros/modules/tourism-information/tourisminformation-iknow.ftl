@@ -24,16 +24,16 @@
                     offset-md="0"
                     order="1"
                     order-md="2"
-                    class="pb-md-8 pb-lg-11"
+                    class="pb-md-200 pb-lg-500"
                 >
                     <vs-img 
                         src="<@hst.webfile path='assets/images/iknow-scotland-logo.svg'/>" 
                         width="130"
-                        class="mb-8 d-inline">
+                        class="mb-200 d-inline">
                     </vs-img>
 
                     <vs-rich-text-wrapper variant="lead">
-                        <p class="mb-8 mb-md-9">
+                        <p class="mb-200 mb-md-300">
                             <@hst.html hippohtml=module.description/>
                         </p>
 
@@ -56,7 +56,7 @@
                 >
                     <vs-img 
                         src="<@hst.webfile path='assets/images/illustrations/highland-cow.svg'/>" 
-                        class="w-100 mt-8 mt-md-0">
+                        class="w-100 mt-200 mt-md-0">
                     </vs-img>
                 </vs-col>
             </vs-row>

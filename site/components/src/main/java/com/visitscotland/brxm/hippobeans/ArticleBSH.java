@@ -10,9 +10,4 @@ public class ArticleBSH extends Article {
     public Boolean getNested() {
         return getSingleProperty("visitscotland:nested");
     }
-
-    @HippoEssentialsGenerated(internalName = "visitscotland:theme")
-    public String getTheme() {
-        return getSingleProperty("visitscotland:theme");
-    }
 }

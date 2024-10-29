@@ -11,11 +11,11 @@ definitions:
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:uuid: 30f6259a-abeb-4d86-9597-751564d1e873
+          jcr:uuid: 9401575e-a87f-407c-8f8b-bce63ad80045
           hipposysedit:node: true
           hipposysedit:supertype: ['visitscotland:Article', 'hippostd:relaxed', 'hippotranslation:translated']
           hipposysedit:uri: http://www.visitscotland.com/visitscotland/nt/1.0
-          hipposysedit:validators: ['visitscotland:article-image-validator', 'visitscotland:article-copy-validator']
+          hipposysedit:validators: []
           /title:
             jcr:primaryType: hipposysedit:field
             hipposysedit:mandatory: false
@@ -65,41 +65,25 @@ definitions:
             hipposysedit:path: visitscotland:nested
             hipposysedit:primary: false
             hipposysedit:type: Boolean
-          /theme:
-            jcr:primaryType: hipposysedit:field
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: false
-            hipposysedit:ordered: false
-            hipposysedit:path: visitscotland:theme
-            hipposysedit:primary: false
-            hipposysedit:type: DynamicDropdown
-            hipposysedit:validators: [required]
       /hipposysedit:prototypes:
         jcr:primaryType: hipposysedit:prototypeset
         /hipposysedit:prototype:
           jcr:primaryType: visitscotland:ArticleBSH
           jcr:mixinTypes: ['mix:referenceable']
-          jcr:uuid: acf7ef8e-932d-4eab-b1d7-4d47d0917934
-          hippostd:holder: holder
+          jcr:uuid: d2adf02c-76ec-42db-aa55-d2f76325b60d
           hippostd:state: draft
           hippostdpubwf:createdBy: ''
-          hippostdpubwf:creationDate: 2020-12-11T10:07:47.312Z
-          hippostdpubwf:lastModificationDate: 2020-12-11T10:07:47.311Z
+          hippostdpubwf:creationDate: 2024-10-17T10:32:44.925+01:00
+          hippostdpubwf:lastModificationDate: 2024-10-17T10:32:44.925+01:00
           hippostdpubwf:lastModifiedBy: ''
-          hippotranslation:id: document-type-locale-id
-          hippotranslation:locale: document-type-locale
+          hippotranslation:id: ''
+          hippotranslation:locale: ''
           visitscotland:anchor: ''
           visitscotland:title: ''
           visitscotland:nested: false
-          visitscotland:theme: standard
           /visitscotland:copy:
             jcr:primaryType: hippostd:html
             hippostd:content: ''
-          /visitscotland:paragraph:
-            jcr:primaryType: visitscotland:ArticleSection
-            /visitscotland:copy:
-              jcr:primaryType: hippostd:html
-              hippostd:content: ''
       /editor:templates:
         jcr:primaryType: editor:templateset
         /_default_:
@@ -112,41 +96,10 @@ definitions:
             item: ${cluster.id}.field
             plugin.class: org.hippoecm.frontend.service.render.ListViewPlugin
             wicket.skin: css/translation-dialog.css
-          /theme:
-            jcr:primaryType: frontend:plugin
-            caption: Layout
-            field: theme
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
-            wicket.id: ${cluster.id}.field
-            hint: ''
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
-              orientation: vertical
-              source: /content/documents/administration/options/business-support-hub/article-layouts
           /nested:
             jcr:primaryType: frontend:plugin
             caption: Nest under the previous module
             field: nested
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
-            wicket.id: ${cluster.id}.field
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
-          /media:
-            jcr:primaryType: frontend:plugin
-            caption: Media
-            compoundList: hippogallerypicker:imagelink,visitscotland:VideoLink
-            contentPickerType: links
-            field: media
-            hint: ''
-            plugin.class: org.onehippo.forge.contentblocks.ContentBlocksFieldPlugin
-            wicket.id: ${cluster.id}.field
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
-              maxitems: 1
-          /title:
-            jcr:primaryType: frontend:plugin
-            caption: Title
-            field: title
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
             /cluster.options:
@@ -156,6 +109,14 @@ definitions:
             caption: Anchor Text
             field: anchor
             hint: ''
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+          /title:
+            jcr:primaryType: frontend:plugin
+            caption: Title
+            field: title
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
             /cluster.options:
@@ -174,6 +135,18 @@ definitions:
               ckeditor.config.overlayed.json: '{disallowedContent: ''p[align]'', toolbarGroups:
                 [{ name: ''basicstyles''},{ name: ''links'' },{name:''insert''},{name:''clipboard''},{name:''tools''},{name:''undo''}]
                 , removeButtons: ''PickImage,Youtube,Table,Bold,Underline,Strike,Subscript,Superscript''}'
+          /media:
+            jcr:primaryType: frontend:plugin
+            caption: Media
+            compoundList: hippogallerypicker:imagelink,visitscotland:VideoLink
+            contentPickerType: links
+            field: media
+            hint: ''
+            plugin.class: org.onehippo.forge.contentblocks.ContentBlocksFieldPlugin
+            wicket.id: ${cluster.id}.field
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+              maxitems: 1
           /paragraph:
             jcr:primaryType: frontend:plugin
             caption: PARAGRAPH

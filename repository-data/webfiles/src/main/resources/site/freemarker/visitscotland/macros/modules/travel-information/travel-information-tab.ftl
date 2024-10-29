@@ -7,7 +7,7 @@
 
 <#macro travelInformationTab module>
     <vs-tab-item title="${module.title}">
-        <div class="px-3 px-md-6 px-lg-9 px-xl-10 pt-8 pb-5">
+        <div class="px-075 px-md-150 px-lg-300 px-xl-400 pt-200 pb-125">
             <vs-accordion>
                 <#list module.travelInformationTransportRows as row>
                     <vs-accordion-item
@@ -17,7 +17,7 @@
                         class="<#if row?is_first>border-top-0</#if>"
                     >
                         <template v-slot:title>
-                            <vs-icon name="${row.transport.key}" size="sm" class="me-2"></vs-icon>
+                            <vs-icon name="${row.transport.key}" size="sm" class="me-050"></vs-icon>
                             ${row.transport.label}
                         </template>
                         <template v-slot:icon-open>
@@ -26,7 +26,7 @@
                         <template v-slot:icon-closed>
                             <vs-icon name="chevron" orientation="down" size="sm" />
                         </template>
-                        <div class="p-3">
+                        <div class="p-075">
                             <@hst.html hippohtml=row.copy/>
                         </div>
                     </vs-accordion-item>

@@ -1,9 +1,6 @@
 package com.visitscotland.brxm.factory;
 
-import com.visitscotland.brxm.hippobeans.Article;
-import com.visitscotland.brxm.hippobeans.ArticleBSH;
-import com.visitscotland.brxm.hippobeans.ArticleSection;
-import com.visitscotland.brxm.hippobeans.VideoLink;
+import com.visitscotland.brxm.hippobeans.*;
 import com.visitscotland.brxm.model.ArticleModule;
 import com.visitscotland.brxm.model.ArticleModuleSection;
 import com.visitscotland.brxm.services.LinkService;
@@ -60,8 +57,11 @@ public class ArticleFactory {
 
     private void addSpecialFields(Article document, ArticleModule module) {
         if (document instanceof ArticleBSH){
-            module.setLayout(((ArticleBSH) document).getTheme() == null? STANDARD: ((ArticleBSH) document).getTheme());
+            module.setLayout(STANDARD);
             module.setNested(Boolean.TRUE.equals(((ArticleBSH) document).getNested()));
+        } else if (document instanceof  ArticleStyledBSH) {
+            module.setLayout(((ArticleStyledBSH) document).getTheme());
+            module.setNested(Boolean.TRUE.equals(((ArticleStyledBSH) document).getNested()));
         }
     }
 
@@ -84,19 +84,23 @@ public class ArticleFactory {
         }
     }
 
-    private void setSections(ArticleModule module, Article doc, Locale locale){
+    private void setSections(ArticleModule module, Article doc, Locale locale) {
         List<ArticleModuleSection> sections = new ArrayList<>();
 
-        for (ArticleSection paragraph: doc.getParagraph()){
+        for (ArticleSection paragraph: doc.getParagraph()) {
             ArticleModuleSection section = new ArticleModuleSection();
             section.setCopy(paragraph.getCopy());
 
             if (paragraph.getMediaItem() != null) {
-                if (paragraph.getMediaItem() instanceof VideoLink){
+                if (paragraph.getMediaItem() instanceof VideoLink) {
                     section.setVideo(linkService.createVideo(((VideoLink)paragraph.getMediaItem()).getVideoLink(), module, locale));
-                }else {
+                } else {
                     section.setImage(imageFactory.getImage(paragraph.getMediaItem(), module, locale));
                 }
+            }
+
+            if (paragraph instanceof ArticleStyledSection) {
+                section.setHeading(((ArticleStyledSection) paragraph).getHeading());
             }
 
             if (paragraph.getQuote() != null) {

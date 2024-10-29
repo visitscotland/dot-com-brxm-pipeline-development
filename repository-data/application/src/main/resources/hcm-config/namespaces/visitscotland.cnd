@@ -33,16 +33,25 @@
 [visitscotland:Page] > hippostd:relaxed, hippotranslation:translated, visitscotland:basedocument, visitscotland:translatable
   orderable
 
-[visitscotland:BshGeneral] > hippostd:relaxed, hippotranslation:translated, visitscotland:Page
+[visitscotland:GeneralBSH] > hippostd:relaxed, hippotranslation:translated, visitscotland:Page
   orderable
 
 [visitscotland:CMSLink] > hippo:compound, hippostd:relaxed
+  orderable
+
+[visitscotland:CTABanner] > hippostd:relaxed, hippotranslation:translated, visitscotland:basedocument
   orderable
 
 [visitscotland:CannedSearch] > hippostd:relaxed, hippotranslation:translated, visitscotland:basedocument, visitscotland:translatable
   orderable
 
 [visitscotland:CannedSearchTours] > hippostd:relaxed, hippotranslation:translated, visitscotland:basedocument, visitscotland:translatable
+  orderable
+
+[visitscotland:ArticleStyledBSH] > hippostd:relaxed, hippotranslation:translated, visitscotland:Article
+  orderable
+
+[visitscotland:ArticleStyledSection] > hippo:compound, hippostd:relaxed
   orderable
 
 [visitscotland:Coordinates] > hippo:compound, hippostd:relaxed
@@ -167,7 +176,7 @@
 [visitscotland:SharedLink] > hippostd:relaxed, hippotranslation:translated, visitscotland:basedocument, visitscotland:translatable
   orderable
 
-[visitscotland:SharedLinkBsh] > hippostd:relaxed, hippotranslation:translated, visitscotland:SharedLink
+[visitscotland:SharedLinkBSH] > hippostd:relaxed, hippotranslation:translated, visitscotland:SharedLink
   orderable
 
 [visitscotland:SingleImageModule] > hippo:compound, hippostd:relaxed

@@ -14,7 +14,7 @@
             ${module.title}
         </template>
 
-        <vs-container class="text-center text-sm-start mt-2">
+        <vs-container class="text-center text-sm-start mt-050">
             <vs-row>
                 <vs-col
                     cols="12"
@@ -24,7 +24,7 @@
                     offset-lg="1"
                     class="text-center text-sm-start col-xxl-4"
                 >   
-                    <vs-rich-text-wrapper variant="lead" class="mb-9 mb-lg-10">
+                    <vs-rich-text-wrapper variant="lead" class="mb-300 mb-lg-400">
                         <p>
                             <@hst.html hippohtml=module.copy/>
                         </p>
@@ -47,7 +47,7 @@
                 >
                     <vs-img
                         src="<@hst.webfile path='${module.image.externalImage}'/>"
-                        class="mt-10 mt-sm-2 w-100 h-auto"
+                        class="mt-400 mt-sm-050 w-100 h-auto"
                         style="aspect-ratio:267/206"
                     >
                     </vs-img>

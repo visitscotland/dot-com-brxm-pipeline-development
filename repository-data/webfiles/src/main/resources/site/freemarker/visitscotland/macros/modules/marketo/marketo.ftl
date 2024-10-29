@@ -11,7 +11,7 @@
 
 <#-- @ftlvariable name="module" type="com.visitscotland.brxm.model.MarketoFormModule" -->
 <#macro marketo form>
-    <vs-container class="mb-10">
+    <vs-container class="mb-400">
         <vs-row>
             <vs-col
                 cols="12"

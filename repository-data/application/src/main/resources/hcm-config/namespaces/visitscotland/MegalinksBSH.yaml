@@ -24,6 +24,7 @@ definitions:
             hipposysedit:path: visitscotland:anchor
             hipposysedit:primary: false
             hipposysedit:type: String
+            hipposysedit:validators: [non-empty-spaces]
           /nested:
             jcr:primaryType: hipposysedit:field
             hipposysedit:mandatory: false
