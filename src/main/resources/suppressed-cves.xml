@@ -46,4 +46,17 @@
         <cpe>cpe:/a:apache:jackrabbit</cpe>
         <vulnerabilityName>jackrabbit-spi-2.7.4.jar</vulnerabilityName>
     </suppress>
+
+    <suppress until="2025-01-01">>
+        <notes>
+            <![CDATA[
+        Suppression for an SSRF vulnerability in Apache CXF affecting versions prior to 4.0.5, 3.6.4, and 3.5.9.
+        This vulnerability only applies if a custom stylesheet parameter is configured. This suppression is in
+        place to temporarily ignore this vulnerability until the library is upgraded in v15.7 of the Bloomreach.
+        ]]>
+        </notes>
+        <cve>CVE-2024-29736</cve>
+        <vulnerabilityName>cxf-core-3.5.5.jar</vulnerabilityName>
+    </suppress>
+
 </suppressions>
