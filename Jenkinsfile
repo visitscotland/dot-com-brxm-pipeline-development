@@ -345,29 +345,6 @@ stage ('vs compile & package in docker') {
           }
         }
 
-        stage('Release to Nexus') {
-          when {
-                branch 'PR-145' // to-do - hd: change this to develop when ready
-          }
-          steps {
-              script {
-                NEW_TAG = "${env.JOB_NAME}-${env.BUILD_NUMBER}"
-              }
-              echo "Creating tag $NEW_TAG"
-              sh "git tag -m \"CI tagging\" $NEW_TAG"
-              echo "Uploading tag $NEW_TAG to Bitbucket"
-              withCredentials([usernamePassword(credentialsId: 'jenkins-ssh', usernameVariable: 'USER', passwordVariable: 'PASSWORD')]) {
-                sh """
-                git config --local credential.username ${USER}
-                git config --local credential.helper "!echo password=${PASSWORD}; echo"
-                git push origin $NEW_TAG --repo=${env.GIT_URL}
-                """
-              }
-              echo "Uploading version $NEW_TAG to Nexus"
-              sh "mvn versions:set -DremoveSnapshot"
-              sh "mvn -B clean  deploy -Pdist -Drevision=$NEW_TAG -Dchangelist= -DskipTests -s $MAVEN_SETTINGS"
-          }
-        } //end stage
       } // end parallel stages
     } // end post-build actions
 
