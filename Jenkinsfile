@@ -118,32 +118,6 @@ pipeline {
       }
     } // end stage
 
-    stage ('vs compile & package') {
-      when {
-        allOf {
-          expression {return env.VS_RUN_BRC_STAGES != 'TRUE'}
-          expression {return env.VS_SKIP_VS_BLD != 'TRUE'}
-          expression {return env.VS_USE_DOCKER_BUILDER != 'TRUE'}
-          expression {return env.BRANCH_NAME != env.VS_SKIP_BUILD_FOR_BRANCH}
-          expression {return env.VS_SKIP_MAVEN_BUILD != 'true'}
-        }
-      }
-      steps {
-        //sh './ci/infrastructure/scripts/infrastructure.sh setvars'
-        // -- 20200712: QUESTION FOR SE, "why do we not build with-development-data?"
-        sh 'mvn -f pom.xml clean package'
-      }
-      post {
-        success {
-          sh 'mvn -f pom.xml install -Pdist-with-development-data'
-          mail bcc: '', body: "<b>Notification</b><br>Project: ${env.JOB_NAME} <br>Build Number: ${env.BUILD_NUMBER} <br> build URL: ${env.BUILD_URL}", cc: '', charset: 'UTF-8', from: '', mimeType: 'text/html', replyTo: '', subject: "Maven build succeeded at ${env.STAGE_NAME} for ${env.JOB_NAME}", to: "${MAIL_TO}";
-        }
-        failure {
-          mail bcc: '', body: "<b>Notification</b><br>Project: ${env.JOB_NAME} <br>Build Number: ${env.BUILD_NUMBER} <br> build URL: ${env.BUILD_URL}", cc: '', charset: 'UTF-8', from: '', mimeType: 'text/html', replyTo: '', subject: "Maven build FAILED at ${env.STAGE_NAME} for  ${env.JOB_NAME}", to: "${MAIL_TO}";
-        }
-      }
-    }
-
 stage ('vs compile & package in docker') {
       when {
         allOf {
