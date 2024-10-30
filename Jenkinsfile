@@ -47,9 +47,9 @@ if (!env.VS_SSR_PROXY_ON) { env.VS_SSR_PROXY_ON = "TRUE" }
 if (!env.VS_CONTAINER_PRESERVE) { env.VS_CONTAINER_PRESERVE = "TRUE" }
 if (!env.VS_BRXM_PERSISTENCE_METHOD) { env.VS_BRXM_PERSISTENCE_METHOD = "h2" }
 if (!env.VS_SKIP_BUILD_FOR_BRANCH) { env.VS_SKIP_BUILD_FOR_BRANCH = "feature/VS-1865-feature-environments-enhancements-log4j" }
-if (!env.VS_BRC_STACK_URI) { env.VS_BRC_STACK_URI = "visitscotland" }
+if (!env.VS_BRC_API_STACK_NAME) { env.VS_BRC_API_STACK_NAME = "visitscotland" }
 if (!env.VS_BRC_ENV) { env.VS_BRC_ENV = "demo" }
-if (!env.VS_BRC_STACK_URL) { env.VS_BRC_STACK_URL = "https://api.${VS_BRC_STACK_URI}.bloomreach.cloud" }
+if (!env.VS_BRC_API_STACK_NAME) { env.VS_BRC_API_STACK_NAME = "visitscotland" }
 if (!env.VS_BRC_STACK_API_VERSION) { env.VS_BRC_STACK_API_VERSION = "v3" }
 if (!env.VS_DOCKER_IMAGE_NAME) { env.VS_DOCKER_IMAGE_NAME = "vs/vs-brxm15:node18" }
 if (!env.VS_DOCKER_BUILDER_IMAGE_NAME) { env.VS_DOCKER_BUILDER_IMAGE_NAME = "vs/vs-brxm15-builder:node18" }
@@ -87,6 +87,11 @@ pipeline {
       steps {
         // Set any defined build property overrides for this work-in-progress branch
         sh '''
+          printenv | sort > printenv.pre-build
+          ./ci/infrastructure/scripts/infrastructure.sh setvars
+          printenv | sort > printenv.pre-build.setvars
+        '''
+        sh '''
           set +x
           echo; echo "running stage $STAGE_NAME on $HOSTNAME"
           echo; echo "== printenv in $STAGE_NAME =="; printenv | sort; echo "==/printenv in $STAGE_NAME =="; echo
@@ -113,32 +118,6 @@ pipeline {
       }
     } // end stage
 
-    stage ('vs compile & package') {
-      when {
-        allOf {
-          expression {return env.VS_RUN_BRC_STAGES != 'TRUE'}
-          expression {return env.VS_SKIP_VS_BLD != 'TRUE'}
-          expression {return env.VS_USE_DOCKER_BUILDER != 'TRUE'}
-          expression {return env.BRANCH_NAME != env.VS_SKIP_BUILD_FOR_BRANCH}
-          expression {return env.VS_SKIP_MAVEN_BUILD != 'true'}
-        }
-      }
-      steps {
-        sh './ci/infrastructure/scripts/infrastructure.sh setvars'
-        // -- 20200712: QUESTION FOR SE, "why do we not build with-development-data?"
-        sh 'mvn -f pom.xml clean package'
-      }
-      post {
-        success {
-          sh 'mvn -f pom.xml install -Pdist-with-development-data'
-          mail bcc: '', body: "<b>Notification</b><br>Project: ${env.JOB_NAME} <br>Build Number: ${env.BUILD_NUMBER} <br> build URL: ${env.BUILD_URL}", cc: '', charset: 'UTF-8', from: '', mimeType: 'text/html', replyTo: '', subject: "Maven build succeeded at ${env.STAGE_NAME} for ${env.JOB_NAME}", to: "${MAIL_TO}";
-        }
-        failure {
-          mail bcc: '', body: "<b>Notification</b><br>Project: ${env.JOB_NAME} <br>Build Number: ${env.BUILD_NUMBER} <br> build URL: ${env.BUILD_URL}", cc: '', charset: 'UTF-8', from: '', mimeType: 'text/html', replyTo: '', subject: "Maven build FAILED at ${env.STAGE_NAME} for  ${env.JOB_NAME}", to: "${MAIL_TO}";
-        }
-      }
-    }
-
 stage ('vs compile & package in docker') {
       when {
         allOf {
@@ -157,7 +136,7 @@ stage ('vs compile & package in docker') {
         }
       }
       steps {
-        sh './ci/infrastructure/scripts/infrastructure.sh setvars'
+        //sh './ci/infrastructure/scripts/infrastructure.sh setvars'
         sh '''
           set +x
           echo; echo "running stage $STAGE_NAME on $HOSTNAME"
@@ -286,13 +265,13 @@ stage ('vs compile & package in docker') {
             load "$WORKSPACE/ci/vs-last-env.quoted"
             echo "found ${env.VS_COMMIT_AUTHOR}"
             sh '''
-		set +x
-		echo
-		echo "== printenv after load of $WORKSPACE/ci/vs-last-env.quoted in $STAGE_NAME =="
-		printenv | sort
-		echo "==/printenv after load of $WORKSPACE/ci/vs-last-env.quoted in $STAGE_NAME =="
-		echo
-	    '''
+              set +x
+              echo
+              echo "== printenv after load of $WORKSPACE/ci/vs-last-env.quoted in $STAGE_NAME =="
+              printenv | sort
+              echo "==/printenv after load of $WORKSPACE/ci/vs-last-env.quoted in $STAGE_NAME =="
+              echo
+            '''
           } else {
             echo "cannot load environment variables, file does not exist"
           }
@@ -340,169 +319,8 @@ stage ('vs compile & package in docker') {
           }
         }
 
-        stage('Nexus IQ Scan: Site') {
-          when {
-            anyOf {
-              // Always run Nexus IQ scan for builds on 'develop'
-              branch 'develop'
-
-              // Always run Nexus IQ scan for pull requests
-              changeRequest()
-            }
-          }
-          steps {
-            script{
-              try {
-                def policyEvaluation = nexusPolicyEvaluation failBuildOnNetworkError: true, enableDebugLogging: true, iqApplication: selectedApplication('visitscotland-site'), iqScanPatterns: [[scanPattern: '**/site.war']], iqStage: 'build', jobCredentialsId: 'nexusiq'
-                echo "Nexus IQ scan succeeded: ${policyEvaluation.applicationCompositionReportUrl}"
-                IQ_SCAN_URL = "${policyEvaluation.applicationCompositionReportUrl}"
-              }
-              catch (error) {
-                def policyEvaluation = error.policyEvaluation
-                echo "Nexus IQ scan vulnerabilities detected', ${policyEvaluation.applicationCompositionReportUrl}"
-                throw error
-              }
-            }
-          }
-        } //end stage
-
-        stage('Nexus IQ Scan: CMS') {
-          when {
-            anyOf {
-              // Always run Nexus IQ scan for builds on 'develop'
-              branch 'develop'
-
-              // Always run Nexus IQ scan for pull requests
-              changeRequest()
-            }
-          }
-          steps {
-            script{
-              try {
-                def policyEvaluation = nexusPolicyEvaluation failBuildOnNetworkError: true, enableDebugLogging: true, iqApplication: selectedApplication('visitscotland-cms'), iqScanPatterns: [[scanPattern: '**/cms.war']], iqStage: 'build', jobCredentialsId: 'nexusiq'
-                echo "Nexus IQ scan succeeded: ${policyEvaluation.applicationCompositionReportUrl}"
-                IQ_SCAN_URL = "${policyEvaluation.applicationCompositionReportUrl}"
-              }
-              catch (error) {
-                def policyEvaluation = error.policyEvaluation
-                echo "Nexus IQ scan vulnerabilities detected', ${policyEvaluation.applicationCompositionReportUrl}"
-                throw error
-              }
-            }
-          }
-        } //end stage
-
-        stage('Nexus IQ Scan: SSR') {
-          when {
-            anyOf {
-              // Always run Nexus IQ scan for builds on 'develop'
-              branch 'develop'
-
-              // Always run Nexus IQ scan for pull requests
-              changeRequest()
-            }
-          }
-          steps {
-            script{
-              try {
-                def policyEvaluation = nexusPolicyEvaluation failBuildOnNetworkError: true, enableDebugLogging: true, iqApplication: selectedApplication('visitscotland-ssr'), iqScanPatterns: [[scanPattern: '**/*ssr*.tar.gz']], iqStage: 'build', jobCredentialsId: 'nexusiq'
-                echo "Nexus IQ scan succeeded: ${policyEvaluation.applicationCompositionReportUrl}"
-                IQ_SCAN_URL = "${policyEvaluation.applicationCompositionReportUrl}"
-              }
-              catch (error) {
-                def policyEvaluation = error.policyEvaluation
-                echo "Nexus IQ scan vulnerabilities detected', ${policyEvaluation.applicationCompositionReportUrl}"
-                throw error
-              }
-            }
-          }
-        } //end stage
-
-        stage ('Snapshot to Nexus'){
-              when {
-                allOf {
-                  expression {return env.VS_RELEASE_SNAPSHOT == 'TRUE'}
-                }
-              }
-              steps{
-                  script{
-                      sh 'mvn -B -f pom.xml deploy -Pdist-with-development-data -s $MAVEN_SETTINGS'
-                  }
-              }
-          } //end stage
-
-        stage('Release to Nexus') {
-          when {
-                branch 'PR-145' // to-do - hd: change this to develop when ready
-          }
-          steps {
-              script {
-                NEW_TAG = "${env.JOB_NAME}-${env.BUILD_NUMBER}"
-              }
-              echo "Creating tag $NEW_TAG"
-              sh "git tag -m \"CI tagging\" $NEW_TAG"
-              echo "Uploading tag $NEW_TAG to Bitbucket"
-              withCredentials([usernamePassword(credentialsId: 'jenkins-ssh', usernameVariable: 'USER', passwordVariable: 'PASSWORD')]) {
-                sh """
-                git config --local credential.username ${USER}
-                git config --local credential.helper "!echo password=${PASSWORD}; echo"
-                git push origin $NEW_TAG --repo=${env.GIT_URL}
-                """
-              }
-              echo "Uploading version $NEW_TAG to Nexus"
-              sh "mvn versions:set -DremoveSnapshot"
-              sh "mvn -B clean  deploy -Pdist -Drevision=$NEW_TAG -Dchangelist= -DskipTests -s $MAVEN_SETTINGS"
-          }
-        } //end stage
       } // end parallel stages
     } // end post-build actions
-
-    stage('Lighthouse Testing'){
-      when {
-        allOf {
-          not {
-            // Allow lighthouse to be skipped even if a feature environment was built
-            environment name: 'VS_SKIP_LIGHTHOUSE_TESTS', value: 'true'
-          }
-          anyOf {
-            // Always run the Lighthouse Tests for 'develop' builds
-            branch 'develop'
-
-            // Always run the Lighthouse Tests for pull requests
-            changeRequest()
-
-            // If the feature environment was forced to be built, run the Lighthouse tests
-            environment name: 'VS_BUILD_FEATURE_ENVIRONMENT', value: 'true'
-          }
-        }
-      }
-      steps{
-        catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
-          echo "Lighthouse test failure notification will be emailed to ${env.VS_COMMIT_AUTHOR}"
-          script{
-            // to-do: replace this sleep with a "wait for 200" in the script
-            sleep time: 120, unit: 'SECONDS'
-            sh 'sh ./testing/lighthouse.sh'
-          }
-        }
-      }
-      post {
-        success {
-          publishHTML (target: [
-            allowMissing: false,
-            alwaysLinkToLastBuild: false,
-            keepAll: false,
-            reportDir: 'ui-integration/.lighthouseci',
-            reportFiles: 'lhr-**.html',
-            reportName: "LH Report"
-          ])
-        }
-        failure {
-          echo "sending failure notice to ${env.VS_COMMIT_AUTHOR}"
-          mail bcc: '', body: "<b>Notification</b><br>Project: ${env.JOB_NAME} <br>Build Number: ${env.BUILD_NUMBER} <br> build URL: ${env.BUILD_URL}", cc: '', charset: 'UTF-8', from: '', mimeType: 'text/html', replyTo: '', subject: "Lighthouse failure: ${env.JOB_NAME}", to: "${env.VS_COMMIT_AUTHOR}";
-        }
-      }
-    }
 
   } //end stages
 
