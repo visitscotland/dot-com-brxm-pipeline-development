@@ -1,7 +1,7 @@
 package com.visitscotland.brxm.validator;
 
 import com.visitscotland.brxm.hippobeans.Article;
-import com.visitscotland.brxm.hippobeans.ArticleSection;
+import com.visitscotland.utils.Contract;
 import org.onehippo.cms.services.validation.api.ValidationContext;
 import org.onehippo.cms.services.validation.api.ValidationContextException;
 import org.onehippo.cms.services.validation.api.Validator;
@@ -14,28 +14,27 @@ import javax.jcr.NodeIterator;
 import javax.jcr.RepositoryException;
 import javax.jcr.Value;
 import java.util.*;
-import java.util.stream.Collectors;
 
 /**
  * jcr:Name = visitscotland:scotland-coordinates-validator
  *
  * @author jose.calcines
  */
-public class ArticleCopyValidator implements Validator<Node> {
+public class ContentListHeadingValidator implements Validator<Node> {
 
     private static final Logger logger = LoggerFactory.getLogger(LinkValidator.class);
 
-    static final String MANDATORY_H3 = "mandatory.h3";
+    static final String MANDATORY_HEADING = "mandatory.heading";
 
-    private Set<String> mandatoryH3;
+    private Set<String> themes;
 
-    public ArticleCopyValidator(final Node config) {
+    public ContentListHeadingValidator(final Node config) {
 
         try {
-            if (config.hasProperty(MANDATORY_H3)) {
-                mandatoryH3 = new HashSet<>();
-                for (Value v: config.getProperty(MANDATORY_H3).getValues()){
-                    mandatoryH3.add(v.getString());
+            if (config.hasProperty(MANDATORY_HEADING)) {
+                themes = new HashSet<>();
+                for (Value v: config.getProperty(MANDATORY_HEADING).getValues()){
+                    themes.add(v.getString());
                 }
             }
         } catch (RepositoryException e) {
@@ -45,7 +44,7 @@ public class ArticleCopyValidator implements Validator<Node> {
 
     public Optional<Violation> validate(final ValidationContext context, final Node document) {
         try {
-            if (!validateH3(document)){
+            if (!hasValidHeading(document)){
                 return Optional.of(context.createViolation());
             }
             return Optional.empty();
@@ -55,11 +54,11 @@ public class ArticleCopyValidator implements Validator<Node> {
 
     }
 
-    private boolean validateH3(final Node node) throws RepositoryException {
-        if (mandatoryH3.contains(node.getProperty(Article.THEME).getValue().getString())){
+    private boolean hasValidHeading(final Node node) throws RepositoryException {
+        if (themes.contains(node.getProperty(Article.THEME).getValue().getString())){
             for (NodeIterator it = node.getNodes(Article.PARAGRAPH); it.hasNext(); ) {
                 Node section = it.nextNode();
-                if (!section.getNode(ArticleSection.COPY).getProperty("hippostd:content").getString().startsWith("<h3>")){
+                if (Contract.isEmpty(section.getProperty("visitscotland:heading").getString())){
                     return false;
                 }
             }

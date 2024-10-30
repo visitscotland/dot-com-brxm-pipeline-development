@@ -12,6 +12,14 @@
         }
     ]);
 
+    CKEDITOR.stylesSet.add('content_list', [
+        {
+            element: 'h6',
+            name: 'Subheading'
+        }
+    ]);
+
+
     CKEDITOR.stylesSet.add('long_copy', [
         {
             element: 'h2',
@@ -28,11 +36,8 @@
         {
             element: 'h5',
             name: 'H5'
-        },
-        {
-            element: 'h6',
-            name: 'H6'
         }
+        /* H6 styles would be transformed to h4 in HTMLtoVueTransformer */
     ]);
 
     CKEDITOR.stylesSet.add('general_intro', [

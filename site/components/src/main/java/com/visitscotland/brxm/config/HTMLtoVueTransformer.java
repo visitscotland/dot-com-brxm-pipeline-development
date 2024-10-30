@@ -3,6 +3,7 @@ package com.visitscotland.brxm.config;
 import com.visitscotland.brxm.model.FlatLink;
 import com.visitscotland.brxm.model.LinkType;
 import com.visitscotland.brxm.services.LinkService;
+import org.jetbrains.annotations.NotNull;
 import org.springframework.stereotype.Component;
 
 import java.util.Collections;
@@ -16,12 +17,20 @@ public class HTMLtoVueTransformer {
 
     private final LinkService linkService;
 
+    private static final String[] HEADING_STYLES = {
+            "heading-xxl","heading-xl","heading-l","heading-m","heading-s","heading-xs"
+    };
+
     HTMLtoVueTransformer(LinkService linkService){
         this.linkService = linkService;
     }
 
     public String process(final String html, String parentDocument){
-        String output = processHeadings(html);
+        return process(html, parentDocument, false);
+    }
+
+    public String process(final String html, String parentDocument, boolean nested){
+        String output = processHeadings(html, nested);
         output = processLinks(output, parentDocument);
         output = processLists(output);
         output = processInfoAlert(output);
@@ -32,7 +41,7 @@ public class HTMLtoVueTransformer {
     /**
      * Process the heading tags (h2, h3, etc.) and transform them into Vue tags.
      */
-    public String processHeadings(final String html){
+    public String processHeadings(final String html, boolean nested){
         /*
          * Targets the heading tags
          *
@@ -47,22 +56,31 @@ public class HTMLtoVueTransformer {
 
         while (matcher.find()) {
             String id = toKebabCase(matcher.group(3));
-            String level = matcher.group(1);
-            String vsHeading;
-            if (level.equals("6")){
-                /* TODO: This is a workaround for VS-3489 and needs to be removed when that ticket is completed
-                 * Since this a temporarily fix no unit tests have been written
-                 */
-                vsHeading = String.format("<vs-heading level=\"4\" override-style-level=\"6\" id=\"%s\"%s>%s</vs-heading>",
-                        id, matcher.group(2), matcher.group(3));
-            } else {
-                vsHeading = String.format("<vs-heading level=\"%s\" id=\"%s\"%s>%s</vs-heading>",
-                        level, id, matcher.group(2), matcher.group(3));
-            }
-            output = output.replace(matcher.group(), vsHeading);
+            output = output.replace(matcher.group(), getTransformedHeading(matcher, id, nested));
         }
 
         return output;
+    }
+
+    /**
+     * Transforms the headings to Vue heading
+     */
+    private static @NotNull String getTransformedHeading(Matcher matcher, String id, boolean nested) {
+        final int level = Integer.parseInt(matcher.group(1));
+        int headingLevel = level;
+
+        if (level == 6){
+            /* TODO: This is a workaround for VS-3489 and needs to be removed when that ticket is completed
+             * Since this a temporarily fix no unit tests have been written
+             */
+            headingLevel = 4;
+        }
+        if (nested){
+            headingLevel++;
+        }
+
+        return String.format("<vs-heading level=\"%s\" heading-style=\"%s\" id=\"%s\"%s>%s</vs-heading>",
+                headingLevel, HEADING_STYLES[level - 1], id, matcher.group(2), matcher.group(3));
     }
 
     /**

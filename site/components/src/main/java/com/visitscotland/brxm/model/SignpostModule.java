@@ -1,12 +1,11 @@
 package com.visitscotland.brxm.model;
 
-import com.visitscotland.brxm.utils.HippoHtmlWrapper;
 import org.hippoecm.hst.content.beans.standard.HippoHtml;
 
 public class SignpostModule extends Module {
 
     private String title;
-    private HippoHtmlWrapper copy;
+    private HippoHtml copy;
     private FlatLink cta;
     private FlatImage image;
 
@@ -22,7 +21,7 @@ public class SignpostModule extends Module {
         return copy;
     }
 
-    public void setCopy(HippoHtmlWrapper copy) {
+    public void setCopy(HippoHtml copy) {
         this.copy = copy;
     }
 

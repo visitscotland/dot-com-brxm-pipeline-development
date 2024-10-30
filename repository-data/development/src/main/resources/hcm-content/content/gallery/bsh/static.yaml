@@ -5,3 +5,55 @@
   jcr:uuid: f2d5b683-c5a7-486b-a092-5fb1735afb05
   hippostd:foldertype: [new-visitscotland-Image-folder]
   hippostd:gallerytype: ['visitscotland:Image']
+  /page-placeholder.jpg:
+    jcr:primaryType: hippo:handle
+    jcr:mixinTypes: ['mix:referenceable']
+    jcr:uuid: c6adc092-756e-447d-861e-54a217b297d4
+    /page-placeholder.jpg:
+      jcr:primaryType: visitscotland:Image
+      hippo:availability: [live, preview]
+      hippogallery:description: Two professionals in the tourism industry collaborate
+        on a tablet
+      hippogallery:filename: placeholder.jpg
+      visitscotland:altText: ''
+      visitscotland:credit: VisitScotland / Trevor Martin
+      visitscotland:location: Edinburgh
+      /hippogallery:thumbnail:
+        jcr:primaryType: hippogallery:image
+        hippo:filename: placeholder.jpg
+        hippogallery:height: 44
+        hippogallery:width: 60
+        jcr:data:
+          type: binary
+          resource: /content/gallery/bsh/static/page-placeholder.jpg/page-placeholder.jpg/thumbnail/thumbnail.jpg
+        jcr:lastModified: 2024-10-23T17:31:17.685+01:00
+        jcr:mimeType: image/jpeg
+      /hippogallery:original:
+        jcr:primaryType: hippogallery:image
+        hippogallery:height: 884
+        hippogallery:width: 1202
+        jcr:data:
+          type: binary
+          resource: /content/gallery/bsh/static/page-placeholder.jpg/page-placeholder.jpg/original/original.jpg
+        jcr:lastModified: 2024-10-23T17:31:17.685+01:00
+        jcr:mimeType: image/jpeg
+      /visitscotland:nl:
+        jcr:primaryType: visitscotland:ImageData
+        visitscotland:altText: ''
+        visitscotland:caption: ''
+      /visitscotland:fr:
+        jcr:primaryType: visitscotland:ImageData
+        visitscotland:altText: ''
+        visitscotland:caption: ''
+      /visitscotland:de:
+        jcr:primaryType: visitscotland:ImageData
+        visitscotland:altText: ''
+        visitscotland:caption: ''
+      /visitscotland:es:
+        jcr:primaryType: visitscotland:ImageData
+        visitscotland:altText: ''
+        visitscotland:caption: ''
+      /visitscotland:it:
+        jcr:primaryType: visitscotland:ImageData
+        visitscotland:altText: ''
+        visitscotland:caption: ''

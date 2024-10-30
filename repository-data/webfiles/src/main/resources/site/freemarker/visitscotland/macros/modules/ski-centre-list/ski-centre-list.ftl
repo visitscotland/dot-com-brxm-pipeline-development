@@ -21,7 +21,7 @@
 
         <vs-container>
             <vs-row
-                class="mx-n4 mx-lg-n8"
+                class="mx-n100 mx-lg-n200"
             >
                 <#list module.skiCentres as centre>
                     <@hst.link var="imageSrc" hippobean=centre.cmsPage.image.cmsImage.original/>
@@ -29,7 +29,7 @@
                         cols="12"
                         sm="6"
                         lg="4"
-                        class="px-4 px-lg-8 text-start"
+                        class="px-100 px-lg-200 text-start"
                     >
                         <vs-ski-scotland-card
                             centre-info-url="${centre.feedURL}"
@@ -71,45 +71,6 @@
                         </vs-ski-scotland-card>
                     </vs-col>
                 </#list>
-            </vs-row>
-        </vs-container>
-        <vs-container class="mt-8">
-            <vs-row>
-                <vs-col
-                    cols="6"
-                    md="3"
-                    offset-md="3"
-                    lg="2"
-                    offset-lg="4"
-                    class="d-flex"
-                    style="align-items: center;"
-                >
-                    <vs-img
-                        src="https://static.visitscotland.com/img/ski-scotland/ski-scotland.png"
-                        class="w-100 p-4"
-                    />
-                </vs-col>
-                <vs-col
-                    cols="6"
-                    md="3"
-                    lg="2"
-                    class="d-flex"
-                    style="align-items: center;"
-                >
-                    <vs-img
-                        src="https://static.visitscotland.com/img/ski-scotland/cairngorm-mountain.svg"
-                        class="w-100 p-4"
-                    />
-                </vs-col>
-            </vs-row>
-            <vs-row>
-                <vs-col
-                    cols="12"
-                    md="6"
-                    offset-md="3"
-                >
-                    <p>${label("ski", "ski-data.provider")}</p>
-                </vs-col>
             </vs-row>
         </vs-container>
     </vs-module-wrapper>

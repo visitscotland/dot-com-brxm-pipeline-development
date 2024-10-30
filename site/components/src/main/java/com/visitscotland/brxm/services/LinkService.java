@@ -8,6 +8,7 @@ import com.visitscotland.brxm.dms.ProductSearchBuilder;
 import com.visitscotland.brxm.factory.ImageFactory;
 import com.visitscotland.brxm.hippobeans.*;
 import com.visitscotland.brxm.hippobeans.capabilities.Linkable;
+import com.visitscotland.brxm.hippobeans.capabilities.UrlLink;
 import com.visitscotland.brxm.model.FlatLink;
 import com.visitscotland.brxm.model.LinkType;
 import com.visitscotland.brxm.model.Module;
@@ -251,16 +252,14 @@ public class LinkService {
             } else {
                 url = cmsProperties.getDmsHost() + product.get(DMSConstants.DMSProduct.URL).get(DMSConstants.DMSProduct.URL_LINK).asText();
             }
-        } else if (link instanceof ExternalLink) {
-            url = ((ExternalLink) link).getLink();
         } else if (link instanceof ProductsSearch) {
             url = productSearch().fromHippoBean(((ProductsSearch) link)).locale(locale).build();
         } else if (link instanceof ProductSearchLink) {
             url = productSearch().fromHippoBean(((ProductSearchLink) link).getSearch()).locale(locale).build();
-        } else if (link instanceof ExternalDocument) {
-            url = ((ExternalDocument) link).getLink();
         } else if (link instanceof Video) {
             url = ((Video) link).getUrl();
+        } else if (link instanceof UrlLink) {
+            url = ((UrlLink) link).getLink();
         } else {
             String linkType = link == null ? "null" : link.getClass().getSimpleName();
             logger.warn("This class {} is not recognized as a link type and cannot be converted", linkType);
@@ -277,7 +276,7 @@ public class LinkService {
     public LinkType getType(String url) {
         if (Contract.isEmpty(url)) {
             return null;
-        } else if (url.toLowerCase().endsWith(".pdf")) {
+        } else if (isDownload(url)) {
             return LinkType.DOWNLOAD;
         } else if (url.toLowerCase().startsWith("mailto:")){
             return LinkType.MAIL;
@@ -288,6 +287,18 @@ public class LinkService {
         }
 
         return LinkType.EXTERNAL;
+    }
+
+    private boolean isDownload(String url) {
+        String[] validExtensions = siteProperties.getDownloadExtensions().split(",");
+
+        for (String ext : validExtensions) {
+            if (url.toLowerCase().endsWith("." + ext.trim())) {
+                return true;
+            }
+        }
+
+        return false;
     }
 
     /**
@@ -491,6 +502,9 @@ public class LinkService {
             return null;
         }
 
+        if (sharedLink instanceof SharedLinkBSH) {
+            link.setSource(((SharedLinkBSH) sharedLink).getSource());
+        }
         if (product != null && !hasOverrideImage(sharedLink) && product.has(DMSConstants.DMSProduct.IMAGE)) {
             link.setImage(imageFactory.createImage(product, module, locale));
         }else{

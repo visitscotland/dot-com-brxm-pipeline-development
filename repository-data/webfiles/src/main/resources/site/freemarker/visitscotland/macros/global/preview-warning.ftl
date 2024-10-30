@@ -5,11 +5,11 @@
 <#macro previewWarning editMode module errorMessages=[] hidden=false message="">
     <#if editMode && (errorMessages?has_content || message?has_content) >
         <vs-container
-            class="py-4"
+            class="py-100"
         >
             <vs-alert>
                 <div>
-                    <p class="text-danger pb-2"><strong>CMS ERROR! </strong></p>
+                    <p class="text-danger pb-050"><strong>CMS ERROR! </strong></p>
                     <#if message?? && message != "">
                         <p>${message}</p>
                     <#elseif hidden>

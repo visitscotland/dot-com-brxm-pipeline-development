@@ -18,6 +18,7 @@ import com.visitscotland.brxm.utils.*;
 import org.hippoecm.hst.content.beans.standard.HippoCompound;
 import org.hippoecm.hst.core.container.ComponentManager;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -38,6 +39,7 @@ import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
+
 class LinkServiceTest {
 
     @Mock
@@ -56,9 +58,10 @@ class LinkServiceTest {
     private CMSProperties properties;
 
     @Mock
-    private SiteProperties siteProperties;
-    @Mock
     private CommonUtilsService commonUtils;
+
+    @Mock
+    private SiteProperties siteProperties;
 
     @Mock
     private DocumentUtilsService documentUtilsService;
@@ -80,6 +83,14 @@ class LinkServiceTest {
         when(context.getComponent(ProductSearchBuilder.class)).thenReturn(builder);
         VsComponentManager.setComponentManager(context);
     }
+
+    @BeforeEach
+    void init(){
+        // lenient is a general bad practice
+        //TODO: Include the mock of this property on unit tests where it is needed
+        lenient().when(siteProperties.getDownloadExtensions()).thenReturn("pdf");
+    }
+
 
     @Test
     @DisplayName("Create a link from an ExternalLink Compound")

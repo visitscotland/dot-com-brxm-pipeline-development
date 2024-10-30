@@ -52,6 +52,7 @@ public class MegalinkFactory {
         } else {
             return multiImageLayout(doc, locale);
         }
+
     }
 
     /**
@@ -90,7 +91,7 @@ public class MegalinkFactory {
         return hll;
     }
 
-    public HorizontalListLinksModule horizontalListLayout(BshGeneral page, Locale locale) {
+    public HorizontalListLinksModule horizontalListLayout(GeneralBSH page, Locale locale) {
         HorizontalListLinksModule hll = new HorizontalListLinksModule();
         hll.setTitle(bundle.getSiteResourceBundle(OTYML, "otyml.title.default", locale));
         hll.setLinks(convertPageLinksToEnhancedLinks(hll, page.getLinks(), locale, true));
@@ -184,8 +185,17 @@ public class MegalinkFactory {
         target.setTitle(doc.getTitle());
         target.setIntroduction(doc.getIntroduction());
 
+        addSpecialFields(doc, target);
+
         if (doc.getProductItem() != null) {
             target.setCta(linkService.createFindOutMoreLink(target, locale, doc.getProductItem()));
+        }
+    }
+
+    private void addSpecialFields(Megalinks doc, LinksModule<?> module){
+        if (doc instanceof MegalinksBSH){
+            module.setNested(Boolean.TRUE.equals(((MegalinksBSH) doc).getNested()));
+            module.setAnchor(((MegalinksBSH) doc).getAnchor());
         }
     }
 

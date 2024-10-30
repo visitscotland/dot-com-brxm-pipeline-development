@@ -5,7 +5,7 @@
 <#macro introImage mainImage="" >
     <@hst.link var="imageSrc" hippobean=mainImage.cmsImage.original/>
 
-    <vs-container class="mt-n4 mb-9">
+    <vs-container class="mt-n100 mb-300">
         <vs-row>
             <vs-col
                 class="col-12 col-lg-8 offset-lg-2"

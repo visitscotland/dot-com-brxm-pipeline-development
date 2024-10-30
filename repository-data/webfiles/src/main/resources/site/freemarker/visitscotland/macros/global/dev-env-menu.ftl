@@ -1,6 +1,6 @@
 <#macro devEnvMenu>
     <div style="background-color: #200F2E;">
-        <div class="d-flex flex-column flex-lg-row justify-content-lg-between container-lg py-2">
+        <div class="d-flex flex-column flex-lg-row justify-content-lg-between container-lg py-050">
             <span class="text-warning"><strong>Branch:</strong> ${ciBranch}</span>
             <span class="text-warning"><strong>Author:</strong> ${ciCommitAuthor}</span>
             <#if ciPrID??>
