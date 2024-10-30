@@ -345,6 +345,97 @@ stage ('vs compile & package in docker') {
           }
         }
 
+        stage('Nexus IQ Scan: Site') {
+          when {
+            anyOf {
+              // Always run Nexus IQ scan for builds on 'develop'
+              branch 'develop'
+
+              // Always run Nexus IQ scan for pull requests
+              changeRequest()
+            }
+          }
+          steps {
+            script{
+              try {
+                def policyEvaluation = nexusPolicyEvaluation failBuildOnNetworkError: true, enableDebugLogging: true, iqApplication: selectedApplication('visitscotland-site'), iqScanPatterns: [[scanPattern: '**/site.war']], iqStage: 'build', jobCredentialsId: 'nexusiq'
+                echo "Nexus IQ scan succeeded: ${policyEvaluation.applicationCompositionReportUrl}"
+                IQ_SCAN_URL = "${policyEvaluation.applicationCompositionReportUrl}"
+              }
+              catch (error) {
+                def policyEvaluation = error.policyEvaluation
+                echo "Nexus IQ scan vulnerabilities detected', ${policyEvaluation.applicationCompositionReportUrl}"
+                throw error
+              }
+            }
+          }
+        } //end stage
+
+        stage('Nexus IQ Scan: CMS') {
+          when {
+            anyOf {
+              // Always run Nexus IQ scan for builds on 'develop'
+              branch 'develop'
+
+              // Always run Nexus IQ scan for pull requests
+              changeRequest()
+            }
+          }
+          steps {
+            script{
+              try {
+                def policyEvaluation = nexusPolicyEvaluation failBuildOnNetworkError: true, enableDebugLogging: true, iqApplication: selectedApplication('visitscotland-cms'), iqScanPatterns: [[scanPattern: '**/cms.war']], iqStage: 'build', jobCredentialsId: 'nexusiq'
+                echo "Nexus IQ scan succeeded: ${policyEvaluation.applicationCompositionReportUrl}"
+                IQ_SCAN_URL = "${policyEvaluation.applicationCompositionReportUrl}"
+              }
+              catch (error) {
+                def policyEvaluation = error.policyEvaluation
+                echo "Nexus IQ scan vulnerabilities detected', ${policyEvaluation.applicationCompositionReportUrl}"
+                throw error
+              }
+            }
+          }
+        } //end stage
+
+        stage('Nexus IQ Scan: SSR') {
+          when {
+            anyOf {
+              // Always run Nexus IQ scan for builds on 'develop'
+              branch 'develop'
+
+              // Always run Nexus IQ scan for pull requests
+              changeRequest()
+            }
+          }
+          steps {
+            script{
+              try {
+                def policyEvaluation = nexusPolicyEvaluation failBuildOnNetworkError: true, enableDebugLogging: true, iqApplication: selectedApplication('visitscotland-ssr'), iqScanPatterns: [[scanPattern: '**/*ssr*.tar.gz']], iqStage: 'build', jobCredentialsId: 'nexusiq'
+                echo "Nexus IQ scan succeeded: ${policyEvaluation.applicationCompositionReportUrl}"
+                IQ_SCAN_URL = "${policyEvaluation.applicationCompositionReportUrl}"
+              }
+              catch (error) {
+                def policyEvaluation = error.policyEvaluation
+                echo "Nexus IQ scan vulnerabilities detected', ${policyEvaluation.applicationCompositionReportUrl}"
+                throw error
+              }
+            }
+          }
+        } //end stage
+
+        stage ('Snapshot to Nexus'){
+              when {
+                allOf {
+                  expression {return env.VS_RELEASE_SNAPSHOT == 'TRUE'}
+                }
+              }
+              steps{
+                  script{
+                      sh 'mvn -B -f pom.xml deploy -Pdist-with-development-data -s $MAVEN_SETTINGS'
+                  }
+              }
+          } //end stage
+
         stage('Release to Nexus') {
           when {
                 branch 'PR-145' // to-do - hd: change this to develop when ready
