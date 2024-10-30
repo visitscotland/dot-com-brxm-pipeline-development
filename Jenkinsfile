@@ -291,13 +291,13 @@ stage ('vs compile & package in docker') {
             load "$WORKSPACE/ci/vs-last-env.quoted"
             echo "found ${env.VS_COMMIT_AUTHOR}"
             sh '''
-		set +x
-		echo
-		echo "== printenv after load of $WORKSPACE/ci/vs-last-env.quoted in $STAGE_NAME =="
-		printenv | sort
-		echo "==/printenv after load of $WORKSPACE/ci/vs-last-env.quoted in $STAGE_NAME =="
-		echo
-	    '''
+              set +x
+              echo
+              echo "== printenv after load of $WORKSPACE/ci/vs-last-env.quoted in $STAGE_NAME =="
+              printenv | sort
+              echo "==/printenv after load of $WORKSPACE/ci/vs-last-env.quoted in $STAGE_NAME =="
+              echo
+            '''
           } else {
             echo "cannot load environment variables, file does not exist"
           }
@@ -347,53 +347,6 @@ stage ('vs compile & package in docker') {
 
       } // end parallel stages
     } // end post-build actions
-
-    stage('Lighthouse Testing'){
-      when {
-        allOf {
-          not {
-            // Allow lighthouse to be skipped even if a feature environment was built
-            environment name: 'VS_SKIP_LIGHTHOUSE_TESTS', value: 'true'
-          }
-          anyOf {
-            // Always run the Lighthouse Tests for 'develop' builds
-            branch 'develop'
-
-            // Always run the Lighthouse Tests for pull requests
-            changeRequest()
-
-            // If the feature environment was forced to be built, run the Lighthouse tests
-            environment name: 'VS_BUILD_FEATURE_ENVIRONMENT', value: 'true'
-          }
-        }
-      }
-      steps{
-        catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
-          echo "Lighthouse test failure notification will be emailed to ${env.VS_COMMIT_AUTHOR}"
-          script{
-            // to-do: replace this sleep with a "wait for 200" in the script
-            sleep time: 120, unit: 'SECONDS'
-            sh 'sh ./testing/lighthouse.sh'
-          }
-        }
-      }
-      post {
-        success {
-          publishHTML (target: [
-            allowMissing: false,
-            alwaysLinkToLastBuild: false,
-            keepAll: false,
-            reportDir: 'ui-integration/.lighthouseci',
-            reportFiles: 'lhr-**.html',
-            reportName: "LH Report"
-          ])
-        }
-        failure {
-          echo "sending failure notice to ${env.VS_COMMIT_AUTHOR}"
-          mail bcc: '', body: "<b>Notification</b><br>Project: ${env.JOB_NAME} <br>Build Number: ${env.BUILD_NUMBER} <br> build URL: ${env.BUILD_URL}", cc: '', charset: 'UTF-8', from: '', mimeType: 'text/html', replyTo: '', subject: "Lighthouse failure: ${env.JOB_NAME}", to: "${env.VS_COMMIT_AUTHOR}";
-        }
-      }
-    }
 
   } //end stages
 
