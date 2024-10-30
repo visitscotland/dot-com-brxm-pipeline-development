@@ -11,7 +11,7 @@ definitions:
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:uuid: 9401575e-a87f-407c-8f8b-bce63ad80045
+          jcr:uuid: 6f77fd6f-437d-4fe3-ad41-b25f55220ec5
           hipposysedit:node: true
           hipposysedit:supertype: ['visitscotland:Article', 'hippostd:relaxed', 'hippotranslation:translated']
           hipposysedit:uri: http://www.visitscotland.com/visitscotland/nt/1.0
@@ -70,7 +70,7 @@ definitions:
         /hipposysedit:prototype:
           jcr:primaryType: visitscotland:ArticleBSH
           jcr:mixinTypes: ['mix:referenceable']
-          jcr:uuid: d2adf02c-76ec-42db-aa55-d2f76325b60d
+          jcr:uuid: c4d8fe08-2168-4ced-9240-a3c4ec7aeb79
           hippostd:state: draft
           hippostdpubwf:createdBy: ''
           hippostdpubwf:creationDate: 2024-10-17T10:32:44.925+01:00
@@ -84,6 +84,11 @@ definitions:
           /visitscotland:copy:
             jcr:primaryType: hippostd:html
             hippostd:content: ''
+          /visitscotland:paragraph:
+            jcr:primaryType: visitscotland:ArticleSection
+            /visitscotland:copy:
+              jcr:primaryType: hippostd:html
+              hippostd:content: ''
       /editor:templates:
         jcr:primaryType: editor:templateset
         /_default_:
