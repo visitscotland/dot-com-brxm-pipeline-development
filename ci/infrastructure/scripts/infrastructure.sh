@@ -930,7 +930,7 @@ containerCopyHippoArtifact() {
     if [ ! "$SAFE_TO_PROCEED" = "FALSE" ]; then
     echo ""
     echo "$(eval $VS_LOG_DATESTAMP) INFO  [$VS_SCRIPTNAME] about to copy $VS_HIPPO_LATEST to container $VS_CONTAINER_NAME:/home/hippo"
-    docker cp --user root $VS_HIPPO_LATEST $VS_CONTAINER_NAME:/home/hippo
+    docker cp $VS_HIPPO_LATEST $VS_CONTAINER_NAME:/home/hippo
     RETURN_CODE=$?; echo $RETURN_CODE
     if [ ! "$RETURN_CODE" = "0" ]; then
       SAFE_TO_PROCEED=FALSE
