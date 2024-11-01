@@ -29,6 +29,7 @@ module.exports = {
     entry: {
         // Will create 'legacy.css' in 'css' dir.
         legacy: './embed/import-override.scss',
+        tms: './embed/tms-override.scss',
     },
 
     module: {
