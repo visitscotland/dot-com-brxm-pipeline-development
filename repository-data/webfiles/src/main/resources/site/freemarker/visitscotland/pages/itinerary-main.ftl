@@ -65,7 +65,7 @@
                                     title
                                     class="col-auto px-0"
                                 >
-                                    ${label("itinerary", "transport")}:
+                                    ${label("itinerary", "transport")}
                                 </vs-description-list-item>
                                 <#list day.transports as transport>
                                     <vs-description-list-item 
