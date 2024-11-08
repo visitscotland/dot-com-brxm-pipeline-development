@@ -23,10 +23,7 @@ public class ProductSearchWidgetFactory {
     final LocationLoader locationLoader;
     final CMSProperties properties;
 
-    public static final String POSITION_TOP = "Top";
-    public static final String POSITION_BOTTOM = "Bottom";
-    //TODO: This option will disappear after the regular expressions are removed
-    public static final String POSITION_DEFAULT = "Default";
+    private static final String POSITION_BOTTOM = "Bottom";
 
     public ProductSearchWidgetFactory(ResourceBundleService bundle, LocationLoader locationLoader, CMSProperties properties) {
         this.bundle = bundle;
@@ -50,25 +47,6 @@ public class ProductSearchWidgetFactory {
 
         return module;
     }
-
-//    private String calculatePosition(HstRequest request){
-//        Page page = (Page) request.getAttribute(PageContentComponent.DOCUMENT);
-//        if (page instanceof General){
-//            General general = ((General) page);
-//
-//            if (general.getBlog() != null) {
-//                return POSITION_BOTTOM;
-//            } else if (!Contract.isEmpty(general.getPswPosition()) && !general.getPswPosition().equals(POSITION_DEFAULT)) {
-//                return general.getPswPosition();
-//            } else if (!general.getTheme().equals(GeneralContentComponent.SIMPLE)) {
-//                return POSITION_TOP;
-//            }
-//        } else if (page instanceof Destination){
-//            return POSITION_TOP;
-//        }
-//
-//        return POSITION_BOTTOM;
-//    }
 
     /**
      * @param request the HstRequest request
