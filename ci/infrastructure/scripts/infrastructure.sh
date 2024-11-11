@@ -66,6 +66,7 @@ if [ -z "$VS_BRXM_INSTANCE_HTTP_HOST" ]; then
     VS_BRXM_INSTANCE_HTTP_HOST=localhost
   fi
 fi
+
 if [ -z "$VS_BRXM_PERSISTENCE_METHOD" ]; then VS_BRXM_PERSISTENCE_METHOD=h2; fi
 if [ -z "$VS_BUILD_TYPE" ]; then VS_BUILD_TYPE=BRXM; fi
 if [ -z "$VS_CONTAINER_MAIN_APP_PORT" ]; then VS_CONTAINER_MAIN_APP_PORT=8080; fi
@@ -147,6 +148,8 @@ while [[ $# -gt 0 ]]; do
     --reuse-container) if [ ! -z "$THIS_RESULT" ]; then VS_CONTAINER_PRESERVE=$THIS_RESULT; else VS_CONTAINER_PRESERVE=TRUE; fi;;
     --single-function) if [ ! -z "$THIS_RESULT" ]; then VS_THIS_FUNCTION=$THIS_RESULT; fi;;
     --tidy-containers) if [ ! -z "$THIS_RESULT" ]; then VS_TIDY_CONTAINERS=$THIS_RESULT; else VS_TIDY_CONTAINERS=TRUE; fi;;
+    --vs-brxm-host) if [ ! -z "$THIS_RESULT" ]; then VS_BRXM_HOST=$THIS_RESULT; fi;;
+    --vs-brxm-port) if [ ! -z "$THIS_RESULT" ]; then VS_BRXM_PORT=$THIS_RESULT; fi;;
     --working-dir) if [ ! -z "$THIS_RESULT" ]; then VS_WORKING_DIR=$THIS_RESULT; fi;;
     --map-workspace) if [ ! -z "$THIS_RESULT" ]; then VS_CONTAINER_WORKSPACE_MAP=$THIS_RESULT; fi;;
     --quiet) if [ ! -z "$THIS_RESULT" ]; then VS_SCRIPT_RUN_QUIET=TRUE; fi;;
@@ -204,6 +207,7 @@ defaultSettings() {
   unset VS_PARENT_JOB_NAME
   unset RESERVED_PORT_LIST
   unset VS_CONTAINER_PORT_MAPPINGS
+  VS_HOST_IP_ADDRESS=$(/usr/sbin/ip ad sh  | egrep "global noprefixroute" | awk '{print $2}' | sed -e "s/\/.*$//")
   # set, and create if missing, VS_CI_DIR
   if [ -z "$VS_CI_DIR" ]; then
     if [ ! -z "$WORKSPACE" ]; then
