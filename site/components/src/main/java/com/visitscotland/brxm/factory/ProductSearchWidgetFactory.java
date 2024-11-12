@@ -31,7 +31,7 @@ public class ProductSearchWidgetFactory {
         this.properties = properties;
     }
 
-    public PSModule getWidget(@NotNull HstRequest request){
+    public PSModule getWidget(@NotNull HstRequest request) {
         PSModule module = new PSModule();
         PSType type = PSType.getType(request.getRequestURI());
 
@@ -48,14 +48,34 @@ public class ProductSearchWidgetFactory {
         return module;
     }
 
+//    TODO - Once the requirements around this are reviewed and solidified, this method can be removed.
+//    private String calculatePosition(HstRequest request){
+//        Page page = (Page) request.getAttribute(PageContentComponent.DOCUMENT);
+//        if (page instanceof General){
+//            General general = ((General) page);
+//
+//            if (general.getBlog() != null) {
+//                return POSITION_BOTTOM;
+//            } else if (!Contract.isEmpty(general.getPswPosition()) && !general.getPswPosition().equals(POSITION_DEFAULT)) {
+//                return general.getPswPosition();
+//            } else if (!general.getTheme().equals(GeneralContentComponent.SIMPLE)) {
+//                return POSITION_TOP;
+//            }
+//        } else if (page instanceof Destination){
+//            return POSITION_TOP;
+//        }
+//
+//        return POSITION_BOTTOM;
+//    }
+
     /**
      * @param request the HstRequest request
      * @return Location object populated
      */
-    private LocationObject getLocation(HstRequest request){
+    private LocationObject getLocation(HstRequest request) {
         Page page = request.getModel("document");
 
-        while (page != null && !(page instanceof Destination)){
+        while (page != null && !(page instanceof Destination)) {
             page = page.getParentBean().getParentBean().getBean("content");
         }
 
