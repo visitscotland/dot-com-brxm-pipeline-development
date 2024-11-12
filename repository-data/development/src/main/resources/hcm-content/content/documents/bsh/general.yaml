@@ -256,3 +256,82 @@
       hippostd:foldertype: [new-translated-folder-banner, new-banner]
       hippotranslation:id: 30f3bb6a-a164-47f9-af45-939ead0e46c6
       hippotranslation:locale: en
+      /content:
+        jcr:primaryType: hippo:handle
+        jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+        jcr:uuid: f9b6ff72-0406-4f9e-bc37-46ac314e6a85
+        hippo:name: General banner
+        hippo:versionHistory: 68c14aef-ea0a-40fa-9848-e49038568eb2
+        /content[1]:
+          jcr:primaryType: visitscotland:Banner
+          jcr:mixinTypes: ['mix:referenceable']
+          jcr:uuid: 00fa42a7-1ebd-428b-8d14-874cdc6c1ca0
+          hippo:availability: []
+          hippostd:retainable: false
+          hippostd:state: draft
+          hippostd:transferable: false
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2024-11-05T14:25:42.830Z
+          hippostdpubwf:lastModificationDate: 2024-11-05T14:25:42.830Z
+          hippostdpubwf:lastModifiedBy: admin
+          hippotranslation:id: b9d4123b-52e8-44d5-b0c4-1a1b9183e13d
+          hippotranslation:locale: en
+          visitscotland:translation: ''
+          /visitscotland:copy:
+            jcr:primaryType: hippostd:html
+            hippostd:content: <p>Banner example for BSH development site</p>
+          /visitscotland:ctaLink:
+            jcr:primaryType: visitscotland:CMSLink
+            visitscotland:label: ''
+            /visitscotland:link:
+              jcr:primaryType: hippo:mirror
+              hippo:docbase: a2ba1a3e-d330-4c56-b696-0e99ee64f00f
+        /content[2]:
+          jcr:primaryType: visitscotland:Banner
+          jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+          jcr:uuid: c43b7a24-8975-4c9d-a305-58febe903b27
+          hippo:availability: [preview]
+          hippostd:retainable: false
+          hippostd:state: unpublished
+          hippostd:transferable: false
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2024-11-05T14:25:42.830Z
+          hippostdpubwf:lastModificationDate: 2024-11-05T14:27:24.262Z
+          hippostdpubwf:lastModifiedBy: admin
+          hippotranslation:id: b9d4123b-52e8-44d5-b0c4-1a1b9183e13d
+          hippotranslation:locale: en
+          visitscotland:translation: ''
+          /visitscotland:copy:
+            jcr:primaryType: hippostd:html
+            hippostd:content: <p>Banner example for BSH development site</p>
+          /visitscotland:ctaLink:
+            jcr:primaryType: visitscotland:CMSLink
+            visitscotland:label: ''
+            /visitscotland:link:
+              jcr:primaryType: hippo:mirror
+              hippo:docbase: a2ba1a3e-d330-4c56-b696-0e99ee64f00f
+        /content[3]:
+          jcr:primaryType: visitscotland:Banner
+          jcr:mixinTypes: ['mix:referenceable']
+          jcr:uuid: a1d3f0bb-cc4e-4fbb-8641-f64983262c0e
+          hippo:availability: [live]
+          hippostd:retainable: false
+          hippostd:state: published
+          hippostd:transferable: false
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2024-11-05T14:25:42.830Z
+          hippostdpubwf:lastModificationDate: 2024-11-05T14:27:24.262Z
+          hippostdpubwf:lastModifiedBy: admin
+          hippostdpubwf:publicationDate: 2024-11-05T14:27:28.821Z
+          hippotranslation:id: b9d4123b-52e8-44d5-b0c4-1a1b9183e13d
+          hippotranslation:locale: en
+          visitscotland:translation: ''
+          /visitscotland:copy:
+            jcr:primaryType: hippostd:html
+            hippostd:content: <p>Banner example for BSH development site</p>
+          /visitscotland:ctaLink:
+            jcr:primaryType: visitscotland:CMSLink
+            visitscotland:label: ''
+            /visitscotland:link:
+              jcr:primaryType: hippo:mirror
+              hippo:docbase: a2ba1a3e-d330-4c56-b696-0e99ee64f00f

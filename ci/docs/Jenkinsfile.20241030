@@ -6,15 +6,34 @@ cron_string = ""
 // set any environment-specific environment variables here using the format: env.MY_VAR = "conditional_value" }
 // please see ci/README_PIPELINE_VARIABLES.md or consult Web Operations for details on environment variables and their purposes
 echo "== Setting conditional environment variables"
-if (BRANCH_NAME ==~ "ops/feature-environment(s)?-enhancements") {
+if (BRANCH_NAME == "develop" && (JOB_NAME == "develop.visitscotland.com/develop" || JOB_NAME == "develop.visitscotland.com-mb/develop")) {
+  echo "=== Setting conditional environment variables for branch $BRANCH_NAME in job $JOB_NAME"
+  thisAgent = "xvcdocker"
+  env.VS_CONTAINER_BASE_PORT_OVERRIDE = "8099"
+  env.VS_RELEASE_SNAPSHOT = "FALSE"
+} else if (BRANCH_NAME == "develop" && (JOB_NAME == "develop-nightly.visitscotland.com/develop" || JOB_NAME == "develop-nightly.visitscotland.com-mb/develop")) {
+  echo "=== Setting conditional environment variables for branch $BRANCH_NAME in job $JOB_NAME"
+  thisAgent = "xvcdocker"
+  env.VS_CONTAINER_BASE_PORT_OVERRIDE = "8098"
+  env.VS_CONTAINER_PRESERVE = "FALSE"
+  cron_string = "@midnight"
+} else if (BRANCH_NAME == "develop" && (JOB_NAME == "develop-stable.visitscotland.com/develop" || JOB_NAME == "develop-stable.visitscotland.com-mb/develop")) {
+  echo "=== Setting conditional environment variables for branch $BRANCH_NAME in job $JOB_NAME"
+  thisAgent = "xvcdocker"
+  env.VS_CONTAINER_BASE_PORT_OVERRIDE = "8100"
+} else if (BRANCH_NAME == "develop" && (JOB_NAME == "feature.visitscotland.com/develop" || JOB_NAME == "feature.visitscotland.com-mb/develop")) {
+  echo "=== Setting conditional environment variables for branch $BRANCH_NAME in job $JOB_NAME"
+  thisAgent = "xvcdocker"
+  env.VS_CONTAINER_BASE_PORT_OVERRIDE = "8097"
+} else if (BRANCH_NAME ==~ "ops/feature-environment(s)?-enhancements" && (JOB_NAME ==~ "feature.visitscotland.(com|org)(-mb)?/ops%2Ffeature-environment(s)?-enhancements")) {
   echo "=== Setting conditional environment variables for branch $BRANCH_NAME in job $JOB_NAME"
   thisAgent = "xvcdocker"
   env.VS_CONTAINER_BASE_PORT_OVERRIDE = "8091"
-  env.VS_BRC_DEPLOY = "FALSE"
   //env.VS_BUILD_FEATURE_ENVIRONMENT = "TRUE"
   //env.VS_CONTAINER_PRESERVE = "FALSE"
   //cron_string = "*/2 * * * *"
 } else {
+  env.VS_RELEASE_SNAPSHOT = "FALSE"
   // thisAgent should always be set to "xvcdocker" unless you have been informed otherwise!
   thisAgent = "xvcdocker"
 }
@@ -38,12 +57,6 @@ if (!env.VS_USE_DOCKER_BUILDER) { env.VS_USE_DOCKER_BUILDER = "TRUE" }
 if (!env.VS_RUN_BRC_STAGES) { env.VS_RUN_BRC_STAGES = "FALSE" }
 if (!env.VS_BRANCH_PROPERTIES_DIR) { env.VS_BRANCH_PROPERTIES_DIR = "ci/properties" }
 if (!env.VS_BRANCH_PROPERTIES_FILE) { env.VS_BRANCH_PROPERTIES_FILE = env.BRANCH_NAME.substring(env.BRANCH_NAME.lastIndexOf('/') + 1) + ".properties" }
-if (!env.VS_BUILD_FEATURE_ENVIRONMENT) { env.VS_BUILD_FEATURE_ENVIRONMENT = "TRUE" }
-if (!env.VS_CONTAINER_BASE_PORT_OVERRIDE) { env.VS_CONTAINER_BASE_PORT_OVERRIDE = "8096" }
-if (!env.VS_CONTAINER_REMOVE_WHEN_PORT_IN_USE) { env.VS_CONTAINER_REMOVE_WHEN_PORT_IN_USE = "TRUE" }
-if (!env.VS_RELEASE_SNAPSHOT) { env.VS_RELEASE_SNAPSHOT = "FALSE" }
-if (!env.VS_BRC_DEPLOY) { env.VS_BRC_DEPLOY = "TRUE" }
-if (!env.VS_SSR_PROXY_TARGET_HOST) { env.VS_SSR_PROXY_TARGET_HOST = "http://develop-brc.visitscotland.com" }
 echo "==/Setting default environment variables"
 
 import groovy.json.JsonSlurper
@@ -62,7 +75,6 @@ pipeline {
   triggers { cron( cron_string ) }
   environment {
     MAVEN_SETTINGS = credentials('maven-settings')
-    VS_BRC_API_UPLOAD_JOB_KEY = credentials('vs-brc-api-upload-job-key')
   }
 
   tools {
@@ -118,6 +130,7 @@ pipeline {
       }
       steps {
         //sh './ci/infrastructure/scripts/infrastructure.sh setvars'
+        // -- 20200712: QUESTION FOR SE, "why do we not build with-development-data?"
         sh 'mvn -f pom.xml clean package'
       }
       post {
@@ -135,7 +148,7 @@ stage ('vs compile & package in docker') {
       when {
         allOf {
           expression {return env.VS_RUN_BRC_STAGES != 'TRUE'}
-	        expression {return env.VS_SKIP_VS_BLD != 'TRUE'}
+          expression {return env.VS_SKIP_VS_BLD != 'TRUE'}
           expression {return env.VS_USE_DOCKER_BUILDER == 'TRUE'}
           expression {return env.BRANCH_NAME != env.VS_SKIP_BUILD_FOR_BRANCH}
         }
@@ -268,7 +281,7 @@ stage ('vs compile & package in docker') {
             }
           }
         }
-      script{
+        script{
           sh './ci/infrastructure/scripts/infrastructure.sh --debug'
         }
         // make all VS_ variables available to pipeline, load file must be in env.VARIABLE="VALUE" format
@@ -278,13 +291,13 @@ stage ('vs compile & package in docker') {
             load "$WORKSPACE/ci/vs-last-env.quoted"
             echo "found ${env.VS_COMMIT_AUTHOR}"
             sh '''
-              set +x
-              echo
-              echo "== printenv after load of $WORKSPACE/ci/vs-last-env.quoted in $STAGE_NAME =="
-              printenv | sort
-              echo "==/printenv after load of $WORKSPACE/ci/vs-last-env.quoted in $STAGE_NAME =="
-              echo
-            '''
+		set +x
+		echo
+		echo "== printenv after load of $WORKSPACE/ci/vs-last-env.quoted in $STAGE_NAME =="
+		printenv | sort
+		echo "==/printenv after load of $WORKSPACE/ci/vs-last-env.quoted in $STAGE_NAME =="
+		echo
+	    '''
           } else {
             echo "cannot load environment variables, file does not exist"
           }
@@ -292,52 +305,39 @@ stage ('vs compile & package in docker') {
       }
     } //end stage
 
-    stage ('vs deploy brCloud'){
-      when {
-        allOf {
-          expression {return env.VS_BRC_DEPLOY ==~ /(TRUE|true)/}
-        }
-      }
-      steps{
-        script{
-          sh 'sh ./ci/infrastructure/scripts/infrastructure.sh upload-to-brcloud --deploy'
-        }
-      }
-    }
-
     stage ('post-build actions'){
       parallel {
 
         stage('SonarQube BE Scan') {
           when {
-            branch 'develop' 
+            branch 'develop'
           }
           steps {
             catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
-                withSonarQubeEnv(installationName: 'SonarQube', credentialsId: 'sonarqube') {
-                  sh "PATH=/usr/bin:$PATH; mvn sonar:sonar -Dsonar.host.url=http://172.28.87.209:9000 -s $MAVEN_SETTINGS"
-                  // setting PATH=/usr/bin:$PATH; above allows NodeJS 10.16.3 to be the default and prevents and error at the CSS scan
-                }
+              withSonarQubeEnv(installationName: 'SonarQube', credentialsId: 'sonarqube') {
+                 sh "PATH=/usr/bin:$PATH; mvn sonar:sonar -Dsonar.host.url=http://172.28.87.209:9000 -s $MAVEN_SETTINGS"
+                // setting PATH=/usr/bin:$PATH; above allows NodeJS 10.16.3 to be the default and prevents and error at the CSS scan
+              }
             }
           }
         }
 
         stage('SonarQube FE scan') {
           when {
-            branch 'develop' 
+            branch 'develop'
           }
           environment {
             scannerHome = tool 'SonarQube_4.0'
           }
           steps {
             catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
-                withSonarQubeEnv(installationName: 'SonarQube', credentialsId: 'sonarqube') {
-                  sh '''
-                    PATH=/usr/bin:$PATH; ${scannerHome}/bin/sonar-scanner \
-                    -Dsonar.sources=./ui-integration \
-                    -Dsonar.projectKey=VS2019-FE \
-                    -Dsonar.host.url=http://172.28.87.209:9000 \
-                    -Dsonar.login=9fa63cfd51d94fb8e437b536523c15a9b45ee2c1
+              withSonarQubeEnv(installationName: 'SonarQube', credentialsId: 'sonarqube') {
+                sh '''
+                  PATH=/usr/bin:$PATH; ${scannerHome}/bin/sonar-scanner \
+                  -Dsonar.sources=./ui-integration \
+                  -Dsonar.projectKey=VS2019-FE \
+                  -Dsonar.host.url=http://172.28.87.209:9000 \
+                 -Dsonar.login=9fa63cfd51d94fb8e437b536523c15a9b45ee2c1
                 '''
                 }
               // setting PATH=/usr/bin:$PATH; above allows NodeJS 10.16.3 to be the default and prevents and error at the CSS scan
@@ -349,8 +349,8 @@ stage ('vs compile & package in docker') {
           when {
             anyOf {
               // Always run Nexus IQ scan for builds on 'develop'
-              branch 'develop' 
- 
+              branch 'develop'
+
               // Always run Nexus IQ scan for pull requests
               changeRequest()
             }
@@ -361,7 +361,7 @@ stage ('vs compile & package in docker') {
                 def policyEvaluation = nexusPolicyEvaluation failBuildOnNetworkError: true, enableDebugLogging: true, iqApplication: selectedApplication('visitscotland-site'), iqScanPatterns: [[scanPattern: '**/site.war']], iqStage: 'build', jobCredentialsId: 'nexusiq'
                 echo "Nexus IQ scan succeeded: ${policyEvaluation.applicationCompositionReportUrl}"
                 IQ_SCAN_URL = "${policyEvaluation.applicationCompositionReportUrl}"
-              } 
+              }
               catch (error) {
                 def policyEvaluation = error.policyEvaluation
                 echo "Nexus IQ scan vulnerabilities detected', ${policyEvaluation.applicationCompositionReportUrl}"
@@ -375,8 +375,8 @@ stage ('vs compile & package in docker') {
           when {
             anyOf {
               // Always run Nexus IQ scan for builds on 'develop'
-              branch 'develop' 
- 
+              branch 'develop'
+
               // Always run Nexus IQ scan for pull requests
               changeRequest()
             }
@@ -387,7 +387,7 @@ stage ('vs compile & package in docker') {
                 def policyEvaluation = nexusPolicyEvaluation failBuildOnNetworkError: true, enableDebugLogging: true, iqApplication: selectedApplication('visitscotland-cms'), iqScanPatterns: [[scanPattern: '**/cms.war']], iqStage: 'build', jobCredentialsId: 'nexusiq'
                 echo "Nexus IQ scan succeeded: ${policyEvaluation.applicationCompositionReportUrl}"
                 IQ_SCAN_URL = "${policyEvaluation.applicationCompositionReportUrl}"
-              } 
+              }
               catch (error) {
                 def policyEvaluation = error.policyEvaluation
                 echo "Nexus IQ scan vulnerabilities detected', ${policyEvaluation.applicationCompositionReportUrl}"
@@ -401,8 +401,8 @@ stage ('vs compile & package in docker') {
           when {
             anyOf {
               // Always run Nexus IQ scan for builds on 'develop'
-              branch 'develop' 
- 
+              branch 'develop'
+
               // Always run Nexus IQ scan for pull requests
               changeRequest()
             }
@@ -413,7 +413,7 @@ stage ('vs compile & package in docker') {
                 def policyEvaluation = nexusPolicyEvaluation failBuildOnNetworkError: true, enableDebugLogging: true, iqApplication: selectedApplication('visitscotland-ssr'), iqScanPatterns: [[scanPattern: '**/*ssr*.tar.gz']], iqStage: 'build', jobCredentialsId: 'nexusiq'
                 echo "Nexus IQ scan succeeded: ${policyEvaluation.applicationCompositionReportUrl}"
                 IQ_SCAN_URL = "${policyEvaluation.applicationCompositionReportUrl}"
-              } 
+              }
               catch (error) {
                 def policyEvaluation = error.policyEvaluation
                 echo "Nexus IQ scan vulnerabilities detected', ${policyEvaluation.applicationCompositionReportUrl}"
@@ -461,7 +461,7 @@ stage ('vs compile & package in docker') {
         } //end stage
       } // end parallel stages
     } // end post-build actions
- 
+
     stage('Lighthouse Testing'){
       when {
         allOf {
@@ -471,7 +471,7 @@ stage ('vs compile & package in docker') {
           }
           anyOf {
             // Always run the Lighthouse Tests for 'develop' builds
-            branch 'develop' 
+            branch 'develop'
 
             // Always run the Lighthouse Tests for pull requests
             changeRequest()
@@ -482,7 +482,7 @@ stage ('vs compile & package in docker') {
         }
       }
       steps{
-        catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') { 
+        catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
           echo "Lighthouse test failure notification will be emailed to ${env.VS_COMMIT_AUTHOR}"
           script{
             // to-do: replace this sleep with a "wait for 200" in the script
@@ -541,4 +541,10 @@ def readEnvironmentVariables(path){
 }
 
 // TO-DO:
+// gp: change sonarqube project target to a short version of the project name
+
 // DONE:
+// gp: investigate the use of stash/unstash to make build artefacts available to other nodes
+//     - see: https://www.cloudbees.com/blog/parallelism-and-distributed-builds-jenkins
+//     - this could potentially allow the running of all Lighthouse tests on a separate node
+//     - experiment with a simple echo on a different node (stash/unstash)
