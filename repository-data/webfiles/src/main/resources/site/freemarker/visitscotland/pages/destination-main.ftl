@@ -21,13 +21,13 @@
 
     <@pageIntro content=document heroDetails=heroImage lightBackground=true/>
 
-    <@productSearchWidget psrWidget />
-
 	<#list pageItems as item>
         <@moduleBuilder module=item pageIndex="${item?index + 1}" />
 	</#list>
 
     <@socialShare nojs=true/>
+
+    <@productSearchWidget psrWidget />
 
     <#if otyml??>
         <@otymlModule otyml editMode />
