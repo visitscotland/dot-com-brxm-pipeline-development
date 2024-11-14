@@ -1,128 +1,151 @@
 /content/documents/administration/labels/navigation/meganav-links:
-  .meta:order-before: meganav-categories
   jcr:primaryType: hippo:handle
   jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
-  jcr:uuid: 29c5d378-9493-4226-a7a6-9deede973a77
+  jcr:uuid: 94fe29b0-a36b-45a7-8e97-221e4602daaf
   hippo:name: Meganav links
   hippo:versionHistory: 0a2310d6-8f3b-4466-b594-9c1705a8f077
   /meganav-links[1]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:referenceable']
-    jcr:uuid: 82a94861-dd3f-44c3-80c4-52b38508735b
+    jcr:uuid: 5b151b76-979a-45e1-9031-65d569dfcdaa
     hippo:availability: []
     hippostd:retainable: false
     hippostd:state: draft
     hippostdpubwf:createdBy: juanluis.hurtado
     hippostdpubwf:creationDate: 2022-02-23T12:52:03.897+01:00
-    hippostdpubwf:lastModificationDate: 2023-02-06T09:48:46.513+01:00
-    hippostdpubwf:lastModifiedBy: nikki.sherret
+    hippostdpubwf:lastModificationDate: 2024-11-14T09:56:36.640+01:00
+    hippostdpubwf:lastModifiedBy: kirsten.sierag
     resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '', '', '', '',
-      '', '']
+      '', '', '', '', '', '', '']
     resourcebundle:id: navigation.main
     resourcebundle:keys: [travel-blog, cities, Hotels-labels, help-labels, practical-label,
       deals-label, tours-label, experiences-label, seasonal-label, types-label, ideas-label,
-      regions-label, towns-label, popular-label]
+      regions-label, towns-label, popular-label, other-accomm, icentre-label, travel-to-scotland,
+      travel-in-scotland, family]
     resourcebundle:messages: [Travel Blog, Cities, Hotels & Lodgings, Help & Advice,
       Practical Information, Deals & Offers, 'Tours, Routes & Trails', Experiences,
-      Seasonal, Holiday Types, Ideas & Advice, Regions, Towns, Popular Places]
+      Seasonal, Holiday Types, Ideas & Advice, Regions, Towns, Popular Places, Other
+        Accommodation, Visitor Information Centres, Travel to Scotland, Travel in
+        Scotland, Family]
     resourcebundle:messages_de: [Reiseblog, Städte, Hotels & Unterkünfte, Hilfe &
         Hinweise, Praktische Informationen, Angebote, 'Touren, Routen & Trails', Erlebnisse,
       Jahreszeiten, Urlaubsarten, Anregungen & Ideen, Regionen, Ortschaften, Beliebte
-        Orte]
+        Orte, Weitere Unterkünfte, Touristinformationen, Anreise nach Schottland,
+      Reisen innerhalb Schottlands, Familie]
     resourcebundle:messages_es: [Blog de viajes, Ciudades, Hoteles y hospedajes, Ayuda
         y consejos, Información práctica, Ofertas, 'Visitas, rutas y senderos', Experiencias,
       Estacional, Tipos de vacaciones, Ideas y consejos, Regiones, Pueblos, Lugares
-        populares]
+        populares, Otros alojamientos, Oficina de Turismo, Viajar a Escocia, Viajar
+        por Escocia, '']
     resourcebundle:messages_fr: [Blog de voyage, Villes, Hôtels et hébergements, Aide
         et conseils, Infos pratiques, Offres, 'Circuits, excursions et itinéraires',
       Expériences, Saisonnier, Types de vacances, Conseils et inspiration, Régions,
-      Villages, Destinations populaires]
+      Villages, Destinations populaires, Autres hébergements, Offices de tourisme,
+      Se rendre en Écosse, '', Famille]
     resourcebundle:messages_it: [Blog di viaggio, Città, Hotel e alloggi, Aiuto e
         consigli, Informazioni pratiche, Offerte, 'Tour, itinerari e sentieri', Esperienze,
       Stagionale, Tipologie di vacanza, Idee e consigli, Regioni, Villaggi, Luoghi
-        popolari]
+        popolari, Altri alloggi, Uffici del turismo, Viaggiare verso la Scozia, Viaggiare
+        in Scozia, Famiglia]
     resourcebundle:messages_nl: [Reisblog, Steden, Hotels & accommodatie, Hulp & advies,
       Praktische informatie, Aanbiedingen, 'Tours, routes & tochten', Ervaringen,
       Jaargetijden, Type vakantie, Suggesties & ideeën, Regio's, Plaatsen, Populaire
-        plaatsen]
+        plaatsen, Andere accommodatie, Informatiecentra, Reizen naar Schotland, Reizen
+        in Schotland, Familie]
   /meganav-links[2]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:versionable']
-    jcr:uuid: b13e630c-5103-45c8-8f8d-55e65beb44f6
+    jcr:uuid: e88058fa-1ae3-4566-b21c-8a46d651b65d
     hippo:availability: [preview]
     hippostd:retainable: false
     hippostd:state: unpublished
     hippostdpubwf:createdBy: juanluis.hurtado
     hippostdpubwf:creationDate: 2022-02-23T12:52:03.897+01:00
-    hippostdpubwf:lastModificationDate: 2023-02-06T09:50:03.345+01:00
-    hippostdpubwf:lastModifiedBy: nikki.sherret
+    hippostdpubwf:lastModificationDate: 2024-11-14T10:00:28.767+01:00
+    hippostdpubwf:lastModifiedBy: kirsten.sierag
     resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '', '', '', '',
-      '', '']
+      '', '', '', '', '', '', '']
     resourcebundle:id: navigation.main
     resourcebundle:keys: [travel-blog, cities, Hotels-labels, help-labels, practical-label,
       deals-label, tours-label, experiences-label, seasonal-label, types-label, ideas-label,
-      regions-label, towns-label, popular-label]
+      regions-label, towns-label, popular-label, other-accomm, icentre-label, travel-to-scotland,
+      travel-in-scotland, family]
     resourcebundle:messages: [Travel Blog, Cities, Hotels & Lodgings, Help & Advice,
       Practical Information, Deals & Offers, 'Tours, Routes & Trails', Experiences,
-      Seasonal, Holiday Types, Ideas & Advice, Regions, Towns, Popular Places]
+      Seasonal, Holiday Types, Ideas & Advice, Regions, Towns, Popular Places, Other
+        Accommodation, Visitor Information Centres, Travel to Scotland, Travel in
+        Scotland, Family]
     resourcebundle:messages_de: [Reiseblog, Städte, Hotels & Unterkünfte, Hilfe &
         Hinweise, Praktische Informationen, Angebote, 'Touren, Routen & Trails', Erlebnisse,
       Jahreszeiten, Urlaubsarten, Anregungen & Ideen, Regionen, Ortschaften, Beliebte
-        Orte]
+        Orte, Weitere Unterkünfte, Touristinformationen, Anreise nach Schottland,
+      Reisen innerhalb Schottlands, Familie]
     resourcebundle:messages_es: [Blog de viajes, Ciudades, Hoteles y hospedajes, Ayuda
         y consejos, Información práctica, Ofertas, 'Visitas, rutas y senderos', Experiencias,
       Estacional, Tipos de vacaciones, Ideas y consejos, Regiones, Pueblos, Lugares
-        populares]
+        populares, Otros alojamientos, Oficina de Turismo, Viajar a Escocia, Viajar
+        por Escocia, '']
     resourcebundle:messages_fr: [Blog de voyage, Villes, Hôtels et hébergements, Aide
         et conseils, Infos pratiques, Offres, 'Circuits, excursions et itinéraires',
       Expériences, Saisonnier, Types de vacances, Conseils et inspiration, Régions,
-      Villages, Destinations populaires]
+      Villages, Destinations populaires, Autres hébergements, Offices de tourisme,
+      Se rendre en Écosse, '', Famille]
     resourcebundle:messages_it: [Blog di viaggio, Città, Hotel e alloggi, Aiuto e
         consigli, Informazioni pratiche, Offerte, 'Tour, itinerari e sentieri', Esperienze,
       Stagionale, Tipologie di vacanza, Idee e consigli, Regioni, Villaggi, Luoghi
-        popolari]
+        popolari, Altri alloggi, Uffici del turismo, Viaggiare verso la Scozia, Viaggiare
+        in Scozia, Famiglia]
     resourcebundle:messages_nl: [Reisblog, Steden, Hotels & accommodatie, Hulp & advies,
       Praktische informatie, Aanbiedingen, 'Tours, routes & tochten', Ervaringen,
       Jaargetijden, Type vakantie, Suggesties & ideeën, Regio's, Plaatsen, Populaire
-        plaatsen]
+        plaatsen, Andere accommodatie, Informatiecentra, Reizen naar Schotland, Reizen
+        in Schotland, Familie]
   /meganav-links[3]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:referenceable']
-    jcr:uuid: dda71078-aa13-409c-b480-7a227510a52c
+    jcr:uuid: d553119d-20ce-467e-8234-aee6a88a505b
     hippo:availability: [live]
     hippostd:retainable: false
     hippostd:state: published
     hippostdpubwf:createdBy: juanluis.hurtado
     hippostdpubwf:creationDate: 2022-02-23T12:52:03.897+01:00
-    hippostdpubwf:lastModificationDate: 2023-02-06T09:50:03.345+01:00
-    hippostdpubwf:lastModifiedBy: nikki.sherret
-    hippostdpubwf:publicationDate: 2023-02-06T09:50:05.667+01:00
+    hippostdpubwf:lastModificationDate: 2024-11-14T10:00:28.767+01:00
+    hippostdpubwf:lastModifiedBy: kirsten.sierag
+    hippostdpubwf:publicationDate: 2024-11-14T10:00:30.553+01:00
     resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '', '', '', '',
-      '', '']
+      '', '', '', '', '', '', '']
     resourcebundle:id: navigation.main
     resourcebundle:keys: [travel-blog, cities, Hotels-labels, help-labels, practical-label,
       deals-label, tours-label, experiences-label, seasonal-label, types-label, ideas-label,
-      regions-label, towns-label, popular-label]
+      regions-label, towns-label, popular-label, other-accomm, icentre-label, travel-to-scotland,
+      travel-in-scotland, family]
     resourcebundle:messages: [Travel Blog, Cities, Hotels & Lodgings, Help & Advice,
       Practical Information, Deals & Offers, 'Tours, Routes & Trails', Experiences,
-      Seasonal, Holiday Types, Ideas & Advice, Regions, Towns, Popular Places]
+      Seasonal, Holiday Types, Ideas & Advice, Regions, Towns, Popular Places, Other
+        Accommodation, Visitor Information Centres, Travel to Scotland, Travel in
+        Scotland, Family]
     resourcebundle:messages_de: [Reiseblog, Städte, Hotels & Unterkünfte, Hilfe &
         Hinweise, Praktische Informationen, Angebote, 'Touren, Routen & Trails', Erlebnisse,
       Jahreszeiten, Urlaubsarten, Anregungen & Ideen, Regionen, Ortschaften, Beliebte
-        Orte]
+        Orte, Weitere Unterkünfte, Touristinformationen, Anreise nach Schottland,
+      Reisen innerhalb Schottlands, Familie]
     resourcebundle:messages_es: [Blog de viajes, Ciudades, Hoteles y hospedajes, Ayuda
         y consejos, Información práctica, Ofertas, 'Visitas, rutas y senderos', Experiencias,
       Estacional, Tipos de vacaciones, Ideas y consejos, Regiones, Pueblos, Lugares
-        populares]
+        populares, Otros alojamientos, Oficina de Turismo, Viajar a Escocia, Viajar
+        por Escocia, '']
     resourcebundle:messages_fr: [Blog de voyage, Villes, Hôtels et hébergements, Aide
         et conseils, Infos pratiques, Offres, 'Circuits, excursions et itinéraires',
       Expériences, Saisonnier, Types de vacances, Conseils et inspiration, Régions,
-      Villages, Destinations populaires]
+      Villages, Destinations populaires, Autres hébergements, Offices de tourisme,
+      Se rendre en Écosse, '', Famille]
     resourcebundle:messages_it: [Blog di viaggio, Città, Hotel e alloggi, Aiuto e
         consigli, Informazioni pratiche, Offerte, 'Tour, itinerari e sentieri', Esperienze,
       Stagionale, Tipologie di vacanza, Idee e consigli, Regioni, Villaggi, Luoghi
-        popolari]
+        popolari, Altri alloggi, Uffici del turismo, Viaggiare verso la Scozia, Viaggiare
+        in Scozia, Famiglia]
     resourcebundle:messages_nl: [Reisblog, Steden, Hotels & accommodatie, Hulp & advies,
       Praktische informatie, Aanbiedingen, 'Tours, routes & tochten', Ervaringen,
       Jaargetijden, Type vakantie, Suggesties & ideeën, Regio's, Plaatsen, Populaire
-        plaatsen]
+        plaatsen, Andere accommodatie, Informatiecentra, Reizen naar Schotland, Reizen
+        in Schotland, Familie]
