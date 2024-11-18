@@ -27,6 +27,7 @@ import org.springframework.web.util.UriComponentsBuilder;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.Date;
+import java.util.List;
 import java.util.Locale;
 import java.util.Optional;
 
@@ -478,6 +479,16 @@ public class LinkService {
             if (itinerary.getTransports().length > 0) {
                 link.setItineraryTransport(itinerary.getTransports()[0]);
             }
+        }  else if (page instanceof GeneralBSH){
+            GeneralBSH generalBSH = (GeneralBSH) page;
+            if (generalBSH.getReadingTime() > 0) {
+                link.setReadTime(generalBSH.getReadingTime() +" "+ bundle.getResourceBundle("bsh.megalinks", "readtime", locale));
+            }
+            link.setContentType(generalBSH.getType());
+            link.setSector(List.of(generalBSH.getSectors()));
+            link.setSkillLevel(generalBSH.getSkill());
+            link.setTopic(List.of(generalBSH.getTopic()));
+            link.setRegion(List.of(generalBSH.getRegions()));
         }
 
         return link;
@@ -503,7 +514,13 @@ public class LinkService {
         }
 
         if (sharedLink instanceof SharedLinkBSH) {
-            link.setSource(((SharedLinkBSH) sharedLink).getSource());
+            SharedLinkBSH sharedLinkBSH = (SharedLinkBSH) sharedLink;
+            link.setSource(sharedLinkBSH.getSource());
+            link.setContentType(sharedLinkBSH.getType());
+            link.setSector(List.of(sharedLinkBSH.getSectors()));
+            link.setSkillLevel(sharedLinkBSH.getSkill());
+            link.setTopic(List.of(sharedLinkBSH.getTopic()));
+            link.setRegion(List.of(sharedLinkBSH.getRegions()));
         }
         if (product != null && !hasOverrideImage(sharedLink) && product.has(DMSConstants.DMSProduct.IMAGE)) {
             link.setImage(imageFactory.createImage(product, module, locale));

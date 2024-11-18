@@ -4,6 +4,7 @@ import com.visitscotland.brxm.model.FlatImage;
 import com.visitscotland.brxm.model.FlatLink;
 
 import java.util.Date;
+import java.util.List;
 
 public class EnhancedLink extends FlatLink {
 
@@ -17,6 +18,12 @@ public class EnhancedLink extends FlatLink {
     private int itineraryDays;
     private Date publishedDate;
     private String source;
+    private String contentType;
+    private List<String> sector;
+    private String skillLevel;
+    private List<String> topic;
+    private List<String> region;
+    private String readTime;
 
     public FlatImage getImage() {
         return image;
@@ -96,5 +103,53 @@ public class EnhancedLink extends FlatLink {
 
     public void setSource(String source) {
         this.source = source;
+    }
+
+    public String getContentType() {
+        return contentType;
+    }
+
+    public void setContentType(String contentType) {
+        this.contentType = contentType;
+    }
+
+    public String getReadTime() {
+        return readTime;
+    }
+
+    public void setReadTime(String readTime) {
+        this.readTime = readTime;
+    }
+
+    public List<String> getRegion() {
+        return region;
+    }
+
+    public void setRegion(List<String> region) {
+        this.region = region;
+    }
+
+    public List<String> getTopic() {
+        return topic;
+    }
+
+    public void setTopic(List<String> topic) {
+        this.topic = topic;
+    }
+
+    public String getSkillLevel() {
+        return skillLevel;
+    }
+
+    public void setSkillLevel(String skillLevel) {
+        this.skillLevel = skillLevel;
+    }
+
+    public List<String> getSector() {
+        return sector;
+    }
+
+    public void setSector(List<String> sector) {
+        this.sector = sector;
     }
 }

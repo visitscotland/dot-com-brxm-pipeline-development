@@ -1,0 +1,52 @@
+/content/documents/administration/bsh-labels/modules/megalinks:
+  jcr:primaryType: hippo:handle
+  jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+  jcr:uuid: 6383715c-c23d-436d-8fb9-d2b66d6a5e52
+  hippo:name: Megalinks
+  hippo:versionHistory: 4b03a677-cf0a-4339-be75-4ad5bd44d92c
+  /megalinks[1]:
+    jcr:primaryType: resourcebundle:resourcebundle
+    jcr:mixinTypes: ['mix:referenceable']
+    jcr:uuid: d587cef7-1568-4b73-82fe-650809c8acc8
+    hippo:availability: []
+    hippostd:retainable: false
+    hippostd:state: draft
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2024-11-18T15:53:15.128Z
+    hippostdpubwf:lastModificationDate: 2024-11-18T16:25:47.861Z
+    hippostdpubwf:lastModifiedBy: admin
+    resourcebundle:descriptions: ['']
+    resourcebundle:id: bsh.megalinks
+    resourcebundle:keys: [readtime]
+    resourcebundle:messages: [minute read]
+  /megalinks[2]:
+    jcr:primaryType: resourcebundle:resourcebundle
+    jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+    jcr:uuid: f5fcd264-ca1f-43cc-bb0a-aff9719ae5b0
+    hippo:availability: [preview]
+    hippostd:retainable: false
+    hippostd:state: unpublished
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2024-11-18T15:53:15.128Z
+    hippostdpubwf:lastModificationDate: 2024-11-18T16:26:15.047Z
+    hippostdpubwf:lastModifiedBy: admin
+    resourcebundle:descriptions: ['']
+    resourcebundle:id: bsh.megalinks
+    resourcebundle:keys: [readtime]
+    resourcebundle:messages: [minute read]
+  /megalinks[3]:
+    jcr:primaryType: resourcebundle:resourcebundle
+    jcr:mixinTypes: ['mix:referenceable']
+    jcr:uuid: 753f4673-9d31-46c7-9cfc-cb247b69973e
+    hippo:availability: [live]
+    hippostd:retainable: false
+    hippostd:state: published
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2024-11-18T15:53:15.128Z
+    hippostdpubwf:lastModificationDate: 2024-11-18T16:26:15.047Z
+    hippostdpubwf:lastModifiedBy: admin
+    hippostdpubwf:publicationDate: 2024-11-18T16:26:19.807Z
+    resourcebundle:descriptions: ['']
+    resourcebundle:id: bsh.megalinks
+    resourcebundle:keys: [readtime]
+    resourcebundle:messages: [minute read]
