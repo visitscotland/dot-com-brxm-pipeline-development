@@ -13,7 +13,6 @@ import com.visitscotland.brxm.model.megalinks.HorizontalListLinksModule;
 import com.visitscotland.brxm.services.LinkService;
 import com.visitscotland.brxm.services.ResourceBundleService;
 import com.visitscotland.brxm.utils.ContentLogger;
-import com.visitscotland.brxm.utils.HippoUtilsService;
 import com.visitscotland.brxm.utils.MetadataFactory;
 import com.visitscotland.brxm.utils.SiteProperties;
 import com.visitscotland.utils.Contract;
@@ -60,7 +59,6 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
     private final SignpostFactory signpostFactory;
     private final ProductSearchWidgetFactory psrFactory;
     private final PreviewModeFactory previewFactory;
-    private final HippoUtilsService hippoUtils;
     private final ResourceBundleService bundle;
     private final SiteProperties properties;
     private final Logger contentLogger;
@@ -76,7 +74,6 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
         psrFactory = VsComponentManager.get(ProductSearchWidgetFactory.class);
         previewFactory = VsComponentManager.get(PreviewModeFactory.class);
         contentLogger = VsComponentManager.get(ContentLogger.class);
-        hippoUtils = VsComponentManager.get(HippoUtilsService.class);
         properties = VsComponentManager.get(SiteProperties.class);
         bundle = VsComponentManager.get(ResourceBundleService.class);
         metadata = VsComponentManager.get(MetadataFactory.class);
@@ -86,6 +83,7 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
     @Override
     public void doBeforeRender(HstRequest request, HstResponse response) {
         super.doBeforeRender(request, response);
+
         addMetadata(request);
 
         addHeroImage(request);
@@ -274,6 +272,7 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
         }
     }
 
+
     /**
      * Adds the newsletter configuration to the request taking into account the target: (VisitScotland, Business Events or Ski)
      *
@@ -345,7 +344,7 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
 
     /**
      * Add Configuration specific to the VisitScotland.com or businessevents site
-     * @param request
+     * @param request HSt request
      */
     private void addSiteSpecificConfiguration(HstRequest request) {
         final String SOCIAL_MEDIA = "navigation.social-media";
@@ -359,8 +358,6 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
             prefix = properties.getSiteId() +".";
             request.setModel(SITE_ID, properties.getSiteId());
 
-            //TODO The following property is to be removed after version 2.3.0 is released
-            request.setModel(HippoUtilsService.BUSINESS_EVENTS_SITE, true);
         }
 
         labels(request).put(SOCIAL_MEDIA, bundle.getAllLabels(prefix + SOCIAL_MEDIA, request.getLocale()));
