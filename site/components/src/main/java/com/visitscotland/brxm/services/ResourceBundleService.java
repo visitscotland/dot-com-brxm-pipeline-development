@@ -55,12 +55,14 @@ public class ResourceBundleService {
 
     public String getSiteResourceBundle(String bundleName, String key, Locale locale){
 
-        if (properties.getSiteId().isEmpty()){
-            return getResourceBundle(bundleName, key, locale, false);
-        } else {
-            return getResourceBundle(properties.getSiteId() + "." + bundleName, key, locale, false);
+        if (!properties.getSiteId().isEmpty()){
+            String value = getResourceBundle(properties.getSiteId() + "." + bundleName, key, locale, true);
+            if (value != null) {
+                return value;
+            }
         }
 
+        return getResourceBundle(bundleName, key, locale, false);
     }
 
     /**

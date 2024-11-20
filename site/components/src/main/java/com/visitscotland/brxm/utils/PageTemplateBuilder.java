@@ -304,7 +304,7 @@ public class PageTemplateBuilder {
     }
 
     private void addGlobalLabel(HstRequest request, String key) {
-        labels(request).get(GLOBAL_BUNDLE_FILE).put(key, bundle.getResourceBundle(GLOBAL_BUNDLE_FILE, key, request.getLocale()));
+        labels(request).get(GLOBAL_BUNDLE_FILE).put(key, bundle.getSiteResourceBundle(GLOBAL_BUNDLE_FILE, key, request.getLocale()));
     }
 
     private void addAllLabels(HstRequest request, String bundleName) {

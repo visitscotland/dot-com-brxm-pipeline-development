@@ -188,7 +188,7 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
      * @param locale: Locale of the request
      */
     private void addGlobalLabel(Map<String, String> map, String key, Locale locale) {
-        map.put(key, bundle.getResourceBundle(ResourceBundleService.GLOBAL_BUNDLE_FILE, key, locale));
+        map.put(key, bundle.getSiteResourceBundle(ResourceBundleService.GLOBAL_BUNDLE_FILE, key, locale));
     }
 
     /**
