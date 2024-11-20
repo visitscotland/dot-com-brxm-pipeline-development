@@ -1,0 +1,58 @@
+/content/documents/administration/bsh-labels/global:
+  jcr:primaryType: hippostd:folder
+  jcr:mixinTypes: ['hippo:named', 'mix:versionable']
+  jcr:uuid: 6c388deb-06b0-47d2-98df-07f5ae32f54a
+  hippo:name: Global
+  hippostd:foldertype: [new-untranslated-folder-resource-bundle, new-resource-bundle]
+  /global:
+    jcr:primaryType: hippo:handle
+    jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+    jcr:uuid: 901d7cd3-9e5a-4920-91cc-946e95f058ba
+    hippo:name: Global
+    hippo:versionHistory: 5df598fa-a9b5-403d-956b-61055053d65f
+    /global[1]:
+      jcr:primaryType: resourcebundle:resourcebundle
+      jcr:mixinTypes: ['mix:referenceable']
+      jcr:uuid: cfcc9e05-b11d-4911-b1d5-e58f9b692f85
+      hippo:availability: []
+      hippostd:retainable: false
+      hippostd:state: draft
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2024-11-20T11:15:49.237Z
+      hippostdpubwf:lastModificationDate: 2024-11-20T16:45:44.630Z
+      hippostdpubwf:lastModifiedBy: admin
+      resourcebundle:descriptions: ['', '']
+      resourcebundle:id: bsh.essentials.global
+      resourcebundle:keys: [read-time.generic, back-to-top]
+      resourcebundle:messages: [minute read, Back to top]
+    /global[2]:
+      jcr:primaryType: resourcebundle:resourcebundle
+      jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+      jcr:uuid: 2b386181-cf7b-48ed-9ad1-ef722b6b3398
+      hippo:availability: [preview]
+      hippostd:retainable: false
+      hippostd:state: unpublished
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2024-11-20T11:15:49.237Z
+      hippostdpubwf:lastModificationDate: 2024-11-20T16:51:07.430Z
+      hippostdpubwf:lastModifiedBy: admin
+      resourcebundle:descriptions: ['', '']
+      resourcebundle:id: bsh.essentials.global
+      resourcebundle:keys: [read-time.generic, back-to-top]
+      resourcebundle:messages: [minute read, Back to top]
+    /global[3]:
+      jcr:primaryType: resourcebundle:resourcebundle
+      jcr:mixinTypes: ['mix:referenceable']
+      jcr:uuid: a67aaa0c-d36c-4eed-994d-ec967fa691de
+      hippo:availability: [live]
+      hippostd:retainable: false
+      hippostd:state: published
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2024-11-20T11:15:49.237Z
+      hippostdpubwf:lastModificationDate: 2024-11-20T16:51:07.430Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippostdpubwf:publicationDate: 2024-11-20T16:51:09.480Z
+      resourcebundle:descriptions: ['', '']
+      resourcebundle:id: bsh.essentials.global
+      resourcebundle:keys: [read-time.generic, back-to-top]
+      resourcebundle:messages: [minute read, Back to top]
