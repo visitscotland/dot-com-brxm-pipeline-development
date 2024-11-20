@@ -1,0 +1,147 @@
+/content/documents/bsh/test:
+  jcr:primaryType: hippostd:folder
+  jcr:mixinTypes: ['hippo:named', 'hippotranslation:translated', 'mix:versionable']
+  jcr:uuid: 67065e9f-0682-416b-8a19-0d8c728f8d09
+  hippo:name: test
+  hippostd:foldertype: [new-bsh-folder, new-bsh-page, new-bsh-module]
+  hippotranslation:id: 4bd3fbce-ac87-4954-aa27-728e7f1ab6ae
+  hippotranslation:locale: en
+  /content:
+    jcr:primaryType: hippo:handle
+    jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+    jcr:uuid: 157ffa4c-ee07-464f-98e8-adf4b68bc247
+    hippo:name: Business Events Test Area
+    hippo:versionHistory: cfef7b70-32a5-46b3-9df5-178e488508b3
+    /content[1]:
+      jcr:primaryType: visitscotland:GeneralBSH
+      jcr:mixinTypes: ['mix:referenceable']
+      jcr:uuid: 2df5a3a5-02e0-48eb-8ec5-2cd61f575da1
+      hippo:availability: []
+      hippostd:retainable: false
+      hippostd:state: draft
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2024-11-20T15:27:19.330Z
+      hippostdpubwf:lastModificationDate: 2024-11-20T15:27:19.330Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: bd35b8fa-c6c3-4125-8208-97bf302ecc8f
+      hippotranslation:locale: en
+      visitscotland:breadcrumb: ''
+      visitscotland:hideNewsletter: false
+      visitscotland:publishDate: 0001-01-01T12:00:00Z
+      visitscotland:readingTime: 0
+      visitscotland:regions: []
+      visitscotland:sectors: []
+      visitscotland:seoDescription: This area is designed to hold stable content to
+        test layout and functionality of the site.
+      visitscotland:seoNoIndex: false
+      visitscotland:seoTitle: Business Events Test Area
+      visitscotland:skill: ''
+      visitscotland:teaser: This area is designed to hold stable content to test layout
+        and functionality of the site.
+      visitscotland:theme: Top-Level
+      visitscotland:title: Business Events Test Area
+      visitscotland:topic: []
+      visitscotland:type: ''
+      /visitscotland:heroImage:
+        jcr:primaryType: hippogallerypicker:imagelink
+        hippo:docbase: c6adc092-756e-447d-861e-54a217b297d4
+        hippo:facets: []
+        hippo:modes: []
+        hippo:values: []
+      /visitscotland:introduction:
+        jcr:primaryType: hippostd:html
+        hippostd:content: |-
+          <p>This area is designed to hold stable content to test layout and functionality of the site.&nbsp;</p>
+
+          <p>The area is split into page types and modules - this should help site contributors to understand the distinction between the two document types. It also contains an examples area which demonstates the ways in which pages can be created and can also be used for regression testing of module and page configurations.</p>
+
+          <p>Please see the&nbsp;<a rel="noopener noreferrer" href="https://confluence.visitscotland.com/display/VCE/CMS+testing+area" target="_blank">testing area Confluence page</a>&nbsp;or contact one of the UI Dev team for more information about the uses and goals of this area.</p>
+    /content[2]:
+      jcr:primaryType: visitscotland:GeneralBSH
+      jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+      jcr:uuid: af743379-ae75-4c5d-bb05-9e913cf72308
+      hippo:availability: [preview]
+      hippostd:retainable: false
+      hippostd:state: unpublished
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2024-11-20T15:27:19.330Z
+      hippostdpubwf:lastModificationDate: 2024-11-20T15:29:04.416Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: bd35b8fa-c6c3-4125-8208-97bf302ecc8f
+      hippotranslation:locale: en
+      visitscotland:breadcrumb: ''
+      visitscotland:hideNewsletter: false
+      visitscotland:publishDate: 0001-01-01T12:00:00Z
+      visitscotland:readingTime: 0
+      visitscotland:regions: []
+      visitscotland:sectors: []
+      visitscotland:seoDescription: This area is designed to hold stable content to
+        test layout and functionality of the site.
+      visitscotland:seoNoIndex: false
+      visitscotland:seoTitle: Business Events Test Area
+      visitscotland:skill: ''
+      visitscotland:teaser: This area is designed to hold stable content to test layout
+        and functionality of the site.
+      visitscotland:theme: Top-Level
+      visitscotland:title: Business Events Test Area
+      visitscotland:topic: []
+      visitscotland:type: ''
+      /visitscotland:heroImage:
+        jcr:primaryType: hippogallerypicker:imagelink
+        hippo:docbase: c6adc092-756e-447d-861e-54a217b297d4
+        hippo:facets: []
+        hippo:modes: []
+        hippo:values: []
+      /visitscotland:introduction:
+        jcr:primaryType: hippostd:html
+        hippostd:content: |-
+          <p>This area is designed to hold stable content to test layout and functionality of the site.&nbsp;</p>
+
+          <p>The area is split into page types and modules - this should help site contributors to understand the distinction between the two document types. It also contains an examples area which demonstates the ways in which pages can be created and can also be used for regression testing of module and page configurations.</p>
+
+          <p>Please see the&nbsp;<a rel="noopener noreferrer" href="https://confluence.visitscotland.com/display/VCE/CMS+testing+area" target="_blank">testing area Confluence page</a>&nbsp;or contact one of the UI Dev team for more information about the uses and goals of this area.</p>
+    /content[3]:
+      jcr:primaryType: visitscotland:GeneralBSH
+      jcr:mixinTypes: ['mix:referenceable']
+      jcr:uuid: 3db6aa52-173a-4835-b348-1f83cef4caa1
+      hippo:availability: [live]
+      hippostd:retainable: false
+      hippostd:state: published
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2024-11-20T15:27:19.330Z
+      hippostdpubwf:lastModificationDate: 2024-11-20T15:29:04.416Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippostdpubwf:publicationDate: 2024-11-20T15:29:21.598Z
+      hippotranslation:id: bd35b8fa-c6c3-4125-8208-97bf302ecc8f
+      hippotranslation:locale: en
+      visitscotland:breadcrumb: ''
+      visitscotland:hideNewsletter: false
+      visitscotland:publishDate: 0001-01-01T12:00:00Z
+      visitscotland:readingTime: 0
+      visitscotland:regions: []
+      visitscotland:sectors: []
+      visitscotland:seoDescription: This area is designed to hold stable content to
+        test layout and functionality of the site.
+      visitscotland:seoNoIndex: false
+      visitscotland:seoTitle: Business Events Test Area
+      visitscotland:skill: ''
+      visitscotland:teaser: This area is designed to hold stable content to test layout
+        and functionality of the site.
+      visitscotland:theme: Top-Level
+      visitscotland:title: Business Events Test Area
+      visitscotland:topic: []
+      visitscotland:type: ''
+      /visitscotland:heroImage:
+        jcr:primaryType: hippogallerypicker:imagelink
+        hippo:docbase: c6adc092-756e-447d-861e-54a217b297d4
+        hippo:facets: []
+        hippo:modes: []
+        hippo:values: []
+      /visitscotland:introduction:
+        jcr:primaryType: hippostd:html
+        hippostd:content: |-
+          <p>This area is designed to hold stable content to test layout and functionality of the site.&nbsp;</p>
+
+          <p>The area is split into page types and modules - this should help site contributors to understand the distinction between the two document types. It also contains an examples area which demonstates the ways in which pages can be created and can also be used for regression testing of module and page configurations.</p>
+
+          <p>Please see the&nbsp;<a rel="noopener noreferrer" href="https://confluence.visitscotland.com/display/VCE/CMS+testing+area" target="_blank">testing area Confluence page</a>&nbsp;or contact one of the UI Dev team for more information about the uses and goals of this area.</p>
