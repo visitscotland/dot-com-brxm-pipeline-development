@@ -20,7 +20,6 @@ import java.util.Locale;
 public class SignpostFactory {
 
     private static final String BUNDLE_ID = "newsletter-signpost";
-    private static final String BE_BUNDLE_ID = "be.newsletter-signpost";
 
     private final ResourceBundleService bundle;
     private final SiteProperties properties;
