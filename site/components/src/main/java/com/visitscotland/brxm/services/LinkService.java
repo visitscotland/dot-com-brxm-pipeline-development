@@ -482,13 +482,10 @@ public class LinkService {
         }  else if (page instanceof GeneralBSH){
             GeneralBSH generalBSH = (GeneralBSH) page;
             if (generalBSH.getReadingTime() > 0) {
+                //TODO change the resource bundle to use the global one
                 link.setReadTime(generalBSH.getReadingTime() +" "+ bundle.getResourceBundle("bsh.megalinks", "readtime", locale));
             }
-            link.setContentType(generalBSH.getType());
-            link.setSector(List.of(generalBSH.getSectors()));
-            link.setSkillLevel(generalBSH.getSkill());
-            link.setTopic(List.of(generalBSH.getTopic()));
-            link.setRegion(List.of(generalBSH.getRegions()));
+            setBSHFields(link, generalBSH.getType(), generalBSH.getSectors(), generalBSH.getSkill(), generalBSH.getTopic(), generalBSH.getRegions());
         }
 
         return link;
@@ -516,11 +513,8 @@ public class LinkService {
         if (sharedLink instanceof SharedLinkBSH) {
             SharedLinkBSH sharedLinkBSH = (SharedLinkBSH) sharedLink;
             link.setSource(sharedLinkBSH.getSource());
-            link.setContentType(sharedLinkBSH.getType());
-            link.setSector(List.of(sharedLinkBSH.getSectors()));
-            link.setSkillLevel(sharedLinkBSH.getSkill());
-            link.setTopic(List.of(sharedLinkBSH.getTopic()));
-            link.setRegion(List.of(sharedLinkBSH.getRegions()));
+            setBSHFields(link, sharedLinkBSH.getType(), sharedLinkBSH.getSectors(), sharedLinkBSH.getSkill(), sharedLinkBSH.getTopic(), sharedLinkBSH.getRegions());
+
         }
         if (product != null && !hasOverrideImage(sharedLink) && product.has(DMSConstants.DMSProduct.IMAGE)) {
             link.setImage(imageFactory.createImage(product, module, locale));
@@ -641,6 +635,26 @@ public class LinkService {
             logger.warn("The Youtube ID could not be calculated from the URL {}", url);
         }
         return id;
+    }
+
+
+
+    /**
+     * Populates the specific fields for the Business support hub website
+     *
+     * @param link  the link/card that is being built
+     * @param contentType    the field content type
+     * @param sectors   sectors selected
+     * @param skill skill level field
+     * @param sectors sectors selected
+     * @param regions regions selected
+     */
+    private void setBSHFields (EnhancedLink link, String contentType, String[] sectors, String skill, String[] topics, String[] regions){
+        link.setContentType(contentType);
+        link.setSector(List.of(sectors));
+        link.setSkillLevel(skill);
+        link.setTopic(List.of(topics));
+        link.setRegion(List.of(regions));
     }
 
 }
