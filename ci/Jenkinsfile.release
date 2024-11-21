@@ -159,53 +159,6 @@ pipeline {
             }
         }
 
-        stage ('vs compile & package') {
-            when {
-                allOf {
-                    expression {return env.VS_RUN_BRC_STAGES != 'TRUE'}
-                    expression {return env.VS_SKIP_VS_BLD != 'TRUE'}
-                    expression {return env.VS_USE_DOCKER_BUILDER != 'TRUE'}
-                    expression {return env.BRANCH_NAME != env.VS_SKIP_BUILD_FOR_BRANCH}
-                    expression {return env.VS_SKIP_MAVEN_BUILD != 'true'}
-                }
-            }
-            steps {
-                sh '''
-                  set +x
-                  echo "== setting essential git variables =="
-                  git config --global user.name "${GIT_COMMITER_NAME}"
-                  git config --global user.email "${GIT_COMMITER_EMAIL}"
-                  echo; echo "= GIT CONFIG AFTER CONFIG ="; git config -l; echo
-                '''
-                //sh 'mvn versions:use-releases scm:checkin -Dmessage="Updated snapshot dependencies to release versions" -DpushChanges=false'
-                sh 'mvn versions:use-releases'
-                sh '''
-                  set +x
-                  # unsetting BRANCH_NAME variable as the Java build uses its presence to determine whether or not to add the development banner
-                  set BRANCH_NAME_TEMP=$BRANCH_NAME; unset BRANCH_NAME
-                  # we are using "package" rather than "verify" for now since we don't have IT tests yet
-                  mvn clean package
-                  # reinstating BRANCH_NAME variable
-                  set BRANCH_NAME=$BRANCH_NAME_TEMP; unset BRANCH_NAME_TEMP
-                '''
-                script {
-		    VS_MVN_BUILD_SUCCESS = 'TRUE'
-		    echo "VS_MVN_BUILD_SUCCESS is set to ${VS_MVN_BUILD_SUCCESS}"
-		}
-                // running "infrastructure.sh setvars" here to prevent earlier creation of build-info.properties which causes the addition of the development banner
-                sh 'sh ./ci/infrastructure/scripts/infrastructure.sh setvars'
-            }
-            post {
-                success {
-                    sh 'mvn install -Pdist'
-                    mail bcc: '', body: "<b>Notification</b><br>Project: ${env.JOB_NAME} <br>Build Number: ${env.BUILD_NUMBER} <br> build URL: ${env.BUILD_URL}", cc: '', charset: 'UTF-8', from: '', mimeType: 'text/html', replyTo: '', subject: "Maven build succeeded at ${env.STAGE_NAME} for ${env.JOB_NAME}", to: "${MAIL_TO}";
-                }
-                failure {
-                    mail bcc: '', body: "<b>Notification</b><br>Project: ${env.JOB_NAME} <br>Build Number: ${env.BUILD_NUMBER} <br> build URL: ${env.BUILD_URL}", cc: '', charset: 'UTF-8', from: '', mimeType: 'text/html', replyTo: '', subject: "Maven build FAILED at ${env.STAGE_NAME} for  ${env.JOB_NAME}", to: "${MAIL_TO}";
-                }
-            }
-        }
-
         stage ('vs compile & package in docker') {
             when {
                 allOf {
