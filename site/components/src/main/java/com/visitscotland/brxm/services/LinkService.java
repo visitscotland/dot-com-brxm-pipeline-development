@@ -523,7 +523,7 @@ public class LinkService {
         }
 
 
-        if (sharedLink.getLinkType() instanceof ExternalDocument) {
+        if (sharedLink.getLinkType() instanceof ExternalDocument || sharedLink.getLinkType() instanceof FileLink) {
             link.setLabel(formatLabel(sharedLink, sharedLink.getTitle(), module, locale));
             link.setType(LinkType.DOWNLOAD);
 
@@ -651,10 +651,16 @@ public class LinkService {
      */
     private void setBSHFields (EnhancedLink link, String contentType, String[] sectors, String skill, String[] topics, String[] regions){
         link.setContentType(contentType);
-        link.setSector(List.of(sectors));
+        if (sectors != null) {
+            link.setSector(List.of(sectors));
+        }
         link.setSkillLevel(skill);
-        link.setTopic(List.of(topics));
-        link.setRegion(List.of(regions));
+        if (topics != null) {
+            link.setTopic(List.of(topics));
+        }
+        if (regions != null) {
+            link.setRegion(List.of(regions));
+        }
     }
 
 }

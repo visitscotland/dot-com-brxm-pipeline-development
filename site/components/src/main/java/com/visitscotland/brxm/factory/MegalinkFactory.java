@@ -194,9 +194,12 @@ public class MegalinkFactory {
 
     private void addSpecialFields(Megalinks doc, LinksModule<?> module, Locale locale){
         if (doc instanceof MegalinksBSH){
-            module.setNested(Boolean.TRUE.equals(((MegalinksBSH) doc).getNested()));
-            module.setAnchor(((MegalinksBSH) doc).getAnchor());
-            module.setCta(linkService.createFindOutMoreLink(module, locale, ((MegalinksBSH) doc).getProductsCMS()));
+            MegalinksBSH megalinksBSH = (MegalinksBSH) doc;
+            module.setNested(Boolean.TRUE.equals(megalinksBSH.getNested()));
+            module.setAnchor(megalinksBSH.getAnchor());
+            if (megalinksBSH.getProductsCMS() != null) {
+                module.setCta(linkService.createFindOutMoreLink(module, locale, (megalinksBSH.getProductsCMS())));
+            }
         }
     }
 
