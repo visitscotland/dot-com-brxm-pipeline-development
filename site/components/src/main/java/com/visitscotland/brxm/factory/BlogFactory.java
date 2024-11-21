@@ -1,6 +1,7 @@
 package com.visitscotland.brxm.factory;
 
 import com.visitscotland.brxm.hippobeans.Blog;
+import com.visitscotland.brxm.hippobeans.GeneralBSH;
 import com.visitscotland.brxm.hippobeans.Profile;
 import com.visitscotland.brxm.model.FlatBlog;
 import com.visitscotland.brxm.services.ResourceBundleService;
@@ -29,7 +30,6 @@ public class BlogFactory {
         SimpleDateFormat sdf = new SimpleDateFormat("MMMM dd, yyy", locale);
         blog.setPublishDate(sdf.format(doc.getPublishDate().getTime()));
         if (doc.getReadingTime() > 0) {
-            //TODO consider moving the labels to modules in the future depending on the next phases
             String readTime = bundle.getResourceBundle(BLOG_LABELS,"read-time.plural", locale);
             if (doc.getReadingTime() < 2) {
                 readTime = bundle.getResourceBundle(BLOG_LABELS,"read-time.singular", locale);
@@ -37,6 +37,18 @@ public class BlogFactory {
             blog.setReadingTime(String.format(readTime, doc.getReadingTime().toString()));
         } else {
             errorMessages.add("The Read Time for the blog should be greater than 0 minutes.");
+        }
+
+        return blog;
+    }
+
+    public FlatBlog getPageReadData(GeneralBSH page, Locale locale) {
+        FlatBlog blog = new FlatBlog();
+        SimpleDateFormat sdf = new SimpleDateFormat("MMMM dd, yyy", locale);
+        blog.setPublishDate(sdf.format(page.getPublishDate().getTime()));
+        if (page.getReadingTime() > 0) {
+            String readTime = bundle.getResourceBundle(BLOG_LABELS,"read-time.plural", locale);
+            blog.setReadingTime(String.format(readTime, page.getReadingTime().toString()));
         }
 
         return blog;

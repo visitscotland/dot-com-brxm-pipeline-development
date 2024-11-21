@@ -53,7 +53,7 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
     public static final String GTM = "gtm";
     public static final String SITE_ID = "site-id";
 
-    private final BlogFactory blogFactory;
+    final BlogFactory blogFactory;
     protected final MegalinkFactory megalinkFactory;
     private final ImageFactory imageFactory;
     private final LinkService linksService;
@@ -273,6 +273,8 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
             setErrorMessages(request, errorMessages);
         }
     }
+
+
 
     /**
      * Adds the newsletter configuration to the request taking into account the target: (VisitScotland, Business Events or Ski)
