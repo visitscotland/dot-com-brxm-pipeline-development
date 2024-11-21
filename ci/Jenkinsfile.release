@@ -8,9 +8,10 @@
 def MAIL_TO = "webops@visitscotland.net"
 def MAIL_TO_NET = 'net@visitscotland.com'
 def CC_DEV1 = 'Jose.Calcines@visitscotland.com'
-def CC_DEV2 = 'Juanluis.hurtado@visitscotland.com'
+def CC_DEV2 = 'Juanluis.Hurtado@visitscotland.com'
 def CC_DEV3 = 'Matthew.Syrigos@visitscotland.com'
-def CC_DEV_LIST = "cc:${CC_DEV1}, cc:${CC_DEV2}, cc:${CC_DEV3}"
+def CC_DEV4 = 'Martin.Taylor@visitscotland.com'
+def CC_DEV_LIST = "cc:${CC_DEV1}, cc:${CC_DEV2}, cc:${CC_DEV3}, cc:${CC_DEV4}"
 
 def thisAgent
 // Define the SSR filename
