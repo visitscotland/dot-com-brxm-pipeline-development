@@ -689,6 +689,11 @@ pipeline {
                     if (VS_ERROR_LINES_EMAIL)
                         distributionReleaseBody=VS_ERROR_LINES_EMAIL
 
+                    // accessing GIT_URL env variable (might want to use artifactId via mvn help plugin instead)
+                    def git_url = env.GIT_URL
+                    def repoName = git_url.substring(git_url.lastIndexOf('/') + 1, git_url.lastIndexOf('.git'))
+                    echo "Repository Name (to be used in the email's title): ${repoName}"
+
                     def emailBody = """
                       <html>
                       <head>
@@ -701,7 +706,7 @@ pipeline {
                         </style>
                       </head>
                       <body>
-                        <h1>Package details for release v${VS_RELEASE_VERSION_DETECTED_FOR_EMAIL}, <a href="${env.BUILD_URL}">Jenkins Build ${env.BUILD_NUMBER}</a> - ${VS_PIPELINE_OUTCOME_EMAIL}</h1>
+                        <h1>${repoName}: Package details for release v${VS_RELEASE_VERSION_DETECTED_FOR_EMAIL}, <a href="${env.BUILD_URL}">Jenkins Build ${env.BUILD_NUMBER}</a> - ${VS_PIPELINE_OUTCOME_EMAIL}</h1>
                         <p>Here are the details for the artefacts (distribution/release and SSR packages) related to the current aforementioned build.</p>
                         <h2>Release v${VS_RELEASE_VERSION_DETECTED_FOR_EMAIL} artefact</h2>
                         ${distributionReleaseBody}
@@ -718,7 +723,7 @@ pipeline {
                       </html>
                       """
                     emailext(
-                            subject: "[Release] v${VS_RELEASE_VERSION_DETECTED_FOR_EMAIL} - build #${env.BUILD_NUMBER} - ${VS_PIPELINE_OUTCOME_EMAIL} - Artefacts' Info",
+                            subject: "[Release] ${repoName} v${VS_RELEASE_VERSION_DETECTED_FOR_EMAIL} - build #${env.BUILD_NUMBER} - ${VS_PIPELINE_OUTCOME_EMAIL}",
                             body: "${emailBody}",
                             to: "${MAIL_TO_NET}, ${VS_COMMIT_AUTHOR}, ${CC_DEV_LIST}",
                             mimeType: 'text/html'
