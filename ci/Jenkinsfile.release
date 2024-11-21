@@ -535,30 +535,10 @@ pipeline {
                             if (distroPackageResponseCode == '200') {
                                 echo "Distribution's URL in the Nexus is valid. File exists."
                                 // since the file exists, notify the email recipients of its actual name in the Nexus
-                                // regex: release_candidates-\d+
-                                def releaseCandidateRegExPattern = /release_candidates-\d+/
-                                // Extract the pattern value from the VS_RELEASE_PACKAGE_NEXUS_URL
-                                def releaseCandidateRegExMatcher = (VS_RELEASE_PACKAGE_NEXUS_URL =~ releaseCandidateRegExPattern)
-                                if (releaseCandidateRegExMatcher) {
-                                    VS_RELEASE_CANDIDATE_NEXUS_FILENAME = releaseCandidateRegExMatcher[0]
-                                    echo "Extracted Value: ${VS_RELEASE_CANDIDATE_NEXUS_FILENAME}"
-                                } else {
-                                    echo "No matches found for regex pattern: ${releaseCandidateRegExPattern}"
-                                    echo "Checking for SNAPSHOT... (should we be releasing snapshots?)"
 
-                                    // regex: -SNAPSHOT
-                                    def snapshotRegExPattern = /-SNAPSHOT/
-                                    // Extract the pattern value from the VS_RELEASE_PACKAGE_NEXUS_URL
-                                    def snapshotRegExMatcher = (VS_RELEASE_PACKAGE_NEXUS_URL =~ snapshotRegExPattern)
-                                    if (snapshotRegExMatcher) {
-                                        // Store the part of the URL after the last '/' in the global variable (to be used in the email)
-                                        VS_RELEASE_CANDIDATE_NEXUS_FILENAME = VS_RELEASE_PACKAGE_NEXUS_URL.substring(VS_RELEASE_PACKAGE_NEXUS_URL.lastIndexOf('/') + 1)
-                                        // Store the matched value in a variable
-                                        echo "Matched snapshot name in the Nexus: ${VS_RELEASE_CANDIDATE_NEXUS_FILENAME}"
-                                    } else {
-                                        echo "No snapshot matches found for regex pattern: ${snapshotRegExPattern}"
-                                    }
-                                }
+                                // Store the part of the URL after the last '/' in the global variable (to be used in the email)
+                                VS_RELEASE_CANDIDATE_NEXUS_FILENAME = VS_RELEASE_PACKAGE_NEXUS_URL.substring(VS_RELEASE_PACKAGE_NEXUS_URL.lastIndexOf('/') + 1)
+                                echo "Release filename in the Nexus: ${VS_RELEASE_CANDIDATE_NEXUS_FILENAME}"
                             } else {
                                 echo "Distribution's URL in the Nexus is invalid (maybe a rule error?). Response code: ${distroPackageResponseCode}"
                             }
