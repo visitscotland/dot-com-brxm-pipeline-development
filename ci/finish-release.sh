@@ -1,50 +1,73 @@
 #!/usr/bin/bash
+# Exit immediately if any command fails (unless explicitly handled)
+set -e
+
+# Monitor the execution time of the script
+start_time=$(date +%s)
 
 # Function to display error and exit
 exit_on_failure() {
-    echo "$1 failed"
+    echo "❌ ERROR: $1 failed"
     exit 1
 }
 
 # Shelve current workspace
 branch=$(git branch --show-current)
-echo "You were working on branch $branch"
+echo "🔄 You were working on branch: $branch"
 
-# Get the first release branch matching the pattern
-# awk prints the last field of the line, stripping out any leading * and whitespace, leaving only the branch name
-releaseBranch=$(git branch --list 'release/*' | head -1 | awk '{print $NF}')
+# Get the most recently updated release branch
+releaseBranch=$(git for-each-ref --sort=-committerdate --format='%(refname:short)' refs/heads/release/* | head -1)
 
+# Initialize stash tracking variable (0 = no stash, 1 = stash created)
+hasStashedChanges=0
+
+# Validate if a release branch exists
 if [ -z "$releaseBranch" ]; then
-    exit_on_failure "No release/* branch found. Git branch --list for release branches"
+    exit_on_failure "No active release/* branch found. Verify with 'git branch --list release/*'"
 fi
 
-echo 'Stashing your work...'
-if ! git stash; then
-    exit_on_failure "Ensure you have no uncommitted changes. Stashing your work"
+echo "🔍 Checking workspace for changes..."
+
+# Check for local changes and store the outcome
+if git diff --quiet 2>/dev/null; then
+    echo "✅ No local changes to stash."
+else
+    echo "📌 Local changes detected. Stashing changes..."
+    git stash > /dev/null 2>&1 || exit_on_failure "Ensure you have no uncommitted changes before stashing."
+    hasStashedChanges=1
 fi
 
-echo "Checking out the release branch $releaseBranch"
-if ! git checkout "$releaseBranch"; then
-    exit_on_failure "Checkout to release branch"
+echo "📂 Checking out the release branch: $releaseBranch"
+git checkout "$releaseBranch" || exit_on_failure "Failed to checkout release branch"
+
+echo "🔄 Pulling the latest changes (if any)..."
+# Ensures only fast-forward updates are applied (prevents merge commits in history)
+git pull --ff-only origin "$releaseBranch" || echo "[INFO] No new changes to pull (this is expected if the remote is up to date)"
+
+echo -e "\n🚀 [INFO] Proceeding with the main finish-release script..."
+mvn gitflow:release-finish -DskipTestProject=true || exit_on_failure "Maven release finish failed"
+echo "✅ Release process completed successfully!"
+
+# Restore the workspace to the previous branch (if it still exists)
+if git show-ref --verify --quiet "refs/heads/$branch"; then
+    echo "🔀 Switching back to your original branch: $branch"
+    git checkout "$branch" || exit_on_failure "Failed to switch back to branch: $branch"
+else
+    echo "⚠️ The original branch '$branch' has been deleted during the release process."
 fi
 
-echo "Pulling the latest changes (if any)"
-if ! git pull origin "$releaseBranch"; then
-    exit_on_failure "Pulling latest changes"
+# Apply stashed changes if needed
+if [ "$hasStashedChanges" -eq 1 ]; then
+    echo "📥 Applying your stashed work..."
+    # Prevent stash drop from spamming the console with unnecessary output
+    git stash apply && git stash drop > /dev/null 2>&1 || exit_on_failure "Applying stashed work failed (possible conflicts detected)"
+else
+    echo "✅ No local changes to apply from the stash"
 fi
 
-echo 'Proceeding with the main finish-release script...'
-if ! mvn gitflow:release-finish -DskipTestProject=true; then
-    exit_on_failure "Maven release finish"
-fi
+currentBranch=$(git branch --show-current)
+echo "🎯 Process complete! You are now on branch: $currentBranch"
 
-# Recover the workspace to the state it was, prior to running the script
-echo "Taking you back to your work on branch $branch"
-if ! git checkout "$branch"; then
-    exit_on_failure "Checkout back to branch"
-fi
-
-echo 'Applying your stashed work...'
-if ! git stash apply; then
-    exit_on_failure "Applying stashed work"
-fi
+end_time=$(date +%s)
+elapsed_time=$((end_time - start_time))
+echo "⏳ Total execution time: ${elapsed_time}s"

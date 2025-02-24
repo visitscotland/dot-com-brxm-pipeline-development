@@ -40,7 +40,7 @@ public class DeliveryAPIContentRewriter extends HtmlContentRewriter {
         try {
             if (node != null) {
                 parentDocument = node.getPath();
-                if (parentDocument.endsWith("/visitscotland:paragraph/visitscotland:copy")
+                if (parentDocument.endsWith("/visitscotland:copy") && parentDocument.contains("/visitscotland:paragraph")
                         && node.getParent().getParent().hasProperty(NESTED)) {
                     nested = node.getParent().getParent().getProperty(NESTED).getBoolean();
                 }
