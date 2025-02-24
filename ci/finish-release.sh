@@ -53,7 +53,7 @@ if git show-ref --verify --quiet "refs/heads/$branch"; then
     echo "🔀 Switching back to your original branch: $branch"
     git checkout "$branch" || exit_on_failure "Failed to switch back to branch: $branch"
 else
-    echo "⚠️ The original branch '$branch' has been deleted during the release process."
+    echo "⚠️The original branch '$branch' has been deleted in the process"
 fi
 
 # Apply stashed changes if needed
