@@ -3,9 +3,11 @@
 #✔ Bug-Free Boolean Handling → hasStashedChanges=0 ensures stash is applied only when needed.
 #✔ More Efficient Change Detection → Uses git diff --quiet 2>/dev/null instead of git status --porcelain.
 #✔ Safe Stash Handling → Prevents unnecessary output spam and ensures stash drop works only after a successful apply.
+#✔ Uses git pull --ff-only to prevent unnecessary merge commits that git pull origin could perform
 #✔ Fails Fast on Errors → Uses set -e and structured error handling.
 #✔ User-Friendly Output → Uses clear emojis for better readability in CI logs.
 #✔ Correct Branch Restoration → Ensures smooth rollback if the branch still exists.
+#✔ Measures and logs total execution time ⏳
 
 # Exit immediately if any command fails (unless explicitly handled)
 set -e
