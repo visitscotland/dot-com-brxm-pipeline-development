@@ -8,6 +8,7 @@
 #✔ Fails Fast on Errors → Uses set -e and structured error handling.
 #✔ User-Friendly Output → Uses clear emojis for better readability in CI logs.
 #✔ Correct Branch Restoration → Ensures smooth rollback if the branch still exists.
+#✔ Detects & Logs New Release Branch	→ Uses git for-each-ref to get the latest release branch after mvn gitflow:release-start
 #✔ Notifies the user of the newly created release branch
 #✔ Measures and logs total execution time ⏳.
 
