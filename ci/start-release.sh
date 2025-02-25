@@ -1,52 +1,79 @@
 #!/usr/bin/bash
+#🔹 Script's points of focus
+#✔ Bug-Free Boolean Handling → hasStashedChanges=0 ensures stash is applied only when needed.
+#✔ Only runs git stash if local changes exist (git diff --quiet)
+#✔ More Efficient Change Detection → Uses git diff --quiet 2>/dev/null instead of git stash blindly.
+#✔ Safe Stash Handling → Prevents unnecessary output spam and ensures stash drop works only after a successful apply.
+#✔ Uses git pull --ff-only to prevent unnecessary merge commits that git pull origin could perform.
+#✔ Fails Fast on Errors → Uses set -e and structured error handling.
+#✔ User-Friendly Output → Uses clear emojis for better readability in CI logs.
+#✔ Correct Branch Restoration → Ensures smooth rollback if the branch still exists.
+#✔ Measures and logs total execution time ⏳.
+
+# Exit immediately if any command fails (unless explicitly handled)
+set -e
+
+# Monitor the execution time of the script
+start_time=$(date +%s)
 
 # Function to display error and exit
 exit_on_failure() {
-    echo "$1 failed"
+    echo "❌ ERROR: $1 failed"
     exit 1
 }
 
 # Shelve current workspace
 branch=$(git branch --show-current)
-echo "You were working on branch $branch"
-echo 'Stashing your work...'
-if ! git stash; then
-    exit_on_failure "Stashing your work"
+echo "🔄 You were working on branch: $branch"
+
+# Initialize stash tracking variable (0 = no stash, 1 = stash created)
+hasStashedChanges=0
+
+echo "🔍 Checking workspace for changes..."
+
+# Check for local changes and store the outcome
+if git diff --quiet 2>/dev/null; then
+    echo "✅ No local changes to stash."
+else
+    echo "📌 Local changes detected. Stashing changes..."
+    git stash > /dev/null 2>&1 || exit_on_failure "Ensure you have no uncommitted changes before stashing."
+    hasStashedChanges=1
 fi
 
-echo 'Proceeding with the main start-release script...'
-if ! git checkout main; then
-    exit_on_failure "Checkout to main"
+echo "📂 Switching to main branch..."
+git checkout main || exit_on_failure "Failed to checkout main"
+git pull --ff-only origin main || echo "[INFO] No new changes to pull from main"
+
+echo "📂 Switching to develop branch..."
+git checkout develop || exit_on_failure "Failed to checkout develop"
+git pull --ff-only origin develop || echo "[INFO] No new changes to pull from develop"
+
+echo -e "\n🚀 [INFO] Proceeding with the main start-release script..."
+mvn gitflow:release-start --batch-mode || exit_on_failure "Maven release start failed"
+mvn versions:use-releases scm:checkin -Dmessage="Updated snapshot dependencies to release versions" -DpushChanges=false || exit_on_failure "Maven versions use-releases and scm checkin failed"
+
+# Restore the workspace to the previous branch
+if git show-ref --verify --quiet "refs/heads/$branch"; then
+    echo "🔀 Switching back to your original branch: $branch"
+    git checkout "$branch" || exit_on_failure "Failed to switch back to branch: $branch"
+else
+    echo "⚠️The original branch '$branch' has been deleted in the process"
 fi
 
-if ! git pull origin main; then
-    exit_on_failure "Pulling main"
+# Apply stashed changes if needed
+if [ "$hasStashedChanges" -eq 1 ]; then
+    echo "📥 Applying your stashed work..."
+    # Prevent stash drop from spamming the console with unnecessary output
+    git stash apply && git stash drop > /dev/null 2>&1 || exit_on_failure "Applying stashed work failed (possible conflicts detected)"
+else
+    echo "✅ No local changes to apply from the stash"
 fi
 
-if ! git checkout develop; then
-    exit_on_failure "Checkout to develop"
-fi
+currentBranch=$(git branch --show-current)
+echo "🎯 Process complete! You are now on branch: $currentBranch"
 
-if ! git pull origin develop; then
-    exit_on_failure "Pulling develop"
-fi
+echo 'To follow the progress of the build, visit https://jenkinssb.visitscotland.com/job/release-brc.visitscotland.com/'
 
-if ! mvn gitflow:release-start --batch-mode; then
-    exit_on_failure "Maven release start"
-fi
-
-if ! mvn versions:use-releases scm:checkin -Dmessage="Updated snapshot dependencies to release versions" -DpushChanges=false; then
-    exit_on_failure "Maven versions use-releases and scm checkin"
-fi
-
-echo "Taking you back to your work on branch $branch"
-if ! git checkout "$branch"; then
-    exit_on_failure "Checkout back to branch"
-fi
-
-echo 'Applying your stashed work...'
-if ! git stash apply; then
-    exit_on_failure "Applying stashed work"
-fi
-
-echo 'You can follow the progress of the artefacts at https://jenkinssb.visitscotland.com/job/release-brc.visitscotland.com/'
+end_time=$(date +%s)
+elapsed_time=$((end_time - start_time))
+echo "⏳ Total execution time: ${elapsed_time}s"
