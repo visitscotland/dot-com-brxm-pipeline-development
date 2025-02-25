@@ -1,4 +1,12 @@
 #!/usr/bin/bash
+#🔹 Script's points of focus
+#✔ Bug-Free Boolean Handling → hasStashedChanges=0 ensures stash is applied only when needed.
+#✔ More Efficient Change Detection → Uses git diff --quiet 2>/dev/null instead of git status --porcelain.
+#✔ Safe Stash Handling → Prevents unnecessary output spam and ensures stash drop works only after a successful apply.
+#✔ Fails Fast on Errors → Uses set -e and structured error handling.
+#✔ User-Friendly Output → Uses clear emojis for better readability in CI logs.
+#✔ Correct Branch Restoration → Ensures smooth rollback if the branch still exists.
+
 # Exit immediately if any command fails (unless explicitly handled)
 set -e
 
