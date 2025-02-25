@@ -8,6 +8,7 @@
 #✔ Fails Fast on Errors → Uses set -e and structured error handling.
 #✔ User-Friendly Output → Uses clear emojis for better readability in CI logs.
 #✔ Correct Branch Restoration → Ensures smooth rollback if the branch still exists.
+#✔ Notifies the user of the newly created release branch
 #✔ Measures and logs total execution time ⏳.
 
 # Exit immediately if any command fails (unless explicitly handled)
@@ -52,6 +53,9 @@ echo -e "\n🚀 [INFO] Proceeding with the main start-release script..."
 mvn gitflow:release-start --batch-mode || exit_on_failure "Maven release start failed"
 mvn versions:use-releases scm:checkin -Dmessage="Updated snapshot dependencies to release versions" -DpushChanges=false || exit_on_failure "Maven versions use-releases and scm checkin failed"
 
+# Detect the newly created release branch
+newReleaseBranch=$(git for-each-ref --sort=-committerdate --format='%(refname:short)' refs/heads/release/* | head -1)
+
 # Restore the workspace to the previous branch
 if git show-ref --verify --quiet "refs/heads/$branch"; then
     echo "🔀 Switching back to your original branch: $branch"
@@ -67,6 +71,13 @@ if [ "$hasStashedChanges" -eq 1 ]; then
     git stash apply && git stash drop > /dev/null 2>&1 || exit_on_failure "Applying stashed work failed (possible conflicts detected)"
 else
     echo "✅ No local changes to apply from the stash"
+fi
+
+if [ -n "$newReleaseBranch" ]; then
+    echo "📢 Release branch created: **$newReleaseBranch**"
+    echo "📂 You can visit it by running: git checkout $newReleaseBranch"
+else
+    echo "⚠️No new release branch detected! Please verify manually."
 fi
 
 currentBranch=$(git branch --show-current)
