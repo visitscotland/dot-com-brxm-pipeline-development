@@ -19,6 +19,9 @@ start_time=$(date +%s)
 # Function to display error and exit
 exit_on_failure() {
     echo "❌ ERROR: $1 failed"
+    end_time=$(date +%s)
+    elapsed_time=$((end_time - start_time))
+    echo "⏳ Total execution time: ${elapsed_time}s"
     exit 1
 }
 
