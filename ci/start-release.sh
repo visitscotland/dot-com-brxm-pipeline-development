@@ -44,18 +44,34 @@ fi
 
 echo "📂 Switching to main branch..."
 git checkout main || exit_on_failure "Failed to checkout main"
-git pull --ff-only origin main || echo "[INFO] No new changes to pull from main"
+
+echo "🔄 Pulling the latest changes in main (if any)..."
+# Ensures only fast-forward updates are applied (prevents merge commits in history)
+# If git pull fails due to connectivity issues, the script does not assume "no new changes."
+if ! git pull --ff-only origin main; then
+    echo "⚠️ Warning: Could not pull latest changes (main). Check network connectivity or verify branch status."
+fi
 
 echo "📂 Switching to develop branch..."
 git checkout develop || exit_on_failure "Failed to checkout develop"
-git pull --ff-only origin develop || echo "[INFO] No new changes to pull from develop"
+
+echo "🔄 Pulling the latest changes in develop (if any)..."
+# Ensures only fast-forward updates are applied (prevents merge commits in history)
+# If git pull fails due to connectivity issues, the script does not assume "no new changes."
+if ! git pull --ff-only origin develop; then
+    echo "⚠️ Warning: Could not pull latest changes (develop). Check network connectivity or verify branch status."
+fi
 
 echo -e "\n🚀 [INFO] Proceeding with the main start-release script..."
 mvn gitflow:release-start --batch-mode || exit_on_failure "Maven release start failed"
 mvn versions:use-releases scm:checkin -Dmessage="Updated snapshot dependencies to release versions" -DpushChanges=false || exit_on_failure "Maven versions use-releases and scm checkin failed"
 
-# Detect the newly created release branch
-newReleaseBranch=$(git for-each-ref --sort=-committerdate --format='%(refname:short)' refs/heads/release/* | head -1)
+# Validate if a release branch exists
+# Covers both cases: missing branches and corrupted refs
+# Ensures git rev-parse can verify the branch exists before proceeding (rare edge cases due to a corrupt repository or missing refs.)
+if [[ -z "$releaseBranch" || ! $(git rev-parse --verify "$releaseBranch" 2>/dev/null) ]]; then
+    exit_on_failure "No active or valid release/* branch found. Verify with 'git branch --list release/*'"
+fi
 
 # Restore the workspace to the previous branch
 if git show-ref --verify --quiet "refs/heads/$branch"; then
@@ -68,8 +84,22 @@ fi
 # Apply stashed changes if needed
 if [ "$hasStashedChanges" -eq 1 ]; then
     echo "📥 Applying your stashed work..."
-    # Prevent stash drop from spamming the console with unnecessary output
-    git stash apply && git stash drop > /dev/null 2>&1 || exit_on_failure "Applying stashed work failed (possible conflicts detected)"
+    # - Prevent stash drop from spamming the console with unnecessary output
+    # - Only runs exit_on_failure if git stash apply fails.
+    # - Prevents git stash drop failures from incorrectly triggering exit_on_failure
+    # - Logs a warning instead of failing the script if git stash drop encounters an issue
+    if git stash apply; then
+        # Edge case scenario: 'git stash apply' works but doesn't apply anything
+        # Improvement to consider: use the exact ID for the stash, rather than stash@{0} which is the latest one
+        if git stash list | grep -q "stash@{0}"; then
+            git stash drop > /dev/null 2>&1 || echo "⚠️ Warning: Failed to drop stash, but proceeding..."
+        else
+            echo "⚠️ Warning: No stash entry found after applying. It may have already been dropped."
+        fi
+    else
+        exit_on_failure "Applying stashed work failed (possible conflicts detected)"
+    fi
+
 else
     echo "✅ No local changes to apply from the stash"
 fi
