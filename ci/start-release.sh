@@ -69,6 +69,10 @@ echo -e "\n🚀 [INFO] Proceeding with the main start-release script..."
 mvn gitflow:release-start --batch-mode || exit_on_failure "Maven release start failed"
 mvn versions:use-releases scm:checkin -Dmessage="Updated snapshot dependencies to release versions" -DpushChanges=false || exit_on_failure "Maven versions use-releases and scm checkin failed"
 
+# Recalculate the releaseBranch after creating the release
+git fetch --all --prune  # Ensure we have the latest refs
+releaseBranch=$(git for-each-ref --sort=-committerdate --format='%(refname:short)' refs/heads/release/* | head -1)
+
 # Validate if a release branch exists
 # Covers both cases: missing branches and corrupted refs
 # Ensures git rev-parse can verify the branch exists before proceeding (rare edge cases due to a corrupt repository or missing refs.)
