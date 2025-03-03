@@ -99,19 +99,17 @@ fi
 # Apply stashed changes if needed
 if [ "$hasStashedChanges" -eq 1 ]; then
     echo "📥 Applying your stashed work..."
-    # Prevent stash drop from spamming the console with unnecessary output
-#    git stash apply && git stash drop > /dev/null 2>&1 || exit_on_failure "Applying stashed work failed (possible conflicts detected)"
     # - Prevent stash drop from spamming the console with unnecessary output
     # - Only runs exit_on_failure if git stash apply fails.
-    # - Prevents git stash drop failures from incorrectly triggering exit_on_failure.
-    # - Logs a warning instead of failing the script if git stash drop encounters an issue.
+    # - Prevents git stash drop failures from incorrectly triggering exit_on_failure
+    # - Logs a warning instead of failing the script if git stash drop encounters an issue
     if git stash apply; then
-        # Edge scenario: 'git stash apply' works but doesn't apply anything
+        # Edge case scenario: 'git stash apply' works but doesn't apply anything
         # Improvement to consider: use the exact ID for the stash, rather than stash@{0} which is the latest one
         if git stash list | grep -q "stash@{0}"; then
-                git stash drop > /dev/null 2>&1 || echo "⚠️ Warning: Failed to drop stash, but proceeding..."
-            else
-                echo "⚠️ Warning: No stash entry found after applying. It may have already been dropped."
+            git stash drop > /dev/null 2>&1 || echo "⚠️ Warning: Failed to drop stash, but proceeding..."
+        else
+            echo "⚠️ Warning: No stash entry found after applying. It may have already been dropped."
         fi
     else
         exit_on_failure "Applying stashed work failed (possible conflicts detected)"
