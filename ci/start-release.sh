@@ -16,9 +16,9 @@ hasStashedChanges=0
 # If there are any changes, the output will not be empty (yes → Run git stash, no → Skip stashing)
 if [[ -n $(git status --porcelain) ]]; then
     echo "You were working on branch $branch"
-    echo "Local changes detected. Stashing changes..."
+    echo "Local changes detected. Stashing your work..."
     if ! git stash; then
-        exit_on_failure "Local changes detected. Stashing changes..."
+        exit_on_failure "Local changes detected. Stashing your work..."
     fi
     hasStashedChanges=1
 else
