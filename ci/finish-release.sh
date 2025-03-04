@@ -49,12 +49,6 @@ if ! mvn gitflow:release-finish -DskipTestProject=true; then
 fi
 
 # Recover the workspace to the state it was, prior to running the script
-echo "Taking you back to your work on branch $branch"
-if ! git checkout "$branch"; then
-    exit_on_failure "Checkout back to branch"
-fi
-
-# Recover the workspace to the state it was, prior to running the script
 # (check if the branch that the user was working on still exists, prior to checkout)
 if git show-ref --verify --quiet "refs/heads/$branch"; then
     echo "Switching back to your original branch: $branch"
