@@ -1,128 +1,68 @@
 #!/usr/bin/bash
-#🔹 Script's points of focus
-#✔ Bug-Free Boolean Handling → hasStashedChanges=0 ensures stash is applied only when needed.
-#✔ Only runs git stash if local changes exist (git diff --quiet)
-#✔ More Efficient Change Detection → Uses git diff --quiet 2>/dev/null instead of git stash blindly.
-#✔ Safe Stash Handling → Prevents unnecessary output spam and ensures stash drop works only after a successful apply.
-#✔ Uses git pull --ff-only to prevent unnecessary merge commits that git pull origin could perform.
-#✔ Fails Fast on Errors → Uses set -e and structured error handling.
-#✔ User-Friendly Output → Uses clear emojis for better readability in CI logs.
-#✔ Correct Branch Restoration → Ensures smooth rollback if the branch still exists.
-#✔ Detects & Logs New Release Branch	→ Uses git for-each-ref to get the latest release branch after mvn gitflow:release-start
-#✔ Notifies the user of the newly created release branch
-#✔ Measures and logs total execution time ⏳.
-
-# Exit immediately if any command fails (unless explicitly handled)
-set -e
-
-# Monitor the execution time of the script
-start_time=$(date +%s)
 
 # Function to display error and exit
 exit_on_failure() {
-    echo "❌ ERROR: $1 failed"
-    end_time=$(date +%s)
-    elapsed_time=$((end_time - start_time))
-    echo "⏳ Total execution time: ${elapsed_time}s"
+    echo "$1 failed"
     exit 1
 }
 
 # Shelve current workspace
 branch=$(git branch --show-current)
-echo "🔄 You were working on branch: $branch"
-
 # Initialize stash tracking variable (0 = no stash, 1 = stash created)
 hasStashedChanges=0
 
-echo "🔍 Checking workspace for changes..."
-
-# Check for local changes and store the outcome
-if git diff --quiet 2>/dev/null; then
-    echo "✅ No local changes to stash."
-else
-    echo "📌 Local changes detected. Stashing changes..."
-    git stash > /dev/null 2>&1 || exit_on_failure "Ensure you have no uncommitted changes before stashing."
-    hasStashedChanges=1
-fi
-
-echo "📂 Switching to main branch..."
-git checkout main || exit_on_failure "Failed to checkout main"
-
-echo "🔄 Pulling the latest changes in main (if any)..."
-# Ensures only fast-forward updates are applied (prevents merge commits in history)
-# If git pull fails due to connectivity issues, the script does not assume "no new changes."
-if ! git pull --ff-only origin main; then
-    echo "⚠️ Warning: Could not pull latest changes (main). Check network connectivity or verify branch status."
-fi
-
-echo "📂 Switching to develop branch..."
-git checkout develop || exit_on_failure "Failed to checkout develop"
-
-echo "🔄 Pulling the latest changes in develop (if any)..."
-# Ensures only fast-forward updates are applied (prevents merge commits in history)
-# If git pull fails due to connectivity issues, the script does not assume "no new changes."
-if ! git pull --ff-only origin develop; then
-    echo "⚠️ Warning: Could not pull latest changes (develop). Check network connectivity or verify branch status."
-fi
-
-echo -e "\n🚀 [INFO] Proceeding with the main start-release script..."
-mvn gitflow:release-start --batch-mode || exit_on_failure "Maven release start failed"
-mvn versions:use-releases scm:checkin -Dmessage="Updated snapshot dependencies to release versions" -DpushChanges=false || exit_on_failure "Maven versions use-releases and scm checkin failed"
-
-# Recalculate the releaseBranch after creating the release
-git fetch --all --prune  # Ensure we have the latest refs
-releaseBranch=$(git for-each-ref --sort=-committerdate --format='%(refname:short)' refs/heads/release/* | head -1)
-
-# Validate if a release branch exists
-# Covers both cases: missing branches and corrupted refs
-# Ensures git rev-parse can verify the branch exists before proceeding (rare edge cases due to a corrupt repository or missing refs.)
-if [[ -z "$releaseBranch" || ! $(git rev-parse --verify "$releaseBranch" 2>/dev/null) ]]; then
-    exit_on_failure "No active or valid release/* branch found. Verify with 'git branch --list release/*'"
-fi
-
-# Restore the workspace to the previous branch
-if git show-ref --verify --quiet "refs/heads/$branch"; then
-    echo "🔀 Switching back to your original branch: $branch"
-    git checkout "$branch" || exit_on_failure "Failed to switch back to branch: $branch"
-else
-    echo "⚠️The original branch '$branch' has been deleted in the process"
-fi
-
-# Apply stashed changes if needed
-if [ "$hasStashedChanges" -eq 1 ]; then
-    echo "📥 Applying your stashed work..."
-    # - Prevent stash drop from spamming the console with unnecessary output
-    # - Only runs exit_on_failure if git stash apply fails.
-    # - Prevents git stash drop failures from incorrectly triggering exit_on_failure
-    # - Logs a warning instead of failing the script if git stash drop encounters an issue
-    if git stash apply; then
-        # Edge case scenario: 'git stash apply' works but doesn't apply anything
-        # Improvement to consider: use the exact ID for the stash, rather than stash@{0} which is the latest one
-        if git stash list | grep -q "stash@{0}"; then
-            git stash drop > /dev/null 2>&1 || echo "⚠️ Warning: Failed to drop stash, but proceeding..."
-        else
-            echo "⚠️ Warning: No stash entry found after applying. It may have already been dropped."
-        fi
-    else
-        exit_on_failure "Applying stashed work failed (possible conflicts detected)"
+# Check for local changes
+# git status --porcelain provides a machine-readable output of Git status
+# If there are any changes, the output will not be empty (yes → Run git stash, no → Skip stashing)
+if [[ -n $(git status --porcelain) ]]; then
+    echo "You were working on branch $branch"
+    echo "Local changes detected. Stashing changes..."
+    if ! git stash; then
+        exit_on_failure "Local changes detected. Stashing changes..."
     fi
-
+    hasStashedChanges=1
 else
-    echo "✅ No local changes to apply from the stash"
+    echo "No local changes to stash."
 fi
 
-if [ -n "$newReleaseBranch" ]; then
-    echo "📢 Release branch created: **$newReleaseBranch**"
-    echo "📂 You can visit it by running: git checkout $newReleaseBranch"
-else
-    echo "⚠️No new release branch detected! Please verify manually."
+echo 'Proceeding with the main start-release script...'
+if ! git checkout main; then
+    exit_on_failure "Checkout to main"
 fi
 
-currentBranch=$(git branch --show-current)
-echo "🎯 Process complete! You are now on branch: $currentBranch"
+if ! git pull origin main; then
+    exit_on_failure "Pulling main"
+fi
 
-echo 'To follow the progress of the build, visit https://jenkinssb.visitscotland.com/job/release-brc.visitscotland.com/'
+if ! git checkout develop; then
+    exit_on_failure "Checkout to develop"
+fi
 
-end_time=$(date +%s)
-elapsed_time=$((end_time - start_time))
-echo "⏳ Total execution time: ${elapsed_time}s"
+if ! git pull origin develop; then
+    exit_on_failure "Pulling develop"
+fi
+
+if ! mvn gitflow:release-start --batch-mode; then
+    exit_on_failure "Maven release start"
+fi
+
+if ! mvn versions:use-releases scm:checkin -Dmessage="Updated snapshot dependencies to release versions" -DpushChanges=false; then
+    exit_on_failure "Maven versions use-releases and scm checkin"
+fi
+
+echo "Taking you back to your work on branch $branch"
+if ! git checkout "$branch"; then
+    exit_on_failure "Checkout back to branch"
+fi
+
+# Apply stashed changes, if any
+if [ "$hasStashedChanges" -eq 1 ]; then
+    echo "Applying your stashed work..."
+    if ! git stash apply; then
+        exit_on_failure "Applying your stashed work"
+    fi
+else
+    echo "No local changes to apply from the stash"
+fi
+
+echo 'You can follow the progress of the artefacts at https://jenkinssb.visitscotland.com/job/release-brc.visitscotland.com/'
