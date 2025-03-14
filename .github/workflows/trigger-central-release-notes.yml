@@ -18,6 +18,8 @@ jobs:
     steps:
       - name: Debug GITHUB_TOKEN Permissions
         id: gh_token_permissions
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           echo "🔍 Checking if GITHUB_TOKEN is available..."
           if [ -z "$GITHUB_TOKEN" ]; then
