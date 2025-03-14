@@ -30,9 +30,10 @@ jobs:
 
       - name: "Get Repository Info & Debug"
         id: repo_info
-        REPO_NAME: ${{ github.event.repository.name }}
-        REPO_OWNER: ${{ github.event.repository.owner.login }}
-        GIT_REF: ${{ github.ref }}
+        env:
+          REPO_NAME: ${{ github.event.repository.name }}
+          REPO_OWNER: ${{ github.event.repository.owner.login }}
+          GIT_REF: ${{ github.ref }}
         run: |
           echo "🔍 Debugging Repository Variables..."
           echo "🔹 Repository Name: $REPO_NAME"
