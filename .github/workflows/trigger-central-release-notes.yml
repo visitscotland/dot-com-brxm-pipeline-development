@@ -53,7 +53,7 @@ jobs:
           echo "✅ Tags have been updated!"
 
       - name: "Debug GitHub Reference (GITHUB_REF)"
-        run:
+        run: |
           echo "🔍 GITHUB_REF: $GITHUB_REF"
 
       - name: "Extract Latest Tag"
