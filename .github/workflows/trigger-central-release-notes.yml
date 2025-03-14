@@ -13,20 +13,66 @@ jobs:
     permissions:
       actions: write  # Allows triggering other workflows
       contents: read   # Ensures access to repo contents
+      packages: read  # Optional, but useful for accessing GitHub APIs
 
     steps:
       - name: Debug GITHUB_TOKEN Permissions
         id: gh_token_permissions
         run: |
-          curl -H "Authorization: token $GITHUB_TOKEN" \
-               -H "Accept: application/vnd.github.v3+json" \
-               https://api.github.com/user
+          echo "🔍 Checking if GITHUB_TOKEN is available..."
+          if [ -z "$GITHUB_TOKEN" ]; then
+            echo "❌ GITHUB_TOKEN is NOT set!"
+            exit 1
+          else
+            echo "✅ GITHUB_TOKEN is set!"
+          fi
+          
+          echo "🔍 Checking GITHUB_TOKEN Authentication..."
+          RESPONSE=$(curl -s -H "Authorization: token $GITHUB_TOKEN" \
+                             -H "Accept: application/vnd.github.v3+json" \
+                             https://api.github.com/user)
+          echo "GitHub API Response:"
+          echo "$RESPONSE" | jq  # Pretty-print JSON if jq is available
 
       - name: "Checkout Repository (Full History and Tags)"
         uses: actions/checkout@v4
         with:
           fetch-depth: 0 # fetches the full history, including all commits
           fetch-tags: true # fetches all tags
+
+      - name: "Check Available Tags"
+        run: |
+          echo "🔍 Fetching all tags..."
+          git tag -l  # List all tags
+          echo "✅ Tags fetched!"
+
+      - name: "Ensure All Tags Are Fetched"
+        run: |
+          echo "🔍 Fetching tags from remote..."
+          git fetch --tags --force
+          echo "✅ Tags have been updated!"
+
+      - name: "Debug GitHub Reference (GITHUB_REF)"
+        run:
+          echo "🔍 GITHUB_REF: $GITHUB_REF"
+
+      - name: "Extract Latest Tag"
+        run: |
+          echo "🔍 Extracting latest tag..."
+          if [[ "$GITHUB_REF" == refs/tags/* ]]; then
+            LATEST_TAG="${GITHUB_REF#refs/tags/}"
+            echo "✅ LATEST_TAG detected: $LATEST_TAG"
+          else
+            echo "❌ No tag detected in GITHUB_REF. Checking manually..."
+            LATEST_TAG=$(git describe --tags --abbrev=0 2>/dev/null || echo "")
+            if [ -z "$LATEST_TAG" ]; then
+              echo "❌ No tags found in repository."
+              exit 1
+            else
+              echo "✅ Fallback tag detected: $LATEST_TAG"
+            fi
+          fi
+          echo "LATEST_TAG=$LATEST_TAG" >> $GITHUB_ENV
 
       - name: "Get Repository Info & Debug"
         id: repo_info
