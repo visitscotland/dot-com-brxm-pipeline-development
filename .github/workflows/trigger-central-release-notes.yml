@@ -99,19 +99,19 @@ jobs:
           echo "REPO_OWNER=$REPO_OWNER"
           echo "LATEST_TAG=$LATEST_TAG"
 
-#      - name: "Invoke Central Workflow"
-#        uses: actions/github-script@v7 # GH marketplace action that uses the GitHub API without needing curl (March 2025: v7)
-#        with:
-#          github-token: ${{ secrets.ORG_GITHUB_TOKEN }}
-#          script: |
-#            await github.rest.actions.createWorkflowDispatch({
-#              owner: "github-org",
-#              repo: "release-notes-workflow",
-#              workflow_id: "central-release-notes.yml",
-#              ref: "main",
-#              inputs: {
-#                REPO_NAME: process.env.REPO_NAME,
-#                REPO_OWNER: process.env.REPO_OWNER,
-#                LATEST_TAG: process.env.LATEST_TAG
-#              }
-#            });
+      - name: "Invoke Central Workflow"
+        uses: actions/github-script@v7 # GH marketplace action that uses the GitHub API without needing curl (March 2025: v7)
+        with:
+          github-token: ${{ secrets.Test_PAT_DevOps_MS }}
+          script: |
+            await github.rest.actions.createWorkflowDispatch({
+              owner: "github-org",
+              repo: "release-notes-workflow",
+              workflow_id: "central-release-notes.yml",
+              ref: "main",
+              inputs: {
+                REPO_NAME: process.env.REPO_NAME,
+                REPO_OWNER: process.env.REPO_OWNER,
+                LATEST_TAG: process.env.LATEST_TAG
+              }
+            });
