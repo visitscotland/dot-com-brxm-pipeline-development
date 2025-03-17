@@ -107,6 +107,8 @@ jobs:
         with:
           github-token: ${{ secrets.Test_PAT_DevOps_MS }}
           script: |
+            echo "LATEST_TAG=${LATEST_TAG}"
+            echo "LATEST_TAG=${{ env.LATEST_TAG }}"
             await github.rest.actions.createWorkflowDispatch({
               owner: "visitscotland",
               repo: "devops-automations",
