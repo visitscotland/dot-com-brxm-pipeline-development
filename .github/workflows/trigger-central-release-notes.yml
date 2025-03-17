@@ -105,9 +105,9 @@ jobs:
           github-token: ${{ secrets.Test_PAT_DevOps_MS }}
           script: |
             await github.rest.actions.createWorkflowDispatch({
-              owner: "github-org",
-              repo: "release-notes-workflow",
-              workflow_id: "central-release-notes.yml",
+              owner: "visitscotland",
+              repo: "devops-automations",
+              workflow_id: "central-release-notes",
               ref: "main",
               inputs: {
                 REPO_NAME: process.env.REPO_NAME,
