@@ -91,7 +91,10 @@ jobs:
           # Extract and store values in GitHub Actions environment
           echo "REPO_NAME=$REPO_NAME" >> $GITHUB_ENV
           echo "REPO_OWNER=$REPO_OWNER" >> $GITHUB_ENV
+          echo "LATEST_TAG=${LATEST_TAG}" >> $GITHUB_ENV
+          echo "LATEST_TAG=${LATEST_TAG}"
           echo "LATEST_TAG=${GIT_REF#refs/tags/}" >> $GITHUB_ENV
+          echo "LATEST_TAG=${LATEST_TAG}"
           
           # Print final stored variables
           echo "✅ Stored Environment Variables:"
@@ -110,8 +113,8 @@ jobs:
               workflow_id: "central-release-notes.yml",
               ref: "main",
               inputs: {
-                REPO_NAME: process.env.REPO_NAME,
-                REPO_OWNER: process.env.REPO_OWNER,
-                LATEST_TAG: process.env.LATEST_TAG
+                REPO_NAME: "${{ env.REPO_NAME }}",
+                REPO_OWNER: "${{ env.REPO_OWNER }}",
+                LATEST_TAG: "${{ env.LATEST_TAG }}"
               }
             });
