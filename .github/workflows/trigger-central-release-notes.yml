@@ -91,10 +91,8 @@ jobs:
           # Extract and store values in GitHub Actions environment
           echo "REPO_NAME=$REPO_NAME" >> $GITHUB_ENV
           echo "REPO_OWNER=$REPO_OWNER" >> $GITHUB_ENV
-          echo "LATEST_TAG=${GIT_REF#refs/tags/}" >> $GITHUB_ENV
-          echo "LATEST_TAG=${GIT_REF#refs/tags/}"
-          echo "LATEST_TAG=$LATEST_TAG"
-          echo "LATEST_TAG=${LATEST_TAG}"
+          LATEST_TAG=${GIT_REF#refs/tags/}
+          echo "LATEST_TAG=$LATEST_TAG" >> $GITHUB_ENV
           
           # Print final stored variables
           echo "✅ Stored Environment Variables:"
