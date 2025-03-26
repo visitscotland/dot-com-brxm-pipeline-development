@@ -130,13 +130,14 @@ jobs:
                 LATEST_TAG: "${{ env.LATEST_TAG }}"
               }
             });
-
-  invoke_central_workflow:
-    name: "Invoke Central Workflow via Reusable Call"
-    needs: trigger_central_workflow
-    uses: visitscotland/devops-automations/.github/workflows/central-release-notes-checks.yml@main
-    with:
-      REPO_NAME: ${{ needs.trigger_central_workflow.outputs.REPO_NAME }}
-      REPO_OWNER: ${{ needs.trigger_central_workflow.outputs.REPO_OWNER }}
-      LATEST_TAG: ${{ needs.trigger_central_workflow.outputs.LATEST_TAG }}
-    secrets: inherit  # Or explicitly pass the secret if needed
+  # Will fail if the caller repo is public and the reusable workflow called exists in a private/internal repo
+  # Will also fail if the repo GitHub Actions settings don't allow for access and/or are disabled
+#  invoke_central_workflow:
+#    name: "Invoke Central Workflow via Reusable Call"
+#    needs: trigger_central_workflow
+#    uses: visitscotland/devops-automations/.github/workflows/central-release-notes-checks.yml@main
+#    with:
+#      REPO_NAME: ${{ needs.trigger_central_workflow.outputs.REPO_NAME }}
+#      REPO_OWNER: ${{ needs.trigger_central_workflow.outputs.REPO_OWNER }}
+#      LATEST_TAG: ${{ needs.trigger_central_workflow.outputs.LATEST_TAG }}
+#    secrets: inherit  # Or explicitly pass the secret if needed
