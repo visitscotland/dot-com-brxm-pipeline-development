@@ -10,6 +10,10 @@ jobs:
   trigger_central_workflow:
     name: "Trigger Centralized Release Notes Workflow"
     runs-on: ubuntu-latest
+    outputs:
+      REPO_NAME: ${{ steps.workflow_call_params.outputs.REPO_NAME }}
+      REPO_OWNER: ${{ steps.workflow_call_params.outputs.REPO_OWNER }}
+      LATEST_TAG: ${{ steps.workflow_call_params.outputs.LATEST_TAG }}
     permissions:
       actions: write  # Allows triggering other workflows
       contents: read   # Ensures access to repo contents
@@ -102,19 +106,37 @@ jobs:
       - name: "Debug Stored Environment Variables"
         run: cat $GITHUB_ENV
 
-      - name: "Invoke Central Workflow"
-        uses: actions/github-script@v7 # GH marketplace action that uses the GitHub API without needing curl (March 2025: v7)
-        with:
-          github-token: ${{ secrets.Test_PAT_DevOps_MS }}
-          script: |
-            await github.rest.actions.createWorkflowDispatch({
-              owner: "visitscotland",
-              repo: "devops-automations",
-              workflow_id: "central-release-notes.yml",
-              ref: "main",
-              inputs: {
-                REPO_NAME: "${{ env.REPO_NAME }}",
-                REPO_OWNER: "${{ env.REPO_OWNER }}",
-                LATEST_TAG: "${{ env.LATEST_TAG }}"
-              }
-            });
+      - name: "Setting up the inputs for the workflow call"
+        id: workflow_call_params
+        run: |
+          echo "REPO_NAME=$REPO_NAME" >> $GITHUB_OUTPUT
+          echo "REPO_OWNER=$REPO_OWNER" >> $GITHUB_OUTPUT
+          echo "LATEST_TAG=$LATEST_TAG" >> $GITHUB_OUTPUT
+
+      # Use this step if the workflow type is set to workflow_dispatch
+#      - name: "Invoke Central Workflow"
+#        uses: actions/github-script@v7 # GH marketplace action that uses the GitHub API without needing curl (March 2025: v7)
+#        with:
+#          github-token: ${{ secrets.Test_PAT_DevOps_MS }}
+#          script: |
+#            await github.rest.actions.createWorkflowDispatch({
+#              owner: "visitscotland",
+#              repo: "devops-automations",
+#              workflow_id: "central-release-notes.yml",
+#              ref: "main",
+#              inputs: {
+#                REPO_NAME: "${{ env.REPO_NAME }}",
+#                REPO_OWNER: "${{ env.REPO_OWNER }}",
+#                LATEST_TAG: "${{ env.LATEST_TAG }}"
+#              }
+#            });
+
+  invoke_central_workflow:
+    name: "Invoke Central Workflow via Reusable Call"
+    needs: trigger_central_workflow
+    uses: visitscotland/devops-automations/.github/workflows/central-release-notes.yml@main
+    with:
+      REPO_NAME: ${{ needs.trigger_central_workflow.outputs.REPO_NAME }}
+      REPO_OWNER: ${{ needs.trigger_central_workflow.outputs.REPO_OWNER }}
+      LATEST_TAG: ${{ needs.trigger_central_workflow.outputs.LATEST_TAG }}
+    secrets: inherit  # Or explicitly pass the secret if needed
