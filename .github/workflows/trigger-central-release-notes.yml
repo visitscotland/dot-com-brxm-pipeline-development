@@ -134,7 +134,7 @@ jobs:
   invoke_central_workflow:
     name: "Invoke Central Workflow via Reusable Call"
     needs: trigger_central_workflow
-    uses: visitscotland/devops-automations/.github/workflows/central-release-notes.yml@main
+    uses: visitscotland/devops-automations/.github/workflows/central-release-notes-checks.yml@main
     with:
       REPO_NAME: ${{ needs.trigger_central_workflow.outputs.REPO_NAME }}
       REPO_OWNER: ${{ needs.trigger_central_workflow.outputs.REPO_OWNER }}
